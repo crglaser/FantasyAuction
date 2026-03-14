@@ -4,8 +4,17 @@
 
 const UI = {
     init() {
+        this.populateTeams();
         this.render();
         this.setupEventListeners();
+    },
+
+    populateTeams() {
+        const sel = document.getElementById('mTeam');
+        if (!sel) return;
+        sel.innerHTML = Object.entries(LG.teamNames).map(([id, name]) => 
+            `<option value="${id}">${name}</option>`
+        ).join('');
     },
 
     render() {
@@ -322,6 +331,7 @@ const UI = {
                     </label>
                 </div>
                 <button class="btn" style="margin-left:auto" onclick="UI.toggleWeights()">WEIGHTS</button>
+                <button class="btn" onclick="document.getElementById('rulesModal').classList.add('open')">RULES</button>
                 <button class="btn btn-go" onclick="UI.copyAICatContext()">COPY FOR AI</button>
             </div>
             <div id="weightControls" style="display:none;padding:10px;background:#0a1520;border-bottom:1px solid #1a3050;gap:15px;flex-wrap:wrap">

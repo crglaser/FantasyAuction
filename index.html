@@ -52,17 +52,31 @@
             <div class="field"><label>Final Auction Cost ($)</label><input type="number" id="mCost" min="1" max="202" value="1"></div>
             <div class="field"><label>Drafted By</label>
                 <select id="mTeam">
-                    <option value="me">★ MY TEAM</option>
-                    <option value="t1">Opponent 1</option><option value="t2">Opponent 2</option>
-                    <option value="t3">Opponent 3</option><option value="t4">Opponent 4</option>
-                    <option value="t5">Opponent 5</option><option value="t6">Opponent 6</option>
-                    <option value="t7">Opponent 7</option><option value="t8">Opponent 8</option>
-                    <option value="t9">Opponent 9</option>
+                    <!-- Populated by UI.init -->
                 </select>
             </div>
             <div class="modal-btns">
                 <button class="btn btn-go" onclick="UI.confirmDraft()">✓ CONFIRM DRAFT</button>
                 <button class="btn" onclick="UI.closeModal()">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rules Modal -->
+    <div class="modal-bg" id="rulesModal">
+        <div class="modal" style="max-width: 600px;">
+            <div class="modal-title">League Rules: Teddy Ballgame 2026</div>
+            <div style="font-size: 12px; line-height: 1.6; max-height: 400px; overflow: auto; color: #c8d8e8;">
+                <strong>Draft Phases:</strong> Auction (17 players, $202) followed by 14-round Snake Draft.<br>
+                <strong>Scoring:</strong> 10 Roto Categories (HR, OBP, RP, SB, XBH | W, K, ERA, SVH, WHIP).<br>
+                <strong>IP Floor:</strong> Critical 1,000 IP minimum per season. Loss of ERA/WHIP if not met.<br>
+                <strong>FAAB:</strong> $400 budget, blind bidding daily at 12:05am ET.<br>
+                <strong>IL:</strong> Unlimited spots. Stashed players can be replaced by FA pickups.<br>
+                <strong>Trades:</strong> Must be equal number of players. Deadline: Aug 3rd.<br>
+                <strong>Lineups:</strong> Weekly, due 5 mins before first game of scoring period.
+            </div>
+            <div class="modal-btns">
+                <button class="btn" onclick="document.getElementById('rulesModal').classList.remove('open')">CLOSE</button>
             </div>
         </div>
     </div>

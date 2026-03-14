@@ -4,23 +4,36 @@
  */
 
 const LG = {
+    name: 'Teddy Ballgame Fantasy Baseball League 2026',
     teams: 10,
     budget: 202,
     aSlots: 17, // Auction slots per team
     sSlots: 14, // Snake slots per team
     total: 31,
     minIP: 1000,
+    categories: {
+        hitting: ['HR', 'OBP', 'RP', 'SB', 'XBH'], // RP = Runs Produced, XBH = Troubles
+        pitching: ['W', 'K', 'ERA', 'SVH', 'WHIP']
+    },
+    roster: {
+        active: {
+            C: 1, '1B': 1, '3B': 1, CI: 1, '2B': 1, SS: 1, MI: 1, OF: 5, UT: 1,
+            SP: 5, RP: 3, P: 2
+        },
+        bench: 8,
+        il: 'Unlimited'
+    },
     teamNames: {
-        me: '★ MY TEAM',
-        t1: 'Opponent 1',
-        t2: 'Opponent 2',
-        t3: 'Opponent 3',
-        t4: 'Opponent 4',
-        t5: 'Opponent 5',
-        t6: 'Opponent 6',
-        t7: 'Opponent 7',
-        t8: 'Opponent 8',
-        t9: 'Opponent 9'
+        t1: 'Brian Garber & Andrew Lombardi',
+        t2: 'Joe Achille',
+        t3: 'Barry Carlin',
+        me: 'Terry Lyons & Craig Glaser',
+        t5: 'Andrew & Susan Grossman',
+        t6: 'Andy Korbak',
+        t7: 'Alex Tarshis',
+        t8: 'Bryan Boardman',
+        t9: 'Andy Enzweiler & Ed O’Brien',
+        t10: 'Derek Carlin & Justin Hurson'
     }
 };
 
@@ -92,14 +105,37 @@ const StateManager = {
             .map(([id]) => AppState.players.find(p => p.id === id))
             .filter(Boolean);
 
-        // This is a placeholder for actual category accumulation logic
-        // which will be moved to the engine later.
+        const spent = myTeam.reduce((sum, p) => sum + (AppState.drafted[p.id]?.cost || 0), 0);
+
         return JSON.stringify({
-            budgetRemaining: LG.budget - myTeam.reduce((sum, p) => sum + (AppState.drafted[p.id]?.cost || 0), 0),
+            league: LG.name,
+            budgetRemaining: LG.budget - spent,
             rosterSize: `${myTeam.length}/${LG.total}`,
-            currentRoster: myTeam.map(p => `${p.n} (${p.pos.join(',')})`),
-            message: "Analyze my team needs based on these projections..."
+            currentRoster: myTeam.map(p => `${p.n} (${p.pos.join(',')}) - $${AppState.drafted[p.id].cost}`),
+            rules: "10 Teams, 17 Auction/14 Snake, $202 Budget, 1000 IP Min.",
+            categories: LG.categories,
+            message: "Analyze my team needs based on these projections and league rules..."
         }, null, 2);
+    },
+
+    /**
+     * Export all configuration and state to a JSON file.
+     * This makes the tool "season-reusable".
+     */
+    exportConfig() {
+        const data = {
+            config: LG,
+            state: {
+                settings: AppState.settings,
+                drafted: AppState.drafted
+            }
+        };
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `teddy_ballgame_config_${new Date().getFullYear()}.json`;
+        a.click();
     }
 };
 
