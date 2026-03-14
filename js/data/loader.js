@@ -33,9 +33,10 @@ const DataLoader = {
             const cols = this.splitCSVRow(row);
             if (cols.length < 5 || !cols[headers.indexOf('Name')]) return;
 
+            const name = cols[headers.indexOf('Name')];
             const player = {
-                id: `p-${idx}`, // temporary ID
-                n: cols[headers.indexOf('Name')],
+                id: name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() + '-' + cols[headers.indexOf('Tm')].toLowerCase(),
+                n: name,
                 t: cols[headers.indexOf('Tm')],
                 pos: this.parsePositions(cols[headers.indexOf('Main Pos')], cols[headers.indexOf('Other Elig Pos')]),
                 inj: cols[headers.indexOf('Note')] === 'Inj',
@@ -45,7 +46,7 @@ const DataLoader = {
                 csValA: this.parseDollar(cols[headers.indexOf('Proj $ Value')]),
                 csValS: this.parseDollar(cols[headers.indexOf('Site $ Value')]),
 
-                // Raw Stats (used for our custom Z-scores if available)
+                // Raw Stats (used for our custom Z-scores)
                 PA: 0, HR: 0, SB: 0, XBH: 0, OBP: 0, RP: 0,
                 IP: 0, K: 0, W: 0, ERA: 0, SVH: 0, WHIP: 0
             };
@@ -74,6 +75,42 @@ const DataLoader = {
         });
 
         return players;
+    },
+
+    /**
+     * Loads default CSVs from the assets folder.
+     */
+    async loadDefaultData() {
+        try {
+            console.log("Loading default league data...");
+            const aucRes = await fetch('assets/auction_values.csv');
+            const aucText = await aucRes.text();
+            const aucPlayers = await this.parseMrCheatSheet(aucText);
+
+            const sznRes = await fetch('assets/season_values.csv');
+            const sznText = await sznRes.text();
+            const sznPlayers = await this.parseMrCheatSheet(sznText);
+
+            // Merge Season data into Auction data
+            aucPlayers.forEach(p => {
+                const sp = sznPlayers.find(s => s.id === p.id);
+                if (sp) {
+                    p.csValS = sp.csValA; // Season Proj Value
+                    // Prefer season projections for stats if richer
+                    if (sp.PA > p.PA) {
+                        ['PA', 'HR', 'SB', 'XBH', 'OBP', 'RP'].forEach(k => p[k] = sp[k]);
+                    }
+                    if (sp.IP > p.IP) {
+                        ['IP', 'K', 'W', 'ERA', 'SVH', 'WHIP'].forEach(k => p[k] = sp[k]);
+                    }
+                }
+            });
+
+            return aucPlayers;
+        } catch (e) {
+            console.error("Error loading default data:", e);
+            return [];
+        }
     },
 
     /**

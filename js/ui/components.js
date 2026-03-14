@@ -3,8 +3,17 @@
  */
 
 const UI = {
-    init() {
+    async init() {
         this.populateTeams();
+        
+        // Initial data load
+        if (AppState.players.length === 0) {
+            const players = await DataLoader.loadDefaultData();
+            if (players.length > 0) {
+                AppState.players = players;
+            }
+        }
+
         this.render();
         this.setupEventListeners();
     },
