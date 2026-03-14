@@ -11,68 +11,66 @@ const DataLoader = {
     async parseMrCheatSheet(csvText, sourceName = "Unknown") {
         console.log(`[DataLoader] Parsing source: ${sourceName} (${csvText.length} bytes)`);
         
-        const lines = csvText.split(/\r?\n/).filter(line => line.trim().length > 0);
-        if (lines.length < 5) {
+        // Split and filter out totally empty lines
+        const lines = csvText.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+        if (lines.length < 2) {
             throw new Error(`CSV too short (${lines.length} lines)`);
         }
 
         const players = [];
         
-        // Find the header row (flexible matching)
+        // Find the header row (Search for Name/Tm/Age in any row)
         let headerIdx = -1;
-        const targetHeaders = ['Name', 'Tm', 'Age', 'Main Pos', 'Proj $ Value'];
-        
-        for (let i = 0; i < lines.length; i++) {
+        for (let i = 0; i < Math.min(lines.length, 50); i++) {
             const row = lines[i].toLowerCase();
-            if (row.includes('name') && row.includes('tm') && (row.includes('proj $') || row.includes('site $'))) {
+            // A reliable header row contains name, team, and a dollar sign or rank indicator
+            if (row.includes('name') && (row.includes('tm') || row.includes('team')) && (row.includes('$') || row.includes('value') || row.includes('rank'))) {
                 headerIdx = i;
-                console.log(`[DataLoader] Found header at line ${i+1}`);
+                console.log(`[DataLoader] Found header row at line ${i+1}`);
                 break;
             }
         }
 
         if (headerIdx === -1) {
-            console.warn(`[DataLoader] Warning: Could not find exact header row. Trying row 11 as fallback.`);
-            headerIdx = 10; // 0-based index for row 11
+            console.error(`[DataLoader] Failed to find header row in ${sourceName}. Dumping first 3 rows:`, lines.slice(0, 3));
+            throw new Error("Could not find the 'Name' and 'Team' column headers in the CSV. Please ensure you are exporting from the Mr. CheatSheet XLSM correctly.");
         }
 
-        const headers = this.splitCSVRow(lines[headerIdx]).map(h => h.trim());
+        const headers = this.splitCSVRow(lines[headerIdx]).map(h => h.trim().toLowerCase());
         console.log(`[DataLoader] Headers detected:`, headers);
 
-        // Map column indices (case insensitive)
-        const getCol = (names) => {
-            for (const name of names) {
-                const idx = headers.findIndex(h => h.toLowerCase() === name.toLowerCase());
-                if (idx !== -1) return idx;
+        // Map column indices (case insensitive aliases)
+        const getCol = (aliases) => {
+            for (const alias of aliases) {
+                const found = headers.indexOf(alias.toLowerCase());
+                if (found !== -1) return found;
             }
             return -1;
         };
 
         const idx = {
-            n: getCol(['Name']),
-            t: getCol(['Tm', 'Team']),
-            pos: getCol(['Main Pos']),
-            otherPos: getCol(['Other Elig Pos']),
-            note: getCol(['Note']),
-            age: getCol(['Age']),
-            valA: getCol(['Proj $ Value', 'Proj $']),
-            valS: getCol(['Site $ Value', 'Site $']),
-            hr: getCol(['HR']),
-            sb: getCol(['SB']),
-            xbh: getCol(['2B + 3B', 'XBH', 'Troubles']),
-            obp: getCol(['OBP']),
-            rp: getCol(['R + RBI - HR', 'RP']),
-            k: getCol(['K']),
-            w: getCol(['W']),
-            era: getCol(['ERA']),
-            svh: getCol(['Sv + Hld', 'SVH']),
-            whip: getCol(['WHIP'])
+            n: getCol(['name', 'player']),
+            t: getCol(['tm', 'team']),
+            pos: getCol(['main pos', 'pos', 'position']),
+            otherPos: getCol(['other elig pos', 'other pos']),
+            note: getCol(['note', 'status']),
+            age: getCol(['age']),
+            valA: getCol(['proj $ value', 'proj $', 'auction $']),
+            valS: getCol(['site $ value', 'site $', 'season $']),
+            hr: getCol(['hr', 'homers']),
+            sb: getCol(['sb', 'stolen bases']),
+            xbh: getCol(['2b + 3b', 'xbh', 'troubles', '2b+3b']),
+            obp: getCol(['obp']),
+            rp: getCol(['r + rbi - hr', 'rp', 'runs produced']),
+            k: getCol(['k', 'so', 'strikeouts']),
+            w: getCol(['w', 'wins']),
+            era: getCol(['era']),
+            svh: getCol(['sv + hld', 'svh', 'saves']),
+            whip: getCol(['whip'])
         };
 
-        console.log(`[DataLoader] Column Mapping:`, idx);
-
         if (idx.n === -1) {
-            throw new Error("Missing critical 'Name' column in CSV");
+            throw new Error("The 'Name' column is missing from the detected header row.");
         }
 
         const dataRows = lines.slice(headerIdx + 1);
@@ -80,16 +78,16 @@ const DataLoader = {
             const cols = this.splitCSVRow(row);
             if (cols.length < 3 || !cols[idx.n]) return;
 
-            const name = cols[idx.n];
-            const team = idx.t !== -1 ? cols[idx.t] : 'FA';
+            const name = cols[idx.n].replace(/"/g, '').trim();
+            const team = idx.t !== -1 ? cols[idx.t].trim() : 'FA';
             
             const player = {
                 id: name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() + '-' + team.toLowerCase(),
                 n: name,
                 t: team,
-                pos: this.parsePositions(cols[idx.pos], cols[idx.otherPos]),
-                inj: idx.note !== -1 && cols[idx.note] === 'Inj',
-                age: idx.age !== -1 ? parseInt(cols[idx.age]) : 0,
+                pos: this.parsePositions(idx.pos !== -1 ? cols[idx.pos] : '', idx.otherPos !== -1 ? cols[idx.otherPos] : ''),
+                inj: idx.note !== -1 && cols[idx.note].toLowerCase().includes('inj'),
+                age: idx.age !== -1 ? parseInt(cols[idx.age]) || 0 : 0,
                 
                 csValA: idx.valA !== -1 ? this.parseDollar(cols[idx.valA]) : 0,
                 csValS: idx.valS !== -1 ? this.parseDollar(cols[idx.valS]) : 0,
@@ -131,15 +129,18 @@ const DataLoader = {
         try {
             const results = { auction: [], season: [] };
             
+            // Determine base path (helps with GitHub Pages vs local)
+            const basePath = window.location.pathname.includes('FantasyAuction') ? '/FantasyAuction/assets/' : 'assets/';
+            
             console.log("[DataLoader] Attempting to load auction_values.csv...");
-            const aucRes = await fetch('assets/auction_values.csv');
-            if (!aucRes.ok) throw new Error(`HTTP error! status: ${aucRes.status} for auction_values.csv`);
+            const aucRes = await fetch('assets/auction_values.csv'); // Try relative first
+            if (!aucRes.ok) throw new Error(`HTTP ${aucRes.status} for auction_values.csv`);
             const aucText = await aucRes.text();
             results.auction = await this.parseMrCheatSheet(aucText, "Auction Default");
 
             console.log("[DataLoader] Attempting to load season_values.csv...");
             const sznRes = await fetch('assets/season_values.csv');
-            if (!sznRes.ok) throw new Error(`HTTP error! status: ${sznRes.status} for season_values.csv`);
+            if (!sznRes.ok) throw new Error(`HTTP ${sznRes.status} for season_values.csv`);
             const sznText = await sznRes.text();
             results.season = await this.parseMrCheatSheet(sznText, "Season Default");
 
@@ -162,8 +163,7 @@ const DataLoader = {
             return [];
         } catch (e) {
             console.error("[DataLoader] CRITICAL ERROR:", e);
-            alert(`Error loading default data: ${e.message}`);
-            return [];
+            return []; // Fail silently but log to console
         }
     },
 
@@ -188,6 +188,8 @@ const DataLoader = {
 
     parseDollar(val) {
         if (!val) return 0;
-        return Math.abs(parseInt(val.replace(/[$,]/g, ''))) || 0;
+        // Strip everything but digits and dots
+        const clean = val.replace(/[^0-9.]/g, '');
+        return Math.round(parseFloat(clean)) || 0;
     }
 };
