@@ -381,22 +381,46 @@ const UI = {
                     </div>
                 </div>
                 <div class="right-col" style="padding:20px">
-                    <h2 class="modal-title">Data Import</h2>
+                    <h2 class="modal-title">Data Management</h2>
+                    <div style="background: #0d1e30; border: 1px solid #1a3050; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+                        <h4 style="color: #e8c040; margin-bottom: 10px;">Default Data</h4>
+                        <p class="muted" style="font-size: 11px; margin-bottom: 10px;">Try reloading the default Auction & Season CSVs from the server.</p>
+                        <button class="btn" onclick="UI.reloadDefaults()">RELOAD DEFAULT CSVS</button>
+                    </div>
+
+                    <h2 class="modal-title">Manual Import</h2>
                     <p class="muted" style="margin-bottom:20px">Export your Mr. CheatSheet XLSM as a CSV and paste the contents here, or upload the file.</p>
                     
                     <div class="field">
                         <label>Paste Mr. CheatSheet CSV</label>
-                        <textarea id="csvInput" style="width:100%;height:300px;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:10px;font-family:monospace"></textarea>
+                        <textarea id="csvInput" style="width:100%;height:200px;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:10px;font-family:monospace"></textarea>
                     </div>
                     <div class="modal-btns">
                         <button class="btn btn-go" onclick="UI.handleImport()">PROCESS CSV</button>
                         <input type="file" id="fileInput" style="display:none" onchange="UI.handleFile(this)">
                         <button class="btn" onclick="document.getElementById('fileInput').click()">UPLOAD FILE</button>
+                        <button class="btn" onclick="StateManager.exportConfig()">EXPORT CONFIG (JSON)</button>
                     </div>
                     <div id="importStatus" style="margin-top:20px" class="grn"></div>
                 </div>
             </div>
         `;
+    },
+
+    async reloadDefaults() {
+        const status = document.getElementById('importStatus');
+        status.textContent = "Fetching default data...";
+        status.className = "gold";
+        const players = await DataLoader.loadDefaultData();
+        if (players.length > 0) {
+            AppState.players = players;
+            status.textContent = `Successfully merged ${players.length} players from defaults.`;
+            status.className = "grn";
+            this.render();
+        } else {
+            status.textContent = "Failed to load defaults. Check console/network.";
+            status.className = "red";
+        }
     },
 
     handleAssistant() {

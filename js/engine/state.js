@@ -7,7 +7,7 @@ const APP_VERSION = '1.0.3';
 
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',
-    teams: 10,
+    teams: 11, // UPDATED to 11 teams
     budget: 202,
     aSlots: 17, // Auction slots per team
     sSlots: 14, // Snake slots per team
@@ -36,7 +36,8 @@ const LG = {
         t7: { owner: 'Alex Tarshis', team: 'Alex Tarshis' },
         t8: { owner: 'Bryan Boardman', team: 'Bryan Boardman' },
         t9: { owner: 'Andy Enzweiler & Ed O’Brien', team: 'Enzweiler/O’Brien' },
-        t10: { owner: 'Derek Carlin & Justin Hurson', team: 'Carlin/Hurson' }
+        t10: { owner: 'Derek Carlin & Justin Hurson', team: 'Carlin/Hurson' },
+        t11: { owner: 'Unlisted Owner 11', team: 'Team 11' } // Added 11th team
     }
 };
 
@@ -117,7 +118,7 @@ const StateManager = {
             budgetRemaining: LG.budget - spent,
             rosterSize: `${myTeam.length}/${LG.total}`,
             currentRoster: myTeam.map(p => `${p.n} (${p.pos.join(',')}) - $${AppState.drafted[p.id].cost}`),
-            rules: "10 Teams, 17 Auction/14 Snake, $202 Budget, 1000 IP Min.",
+            rules: "11 Teams, 17 Auction/14 Snake, $202 Budget, 1000 IP Min.",
             categories: LG.categories,
             message: "Analyze my team needs based on these projections and league rules..."
         }, null, 2);
