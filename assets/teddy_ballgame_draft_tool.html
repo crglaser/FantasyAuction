@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>⚾ Teddy Ballgame Draft Tool 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:#060c14;color:#c8d8e8;font-family:'Barlow Condensed',sans-serif;font-size:13px;display:flex;flex-direction:column}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:#0a1520}::-webkit-scrollbar-thumb{background:#1c3050;border-radius:3px}
+input,select,button{font-family:'Barlow Condensed',sans-serif}
+.hdr{background:linear-gradient(135deg,#0a1520,#0d1e30);border-bottom:1px solid #1a3050;padding:8px 16px;display:flex;align-items:center;gap:16px;flex-shrink:0}
+.hdr-title{font-size:22px;font-weight:800;letter-spacing:2px;color:#fff;text-transform:uppercase}
+.hdr-sub{font-size:11px;color:#4a7090;letter-spacing:1px;margin-top:1px}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{background:#0d1e30;border:1px solid #1a3050;border-radius:4px;padding:4px 12px;text-align:center}
+.pill-lbl{font-size:9px;color:#3a6080;letter-spacing:.8px;text-transform:uppercase}
+.pill-val{font-size:17px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#e8c040}
+.tabs{display:flex;background:#04080f;border-bottom:1px solid #0f2035;flex-shrink:0}
+.tab{padding:8px 18px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-bottom:2px solid transparent;color:#3a6080;transition:all .15s;white-space:nowrap}
+.tab.active{color:#e8c040;border-bottom-color:#e8c040}
+.tab:hover:not(.active){color:#7aa0b8}
+.content{flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:0}
+.controls{padding:7px 12px;background:#070e19;border-bottom:1px solid #0a1a28;display:flex;align-items:center;gap:12px;flex-wrap:wrap;flex-shrink:0}
+.ctrl{display:flex;align-items:center;gap:5px}
+.lbl{font-size:10px;color:#3a6080;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+input[type=range]{width:80px;height:3px;accent-color:#e8c040;cursor:pointer}
+.badge{background:#0a1828;border:1px solid #122030;border-radius:3px;padding:2px 6px;font-size:11px;font-family:'JetBrains Mono',monospace;color:#e8c040;min-width:34px;text-align:center}
+select{background:#0a1828;border:1px solid #122030;color:#c8d8e8;padding:3px 6px;font-size:11px;border-radius:3px}
+input[type=text]{background:#0a1828;border:1px solid #122030;color:#c8d8e8;padding:3px 8px;font-size:12px;border-radius:3px;width:150px}
+input[type=text]::placeholder{color:#1e3850}
+.tog{background:#0a1828;border:1px solid #122030;color:#4a7090;padding:3px 9px;font-size:11px;border-radius:3px;cursor:pointer;transition:all .15s}
+.tog.on{background:#131c08;border-color:#90b030;color:#a0c040}
+.tbl-wrap{flex:1;overflow:auto;min-height:0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead tr{background:#060e18;position:sticky;top:0;z-index:10}
+th{padding:6px 8px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#3a6080;border-bottom:1px solid #0a1a28;cursor:pointer;white-space:nowrap;user-select:none}
+th:hover{color:#7aa0b8}
+th.sd::after{content:' ▼';font-size:8px;color:#e8c040}
+th.sa::after{content:' ▲';font-size:8px;color:#e8c040}
+td{padding:5px 8px;border-bottom:1px solid #080f18;white-space:nowrap;vertical-align:middle}
+tr:hover td{background:#091520}
+tr.drafted td{opacity:.28}
+tr.mine td{background:#071510!important}
+tr.mine:hover td{background:#091e15!important}
+tr.aup td{background:#061510!important}
+tr.adn td{background:#130608!important}
+.pb{border:1px solid #1a3050;border-radius:3px;padding:1px 4px;font-size:10px;font-family:'JetBrains Mono',monospace;display:inline-block;margin-right:2px}
+.pb-C{border-color:#b04040;color:#c05050}.pb-1B{border-color:#b07030;color:#c08040}.pb-2B{border-color:#70a030;color:#80b040}
+.pb-SS{border-color:#3098b0;color:#40a8c0}.pb-3B{border-color:#9050b0;color:#a060c0}.pb-OF{border-color:#3070a0;color:#4080b0}
+.pb-SP{border-color:#d09020;color:#e0a030}.pb-RP{border-color:#30a880;color:#40b890}
+.nm{font-weight:700;color:#d8eaf8;max-width:145px;overflow:hidden;text-overflow:ellipsis}
+.tm{color:#3a6080;font-size:11px}
+.mono{font-family:'JetBrains Mono',monospace}
+.gold{color:#e8c040;font-weight:700;font-family:'JetBrains Mono',monospace}
+.grn{color:#40d080}.red{color:#d04040}.muted{color:#3a6080}
+.wb{background:#100808;border:1px solid #501818;border-radius:3px;padding:1px 4px;font-size:9px;color:#b03030;margin-left:3px}
+.nb{background:#060e18;border:1px solid #102838;border-radius:3px;padding:1px 4px;font-size:9px;color:#3088a8;margin-left:3px}
+.btn{background:#0a1828;border:1px solid #1a3050;color:#c8d8e8;padding:4px 10px;font-size:11px;border-radius:3px;cursor:pointer;transition:all .15s}
+.btn:hover{background:#101f30;border-color:#2a4060}
+.btn-go{border-color:#e8c040;color:#e8c040;background:#0e0e00}
+.btn-go:hover{background:#181800}
+.btn-danger{border-color:#602020;color:#a04040}
+.two-col{display:flex;flex:1;overflow:hidden;min-height:0}
+.left-col{width:265px;flex-shrink:0;border-right:1px solid #0a1828;overflow-y:auto}
+.right-col{flex:1;overflow-y:auto;padding:14px}
+.sec{padding:7px 12px;font-size:10px;font-weight:700;letter-spacing:2px;color:#204060;text-transform:uppercase;border-bottom:1px solid #080f18;background:#060c12;flex-shrink:0}
+.rslot{padding:8px 12px;border-bottom:1px solid #080f18;display:flex;justify-content:space-between;align-items:center}
+.rslot:hover{background:#080f18}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.stat-card{background:#080f18;border:1px solid #0d1e2c;border-radius:4px;padding:10px}
+.sclbl{font-size:10px;color:#2a5070;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.scval{font-size:20px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#e8c040}
+.bar-bg{height:4px;background:#060c14;border-radius:2px;margin-top:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:2px;transition:width .3s}
+.cat-hdr{font-size:10px;font-weight:700;letter-spacing:2px;color:#204060;text-transform:uppercase;margin-bottom:8px}
+.cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:14px}
+.cat-card{background:#080f18;border:1px solid #0d1e2c;border-radius:4px;padding:8px;text-align:center}
+.ccat{font-size:9px;color:#2a5070;letter-spacing:.5px;text-transform:uppercase}
+.cval{font-size:16px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#c8daf0;margin-top:2px}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:999}
+.modal-bg.open{display:flex}
+.modal{background:#0a1520;border:1px solid #1a3050;border-radius:6px;padding:22px;min-width:300px}
+.modal-title{font-size:17px;font-weight:800;color:#e8c040;letter-spacing:1px;margin-bottom:16px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:10px;color:#3a6080;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.field input,.field select{background:#060e18;border:1px solid #1a3050;color:#c8d8e8;padding:7px 10px;font-size:16px;border-radius:3px;width:100%;font-family:'JetBrains Mono',monospace}
+.modal-btns{display:flex;gap:8px;margin-top:16px}
+.status{background:#04080e;border-top:1px solid #0a1520;padding:4px 14px;display:flex;gap:20px;flex-shrink:0;font-size:10px;color:#1e3850}
+.sv{color:#5a8aaa;font-family:'JetBrains Mono',monospace}
+.arb-legend{padding:7px 12px;font-size:11px;color:#2a5070;border-bottom:1px solid #08121c;background:#050b12;display:flex;gap:20px;flex-shrink:0;flex-wrap:wrap}
+.league-wrap{flex:1;overflow:auto}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <div class="hdr-title">⚾ Teddy Ballgame Draft 2026</div>
+    <div class="hdr-sub">10-TEAM ROTISSERIE · $202 AUCTION (17) + 14-RD SNAKE · FANTRAX</div>
+  </div>
+  <div class="hdr-right">
+    <div class="pill"><div class="pill-lbl">Budget Left</div><div class="pill-val" id="hBudget">$202</div></div>
+    <div class="pill"><div class="pill-lbl">Rostered</div><div class="pill-val" id="hRoster">0/31</div></div>
+    <div class="pill"><div class="pill-lbl">Proj IP</div><div class="pill-val" id="hIP" style="color:#40b870">0</div></div>
+    <button class="btn btn-danger" onclick="resetDraft()">RESET DRAFT</button>
+  </div>
+</div>
+<div class="tabs">
+  <div class="tab active" id="tab-auction" onclick="showTab('auction')">AUCTION BOARD</div>
+  <div class="tab" id="tab-season" onclick="showTab('season')">SEASON VALUE</div>
+  <div class="tab" id="tab-arb" onclick="showTab('arb')">ARBITRAGE ★</div>
+  <div class="tab" id="tab-myteam" onclick="showTab('myteam')">MY TEAM</div>
+  <div class="tab" id="tab-league" onclick="showTab('league')">LEAGUE TRACKER</div>
+</div>
+<div class="content" id="mainContent"></div>
+<div class="status">
+  <span>PLAYERS: <span class="sv" id="sTot">0</span></span>
+  <span>HIT $ SPLIT: <span class="sv" id="sSplit">65%</span></span>
+  <span>SNAKE DISC: <span class="sv" id="sDisc">ON</span></span>
+  <span>CUTOFF: <span class="sv" id="sCut">150</span></span>
+  <span style="margin-left:auto;color:#0d2030">⚠ ESTIMATED 2026 STEAMER DATA — Import Cheatsheet CSV to override</span>
+</div>
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-title" id="modalTitle">Draft Player</div>
+    <div class="field"><label>Final Auction Cost ($)</label><input type="number" id="mCost" min="1" max="202" value="1"></div>
+    <div class="field"><label>Drafted By</label>
+      <select id="mTeam">
+        <option value="me">★ MY TEAM</option>
+        <option value="t1">Opponent 1</option><option value="t2">Opponent 2</option>
+        <option value="t3">Opponent 3</option><option value="t4">Opponent 4</option>
+        <option value="t5">Opponent 5</option><option value="t6">Opponent 6</option>
+        <option value="t7">Opponent 7</option><option value="t8">Opponent 8</option>
+        <option value="t9">Opponent 9</option>
+      </select>
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-go" onclick="confirmDraft()">✓ CONFIRM DRAFT</button>
+      <button class="btn" onclick="closeModal()">CANCEL</button>
+    </div>
+  </div>
+</div>
+<script>
+const LG={teams:10,budget:202,aSlots:17,sSlots:14,total:31,minIP:1000};
+const PLAYERS=[
+{id:'h01',n:'Aaron Judge',t:'NYY',pos:['OF'],PA:600,HR:43,SB:8,XBH:22,OBP:.420,RP:215,projIP:0},
+{id:'h02',n:'Shohei Ohtani',t:'LAD',pos:['OF'],PA:620,HR:44,SB:18,XBH:18,OBP:.400,RP:210,projIP:60,note:'2-WAY'},
+{id:'h03',n:'Bobby Witt Jr',t:'KC',pos:['SS'],PA:640,HR:28,SB:35,XBH:38,OBP:.345,RP:185,projIP:0},
+{id:'h04',n:'Fernando Tatis Jr',t:'SD',pos:['OF','SS'],PA:580,HR:32,SB:26,XBH:20,OBP:.358,RP:180,projIP:0},
+{id:'h05',n:'Ronald Acuña Jr',t:'ATL',pos:['OF'],PA:560,HR:26,SB:38,XBH:18,OBP:.375,RP:168,projIP:0,inj:1},
+{id:'h06',n:'Yordan Alvarez',t:'HOU',pos:['OF','1B'],PA:570,HR:37,SB:2,XBH:20,OBP:.392,RP:195,projIP:0,inj:1},
+{id:'h07',n:'Vladimir Guerrero Jr',t:'LAD',pos:['1B'],PA:640,HR:35,SB:4,XBH:26,OBP:.380,RP:198,projIP:0},
+{id:'h08',n:'Junior Caminero',t:'TB',pos:['3B'],PA:600,HR:34,SB:8,XBH:20,OBP:.350,RP:178,projIP:0},
+{id:'h09',n:'Elly De La Cruz',t:'CIN',pos:['SS'],PA:580,HR:26,SB:45,XBH:22,OBP:.330,RP:158,projIP:0},
+{id:'h10',n:'Cal Raleigh',t:'SEA',pos:['C'],PA:530,HR:38,SB:2,XBH:12,OBP:.320,RP:148,projIP:0},
+{id:'h11',n:'Nick Kurtz',t:'OAK',pos:['1B'],PA:620,HR:31,SB:6,XBH:22,OBP:.362,RP:172,projIP:0},
+{id:'h12',n:'Jazz Chisholm Jr',t:'NYY',pos:['3B','OF'],PA:560,HR:27,SB:24,XBH:18,OBP:.333,RP:158,projIP:0},
+{id:'h13',n:'Kyle Tucker',t:'LAD',pos:['OF'],PA:580,HR:27,SB:18,XBH:26,OBP:.372,RP:178,projIP:0},
+{id:'h14',n:'Juan Soto',t:'BOS',pos:['OF'],PA:620,HR:30,SB:7,XBH:22,OBP:.415,RP:182,projIP:0},
+{id:'h15',n:'Julio Rodriguez',t:'SEA',pos:['OF'],PA:600,HR:30,SB:23,XBH:20,OBP:.340,RP:172,projIP:0},
+{id:'h16',n:'Gunnar Henderson',t:'BAL',pos:['SS','3B'],PA:600,HR:30,SB:12,XBH:28,OBP:.355,RP:172,projIP:0},
+{id:'h17',n:'Jose Ramirez',t:'CLE',pos:['3B'],PA:610,HR:27,SB:22,XBH:30,OBP:.350,RP:182,projIP:0},
+{id:'h18',n:'Corbin Carroll',t:'ARI',pos:['OF'],PA:580,HR:18,SB:38,XBH:20,OBP:.345,RP:152,projIP:0},
+{id:'h19',n:'Mookie Betts',t:'LAD',pos:['OF','SS'],PA:560,HR:22,SB:14,XBH:28,OBP:.378,RP:168,projIP:0,inj:1},
+{id:'h20',n:'Francisco Lindor',t:'NYM',pos:['SS'],PA:610,HR:24,SB:18,XBH:26,OBP:.350,RP:168,projIP:0},
+{id:'h21',n:'Bryce Harper',t:'PHI',pos:['1B'],PA:580,HR:28,SB:5,XBH:22,OBP:.390,RP:172,projIP:0},
+{id:'h22',n:'Freddie Freeman',t:'LAD',pos:['1B'],PA:580,HR:22,SB:7,XBH:32,OBP:.385,RP:175,projIP:0},
+{id:'h23',n:'Kyle Schwarber',t:'PHI',pos:['OF','1B'],PA:580,HR:38,SB:3,XBH:18,OBP:.352,RP:170,projIP:0},
+{id:'h24',n:'Rafael Devers',t:'BOS',pos:['3B'],PA:590,HR:30,SB:4,XBH:25,OBP:.358,RP:172,projIP:0},
+{id:'h25',n:'Corey Seager',t:'TEX',pos:['SS'],PA:540,HR:26,SB:4,XBH:22,OBP:.365,RP:162,projIP:0,inj:1},
+{id:'h26',n:'Adley Rutschman',t:'BAL',pos:['C'],PA:560,HR:20,SB:4,XBH:20,OBP:.375,RP:140,projIP:0},
+{id:'h27',n:'Pete Alonso',t:'NYM',pos:['1B'],PA:590,HR:33,SB:2,XBH:20,OBP:.344,RP:170,projIP:0},
+{id:'h28',n:'Trea Turner',t:'PHI',pos:['SS'],PA:580,HR:16,SB:26,XBH:22,OBP:.338,RP:150,projIP:0},
+{id:'h29',n:'Alex Bregman',t:'CHC',pos:['3B'],PA:580,HR:23,SB:4,XBH:24,OBP:.378,RP:158,projIP:0},
+{id:'h30',n:'Marcus Semien',t:'NYM',pos:['2B'],PA:620,HR:20,SB:12,XBH:24,OBP:.335,RP:148,projIP:0},
+{id:'h31',n:'Austin Riley',t:'ATL',pos:['3B'],PA:580,HR:26,SB:4,XBH:24,OBP:.345,RP:158,projIP:0},
+{id:'h32',n:'Marcell Ozuna',t:'ATL',pos:['OF'],PA:540,HR:30,SB:2,XBH:16,OBP:.348,RP:162,projIP:0},
+{id:'h33',n:'Luis Robert Jr',t:'CWS',pos:['OF'],PA:520,HR:24,SB:18,XBH:16,OBP:.323,RP:148,projIP:0,inj:1},
+{id:'h34',n:'Zack Gelof',t:'OAK',pos:['2B','3B'],PA:540,HR:22,SB:18,XBH:20,OBP:.335,RP:148,projIP:0},
+{id:'h35',n:'J.T. Realmuto',t:'PHI',pos:['C'],PA:480,HR:16,SB:10,XBH:14,OBP:.335,RP:122,projIP:0},
+{id:'h36',n:'William Contreras',t:'MIL',pos:['C'],PA:500,HR:20,SB:4,XBH:15,OBP:.350,RP:128,projIP:0},
+{id:'h37',n:'Bo Bichette',t:'TOR',pos:['SS'],PA:580,HR:18,SB:14,XBH:30,OBP:.330,RP:152,projIP:0},
+{id:'h38',n:'Randy Arozarena',t:'SEA',pos:['OF'],PA:540,HR:18,SB:20,XBH:18,OBP:.330,RP:138,projIP:0},
+{id:'h39',n:'CJ Abrams',t:'WSH',pos:['SS'],PA:560,HR:16,SB:28,XBH:18,OBP:.320,RP:132,projIP:0},
+{id:'h40',n:'Ha-Seong Kim',t:'SD',pos:['SS','2B','3B'],PA:520,HR:14,SB:20,XBH:18,OBP:.335,RP:128,projIP:0},
+{id:'h41',n:'Jarren Duran',t:'BOS',pos:['OF'],PA:540,HR:16,SB:22,XBH:18,OBP:.325,RP:128,projIP:0},
+{id:'h42',n:'Michael Harris II',t:'ATL',pos:['OF'],PA:540,HR:18,SB:18,XBH:16,OBP:.330,RP:132,projIP:0},
+{id:'h43',n:'Anthony Santander',t:'TOR',pos:['OF'],PA:550,HR:26,SB:4,XBH:18,OBP:.330,RP:142,projIP:0},
+{id:'h44',n:'Willy Adames',t:'MIL',pos:['SS'],PA:550,HR:22,SB:10,XBH:18,OBP:.332,RP:142,projIP:0},
+{id:'h45',n:'Isaac Paredes',t:'CHC',pos:['3B','2B'],PA:540,HR:22,SB:3,XBH:18,OBP:.350,RP:142,projIP:0},
+{id:'h46',n:'Brent Rooker',t:'OAK',pos:['OF'],PA:530,HR:28,SB:4,XBH:18,OBP:.345,RP:148,projIP:0},
+{id:'h47',n:'Seiya Suzuki',t:'CHC',pos:['OF'],PA:540,HR:22,SB:6,XBH:18,OBP:.360,RP:142,projIP:0},
+{id:'h48',n:'Nathaniel Lowe',t:'TEX',pos:['1B'],PA:570,HR:18,SB:4,XBH:26,OBP:.355,RP:142,projIP:0},
+{id:'h49',n:'Alec Bohm',t:'PHI',pos:['3B'],PA:560,HR:18,SB:4,XBH:24,OBP:.335,RP:138,projIP:0},
+{id:'h50',n:'Nico Hoerner',t:'CHC',pos:['2B'],PA:560,HR:8,SB:22,XBH:25,OBP:.350,RP:138,projIP:0},
+{id:'h51',n:'Teoscar Hernandez',t:'LAD',pos:['OF'],PA:530,HR:26,SB:8,XBH:18,OBP:.328,RP:152,projIP:0},
+{id:'h52',n:'Brice Turang',t:'MIL',pos:['2B'],PA:520,HR:8,SB:28,XBH:14,OBP:.332,RP:120,projIP:0},
+{id:'h53',n:'Christian Yelich',t:'MIL',pos:['OF'],PA:500,HR:16,SB:10,XBH:18,OBP:.360,RP:122,projIP:0},
+{id:'h54',n:'Jake Burger',t:'MIA',pos:['3B','1B'],PA:530,HR:28,SB:2,XBH:16,OBP:.318,RP:148,projIP:0},
+{id:'h55',n:'Eugenio Suarez',t:'ARI',pos:['3B'],PA:510,HR:24,SB:4,XBH:16,OBP:.325,RP:138,projIP:0},
+{id:'h56',n:'Sean Murphy',t:'ATL',pos:['C'],PA:480,HR:18,SB:2,XBH:14,OBP:.330,RP:118,projIP:0},
+{id:'h57',n:'Gabriel Moreno',t:'ARI',pos:['C'],PA:450,HR:14,SB:6,XBH:14,OBP:.342,RP:112,projIP:0},
+{id:'h58',n:'Cedric Mullins',t:'BAL',pos:['OF'],PA:520,HR:14,SB:20,XBH:16,OBP:.318,RP:122,projIP:0},
+{id:'h59',n:'MJ Melendez',t:'KC',pos:['C','OF'],PA:480,HR:18,SB:6,XBH:14,OBP:.325,RP:116,projIP:0},
+{id:'h60',n:'Starling Marte',t:'NYM',pos:['OF'],PA:420,HR:10,SB:16,XBH:12,OBP:.320,RP:98,projIP:0,inj:1},
+{id:'h61',n:'Nolan Arenado',t:'STL',pos:['3B'],PA:540,HR:24,SB:2,XBH:22,OBP:.330,RP:138,projIP:0},
+{id:'h62',n:'Vinnie Pasquantino',t:'KC',pos:['1B'],PA:540,HR:18,SB:2,XBH:22,OBP:.360,RP:128,projIP:0},
+{id:'h63',n:'Daulton Varsho',t:'TOR',pos:['OF','C'],PA:500,HR:18,SB:14,XBH:16,OBP:.330,RP:118,projIP:0},
+{id:'h64',n:'Steven Kwan',t:'CLE',pos:['OF'],PA:560,HR:10,SB:16,XBH:20,OBP:.370,RP:130,projIP:0},
+{id:'h65',n:'Bryan Reynolds',t:'PIT',pos:['OF'],PA:540,HR:18,SB:12,XBH:20,OBP:.345,RP:130,projIP:0},
+{id:'h66',n:'Spencer Torkelson',t:'DET',pos:['1B'],PA:540,HR:22,SB:2,XBH:18,OBP:.340,RP:128,projIP:0},
+{id:'h67',n:'J.J. Wetherholt',t:'PIT',pos:['2B','SS'],PA:520,HR:14,SB:18,XBH:20,OBP:.345,RP:128,projIP:0},
+{id:'h68',n:'Jackson Merrill',t:'SD',pos:['OF'],PA:540,HR:18,SB:14,XBH:18,OBP:.328,RP:128,projIP:0},
+{id:'h69',n:'Ryan Mountcastle',t:'BAL',pos:['1B'],PA:520,HR:22,SB:2,XBH:18,OBP:.320,RP:122,projIP:0},
+{id:'h70',n:'Ryan McMahon',t:'COL',pos:['2B','3B'],PA:530,HR:20,SB:6,XBH:20,OBP:.332,RP:128,projIP:0},
+{id:'p01',n:'Tarik Skubal',t:'DET',pos:['SP'],IP:195,K:220,W:16,ERA:2.85,SVH:0,WHIP:1.05,projIP:195},
+{id:'p02',n:'Garrett Crochet',t:'BOS',pos:['SP'],IP:190,K:225,W:14,ERA:3.10,SVH:0,WHIP:1.08,projIP:190},
+{id:'p03',n:'Paul Skenes',t:'PIT',pos:['SP'],IP:188,K:220,W:14,ERA:2.95,SVH:0,WHIP:1.05,projIP:188},
+{id:'p04',n:'Hunter Greene',t:'CIN',pos:['SP'],IP:185,K:215,W:13,ERA:3.20,SVH:0,WHIP:1.10,projIP:185},
+{id:'p05',n:'Dylan Cease',t:'SD',pos:['SP'],IP:183,K:210,W:13,ERA:3.25,SVH:0,WHIP:1.15,projIP:183},
+{id:'p06',n:'Cole Ragans',t:'KC',pos:['SP'],IP:180,K:205,W:13,ERA:3.30,SVH:0,WHIP:1.12,projIP:180},
+{id:'p07',n:'Chris Sale',t:'ATL',pos:['SP'],IP:175,K:200,W:14,ERA:3.15,SVH:0,WHIP:1.08,projIP:175,inj:1},
+{id:'p08',n:'Jacob deGrom',t:'TEX',pos:['SP'],IP:170,K:200,W:13,ERA:3.00,SVH:0,WHIP:1.02,projIP:170,inj:1},
+{id:'p09',n:'Hunter Brown',t:'HOU',pos:['SP'],IP:182,K:195,W:13,ERA:3.35,SVH:0,WHIP:1.15,projIP:182},
+{id:'p10',n:'Zack Wheeler',t:'PHI',pos:['SP'],IP:185,K:190,W:14,ERA:3.20,SVH:0,WHIP:1.10,projIP:185},
+{id:'p11',n:'Framber Valdez',t:'HOU',pos:['SP'],IP:190,K:175,W:14,ERA:3.15,SVH:0,WHIP:1.12,projIP:190},
+{id:'p12',n:'Gerrit Cole',t:'NYY',pos:['SP'],IP:182,K:188,W:14,ERA:3.25,SVH:0,WHIP:1.08,projIP:182},
+{id:'p13',n:'Kevin Gausman',t:'TOR',pos:['SP'],IP:178,K:185,W:13,ERA:3.35,SVH:0,WHIP:1.12,projIP:178},
+{id:'p14',n:'Corbin Burnes',t:'ARI',pos:['SP'],IP:180,K:182,W:13,ERA:3.30,SVH:0,WHIP:1.10,projIP:180},
+{id:'p15',n:'Logan Webb',t:'SF',pos:['SP'],IP:188,K:172,W:14,ERA:3.20,SVH:0,WHIP:1.08,projIP:188},
+{id:'p16',n:'Spencer Strider',t:'ATL',pos:['SP'],IP:170,K:200,W:13,ERA:3.25,SVH:0,WHIP:1.08,projIP:170,inj:1},
+{id:'p17',n:'Tanner Bibee',t:'CLE',pos:['SP'],IP:178,K:175,W:13,ERA:3.40,SVH:0,WHIP:1.15,projIP:178},
+{id:'p18',n:'Nick Pivetta',t:'BOS',pos:['SP'],IP:182,K:195,W:13,ERA:3.55,SVH:0,WHIP:1.18,projIP:182},
+{id:'p19',n:'Aaron Nola',t:'PHI',pos:['SP'],IP:180,K:182,W:13,ERA:3.50,SVH:0,WHIP:1.15,projIP:180},
+{id:'p20',n:'Kyle Bradish',t:'BAL',pos:['SP'],IP:158,K:166,W:12,ERA:3.71,SVH:0,WHIP:1.18,projIP:158,inj:1},
+{id:'p21',n:'Shane McClanahan',t:'TB',pos:['SP'],IP:160,K:185,W:12,ERA:3.20,SVH:0,WHIP:1.10,projIP:160,inj:1},
+{id:'p22',n:'MacKenzie Gore',t:'WSH',pos:['SP'],IP:175,K:185,W:11,ERA:3.45,SVH:0,WHIP:1.15,projIP:175},
+{id:'p23',n:'Cristopher Sanchez',t:'PHI',pos:['SP'],IP:175,K:165,W:12,ERA:3.30,SVH:0,WHIP:1.12,projIP:175},
+{id:'p24',n:'Sonny Gray',t:'STL',pos:['SP'],IP:165,K:168,W:11,ERA:3.40,SVH:0,WHIP:1.14,projIP:165},
+{id:'p25',n:'Joe Ryan',t:'MIN',pos:['SP'],IP:170,K:172,W:12,ERA:3.55,SVH:0,WHIP:1.15,projIP:170},
+{id:'r01',n:'Emmanuel Clase',t:'CLE',pos:['RP'],IP:68,K:72,W:4,ERA:2.60,SVH:42,WHIP:0.95,projIP:68},
+{id:'r02',n:'Josh Hader',t:'HOU',pos:['RP'],IP:62,K:80,W:3,ERA:2.80,SVH:38,WHIP:0.98,projIP:62},
+{id:'r03',n:'Ryan Helsley',t:'STL',pos:['RP'],IP:62,K:78,W:4,ERA:2.75,SVH:38,WHIP:1.00,projIP:62},
+{id:'r04',n:'Mason Miller',t:'OAK',pos:['RP'],IP:62,K:82,W:4,ERA:2.70,SVH:30,WHIP:0.98,projIP:62},
+{id:'r05',n:'Devin Williams',t:'NYM',pos:['RP'],IP:60,K:82,W:4,ERA:2.65,SVH:36,WHIP:0.95,projIP:60},
+{id:'r06',n:'Felix Bautista',t:'BAL',pos:['RP'],IP:65,K:78,W:4,ERA:2.70,SVH:40,WHIP:1.00,projIP:65,inj:1},
+{id:'r07',n:'Andres Munoz',t:'SEA',pos:['RP'],IP:62,K:75,W:4,ERA:2.85,SVH:28,WHIP:1.00,projIP:62},
+{id:'r08',n:'Jhoan Duran',t:'MIN',pos:['RP'],IP:65,K:78,W:4,ERA:2.95,SVH:26,WHIP:1.05,projIP:65},
+{id:'r09',n:'Pete Fairbanks',t:'TB',pos:['RP'],IP:62,K:72,W:4,ERA:2.80,SVH:32,WHIP:1.02,projIP:62},
+{id:'r10',n:'Edwin Diaz',t:'NYM',pos:['RP'],IP:60,K:78,W:3,ERA:2.90,SVH:32,WHIP:1.02,projIP:60},
+{id:'r11',n:'Clay Holmes',t:'NYY',pos:['RP'],IP:65,K:65,W:4,ERA:3.00,SVH:30,WHIP:1.10,projIP:65},
+{id:'r12',n:'Tanner Scott',t:'LAD',pos:['RP'],IP:65,K:72,W:4,ERA:3.10,SVH:22,WHIP:1.08,projIP:65},
+{id:'r13',n:'Evan Phillips',t:'LAD',pos:['RP'],IP:68,K:72,W:5,ERA:2.90,SVH:22,WHIP:1.00,projIP:68},
+{id:'r14',n:'Camilo Doval',t:'SF',pos:['RP'],IP:62,K:68,W:4,ERA:3.10,SVH:30,WHIP:1.10,projIP:62},
+{id:'r15',n:'Alexis Diaz',t:'CIN',pos:['RP'],IP:62,K:68,W:4,ERA:3.00,SVH:28,WHIP:1.08,projIP:62},
+{id:'r16',n:'David Bednar',t:'PIT',pos:['RP'],IP:62,K:68,W:4,ERA:3.20,SVH:26,WHIP:1.12,projIP:62},
+{id:'r17',n:'A.J. Minter',t:'ATL',pos:['RP'],IP:68,K:70,W:5,ERA:3.20,SVH:25,WHIP:1.12,projIP:68},
+{id:'r18',n:'Kyle Finnegan',t:'WSH',pos:['RP'],IP:65,K:62,W:4,ERA:3.20,SVH:28,WHIP:1.15,projIP:65},
+{id:'r19',n:'Raisel Iglesias',t:'LAA',pos:['RP'],IP:62,K:70,W:4,ERA:3.15,SVH:24,WHIP:1.08,projIP:62},
+{id:'r20',n:'Carlos Estevez',t:'LAA',pos:['RP'],IP:62,K:65,W:4,ERA:3.30,SVH:26,WHIP:1.12,projIP:62},
+];
+let S={drafted:{},hitSplit:65,snakeDisc:true,snakeCutoff:150,filter:{search:'',pos:'ALL',type:'ALL',hideDrafted:false},sort:{col:'aVal',dir:'desc'},activeTab:'auction',pending:null};
+function save(){try{localStorage.setItem('tbg26',JSON.stringify(S))}catch(e){}}
+function load(){try{const d=localStorage.getItem('tbg26');if(d)Object.assign(S,JSON.parse(d))}catch(e){}}
+load();
+function calcAll(){
+  const H=PLAYERS.filter(p=>p.PA),P=PLAYERS.filter(p=>p.IP);
+  const tot$=LG.budget*LG.teams,hit$=tot$*(S.hitSplit/100),pit$=tot$*(1-S.hitSplit/100);
+  const hA=Math.round(LG.aSlots*LG.teams*.62),pA=LG.aSlots*LG.teams-hA;
+  const hF=Math.round(LG.total*LG.teams*.62),pF=LG.total*LG.teams-hF;
+  function rv(p){return p.PA?p.HR*3+p.SB*2.5+p.XBH*1.5+p.OBP*200+p.RP:p.K*.5+p.W*5-p.ERA*20+p.SVH*4-p.WHIP*30+p.IP*.3}
+  const sH=[...H].sort((a,b)=>rv(b)-rv(a)),sP=[...P].sort((a,b)=>rv(b)-rv(a));
+  function ps(a,n,k){const pl=a.slice(0,n),v=pl.map(p=>p[k]),m=v.reduce((s,x)=>s+x,0)/v.length,std=Math.sqrt(v.reduce((s,x)=>s+(x-m)**2,0)/v.length)||1,r=a[Math.min(n-1,a.length-1)][k];return{mean:m,std,rpl:r}}
+  const HA={HR:ps(sH,hA,'HR'),SB:ps(sH,hA,'SB'),XBH:ps(sH,hA,'XBH'),OBP:ps(sH,hA,'OBP'),RP:ps(sH,hA,'RP')};
+  const PA={K:ps(sP,pA,'K'),W:ps(sP,pA,'W'),ERA:ps(sP,pA,'ERA'),SVH:ps(sP,pA,'SVH'),WHIP:ps(sP,pA,'WHIP')};
+  const HF={HR:ps(sH,hF,'HR'),SB:ps(sH,hF,'SB'),XBH:ps(sH,hF,'XBH'),OBP:ps(sH,hF,'OBP'),RP:ps(sH,hF,'RP')};
+  const PF={K:ps(sP,pF,'K'),W:ps(sP,pF,'W'),ERA:ps(sP,pF,'ERA'),SVH:ps(sP,pF,'SVH'),WHIP:ps(sP,pF,'WHIP')};
+  const avgPA_a=sH.slice(0,hA).reduce((s,p)=>s+p.PA,0)/hA,avgPA_f=sH.slice(0,hF).reduce((s,p)=>s+p.PA,0)/hF;
+  const avgIP_a=sP.slice(0,pA).reduce((s,p)=>s+p.IP,0)/pA;
+  function z(v,s,inv=false){const r=(v-s.rpl)/s.std;return inv?-r:r}
+  PLAYERS.forEach(p=>{
+    if(p.PA){
+      const wa=p.PA/avgPA_a,wf=p.PA/avgPA_f;
+      p.zA=z(p.HR,HA.HR)+z(p.SB,HA.SB)+z(p.XBH,HA.XBH)+z(p.OBP,HA.OBP)*wa+z(p.RP,HA.RP);
+      p.zF=z(p.HR,HF.HR)+z(p.SB,HF.SB)+z(p.XBH,HF.XBH)+z(p.OBP,HF.OBP)*wf+z(p.RP,HF.RP);
+    }else{
+      const wi=p.IP/avgIP_a;
+      p.zA=z(p.K,PA.K)+z(p.W,PA.W)+z(p.ERA,PA.ERA,true)*wi+z(p.SVH,PA.SVH)+z(p.WHIP,PA.WHIP,true)*wi;
+      p.zF=z(p.K,PF.K)+z(p.W,PF.W)+z(p.ERA,PF.ERA,true)*wi+z(p.SVH,PF.SVH)+z(p.WHIP,PF.WHIP,true)*wi;
+    }
+    p.arb=(p.zF||0)-(p.zA||0);
+  });
+  function sc(ids,slots){
+    const g=PLAYERS.filter(p=>ids.some(x=>p.pos.includes(x))).map(p=>p.zA||0).sort((a,b)=>b-a);
+    const n=slots*LG.teams,top=g.slice(0,n),avg=top.reduce((a,b)=>a+b,0)/n||0,rpl=g[n-1]||0;
+    return Math.max(0,(avg-rpl)*.25);
+  }
+  const scC=sc(['C'],1),scMI=sc(['2B','SS'],2);
+  const pH_a=PLAYERS.filter(p=>p.PA&&p.zA>0),pP_a=PLAYERS.filter(p=>p.IP&&p.zA>0);
+  const pH_f=PLAYERS.filter(p=>p.PA&&p.zF>0),pP_f=PLAYERS.filter(p=>p.IP&&p.zF>0);
+  const sHA=pH_a.reduce((s,p)=>s+p.zA,0)||1,sPA=pP_a.reduce((s,p)=>s+p.zA,0)||1;
+  const sHF=pH_f.reduce((s,p)=>s+p.zF,0)||1,sPF=pP_f.reduce((s,p)=>s+p.zF,0)||1;
+  const byZA=[...PLAYERS].sort((a,b)=>(b.zA||0)-(a.zA||0));
+  const byZF=[...PLAYERS].sort((a,b)=>(b.zF||0)-(a.zF||0));
+  PLAYERS.forEach(p=>{
+    const isH=!!p.PA,s=isH?0:0;
+    let sc2=p.pos.includes('C')?scC:(p.pos.includes('SS')||p.pos.includes('2B'))?scMI:0;
+    const zaA=(p.zA||0)+sc2,zfA=(p.zF||0)+sc2,d$=isH?hit$:pit$;
+    p.aVal=zaA>0?Math.max(1,Math.round((zaA/(isH?sHA:sPA))*d$)):1;
+    p.fVal=zfA>0?Math.max(1,Math.round((zfA/(isH?sHF:sPF))*d$)):1;
+    p.aRank=byZA.findIndex(x=>x.id===p.id)+1;
+    p.fRank=byZF.findIndex(x=>x.id===p.id)+1;
+    if(S.snakeDisc&&p.aRank>S.snakeCutoff){const t=Math.min(1,(p.aRank-S.snakeCutoff)/(200-S.snakeCutoff));p.aValAdj=Math.max(1,Math.round(p.aVal*(1-t*.9)));}
+    else p.aValAdj=p.aVal;
+  });
+}
+function pb(pos){return pos.map(p=>`<span class="pb pb-${p}">${p}</span>`).join('')}
+function fz(v){if(v==null)return'-';const r=v.toFixed(2);return v>=0?`<span style="color:#7ab0d0">+${r}</span>`:`<span style="color:#506878">${r}</span>`}
+function fd(v,hi){if(!v||v<=1)return'<span class="muted">$1</span>';return`<span style="color:${hi?'#e8c040':'#8aa8c0'};font-family:JetBrains Mono,monospace;${hi?'font-weight:700':''}">$${Math.round(v)}</span>`}
+function fa(v){if(v==null)return'-';const r=(v>=0?'+':'')+v.toFixed(2);if(v>1.5)return`<span class="grn" style="font-weight:700">${r}</span>`;if(v<-1.5)return`<span class="red" style="font-weight:700">${r}</span>`;return`<span class="muted">${r}</span>`}
+function fp(){
+  let pl=[...PLAYERS];const f=S.filter;
+  if(f.search)pl=pl.filter(p=>p.n.toLowerCase().includes(f.search.toLowerCase())||p.t.toLowerCase().includes(f.search.toLowerCase()));
+  if(f.pos!=='ALL')pl=pl.filter(p=>p.pos.includes(f.pos));
+  if(f.type==='HIT')pl=pl.filter(p=>p.PA);
+  if(f.type==='PIT')pl=pl.filter(p=>p.IP);
+  if(f.hideDrafted)pl=pl.filter(p=>!S.drafted[p.id]);
+  return pl;
+}
+function sp(pl,c,d){return[...pl].sort((a,b)=>{const av=a[c]??-999,bv=b[c]??-999;return d==='desc'?bv-av:av-bv})}
+function thC(c){if(S.sort.col===c)S.sort.dir=S.sort.dir==='desc'?'asc':'desc';else{S.sort.col=c;S.sort.dir='desc';}render()}
+function th(c,l){const sc=S.sort.col===c,cl=sc?(S.sort.dir==='desc'?'sd':'sa'):'';return`<th class="${cl}" onclick="thC('${c}')">${l}</th>`}
+function ctrlBar(){
+  return`<div class="controls">
+  <div class="ctrl"><span class="lbl">Search</span><input type="text" placeholder="Name or team..." value="${S.filter.search}" oninput="S.filter.search=this.value;render()"></div>
+  <div class="ctrl"><span class="lbl">Type</span><select onchange="S.filter.type=this.value;render()"><option ${S.filter.type==='ALL'?'selected':''}value="ALL">All</option><option ${S.filter.type==='HIT'?'selected':''}value="HIT">Hitters</option><option ${S.filter.type==='PIT'?'selected':''}value="PIT">Pitchers</option></select></div>
+  <div class="ctrl"><span class="lbl">Pos</span><select onchange="S.filter.pos=this.value;render()"><option value="ALL">All</option><option value="C">C</option><option value="1B">1B</option><option value="2B">2B</option><option value="SS">SS</option><option value="3B">3B</option><option value="OF">OF</option><option value="SP">SP</option><option value="RP">RP</option></select></div>
+  <div class="ctrl"><span class="lbl">Hit $%</span><input type="range" min="55" max="75" value="${S.hitSplit}" oninput="S.hitSplit=+this.value;document.getElementById('sSplit').textContent=this.value+'%';this.nextElementSibling.textContent=this.value+'%';render()"><span class="badge">${S.hitSplit}%</span></div>
+  <div class="ctrl"><span class="lbl">Snake Disc</span><button class="tog ${S.snakeDisc?'on':''}" onclick="S.snakeDisc=!S.snakeDisc;document.getElementById('sDisc').textContent=S.snakeDisc?'ON':'OFF';render()">${S.snakeDisc?'ON':'OFF'}</button></div>
+  <div class="ctrl"><span class="lbl">Cutoff</span><input type="range" min="100" max="180" value="${S.snakeCutoff}" oninput="S.snakeCutoff=+this.value;document.getElementById('sCut').textContent=this.value;this.nextElementSibling.textContent=this.value;render()"><span class="badge">${S.snakeCutoff}</span></div>
+  <div class="ctrl"><label style="display:flex;gap:5px;align-items:center;cursor:pointer"><input type="checkbox" ${S.filter.hideDrafted?'checked':''} onchange="S.filter.hideDrafted=this.checked;render()"><span class="lbl">Hide Drafted</span></label></div>
+  </div>`
+}
+function tabAuction(pl){
+  const sorted=sp(pl,S.sort.col,S.sort.dir);
+  return ctrlBar()+`<div class="tbl-wrap"><table>
+  <thead><tr>${th('aRank','#')}<th>Player</th><th>Tm</th><th>Pos</th>${th('aValAdj','AUC $★')}${th('aVal','BASE $')}${th('fVal','SEASON $')}${th('arb','ARB Δ')}${th('zA','AUC Z')}${th('zF','SZN Z')}<th>PROJECTIONS</th><th>ACTION</th></tr></thead>
+  <tbody>${sorted.map(p=>{
+    const dr=S.drafted[p.id],mine=dr&&dr.team==='me',aH=p.arb>1.5,aL=p.arb<-1.5;
+    const rc=(mine?'mine':'')+(aH&&!dr?' aup':aL&&!dr?' adn':'')+(dr?' drafted':'');
+    const st=p.PA?`HR:${p.HR} SB:${p.SB} XBH:${p.XBH} OBP:${p.OBP.toFixed(3)} RP:${p.RP}`:`K:${p.K} W:${p.W} ERA:${p.ERA.toFixed(2)} SVH:${p.SVH} WHIP:${p.WHIP.toFixed(2)} IP:${p.IP}`;
+    const snake=p.aRank>S.snakeCutoff&&S.snakeDisc;
+    return`<tr class="${rc}">
+    <td class="mono muted">${p.aRank}</td>
+    <td class="nm">${p.n}${p.inj?'<span class="wb">INJ?</span>':''}${p.note?`<span class="nb">${p.note}</span>`:''}</td>
+    <td class="tm">${p.t}</td><td>${pb(p.pos)}</td>
+    <td>${snake?'<span style="color:#806020;font-family:JetBrains Mono,monospace">$1 ★</span>':fd(p.aValAdj,true)}</td>
+    <td>${fd(p.aVal)}</td>
+    <td><span style="color:#38a068;font-family:JetBrains Mono,monospace">${p.fVal?'$'+p.fVal:'-'}</span></td>
+    <td>${fa(p.arb)}</td><td>${fz(p.zA)}</td><td>${fz(p.zF)}</td>
+    <td class="mono muted" style="font-size:10px">${st}</td>
+    <td>${dr?`<span style="color:${mine?'#40c870':'#c05040'};font-size:11px;font-weight:700">${mine?'★ MINE':'GONE'} $${dr.cost}</span>`:`<button class="btn btn-go" onclick="openModal('${p.id}')">DRAFT</button>`}</td>
+    </tr>`;
+  }).join('')}</tbody></table></div>`;
+}
+function tabSeason(pl){
+  const sorted=sp(pl,'fVal','desc');
+  return ctrlBar()+`<div class="tbl-wrap"><table>
+  <thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th><th>SEASON $</th><th>AUC $★</th><th>ARB Δ</th><th>SZN Z</th><th>AUC Z</th><th>SZN RK</th><th>AUC RK</th><th>PROJECTIONS</th></tr></thead>
+  <tbody>${sorted.map((p,i)=>{
+    const dr=S.drafted[p.id],aH=p.arb>1.5,aL=p.arb<-1.5;
+    const st=p.PA?`HR:${p.HR} SB:${p.SB} OBP:${p.OBP.toFixed(3)} RP:${p.RP}`:`K:${p.K} W:${p.W} ERA:${p.ERA.toFixed(2)} SVH:${p.SVH} IP:${p.IP}`;
+    return`<tr class="${dr?'drafted':''}${aH&&!dr?' aup':aL&&!dr?' adn':''}">
+    <td class="muted mono">${i+1}</td><td class="nm">${p.n}${p.inj?'<span class="wb">INJ?</span>':''}</td>
+    <td class="tm">${p.t}</td><td>${pb(p.pos)}</td>
+    <td><span style="color:#38a068;font-family:JetBrains Mono,monospace;font-weight:700">${p.fVal?'$'+p.fVal:'-'}</span></td>
+    <td>${fd(p.aValAdj,true)}</td><td>${fa(p.arb)}</td>
+    <td>${fz(p.zF)}</td><td>${fz(p.zA)}</td>
+    <td class="muted mono">#${p.fRank}</td><td class="muted mono">#${p.aRank}</td>
+    <td class="mono muted" style="font-size:10px">${st}</td>
+    </tr>`;
+  }).join('')}</tbody></table></div>`;
+}
+function tabArb(pl){
+  const sorted=sp(pl,'arb','desc');
+  return ctrlBar()+`<div class="arb-legend">
+  <span><span class="grn">■</span> POSITIVE = better season value than auction → <strong>BUY at auction, hold all year</strong></span>
+  <span><span class="red">■</span> NEGATIVE = auction value exceeds season → <strong>let others overpay</strong></span>
+  </div>
+  <div class="tbl-wrap"><table>
+  <thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th><th>ARB SCORE</th><th>SEASON $</th><th>AUC $★</th><th>$ DELTA</th><th>AUC RK</th><th>SZN RK</th><th>RK Δ</th></tr></thead>
+  <tbody>${sorted.map((p,i)=>{
+    const dr=S.drafted[p.id],aH=p.arb>1.5,aL=p.arb<-1.5,dd=(p.fVal||0)-(p.aValAdj||0),rd=p.aRank-p.fRank;
+    return`<tr class="${dr?'drafted':''}${aH&&!dr?' aup':aL&&!dr?' adn':''}">
+    <td class="muted mono">${i+1}</td><td class="nm">${p.n}${p.inj?'<span class="wb">INJ?</span>':''}</td>
+    <td class="tm">${p.t}</td><td>${pb(p.pos)}</td>
+    <td style="font-size:15px;font-weight:800">${fa(p.arb)}</td>
+    <td><span style="color:#38a068;font-family:JetBrains Mono,monospace">${p.fVal?'$'+p.fVal:'-'}</span></td>
+    <td>${fd(p.aValAdj,true)}</td>
+    <td class="${dd>5?'grn':dd<-5?'red':'muted'} mono">${dd>=0?'+':''}${dd}</td>
+    <td class="muted mono">#${p.aRank}</td><td class="muted mono">#${p.fRank}</td>
+    <td class="${rd>15?'grn':rd<-15?'red':'muted'} mono">${rd>=0?'+':''}${rd}</td>
+    </tr>`;
+  }).join('')}</tbody></table></div>`;
+}
+function tabMyTeam(){
+  const my=Object.entries(S.drafted).filter(([,v])=>v.team==='me').map(([id,v])=>({...PLAYERS.find(p=>p.id===id),...v})).filter(Boolean);
+  const spent=my.reduce((s,p)=>s+p.cost,0),pit=my.filter(p=>p.IP),hit=my.filter(p=>p.PA);
+  const projIP=pit.reduce((s,p)=>s+(p.projIP||p.IP||0),0),ipOK=projIP>=LG.minIP;
+  let HR=0,SB=0,XBH=0,OBPw=0,RP=0,PAw=0,K=0,W=0,ERAw=0,SVH=0,WHIPw=0,IPw=0;
+  hit.forEach(p=>{HR+=p.HR;SB+=p.SB;XBH+=p.XBH;OBPw+=p.OBP*p.PA;RP+=p.RP;PAw+=p.PA});
+  pit.forEach(p=>{K+=p.K;W+=p.W;ERAw+=p.ERA*p.IP;SVH+=p.SVH;WHIPw+=p.WHIP*p.IP;IPw+=p.IP});
+  const tOBP=PAw?OBPw/PAw:0,tERA=IPw?ERAw/IPw:0,tWHIP=IPw?WHIPw/IPw:0;
+  function bar(v,max,inv=false){const pct=max?Math.min(100,inv?(1-Math.min(v,max)/max)*100:(v/max)*100):0;const c=pct>66?'#40b870':pct>33?'#e8c040':'#d04040';return`<div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${c}"></div></div>`}
+  return`<div class="two-col">
+  <div class="left-col">
+    <div class="sec">MY ROSTER (${my.length}/31)</div>
+    ${my.length===0?'<div style="padding:20px;color:#1a3050;font-style:italic">No players drafted yet.<br><br>Click DRAFT on any player in the Auction Board.</div>':''}
+    ${[...my].sort((a,b)=>b.cost-a.cost).map(p=>`<div class="rslot">
+      <div><div style="font-weight:700;color:#c8daf0">${p.n}</div><div style="margin-top:2px">${pb(p.pos)}<span class="tm" style="margin-left:4px">${p.t}</span></div></div>
+      <div style="text-align:right"><div style="color:#e8c040;font-family:JetBrains Mono,monospace;font-weight:700">$${p.cost}</div><div style="font-size:10px;color:#3a6080">val:${p.aValAdj?'$'+p.aValAdj:'-'}</div></div>
+    </div>`).join('')}
+  </div>
+  <div class="right-col">
+    <div class="stat-grid">
+      <div class="stat-card"><div class="sclbl">Budget Used</div><div class="scval" style="color:${spent>180?'#d04040':'#e8c040'}">$${spent} <span style="font-size:11px;color:#3a6080">/ $202</span></div>${bar(spent,202)}</div>
+      <div class="stat-card"><div class="sclbl">Remaining</div><div class="scval" style="color:${202-spent<20?'#d04040':202-spent<50?'#e8c040':'#40b870'}">$${202-spent}</div></div>
+      <div class="stat-card"><div class="sclbl">Projected IP</div><div class="scval" style="color:${ipOK?'#40b870':projIP>600?'#e8c040':'#d04040'}">${projIP}<span style="font-size:11px;color:#3a6080"> / 1000</span></div>${bar(projIP,1000)}${!ipOK&&my.length>3?'<div style="font-size:10px;color:#c04040;margin-top:4px">⚠ Risk losing ERA+WHIP</div>':''}</div>
+      <div class="stat-card"><div class="sclbl">Players</div><div class="scval">${my.length}<span style="font-size:11px;color:#3a6080"> / 31</span></div><div style="font-size:10px;color:#3a6080;margin-top:6px">${hit.length} hitters · ${pit.length} pitchers</div></div>
+    </div>
+    <div class="cat-hdr">PROJECTED CATEGORY TOTALS</div>
+    <div class="cat-grid">
+      <div class="cat-card"><div class="ccat">HR</div><div class="cval">${HR}</div>${bar(HR,200)}</div>
+      <div class="cat-card"><div class="ccat">SB</div><div class="cval">${SB}</div>${bar(SB,150)}</div>
+      <div class="cat-card"><div class="ccat">XBH</div><div class="cval">${XBH}</div>${bar(XBH,200)}</div>
+      <div class="cat-card"><div class="ccat">OBP</div><div class="cval">${tOBP.toFixed(3)}</div>${bar(tOBP,.380)}</div>
+      <div class="cat-card"><div class="ccat">RP</div><div class="cval">${RP}</div>${bar(RP,1500)}</div>
+      <div class="cat-card"><div class="ccat">K</div><div class="cval">${K}</div>${bar(K,1400)}</div>
+      <div class="cat-card"><div class="ccat">W</div><div class="cval">${W}</div>${bar(W,90)}</div>
+      <div class="cat-card"><div class="ccat">ERA</div><div class="cval">${tERA.toFixed(2)}</div>${bar(tERA,4.5,true)}</div>
+      <div class="cat-card"><div class="ccat">SVH</div><div class="cval">${SVH}</div>${bar(SVH,130)}</div>
+      <div class="cat-card"><div class="ccat">WHIP</div><div class="cval">${tWHIP.toFixed(2)}</div>${bar(tWHIP,1.4,true)}</div>
+    </div>
+  </div></div>`;
+}
+function tabLeague(){
+  const T=['me','t1','t2','t3','t4','t5','t6','t7','t8','t9'];
+  const N={me:'★ MY TEAM',t1:'Opponent 1',t2:'Opponent 2',t3:'Opponent 3',t4:'Opponent 4',t5:'Opponent 5',t6:'Opponent 6',t7:'Opponent 7',t8:'Opponent 8',t9:'Opponent 9'};
+  return`<div class="league-wrap"><table>
+  <thead><tr><th>Team</th><th># Drafted</th><th>Spent</th><th>Remaining</th><th>Avg $/Pick</th><th>Top 3 Picks</th></tr></thead>
+  <tbody>${T.map(tid=>{
+    const picks=Object.entries(S.drafted).filter(([,v])=>v.team===tid).map(([id,v])=>({...PLAYERS.find(p=>p.id===id),...v})).filter(Boolean);
+    const spent=picks.reduce((s,p)=>s+p.cost,0),rem=202-spent,avg=picks.length?Math.round(spent/picks.length):0;
+    const top=[...picks].sort((a,b)=>b.cost-a.cost).slice(0,3).map(p=>`${p.n.split(' ').pop()} <span class="gold">$${p.cost}</span>`).join(', ');
+    return`<tr ${tid==='me'?'class="mine"':''}>
+    <td style="font-weight:700;color:${tid==='me'?'#e8c040':'#c8d8e8'}">${N[tid]}</td>
+    <td class="mono">${picks.length}</td><td class="gold">$${spent}</td>
+    <td class="mono" style="color:${rem<25?'#d04040':rem>80?'#40b870':'#e8c040'};font-weight:700">$${rem}</td>
+    <td class="mono muted">$${avg}</td>
+    <td style="font-size:11px;color:#3a6080">${top||'—'}</td>
+    </tr>`;
+  }).join('')}</tbody></table></div>`;
+}
+function render(){
+  calcAll();
+  const pl=fp();
+  const my=Object.entries(S.drafted).filter(([,v])=>v.team==='me');
+  const spent=my.reduce((s,[,v])=>s+v.cost,0);
+  const pits=my.map(([id])=>PLAYERS.find(p=>p.id===id)).filter(p=>p&&p.IP);
+  const projIP=pits.reduce((s,p)=>s+(p.projIP||p.IP||0),0);
+  document.getElementById('hBudget').textContent='$'+(202-spent);
+  document.getElementById('hRoster').textContent=my.length+'/31';
+  document.getElementById('hIP').textContent=projIP;
+  document.getElementById('hIP').style.color=projIP>=1000?'#40b870':projIP>600?'#e8c040':'#d04040';
+  document.getElementById('sTot').textContent=PLAYERS.length;
+  const mc=document.getElementById('mainContent');
+  const t=S.activeTab;
+  if(t==='auction')mc.innerHTML=tabAuction(pl);
+  else if(t==='season')mc.innerHTML=tabSeason(pl);
+  else if(t==='arb')mc.innerHTML=tabArb(pl);
+  else if(t==='myteam')mc.innerHTML=tabMyTeam();
+  else if(t==='league')mc.innerHTML=tabLeague();
+  save();
+}
+function showTab(t){
+  S.activeTab=t;
+  document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  render();
+}
+function openModal(id){
+  S.pending=id;
+  const p=PLAYERS.find(x=>x.id===id);
+  document.getElementById('modalTitle').textContent='Draft: '+p.n;
+  document.getElementById('mCost').value=p.aValAdj||1;
+  document.getElementById('mTeam').value='me';
+  document.getElementById('modalBg').classList.add('open');
+  setTimeout(()=>document.getElementById('mCost').select(),50);
+}
+function closeModal(){document.getElementById('modalBg').classList.remove('open');S.pending=null;}
+function confirmDraft(){
+  if(!S.pending)return;
+  S.drafted[S.pending]={cost:+document.getElementById('mCost').value,team:document.getElementById('mTeam').value};
+  closeModal();render();
+}
+function resetDraft(){if(confirm('Reset all draft data?')){S.drafted={};render();}}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&document.getElementById('modalBg').classList.contains('open'))confirmDraft();
+  if(e.key==='Escape')closeModal();
+});
+render();
+</script>
+</body>
+</html>

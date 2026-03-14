@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚾ Teddy Ballgame Draft Tool 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="hdr">
+        <div>
+            <div class="hdr-title">⚾ Teddy Ballgame Draft 2026</div>
+            <div class="hdr-sub">10-TEAM ROTISSERIE · $202 AUCTION (17) + 14-RD SNAKE · FANTRAX</div>
+        </div>
+        <div class="hdr-right">
+            <div class="pill"><div class="pill-lbl">Budget Left</div><div class="pill-val" id="hBudget">$202</div></div>
+            <div class="pill"><div class="pill-lbl">Rostered</div><div class="pill-val" id="hRoster">0/31</div></div>
+            <div class="pill"><div class="pill-lbl">Proj IP</div><div class="pill-val" id="hIP">0</div></div>
+            <button class="btn btn-danger" onclick="StateManager.reset()">RESET DRAFT</button>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" id="tab-auction" onclick="UI.showTab('auction')">AUCTION BOARD</div>
+        <div class="tab" id="tab-season" onclick="UI.showTab('season')">SEASON VALUE</div>
+        <div class="tab" id="tab-arb" onclick="UI.showTab('arb')">ARBITRAGE ★</div>
+        <div class="tab" id="tab-myteam" onclick="UI.showTab('myteam')">MY TEAM</div>
+        <div class="tab" id="tab-league" onclick="UI.showTab('league')">LEAGUE TRACKER</div>
+        <div class="tab" id="tab-import" onclick="UI.showTab('import')">IMPORT DATA</div>
+    </div>
+
+    <div class="content" id="mainContent">
+        <!-- Dynamic Content from UI.js -->
+        <div style="padding: 40px; text-align: center;">
+            <h2>Welcome to Teddy Ballgame 2026</h2>
+            <p class="muted">Please import your Mr. CheatSheet CSV to get started.</p>
+            <br>
+            <button class="btn btn-go" onclick="UI.showTab('import')">GO TO IMPORT</button>
+        </div>
+    </div>
+
+    <div class="status">
+        <span>PLAYERS: <span class="sv" id="sTot">0</span></span>
+        <span style="margin-left:auto;color:#0d2030">AI READY — Use "COPY FOR AI" to sync context</span>
+    </div>
+
+    <!-- Draft Modal -->
+    <div class="modal-bg" id="modalBg">
+        <div class="modal">
+            <div class="modal-title" id="modalTitle">Draft Player</div>
+            <div class="field"><label>Final Auction Cost ($)</label><input type="number" id="mCost" min="1" max="202" value="1"></div>
+            <div class="field"><label>Drafted By</label>
+                <select id="mTeam">
+                    <option value="me">★ MY TEAM</option>
+                    <option value="t1">Opponent 1</option><option value="t2">Opponent 2</option>
+                    <option value="t3">Opponent 3</option><option value="t4">Opponent 4</option>
+                    <option value="t5">Opponent 5</option><option value="t6">Opponent 6</option>
+                    <option value="t7">Opponent 7</option><option value="t8">Opponent 8</option>
+                    <option value="t9">Opponent 9</option>
+                </select>
+            </div>
+            <div class="modal-btns">
+                <button class="btn btn-go" onclick="UI.confirmDraft()">✓ CONFIRM DRAFT</button>
+                <button class="btn" onclick="UI.closeModal()">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic Layers -->
+    <script src="js/engine/state.js"></script>
+    <script src="js/engine/zscore.js"></script>
+    <script src="js/engine/assistant.js"></script>
+    <script src="js/data/loader.js"></script>
+    <script src="js/ui/components.js"></script>
+    <script>
+        // Start UI
+        window.addEventListener('DOMContentLoaded', () => {
+            UI.init();
+        });
+    </script>
+</body>
+</html>
