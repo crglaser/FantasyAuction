@@ -268,13 +268,14 @@ const UI = {
     },
 
     templateLeague() {
-        const teams = Object.keys(LG.teamNames);
+        const teams = Object.keys(LG.teamsMap);
         return `
             <div class="league-wrap">
                 <table>
                     <thead>
                         <tr>
                             <th>Team</th>
+                            <th>Owner</th>
                             <th># Drafted</th>
                             <th>Spent</th>
                             <th>Remaining</th>
@@ -284,13 +285,15 @@ const UI = {
                     </thead>
                     <tbody>
                         ${teams.map(tid => {
-                            const picks = Object.entries(AppState.drafted).filter(([,v]) => v.team === tid).map(([id,v]) => ({...AppState.players.find(p=>p.id===id), ...v}));
+                            const info = LG.teamsMap[tid];
+                            const picks = Object.entries(AppState.drafted).filter(([,v]) => v.team === tid).map(([id,v]) => ({...AppState.players.find(p=>p.id===id), ...v})).filter(p => p.n);
                             const spent = picks.reduce((sum, p) => sum + p.cost, 0);
                             const rem = LG.budget - spent;
-                            const topPicks = picks.sort((a,b) => b.cost - a.cost).slice(0,3).map(p => `${p.n} ($${p.cost})`).join(', ');
+                            const topPicks = picks.sort((a,b) => b.cost - a.cost).slice(0,3).map(p => `${p.n.split(' ').pop()} ($${p.cost})`).join(', ');
                             return `
                                 <tr class="${tid === 'me' ? 'mine' : ''}">
-                                    <td style="font-weight:700">${LG.teamNames[tid]}</td>
+                                    <td style="font-weight:700">${info.team}</td>
+                                    <td class="muted">${info.owner}</td>
                                     <td class="mono">${picks.length}</td>
                                     <td class="gold">$${spent}</td>
                                     <td class="mono" style="color:${rem < 20 ? '#d04040' : '#40b870'}">$${rem}</td>

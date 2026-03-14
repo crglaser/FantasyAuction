@@ -3,6 +3,8 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
+const APP_VERSION = '1.0.3';
+
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',
     teams: 10,
@@ -23,17 +25,18 @@ const LG = {
         bench: 8,
         il: 'Unlimited'
     },
-    teamNames: {
-        t1: 'Brian Garber & Andrew Lombardi',
-        t2: 'Joe Achille',
-        t3: 'Barry Carlin',
-        me: 'Terry Lyons & Craig Glaser',
-        t5: 'Andrew & Susan Grossman',
-        t6: 'Andy Korbak',
-        t7: 'Alex Tarshis',
-        t8: 'Bryan Boardman',
-        t9: 'Andy Enzweiler & Ed O’Brien',
-        t10: 'Derek Carlin & Justin Hurson'
+    // Map of ID -> { owner, team }
+    teamsMap: {
+        t1: { owner: 'Brian Garber & Andrew Lombardi', team: 'Garber/Lombardi' },
+        t2: { owner: 'Joe Achille', team: 'Joe Achille' },
+        t3: { owner: 'Barry Carlin', team: 'Barry Carlin' },
+        me: { owner: 'Terry Lyons & Craig Glaser', team: 'Teddy Ballgames' },
+        t5: { owner: 'Andrew & Susan Grossman', team: 'Grossman' },
+        t6: { owner: 'Andy Korbak', team: 'Andy Korbak' },
+        t7: { owner: 'Alex Tarshis', team: 'Alex Tarshis' },
+        t8: { owner: 'Bryan Boardman', team: 'Bryan Boardman' },
+        t9: { owner: 'Andy Enzweiler & Ed O’Brien', team: 'Enzweiler/O’Brien' },
+        t10: { owner: 'Derek Carlin & Justin Hurson', team: 'Carlin/Hurson' }
     }
 };
 
@@ -67,7 +70,8 @@ const StateManager = {
         try {
             const dataToSave = {
                 drafted: AppState.drafted,
-                settings: AppState.settings
+                settings: AppState.settings,
+                version: APP_VERSION
             };
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(dataToSave));
         } catch (e) {
@@ -109,6 +113,7 @@ const StateManager = {
 
         return JSON.stringify({
             league: LG.name,
+            version: APP_VERSION,
             budgetRemaining: LG.budget - spent,
             rosterSize: `${myTeam.length}/${LG.total}`,
             currentRoster: myTeam.map(p => `${p.n} (${p.pos.join(',')}) - $${AppState.drafted[p.id].cost}`),
@@ -126,6 +131,7 @@ const StateManager = {
         const data = {
             config: LG,
             state: {
+                version: APP_VERSION,
                 settings: AppState.settings,
                 drafted: AppState.drafted
             }

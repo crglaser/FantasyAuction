@@ -5,26 +5,23 @@
 const Assistant = {
     /**
      * Parses a text command like "Judge to me for 45" or "Soto to t3 50"
+     * Supports Team Names and Owner names.
      */
     processCommand(text) {
         text = text.toLowerCase().trim();
         
         // Patterns:
-        // [name] to [team] [cost]
-        // [name] [team] [cost]
-        const regex = /(.+)\s+(?:to\s+)?(me|t\d|opponent\s+\d)\s+(?:\$)?(\d+)/i;
+        // [name] to [team/owner] [cost]
+        const regex = /(.+)\s+(?:to\s+)?(me|t\d+|[\w\/\s&’]+)\s+(?:\$)?(\d+)/i;
         const match = text.match(regex);
 
-        if (!match) return "Try: '[Name] to [Team] [Cost]' e.g. 'Judge to me 45'";
+        if (!match) return "Try: '[Player Name] to [Team/Owner] [Cost]' e.g. 'Judge to Teddy Ballgames 45'";
 
         const playerName = match[1].trim();
-        let teamCode = match[2].trim();
+        let targetId = this.findTeamId(match[2].trim());
         const cost = parseInt(match[3]);
 
-        // Normalize team code
-        if (teamCode.startsWith('opponent')) {
-            teamCode = 't' + teamCode.split(' ').pop();
-        }
+        if (!targetId) return `Could not find team/owner matching '${match[2]}'`;
 
         // Find player
         const player = AppState.players.find(p => p.n.toLowerCase().includes(playerName));
@@ -33,14 +30,32 @@ const Assistant = {
         // Log the draft
         AppState.drafted[player.id] = {
             cost: cost,
-            team: teamCode,
+            team: targetId,
             ts: Date.now()
         };
 
         StateManager.save();
         UI.render();
 
-        return `Drafted **${player.n}** to **${LG.teamNames[teamCode]}** for **$${cost}**.`;
+        const info = LG.teamsMap[targetId];
+        return `Drafted **${player.n}** to **${info.team}** (${info.owner}) for **$${cost}**.`;
+    },
+
+    findTeamId(search) {
+        search = search.toLowerCase();
+        if (search === 'me' || search === 'my team') return 'me';
+        
+        // Check IDs
+        if (LG.teamsMap[search]) return search;
+        if (LG.teamsMap['t'+search]) return 't'+search;
+
+        // Check Owner/Team names
+        for (const [id, info] of Object.entries(LG.teamsMap)) {
+            if (info.owner.toLowerCase().includes(search) || info.team.toLowerCase().includes(search)) {
+                return id;
+            }
+        }
+        return null;
     },
 
     /**
@@ -52,7 +67,8 @@ const Assistant = {
             .map(([id]) => AppState.players.find(p => p.id === id))
             .filter(Boolean);
 
-        if (!myTeam.length) return "Draft hasn't started yet. Focus on elite high-Z hitters early.";
+        if (!AppState.players.length) return "Data not loaded yet.";
+        if (!myTeam.length) return "Draft is starting. Focus on high-Z hitters early.";
 
         const spent = myTeam.reduce((sum, p) => sum + (AppState.drafted[p.id]?.cost || 0), 0);
         const rem = LG.budget - spent;
@@ -60,13 +76,12 @@ const Assistant = {
         const projIP = pit.reduce((s, p) => s + (p.IP || 0), 0);
 
         let advice = [];
-        if (rem < 20) advice.push("Budget is tight! Target $1 value guys and high-upside snake picks.");
-        if (projIP < 300 && myTeam.length > 5) advice.push("Lagging in IP. Prioritize some SP floor soon.");
+        if (rem < 20) advice.push("Budget is tight! Target $1 value guys.");
+        if (projIP < 300 && myTeam.length > 5) advice.push("Prioritize SP floor (Innings).");
         
-        // Find best undrafted value
         const topValue = UI.getFilteredPlayers().filter(p => !AppState.drafted[p.id])[0];
         if (topValue) advice.push(`Top value available: ${topValue.n} ($${topValue.aValAdj}).`);
 
-        return advice.join(' ') || "Keep sticking to the Z-score board.";
+        return advice.join(' ') || "Stick to the plan.";
     }
 };
