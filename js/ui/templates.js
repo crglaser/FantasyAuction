@@ -168,13 +168,14 @@ const Templates = {
             </div>
             <div style="display:flex;align-items:center;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
                 <span style="font-size:10px;color:#406080;margin-right:4px">FILTER:</span>
-                <button onclick="UI.toggleArbOutlier()" id="arbOutlierBtn" style="font-size:10px;padding:2px 8px;border:1px solid ${AppState.ui.arbOutlierOnly ? '#d06040' : '#1a2a3a'};background:${AppState.ui.arbOutlierOnly ? '#2a0a00' : '#060e18'};color:${AppState.ui.arbOutlierOnly ? '#e08050' : '#2a4060'};cursor:pointer;border-radius:2px">&#9889; OUTLIERS ONLY</button>
+                <button onclick="UI.toggleArbOutlier()" id="arbOutlierBtn" style="font-size:10px;padding:2px 8px;border:1px solid ${AppState.ui.arbOutlierOnly ? '#205040' : '#1a2a3a'};background:${AppState.ui.arbOutlierOnly ? '#0a2018' : '#060e18'};color:${AppState.ui.arbOutlierOnly ? '#40c880' : '#2a4060'};cursor:pointer;border-radius:2px">&#128269; SLEEPERS ONLY</button>
             </div>
             <div class="arb-legend">
                 <span style="color:#7090a8;font-size:10px">
                     CS $ = MrCheatSheet auction value (our baseline) &nbsp;·&nbsp;
                     RANK Δ = FTX rank − CS rank (negative = Fantrax likes them more than we do) &nbsp;·&nbsp;
-                    MKT RATIO = ESPN $ ÷ CS $ (&lt;0.8 = market underprices, &gt;1.25 = market inflated)
+                    MKT RATIO = ESPN $ ÷ CS $ (&lt;0.8 = market underprices, &gt;1.25 = market inflated) &nbsp;·&nbsp;
+                    SLEEPERS = FTX or ECR ranks 30+ spots higher than CS, and CS values them low
                 </span>
             </div>`;
 
@@ -210,13 +211,15 @@ const Templates = {
                             const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
                             p.mktRatio = mktRatio;
                             const ecrDelta = (p.ecr != null && p.csRank != null) ? p.ecr - p.csRank : null;
-                            const outlierScore = Math.max(
-                                Math.abs(ftxRkDelta ?? 0),
-                                Math.abs(ecrDelta ?? 0),
-                                mktRatio != null ? Math.abs(mktRatio - 1) * 100 : 0
-                            );
-                            p.outlierScore = outlierScore;
-                            if (AppState.ui.arbOutlierOnly && (p.outlierScore ?? 0) < 40) return '';
+                            // Sleeper signal: other sources rank player significantly higher than CS (negative delta = they like player more)
+                            // AND CS values them low (not already a top CS pick)
+                            const sleeperSignal = (ftxRkDelta != null && ftxRkDelta < -30) || (ecrDelta != null && ecrDelta < -30);
+                            const csLowValue = (p.csRank == null || p.csRank > 75) || (p.csValAAdj != null && p.csValAAdj <= 15);
+                            p.outlierScore = sleeperSignal && csLowValue ? Math.max(
+                                ftxRkDelta != null ? -ftxRkDelta : 0,
+                                ecrDelta != null ? -ecrDelta : 0
+                            ) : 0;
+                            if (AppState.ui.arbOutlierOnly && !(sleeperSignal && csLowValue)) return '';
                             const dr = drafted[p.id];
                             const isSim = dr?.sim;
                             const rowCls = (dr ? 'drafted' : '');
@@ -285,12 +288,22 @@ const Templates = {
                 }).join('')}
             </div>`;
 
+        const mySearch = (AppState.ui.myteamSearch || '').toLowerCase();
+        const myFiltered = myDrafted.filter(p => !mySearch || p.n?.toLowerCase().includes(mySearch));
+
         return `
+            <div style="display:flex;flex-direction:column;height:100%;overflow:hidden">
             ${teamSelector}
-            <div class="two-col">
-                <div class="left-col">
+            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
+                <input type="text" placeholder="Filter roster…" value="${AppState.ui.myteamSearch || ''}"
+                    oninput="AppState.ui.myteamSearch=this.value;UI.render()"
+                    style="background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:3px 8px;font-size:11px;width:180px">
+            </div>
+            <div style="flex:1;overflow-y:auto;min-height:0">
+            <div class="two-col" style="min-height:min-content">
+                <div class="left-col" style="overflow-y:visible">
                     <div class="sec">${LG.teamsMap[viewTeam]?.team || viewTeam} ROSTER (${myDrafted.length}/${LG.total})</div>
-                    ${myDrafted.sort((a,b) => b.cost - a.cost).map(p => `
+                    ${myFiltered.sort((a,b) => b.cost - a.cost).map(p => `
                         <div class="rslot" style="${p.sim ? 'opacity:0.7' : ''};cursor:pointer" onclick="UI.openDraftModal('${p.id}')" title="${p.sim ? 'Edit sim pick' : 'Edit pick'}">
                             <div><div style="font-weight:700;color:#c8daf0">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080;font-weight:400">SIM✎</span>' : ' <span style="font-size:9px;opacity:0.3">✎</span>'}</div><div>${this.pb(p.pos)}</div></div>
                             <div style="text-align:right"><div class="gold">$${p.cost}</div><div class="muted" style="font-size:10px">val:$${p.csValAAdj || p.csValA || p.aValAdj}</div></div>
@@ -319,14 +332,25 @@ const Templates = {
                     </div>
                 </div>
             </div>
+            </div>
             ${this.draftLog(viewTeam)}
+            </div>
         `;
     },
 
     league() {
         const teams = Object.keys(LG.teamsMap);
+        const lgSearch = (AppState.ui.leagueSearch || '').toLowerCase();
+        const drafted = effectiveDrafted();
         return `
-            <div class="league-wrap">
+            <div style="display:flex;flex-direction:column;height:100%;overflow:hidden">
+            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
+                <input type="text" placeholder="Filter players…" value="${AppState.ui.leagueSearch || ''}"
+                    oninput="AppState.ui.leagueSearch=this.value;UI.render()"
+                    style="background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:3px 8px;font-size:11px;width:180px">
+            </div>
+            <div style="flex:1;overflow-y:auto;min-height:0">
+            <div class="league-wrap" style="overflow:visible">
                 <table>
                     <thead>
                         <tr>
@@ -340,7 +364,7 @@ const Templates = {
                         </tr>
                     </thead>
                     <tbody>
-                        ${(() => { const drafted = effectiveDrafted(); return teams.map(tid => {
+                        ${teams.map(tid => {
                             const info = LG.teamsMap[tid];
                             const picks = Object.entries(drafted).filter(([,v]) => v.team === tid).map(([id,v]) => ({...AppState.players.find(p=>p.id===id), ...v})).filter(p => p.n);
                             const spent = picks.reduce((sum, p) => sum + p.cost, 0);
@@ -357,11 +381,28 @@ const Templates = {
                                     <td style="font-size:11px" class="muted">${topPicks || '—'}</td>
                                 </tr>
                             `;
-                        }).join(''); })()}
+                        }).join('')}
                     </tbody>
                 </table>
             </div>
-            ${this.draftLog()}
+            ${lgSearch ? `
+                <div style="padding:8px 12px;font-size:11px;color:#7090a8;border-top:1px solid #0a1e30">
+                    PLAYERS MATCHING "${lgSearch.toUpperCase()}":
+                </div>
+                ${teams.map(tid => {
+                    const info = LG.teamsMap[tid];
+                    const picks = Object.entries(drafted).filter(([,v]) => v.team === tid)
+                        .map(([id,v]) => ({...AppState.players.find(p=>p.id===id), ...v}))
+                        .filter(p => p.n?.toLowerCase().includes(lgSearch));
+                    if (!picks.length) return '';
+                    return `<div style="padding:4px 12px;font-size:11px">
+                        <span style="color:#e8c040;font-weight:700">${info.team}:</span>
+                        ${picks.map(p => `<span style="color:#c8d8e8;margin-left:8px">${p.n} <span class="gold">$${p.cost}</span>${p.sim ? ' <span style="color:#406080">SIM</span>' : ''}</span>`).join('')}
+                    </div>`;
+                }).join('')}
+            ` : this.draftLog()}
+            </div>
+            </div>
         `;
     },
 

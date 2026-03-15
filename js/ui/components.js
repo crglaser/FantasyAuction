@@ -5,17 +5,8 @@
 
 const UI = {
     async init() {
-        // Handle Shared State from URL
         const urlParams = new URLSearchParams(window.location.search);
         const sharedState = urlParams.get('s');
-        if (sharedState) {
-            if (ShareManager.loadFromStateString(sharedState)) {
-                const banner = document.getElementById('readOnlyBanner');
-                if (banner) banner.style.display = 'flex';
-                const sBtn = document.getElementById('shareBtn');
-                if (sBtn) sBtn.style.display = 'none';
-            }
-        }
 
         // Admin mode setup
         window.ADMIN_MODE = false;
@@ -114,6 +105,16 @@ const UI = {
             STEAMER_EXTRAS.forEach(p => {
                 if (!seedIds.has(p.id)) AppState.players.push(p);
             });
+        }
+
+        // Apply shared state AFTER players are loaded so index lookups work
+        if (sharedState) {
+            if (ShareManager.loadFromStateString(sharedState)) {
+                const banner = document.getElementById('readOnlyBanner');
+                if (banner) banner.style.display = 'flex';
+                const sBtn = document.getElementById('shareBtn');
+                if (sBtn) sBtn.style.display = 'none';
+            }
         }
 
         this.renderControls();
