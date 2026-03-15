@@ -126,9 +126,17 @@ const DataLoader = {
      * Loads default CSVs with robust path handling.
      */
     async loadDefaultData() {
+        // If running as a local file (no HTTP server), skip fetch and use seed directly
+        if (window.location.protocol === 'file:') {
+            if (typeof SEED_PLAYERS !== 'undefined' && SEED_PLAYERS.length > 0) {
+                console.log(`[DataLoader] Local file mode — using ${SEED_PLAYERS.length} players from seed.js`);
+                return SEED_PLAYERS;
+            }
+        }
+
         try {
             const results = { auction: [], season: [] };
-            
+
             // Determine base path (helps with GitHub Pages vs local)
             const basePath = window.location.pathname.includes('FantasyAuction') ? '/FantasyAuction/assets/' : 'assets/';
             
@@ -162,8 +170,13 @@ const DataLoader = {
             }
             return [];
         } catch (e) {
-            console.error("[DataLoader] CRITICAL ERROR:", e);
-            return []; // Fail silently but log to console
+            console.warn("[DataLoader] CSV fetch failed, falling back to seed data:", e.message);
+            if (typeof SEED_PLAYERS !== 'undefined' && SEED_PLAYERS.length > 0) {
+                console.log(`[DataLoader] Using ${SEED_PLAYERS.length} players from seed.js`);
+                return SEED_PLAYERS;
+            }
+            console.error("[DataLoader] No seed data available either.");
+            return [];
         }
     },
 

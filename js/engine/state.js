@@ -3,11 +3,11 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.0.3';
+const APP_VERSION = '1.0.5';
 
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',
-    teams: 11, // UPDATED to 11 teams
+    teams: 10, // Back to 10
     budget: 202,
     aSlots: 17, // Auction slots per team
     sSlots: 14, // Snake slots per team
@@ -27,17 +27,16 @@ const LG = {
     },
     // Map of ID -> { owner, team }
     teamsMap: {
-        t1: { owner: 'Brian Garber & Andrew Lombardi', team: 'Garber/Lombardi' },
-        t2: { owner: 'Joe Achille', team: 'Joe Achille' },
-        t3: { owner: 'Barry Carlin', team: 'Barry Carlin' },
-        me: { owner: 'Terry Lyons & Craig Glaser', team: 'Teddy Ballgames' },
-        t5: { owner: 'Andrew & Susan Grossman', team: 'Grossman' },
-        t6: { owner: 'Andy Korbak', team: 'Andy Korbak' },
-        t7: { owner: 'Alex Tarshis', team: 'Alex Tarshis' },
-        t8: { owner: 'Bryan Boardman', team: 'Bryan Boardman' },
-        t9: { owner: 'Andy Enzweiler & Ed O’Brien', team: 'Enzweiler/O’Brien' },
-        t10: { owner: 'Derek Carlin & Justin Hurson', team: 'Carlin/Hurson' },
-        t11: { owner: 'Unlisted Owner 11', team: 'Team 11' } // Added 11th team
+        t1: { owner: 'Brian Garber & Andrew Lombardi', team: 'Spew' },
+        t2: { owner: 'Joe Achille', team: 'Village Idiots' },
+        t3: { owner: 'Barry Carlin', team: 'Happy Recap' },
+        me: { owner: 'Terry Lyons & Craig Glaser', team: 'Chathams' },
+        t5: { owner: 'Andrew & Susan Grossman', team: 'Widowmakers' },
+        t6: { owner: 'Andy Korbak', team: 'Dirt Dogs' },
+        t7: { owner: 'Alex Tarshis', team: 'Let’s Deal' },
+        t8: { owner: 'Bryan Boardman', team: 'Los Pollos Hermanos' },
+        t9: { owner: 'Andy Enzweiler & Ed O’Brien', team: 'Diamond Hacks' },
+        t10: { owner: 'Derek Carlin & Justin Hurson', team: 'The Rookies' }
     }
 };
 
@@ -118,7 +117,7 @@ const StateManager = {
             budgetRemaining: LG.budget - spent,
             rosterSize: `${myTeam.length}/${LG.total}`,
             currentRoster: myTeam.map(p => `${p.n} (${p.pos.join(',')}) - $${AppState.drafted[p.id].cost}`),
-            rules: "11 Teams, 17 Auction/14 Snake, $202 Budget, 1000 IP Min.",
+            rules: "10 Teams, 17 Auction/14 Snake, $202 Budget, 1000 IP Min.",
             categories: LG.categories,
             message: "Analyze my team needs based on these projections and league rules..."
         }, null, 2);
