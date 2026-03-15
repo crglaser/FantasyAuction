@@ -13,12 +13,11 @@ const Templates = {
 
         // Column toggle bar
         const staticToggles = [
-            { key: 'csValS',       label: 'SEASON $'    },
-            { key: 'csArb',        label: 'ARB'         },
-            { key: 'ecr',          label: 'ECR'         },
-            { key: 'espnAuction',  label: 'ESPN $'      },
-            { key: 'closerStatus', label: 'CLOSER'      },
-            { key: 'projections',  label: 'PROJ'        },
+            { key: 'csValS',      label: 'SEASON $' },
+            { key: 'csArb',       label: 'ARB'      },
+            { key: 'ecr',         label: 'ECR'      },
+            { key: 'espnAuction', label: 'ESPN $'   },
+            { key: 'projections', label: 'PROJ'     },
         ];
         const allToggles = [
             ...staticToggles,
@@ -47,7 +46,6 @@ const Templates = {
                             ${vis('csArb')       ? this.th('csArb', 'ARB Δ')    : ''}
                             ${vis('ecr')         ? this.th('ecr', 'ECR')        : ''}
                             ${vis('espnAuction') ? this.th('espnAuction', 'ESPN $') : ''}
-                            ${vis('closerStatus') ? '<th>CLOSER</th>'           : ''}
                             ${vis('projections') ? '<th>PROJECTIONS</th>'       : ''}
                             ${mCols.filter(k => vis(k)).map(k => this.th(k, k.replace(/_/g, ' '))).join('')}
                             <th>ACTION</th>
@@ -75,9 +73,16 @@ const Templates = {
                                     ${vis('csArb')        ? `<td>${this.formatCsArb(p.csArb)}</td>` : ''}
                                     ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
                                     ${vis('espnAuction')  ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
-                                    ${vis('closerStatus') ? `<td>${this.formatCloser(p)}</td>` : ''}
                                     ${vis('projections')  ? `<td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>` : ''}
-                                    ${mCols.filter(k => vis(k)).map(k => `<td class="mono" style="font-size:10px;color:#c8d8e8">${p[k] != null ? p[k] : '—'}</td>`).join('')}
+                                    ${mCols.filter(k => vis(k)).map(k => {
+                                        const v = p[k];
+                                        if (v == null) return `<td class="mono muted" style="font-size:10px">—</td>`;
+                                        // CM_Role values look like "CLOSER:SD" — render as closer badge
+                                        if (k === 'CM_Role' && typeof v === 'string' && v.includes(':')) {
+                                            return `<td>${this.formatCloser({closerStatus: v})}</td>`;
+                                        }
+                                        return `<td class="mono" style="font-size:10px;color:#c8d8e8">${v}</td>`;
+                                    }).join('')}
                                     <td>
                                         ${dr ? `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ ' : ''}${isMe ? 'MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>`
                                              : `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}

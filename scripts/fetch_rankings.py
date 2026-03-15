@@ -391,12 +391,20 @@ def main():
 
         write_rankings(rankings)
 
+        # Keep rp_rankings.csv CM_Role column in sync
+        print('\nSyncing CM_Role → data/manual/rp_rankings.csv ...')
+        try:
+            import subprocess
+            subprocess.run(['python3', 'scripts/bake_manual.py', '--sync'], check=True)
+        except Exception as e:
+            print(f'  (sync skipped: {e})')
+
     now = datetime.now(timezone.utc).strftime('%Y-%m-%d')
     print(f'\nTo deploy:')
     if do_ids:
         print(f'  git add {IDS_FILE}')
     if do_ranks:
-        print(f'  git add {RANKINGS_FILE}')
+        print(f'  git add {RANKINGS_FILE} data/manual/rp_rankings.csv js/data/manual_rankings.js')
     print(f'  git commit -m "Refresh rankings {now}" && git push')
 
 if __name__ == '__main__':

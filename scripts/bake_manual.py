@@ -14,10 +14,14 @@ To add a new group:        create a new CSV with a Name column.
 Usage:
   python3 scripts/bake_manual.py              # merge all CSVs → manual_rankings.js
   python3 scripts/bake_manual.py --init       # regenerate blank CSV templates from seed
+  python3 scripts/bake_manual.py --sync       # pull CloserMonkey data into rp_rankings.csv CM_Role column
 """
 
 import csv, json, re, unicodedata, os, sys, argparse
 from datetime import datetime, timezone
+
+RANKINGS_FILE = 'js/data/rankings.js'
+RP_CSV        = 'data/manual/rp_rankings.csv'
 
 MANUAL_DIR  = 'data/manual'
 SEED_FILE   = 'js/data/seed.js'
@@ -155,10 +159,60 @@ def init_templates(players):
           [{'Name': p['n']} for p in hit])
 
 
+def sync_closer_csv(players):
+    """Pull CM_Role from rankings.js into rp_rankings.csv (preserves manual edits to other columns)."""
+    try:
+        with open(RANKINGS_FILE) as f:
+            m = re.search(r'const PLAYER_RANKINGS = (\{.*\});', f.read(), re.DOTALL)
+        if not m:
+            print('  rankings.js not found or empty — run fetch_rankings.py --ranks first')
+            return
+        rankings = json.loads(m.group(1))
+    except FileNotFoundError:
+        print(f'  {RANKINGS_FILE} not found — run fetch_rankings.py --ranks first')
+        return
+
+    id_to_closer = {pid: r['closerStatus'] for pid, r in rankings.items() if 'closerStatus' in r}
+    name_to_id   = {name_key(p['n']): p['id'] for p in players}
+
+    with open(RP_CSV, newline='', encoding='utf-8') as f:
+        raw = f.readlines()
+
+    comments  = [l for l in raw if l.strip().startswith('#')]
+    data_lines = [l for l in raw if not l.strip().startswith('#')]
+    reader    = csv.DictReader(data_lines)
+    existing  = list(reader)
+    fieldnames = list(reader.fieldnames or [])
+
+    if 'CM_Role' not in fieldnames:
+        # Insert CM_Role as second column (after Name)
+        fieldnames.insert(1, 'CM_Role')
+
+    updated = 0
+    for row in existing:
+        pid = name_to_id.get(name_key(row.get('Name', '')))
+        new_val = id_to_closer.get(pid, '')
+        if row.get('CM_Role', '') != new_val:
+            row['CM_Role'] = new_val
+            if new_val:
+                updated += 1
+
+    with open(RP_CSV, 'w', newline='', encoding='utf-8') as f:
+        for c in comments:
+            f.write(c)
+        w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
+        w.writeheader()
+        w.writerows(existing)
+
+    print(f'  Synced CM_Role → {RP_CSV} ({updated} values updated, {len(existing)} rows total)')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--init', action='store_true',
                         help='Regenerate blank CSV templates from current seed')
+    parser.add_argument('--sync', action='store_true',
+                        help='Pull CloserMonkey data from rankings.js into CM_Role column')
     args = parser.parse_args()
 
     players = load_seed()
@@ -167,6 +221,12 @@ def main():
     if args.init:
         init_templates(players)
         return
+
+    if args.sync:
+        print('Syncing CM_Role from rankings.js...')
+        sync_closer_csv(players)
+        print()
+        # Fall through to re-bake after sync
 
     print(f'Reading {MANUAL_DIR}/*.csv ...')
     merged, all_fields = bake(players)
