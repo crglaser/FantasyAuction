@@ -74,7 +74,7 @@ const Templates = {
                             const estBadge = p.unofficial ? '<span class="est-badge">est</span>' : '';
                             const actionCell = dr
                                 ? (isSim
-                                    ? `<span class="muted" style="font-size:10px;opacity:0.5">SIM · ${LG.teamsMap[dr.team]?.team || dr.team} <span class="gold">$${dr.cost}</span></span>`
+                                    ? `<span class="muted" style="font-size:10px;cursor:pointer" onclick="UI.openDraftModal('${p.id}')" title="Edit sim pick">${LG.teamsMap[dr.team]?.team || dr.team} <span class="gold">$${dr.cost}</span> <span style="font-size:9px;opacity:0.4">SIM✎</span></span>`
                                     : `<span class="${isMe ? 'gold' : 'muted'}" style="cursor:pointer" title="Click to edit" onclick="UI.openDraftModal('${p.id}')">${isMe ? '★ MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span> <span style="font-size:9px;opacity:0.35">✎</span></span>`)
                                 : `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`;
                             return `
@@ -422,7 +422,8 @@ const Templates = {
                 <span style="color:#7090a8;font-size:11px;flex:1">Projected Roto standings based on drafted players.${simActive ? ' <span style="color:#e8c040">★ SIMULATION ACTIVE</span>' : ' Updates live.'}</span>
                 ${simActive
                     ? `<button class="btn btn-danger" onclick="UI.clearSimulation()">CLEAR SIM</button>`
-                    : `<button class="btn btn-go" onclick="UI.simulateDraft()">SIMULATE DRAFT</button>`
+                    : `<button class="btn btn-go" onclick="UI.simulateDraft()">SIM FULL DRAFT</button>
+                       <button class="btn" style="margin-left:4px" onclick="UI.simulateAuction()">SIM AUCTION ONLY</button>`
                 }
             </div>
             <div class="tbl-wrap"><table>

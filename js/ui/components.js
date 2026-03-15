@@ -233,28 +233,96 @@ const UI = {
     },
 
     // --- Draft Simulation ---
-    simulateDraft() {
-        const realDrafted = AppState.drafted;
-        const teams = Object.keys(LG.teamsMap);
-
-        // Build real rosters per team
+    // Shared helpers for simulation
+    _simBuildRealRosters(teams) {
         const realRosters = {};
         teams.forEach(tid => { realRosters[tid] = []; });
-        Object.entries(realDrafted).forEach(([id, pick]) => {
+        Object.entries(AppState.drafted).forEach(([id, pick]) => {
             const p = AppState.players.find(x => x.id === id);
             if (p && realRosters[pick.team]) realRosters[pick.team].push(p);
         });
+        return realRosters;
+    },
 
-        // Available pool (exclude real picks)
-        const taken = new Set(Object.keys(realDrafted));
+    _simAssignCosts(simRosters, realRosters) {
+        // Assign costs with ±30% variance; snake picks get $0
+        const realDrafted = AppState.drafted;
+        Object.entries(simRosters).forEach(([tid, picks]) => {
+            if (!picks.length) return;
+            const auctionPicks = picks.filter(p => p._simAuction);
+            const snakePicks   = picks.filter(p => !p._simAuction);
+            const realSpent    = realRosters[tid].reduce((s, p) => s + (realDrafted[p.id]?.cost || 0), 0);
+            const budget       = Math.max(LG.budget - realSpent, auctionPicks.length);
+            const totalVal     = auctionPicks.reduce((s, p) => s + Math.max(p.csValAAdj || 1, 1), 0);
+            auctionPicks.forEach(p => {
+                const base     = Math.max(p.csValAAdj || 1, 1) / totalVal * budget;
+                const variance = 0.70 + Math.random() * 0.60; // 0.70× – 1.30×
+                const cost     = Math.max(1, Math.round(base * variance));
+                AppState.simDrafted[p.id] = { cost, team: tid, sim: true };
+            });
+            snakePicks.forEach(p => {
+                AppState.simDrafted[p.id] = { cost: 0, team: tid, sim: true };
+            });
+        });
+    },
+
+    simulateAuction() {
+        const teams      = Object.keys(LG.teamsMap);
+        const realRosters = this._simBuildRealRosters(teams);
+        const taken      = new Set(Object.keys(AppState.drafted));
+        // Shuffle pool with value-weighted noise so not always the same players
         const pool = AppState.players
-            .filter(p => !taken.has(p.id) && ((p.csValAAdj || 0) > 0 || (p.csValA || 0) > 0))
-            .sort((a, b) => (b.csValAAdj || b.csValA || 0) - (a.csValAAdj || a.csValA || 0));
+            .filter(p => !taken.has(p.id) && (p.csValAAdj || 0) > 0)
+            .map(p => ({ p, sort: (p.csValAAdj || 0) + (Math.random() - 0.5) * 8 }))
+            .sort((a, b) => b.sort - a.sort)
+            .map(x => x.p);
 
-        // Position minimums per team
-        const quota = { C: 1, '1B': 2, '2B': 2, '3B': 2, SS: 2, OF: 5, SP: 5, RP: 3 };
+        const simRosters = {};
+        teams.forEach(tid => { simRosters[tid] = []; });
+        const simPicked = new Set();
+
+        // Simple snake with per-round shuffle and occasional skip (reach/miss)
+        for (let round = 0; round < LG.aSlots + 2; round++) {
+            const base  = round % 2 === 0 ? [...teams] : [...teams].reverse();
+            // Slight shuffle within round to simulate bidding chaos
+            const order = base.map((t, i) => ({ t, r: i + (Math.random() - 0.5) * 1.5 }))
+                              .sort((a, b) => a.r - b.r).map(x => x.t);
+            for (const tid of order) {
+                const realAuc = realRosters[tid].length;
+                const simAuc  = simRosters[tid].filter(p => p._simAuction).length;
+                if (realAuc + simAuc >= LG.aSlots) continue;
+                // 15% chance to skip best and take next-best (simulate being outbid)
+                const skip   = Math.random() < 0.15 ? 1 : 0;
+                let found = 0;
+                const pick = pool.find(p => {
+                    if (simPicked.has(p.id)) return false;
+                    if (found++ < skip) return false;
+                    return true;
+                });
+                if (!pick) continue;
+                pick._simAuction = true;
+                simPicked.add(pick.id);
+                simRosters[tid].push(pick);
+            }
+        }
+
+        AppState.simDrafted = {};
+        this._simAssignCosts(simRosters, realRosters);
+        this.render();
+    },
+
+    simulateDraft() {
+        const teams       = Object.keys(LG.teamsMap);
+        const realRosters = this._simBuildRealRosters(teams);
+        const taken       = new Set(Object.keys(AppState.drafted));
+        const pool = AppState.players
+            .filter(p => !taken.has(p.id) && (p.csValAAdj || 0) > 0)
+            .map(p => ({ p, sort: (p.csValAAdj || 0) + (Math.random() - 0.5) * 8 }))
+            .sort((a, b) => b.sort - a.sort)
+            .map(x => x.p);
+
+        const quota   = { C: 1, '1B': 2, '2B': 2, '3B': 2, SS: 2, OF: 5, SP: 5, RP: 3 };
         const posOrder = ['SP', 'RP', 'C', '1B', 'SS', '2B', '3B', 'OF'];
-
         const simRosters = {};
         teams.forEach(tid => { simRosters[tid] = []; });
         const simPicked = new Set();
@@ -265,44 +333,46 @@ const UI = {
             all.forEach(p => p.pos.forEach(pos => { c[pos] = (c[pos] || 0) + 1; }));
             return c;
         };
-        const getSize = tid => realRosters[tid].length + simRosters[tid].length;
-        const needPos = tid => {
+        const getSize  = tid => realRosters[tid].length + simRosters[tid].length;
+        const needPos  = tid => {
             const c = getCounts(tid);
-            for (const pos of posOrder) {
-                if ((c[pos] || 0) < (quota[pos] || 0)) return pos;
-            }
+            for (const pos of posOrder) if ((c[pos] || 0) < (quota[pos] || 0)) return pos;
             return null;
         };
-        const bestFor = posFilter => pool.find(p => !simPicked.has(p.id) && (!posFilter || p.pos.includes(posFilter)));
+        const bestFor  = (posFilter, skip = 0) => {
+            let skipped = 0;
+            return pool.find(p => {
+                if (simPicked.has(p.id)) return false;
+                if (posFilter && !p.pos.includes(posFilter)) return false;
+                return skipped++ >= skip;
+            });
+        };
 
-        // Snake draft rounds
         for (let round = 0; round < LG.total + 5; round++) {
-            const order = round % 2 === 0 ? [...teams] : [...teams].reverse();
+            const isAuction = round < LG.aSlots;
+            const base  = round % 2 === 0 ? [...teams] : [...teams].reverse();
+            const order = base.map((t, i) => ({ t, r: i + (Math.random() - 0.5) * 1.5 }))
+                              .sort((a, b) => a.r - b.r).map(x => x.t);
             let anyPick = false;
             for (const tid of order) {
                 if (getSize(tid) >= LG.total) continue;
-                const pick = bestFor(needPos(tid)) || bestFor(null);
+                const auctionSoFar = simRosters[tid].filter(p => p._simAuction).length + realRosters[tid].length;
+                if (isAuction && auctionSoFar >= LG.aSlots) continue;
+                if (!isAuction && auctionSoFar < LG.aSlots) continue;
+                const skip = Math.random() < 0.15 ? 1 : 0;
+                const pos  = needPos(tid);
+                const pick = bestFor(pos, skip) || bestFor(null, skip) || bestFor(null, 0);
                 if (!pick) continue;
                 anyPick = true;
+                if (isAuction) pick._simAuction = true;
                 simPicked.add(pick.id);
                 simRosters[tid].push(pick);
             }
             if (!anyPick) break;
         }
 
-        // Assign costs proportionally from remaining budget
         AppState.simDrafted = {};
-        teams.forEach(tid => {
-            const picks = simRosters[tid];
-            if (!picks.length) return;
-            const realSpent = realRosters[tid].reduce((s, p) => s + (realDrafted[p.id]?.cost || 0), 0);
-            const budget = Math.max(LG.budget - realSpent, picks.length);
-            const total = picks.reduce((s, p) => s + Math.max(p.csValAAdj || 1, 1), 0);
-            picks.forEach(p => {
-                const cost = Math.max(1, Math.round(Math.max(p.csValAAdj || 1, 1) / total * budget));
-                AppState.simDrafted[p.id] = { cost, team: tid, sim: true };
-            });
-        });
+        this._simAssignCosts(simRosters, realRosters);
         this.render();
     },
 

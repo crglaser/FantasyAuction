@@ -9,12 +9,15 @@ const Modals = {
         const p = AppState.players.find(x => x.id === id);
         if (!p) return;
         AppState.pendingPlayerId = id;
-        const existing = AppState.drafted[id];
-        document.getElementById('modalTitle').textContent = existing ? `Edit Pick: ${p.n}` : `Draft: ${p.n}`;
+        const realPick = AppState.drafted[id];
+        const simPick  = AppState.simDrafted[id];
+        const existing = realPick || simPick;
+        AppState.pendingIsSim = !realPick && !!simPick;
+        const label = realPick ? `Edit Pick: ${p.n}` : simPick ? `Edit Sim: ${p.n}` : `Draft: ${p.n}`;
+        document.getElementById('modalTitle').textContent = label;
         const teamSel = document.getElementById('mTeam');
         teamSel.value = existing ? existing.team : 'me';
         this.updateDraftConstraints(teamSel.value);
-        // Set cost after constraints so it gets clamped if needed
         const costEl = document.getElementById('mCost');
         if (!costEl.disabled) {
             costEl.value = existing ? existing.cost : Math.min(p.csValAAdj || p.aValAdj || 1, parseInt(costEl.max) || 202);
@@ -93,19 +96,21 @@ const Modals = {
             if (cost > max) { alert(`Maximum bid for ${LG.teamsMap[teamId]?.team || teamId} is $${max}.`); return; }
         }
 
-        const isNew = !AppState.drafted[id];
-        AppState.drafted[id] = {
-            cost,
-            team: teamId,
-            ts: Date.now()
-        };
-        if (isNew) {
-            AppState.draftLog.push({ id, ...AppState.drafted[id] });
+        if (AppState.pendingIsSim) {
+            // Save back to simDrafted only — never touches draftLog
+            AppState.simDrafted[id] = { cost, team: teamId, sim: true };
         } else {
-            const entry = AppState.draftLog.find(e => e.id === id);
-            if (entry) Object.assign(entry, AppState.drafted[id]);
+            const isNew = !AppState.drafted[id];
+            AppState.drafted[id] = { cost, team: teamId, ts: Date.now() };
+            if (isNew) {
+                AppState.draftLog.push({ id, ...AppState.drafted[id] });
+            } else {
+                const entry = AppState.draftLog.find(e => e.id === id);
+                if (entry) Object.assign(entry, AppState.drafted[id]);
+            }
+            StateManager.save();
         }
-        StateManager.save();
+        AppState.pendingIsSim = false;
         this.closeModal();
         UI.render();
     },
