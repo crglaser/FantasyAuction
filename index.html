@@ -23,11 +23,13 @@
 
     <div class="tabs">
         <div class="tab active" id="tab-auction" onclick="UI.showTab('auction')">AUCTION BOARD</div>
+        <div class="tab" id="tab-season" onclick="UI.showTab('season')">SEASON VALUE</div>
+        <div class="tab" id="tab-arb" onclick="UI.showTab('arb')">ARBITRAGE ★</div>
         <div class="tab" id="tab-myteam" onclick="UI.showTab('myteam')">MY TEAM</div>
         <div class="tab" id="tab-league" onclick="UI.showTab('league')">LEAGUE TRACKER</div>
-        <div class="tab" id="tab-standings" onclick="UI.showTab('standings')">STANDINGS ★</div>
-        <div class="tab" id="tab-ai" onclick="UI.showTab('ai')">AI ADVISOR 🤖</div>
         <div class="tab" id="tab-import" onclick="UI.showTab('import')">IMPORT DATA</div>
+        <div id="readOnlyBanner" style="display:none;margin-left:auto;align-items:center;padding:0 15px;color:#e8c040;font-size:11px;font-weight:700;letter-spacing:1px">READ-ONLY MODE (SHARED)</div>
+        <button id="shareBtn" class="btn btn-go" style="margin-left:auto;border-radius:0;border-top:0;border-bottom:0" onclick="ShareManager.copyShareLink()">SHARE LINK</button>
     </div>
 
     <div id="controlsBar"></div>
@@ -107,11 +109,14 @@
 
     <!-- Logic Layers -->
     <script src="js/engine/state.js"></script>
+    <script src="js/engine/share.js"></script>
     <script src="js/engine/injuries.js"></script>
     <script src="js/engine/zscore.js"></script>
     <script src="js/engine/assistant.js"></script>
     <script src="js/data/seed.js"></script>
     <script src="js/data/injuries_cache.js"></script>
+    <script src="js/data/player_ids.js"></script>
+    <script src="js/data/rankings.js"></script>
     <script src="js/data/loader.js"></script>
     <script src="js/ui/components.js"></script>
     <script>

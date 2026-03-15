@@ -4,6 +4,18 @@
 
 const UI = {
     async init() {
+        // Handle Shared State from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sharedState = urlParams.get('s');
+        if (sharedState) {
+            if (ShareManager.loadFromStateString(sharedState)) {
+                const banner = document.getElementById('readOnlyBanner');
+                if (banner) banner.style.display = 'flex';
+                const sBtn = document.getElementById('shareBtn');
+                if (sBtn) sBtn.style.display = 'none';
+            }
+        }
+
         // Admin mode: only unlocked via ?admin URL param + password
         window.ADMIN_MODE = false;
         if (new URLSearchParams(window.location.search).has('admin')) {
@@ -50,6 +62,27 @@ const UI = {
                 const players = await DataLoader.loadDefaultData();
                 if (players.length > 0) AppState.players = players;
             }
+        }
+
+        // Merge external rankings + IDs into player objects
+        if (typeof PLAYER_RANKINGS !== 'undefined') {
+            AppState.players.forEach(p => {
+                const r = PLAYER_RANKINGS[p.id];
+                if (!r) return;
+                if (r.ecr != null)         p.ecr          = r.ecr;
+                if (r.espnAuction != null)  p.espnAuction  = r.espnAuction;
+                if (r.adp != null)          p.adp          = r.adp;
+                if (r.closerStatus != null) {
+                    p.closerStatus = r.closerStatus;
+                    p.closerRank   = r.closerStatus === 'CLOSER' ? 3 : r.closerStatus === 'HANDCUFF' ? 2 : 1;
+                }
+            });
+        }
+        if (typeof PLAYER_IDS !== 'undefined') {
+            AppState.players.forEach(p => {
+                const ids = PLAYER_IDS[p.id];
+                if (ids?.fgId) p.fgId = ids.fgId;
+            });
         }
 
         this.renderControls();
@@ -105,8 +138,11 @@ const UI = {
         if (ui.hideDrafted) list = list.filter(p => !AppState.drafted[p.id]);
 
         return list.sort((a, b) => {
-            const av = a[ui.sortCol] ?? -999;
-            const bv = b[ui.sortCol] ?? -999;
+            const av = a[ui.sortCol];
+            const bv = b[ui.sortCol];
+            if (av == null && bv == null) return 0;
+            if (av == null) return 1;
+            if (bv == null) return -1;
             return ui.sortDir === 'desc' ? bv - av : av - bv;
         });
     },
@@ -147,6 +183,9 @@ const UI = {
                             ${this.th('csValAAdj', 'AUC $★')}
                             ${this.th('csValS', 'SEASON $')}
                             ${this.th('csArb', 'ARB Δ')}
+                            ${this.th('ecr', 'ECR')}
+                            ${this.th('espnAuction', 'ESPN $')}
+                            <th>CLOSER</th>
                             <th>PROJECTIONS</th>
                             <th>ACTION</th>
                         </tr>
@@ -170,6 +209,9 @@ const UI = {
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
                                     <td class="grn">$${p.csValS}</td>
                                     <td>${this.formatCsArb(p.csArb)}</td>
+                                    <td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>
+                                    <td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>
+                                    <td>${this.formatCloser(p)}</td>
                                     <td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>
                                     <td>
                                         ${dr ? `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ ' : ''}${isMe ? 'MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>` :
@@ -711,8 +753,9 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
         // External links (search-based, always work)
         document.getElementById('linkCBS').href =
             `https://www.cbssports.com/mlb/players/search/${encodeURIComponent(p.n)}/`;
-        document.getElementById('linkFG').href =
-            `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
+        document.getElementById('linkFG').href = p.fgId
+            ? `https://www.fangraphs.com/statss.aspx?playerid=${p.fgId}&position=${p.IP > 0 ? 'P' : 'PB'}`
+            : `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
 
         // Notes
         document.getElementById('noteArea').value = note;
@@ -757,6 +800,19 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
             AppState.ui.sortDir = 'desc';
         }
         this.render();
+    },
+
+    formatCloser(p) {
+        if (!p.closerStatus) return '';
+        const cfg = {
+            CLOSER:   { color: '#40b870', label: 'CLO' },
+            HANDCUFF: { color: '#e8c040', label: 'HCF' },
+            DEEP:     { color: '#406080', label: 'DPE' },
+        };
+        const c = cfg[p.closerStatus];
+        if (c) return `<span class="pb" style="background:#0a1a0a;border-color:${c.color};color:${c.color}">${c.label}</span>`;
+        // SVH#N format
+        return `<span class="pb" style="background:#0a1a0a;border-color:#406080;color:#7090a8">${p.closerStatus}</span>`;
     },
 
     formatCsArb(val) {
