@@ -83,6 +83,22 @@
         </div>
     </div>
 
+    <!-- Injury Modal -->
+    <div class="modal-bg" id="injuryModal">
+        <div class="modal" style="max-width: 450px;">
+            <div class="modal-title" id="injTitle">Player Injury Info</div>
+            <p class="muted" style="margin-bottom: 20px;">Check the latest status for <strong id="injName" style="color:#fff"></strong>:</p>
+            <div class="field">
+                <a id="linkRotoworld" class="btn btn-go" target="_blank" style="display:block;text-align:center;margin-bottom:10px;text-decoration:none">NBC SPORTS / ROTOWORLD</a>
+                <a id="linkCBS" class="btn" target="_blank" style="display:block;text-align:center;margin-bottom:10px;text-decoration:none">CBS SPORTS STATUS</a>
+                <a id="linkFG" class="btn" target="_blank" style="display:block;text-align:center;text-decoration:none">FANGRAPHS PLAYER PAGE</a>
+            </div>
+            <div class="modal-btns">
+                <button class="btn" onclick="document.getElementById('injuryModal').classList.remove('open')">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Logic Layers -->
     <script src="js/engine/state.js"></script>
     <script src="js/engine/zscore.js"></script>
