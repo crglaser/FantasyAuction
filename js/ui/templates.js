@@ -141,11 +141,30 @@ const Templates = {
     },
 
     arb(players) {
-        return `
-            <div class="arb-legend">
-                <span><span class="grn">■</span> POSITIVE = Season value exceeds auction → <strong>BUY</strong></span>
-                <span><span class="red">■</span> NEGATIVE = Auction value exceeds season → <strong>TRAP</strong></span>
+        const vis  = key => UI.colVisible(key);
+        const arbToggles = [
+            { key: 'arb_season',  label: 'SEASON $' },
+            { key: 'arb_ecr',     label: 'ECR'      },
+            { key: 'arb_espn',    label: 'ESPN $'    },
+            { key: 'arb_mkt',     label: 'MKT RATIO' },
+            { key: 'arb_scout',   label: 'SCOUT'     },
+            { key: 'arb_draft',   label: 'DRAFT'     },
+        ];
+        const toggleBar = `
+            <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30;margin-bottom:0">
+                <span style="font-size:10px;color:#406080;line-height:22px;margin-right:4px">COLUMNS:</span>
+                ${arbToggles.map(({key, label}) => `
+                    <button onclick="UI.toggleCol('${key}')" style="font-size:10px;padding:2px 8px;border:1px solid ${vis(key) ? '#2a5080' : '#1a2a3a'};background:${vis(key) ? '#0a2040' : '#060e18'};color:${vis(key) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
+                `).join('')}
             </div>
+            <div class="arb-legend">
+                <span><span class="grn">■</span> BUY — season value exceeds auction price</span>
+                <span><span class="red">■</span> TRAP — market has inflated the price</span>
+                <span style="color:#7090a8;font-size:10px">MKT RATIO = ESPN auction ÷ our AUC value (>1 = market overvalues, <1 = market undervalues)</span>
+            </div>`;
+
+        return `
+            ${toggleBar}
             <div class="tbl-wrap">
                 <table>
                     <thead>
@@ -153,29 +172,41 @@ const Templates = {
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('csArb', 'ARB ($)')}
-                            ${this.th('csValS', 'SEASON $★')}
+                            ${this.th('csArb',     'ARB Δ')}
                             ${this.th('csValAAdj', 'AUC $★')}
+                            ${vis('arb_season') ? this.th('csValS',      'SEASON $★') : ''}
+                            ${vis('arb_ecr')    ? this.th('ecr',         'ECR')       : ''}
+                            ${vis('arb_espn')   ? this.th('espnAuction', 'ESPN $')    : ''}
+                            ${vis('arb_mkt')    ? this.th('arbMktRatio', 'MKT RATIO') : ''}
+                            ${vis('arb_scout')  ? '<th>SCOUT</th>'                   : ''}
+                            ${vis('arb_draft')  ? '<th></th>'                        : ''}
                         </tr>
                     </thead>
                     <tbody>
                         ${players.map(p => {
                             const dr = AppState.drafted[p.id];
+                            const rowCls = (dr ? 'drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
+                            const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
+                            const mktColor = mktRatio == null ? '#7090a8' : mktRatio > 1.25 ? '#d04040' : mktRatio < 0.8 ? '#40b870' : '#c8d8e8';
+                            const injBadge = p.inj ? `<span class="wb" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : '';
                             return `
-                                <tr class="${dr ? 'drafted' : ''}${p.csArb > 3 && !dr ? ' aup' : ''}${p.csArb < -3 && !dr ? ' adn' : ''}">
-                                    <td class="nm">${p.n}${p.inj ? `<span class="wb" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : ''}</td>
+                                <tr class="${rowCls}">
+                                    <td class="nm">${p.n}${injBadge}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td style="font-size:15px">${this.formatCsArb(p.csArb)}</td>
-                                    <td class="grn">$${p.csValS}</td>
-                                    <td class="gold">$${p.csValAAdj}</td>
-                                </tr>
-                            `;
+                                    <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
+                                    ${vis('arb_season') ? `<td class="grn">$${p.csValS}</td>` : ''}
+                                    ${vis('arb_ecr')    ? `<td class="mono muted" style="font-size:10px">${p.ecr ?? '—'}</td>` : ''}
+                                    ${vis('arb_espn')   ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
+                                    ${vis('arb_mkt')    ? `<td class="mono" style="font-size:11px;color:${mktColor}">${mktRatio != null ? mktRatio.toFixed(2)+'×' : '—'}</td>` : ''}
+                                    ${vis('arb_scout')  ? `<td>${this.formatScout(p)}</td>` : ''}
+                                    ${vis('arb_draft')  ? `<td>${dr ? `<span class="muted" style="font-size:10px">${dr.team==='me'?'★ MINE':(LG.teamsMap[dr.team]?.team||'GONE')} <span class="gold">$${dr.cost}</span></span>` : `<button class="btn btn-go" style="font-size:10px;padding:2px 6px" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}</td>` : ''}
+                                </tr>`;
                         }).join('')}
                     </tbody>
                 </table>
-            </div>
-        `;
+            </div>`;
     },
 
     myteam() {

@@ -76,8 +76,71 @@ const Modals = {
             : `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
 
         document.getElementById('noteArea').value = note;
+        // Reset AI summary block for each new player
+        document.getElementById('injSummaryBlock').style.display = 'none';
+        document.getElementById('injSummarizeBtn').textContent = '⚡ AI SUMMARY';
         document.getElementById('injuryModal').classList.add('open');
         InjuryManager.markRead(id);
+    },
+
+    async summarizeInjury() {
+        const id = AppState.pendingPlayerId;
+        const news = id ? InjuryManager.getLatestFor(id) : null;
+        const apiKey = localStorage.getItem('claudeApiKey');
+
+        const btn   = document.getElementById('injSummarizeBtn');
+        const block = document.getElementById('injSummaryBlock');
+        const out   = document.getElementById('injSummary');
+
+        if (!apiKey) {
+            block.style.display = 'block';
+            out.innerHTML = '<span style="color:#7090a8">Add a Claude API key in the AI ADVISOR tab to enable injury summaries.</span>';
+            return;
+        }
+        if (!news?.blurb) {
+            block.style.display = 'block';
+            out.innerHTML = '<span style="color:#7090a8">No news blurb available to summarize.</span>';
+            return;
+        }
+
+        btn.textContent = '…';
+        btn.disabled = true;
+        block.style.display = 'block';
+        out.innerHTML = '<span style="color:#406080">Summarizing…</span>';
+
+        try {
+            const res = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01',
+                    'anthropic-dangerous-direct-browser-access': 'true',
+                },
+                body: JSON.stringify({
+                    model: 'claude-haiku-4-5-20251001',
+                    max_tokens: 120,
+                    system: 'You are a terse fantasy baseball injury analyst. Respond with exactly 3 labeled lines and nothing else.',
+                    messages: [{
+                        role: 'user',
+                        content: `Summarize this injury report in exactly 3 lines:\nINJURY: [type of injury]\nPROGNOSIS: [good/moderate/serious/season-ending]\nRETURN: [expected timeline, e.g. "2-3 weeks" or "day-to-day" or "out for season"]\n\nReport: ${news.blurb}`
+                    }]
+                })
+            });
+            const data = await res.json();
+            const text = data.content?.[0]?.text || 'Could not parse response.';
+            // Format the 3 lines with colored labels
+            out.innerHTML = text.split('\n').filter(l => l.trim()).map(line => {
+                const m = line.match(/^(INJURY|PROGNOSIS|RETURN):\s*(.*)/i);
+                if (!m) return `<span style="color:#c8d8e8">${line}</span>`;
+                const labelColor = { INJURY: '#e8c040', PROGNOSIS: '#7090a8', RETURN: '#40b870' }[m[1].toUpperCase()] || '#c8d8e8';
+                return `<span style="color:${labelColor};font-weight:700">${m[1]}:</span> <span style="color:#c8d8e8">${m[2]}</span>`;
+            }).join('<br>');
+        } catch (e) {
+            out.innerHTML = `<span style="color:#d04040">Error: ${e.message}</span>`;
+        }
+        btn.textContent = '⚡ AI SUMMARY';
+        btn.disabled = false;
     },
 
     savePlayerNote() {
