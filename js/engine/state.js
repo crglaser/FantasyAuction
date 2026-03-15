@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.0.7';
+const APP_VERSION = '1.0.8';
 
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',

@@ -14,6 +14,8 @@ const UI = {
             }
         }
 
+        // Initial render of controls (only once)
+        this.renderControls();
         this.render();
         this.setupEventListeners();
     },
@@ -24,6 +26,15 @@ const UI = {
         sel.innerHTML = Object.entries(LG.teamsMap).map(([id, info]) =>
             `<option value="${id}">${info.team}</option>`
         ).join('');
+    },
+
+    /**
+     * Renders the persistent control bar separately from the table data.
+     */
+    renderControls() {
+        const ctrlBar = document.getElementById('controlsBar');
+        if (!ctrlBar) return;
+        ctrlBar.innerHTML = this.templateControls();
     },
 
     render() {
@@ -72,10 +83,16 @@ const UI = {
         const myPlayers = myDrafted.map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
         const projIP = myPlayers.reduce((s, p) => s + (p.IP || 0), 0);
 
-        document.getElementById('hBudget').textContent = `$${LG.budget - spent}`;
-        document.getElementById('hRoster').textContent = `${myPlayers.length}/${LG.total}`;
-        document.getElementById('hIP').textContent = Math.round(projIP);
-        document.getElementById('hIP').style.color = projIP >= LG.minIP ? '#40b870' : (projIP > 600 ? '#e8c040' : '#d04040');
+        const hBudget = document.getElementById('hBudget');
+        const hRoster = document.getElementById('hRoster');
+        const hIP = document.getElementById('hIP');
+
+        if (hBudget) hBudget.textContent = `$${LG.budget - spent}`;
+        if (hRoster) hRoster.textContent = `${myPlayers.length}/${LG.total}`;
+        if (hIP) {
+            hIP.textContent = Math.round(projIP);
+            hIP.style.color = projIP >= LG.minIP ? '#40b870' : (projIP > 600 ? '#e8c040' : '#d04040');
+        }
         
         const sTot = document.getElementById('sTot');
         if (sTot) sTot.textContent = AppState.players.length;
@@ -84,7 +101,7 @@ const UI = {
     // --- Templates ---
 
     templateAuction(players) {
-        return this.templateControls() + `
+        return `
             <div class="tbl-wrap">
                 <table>
                     <thead>
@@ -132,12 +149,12 @@ const UI = {
     },
 
     templateSeason(players) {
-        return this.templateControls() + `
+        return `
             <div class="tbl-wrap">
                 <table>
                     <thead>
                         <tr>
-                            ${this.th('csValS', '#')}
+                            ${this.th('csRank', '#')}
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
@@ -173,7 +190,7 @@ const UI = {
     },
 
     templateArb(players) {
-        return this.templateControls() + `
+        return `
             <div class="arb-legend">
                 <span><span class="grn">■</span> POSITIVE = Season value exceeds auction → <strong>BUY at auction</strong></span>
                 <span><span class="red">■</span> NEGATIVE = Auction value exceeds season → <strong>TRAP / snake target</strong></span>
@@ -313,7 +330,7 @@ const UI = {
         const weights = set.weights;
         return `
             <div class="controls">
-                <div class="ctrl"><span class="lbl">Search</span><input type="text" placeholder="Name or team..." value="${ui.search}" oninput="AppState.ui.search=this.value;UI.render()"></div>
+                <div class="ctrl"><span class="lbl">Search</span><input type="text" id="playerSearch" placeholder="Name or team..." value="${ui.search}" oninput="UI.handleSearch(this.value)"></div>
                 <div class="ctrl">
                     <span class="lbl">Pos</span>
                     <select onchange="AppState.ui.posFilter=this.value;UI.render()">
@@ -323,17 +340,17 @@ const UI = {
                 </div>
                 <div class="ctrl">
                     <span class="lbl">Hit $ split</span>
-                    <input type="range" min="55" max="75" value="${set.hitSplit}" oninput="AppState.settings.hitSplit=+this.value;UI.render()">
-                    <span class="badge">${set.hitSplit}%</span>
+                    <input type="range" min="55" max="75" value="${set.hitSplit}" oninput="AppState.settings.hitSplit=+this.value;UI.updateSplitLabel(this.value);UI.render()">
+                    <span class="badge" id="splitBadge">${set.hitSplit}%</span>
                 </div>
                 <div class="ctrl">
                     <span class="lbl">Snake Disc</span>
-                    <button class="tog ${set.snakeDisc?'on':''}" onclick="AppState.settings.snakeDisc=!AppState.settings.snakeDisc;UI.render()">${set.snakeDisc?'ON':'OFF'}</button>
+                    <button class="tog ${set.snakeDisc?'on':''}" onclick="AppState.settings.snakeDisc=!AppState.settings.snakeDisc;this.classList.toggle('on');this.textContent=AppState.settings.snakeDisc?'ON':'OFF';UI.render()">${set.snakeDisc?'ON':'OFF'}</button>
                 </div>
                 <div class="ctrl">
                     <span class="lbl">Cutoff</span>
-                    <input type="range" min="100" max="250" value="${set.snakeCutoff}" oninput="AppState.settings.snakeCutoff=+this.value;UI.render()">
-                    <span class="badge">${set.snakeCutoff}</span>
+                    <input type="range" min="100" max="250" value="${set.snakeCutoff}" oninput="AppState.settings.snakeCutoff=+this.value;UI.updateCutoffLabel(this.value);UI.render()">
+                    <span class="badge" id="cutoffBadge">${set.snakeCutoff}</span>
                 </div>
                 <div class="ctrl">
                     <label style="display:flex;gap:5px;align-items:center;cursor:pointer">
@@ -355,11 +372,6 @@ const UI = {
                 `).join('')}
             </div>
         `;
-    },
-
-    toggleWeights() {
-        const el = document.getElementById('weightControls');
-        el.style.display = el.style.display === 'none' ? 'flex' : 'none';
     },
 
     templateImport() {
@@ -406,19 +418,42 @@ const UI = {
         `;
     },
 
+    // --- Interaction Handlers ---
+
+    handleSearch(val) {
+        AppState.ui.search = val;
+        this.render();
+    },
+
+    updateSplitLabel(val) {
+        const badge = document.getElementById('splitBadge');
+        if (badge) badge.textContent = val + '%';
+    },
+
+    updateCutoffLabel(val) {
+        const badge = document.getElementById('cutoffBadge');
+        if (badge) badge.textContent = val;
+    },
+
     async reloadDefaults() {
         const status = document.getElementById('importStatus');
-        status.textContent = "Fetching default data...";
-        status.className = "gold";
+        if (status) {
+            status.textContent = "Fetching default data...";
+            status.className = "gold";
+        }
         const players = await DataLoader.loadDefaultData();
         if (players.length > 0) {
             AppState.players = players;
-            status.textContent = `Successfully merged ${players.length} players from defaults.`;
-            status.className = "grn";
+            if (status) {
+                status.textContent = `Successfully merged ${players.length} players from defaults.`;
+                status.className = "grn";
+            }
             this.render();
         } else {
-            status.textContent = "Failed to load defaults. Check console/network.";
-            status.className = "red";
+            if (status) {
+                status.textContent = "Failed to load defaults. Check console/network.";
+                status.className = "red";
+            }
         }
     },
 
@@ -474,6 +509,10 @@ const UI = {
         document.querySelectorAll('.tab').forEach(el => {
             el.classList.toggle('active', el.id === `tab-${tab}`);
         });
+        // Controls are only visible for the main board tabs
+        const hasControls = ['auction', 'season', 'arb'].includes(tab);
+        document.getElementById('controlsBar').style.display = hasControls ? 'block' : 'none';
+        
         this.render();
     },
 
@@ -483,8 +522,8 @@ const UI = {
         
         AppState.pendingPlayerId = id;
         document.getElementById('modalTitle').textContent = `Draft: ${p.n}`;
-        document.getElementById('mCost').value = p.aValAdj || 1;
-        document.getElementById('mTeam').value = 'me';
+        document.getElementById('mCost').value = p.csValAAdj || p.aValAdj || 1;
+        document.getElementById('mTeam').value = 'me'; // Default to Chathams
         document.getElementById('modalBg').classList.add('open');
         setTimeout(() => document.getElementById('mCost').select(), 50);
     },
@@ -512,11 +551,15 @@ const UI = {
     async handleImport() {
         const text = document.getElementById('csvInput').value;
         if (!text) return;
-        const players = await DataLoader.parseMrCheatSheet(text);
-        if (players.length) {
-            AppState.players = players;
-            document.getElementById('importStatus').textContent = `Successfully loaded ${players.length} players.`;
-            this.render();
+        try {
+            const players = await DataLoader.parseMrCheatSheet(text, "Manual Paste");
+            if (players.length) {
+                AppState.players = players;
+                document.getElementById('importStatus').textContent = `Successfully loaded ${players.length} players.`;
+                this.render();
+            }
+        } catch (e) {
+            document.getElementById('importStatus').textContent = `Error: ${e.message}`;
         }
     },
 
@@ -526,11 +569,15 @@ const UI = {
         const reader = new FileReader();
         reader.onload = async (e) => {
             const text = e.target.result;
-            const players = await DataLoader.parseMrCheatSheet(text);
-            if (players.length) {
-                AppState.players = players;
-                UI.render();
-                UI.showTab('auction');
+            try {
+                const players = await DataLoader.parseMrCheatSheet(text, file.name);
+                if (players.length) {
+                    AppState.players = players;
+                    UI.render();
+                    UI.showTab('auction');
+                }
+            } catch (e) {
+                alert(`Error: ${e.message}`);
             }
         };
         reader.readAsText(file);
