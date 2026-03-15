@@ -10,7 +10,7 @@
 <body>
     <div class="hdr">
         <div>
-            <div class="hdr-title">⚾ Teddy Ballgame Draft 2026 <span style="font-size: 10px; opacity: 0.5; vertical-align: middle;">v1.1.0</span></div>
+            <div class="hdr-title">⚾ Teddy Ballgame Draft 2026 <span id="appVersion" style="font-size: 10px; opacity: 0.5; vertical-align: middle;"></span></div>
             <div class="hdr-sub">10-TEAM ROTISSERIE · $202 AUCTION (17) + 14-RD SNAKE · FANTRAX</div>
         </div>
         <div class="hdr-right">
@@ -83,17 +83,23 @@
         </div>
     </div>
 
-    <!-- Injury Modal -->
-    <div class="modal-bg" id="injuryModal">
-        <div class="modal" style="max-width: 450px;">
-            <div class="modal-title" id="injTitle">Player Injury Info</div>
-            <p class="muted" style="margin-bottom: 20px;">Check the latest status for <strong id="injName" style="color:#fff"></strong>:</p>
-            <div class="field">
-                <a id="linkRotoworld" class="btn btn-go" target="_blank" style="display:block;text-align:center;margin-bottom:10px;text-decoration:none">NBC SPORTS / ROTOWORLD</a>
-                <a id="linkCBS" class="btn" target="_blank" style="display:block;text-align:center;margin-bottom:10px;text-decoration:none">CBS SPORTS STATUS</a>
-                <a id="linkFG" class="btn" target="_blank" style="display:block;text-align:center;text-decoration:none">FANGRAPHS PLAYER PAGE</a>
+    <!-- Player Info Modal -->
+    <div class="modal-bg" id="injuryModal" onclick="if(event.target===this)this.classList.remove('open')">
+        <div class="modal" style="max-width:620px;width:95%">
+            <div class="modal-title" id="injTitle" style="font-size:15px"></div>
+            <div id="injName" style="font-size:11px;color:#7090a8;margin:-8px 0 12px"></div>
+            <div id="modalProj" style="font-size:11px;color:#406080;font-family:monospace;margin-bottom:14px;padding:6px 8px;background:#060e18;border-radius:4px"></div>
+            <div id="injNewsBlurb" style="font-size:12px;color:#c8d8e8;line-height:1.7;max-height:220px;overflow-y:auto;padding:10px 12px;background:#0a1420;border:1px solid #1a3050;border-radius:4px;margin-bottom:14px;white-space:pre-wrap"></div>
+            <div style="display:flex;gap:8px;margin-bottom:14px">
+                <a id="linkCBS" class="btn" target="_blank" style="flex:1;text-align:center;text-decoration:none;font-size:11px">CBS SPORTS</a>
+                <a id="linkFG" class="btn" target="_blank" style="flex:1;text-align:center;text-decoration:none;font-size:11px">FANGRAPHS</a>
             </div>
-            <div class="modal-btns">
+            <div id="noteSection">
+                <label style="font-size:11px;color:#7090a8;display:block;margin-bottom:4px">SCOUTING NOTES</label>
+                <textarea id="noteArea" rows="3" style="width:100%;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px;box-sizing:border-box;resize:vertical"></textarea>
+            </div>
+            <div class="modal-btns" style="margin-top:12px">
+                <button class="btn btn-go" onclick="UI.savePlayerNote()">SAVE NOTE</button>
                 <button class="btn" onclick="document.getElementById('injuryModal').classList.remove('open')">CLOSE</button>
             </div>
         </div>

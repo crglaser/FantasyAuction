@@ -37,6 +37,9 @@ const UI = {
             });
         }
 
+        const vEl = document.getElementById('appVersion');
+        if (vEl) vEl.textContent = `v${APP_VERSION}`;
+
         this.populateTeams();
 
         // Initial data load
@@ -675,63 +678,45 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
     openInjuryModal(id) {
         const p = AppState.players.find(x => x.id === id);
         if (!p) return;
-        
-        AppState.pendingPlayerId = id; // Track for saving notes
+        AppState.pendingPlayerId = id;
+
         const news = InjuryManager.getLatestFor(id);
-        const note = AppState.playerNotes[id] || "";
-        
+        const note = AppState.playerNotes[id] || '';
         const proj = p.PA
-            ? `OBP ${p.OBP.toFixed(3)} · HR ${p.HR} · SB ${p.SB} · XBH ${p.XBH} · RP ${p.RP}`
-            : `ERA ${p.ERA?.toFixed(2)} · WHIP ${p.WHIP?.toFixed(2)} · K ${p.K} · W ${p.W} · SVH ${p.SVH} · IP ${p.IP}`;
+            ? `OBP ${p.OBP.toFixed(3)}  ·  HR ${p.HR}  ·  SB ${p.SB}  ·  XBH ${p.XBH}  ·  RP ${p.RP}  ·  PA ${p.PA}`
+            : `ERA ${p.ERA?.toFixed(2)}  ·  WHIP ${p.WHIP?.toFixed(2)}  ·  K ${p.K}  ·  W ${p.W}  ·  SVH ${p.SVH}  ·  IP ${p.IP}`;
 
-        document.getElementById('injName').textContent = `${p.n} · ${p.t} · ${p.pos.join('/')}`;
-        document.getElementById('injTitle').innerHTML = news
+        // Title: injury headline or player name
+        document.getElementById('injTitle').innerHTML = news && p.inj
             ? `<span style="color:#f0a0a0">⚠ ${news.title}</span>`
-            : `${p.n}`;
+            : p.n;
 
-        // Projections line
-        const modal = document.getElementById('injuryModal').querySelector('.modal');
-        let projDiv = document.getElementById('modalProj');
-        if (!projDiv) {
-            projDiv = document.createElement('div');
-            projDiv.id = 'modalProj';
-            projDiv.style.cssText = 'font-size:11px;color:#7090a8;margin-bottom:12px;font-family:monospace';
-            modal.insertBefore(projDiv, modal.querySelector('.field'));
-        }
-        projDiv.textContent = proj;
+        // Subtitle: team / position / value
+        document.getElementById('injName').textContent =
+            `${p.t}  ·  ${p.pos.join('/')}  ·  AUC $${p.csValAAdj || p.csValA || '—'}  ·  SZN $${p.csValS || '—'}`;
 
-        const rotoworld = document.getElementById('linkRotoworld');
-        const fallbackHref = `https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(p.n)}`;
+        // Projections
+        document.getElementById('modalProj').textContent = proj;
+
+        // News blurb — full text, scrollable
+        const blurbEl = document.getElementById('injNewsBlurb');
         if (news) {
-            rotoworld.innerHTML = `NEWS: ${news.blurb.substring(0, 200)}…`;
-            rotoworld.href = news.link;
+            blurbEl.textContent = news.blurb;
+            blurbEl.style.color = '#c8d8e8';
         } else {
-            rotoworld.innerHTML = '⟳ Fetching latest news…';
-            rotoworld.href = fallbackHref;
-            InjuryManager.searchForPlayer(p).then(() => {
-                const fresh = InjuryManager.getLatestFor(id);
-                rotoworld.innerHTML = fresh ? `NEWS: ${fresh.blurb.substring(0, 200)}…` : 'SEARCH NBC SPORTS / ROTOWORLD ↗';
-                if (fresh) rotoworld.href = fresh.link;
-            });
+            blurbEl.textContent = 'No cached news. Check the links below for current status.';
+            blurbEl.style.color = '#406080';
         }
 
-        document.getElementById('linkCBS').href = `https://www.cbssports.com/mlb/players/search/${encodeURIComponent(p.n)}/`;
-        document.getElementById('linkFG').href = `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
+        // External links (search-based, always work)
+        document.getElementById('linkCBS').href =
+            `https://www.cbssports.com/mlb/players/search/${encodeURIComponent(p.n)}/`;
+        document.getElementById('linkFG').href =
+            `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
 
-        // Notes field
-        let noteField = document.getElementById('noteArea');
-        if (!noteField) {
-            const field = document.createElement('div');
-            field.className = 'field';
-            field.style.marginTop = '12px';
-            field.innerHTML = `<label>Scouting Notes</label>
-                               <textarea id="noteArea" style="width:100%;height:60px;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px"></textarea>
-                               <button class="btn btn-go" style="width:100%;margin-top:5px" onclick="UI.savePlayerNote()">SAVE</button>`;
-            modal.insertBefore(field, modal.querySelector('.modal-btns'));
-            noteField = document.getElementById('noteArea');
-        }
-        noteField.value = note;
-        
+        // Notes
+        document.getElementById('noteArea').value = note;
+
         document.getElementById('injuryModal').classList.add('open');
         InjuryManager.markRead(id);
     },
