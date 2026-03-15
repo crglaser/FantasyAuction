@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.2.1';
+const APP_VERSION = '1.2.2';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -63,7 +63,8 @@ let AppState = {
         typeFilter: 'ALL',
         hideDrafted: false,
         sortCol: 'csValAAdj',
-        sortDir: 'desc'
+        sortDir: 'desc',
+        hiddenCols: []   // column keys toggled off by user
     }
 };
 

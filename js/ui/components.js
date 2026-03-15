@@ -75,6 +75,18 @@ const UI = {
                 if (ids?.fgId) p.fgId = ids.fgId;
             });
         }
+        if (typeof MANUAL_RANKINGS !== 'undefined') {
+            AppState.players.forEach(p => {
+                const r = MANUAL_RANKINGS[p.id];
+                if (r) Object.assign(p, r);
+            });
+            // Expose manual column names for the column toggle UI
+            AppState.manualCols = [...new Set(
+                Object.values(MANUAL_RANKINGS).flatMap(r => Object.keys(r))
+            )];
+        } else {
+            AppState.manualCols = [];
+        }
 
         this.renderControls();
         this.render();
@@ -199,6 +211,17 @@ const UI = {
     openInjuryModal(id) { Modals.openInjuryModal(id); },
     savePlayerNote() { Modals.savePlayerNote(); },
     closeModal() { Modals.closeModal(); },
+
+    toggleCol(key) {
+        const h = AppState.ui.hiddenCols;
+        const i = h.indexOf(key);
+        if (i === -1) h.push(key); else h.splice(i, 1);
+        this.render();
+    },
+
+    colVisible(key) {
+        return !AppState.ui.hiddenCols.includes(key);
+    },
 
     setSort(col) {
         if (AppState.ui.sortCol === col) {

@@ -8,7 +8,32 @@ const Templates = {
     // --- Tab Templates ---
 
     auction(players) {
+        const vis  = key => UI.colVisible(key);
+        const mCols = AppState.manualCols || [];
+
+        // Column toggle bar
+        const staticToggles = [
+            { key: 'csValS',       label: 'SEASON $'    },
+            { key: 'csArb',        label: 'ARB'         },
+            { key: 'ecr',          label: 'ECR'         },
+            { key: 'espnAuction',  label: 'ESPN $'      },
+            { key: 'closerStatus', label: 'CLOSER'      },
+            { key: 'projections',  label: 'PROJ'        },
+        ];
+        const allToggles = [
+            ...staticToggles,
+            ...mCols.map(k => ({ key: k, label: k.replace(/_/g, ' ') }))
+        ];
+        const toggleBar = `
+            <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
+                <span style="font-size:10px;color:#406080;line-height:22px;margin-right:4px">COLUMNS:</span>
+                ${allToggles.map(({key, label}) => `
+                    <button onclick="UI.toggleCol('${key}')" style="font-size:10px;padding:2px 8px;border:1px solid ${vis(key) ? '#2a5080' : '#1a2a3a'};background:${vis(key) ? '#0a2040' : '#060e18'};color:${vis(key) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
+                `).join('')}
+            </div>`;
+
         return `
+            ${toggleBar}
             <div class="tbl-wrap">
                 <table>
                     <thead>
@@ -18,12 +43,13 @@ const Templates = {
                             <th>Tm</th>
                             <th>Pos</th>
                             ${this.th('csValAAdj', 'AUC $★')}
-                            ${this.th('csValS', 'SEASON $')}
-                            ${this.th('csArb', 'ARB Δ')}
-                            ${this.th('ecr', 'ECR')}
-                            ${this.th('espnAuction', 'ESPN $')}
-                            <th>CLOSER</th>
-                            <th>PROJECTIONS</th>
+                            ${vis('csValS')      ? this.th('csValS', 'SEASON $') : ''}
+                            ${vis('csArb')       ? this.th('csArb', 'ARB Δ')    : ''}
+                            ${vis('ecr')         ? this.th('ecr', 'ECR')        : ''}
+                            ${vis('espnAuction') ? this.th('espnAuction', 'ESPN $') : ''}
+                            ${vis('closerStatus') ? '<th>CLOSER</th>'           : ''}
+                            ${vis('projections') ? '<th>PROJECTIONS</th>'       : ''}
+                            ${mCols.filter(k => vis(k)).map(k => this.th(k, k.replace(/_/g, ' '))).join('')}
                             <th>ACTION</th>
                         </tr>
                     </thead>
@@ -34,9 +60,10 @@ const Templates = {
                             const rowCls = (isMe ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const injNews = InjuryManager.getLatestFor(p.id);
                             const hasNote = !!AppState.playerNotes[p.id];
-                            const hasNews = !!injNews;
-                            const injTag = p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>` : (hasNews ? `<span class="pb" style="background:#102010;border-color:#205020;color:#80c880">NEWS</span>` : (hasNote ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : ''));
-
+                            const injTag = p.inj
+                                ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>`
+                                : (injNews ? `<span class="pb" style="background:#102010;border-color:#205020;color:#80c880">NEWS</span>`
+                                : (hasNote ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : ''));
                             return `
                                 <tr class="${rowCls}">
                                     <td class="mono muted">${p.csRank}</td>
@@ -44,23 +71,22 @@ const Templates = {
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
-                                    <td class="grn">$${p.csValS}</td>
-                                    <td>${this.formatCsArb(p.csArb)}</td>
-                                    <td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>
-                                    <td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>
-                                    <td>${this.formatCloser(p)}</td>
-                                    <td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>
+                                    ${vis('csValS')       ? `<td class="grn">$${p.csValS}</td>` : ''}
+                                    ${vis('csArb')        ? `<td>${this.formatCsArb(p.csArb)}</td>` : ''}
+                                    ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
+                                    ${vis('espnAuction')  ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
+                                    ${vis('closerStatus') ? `<td>${this.formatCloser(p)}</td>` : ''}
+                                    ${vis('projections')  ? `<td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>` : ''}
+                                    ${mCols.filter(k => vis(k)).map(k => `<td class="mono" style="font-size:10px;color:#c8d8e8">${p[k] != null ? p[k] : '—'}</td>`).join('')}
                                     <td>
-                                        ${dr ? `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ ' : ''}${isMe ? 'MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>` :
-                                        `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}
+                                        ${dr ? `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ ' : ''}${isMe ? 'MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>`
+                                             : `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}
                                     </td>
-                                </tr>
-                            `;
+                                </tr>`;
                         }).join('')}
                     </tbody>
                 </table>
-            </div>
-        `;
+            </div>`;
     },
 
     season(players) {
@@ -360,7 +386,6 @@ const Templates = {
 
     controls() {
         const ui = AppState.ui;
-        const set = AppState.settings;
         return `
             <div class="controls">
                 <div class="ctrl"><span class="lbl">Search</span><input type="text" id="playerSearch" placeholder="Name or team..." value="${ui.search}" oninput="UI.handleSearch(this.value)"></div>
@@ -380,22 +405,11 @@ const Templates = {
                     </select>
                 </div>
                 <div class="ctrl">
-                    <span class="lbl">Hit $ split</span>
-                    <input type="range" min="55" max="75" value="${set.hitSplit}" oninput="AppState.settings.hitSplit=+this.value;UI.updateSplitLabel(this.value);UI.render()">
-                    <span class="badge" id="splitBadge">${set.hitSplit}%</span>
-                </div>
-                <div class="ctrl">
-                    <span class="lbl">Cutoff</span>
-                    <input type="range" min="100" max="250" value="${set.snakeCutoff}" oninput="AppState.settings.snakeCutoff=+this.value;UI.updateCutoffLabel(this.value);UI.render()">
-                    <span class="badge" id="cutoffBadge">${set.snakeCutoff}</span>
-                </div>
-                <div class="ctrl">
                     <label style="display:flex;gap:5px;align-items:center;cursor:pointer">
                         <input type="checkbox" ${ui.hideDrafted?'checked':''} onchange="AppState.ui.hideDrafted=this.checked;UI.render()">
                         <span class="lbl">Hide Drafted</span>
                     </label>
                 </div>
-                <button class="btn btn-go" onclick="UI.handleRefreshNews()">REFRESH NEWS</button>
                 <button class="btn" style="margin-left:auto" onclick="document.getElementById('rulesModal').classList.add('open')">RULES</button>
             </div>
         `;
