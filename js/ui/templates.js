@@ -465,7 +465,7 @@ const Templates = {
                         const cur = order[slot] || '';
                         return `
                             <div style="background:#0a1420;border:1px solid #1a3050;border-radius:3px;padding:6px 8px">
-                                <div style="font-size:10px;color:#406080;margin-bottom:4px">SLOT ${i + 1}</div>
+                                <div style="font-size:10px;color:#406080;margin-bottom:4px">SLOT ${slot + 1}</div>
                                 <select onchange="UI.setSnakeSlot(${slot}, this.value)" style="width:100%;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:3px;font-size:10px">
                                     <option value="">— unset —</option>
                                     ${teams.map(tid => `<option value="${tid}" ${cur === tid ? 'selected' : ''}>${LG.teamsMap[tid].team}</option>`).join('')}

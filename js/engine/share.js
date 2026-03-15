@@ -83,7 +83,10 @@ const ShareManager = {
         btn.textContent = 'GENERATING...';
 
         const stateStr = this.generateStateString();
-        const longUrl  = `${window.location.origin}${window.location.pathname}?s=${stateStr}`;
+        // Always point to the live GitHub Pages site so the URL works when shared
+        const isLocal  = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+        const base     = isLocal ? 'https://crglaser.github.io/FantasyAuction/' : `${window.location.origin}${window.location.pathname}`;
+        const longUrl  = `${base}?s=${stateStr}`;
         const url      = await this.getTinyUrl(longUrl) || longUrl;
 
         navigator.clipboard.writeText(url).then(() => {
