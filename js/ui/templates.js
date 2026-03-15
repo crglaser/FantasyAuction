@@ -175,7 +175,7 @@ const Templates = {
                     CS $ = MrCheatSheet auction value (our baseline) &nbsp;·&nbsp;
                     RANK Δ = FTX rank − CS rank (negative = Fantrax likes them more than we do) &nbsp;·&nbsp;
                     MKT RATIO = ESPN $ ÷ CS $ (&lt;0.8 = market underprices, &gt;1.25 = market inflated) &nbsp;·&nbsp;
-                    SLEEPERS = FTX or ECR ranks 30+ spots higher than CS, and CS values them low
+                    FTX▲/ECR▲ = that source ranks player 30+ spots higher than CS (CS undervalues) &nbsp;·&nbsp; CS▲ = CS ranks player 30+ spots higher than FTX/ECR
                 </span>
             </div>`;
 
@@ -211,15 +211,28 @@ const Templates = {
                             const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
                             p.mktRatio = mktRatio;
                             const ecrDelta = (p.ecr != null && p.csRank != null) ? p.ecr - p.csRank : null;
-                            // Sleeper signal: other sources rank player significantly higher than CS (negative delta = they like player more)
-                            // AND CS values them low (not already a top CS pick)
-                            const sleeperSignal = (ftxRkDelta != null && ftxRkDelta < -30) || (ecrDelta != null && ecrDelta < -30);
-                            const csLowValue = (p.csRank == null || p.csRank > 75) || (p.csValAAdj != null && p.csValAAdj <= 15);
-                            p.outlierScore = sleeperSignal && csLowValue ? Math.max(
-                                ftxRkDelta != null ? -ftxRkDelta : 0,
-                                ecrDelta != null ? -ecrDelta : 0
+                            // Sleeper sources: which lists are bullish on this player vs the others?
+                            // FTX/ECR sleeper: they rank the player 30+ higher than CS, and CS has them low
+                            const csLow = (p.csRank == null || p.csRank > 75) || (p.csValAAdj != null && p.csValAAdj <= 15);
+                            const ftxBull = ftxRkDelta != null && ftxRkDelta < -30 && csLow;  // FTX likes them more, CS doesn't
+                            const ecrBull = ecrDelta   != null && ecrDelta   < -30 && csLow;  // ECR likes them more, CS doesn't
+                            // CS sleeper: CS ranks them 30+ higher than FTX or ECR, while those sources are low
+                            const ftxLow  = ftxRkDelta != null && ftxRkDelta > 30;
+                            const ecrLow  = ecrDelta   != null && ecrDelta   > 30;
+                            const csTop   = p.csRank != null && p.csRank <= 100;
+                            const csBull  = csTop && (ftxLow || ecrLow);  // CS likes them more, FTX/ECR don't
+                            const isSleeper = ftxBull || ecrBull || csBull;
+                            // Source tags to display
+                            const sourceTags = [
+                                ftxBull ? `<span class="pb" style="background:#0a2010;border-color:#205030;color:#40c870;font-size:9px">FTX▲</span>` : '',
+                                ecrBull ? `<span class="pb" style="background:#0a1828;border-color:#1a3848;color:#4090c8;font-size:9px">ECR▲</span>` : '',
+                                csBull  ? `<span class="pb" style="background:#201a00;border-color:#403400;color:#c8a000;font-size:9px">CS▲</span>`  : '',
+                            ].join('');
+                            p.outlierScore = isSleeper ? Math.max(
+                                ftxRkDelta != null ? Math.abs(ftxRkDelta) : 0,
+                                ecrDelta   != null ? Math.abs(ecrDelta)   : 0
                             ) : 0;
-                            if (AppState.ui.arbOutlierOnly && !(sleeperSignal && csLowValue)) return '';
+                            if (AppState.ui.arbOutlierOnly && !isSleeper) return '';
                             const dr = drafted[p.id];
                             const isSim = dr?.sim;
                             const rowCls = (dr ? 'drafted' : '');
@@ -239,7 +252,7 @@ const Templates = {
                             return `
                                 <tr class="${rowCls}">
                                     <td class="mono muted">${p.csRank}</td>
-                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${injBadge}</td>
+                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${injBadge}${sourceTags}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
