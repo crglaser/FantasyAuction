@@ -15,7 +15,7 @@ const Templates = {
         // SCOUT_COL: the label shown in the toggle bar for the unified scout badge column
         const SCOUT_COL = 'scout';
         // Columns sourced from manual CSVs that are folded into SCOUT — hide from auto-discovered list
-        const SCOUT_FIELDS = new Set(['CM_Role', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG']);
+        const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG']);
         const staticToggles = [
             { key: 'csValS',      label: 'SEASON $' },
             { key: 'csArb',       label: 'ARB'      },
@@ -166,6 +166,10 @@ const Templates = {
                     <button onclick="UI.toggleCol('${key}')" style="font-size:10px;padding:2px 8px;border:1px solid ${vis(key) ? '#2a5080' : '#1a2a3a'};background:${vis(key) ? '#0a2040' : '#060e18'};color:${vis(key) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
                 `).join('')}
             </div>
+            <div style="display:flex;align-items:center;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
+                <span style="font-size:10px;color:#406080;margin-right:4px">FILTER:</span>
+                <button onclick="UI.toggleArbOutlier()" id="arbOutlierBtn" style="font-size:10px;padding:2px 8px;border:1px solid ${AppState.ui.arbOutlierOnly ? '#d06040' : '#1a2a3a'};background:${AppState.ui.arbOutlierOnly ? '#2a0a00' : '#060e18'};color:${AppState.ui.arbOutlierOnly ? '#e08050' : '#2a4060'};cursor:pointer;border-radius:2px">&#9889; OUTLIERS ONLY</button>
+            </div>
             <div class="arb-legend">
                 <span style="color:#7090a8;font-size:10px">
                     CS $ = MrCheatSheet auction value (our baseline) &nbsp;·&nbsp;
@@ -205,6 +209,14 @@ const Templates = {
                             p.ftxRkDelta = ftxRkDelta; // attach for sorting
                             const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
                             p.mktRatio = mktRatio;
+                            const ecrDelta = (p.ecr != null && p.csRank != null) ? p.ecr - p.csRank : null;
+                            const outlierScore = Math.max(
+                                Math.abs(ftxRkDelta ?? 0),
+                                Math.abs(ecrDelta ?? 0),
+                                mktRatio != null ? Math.abs(mktRatio - 1) * 100 : 0
+                            );
+                            p.outlierScore = outlierScore;
+                            if (AppState.ui.arbOutlierOnly && (p.outlierScore ?? 0) < 40) return '';
                             const dr = drafted[p.id];
                             const isSim = dr?.sim;
                             const rowCls = (dr ? 'drafted' : '');
@@ -246,8 +258,9 @@ const Templates = {
     },
 
     myteam() {
+        const viewTeam = AppState.ui.myteamView || 'me';
         const drafted = effectiveDrafted();
-        const myDrafted = Object.entries(drafted).filter(([,v]) => v.team === 'me').map(([id, pick]) => ({...AppState.players.find(p => p.id === id), ...pick}));
+        const myDrafted = Object.entries(drafted).filter(([,v]) => v.team === viewTeam).map(([id, pick]) => ({...AppState.players.find(p => p.id === id), ...pick}));
         const spent = myDrafted.filter(p => !p.sim).reduce((s, p) => s + p.cost, 0);
         const hitters = myDrafted.filter(p => p.PA > 0);
         const pitchers = myDrafted.filter(p => p.IP > 0);
@@ -264,10 +277,19 @@ const Templates = {
             return `<div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${c}"></div></div>`;
         };
 
+        const teamSelector = `
+            <div style="display:flex;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-wrap:wrap">
+                ${Object.entries(LG.teamsMap).map(([tid, info]) => {
+                    const active = viewTeam === tid;
+                    return `<button onclick="UI.setMyteamView('${tid}')" style="font-size:10px;padding:2px 8px;border:1px solid ${active ? '#2a5080' : '#1a2a3a'};background:${active ? '#0a2040' : '#060e18'};color:${active ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${info.team}</button>`;
+                }).join('')}
+            </div>`;
+
         return `
+            ${teamSelector}
             <div class="two-col">
                 <div class="left-col">
-                    <div class="sec">MY ROSTER (${myDrafted.length}/${LG.total})</div>
+                    <div class="sec">${LG.teamsMap[viewTeam]?.team || viewTeam} ROSTER (${myDrafted.length}/${LG.total})</div>
                     ${myDrafted.sort((a,b) => b.cost - a.cost).map(p => `
                         <div class="rslot" style="${p.sim ? 'opacity:0.55' : ''}">
                             <div><div style="font-weight:700;color:#c8daf0">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080;font-weight:400">SIM</span>' : ''}</div><div>${this.pb(p.pos)}</div></div>
@@ -297,7 +319,7 @@ const Templates = {
                     </div>
                 </div>
             </div>
-            ${this.draftLog()}
+            ${this.draftLog(viewTeam)}
         `;
     },
 
@@ -537,7 +559,7 @@ const Templates = {
     // To rename the column: change SCOUT_COL constant in auction() above.
     formatScout(p) {
         // RP: CloserMonkey role
-        if (p.CM_Role) return this.formatCloser({ closerStatus: p.CM_Role });
+        if (p.CM_Role) return this.formatCloser({ closerStatus: p.CM_Role, closerRank: p.CM_Rank });
         // SP: PitcherList rank + tier
         if (p.PL_Rank) return this.formatRankBadge('PL', p.PL_Rank, p.PL_Tier);
         // Hitter: HitterList rank + tier + OBP-AVG adjustment signal
@@ -585,7 +607,8 @@ const Templates = {
         }
         const label = committee ? `${c.label}*` : c.label;
         const teamTag = team ? `<span style="opacity:0.55;font-size:9px;margin-left:2px">${team}</span>` : '';
-        return `<span class="pb" style="background:#0a1a0a;border-color:${c.color};color:${c.color};white-space:nowrap">${label}${teamTag}</span>`;
+        const rankTag = p.closerRank ? `<span style="opacity:0.6;font-size:9px;margin-left:3px">#${p.closerRank}</span>` : '';
+        return `<span class="pb" style="background:#0a1a0a;border-color:${c.color};color:${c.color};white-space:nowrap">${label}${teamTag}${rankTag}</span>`;
     },
 
     formatCsArb(val) {

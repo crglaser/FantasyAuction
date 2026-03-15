@@ -173,6 +173,7 @@ def sync_closer_csv(players):
         return
 
     id_to_closer = {pid: r['closerStatus'] for pid, r in rankings.items() if 'closerStatus' in r}
+    id_to_closer_rank = {pid: r['closerRank'] for pid, r in rankings.items() if 'closerRank' in r}
     name_to_id   = {name_key(p['n']): p['id'] for p in players}
 
     with open(RP_CSV, newline='', encoding='utf-8') as f:
@@ -188,6 +189,10 @@ def sync_closer_csv(players):
         # Insert CM_Role as second column (after Name)
         fieldnames.insert(1, 'CM_Role')
 
+    if 'CM_Rank' not in fieldnames:
+        idx = fieldnames.index('CM_Role') + 1 if 'CM_Role' in fieldnames else 2
+        fieldnames.insert(idx, 'CM_Rank')
+
     updated = 0
     for row in existing:
         pid = name_to_id.get(name_key(row.get('Name', '')))
@@ -196,6 +201,9 @@ def sync_closer_csv(players):
             row['CM_Role'] = new_val
             if new_val:
                 updated += 1
+        new_rank = str(id_to_closer_rank.get(pid, '')) if pid else ''
+        if row.get('CM_Rank', '') != new_rank:
+            row['CM_Rank'] = new_rank
 
     with open(RP_CSV, 'w', newline='', encoding='utf-8') as f:
         for c in comments:

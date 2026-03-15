@@ -244,6 +244,8 @@ def fetch_closer_monkey():
             add_player(cells[offset + 2], '1ST',    team)
             add_player(cells[offset + 3], '2ND',    team)
 
+    rank_map = {}
+
     # Also fetch ranked saves list from latest article if found
     if article_url:
         try:
@@ -257,17 +259,21 @@ def fetch_closer_monkey():
                 name = re.sub(r'<[^>]+>', '', name_html).strip()
                 rank = int(rank_str)
                 key  = name_key(name)
-                if key not in closer_map:  # don't override depth chart
+                rank_map[key] = rank  # always track rank
+                last = key.split()[-1]
+                if last != key:
+                    rank_map.setdefault(last, rank)
+                if key not in closer_map:  # don't override depth chart role
                     closer_map[key] = f'SVH#{rank}'
         except Exception as e:
             print(f'  CloserMonkey article error: {e}')
 
     print(f'  CloserMonkey: {len(closer_map)} relievers classified')
-    return closer_map
+    return closer_map, rank_map
 
 # ── Merge everything ─────────────────────────────────────────────────────────
 
-def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data):
+def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data, closer_ranks):
     rankings = {}
 
     for p in players:
@@ -316,6 +322,12 @@ def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data):
                             cm = candidate  # upgrade SVH to depth-chart status
             if cm:
                 entry['closerStatus'] = cm
+            rank = closer_ranks.get(key)
+            if not rank:
+                last = key.split()[-1]
+                rank = closer_ranks.get(last)
+            if rank:
+                entry['closerRank'] = rank
 
         if entry:
             rankings[pid] = entry
@@ -381,8 +393,8 @@ def main():
         print('=== FETCHING RANKINGS ===')
         ecr_data   = fetch_ecr()
         espn_adp   = fetch_espn_adp()
-        closer     = fetch_closer_monkey()
-        rankings   = build_rankings(players, existing_ids, ecr_data, espn_adp, closer)
+        closer, closer_ranks = fetch_closer_monkey()
+        rankings   = build_rankings(players, existing_ids, ecr_data, espn_adp, closer, closer_ranks)
 
         matched_ecr    = sum(1 for v in rankings.values() if 'ecr' in v)
         matched_auct   = sum(1 for v in rankings.values() if 'espnAuction' in v)

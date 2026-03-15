@@ -329,6 +329,16 @@ const UI = {
         return !AppState.ui.hiddenCols.includes(key);
     },
 
+    toggleArbOutlier() {
+        AppState.ui.arbOutlierOnly = !AppState.ui.arbOutlierOnly;
+        this.render();
+    },
+
+    setMyteamView(tid) {
+        AppState.ui.myteamView = tid;
+        this.render();
+    },
+
     setSort(col) {
         if (AppState.ui.sortCol === col) {
             AppState.ui.sortDir = AppState.ui.sortDir === 'desc' ? 'asc' : 'desc';
