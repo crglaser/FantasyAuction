@@ -21,8 +21,8 @@ const UI = {
     populateTeams() {
         const sel = document.getElementById('mTeam');
         if (!sel) return;
-        sel.innerHTML = Object.entries(LG.teamNames).map(([id, name]) => 
-            `<option value="${id}">${name}</option>`
+        sel.innerHTML = Object.entries(LG.teamsMap).map(([id, info]) =>
+            `<option value="${id}">${info.team}</option>`
         ).join('');
     },
 

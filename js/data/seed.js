@@ -1,5 +1,5 @@
 /**
- * seed.js — Pre-parsed player data (Top 400 by auction value)
+ * seed.js — Pre-parsed player data (Top 500 by auction value)
  * Generated from Mr. CheatSheet 2026 export. Do not edit manually.
  * Auction pool: 170 players (17/team × 10 teams)
  * Season pool:  310 players (31/team × 10 teams)
@@ -7263,5 +7263,1819 @@ const SEED_PLAYERS = [
     "K": 137,
     "ERA": 4.01,
     "WHIP": 1.25
+  },
+  {
+    "id": "camilodoval-nyy",
+    "n": "Camilo Doval",
+    "t": "NYY",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -5.0,
+    "csValS": -1.0,
+    "IP": 65,
+    "W": 4,
+    "SVH": 17,
+    "K": 75,
+    "ERA": 3.5,
+    "WHIP": 1.27
+  },
+  {
+    "id": "jaredkoenig-mil",
+    "n": "Jared Koenig",
+    "t": "MIL",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 32,
+    "csValA": -5.0,
+    "csValS": -1.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 19,
+    "K": 71,
+    "ERA": 3.64,
+    "WHIP": 1.22
+  },
+  {
+    "id": "jorgepolanco-nym",
+    "n": "Jorge Polanco",
+    "t": "NYM",
+    "pos": [
+      "2B"
+    ],
+    "inj": false,
+    "age": 32,
+    "csValA": -5.0,
+    "csValS": -2.0,
+    "PA": 550,
+    "OBP": 0.325,
+    "HR": 21,
+    "XBH": 22,
+    "RP": 103,
+    "SB": 5
+  },
+  {
+    "id": "reiddetmers-laa",
+    "n": "Reid Detmers",
+    "t": "LAA",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -5.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 7,
+    "SVH": 1,
+    "K": 138,
+    "ERA": 4.17,
+    "WHIP": 1.26
+  },
+  {
+    "id": "bryanbaker-tb",
+    "n": "Bryan Baker",
+    "t": "TB",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -5.0,
+    "csValS": -1.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 17,
+    "K": 73,
+    "ERA": 3.76,
+    "WHIP": 1.17
+  },
+  {
+    "id": "chrismartin-tex",
+    "n": "Chris Martin",
+    "t": "TEX",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 39,
+    "csValA": -5.0,
+    "csValS": -1.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 17,
+    "K": 49,
+    "ERA": 3.35,
+    "WHIP": 1.09
+  },
+  {
+    "id": "treyyesavage-tor",
+    "n": "Trey Yesavage",
+    "t": "TOR",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 22,
+    "csValA": -5.0,
+    "csValS": 1.0,
+    "IP": 170,
+    "W": 9,
+    "SVH": 0,
+    "K": 137,
+    "ERA": 3.9,
+    "WHIP": 1.26
+  },
+  {
+    "id": "chandlersimpson-tb",
+    "n": "Chandler Simpson",
+    "t": "TB",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 25,
+    "csValA": -5.0,
+    "csValS": 1.0,
+    "PA": 550,
+    "OBP": 0.336,
+    "HR": 2,
+    "XBH": 19,
+    "RP": 97,
+    "SB": 45
+  },
+  {
+    "id": "joadell-laa",
+    "n": "Jo Adell",
+    "t": "LAA",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -5.0,
+    "csValS": 0.0,
+    "PA": 550,
+    "OBP": 0.292,
+    "HR": 29,
+    "XBH": 22,
+    "RP": 111,
+    "SB": 8
+  },
+  {
+    "id": "gavinwilliams-cle",
+    "n": "Gavin Williams",
+    "t": "CLE",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -5.0,
+    "csValS": 1.0,
+    "IP": 170,
+    "W": 9,
+    "SVH": 0,
+    "K": 164,
+    "ERA": 3.93,
+    "WHIP": 1.3
+  },
+  {
+    "id": "jakeburger-tex",
+    "n": "Jake Burger",
+    "t": "TEX",
+    "pos": [
+      "1B"
+    ],
+    "inj": false,
+    "age": 29,
+    "csValA": -5.0,
+    "csValS": -4.0,
+    "PA": 550,
+    "OBP": 0.284,
+    "HR": 24,
+    "XBH": 24,
+    "RP": 102,
+    "SB": 2
+  },
+  {
+    "id": "robertstephenson-laa",
+    "n": "Robert Stephenson",
+    "t": "LAA",
+    "pos": [
+      "RP"
+    ],
+    "inj": true,
+    "age": 33,
+    "csValA": -5.0,
+    "csValS": -1.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 17,
+    "K": 58,
+    "ERA": 3.79,
+    "WHIP": 1.1
+  },
+  {
+    "id": "joshbell-min",
+    "n": "Josh Bell",
+    "t": "MIN",
+    "pos": [
+      "1B"
+    ],
+    "inj": false,
+    "age": 33,
+    "csValA": -5.0,
+    "csValS": -4.0,
+    "PA": 550,
+    "OBP": 0.331,
+    "HR": 19,
+    "XBH": 20,
+    "RP": 100,
+    "SB": 1
+  },
+  {
+    "id": "dylancrews-wsn",
+    "n": "Dylan Crews",
+    "t": "WSN",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 24,
+    "csValA": -5.0,
+    "csValS": 0.0,
+    "PA": 550,
+    "OBP": 0.302,
+    "HR": 16,
+    "XBH": 24,
+    "RP": 99,
+    "SB": 23
+  },
+  {
+    "id": "alejandrokirk-tor",
+    "n": "Alejandro Kirk",
+    "t": "TOR",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -5.0,
+    "csValS": -4.0,
+    "PA": 550,
+    "OBP": 0.361,
+    "HR": 14,
+    "XBH": 20,
+    "RP": 92,
+    "SB": 1
+  },
+  {
+    "id": "shanebieber-tor",
+    "n": "Shane Bieber",
+    "t": "TOR",
+    "pos": [
+      "SP"
+    ],
+    "inj": true,
+    "age": 30,
+    "csValA": -5.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 7,
+    "SVH": 0,
+    "K": 97,
+    "ERA": 3.71,
+    "WHIP": 1.17
+  },
+  {
+    "id": "wilyerabreu-bos",
+    "n": "Wilyer Abreu",
+    "t": "BOS",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -5.0,
+    "csValS": 0.0,
+    "PA": 550,
+    "OBP": 0.328,
+    "HR": 20,
+    "XBH": 24,
+    "RP": 102,
+    "SB": 7
+  },
+  {
+    "id": "brooksraley-nym",
+    "n": "Brooks Raley",
+    "t": "NYM",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 37,
+    "csValA": -5.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 16,
+    "K": 54,
+    "ERA": 3.63,
+    "WHIP": 1.15
+  },
+  {
+    "id": "seranthonydomnguez-chw",
+    "n": "Seranthony Dom\u00ednguez",
+    "t": "CHW",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -5.0,
+    "csValS": -1.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 26,
+    "K": 73,
+    "ERA": 3.88,
+    "WHIP": 1.26
+  },
+  {
+    "id": "colesands-min",
+    "n": "Cole Sands",
+    "t": "MIN",
+    "pos": [
+      "RP",
+      "SP"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -5.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 4,
+    "SVH": 18,
+    "K": 68,
+    "ERA": 3.83,
+    "WHIP": 1.22
+  },
+  {
+    "id": "rynenelson-ari",
+    "n": "Ryne Nelson",
+    "t": "ARI",
+    "pos": [
+      "SP",
+      "RP"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -5.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 10,
+    "SVH": 0,
+    "K": 127,
+    "ERA": 4.1,
+    "WHIP": 1.23
+  },
+  {
+    "id": "markvientos-nym",
+    "n": "Mark Vientos",
+    "t": "NYM",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -6.0,
+    "csValS": -5.0,
+    "PA": 550,
+    "OBP": 0.308,
+    "HR": 21,
+    "XBH": 21,
+    "RP": 100,
+    "SB": 1
+  },
+  {
+    "id": "andrewabbott-cin",
+    "n": "Andrew Abbott",
+    "t": "CIN",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -6.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 10,
+    "SVH": 0,
+    "K": 153,
+    "ERA": 4.17,
+    "WHIP": 1.25
+  },
+  {
+    "id": "shawnarmstrong-cle",
+    "n": "Shawn Armstrong",
+    "t": "CLE",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 35,
+    "csValA": -6.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 16,
+    "K": 66,
+    "ERA": 3.72,
+    "WHIP": 1.19
+  },
+  {
+    "id": "joeyortiz-mil",
+    "n": "Joey Ortiz",
+    "t": "MIL",
+    "pos": [
+      "SS"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -6.0,
+    "csValS": -2.0,
+    "PA": 550,
+    "OBP": 0.314,
+    "HR": 10,
+    "XBH": 28,
+    "RP": 99,
+    "SB": 14
+  },
+  {
+    "id": "stevenmatz-tb",
+    "n": "Steven Matz",
+    "t": "TB",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 34,
+    "csValA": -6.0,
+    "csValS": -2.0,
+    "IP": 170,
+    "W": 7,
+    "SVH": 0,
+    "K": 86,
+    "ERA": 4.09,
+    "WHIP": 1.21
+  },
+  {
+    "id": "euryprez-mia",
+    "n": "Eury P\u00e9rez",
+    "t": "MIA",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 22,
+    "csValA": -6.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 8,
+    "SVH": 0,
+    "K": 132,
+    "ERA": 4.06,
+    "WHIP": 1.2
+  },
+  {
+    "id": "nolanmclean-nym",
+    "n": "Nolan McLean",
+    "t": "NYM",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 24,
+    "csValA": -6.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 10,
+    "SVH": 0,
+    "K": 146,
+    "ERA": 3.97,
+    "WHIP": 1.29
+  },
+  {
+    "id": "eduardbazardo-sea",
+    "n": "Eduard Bazardo",
+    "t": "SEA",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -6.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 12,
+    "K": 67,
+    "ERA": 3.53,
+    "WHIP": 1.2
+  },
+  {
+    "id": "mickeymoniak-col",
+    "n": "Mickey Moniak",
+    "t": "COL",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -6.0,
+    "csValS": -1.0,
+    "PA": 550,
+    "OBP": 0.304,
+    "HR": 20,
+    "XBH": 27,
+    "RP": 99,
+    "SB": 9
+  },
+  {
+    "id": "reynaldolpez-atl",
+    "n": "Reynaldo L\u00f3pez",
+    "t": "ATL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 32,
+    "csValA": -6.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 9,
+    "SVH": 1,
+    "K": 119,
+    "ERA": 3.91,
+    "WHIP": 1.25
+  },
+  {
+    "id": "sandyalcantara-mia",
+    "n": "Sandy Alcantara",
+    "t": "MIA",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 30,
+    "csValA": -6.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 9,
+    "SVH": 0,
+    "K": 140,
+    "ERA": 4.06,
+    "WHIP": 1.25
+  },
+  {
+    "id": "seanmanaea-nym",
+    "n": "Sean Manaea",
+    "t": "NYM",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 34,
+    "csValA": -6.0,
+    "csValS": 0.0,
+    "IP": 170,
+    "W": 8,
+    "SVH": 0,
+    "K": 118,
+    "ERA": 4.01,
+    "WHIP": 1.2
+  },
+  {
+    "id": "zachmckinstry-det",
+    "n": "Zach McKinstry",
+    "t": "DET",
+    "pos": [
+      "3B",
+      "SS",
+      "OF"
+    ],
+    "inj": false,
+    "age": 30,
+    "csValA": -6.0,
+    "csValS": -5.0,
+    "PA": 550,
+    "OBP": 0.309,
+    "HR": 9,
+    "XBH": 23,
+    "RP": 84,
+    "SB": 15
+  },
+  {
+    "id": "carlosestvez-kc",
+    "n": "Carlos Est\u00e9vez",
+    "t": "KC",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 33,
+    "csValA": -6.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 32,
+    "K": 56,
+    "ERA": 4.11,
+    "WHIP": 1.26
+  },
+  {
+    "id": "stevenokert-hou",
+    "n": "Steven Okert",
+    "t": "HOU",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 34,
+    "csValA": -6.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 11,
+    "K": 70,
+    "ERA": 3.73,
+    "WHIP": 1.17
+  },
+  {
+    "id": "noelvimarte-cin",
+    "n": "Noelvi Marte",
+    "t": "CIN",
+    "pos": [
+      "OF",
+      "3B"
+    ],
+    "inj": false,
+    "age": 24,
+    "csValA": -6.0,
+    "csValS": -1.0,
+    "PA": 550,
+    "OBP": 0.311,
+    "HR": 16,
+    "XBH": 24,
+    "RP": 97,
+    "SB": 14
+  },
+  {
+    "id": "yimigarca-tor",
+    "n": "Yimi Garc\u00eda",
+    "t": "TOR",
+    "pos": [
+      "RP"
+    ],
+    "inj": true,
+    "age": 35,
+    "csValA": -6.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 15,
+    "K": 57,
+    "ERA": 3.65,
+    "WHIP": 1.15
+  },
+  {
+    "id": "lucaserceg-kc",
+    "n": "Lucas Erceg",
+    "t": "KC",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 30,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 4,
+    "SVH": 22,
+    "K": 57,
+    "ERA": 3.72,
+    "WHIP": 1.27
+  },
+  {
+    "id": "brandonlowe-pit",
+    "n": "Brandon Lowe",
+    "t": "PIT",
+    "pos": [
+      "2B"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -7.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.306,
+    "HR": 22,
+    "XBH": 23,
+    "RP": 103,
+    "SB": 4
+  },
+  {
+    "id": "robbieray-sf",
+    "n": "Robbie Ray",
+    "t": "SF",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 34,
+    "csValA": -7.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 9,
+    "SVH": 0,
+    "K": 167,
+    "ERA": 4.16,
+    "WHIP": 1.27
+  },
+  {
+    "id": "joshlowe-laa",
+    "n": "Josh Lowe",
+    "t": "LAA",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -7.0,
+    "csValS": -1.0,
+    "PA": 550,
+    "OBP": 0.31,
+    "HR": 14,
+    "XBH": 25,
+    "RP": 91,
+    "SB": 21
+  },
+  {
+    "id": "joshjung-tex",
+    "n": "Josh Jung",
+    "t": "TEX",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -7.0,
+    "csValS": -5.0,
+    "PA": 550,
+    "OBP": 0.3,
+    "HR": 17,
+    "XBH": 24,
+    "RP": 94,
+    "SB": 4
+  },
+  {
+    "id": "daultonvarsho-tor",
+    "n": "Daulton Varsho",
+    "t": "TOR",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 29,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "PA": 550,
+    "OBP": 0.29,
+    "HR": 23,
+    "XBH": 24,
+    "RP": 111,
+    "SB": 8
+  },
+  {
+    "id": "mattsvanson-stl",
+    "n": "Matt Svanson",
+    "t": "STL",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 17,
+    "K": 66,
+    "ERA": 3.68,
+    "WHIP": 1.27
+  },
+  {
+    "id": "jtrealmuto-phi",
+    "n": "J.T. Realmuto",
+    "t": "PHI",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 34,
+    "csValA": -7.0,
+    "csValS": -5.0,
+    "PA": 550,
+    "OBP": 0.31,
+    "HR": 14,
+    "XBH": 22,
+    "RP": 92,
+    "SB": 7
+  },
+  {
+    "id": "rileyobrien-stl",
+    "n": "Riley O'Brien",
+    "t": "STL",
+    "pos": [
+      "RP"
+    ],
+    "inj": true,
+    "age": 31,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 22,
+    "K": 65,
+    "ERA": 3.71,
+    "WHIP": 1.29
+  },
+  {
+    "id": "jossoriano-laa",
+    "n": "Jos\u00e9 Soriano",
+    "t": "LAA",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -7.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 10,
+    "SVH": 0,
+    "K": 143,
+    "ERA": 3.8,
+    "WHIP": 1.34
+  },
+  {
+    "id": "baileyober-min",
+    "n": "Bailey Ober",
+    "t": "MIN",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 30,
+    "csValA": -7.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 9,
+    "SVH": 0,
+    "K": 140,
+    "ERA": 4.33,
+    "WHIP": 1.21
+  },
+  {
+    "id": "ryanthompson-ari",
+    "n": "Ryan Thompson",
+    "t": "ARI",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 33,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 25,
+    "K": 47,
+    "ERA": 3.81,
+    "WHIP": 1.26
+  },
+  {
+    "id": "louisvarland-tor",
+    "n": "Louis Varland",
+    "t": "TOR",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -7.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 4,
+    "SVH": 13,
+    "K": 80,
+    "ERA": 3.8,
+    "WHIP": 1.27
+  },
+  {
+    "id": "brycemiller-sea",
+    "n": "Bryce Miller",
+    "t": "SEA",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -7.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 8,
+    "SVH": 0,
+    "K": 117,
+    "ERA": 4.07,
+    "WHIP": 1.21
+  },
+  {
+    "id": "ryanjeffers-min",
+    "n": "Ryan Jeffers",
+    "t": "MIN",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -7.0,
+    "csValS": -5.0,
+    "PA": 550,
+    "OBP": 0.324,
+    "HR": 15,
+    "XBH": 23,
+    "RP": 87,
+    "SB": 2
+  },
+  {
+    "id": "jacobmisiorowski-mil",
+    "n": "Jacob Misiorowski",
+    "t": "MIL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 23,
+    "csValA": -7.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 8,
+    "SVH": 0,
+    "K": 148,
+    "ERA": 4.0,
+    "WHIP": 1.28
+  },
+  {
+    "id": "claytonbeeter-wsn",
+    "n": "Clayton Beeter",
+    "t": "WSN",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "IP": 65,
+    "W": 4,
+    "SVH": 24,
+    "K": 79,
+    "ERA": 3.84,
+    "WHIP": 1.35
+  },
+  {
+    "id": "nolangorman-stl",
+    "n": "Nolan Gorman",
+    "t": "STL",
+    "pos": [
+      "3B",
+      "2B"
+    ],
+    "inj": false,
+    "age": 25,
+    "csValA": -7.0,
+    "csValS": -6.0,
+    "PA": 550,
+    "OBP": 0.301,
+    "HR": 21,
+    "XBH": 19,
+    "RP": 93,
+    "SB": 3
+  },
+  {
+    "id": "justinsteele-chc",
+    "n": "Justin Steele",
+    "t": "CHC",
+    "pos": [
+      "SP"
+    ],
+    "inj": true,
+    "age": 30,
+    "csValA": -7.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 7,
+    "SVH": 0,
+    "K": 91,
+    "ERA": 3.53,
+    "WHIP": 1.22
+  },
+  {
+    "id": "jjwetherholt-stl",
+    "n": "JJ Wetherholt",
+    "t": "STL",
+    "pos": [
+      "SS"
+    ],
+    "inj": false,
+    "age": 23,
+    "csValA": -7.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.326,
+    "HR": 11,
+    "XBH": 24,
+    "RP": 100,
+    "SB": 11
+  },
+  {
+    "id": "colsonmontgomery-chw",
+    "n": "Colson Montgomery",
+    "t": "CHW",
+    "pos": [
+      "SS",
+      "3B"
+    ],
+    "inj": false,
+    "age": 24,
+    "csValA": -7.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.286,
+    "HR": 24,
+    "XBH": 22,
+    "RP": 112,
+    "SB": 2
+  },
+  {
+    "id": "larsnootbaar-stl",
+    "n": "Lars Nootbaar",
+    "t": "STL",
+    "pos": [
+      "OF"
+    ],
+    "inj": true,
+    "age": 28,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "PA": 550,
+    "OBP": 0.344,
+    "HR": 15,
+    "XBH": 24,
+    "RP": 97,
+    "SB": 6
+  },
+  {
+    "id": "coltoncowser-bal",
+    "n": "Colton Cowser",
+    "t": "BAL",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 25,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "PA": 550,
+    "OBP": 0.311,
+    "HR": 19,
+    "XBH": 22,
+    "RP": 98,
+    "SB": 14
+  },
+  {
+    "id": "kyleteel-chw",
+    "n": "Kyle Teel",
+    "t": "CHW",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 24,
+    "csValA": -7.0,
+    "csValS": -6.0,
+    "PA": 550,
+    "OBP": 0.333,
+    "HR": 12,
+    "XBH": 19,
+    "RP": 92,
+    "SB": 6
+  },
+  {
+    "id": "samuelbasallo-bal",
+    "n": "Samuel Basallo",
+    "t": "BAL",
+    "pos": [
+      "C"
+    ],
+    "inj": true,
+    "age": 21,
+    "csValA": -7.0,
+    "csValS": -6.0,
+    "PA": 550,
+    "OBP": 0.306,
+    "HR": 19,
+    "XBH": 21,
+    "RP": 92,
+    "SB": 2
+  },
+  {
+    "id": "justincrawford-phi",
+    "n": "Justin Crawford",
+    "t": "PHI",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 22,
+    "csValA": -7.0,
+    "csValS": -2.0,
+    "PA": 550,
+    "OBP": 0.338,
+    "HR": 6,
+    "XBH": 22,
+    "RP": 98,
+    "SB": 24
+  },
+  {
+    "id": "jpcrawford-sea",
+    "n": "J.P. Crawford",
+    "t": "SEA",
+    "pos": [
+      "SS"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -7.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.33,
+    "HR": 11,
+    "XBH": 24,
+    "RP": 103,
+    "SB": 6
+  },
+  {
+    "id": "gregorysoto-pit",
+    "n": "Gregory Soto",
+    "t": "PIT",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -7.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 20,
+    "K": 66,
+    "ERA": 3.8,
+    "WHIP": 1.27
+  },
+  {
+    "id": "zacheflin-bal",
+    "n": "Zach Eflin",
+    "t": "BAL",
+    "pos": [
+      "SP"
+    ],
+    "inj": true,
+    "age": 31,
+    "csValA": -8.0,
+    "csValS": -1.0,
+    "IP": 170,
+    "W": 9,
+    "SVH": 0,
+    "K": 101,
+    "ERA": 4.2,
+    "WHIP": 1.19
+  },
+  {
+    "id": "keeganakin-bal",
+    "n": "Keegan Akin",
+    "t": "BAL",
+    "pos": [
+      "RP",
+      "SP"
+    ],
+    "inj": false,
+    "age": 30,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 18,
+    "K": 67,
+    "ERA": 3.92,
+    "WHIP": 1.26
+  },
+  {
+    "id": "jakobjunis-tex",
+    "n": "Jakob Junis",
+    "t": "TEX",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 33,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 4,
+    "SVH": 17,
+    "K": 59,
+    "ERA": 3.99,
+    "WHIP": 1.22
+  },
+  {
+    "id": "kirbyyates-laa",
+    "n": "Kirby Yates",
+    "t": "LAA",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 38,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 19,
+    "K": 65,
+    "ERA": 3.95,
+    "WHIP": 1.24
+  },
+  {
+    "id": "bradyhouse-wsn",
+    "n": "Brady House",
+    "t": "WSN",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 22,
+    "csValA": -8.0,
+    "csValS": -6.0,
+    "PA": 550,
+    "OBP": 0.3,
+    "HR": 14,
+    "XBH": 23,
+    "RP": 96,
+    "SB": 6
+  },
+  {
+    "id": "jordanleasure-chw",
+    "n": "Jordan Leasure",
+    "t": "CHW",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 18,
+    "K": 76,
+    "ERA": 4.11,
+    "WHIP": 1.24
+  },
+  {
+    "id": "blaketreinen-lad",
+    "n": "Blake Treinen",
+    "t": "LAD",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 37,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 15,
+    "K": 59,
+    "ERA": 3.81,
+    "WHIP": 1.21
+  },
+  {
+    "id": "edouardjulien-col",
+    "n": "Edouard Julien",
+    "t": "COL",
+    "pos": [
+      "1B",
+      "2B"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -8.0,
+    "csValS": -6.0,
+    "PA": 550,
+    "OBP": 0.354,
+    "HR": 12,
+    "XBH": 20,
+    "RP": 80,
+    "SB": 5
+  },
+  {
+    "id": "brayanrocchio-cle",
+    "n": "Brayan Rocchio",
+    "t": "CLE",
+    "pos": [
+      "SS",
+      "2B"
+    ],
+    "inj": false,
+    "age": 25,
+    "csValA": -8.0,
+    "csValS": -4.0,
+    "PA": 550,
+    "OBP": 0.301,
+    "HR": 10,
+    "XBH": 26,
+    "RP": 96,
+    "SB": 12
+  },
+  {
+    "id": "davidpeterson-nym",
+    "n": "David Peterson",
+    "t": "NYM",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 30,
+    "csValA": -8.0,
+    "csValS": -2.0,
+    "IP": 170,
+    "W": 10,
+    "SVH": 0,
+    "K": 144,
+    "ERA": 3.97,
+    "WHIP": 1.33
+  },
+  {
+    "id": "chasemeidroth-chw",
+    "n": "Chase Meidroth",
+    "t": "CHW",
+    "pos": [
+      "SS",
+      "2B"
+    ],
+    "inj": false,
+    "age": 24,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.342,
+    "HR": 8,
+    "XBH": 20,
+    "RP": 95,
+    "SB": 13
+  },
+  {
+    "id": "brandonmarsh-phi",
+    "n": "Brandon Marsh",
+    "t": "PHI",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.336,
+    "HR": 13,
+    "XBH": 24,
+    "RP": 95,
+    "SB": 10
+  },
+  {
+    "id": "andrewnardi-mia",
+    "n": "Andrew Nardi",
+    "t": "MIA",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 27,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 2,
+    "SVH": 12,
+    "K": 61,
+    "ERA": 3.63,
+    "WHIP": 1.19
+  },
+  {
+    "id": "maxmuncylad-lad",
+    "n": "Max Muncy (LAD)",
+    "t": "LAD",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 35,
+    "csValA": -8.0,
+    "csValS": -6.0,
+    "PA": 550,
+    "OBP": 0.346,
+    "HR": 20,
+    "XBH": 16,
+    "RP": 90,
+    "SB": 3
+  },
+  {
+    "id": "kevinginkel-ari",
+    "n": "Kevin Ginkel",
+    "t": "ARI",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -8.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 17,
+    "K": 56,
+    "ERA": 3.68,
+    "WHIP": 1.27
+  },
+  {
+    "id": "jaredtriolo-pit",
+    "n": "Jared Triolo",
+    "t": "PIT",
+    "pos": [
+      "SS",
+      "1B",
+      "2B",
+      "3B"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "PA": 550,
+    "OBP": 0.329,
+    "HR": 9,
+    "XBH": 24,
+    "RP": 85,
+    "SB": 13
+  },
+  {
+    "id": "gabrielmoreno-ari",
+    "n": "Gabriel Moreno",
+    "t": "ARI",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -9.0,
+    "csValS": -6.0,
+    "PA": 550,
+    "OBP": 0.352,
+    "HR": 10,
+    "XBH": 20,
+    "RP": 84,
+    "SB": 4
+  },
+  {
+    "id": "mattwallner-min",
+    "n": "Matt Wallner",
+    "t": "MIN",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -9.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.312,
+    "HR": 22,
+    "XBH": 23,
+    "RP": 100,
+    "SB": 5
+  },
+  {
+    "id": "dylanbeavers-bal",
+    "n": "Dylan Beavers",
+    "t": "BAL",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 24,
+    "csValA": -9.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.337,
+    "HR": 13,
+    "XBH": 22,
+    "RP": 96,
+    "SB": 12
+  },
+  {
+    "id": "ajpuk-ari",
+    "n": "A.J. Puk",
+    "t": "ARI",
+    "pos": [
+      "RP"
+    ],
+    "inj": true,
+    "age": 30,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 13,
+    "K": 50,
+    "ERA": 3.31,
+    "WHIP": 1.23
+  },
+  {
+    "id": "erikmiller-sf",
+    "n": "Erik Miller",
+    "t": "SF",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 18,
+    "K": 61,
+    "ERA": 3.62,
+    "WHIP": 1.33
+  },
+  {
+    "id": "tonysantillan-cin",
+    "n": "Tony Santillan",
+    "t": "CIN",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -9.0,
+    "csValS": -3.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 26,
+    "K": 71,
+    "ERA": 4.18,
+    "WHIP": 1.32
+  },
+  {
+    "id": "angelzerpa-mil",
+    "n": "Angel Zerpa",
+    "t": "MIL",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 12,
+    "K": 58,
+    "ERA": 3.67,
+    "WHIP": 1.25
+  },
+  {
+    "id": "trentgrisham-nyy",
+    "n": "Trent Grisham",
+    "t": "NYY",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 29,
+    "csValA": -9.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.332,
+    "HR": 23,
+    "XBH": 17,
+    "RP": 106,
+    "SB": 5
+  },
+  {
+    "id": "justinsterner-ath",
+    "n": "Justin Sterner",
+    "t": "ATH",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 29,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 16,
+    "K": 67,
+    "ERA": 4.15,
+    "WHIP": 1.24
+  },
+  {
+    "id": "kerrycarpenter-det",
+    "n": "Kerry Carpenter",
+    "t": "DET",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 28,
+    "csValA": -9.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.313,
+    "HR": 23,
+    "XBH": 22,
+    "RP": 104,
+    "SB": 2
+  },
+  {
+    "id": "chrisbassitt-bal",
+    "n": "Chris Bassitt",
+    "t": "BAL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 37,
+    "csValA": -9.0,
+    "csValS": -2.0,
+    "IP": 170,
+    "W": 11,
+    "SVH": 0,
+    "K": 153,
+    "ERA": 4.27,
+    "WHIP": 1.3
+  },
+  {
+    "id": "yenniercano-bal",
+    "n": "Yennier Cano",
+    "t": "BAL",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 18,
+    "K": 55,
+    "ERA": 3.78,
+    "WHIP": 1.3
+  },
+  {
+    "id": "graysonrodriguez-laa",
+    "n": "Grayson Rodriguez",
+    "t": "LAA",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 26,
+    "csValA": -9.0,
+    "csValS": -2.0,
+    "IP": 170,
+    "W": 6,
+    "SVH": 0,
+    "K": 118,
+    "ERA": 4.02,
+    "WHIP": 1.22
+  },
+  {
+    "id": "markleiterjr-ath",
+    "n": "Mark Leiter Jr.",
+    "t": "ATH",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 34,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 19,
+    "K": 67,
+    "ERA": 4.15,
+    "WHIP": 1.27
+  },
+  {
+    "id": "miketrout-laa",
+    "n": "Mike Trout",
+    "t": "LAA",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 34,
+    "csValA": -9.0,
+    "csValS": -3.0,
+    "PA": 550,
+    "OBP": 0.346,
+    "HR": 23,
+    "XBH": 18,
+    "RP": 98,
+    "SB": 3
+  },
+  {
+    "id": "johnschreiber-kc",
+    "n": "John Schreiber",
+    "t": "KC",
+    "pos": [
+      "RP"
+    ],
+    "inj": false,
+    "age": 31,
+    "csValA": -9.0,
+    "csValS": -4.0,
+    "IP": 65,
+    "W": 3,
+    "SVH": 19,
+    "K": 58,
+    "ERA": 4.03,
+    "WHIP": 1.26
+  },
+  {
+    "id": "jordanlawlar-ari",
+    "n": "Jordan Lawlar",
+    "t": "ARI",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 23,
+    "csValA": -9.0,
+    "csValS": -7.0,
+    "PA": 550,
+    "OBP": 0.309,
+    "HR": 9,
+    "XBH": 24,
+    "RP": 77,
+    "SB": 14
+  },
+  {
+    "id": "fostergriffin-wsn",
+    "n": "Foster Griffin",
+    "t": "WSN",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 30,
+    "csValA": -9.0,
+    "csValS": -2.0,
+    "IP": 170,
+    "W": 7,
+    "SVH": 0,
+    "K": 112,
+    "ERA": 4.04,
+    "WHIP": 1.24
   }
 ];
