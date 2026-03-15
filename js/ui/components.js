@@ -96,6 +96,17 @@ const UI = {
             });
         }
 
+        // Merge INJURY_CACHE (baked static news) into AppState.injuryCache
+        // localStorage entries win when their timestamp is newer
+        if (typeof INJURY_CACHE !== 'undefined') {
+            Object.entries(INJURY_CACHE).forEach(([id, entry]) => {
+                const existing = AppState.injuryCache[id];
+                if (!existing || entry.ts > existing.ts) {
+                    AppState.injuryCache[id] = entry;
+                }
+            });
+        }
+
         // Merge STEAMER_EXTRAS (unofficial Steamer estimates)
         if (typeof STEAMER_EXTRAS !== 'undefined') {
             // Only add extras not already in seed

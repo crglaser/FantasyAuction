@@ -156,27 +156,31 @@ const Modals = {
 
         document.getElementById('noteArea').value = note;
 
-        // Pre-computed summary (from update_injuries.py --summarize) or reset for on-demand
+        // Pre-computed summary (from update_injuries.py --summarize) or on-demand button
         const summaryBlock = document.getElementById('injSummaryBlock');
         const summaryEl    = document.getElementById('injSummary');
         const summarizeBtn = document.getElementById('injSummarizeBtn');
         if (news?.summary) {
             summaryBlock.style.display = 'block';
-            summarizeBtn.textContent = '⚡ AI SUMMARY';
-            // Format the 3 lines with colored labels (same as live summarize)
-            summaryEl.innerHTML = news.summary.split('\n').filter(l => l.trim()).map(line => {
-                const m = line.match(/^(INJURY|PROGNOSIS|RETURN):\s*(.*)/i);
-                if (!m) return `<span style="color:#c8d8e8">${line}</span>`;
-                const labelColor = { INJURY: '#e8c040', PROGNOSIS: '#7090a8', RETURN: '#40b870' }[m[1].toUpperCase()] || '#c8d8e8';
-                return `<span style="color:${labelColor};font-weight:700">${m[1]}:</span> <span style="color:#c8d8e8">${m[2]}</span>`;
-            }).join('<br>');
+            summarizeBtn.style.display = 'none'; // already computed, no need to re-run
+            summaryEl.innerHTML = this._formatSummary(news.summary);
         } else {
             summaryBlock.style.display = 'none';
+            summarizeBtn.style.display = news?.blurb ? '' : 'none'; // only show if there's something to summarize
             summarizeBtn.textContent = '⚡ AI SUMMARY';
         }
 
         document.getElementById('injuryModal').classList.add('open');
         InjuryManager.markRead(id);
+    },
+
+    _formatSummary(text) {
+        return text.split('\n').filter(l => l.trim()).map(line => {
+            const m = line.match(/^(INJURY|PROGNOSIS|RETURN):\s*(.*)/i);
+            if (!m) return `<span style="color:#c8d8e8">${line}</span>`;
+            const labelColor = { INJURY: '#e8c040', PROGNOSIS: '#7090a8', RETURN: '#40b870' }[m[1].toUpperCase()] || '#c8d8e8';
+            return `<span style="color:${labelColor};font-weight:700">${m[1]}:</span> <span style="color:#c8d8e8">${m[2]}</span>`;
+        }).join('<br>');
     },
 
     async summarizeInjury() {
@@ -225,13 +229,7 @@ const Modals = {
             });
             const data = await res.json();
             const text = data.content?.[0]?.text || 'Could not parse response.';
-            // Format the 3 lines with colored labels
-            out.innerHTML = text.split('\n').filter(l => l.trim()).map(line => {
-                const m = line.match(/^(INJURY|PROGNOSIS|RETURN):\s*(.*)/i);
-                if (!m) return `<span style="color:#c8d8e8">${line}</span>`;
-                const labelColor = { INJURY: '#e8c040', PROGNOSIS: '#7090a8', RETURN: '#40b870' }[m[1].toUpperCase()] || '#c8d8e8';
-                return `<span style="color:${labelColor};font-weight:700">${m[1]}:</span> <span style="color:#c8d8e8">${m[2]}</span>`;
-            }).join('<br>');
+            out.innerHTML = this._formatSummary(text);
         } catch (e) {
             out.innerHTML = `<span style="color:#d04040">Error: ${e.message}</span>`;
         }
