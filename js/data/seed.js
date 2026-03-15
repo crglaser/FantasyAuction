@@ -999,6 +999,60 @@ const SEED_PLAYERS = [
     "SB": 1
   },
   {
+    "id": "dustinmay-stl",
+    "n": "Dustin May",
+    "t": "STL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 14.9,
+    "csValS": 12.1,
+    "IP": 161,
+    "W": 8.9,
+    "SVH": 0,
+    "K": 148,
+    "ERA": 4.22,
+    "WHIP": 1.343
+  },
+  {
+    "id": "bubbachandler-pit",
+    "n": "Bubba Chandler",
+    "t": "PIT",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 14.6,
+    "csValS": 11.8,
+    "IP": 162,
+    "W": 9.0,
+    "SVH": 0,
+    "K": 148,
+    "ERA": 4.3,
+    "WHIP": 1.361
+  },
+  {
+    "id": "shanebaz-bal",
+    "n": "Shane Baz",
+    "t": "BAL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 14.5,
+    "csValS": 11.6,
+    "IP": 159,
+    "W": 9.5,
+    "SVH": 0,
+    "K": 156,
+    "ERA": 4.29,
+    "WHIP": 1.327
+  },
+  {
     "id": "masonmiller-sd",
     "n": "Mason Miller",
     "t": "SD",
@@ -1015,6 +1069,96 @@ const SEED_PLAYERS = [
     "K": 105,
     "ERA": 2.51,
     "WHIP": 0.97
+  },
+  {
+    "id": "mikeburrows-hou",
+    "n": "Mike Burrows",
+    "t": "HOU",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 13.7,
+    "csValS": 10.9,
+    "IP": 146,
+    "W": 8.9,
+    "SVH": 0,
+    "K": 142,
+    "ERA": 4.24,
+    "WHIP": 1.304
+  },
+  {
+    "id": "brayanbello-bos",
+    "n": "Brayan Bello",
+    "t": "BOS",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 13.7,
+    "csValS": 11.7,
+    "IP": 156,
+    "W": 8.9,
+    "SVH": 0,
+    "K": 130,
+    "ERA": 4.41,
+    "WHIP": 1.401
+  },
+  {
+    "id": "matthewliberatore-stl",
+    "n": "Matthew Liberatore",
+    "t": "STL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 13.6,
+    "csValS": 11.3,
+    "IP": 157,
+    "W": 8.7,
+    "SVH": 0,
+    "K": 130,
+    "ERA": 4.33,
+    "WHIP": 1.348
+  },
+  {
+    "id": "trevorrogers-bal",
+    "n": "Trevor Rogers",
+    "t": "BAL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 13.3,
+    "csValS": 11.1,
+    "IP": 149,
+    "W": 9.1,
+    "SVH": 0,
+    "K": 127,
+    "ERA": 4.2,
+    "WHIP": 1.347
+  },
+  {
+    "id": "kodaisenga-nym",
+    "n": "Kodai Senga",
+    "t": "NYM",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 13.2,
+    "csValS": 10.2,
+    "IP": 130,
+    "W": 8.2,
+    "SVH": 0,
+    "K": 131,
+    "ERA": 3.9,
+    "WHIP": 1.332
   },
   {
     "id": "dylancease-tor",
@@ -1107,6 +1251,132 @@ const SEED_PLAYERS = [
     "WHIP": 1.1
   },
   {
+    "id": "willwarren-nyy",
+    "n": "Will Warren",
+    "t": "NYY",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 13.0,
+    "csValS": 10.3,
+    "IP": 134,
+    "W": 8.2,
+    "SVH": 0,
+    "K": 131,
+    "ERA": 4.02,
+    "WHIP": 1.3
+  },
+  {
+    "id": "jackleiter-tex",
+    "n": "Jack Leiter",
+    "t": "TEX",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 13.0,
+    "csValS": 10.3,
+    "IP": 150,
+    "W": 8.6,
+    "SVH": 0,
+    "K": 145,
+    "ERA": 4.52,
+    "WHIP": 1.372
+  },
+  {
+    "id": "sladececconi-cle",
+    "n": "Slade Cecconi",
+    "t": "CLE",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 12.7,
+    "csValS": 10.7,
+    "IP": 157,
+    "W": 8.3,
+    "SVH": 0,
+    "K": 132,
+    "ERA": 4.52,
+    "WHIP": 1.31
+  },
+  {
+    "id": "noahcameron-kc",
+    "n": "Noah Cameron",
+    "t": "KC",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 12.6,
+    "csValS": 10.5,
+    "IP": 148,
+    "W": 8.7,
+    "SVH": 0,
+    "K": 122,
+    "ERA": 4.31,
+    "WHIP": 1.354
+  },
+  {
+    "id": "landenroupp-sf",
+    "n": "Landen Roupp",
+    "t": "SF",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 12.4,
+    "csValS": 10.0,
+    "IP": 130,
+    "W": 7.6,
+    "SVH": 0,
+    "K": 120,
+    "ERA": 4.1,
+    "WHIP": 1.367
+  },
+  {
+    "id": "ryanweathers-nyy",
+    "n": "Ryan Weathers",
+    "t": "NYY",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 12.2,
+    "csValS": 9.6,
+    "IP": 124,
+    "W": 7.8,
+    "SVH": 0,
+    "K": 122,
+    "ERA": 3.84,
+    "WHIP": 1.266
+  },
+  {
+    "id": "camschlittler-nyy",
+    "n": "Cam Schlittler",
+    "t": "NYY",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 12.1,
+    "csValS": 9.5,
+    "IP": 126,
+    "W": 7.9,
+    "SVH": 0,
+    "K": 121,
+    "ERA": 4.02,
+    "WHIP": 1.306
+  },
+  {
     "id": "romananthony-bos",
     "n": "Roman Anthony",
     "t": "BOS",
@@ -1177,6 +1447,96 @@ const SEED_PLAYERS = [
     "XBH": 28,
     "RP": 123,
     "SB": 2
+  },
+  {
+    "id": "parkermessick-cle",
+    "n": "Parker Messick",
+    "t": "CLE",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 12.0,
+    "csValS": 9.8,
+    "IP": 129,
+    "W": 7.4,
+    "SVH": 0,
+    "K": 115,
+    "ERA": 4.08,
+    "WHIP": 1.325
+  },
+  {
+    "id": "cadehorton-chc",
+    "n": "Cade Horton",
+    "t": "CHC",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 11.7,
+    "csValS": 9.5,
+    "IP": 134,
+    "W": 7.9,
+    "SVH": 0,
+    "K": 117,
+    "ERA": 4.34,
+    "WHIP": 1.328
+  },
+  {
+    "id": "jaredjones-pit",
+    "n": "Jared Jones",
+    "t": "PIT",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 11.5,
+    "csValS": 9.0,
+    "IP": 107,
+    "W": 6.6,
+    "SVH": 0,
+    "K": 113,
+    "ERA": 3.83,
+    "WHIP": 1.24
+  },
+  {
+    "id": "anthonykay-cws",
+    "n": "Anthony Kay",
+    "t": "CWS",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 11.5,
+    "csValS": 9.7,
+    "IP": 134,
+    "W": 7.3,
+    "SVH": 0,
+    "K": 106,
+    "ERA": 4.18,
+    "WHIP": 1.406
+  },
+  {
+    "id": "mickabel-min",
+    "n": "Mick Abel",
+    "t": "MIN",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 11.2,
+    "csValS": 9.2,
+    "IP": 136,
+    "W": 7.4,
+    "SVH": 0,
+    "K": 119,
+    "ERA": 4.63,
+    "WHIP": 1.456
   },
   {
     "id": "jessluzardo-phi",
@@ -1340,6 +1700,24 @@ const SEED_PLAYERS = [
     "XBH": 28,
     "RP": 125,
     "SB": 3
+  },
+  {
+    "id": "kyleharrison-mil",
+    "n": "Kyle Harrison",
+    "t": "MIL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 10.5,
+    "csValS": 8.1,
+    "IP": 111,
+    "W": 6.4,
+    "SVH": 0,
+    "K": 113,
+    "ERA": 4.21,
+    "WHIP": 1.314
   },
   {
     "id": "ianhapp-chc",
@@ -1506,6 +1884,42 @@ const SEED_PLAYERS = [
     "WHIP": 1.06
   },
   {
+    "id": "luisgil-nyy",
+    "n": "Luis Gil",
+    "t": "NYY",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.5,
+    "csValS": 7.2,
+    "IP": 102,
+    "W": 5.8,
+    "SVH": 0,
+    "K": 107,
+    "ERA": 4.2,
+    "WHIP": 1.339
+  },
+  {
+    "id": "loganhenderson-mil",
+    "n": "Logan Henderson",
+    "t": "MIL",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.2,
+    "csValS": 7.2,
+    "IP": 98,
+    "W": 5.5,
+    "SVH": 0,
+    "K": 97,
+    "ERA": 4.16,
+    "WHIP": 1.233
+  },
+  {
     "id": "cadesmith-cle",
     "n": "Cade Smith",
     "t": "CLE",
@@ -1652,6 +2066,42 @@ const SEED_PLAYERS = [
     "SB": 7
   },
   {
+    "id": "andrewpainter-phi",
+    "n": "Andrew Painter",
+    "t": "PHI",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.7,
+    "csValS": 7.3,
+    "IP": 115,
+    "W": 6.1,
+    "SVH": 0,
+    "K": 89,
+    "ERA": 4.67,
+    "WHIP": 1.402
+  },
+  {
+    "id": "ryanweiss-hou",
+    "n": "Ryan Weiss",
+    "t": "HOU",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.4,
+    "csValS": 6.8,
+    "IP": 92,
+    "W": 5.0,
+    "SVH": 0,
+    "K": 87,
+    "ERA": 4.29,
+    "WHIP": 1.359
+  },
+  {
     "id": "joshhader-hou",
     "n": "Josh Hader",
     "t": "HOU",
@@ -1760,6 +2210,24 @@ const SEED_PLAYERS = [
     "XBH": 30,
     "RP": 110,
     "SB": 7
+  },
+  {
+    "id": "spencerarrighetti-hou",
+    "n": "Spencer Arrighetti",
+    "t": "HOU",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.4,
+    "csValS": 5.8,
+    "IP": 85,
+    "W": 4.7,
+    "SVH": 0,
+    "K": 84,
+    "ERA": 4.56,
+    "WHIP": 1.371
   },
   {
     "id": "nickpivetta-sd",
@@ -2379,6 +2847,24 @@ const SEED_PLAYERS = [
     "XBH": 32,
     "RP": 122,
     "SB": 12
+  },
+  {
+    "id": "corbinburnes-ari",
+    "n": "Corbin Burnes",
+    "t": "ARI",
+    "pos": [
+      "SP"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 4.1,
+    "csValS": 3.3,
+    "IP": 38,
+    "W": 2.4,
+    "SVH": 0,
+    "K": 38,
+    "ERA": 3.84,
+    "WHIP": 1.27
   },
   {
     "id": "tannerbibee-cle",

@@ -1,6 +1,6 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-15 20:25 UTC
+ * Generated: 2026-03-15 20:42 UTC
  * Fields: CM_Role, PL_Rank, PL_Tier
  * Run: python3 scripts/bake_manual.py
  */
@@ -490,5 +490,113 @@ const MANUAL_RANKINGS = {
   "graysonrodriguez-laa": {
     "PL_Rank": 82,
     "PL_Tier": 12
+  },
+  "camschlittler-nyy": {
+    "PL_Rank": 20,
+    "PL_Tier": 4
+  },
+  "bubbachandler-pit": {
+    "PL_Rank": 28,
+    "PL_Tier": 5
+  },
+  "cadehorton-chc": {
+    "PL_Rank": 41,
+    "PL_Tier": 7
+  },
+  "ryanweathers-nyy": {
+    "PL_Rank": 54,
+    "PL_Tier": 9
+  },
+  "shanebaz-bal": {
+    "PL_Rank": 56,
+    "PL_Tier": 9
+  },
+  "kodaisenga-nym": {
+    "PL_Rank": 58,
+    "PL_Tier": 9
+  },
+  "jaredjones-pit": {
+    "PL_Rank": 65,
+    "PL_Tier": 10
+  },
+  "corbinburnes-ari": {
+    "PL_Rank": 68,
+    "PL_Tier": 10
+  },
+  "noahcameron-kc": {
+    "PL_Rank": 71,
+    "PL_Tier": 11
+  },
+  "willwarren-nyy": {
+    "PL_Rank": 76,
+    "PL_Tier": 11
+  },
+  "kyleharrison-mil": {
+    "PL_Rank": 78,
+    "PL_Tier": 12
+  },
+  "luisgil-nyy": {
+    "PL_Rank": 80,
+    "PL_Tier": 12
+  },
+  "andrewpainter-phi": {
+    "PL_Rank": 81,
+    "PL_Tier": 12
+  },
+  "mickabel-min": {
+    "PL_Rank": 83,
+    "PL_Tier": 12
+  },
+  "parkermessick-cle": {
+    "PL_Rank": 84,
+    "PL_Tier": 12
+  },
+  "mikeburrows-hou": {
+    "PL_Rank": 86,
+    "PL_Tier": 13
+  },
+  "anthonykay-cws": {
+    "PL_Rank": 88,
+    "PL_Tier": 13
+  },
+  "brayanbello-bos": {
+    "PL_Rank": 89,
+    "PL_Tier": 13
+  },
+  "ryanweiss-hou": {
+    "PL_Rank": 90,
+    "PL_Tier": 13
+  },
+  "landenroupp-sf": {
+    "PL_Rank": 92,
+    "PL_Tier": 13
+  },
+  "matthewliberatore-stl": {
+    "PL_Rank": 93,
+    "PL_Tier": 14
+  },
+  "spencerarrighetti-hou": {
+    "PL_Rank": 95,
+    "PL_Tier": 14
+  },
+  "jackleiter-tex": {
+    "PL_Rank": 96,
+    "PL_Tier": 14
+  },
+  "dustinmay-stl": {
+    "PL_Rank": 97,
+    "PL_Tier": 14
+  },
+  "sladececconi-cle": {
+    "PL_Rank": 98,
+    "PL_Tier": 14
+  },
+  "loganhenderson-mil": {
+    "PL_Rank": 99,
+    "PL_Tier": 15
+  },
+  "trevorrogers-bal": {
+    "PL_Rank": 34,
+    "PL_Tier": 6
   }
 };
