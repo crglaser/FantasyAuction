@@ -36,7 +36,7 @@ const UI = {
     },
 
     render() {
-        ValEngine.calculateAll();
+         ValEngine.calculateAll();
         const players = this.getFilteredPlayers();
         this.updateHeader();
         
@@ -119,7 +119,8 @@ const UI = {
                             const isMe = dr?.team === 'me';
                             const rowCls = (isMe ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const injNews = InjuryManager.getLatestFor(p.id);
-                            const injTag = p.inj ? `<span class="wb ${injNews?.isNew ? 'pulse' : ''}" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ${injNews?.isNew ? '!' : ''}</span>` : '';
+                            const hasNote = !!AppState.playerNotes[p.id];
+                            const injTag = p.inj ? `<span class="pb ${injNews?.isNew ? 'pulse' : ''}" style="background:#401010;border-color:#802020;color:#f0a0a0;cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ${injNews?.isNew ? '!' : ''}${hasNote ? '*' : ''}</span>` : '';
                             
                             return `
                                 <tr class="${rowCls}">
@@ -164,7 +165,8 @@ const UI = {
                         ${players.map(p => {
                             const dr = AppState.drafted[p.id];
                             const injNews = InjuryManager.getLatestFor(p.id);
-                            const injTag = p.inj ? `<span class="wb ${injNews?.isNew ? 'pulse' : ''}" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : '';
+                            const hasNote = !!AppState.playerNotes[p.id];
+                            const injTag = p.inj ? `<span class="pb ${injNews?.isNew ? 'pulse' : ''}" style="background:#401010;border-color:#802020;color:#f0a0a0;cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ${hasNote ? '*' : ''}</span>` : '';
                             return `
                                 <tr class="${dr ? 'drafted' : ''}">
                                     <td class="mono muted">${p.csRank}</td>
@@ -420,20 +422,49 @@ const UI = {
     openInjuryModal(id) {
         const p = AppState.players.find(x => x.id === id);
         if (!p) return;
+        
+        AppState.pendingPlayerId = id; // Track for saving notes
         const news = InjuryManager.getLatestFor(id);
+        const note = AppState.playerNotes[id] || "";
         
         document.getElementById('injName').textContent = p.n;
-        document.getElementById('injTitle').innerHTML = news ? `${news.title}` : `No cached news for ${p.n}`;
+        document.getElementById('injTitle').innerHTML = news ? `${news.title}` : `No recent news for ${p.n}`;
         
         const rotoworld = document.getElementById('linkRotoworld');
-        rotoworld.innerHTML = news ? `LATEST: ${news.blurb.substring(0, 100)}... <br> (CLICK FOR FULL)` : "SEARCH ROTOWORLD";
+        rotoworld.innerHTML = news ? `LATEST: ${news.blurb.substring(0, 150)}... <br> (CLICK FOR FULL)` : "DEEP SEARCH ROTOWORLD";
         rotoworld.href = news ? news.link : `https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(p.n)}`;
         
         document.getElementById('linkCBS').href = `https://www.cbssports.com/mlb/players/playerpage/${p.id}/status`;
         document.getElementById('linkFG').href = `https://www.fangraphs.com/players/${p.n.toLowerCase().replace(/ /g, '-')}`;
+
+        // Add Notes UI to the modal dynamically
+        const modal = document.getElementById('injuryModal').querySelector('.modal');
+        let noteField = document.getElementById('noteArea');
+        if (!noteField) {
+            const field = document.createElement('div');
+            field.className = 'field';
+            field.style.marginTop = '20px';
+            field.innerHTML = `<label>Internal Notes / Recovery Estimate</label>
+                               <textarea id="noteArea" style="width:100%;height:60px;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px"></textarea>
+                               <button class="btn btn-go" style="width:100%;margin-top:5px" onclick="UI.savePlayerNote()">SAVE NOTES</button>`;
+            modal.insertBefore(field, modal.querySelector('.modal-btns'));
+            noteField = document.getElementById('noteArea');
+        }
+        noteField.value = note;
         
         document.getElementById('injuryModal').classList.add('open');
         InjuryManager.markRead(id);
+    },
+
+    savePlayerNote() {
+        const id = AppState.pendingPlayerId;
+        const note = document.getElementById('noteArea').value;
+        if (id) {
+            AppState.playerNotes[id] = note;
+            StateManager.save();
+            document.getElementById('injuryModal').classList.remove('open');
+            this.render();
+        }
     },
 
     handleAssistant() {

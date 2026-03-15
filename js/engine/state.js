@@ -44,6 +44,7 @@ let AppState = {
     players: [],      // Full list of player objects with projections and calculated values
     drafted: {},      // Map of playerID -> { cost, team, timestamp }
     injuryCache: {},  // Map of playerID -> { title, blurb, ts, isNew, link }
+    playerNotes: {},  // Map of playerID -> "Custom scouting/injury notes"
     settings: {
         hitSplit: 65,
         snakeDisc: true,
@@ -73,6 +74,7 @@ const StateManager = {
                 drafted: AppState.drafted,
                 settings: AppState.settings,
                 injuryCache: AppState.injuryCache,
+                playerNotes: AppState.playerNotes,
                 version: APP_VERSION
             };
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(dataToSave));
@@ -89,6 +91,7 @@ const StateManager = {
                 AppState.drafted = parsed.drafted || {};
                 AppState.settings = { ...AppState.settings, ...parsed.settings };
                 AppState.injuryCache = parsed.injuryCache || {};
+                AppState.playerNotes = parsed.playerNotes || {};
             }
         } catch (e) {
             console.error('Error loading state:', e);

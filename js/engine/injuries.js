@@ -1,5 +1,5 @@
 /**
- * InjuryManager — v1.1.0
+ * InjuryManager — v1.1.1
  * Handles fetching, diffing, and caching live injury news.
  */
 
@@ -16,34 +16,7 @@ const InjuryManager = {
             if (data.status !== 'ok') throw new Error("Feed unavailable");
 
             const items = data.items || [];
-            const newCache = { ...AppState.injuryCache };
-            let updatedCount = 0;
-
-            items.forEach(item => {
-                // Find matching player in our database
-                const player = this.matchPlayer(item.title);
-                if (player) {
-                    const blurb = item.content || item.description;
-                    const timestamp = new Date(item.pubDate).getTime();
-
-                    // Check for diff
-                    if (!newCache[player.id] || newCache[player.id].ts < timestamp) {
-                        newCache[player.id] = {
-                            title: item.title,
-                            blurb: this.cleanBlurb(blurb),
-                            ts: timestamp,
-                            isNew: true,
-                            link: item.link
-                        };
-                        updatedCount++;
-                        console.log(`[InjuryManager] Updated news for ${player.n}`);
-                    }
-                }
-            });
-
-            AppState.injuryCache = newCache;
-            StateManager.save();
-            return updatedCount;
+            return this.processItems(items);
         } catch (e) {
             console.error("[InjuryManager] Error:", e);
             return -1;
@@ -51,13 +24,57 @@ const InjuryManager = {
     },
 
     /**
-     * Attempts to match a news headline (e.g., "Aaron Judge (hand) went 2-for-3") 
-     * to a player in our SEED list.
+     * Targeted search for a single player to get deep history/blurbs.
      */
+    async searchForPlayer(player) {
+        console.log(`[InjuryManager] Deep search for ${player.n}...`);
+        const queryUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(player.n)}&format=rss`;
+        try {
+            const res = await fetch(queryUrl);
+            const data = await res.json();
+            if (data.status === 'ok' && data.items.length > 0) {
+                this.processItems(data.items);
+                return true;
+            }
+            return false;
+        } catch (e) {
+            console.error(e);
+            return false;
+        }
+    },
+
+    processItems(items) {
+        const newCache = { ...AppState.injuryCache };
+        let updatedCount = 0;
+
+        items.forEach(item => {
+            const player = this.matchPlayer(item.title);
+            if (player) {
+                const blurb = item.content || item.description;
+                const timestamp = new Date(item.pubDate).getTime();
+
+                if (!newCache[player.id] || newCache[player.id].ts < timestamp) {
+                    newCache[player.id] = {
+                        title: item.title,
+                        blurb: this.cleanBlurb(blurb),
+                        ts: timestamp,
+                        isNew: true,
+                        link: item.link
+                    };
+                    updatedCount++;
+                }
+            }
+        });
+
+        AppState.injuryCache = newCache;
+        StateManager.save();
+        return updatedCount;
+    },
+
     matchPlayer(title) {
         if (!AppState.players.length) return null;
-        // Search for full names within the title
-        return AppState.players.find(p => title.includes(p.n));
+        // Exact name match or contains
+        return AppState.players.find(p => title.toLowerCase().includes(p.n.toLowerCase()));
     },
 
     cleanBlurb(html) {
