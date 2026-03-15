@@ -7,17 +7,21 @@ Usage:
     python3 scripts/update_injuries.py --days 14  # wider recency window
     python3 scripts/update_injuries.py --all      # all 500 players (slow, ~2 min)
 
+AI summaries are generated automatically when ANTHROPIC_API_KEY is set.
+Existing summaries are preserved if the blurb hasn't changed (no redundant API calls).
+
 Writes: js/data/injuries_cache.js
 Then:   git add js/data/injuries_cache.js && git commit -m "Refresh injuries $(date -u +%Y-%m-%d)"
         git push origin main
 """
 
-import json, urllib.request, urllib.parse, unicodedata, re, time, sys, argparse, os
+import json, urllib.request, urllib.parse, unicodedata, re, time, sys, argparse, os, subprocess
 from datetime import datetime, timezone, timedelta
 
-SEED_FILE   = 'js/data/seed.js'
-OUTPUT_FILE = 'js/data/injuries_cache.js'
-RATE_DELAY  = 0.15
+SEED_FILE    = 'js/data/seed.js'
+OUTPUT_FILE  = 'js/data/injuries_cache.js'
+RATE_DELAY   = 0.15
+AI_RATE_DELAY = 0.3  # pause between Claude API calls
 
 # Keywords that strongly indicate an injury — avoid generic words that appear in all blurbs
 INJ_KEYWORDS = {
@@ -129,60 +133,59 @@ def make_cache_entry(item):
     }
 
 
-def ai_summarize(blurb, api_key):
-    """Call Claude Haiku to extract INJURY / PROGNOSIS / RETURN from a blurb."""
-    if not blurb or not api_key:
+def ai_summarize(blurb):
+    """Use the claude CLI (already authenticated) to summarize an injury blurb."""
+    if not blurb:
         return None
-    payload = json.dumps({
-        'model': 'claude-haiku-4-5-20251001',
-        'max_tokens': 120,
-        'system': 'You are a terse fantasy baseball injury analyst. Respond with exactly 3 labeled lines and nothing else.',
-        'messages': [{
-            'role': 'user',
-            'content': (
-                'Summarize this injury report in exactly 3 lines:\n'
-                'INJURY: [type of injury]\n'
-                'PROGNOSIS: [good/moderate/serious/season-ending]\n'
-                'RETURN: [expected timeline, e.g. "2-3 weeks" or "day-to-day" or "out for season"]\n\n'
-                f'Report: {blurb[:600]}'
-            )
-        }]
-    }).encode()
-    req = urllib.request.Request(
-        'https://api.anthropic.com/v1/messages',
-        data=payload,
-        headers={
-            'Content-Type': 'application/json',
-            'x-api-key': api_key,
-            'anthropic-version': '2023-06-01',
-        },
-        method='POST'
+    prompt = (
+        'You are a terse fantasy baseball injury analyst. Respond with exactly 3 labeled lines and nothing else.\n\n'
+        'Summarize this injury report:\n'
+        'INJURY: [type of injury]\n'
+        'PROGNOSIS: [good/moderate/serious/season-ending]\n'
+        'RETURN: [expected timeline, e.g. "2-3 weeks" or "day-to-day" or "out for season"]\n\n'
+        f'Report: {blurb[:600]}'
     )
     try:
-        with urllib.request.urlopen(req, timeout=15) as r:
-            data = json.loads(r.read())
-        return data.get('content', [{}])[0].get('text', '').strip() or None
+        result = subprocess.run(
+            ['claude', '-p', prompt, '--model', 'claude-haiku-4-5-20251001'],
+            capture_output=True, text=True, timeout=30
+        )
+        return result.stdout.strip() or None
     except Exception as e:
         print(f'    AI summary error: {e}')
         return None
+
+def load_existing_cache():
+    """Load the existing injuries_cache.js to preserve summaries for unchanged blurbs."""
+    try:
+        with open(OUTPUT_FILE) as f:
+            content = f.read()
+        m = re.search(r'const INJURY_CACHE = (\{.*\});', content, re.DOTALL)
+        if m:
+            return json.loads(m.group(1))
+    except Exception:
+        pass
+    return {}
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--days', type=int, default=7)
     parser.add_argument('--all', action='store_true')
-    parser.add_argument('--summarize', action='store_true', help='Pre-compute AI injury summaries via Claude API')
     args = parser.parse_args()
 
-    api_key = os.environ.get('ANTHROPIC_API_KEY') if args.summarize else None
-    if args.summarize and not api_key:
-        print('WARNING: --summarize requires ANTHROPIC_API_KEY env var. Skipping AI summaries.')
+    claude_bin = subprocess.run(['which', 'claude'], capture_output=True, text=True).stdout.strip()
+    use_ai = bool(claude_bin)
+    print(f'AI summaries: {"enabled (claude CLI found at " + claude_bin + ")" if use_ai else "disabled (claude CLI not found)"}')
 
     cutoff_ms = 0 if args.all else (
         (datetime.now(timezone.utc) - timedelta(days=args.days)).timestamp() * 1000
     )
 
-    players  = load_seed_players()
-    espn_map = build_espn_map()
+    players        = load_seed_players()
+    espn_map       = build_espn_map()
+    existing_cache = load_existing_cache()
+    print(f'Existing cache: {len(existing_cache)} entries (summaries will be preserved for unchanged blurbs)\n')
 
     cache         = {}
     newly_injured = []
@@ -190,6 +193,7 @@ def main():
     skipped       = 0
     no_espn       = []
     summarized    = 0
+    reused        = 0
 
     already_injured = {p['id'] for p in players if p.get('inj')}
     print(f'\nPool: {len(players)} players  |  Pre-flagged injured: {len(already_injured)}\n')
@@ -221,38 +225,40 @@ def main():
         headline = latest.get('headline', '')
         blurb    = re.sub(r'<[^>]+>', '', latest.get('story', '') or '').strip()
 
-        if is_inj:
+        if is_inj or has_injury_content(headline, blurb):
             entry = make_cache_entry(latest)
-            if api_key and entry.get('blurb'):
-                summary = ai_summarize(entry['blurb'], api_key)
-                if summary:
-                    entry['summary'] = summary
-                    summarized += 1
-                    print(f'    ✓ AI summary: {summary[:60]}…')
-                time.sleep(0.5)  # brief pause between API calls
+            prev  = existing_cache.get(p['id'], {})
+
+            if use_ai and entry.get('blurb'):
+                if prev.get('summary') and prev.get('blurb', '') == entry['blurb']:
+                    # Blurb unchanged — reuse existing summary, no API call needed
+                    entry['summary'] = prev['summary']
+                    reused += 1
+                else:
+                    summary = ai_summarize(entry['blurb'])
+                    if summary:
+                        entry['summary'] = summary
+                        summarized += 1
+                        print(f'    ✓ AI summary: {summary[:60]}…')
+                    time.sleep(AI_RATE_DELAY)
+
             cache[p['id']] = entry
-            updated.append(p['n'])
-            print(f'  [UPD] {p["n"]}: {headline[:65]}')
-        elif has_injury_content(headline, blurb):
-            entry = make_cache_entry(latest)
-            if api_key and entry.get('blurb'):
-                summary = ai_summarize(entry['blurb'], api_key)
-                if summary:
-                    entry['summary'] = summary
-                    summarized += 1
-                    print(f'    ✓ AI summary: {summary[:60]}…')
-                time.sleep(0.5)
-            cache[p['id']] = entry
-            newly_injured.append(p['n'])
-            print(f'  [NEW ⚠] {p["n"]}: {headline[:65]}')
+            if is_inj:
+                updated.append(p['n'])
+                print(f'  [UPD] {p["n"]}: {headline[:65]}')
+            else:
+                newly_injured.append(p['n'])
+                print(f'  [NEW ⚠] {p["n"]}: {headline[:65]}')
 
     # Write output
     now_str = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    summarized_count = sum(1 for e in cache.values() if e.get('summary'))
     out = f"""/**
  * injuries_cache.js — Player injury news (ESPN Fantasy API)
  * Generated: {now_str}
  * Updated:       {len(updated)} existing injured players
  * Newly flagged: {len(newly_injured)} previously healthy players
+ * AI summaries:  {summarized_count} entries
  * Run: python3 scripts/update_injuries.py
  */
 const INJURY_CACHE = {json.dumps(cache, indent=2)};
@@ -261,19 +267,19 @@ const INJURY_CACHE = {json.dumps(cache, indent=2)};
         f.write(out)
 
     print(f'\n{"="*60}')
-    print(f'Updated:        {len(updated)} existing injured players')
-    print(f'Newly detected: {len(newly_injured)}' + (f' — REVIEW:' if newly_injured else ''))
+    print(f'Updated:         {len(updated)} existing injured players')
+    print(f'Newly detected:  {len(newly_injured)}' + (' — REVIEW:' if newly_injured else ''))
     for n in newly_injured:
         print(f'   ⚠  {n}')
     print(f'Skipped (quiet): {skipped}')
     print(f'No ESPN match:   {len(no_espn)} ({", ".join(no_espn[:4])}{"…" if len(no_espn)>4 else ""})')
-    print(f'\nWritten: {OUTPUT_FILE} ({len(cache)} players cached)')
-    if args.summarize:
-        print(f'AI summaries:   {summarized}')
+    if use_ai:
+        print(f'AI summaries:    {summarized} new, {reused} reused from cache')
+    print(f'\nWritten: {OUTPUT_FILE} ({len(cache)} players cached, {summarized_count} with summaries)')
     print(f'\nTo deploy:')
     print(f'  git add {OUTPUT_FILE} && git commit -m "Refresh injuries {now_str[:10]}" && git push')
-    print(f'\nTo run with AI summaries:')
-    print(f'  ANTHROPIC_API_KEY=sk-ant-... python3 scripts/update_injuries.py --summarize')
+    if not use_ai:
+        print(f'\nTo enable AI summaries: install claude CLI (https://claude.ai/code)')
 
 if __name__ == '__main__':
     main()
