@@ -35,12 +35,16 @@ const Modals = {
         const costEl        = document.getElementById('mCost');
         if (!constraintsEl || !costEl) return;
 
-        // Picks for this team, excluding the player currently being drafted/edited
-        const teamPicks = Object.entries(AppState.drafted)
+        // Slot count: include sim picks — they consume auction slots
+        const allTeamPicks  = Object.entries(effectiveDrafted())
             .filter(([pid, v]) => v.team === teamId && pid !== id);
-        const slotsUsed = teamPicks.length;
-        const spent     = teamPicks.reduce((s, [, v]) => s + v.cost, 0);
-        const slotsLeft = LG.aSlots - slotsUsed; // slots remaining including this pick
+        const slotsUsed = allTeamPicks.length;
+        const slotsLeft = LG.aSlots - slotsUsed;
+
+        // Budget: only real picks (sim costs aren't actual spend)
+        const realTeamPicks = Object.entries(AppState.drafted)
+            .filter(([pid, v]) => v.team === teamId && pid !== id);
+        const spent = realTeamPicks.reduce((s, [, v]) => s + v.cost, 0);
 
         if (slotsLeft <= 0) {
             // Snake phase for this team — no budget cost

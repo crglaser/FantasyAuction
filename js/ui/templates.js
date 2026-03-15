@@ -291,8 +291,8 @@ const Templates = {
                 <div class="left-col">
                     <div class="sec">${LG.teamsMap[viewTeam]?.team || viewTeam} ROSTER (${myDrafted.length}/${LG.total})</div>
                     ${myDrafted.sort((a,b) => b.cost - a.cost).map(p => `
-                        <div class="rslot" style="${p.sim ? 'opacity:0.55' : ''}">
-                            <div><div style="font-weight:700;color:#c8daf0">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080;font-weight:400">SIM</span>' : ''}</div><div>${this.pb(p.pos)}</div></div>
+                        <div class="rslot" style="${p.sim ? 'opacity:0.7' : ''};cursor:pointer" onclick="UI.openDraftModal('${p.id}')" title="${p.sim ? 'Edit sim pick' : 'Edit pick'}">
+                            <div><div style="font-weight:700;color:#c8daf0">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080;font-weight:400">SIM✎</span>' : ' <span style="font-size:9px;opacity:0.3">✎</span>'}</div><div>${this.pb(p.pos)}</div></div>
                             <div style="text-align:right"><div class="gold">$${p.cost}</div><div class="muted" style="font-size:10px">val:$${p.csValAAdj || p.csValA || p.aValAdj}</div></div>
                         </div>
                     `).join('')}
