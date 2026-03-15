@@ -98,7 +98,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "josramrez-cle",
-    "n": "José Ramírez",
+    "n": "Jos\u00e9 Ram\u00edrez",
     "t": "CLE",
     "pos": [
       "3B"
@@ -260,7 +260,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "cristophersnchez-phi",
-    "n": "Cristopher Sánchez",
+    "n": "Cristopher S\u00e1nchez",
     "t": "PHI",
     "pos": [
       "SP"
@@ -332,7 +332,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "juliorodrguez-sea",
-    "n": "Julio Rodríguez",
+    "n": "Julio Rodr\u00edguez",
     "t": "SEA",
     "pos": [
       "OF"
@@ -386,7 +386,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "ronaldacuajr-atl",
-    "n": "Ronald Acuña Jr.",
+    "n": "Ronald Acu\u00f1a Jr.",
     "t": "ATL",
     "pos": [
       "OF"
@@ -1612,7 +1612,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "yandydaz-tb",
-    "n": "Yandy Díaz",
+    "n": "Yandy D\u00edaz",
     "t": "TB",
     "pos": [
       "1B"
@@ -1737,6 +1737,24 @@ const SEED_PLAYERS = [
     "WHIP": 1.3
   },
   {
+    "id": "kevinmcgonigle-det",
+    "n": "Kevin McGonigle",
+    "t": "DET",
+    "pos": [
+      "SS"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 11.3,
+    "csValS": 10.5,
+    "PA": 474,
+    "OBP": 0.344,
+    "HR": 13,
+    "XBH": 26,
+    "RP": 109,
+    "SB": 10.4
+  },
+  {
     "id": "mickabel-min",
     "n": "Mick Abel",
     "t": "MIN",
@@ -1756,7 +1774,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "jessluzardo-phi",
-    "n": "Jesús Luzardo",
+    "n": "Jes\u00fas Luzardo",
     "t": "PHI",
     "pos": [
       "SP"
@@ -1936,6 +1954,25 @@ const SEED_PLAYERS = [
     "WHIP": 1.314
   },
   {
+    "id": "jorgesoler-laa",
+    "n": "Jorge Soler",
+    "t": "LAA",
+    "pos": [
+      "DH",
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 10.1,
+    "csValS": 9.3,
+    "PA": 442,
+    "OBP": 0.314,
+    "HR": 20,
+    "XBH": 18,
+    "RP": 108,
+    "SB": 0.9
+  },
+  {
     "id": "ianhapp-chc",
     "n": "Ian Happ",
     "t": "CHC",
@@ -2047,7 +2084,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "eugeniosurez-cin",
-    "n": "Eugenio Suárez",
+    "n": "Eugenio Su\u00e1rez",
     "t": "CIN",
     "pos": [
       "3B"
@@ -2083,7 +2120,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "edwindaz-lad",
-    "n": "Edwin Díaz",
+    "n": "Edwin D\u00edaz",
     "t": "LAD",
     "pos": [
       "RP"
@@ -2098,6 +2135,79 @@ const SEED_PLAYERS = [
     "K": 93,
     "ERA": 3.09,
     "WHIP": 1.06
+  },
+  {
+    "id": "andrewbenintendi-cws",
+    "n": "Andrew Benintendi",
+    "t": "CWS",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.8,
+    "csValS": 9.1,
+    "PA": 444,
+    "OBP": 0.321,
+    "HR": 14,
+    "XBH": 19,
+    "RP": 98,
+    "SB": 2.8
+  },
+  {
+    "id": "franciscoalvarez-nym",
+    "n": "Francisco Alvarez",
+    "t": "NYM",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.8,
+    "csValS": 9.0,
+    "PA": 395,
+    "OBP": 0.32,
+    "HR": 20,
+    "XBH": 15,
+    "RP": 104,
+    "SB": 1.4
+  },
+  {
+    "id": "joshsmith-tex",
+    "n": "Josh Smith",
+    "t": "TEX",
+    "pos": [
+      "3B",
+      "SS"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.7,
+    "csValS": 9.0,
+    "PA": 469,
+    "OBP": 0.331,
+    "HR": 10,
+    "XBH": 22,
+    "RP": 99,
+    "SB": 8.3
+  },
+  {
+    "id": "ramonlaureano-sd",
+    "n": "Ram\u00f3n Laureano",
+    "t": "SD",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.6,
+    "csValS": 8.8,
+    "PA": 424,
+    "OBP": 0.307,
+    "HR": 16,
+    "XBH": 20,
+    "RP": 100,
+    "SB": 6.8
   },
   {
     "id": "luisgil-nyy",
@@ -2118,6 +2228,24 @@ const SEED_PLAYERS = [
     "WHIP": 1.339
   },
   {
+    "id": "chasedelauter-cle",
+    "n": "Chase DeLauter",
+    "t": "CLE",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.5,
+    "csValS": 8.8,
+    "PA": 438,
+    "OBP": 0.325,
+    "HR": 12,
+    "XBH": 22,
+    "RP": 93,
+    "SB": 3.0
+  },
+  {
     "id": "loganhenderson-mil",
     "n": "Logan Henderson",
     "t": "MIL",
@@ -2134,6 +2262,42 @@ const SEED_PLAYERS = [
     "K": 97,
     "ERA": 4.16,
     "WHIP": 1.233
+  },
+  {
+    "id": "jordanwalker-stl",
+    "n": "Jordan Walker",
+    "t": "STL",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.2,
+    "csValS": 8.5,
+    "PA": 444,
+    "OBP": 0.309,
+    "HR": 13,
+    "XBH": 22,
+    "RP": 96,
+    "SB": 8.3
+  },
+  {
+    "id": "jocpederson-tex",
+    "n": "Joc Pederson",
+    "t": "TEX",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.1,
+    "csValS": 8.4,
+    "PA": 362,
+    "OBP": 0.338,
+    "HR": 16,
+    "XBH": 14,
+    "RP": 94,
+    "SB": 2.9
   },
   {
     "id": "cadesmith-cle",
@@ -2282,6 +2446,115 @@ const SEED_PLAYERS = [
     "SB": 7
   },
   {
+    "id": "brookslee-min",
+    "n": "Brooks Lee",
+    "t": "MIN",
+    "pos": [
+      "3B",
+      "SS"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 9.0,
+    "csValS": 8.3,
+    "PA": 434,
+    "OBP": 0.306,
+    "HR": 13,
+    "XBH": 20,
+    "RP": 99,
+    "SB": 4.0
+  },
+  {
+    "id": "tyleroneill-bal",
+    "n": "Tyler O'Neill",
+    "t": "BAL",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.9,
+    "csValS": 8.2,
+    "PA": 380,
+    "OBP": 0.318,
+    "HR": 17,
+    "XBH": 14,
+    "RP": 97,
+    "SB": 3.7
+  },
+  {
+    "id": "harrisonbader-sf",
+    "n": "Harrison Bader",
+    "t": "SF",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.8,
+    "csValS": 8.2,
+    "PA": 433,
+    "OBP": 0.305,
+    "HR": 12,
+    "XBH": 20,
+    "RP": 93,
+    "SB": 12.1
+  },
+  {
+    "id": "lanethomas-kc",
+    "n": "Lane Thomas",
+    "t": "KC",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.8,
+    "csValS": 8.2,
+    "PA": 414,
+    "OBP": 0.307,
+    "HR": 13,
+    "XBH": 21,
+    "RP": 96,
+    "SB": 14.5
+  },
+  {
+    "id": "evancarter-tex",
+    "n": "Evan Carter",
+    "t": "TEX",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.8,
+    "csValS": 8.1,
+    "PA": 372,
+    "OBP": 0.333,
+    "HR": 11,
+    "XBH": 19,
+    "RP": 84,
+    "SB": 14.0
+  },
+  {
+    "id": "lourdesgurrieljr-ari",
+    "n": "Lourdes Gurriel Jr.",
+    "t": "ARI",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.8,
+    "csValS": 8.1,
+    "PA": 380,
+    "OBP": 0.316,
+    "HR": 12,
+    "XBH": 20,
+    "RP": 94,
+    "SB": 5.6
+  },
+  {
     "id": "andrewpainter-phi",
     "n": "Andrew Painter",
     "t": "PHI",
@@ -2300,6 +2573,152 @@ const SEED_PLAYERS = [
     "WHIP": 1.402
   },
   {
+    "id": "maxmuncy-lad",
+    "n": "Max Muncy",
+    "t": "LAD",
+    "pos": [
+      "1B",
+      "3B"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.7,
+    "csValS": 8.1,
+    "PA": 351,
+    "OBP": 0.346,
+    "HR": 16,
+    "XBH": 12,
+    "RP": 90,
+    "SB": 2.2
+  },
+  {
+    "id": "bonaylor-cle",
+    "n": "Bo Naylor",
+    "t": "CLE",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.6,
+    "csValS": 8.0,
+    "PA": 405,
+    "OBP": 0.307,
+    "HR": 16,
+    "XBH": 18,
+    "RP": 94,
+    "SB": 4.3
+  },
+  {
+    "id": "jaccaglianone-kc",
+    "n": "Jac Caglianone",
+    "t": "KC",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.6,
+    "csValS": 8.0,
+    "PA": 359,
+    "OBP": 0.32,
+    "HR": 15,
+    "XBH": 17,
+    "RP": 93,
+    "SB": 2.1
+  },
+  {
+    "id": "jesussanchez-tor",
+    "n": "Jes\u00fas S\u00e1nchez",
+    "t": "TOR",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.6,
+    "csValS": 7.9,
+    "PA": 369,
+    "OBP": 0.317,
+    "HR": 13,
+    "XBH": 19,
+    "RP": 89,
+    "SB": 8.2
+  },
+  {
+    "id": "mikeyastrzemski-atl",
+    "n": "Mike Yastrzemski",
+    "t": "ATL",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.5,
+    "csValS": 7.9,
+    "PA": 379,
+    "OBP": 0.319,
+    "HR": 14,
+    "XBH": 17,
+    "RP": 90,
+    "SB": 4.0
+  },
+  {
+    "id": "giancarlostanton-nyy",
+    "n": "Giancarlo Stanton",
+    "t": "NYY",
+    "pos": [
+      "DH",
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.5,
+    "csValS": 7.9,
+    "PA": 347,
+    "OBP": 0.304,
+    "HR": 21,
+    "XBH": 11,
+    "RP": 98,
+    "SB": 0.7
+  },
+  {
+    "id": "austinwells-nyy",
+    "n": "Austin Wells",
+    "t": "NYY",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.5,
+    "csValS": 7.9,
+    "PA": 390,
+    "OBP": 0.301,
+    "HR": 16,
+    "XBH": 18,
+    "RP": 95,
+    "SB": 3.9
+  },
+  {
+    "id": "jakemeyers-hou",
+    "n": "Jake Meyers",
+    "t": "HOU",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.5,
+    "csValS": 7.8,
+    "PA": 400,
+    "OBP": 0.32,
+    "HR": 9,
+    "XBH": 19,
+    "RP": 87,
+    "SB": 11.5
+  },
+  {
     "id": "ryanweiss-hou",
     "n": "Ryan Weiss",
     "t": "HOU",
@@ -2316,6 +2735,98 @@ const SEED_PLAYERS = [
     "K": 87,
     "ERA": 4.29,
     "WHIP": 1.359
+  },
+  {
+    "id": "tylerstephenson-cin",
+    "n": "Tyler Stephenson",
+    "t": "CIN",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.4,
+    "csValS": 7.8,
+    "PA": 399,
+    "OBP": 0.313,
+    "HR": 13,
+    "XBH": 17,
+    "RP": 86,
+    "SB": 1.4
+  },
+  {
+    "id": "gavinsheets-sd",
+    "n": "Gavin Sheets",
+    "t": "SD",
+    "pos": [
+      "DH",
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.3,
+    "csValS": 7.7,
+    "PA": 394,
+    "OBP": 0.31,
+    "HR": 13,
+    "XBH": 19,
+    "RP": 89,
+    "SB": 2.0
+  },
+  {
+    "id": "trevorlarnach-min",
+    "n": "Trevor Larnach",
+    "t": "MIN",
+    "pos": [
+      "DH",
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.2,
+    "csValS": 7.6,
+    "PA": 356,
+    "OBP": 0.329,
+    "HR": 12,
+    "XBH": 16,
+    "RP": 82,
+    "SB": 3.6
+  },
+  {
+    "id": "brettbaty-nym",
+    "n": "Brett Baty",
+    "t": "NYM",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.2,
+    "csValS": 7.6,
+    "PA": 357,
+    "OBP": 0.315,
+    "HR": 14,
+    "XBH": 14,
+    "RP": 84,
+    "SB": 3.8
+  },
+  {
+    "id": "cedricmullins-tb",
+    "n": "Cedric Mullins",
+    "t": "TB",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.2,
+    "csValS": 7.6,
+    "PA": 408,
+    "OBP": 0.301,
+    "HR": 12,
+    "XBH": 19,
+    "RP": 90,
+    "SB": 16.4
   },
   {
     "id": "joshhader-hou",
@@ -2355,7 +2866,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "agustnramrez-mia",
-    "n": "Agustín Ramírez",
+    "n": "Agust\u00edn Ram\u00edrez",
     "t": "MIA",
     "pos": [
       "C"
@@ -2392,7 +2903,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "jeremypea-hou",
-    "n": "Jeremy Peña",
+    "n": "Jeremy Pe\u00f1a",
     "t": "HOU",
     "pos": [
       "SS"
@@ -2426,6 +2937,279 @@ const SEED_PLAYERS = [
     "XBH": 30,
     "RP": 110,
     "SB": 7
+  },
+  {
+    "id": "kebryanhayes-cin",
+    "n": "Ke'Bryan Hayes",
+    "t": "CIN",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 8.0,
+    "csValS": 7.4,
+    "PA": 424,
+    "OBP": 0.305,
+    "HR": 8,
+    "XBH": 19,
+    "RP": 86,
+    "SB": 9.0
+  },
+  {
+    "id": "edgarquero-cws",
+    "n": "Edgar Quero",
+    "t": "CWS",
+    "pos": [
+      "C",
+      "DH"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.9,
+    "csValS": 7.4,
+    "PA": 370,
+    "OBP": 0.333,
+    "HR": 9,
+    "XBH": 16,
+    "RP": 79,
+    "SB": 2.0
+  },
+  {
+    "id": "tommyedman-lad",
+    "n": "Tommy Edman",
+    "t": "LAD",
+    "pos": [
+      "2B"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.9,
+    "csValS": 7.3,
+    "PA": 375,
+    "OBP": 0.306,
+    "HR": 11,
+    "XBH": 18,
+    "RP": 88,
+    "SB": 6.4
+  },
+  {
+    "id": "ryanmcmahon-nyy",
+    "n": "Ryan McMahon",
+    "t": "NYY",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.9,
+    "csValS": 7.3,
+    "PA": 406,
+    "OBP": 0.304,
+    "HR": 14,
+    "XBH": 15,
+    "RP": 90,
+    "SB": 3.3
+  },
+  {
+    "id": "pavinsmith-ari",
+    "n": "Pavin Smith",
+    "t": "ARI",
+    "pos": [
+      "1B",
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.9,
+    "csValS": 7.3,
+    "PA": 363,
+    "OBP": 0.334,
+    "HR": 10,
+    "XBH": 17,
+    "RP": 82,
+    "SB": 2.8
+  },
+  {
+    "id": "gavinlux-tb",
+    "n": "Gavin Lux",
+    "t": "TB",
+    "pos": [
+      "2B"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.8,
+    "csValS": 7.3,
+    "PA": 389,
+    "OBP": 0.331,
+    "HR": 6,
+    "XBH": 20,
+    "RP": 76,
+    "SB": 2.6
+  },
+  {
+    "id": "isaaccollins-kc",
+    "n": "Isaac Collins",
+    "t": "KC",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.8,
+    "csValS": 7.3,
+    "PA": 352,
+    "OBP": 0.346,
+    "HR": 7,
+    "XBH": 18,
+    "RP": 77,
+    "SB": 11.1
+  },
+  {
+    "id": "loganohoppe-laa",
+    "n": "Logan O'Hoppe",
+    "t": "LAA",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.7,
+    "csValS": 7.2,
+    "PA": 381,
+    "OBP": 0.289,
+    "HR": 16,
+    "XBH": 13,
+    "RP": 88,
+    "SB": 2.5
+  },
+  {
+    "id": "freddyfermin-sd",
+    "n": "Freddy Fermin",
+    "t": "SD",
+    "pos": [
+      "C"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.7,
+    "csValS": 7.1,
+    "PA": 393,
+    "OBP": 0.306,
+    "HR": 10,
+    "XBH": 16,
+    "RP": 83,
+    "SB": 3.3
+  },
+  {
+    "id": "jjbleday-cin",
+    "n": "JJ Bleday",
+    "t": "CIN",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.7,
+    "csValS": 7.1,
+    "PA": 331,
+    "OBP": 0.323,
+    "HR": 13,
+    "XBH": 16,
+    "RP": 81,
+    "SB": 2.8
+  },
+  {
+    "id": "yoanmoncada-laa",
+    "n": "Yo\u00e1n Moncada",
+    "t": "LAA",
+    "pos": [
+      "3B"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.6,
+    "csValS": 7.1,
+    "PA": 360,
+    "OBP": 0.314,
+    "HR": 11,
+    "XBH": 17,
+    "RP": 80,
+    "SB": 1.1
+  },
+  {
+    "id": "haseongkim-atl",
+    "n": "Ha-Seong Kim",
+    "t": "ATL",
+    "pos": [
+      "SS"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.6,
+    "csValS": 7.0,
+    "PA": 361,
+    "OBP": 0.332,
+    "HR": 8,
+    "XBH": 16,
+    "RP": 78,
+    "SB": 12.6
+  },
+  {
+    "id": "nickcastellanos-sd",
+    "n": "Nick Castellanos",
+    "t": "SD",
+    "pos": [
+      "3B",
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.6,
+    "csValS": 7.0,
+    "PA": 376,
+    "OBP": 0.295,
+    "HR": 12,
+    "XBH": 18,
+    "RP": 86,
+    "SB": 2.6
+  },
+  {
+    "id": "victorscottii-stl",
+    "n": "Victor Scott II",
+    "t": "STL",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.6,
+    "csValS": 7.0,
+    "PA": 420,
+    "OBP": 0.298,
+    "HR": 7,
+    "XBH": 17,
+    "RP": 81,
+    "SB": 26.2
+  },
+  {
+    "id": "kyleisbel-kc",
+    "n": "Kyle Isbel",
+    "t": "KC",
+    "pos": [
+      "OF"
+    ],
+    "inj": false,
+    "age": 0,
+    "csValA": 7.5,
+    "csValS": 7.0,
+    "PA": 382,
+    "OBP": 0.303,
+    "HR": 8,
+    "XBH": 20,
+    "RP": 82,
+    "SB": 7.8
   },
   {
     "id": "spencerarrighetti-hou",
@@ -2775,7 +3559,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "rangersurez-bos",
-    "n": "Ranger Suárez",
+    "n": "Ranger Su\u00e1rez",
     "t": "BOS",
     "pos": [
       "SP"
@@ -2884,7 +3668,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "andrsmuoz-sea",
-    "n": "Andrés Muñoz",
+    "n": "Andr\u00e9s Mu\u00f1oz",
     "t": "SEA",
     "pos": [
       "RP"
@@ -2920,7 +3704,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "teoscarhernndez-lad",
-    "n": "Teoscar Hernández",
+    "n": "Teoscar Hern\u00e1ndez",
     "t": "LAD",
     "pos": [
       "OF"
@@ -3156,7 +3940,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "ivnherrera-stl",
-    "n": "Iván Herrera",
+    "n": "Iv\u00e1n Herrera",
     "t": "STL",
     "pos": [
       "C"
@@ -3372,7 +4156,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "carlosrodn-nyy",
-    "n": "Carlos Rodón",
+    "n": "Carlos Rod\u00f3n",
     "t": "NYY",
     "pos": [
       "SP"
@@ -4116,7 +4900,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "luisgarcajr-wsn",
-    "n": "Luis García Jr.",
+    "n": "Luis Garc\u00eda Jr.",
     "t": "WSN",
     "pos": [
       "2B"
@@ -4278,7 +5062,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "moissballesteros-chc",
-    "n": "Moisés Ballesteros",
+    "n": "Mois\u00e9s Ballesteros",
     "t": "CHC",
     "pos": [
       "DH"
@@ -4296,7 +5080,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "flixbautista-bal",
-    "n": "Félix Bautista",
+    "n": "F\u00e9lix Bautista",
     "t": "BAL",
     "pos": [
       "RP"
@@ -4422,7 +5206,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "josuebriceo-det",
-    "n": "Josue Briceño",
+    "n": "Josue Brice\u00f1o",
     "t": "DET",
     "pos": [
       "C"
@@ -4638,7 +5422,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "luisdelen-bal",
-    "n": "Luis De León",
+    "n": "Luis De Le\u00f3n",
     "t": "BAL",
     "pos": [
       "SP"
@@ -4818,7 +5602,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "yanquielfernndez-nyy",
-    "n": "Yanquiel Fernández",
+    "n": "Yanquiel Fern\u00e1ndez",
     "t": "NYY",
     "pos": [
       "OF"
@@ -5017,7 +5801,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "yoendrysgmez-tb",
-    "n": "Yoendrys Gómez",
+    "n": "Yoendrys G\u00f3mez",
     "t": "TB",
     "pos": [
       "RP",
@@ -5145,7 +5929,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "enriquehernndez-lad",
-    "n": "Enrique Hernández",
+    "n": "Enrique Hern\u00e1ndez",
     "t": "LAD",
     "pos": [
       "1B",
@@ -5257,7 +6041,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "joejimnez-atl",
-    "n": "Joe Jiménez",
+    "n": "Joe Jim\u00e9nez",
     "t": "ATL",
     "pos": [
       "RP"
@@ -5473,7 +6257,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "pablolpez-min",
-    "n": "Pablo López",
+    "n": "Pablo L\u00f3pez",
     "t": "MIN",
     "pos": [
       "SP"
@@ -5509,7 +6293,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "jessmade-mil",
-    "n": "Jesús Made",
+    "n": "Jes\u00fas Made",
     "t": "MIL",
     "pos": [
       "SS"
@@ -6021,7 +6805,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "elmerrodrguez-nyy",
-    "n": "Elmer Rodríguez",
+    "n": "Elmer Rodr\u00edguez",
     "t": "NYY",
     "pos": [
       "SP"
@@ -6039,7 +6823,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "hctorrodrguez-cin",
-    "n": "Héctor Rodríguez",
+    "n": "H\u00e9ctor Rodr\u00edguez",
     "t": "CIN",
     "pos": [
       "OF"
@@ -6093,7 +6877,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "garysnchez-mil",
-    "n": "Gary Sánchez",
+    "n": "Gary S\u00e1nchez",
     "t": "MIL",
     "pos": [
       "C"
@@ -6417,7 +7201,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "ramnuras-stl",
-    "n": "Ramón Urías",
+    "n": "Ram\u00f3n Ur\u00edas",
     "t": "STL",
     "pos": [
       "3B",
@@ -7039,7 +7823,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "adolisgarca-phi",
-    "n": "Adolis García",
+    "n": "Adolis Garc\u00eda",
     "t": "PHI",
     "pos": [
       "OF"
@@ -7475,7 +8259,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "emiliopagn-cin",
-    "n": "Emilio Pagán",
+    "n": "Emilio Pag\u00e1n",
     "t": "CIN",
     "pos": [
       "RP"
@@ -7766,7 +8550,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "andrsgimnez-tor",
-    "n": "Andrés Giménez",
+    "n": "Andr\u00e9s Gim\u00e9nez",
     "t": "TOR",
     "pos": [
       "2B",
@@ -7911,7 +8695,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "josalvarado-phi",
-    "n": "José Alvarado",
+    "n": "Jos\u00e9 Alvarado",
     "t": "PHI",
     "pos": [
       "RP"
@@ -8364,7 +9148,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "seranthonydomnguez-chw",
-    "n": "Seranthony Domínguez",
+    "n": "Seranthony Dom\u00ednguez",
     "t": "CHW",
     "pos": [
       "RP"
@@ -8510,7 +9294,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "euryprez-mia",
-    "n": "Eury Pérez",
+    "n": "Eury P\u00e9rez",
     "t": "MIA",
     "pos": [
       "SP"
@@ -8582,7 +9366,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "reynaldolpez-atl",
-    "n": "Reynaldo López",
+    "n": "Reynaldo L\u00f3pez",
     "t": "ATL",
     "pos": [
       "SP"
@@ -8656,7 +9440,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "carlosestvez-kc",
-    "n": "Carlos Estévez",
+    "n": "Carlos Est\u00e9vez",
     "t": "KC",
     "pos": [
       "RP"
@@ -8711,7 +9495,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "yimigarca-tor",
-    "n": "Yimi García",
+    "n": "Yimi Garc\u00eda",
     "t": "TOR",
     "pos": [
       "RP"
@@ -8891,7 +9675,7 @@ const SEED_PLAYERS = [
   },
   {
     "id": "jossoriano-laa",
-    "n": "José Soriano",
+    "n": "Jos\u00e9 Soriano",
     "t": "LAA",
     "pos": [
       "SP"
