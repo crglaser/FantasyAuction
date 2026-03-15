@@ -3,11 +3,11 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.0.8';
+const APP_VERSION = '1.1.0';
 
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',
-    teams: 10, // Back to 10
+    teams: 10,
     budget: 202,
     aSlots: 17, // Auction slots per team
     sSlots: 14, // Snake slots per team
@@ -43,6 +43,7 @@ const LG = {
 let AppState = {
     players: [],      // Full list of player objects with projections and calculated values
     drafted: {},      // Map of playerID -> { cost, team, timestamp }
+    injuryCache: {},  // Map of playerID -> { title, blurb, ts, isNew, link }
     settings: {
         hitSplit: 65,
         snakeDisc: true,
@@ -71,6 +72,7 @@ const StateManager = {
             const dataToSave = {
                 drafted: AppState.drafted,
                 settings: AppState.settings,
+                injuryCache: AppState.injuryCache,
                 version: APP_VERSION
             };
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(dataToSave));
@@ -86,6 +88,7 @@ const StateManager = {
                 const parsed = JSON.parse(saved);
                 AppState.drafted = parsed.drafted || {};
                 AppState.settings = { ...AppState.settings, ...parsed.settings };
+                AppState.injuryCache = parsed.injuryCache || {};
             }
         } catch (e) {
             console.error('Error loading state:', e);
@@ -133,7 +136,8 @@ const StateManager = {
             state: {
                 version: APP_VERSION,
                 settings: AppState.settings,
-                drafted: AppState.drafted
+                drafted: AppState.drafted,
+                injuryCache: AppState.injuryCache
             }
         };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });

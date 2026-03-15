@@ -25,7 +25,7 @@ const UI = {
         const sel = document.getElementById('mTeam');
         if (!sel) return;
         sel.innerHTML = Object.entries(LG.teamsMap).map(([id, info]) =>
-            `<option value="${id}">${info.team}</option>`
+            `<option value="${id}">${info.team} (${info.owner.split(' ')[0]})</option>`
         ).join('');
     },
 
@@ -118,10 +118,13 @@ const UI = {
                             const dr = AppState.drafted[p.id];
                             const isMe = dr?.team === 'me';
                             const rowCls = (isMe ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
+                            const injNews = InjuryManager.getLatestFor(p.id);
+                            const injTag = p.inj ? `<span class="wb ${injNews?.isNew ? 'pulse' : ''}" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ${injNews?.isNew ? '!' : ''}</span>` : '';
+                            
                             return `
                                 <tr class="${rowCls}">
                                     <td class="mono muted">${p.csRank}</td>
-                                    <td class="nm">${p.n}${p.inj ? `<span class="wb" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : ''}</td>
+                                    <td class="nm">${p.n}${injTag}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
@@ -160,10 +163,12 @@ const UI = {
                     <tbody>
                         ${players.map(p => {
                             const dr = AppState.drafted[p.id];
+                            const injNews = InjuryManager.getLatestFor(p.id);
+                            const injTag = p.inj ? `<span class="wb ${injNews?.isNew ? 'pulse' : ''}" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : '';
                             return `
                                 <tr class="${dr ? 'drafted' : ''}">
                                     <td class="mono muted">${p.csRank}</td>
-                                    <td class="nm">${p.n}${p.inj ? `<span class="wb" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : ''}</td>
+                                    <td class="nm">${p.n}${injTag}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="grn" style="font-weight:700">$${p.csValS}</td>
@@ -348,8 +353,8 @@ const UI = {
                         <span class="lbl">Hide Drafted</span>
                     </label>
                 </div>
+                <button class="btn btn-go" onclick="UI.handleRefreshNews()">REFRESH NEWS</button>
                 <button class="btn" style="margin-left:auto" onclick="document.getElementById('rulesModal').classList.add('open')">RULES</button>
-                <a class="btn btn-go" href="https://www.nbcsports.com/fantasy/baseball/player-news" target="_blank" style="text-decoration:none">LIVE NEWS</a>
             </div>
         `;
     },
@@ -370,9 +375,8 @@ const UI = {
                 <div class="right-col" style="padding:20px">
                     <h2 class="modal-title">Data Management</h2>
                     <div class="modal-btns">
-                        <button class="btn btn-go" onclick="UI.reloadDefaults()">RELOAD DEFAULT CSVS</button>
                         <button class="btn" onclick="StateManager.exportConfig()">EXPORT CONFIG (JSON)</button>
-                        <button class="btn" onclick="UI.copyAICatContext()">COPY FOR AI</button>
+                        <button class="btn btn-go" onclick="UI.copyAICatContext()">COPY FOR AI</button>
                     </div>
                     <div id="importStatus" style="margin-top:20px" class="grn"></div>
                 </div>
@@ -384,6 +388,15 @@ const UI = {
 
     handleSearch(val) {
         AppState.ui.search = val;
+        this.render();
+    },
+
+    async handleRefreshNews() {
+        const btn = event.target;
+        btn.textContent = "REFRESHING...";
+        const count = await InjuryManager.refreshNews();
+        btn.textContent = "REFRESH NEWS";
+        if (count > 0) alert(`Updated news for ${count} players!`);
         this.render();
     },
 
@@ -407,23 +420,20 @@ const UI = {
     openInjuryModal(id) {
         const p = AppState.players.find(x => x.id === id);
         if (!p) return;
+        const news = InjuryManager.getLatestFor(id);
+        
         document.getElementById('injName').textContent = p.n;
-        const query = encodeURIComponent(p.n);
-        document.getElementById('linkRotoworld').href = `https://www.nbcsports.com/fantasy/baseball/player-news?search=${query}`;
+        document.getElementById('injTitle').innerHTML = news ? `${news.title}` : `No cached news for ${p.n}`;
+        
+        const rotoworld = document.getElementById('linkRotoworld');
+        rotoworld.innerHTML = news ? `LATEST: ${news.blurb.substring(0, 100)}... <br> (CLICK FOR FULL)` : "SEARCH ROTOWORLD";
+        rotoworld.href = news ? news.link : `https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(p.n)}`;
+        
         document.getElementById('linkCBS').href = `https://www.cbssports.com/mlb/players/playerpage/${p.id}/status`;
-        document.getElementById('linkFG').href = `https://www.fanggraphs.com/players/${p.n.toLowerCase().replace(/ /g, '-')}`;
+        document.getElementById('linkFG').href = `https://www.fangraphs.com/players/${p.n.toLowerCase().replace(/ /g, '-')}`;
+        
         document.getElementById('injuryModal').classList.add('open');
-    },
-
-    async reloadDefaults() {
-        const status = document.getElementById('importStatus');
-        if (status) status.textContent = "Reloading...";
-        const players = await DataLoader.loadDefaultData();
-        if (players.length > 0) {
-            AppState.players = players;
-            if (status) status.textContent = "Data reloaded successfully.";
-            this.render();
-        }
+        InjuryManager.markRead(id);
     },
 
     handleAssistant() {
