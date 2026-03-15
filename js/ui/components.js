@@ -88,6 +88,14 @@ const UI = {
             AppState.manualCols = [];
         }
 
+        // Merge FANTRAX_DATA (league-scoring ranks + projected stats)
+        if (typeof FANTRAX_DATA !== 'undefined') {
+            AppState.players.forEach(p => {
+                const f = FANTRAX_DATA[p.id];
+                if (f) Object.assign(p, f);
+            });
+        }
+
         // Merge STEAMER_EXTRAS (unofficial Steamer estimates)
         if (typeof STEAMER_EXTRAS !== 'undefined') {
             // Only add extras not already in seed
@@ -125,7 +133,6 @@ const UI = {
         const tab = AppState.ui.activeTab;
 
         if (tab === 'auction') content.innerHTML = Templates.auction(players);
-        else if (tab === 'season') content.innerHTML = Templates.season(players);
         else if (tab === 'arb') content.innerHTML = Templates.arb(players);
         else if (tab === 'myteam') content.innerHTML = Templates.myteam();
         else if (tab === 'league') content.innerHTML = Templates.league();
@@ -208,7 +215,7 @@ const UI = {
     showTab(tab) {
         AppState.ui.activeTab = tab;
         document.querySelectorAll('.tab').forEach(el => el.classList.toggle('active', el.id === `tab-${tab}`));
-        const hasControls = ['auction', 'season', 'arb'].includes(tab);
+        const hasControls = ['auction', 'arb'].includes(tab);
         const ctrlBar = document.getElementById('controlsBar');
         if (ctrlBar) ctrlBar.style.display = hasControls ? 'block' : 'none';
         this.render();

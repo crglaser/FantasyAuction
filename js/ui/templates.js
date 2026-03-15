@@ -146,26 +146,32 @@ const Templates = {
     },
 
     arb(players) {
-        const vis  = key => UI.colVisible(key);
+        const vis = key => UI.colVisible(key);
         const arbToggles = [
-            { key: 'arb_season',  label: 'SEASON $' },
-            { key: 'arb_ecr',     label: 'ECR'      },
-            { key: 'arb_espn',    label: 'ESPN $'    },
-            { key: 'arb_mkt',     label: 'MKT RATIO' },
-            { key: 'arb_scout',   label: 'SCOUT'     },
-            { key: 'arb_draft',   label: 'DRAFT'     },
+            { key: 'arb_season', label: 'CS SEASON $' },
+            { key: 'arb_ftxrank', label: 'FTX RANK'   },
+            { key: 'arb_rkdelta', label: 'RANK Δ'      },
+            { key: 'arb_ftxscore', label: 'FTX SCORE'  },
+            { key: 'arb_ecr',    label: 'ECR'          },
+            { key: 'arb_espn',   label: 'ESPN $'       },
+            { key: 'arb_mkt',    label: 'MKT RATIO'    },
+            { key: 'arb_proj',   label: 'FTX PROJ'     },
+            { key: 'arb_scout',  label: 'SCOUT'        },
+            { key: 'arb_draft',  label: 'DRAFT'        },
         ];
         const toggleBar = `
-            <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30;margin-bottom:0">
+            <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
                 <span style="font-size:10px;color:#406080;line-height:22px;margin-right:4px">COLUMNS:</span>
                 ${arbToggles.map(({key, label}) => `
                     <button onclick="UI.toggleCol('${key}')" style="font-size:10px;padding:2px 8px;border:1px solid ${vis(key) ? '#2a5080' : '#1a2a3a'};background:${vis(key) ? '#0a2040' : '#060e18'};color:${vis(key) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
                 `).join('')}
             </div>
             <div class="arb-legend">
-                <span><span class="grn">■</span> BUY — season value exceeds auction price</span>
-                <span><span class="red">■</span> TRAP — market has inflated the price</span>
-                <span style="color:#7090a8;font-size:10px">MKT RATIO = ESPN auction ÷ our AUC value (>1 = market overvalues, <1 = market undervalues)</span>
+                <span style="color:#7090a8;font-size:10px">
+                    CS $ = MrCheatSheet auction value (our baseline) &nbsp;·&nbsp;
+                    RANK Δ = FTX rank − CS rank (negative = Fantrax likes them more than we do) &nbsp;·&nbsp;
+                    MKT RATIO = ESPN $ ÷ CS $ (&lt;0.8 = market underprices, &gt;1.25 = market inflated)
+                </span>
             </div>`;
 
         const drafted = effectiveDrafted();
@@ -175,45 +181,63 @@ const Templates = {
                 <table>
                     <thead>
                         <tr>
+                            ${this.th('csRank',    'CS #')}
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('csArb',     'ARB Δ')}
-                            ${this.th('csValAAdj', 'AUC $★')}
-                            ${vis('arb_season') ? this.th('csValS',      'SEASON $★') : ''}
-                            ${vis('arb_ecr')    ? this.th('ecr',         'ECR')       : ''}
-                            ${vis('arb_espn')   ? this.th('espnAuction', 'ESPN $')    : ''}
-                            ${vis('arb_mkt')    ? this.th('arbMktRatio', 'MKT RATIO') : ''}
-                            ${vis('arb_scout')  ? '<th>SCOUT</th>'                   : ''}
-                            ${vis('arb_draft')  ? '<th></th>'                        : ''}
+                            ${this.th('csValAAdj', 'CS AUC $')}
+                            ${vis('arb_season')  ? this.th('csValS',    'CS SZN $')   : ''}
+                            ${vis('arb_ftxrank') ? this.th('FTX_Rank',  'FTX RK')     : ''}
+                            ${vis('arb_rkdelta') ? this.th('ftxRkDelta','RK Δ')        : ''}
+                            ${vis('arb_ftxscore')? this.th('FTX_Score', 'FTX SCORE')  : ''}
+                            ${vis('arb_ecr')     ? this.th('ecr',       'ECR')        : ''}
+                            ${vis('arb_espn')    ? this.th('espnAuction','ESPN $')    : ''}
+                            ${vis('arb_mkt')     ? this.th('mktRatio',  'MKT RATIO')  : ''}
+                            ${vis('arb_proj')    ? '<th>FTX PROJ</th>'               : ''}
+                            ${vis('arb_scout')   ? '<th>SCOUT</th>'                  : ''}
+                            ${vis('arb_draft')   ? '<th></th>'                       : ''}
                         </tr>
                     </thead>
                     <tbody>
                         ${players.map(p => {
+                            // Rank delta: positive = FTX ranks them lower (we like them more), negative = FTX likes them more
+                            const ftxRkDelta = (p.FTX_Rank != null && p.csRank != null) ? p.FTX_Rank - p.csRank : null;
+                            p.ftxRkDelta = ftxRkDelta; // attach for sorting
+                            const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
+                            p.mktRatio = mktRatio;
                             const dr = drafted[p.id];
                             const isSim = dr?.sim;
-                            const rowCls = (dr ? 'drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
-                            const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
+                            const rowCls = (dr ? 'drafted' : '');
                             const mktColor = mktRatio == null ? '#7090a8' : mktRatio > 1.25 ? '#d04040' : mktRatio < 0.8 ? '#40b870' : '#c8d8e8';
-                            const injBadge = p.inj ? `<span class="wb" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : '';
+                            const rkColor  = ftxRkDelta == null ? '#7090a8' : ftxRkDelta < -20 ? '#40b870' : ftxRkDelta > 20 ? '#d06040' : '#c8d8e8';
+                            const injBadge = p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0;cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : '';
                             const draftCell = dr
                                 ? (isSim
                                     ? `<span class="muted" style="font-size:10px;opacity:0.5">SIM · ${LG.teamsMap[dr.team]?.team||dr.team} <span class="gold">$${dr.cost}</span></span>`
-                                    : `<span class="muted" style="font-size:10px">${dr.team==='me'?'★ MINE':(LG.teamsMap[dr.team]?.team||'GONE')} <span class="gold">$${dr.cost}</span></span>`)
+                                    : `<span class="muted" style="font-size:10px;cursor:pointer" onclick="UI.openDraftModal('${p.id}')">${dr.team==='me'?'★ MINE':(LG.teamsMap[dr.team]?.team||'GONE')} <span class="gold">$${dr.cost}</span></span>`)
                                 : `<button class="btn btn-go" style="font-size:10px;padding:2px 6px" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`;
+                            const ftxProj = p.FTX_IP != null
+                                ? `IP:${p.FTX_IP} W:${p.FTX_W} K:${p.FTX_K} ERA:${p.FTX_ERA} WHIP:${p.FTX_WHIP} SVH:${p.FTX_SVH}`
+                                : p.FTX_AB != null
+                                ? `HR:${p.FTX_HR} SB:${p.FTX_SB} OBP:${p.FTX_OBP} XBH:${p.FTX_XBH} RP:${p.FTX_RP}`
+                                : '—';
                             return `
                                 <tr class="${rowCls}">
-                                    <td class="nm">${p.n}${injBadge}</td>
+                                    <td class="mono muted">${p.csRank}</td>
+                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${injBadge}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td style="font-size:15px">${this.formatCsArb(p.csArb)}</td>
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
-                                    ${vis('arb_season') ? `<td class="grn">$${p.csValS}</td>` : ''}
-                                    ${vis('arb_ecr')    ? `<td class="mono muted" style="font-size:10px">${p.ecr ?? '—'}</td>` : ''}
-                                    ${vis('arb_espn')   ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
-                                    ${vis('arb_mkt')    ? `<td class="mono" style="font-size:11px;color:${mktColor}">${mktRatio != null ? mktRatio.toFixed(2)+'×' : '—'}</td>` : ''}
-                                    ${vis('arb_scout')  ? `<td>${this.formatScout(p)}</td>` : ''}
-                                    ${vis('arb_draft')  ? `<td>${draftCell}</td>` : ''}
+                                    ${vis('arb_season')  ? `<td class="grn" style="font-size:11px">$${p.csValS}</td>` : ''}
+                                    ${vis('arb_ftxrank') ? `<td class="mono muted" style="font-size:10px">${p.FTX_Rank ?? '—'}</td>` : ''}
+                                    ${vis('arb_rkdelta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${rkColor}">${ftxRkDelta != null ? (ftxRkDelta > 0 ? '+' : '') + ftxRkDelta : '—'}</td>` : ''}
+                                    ${vis('arb_ftxscore')? `<td class="mono muted" style="font-size:10px">${p.FTX_Score != null ? p.FTX_Score : '—'}</td>` : ''}
+                                    ${vis('arb_ecr')     ? `<td class="mono muted" style="font-size:10px">${p.ecr ?? '—'}</td>` : ''}
+                                    ${vis('arb_espn')    ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
+                                    ${vis('arb_mkt')     ? `<td class="mono" style="font-size:11px;color:${mktColor}">${mktRatio != null ? mktRatio.toFixed(2)+'×' : '—'}</td>` : ''}
+                                    ${vis('arb_proj')    ? `<td class="mono muted" style="font-size:10px">${ftxProj}</td>` : ''}
+                                    ${vis('arb_scout')   ? `<td>${this.formatScout(p)}</td>` : ''}
+                                    ${vis('arb_draft')   ? `<td>${draftCell}</td>` : ''}
                                 </tr>`;
                         }).join('')}
                     </tbody>

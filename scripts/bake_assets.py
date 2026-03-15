@@ -1,0 +1,165 @@
+#!/usr/bin/env python3
+"""
+bake_assets.py — Parse Fantrax hitter/pitcher exports → js/data/fantrax_data.js
+
+Reads:
+  assets/Fantrax-Hitters-Teddy Ballgame League .csv
+  assets/Fantrax-Pitchers-Teddy Ballgame League .csv
+
+Outputs js/data/fantrax_data.js with const FANTRAX_DATA = { player_id: {...} }
+
+Fields extracted:
+  FTX_Rank   — Fantrax overall rank (RkOv), league-scoring-aware
+  FTX_Score  — Fantrax score (0–100 relative value scale)
+  Hitters:   FTX_AB, FTX_HR, FTX_SB, FTX_OBP, FTX_XBH, FTX_RP
+  Pitchers:  FTX_IP, FTX_W, FTX_K, FTX_ERA, FTX_WHIP, FTX_SVH
+
+Usage:
+  python3 scripts/bake_assets.py
+"""
+
+import csv, json, re, unicodedata, os
+from datetime import datetime, timezone
+
+HITTERS_CSV  = 'assets/Fantrax-Hitters-Teddy Ballgame League .csv'
+PITCHERS_CSV = 'assets/Fantrax-Pitchers-Teddy Ballgame League .csv'
+SEED_FILE    = 'js/data/seed.js'
+OUTPUT_FILE  = 'js/data/fantrax_data.js'
+SUFFIXES     = {'jr.', 'jr', 'sr.', 'sr', 'ii', 'iii', 'iv'}
+
+
+def normalize(name):
+    n = unicodedata.normalize('NFD', str(name).lower())
+    n = ''.join(c for c in n if unicodedata.category(c) != 'Mn')
+    return re.sub(r'[^a-z0-9 ]', '', n).strip()
+
+def name_key(name):
+    words = normalize(name).split()
+    return ' '.join(w for w in words if w not in SUFFIXES)
+
+def load_seed():
+    with open(SEED_FILE) as f:
+        content = f.read()
+    m = re.search(r'const SEED_PLAYERS = (\[.*\]);', content, re.DOTALL)
+    return json.loads(m.group(1))
+
+def build_name_index(players):
+    idx = {}
+    for p in players:
+        k = name_key(p['n'])
+        idx[k] = p
+    return idx
+
+def safe_float(v, digits=None):
+    try:
+        f = float(v)
+        return round(f, digits) if digits is not None else f
+    except (ValueError, TypeError):
+        return None
+
+def safe_int(v):
+    try:
+        return int(round(float(v)))
+    except (ValueError, TypeError):
+        return None
+
+def parse_hitters(path, name_idx):
+    result = {}
+    matched = unmatched = 0
+    with open(path, newline='', encoding='utf-8-sig') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            name = row.get('Player', '').strip()
+            if not name:
+                continue
+            k = name_key(name)
+            p = name_idx.get(k)
+            if not p:
+                unmatched += 1
+                continue
+            rank = safe_int(row.get('RkOv'))
+            if rank is None:
+                continue
+            xbh = safe_int(row.get('2B+3B'))
+            result[p['id']] = {
+                'FTX_Rank':  rank,
+                'FTX_Score': safe_float(row.get('Score'), 1),
+                'FTX_AB':    safe_int(row.get('AB')),
+                'FTX_HR':    safe_int(row.get('HR')),
+                'FTX_SB':    safe_float(row.get('SB'), 1),
+                'FTX_OBP':   safe_float(row.get('OBP'), 3),
+                'FTX_XBH':   xbh,
+                'FTX_RP':    safe_int(row.get('RP')),
+            }
+            matched += 1
+    print(f'  Hitters: {matched} matched, {unmatched} unmatched')
+    return result
+
+def parse_pitchers(path, name_idx):
+    result = {}
+    matched = unmatched = 0
+    with open(path, newline='', encoding='utf-8-sig') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            name = row.get('Player', '').strip()
+            if not name:
+                continue
+            k = name_key(name)
+            p = name_idx.get(k)
+            if not p:
+                unmatched += 1
+                continue
+            rank = safe_int(row.get('RkOv'))
+            if rank is None:
+                continue
+            result[p['id']] = {
+                'FTX_Rank':  rank,
+                'FTX_Score': safe_float(row.get('Score'), 1),
+                'FTX_IP':    safe_float(row.get('IP'), 1),
+                'FTX_W':     safe_float(row.get('W'), 1),
+                'FTX_K':     safe_int(row.get('K')),
+                'FTX_ERA':   safe_float(row.get('ERA'), 2),
+                'FTX_WHIP':  safe_float(row.get('WHIP'), 3),
+                'FTX_SVH':   safe_int(row.get('SVH')),
+            }
+            matched += 1
+    print(f'  Pitchers: {matched} matched, {unmatched} unmatched')
+    return result
+
+def main():
+    players  = load_seed()
+    name_idx = build_name_index(players)
+    print(f'Seed: {len(players)} players')
+
+    data = {}
+    print('Parsing hitters...')
+    data.update(parse_hitters(HITTERS_CSV, name_idx))
+    print('Parsing pitchers...')
+    # Pitchers may overlap (two-way players); pitcher rank takes precedence for IP>0
+    pitcher_data = parse_pitchers(PITCHERS_CSV, name_idx)
+    for pid, fields in pitcher_data.items():
+        if pid in data:
+            # Two-way: merge pitcher fields in, keep better rank
+            data[pid].update(fields)
+        else:
+            data[pid] = fields
+
+    now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    js = f"""// fantrax_data.js — Fantrax league-scoring projections + overall ranks
+// Generated by scripts/bake_assets.py on {now}
+// Source: Fantrax hitter/pitcher exports (league-specific scoring)
+// Fields: FTX_Rank (overall rank), FTX_Score (0-100), plus projected stats
+const FANTRAX_DATA = {json.dumps(data, indent=2)};
+"""
+    with open(OUTPUT_FILE, 'w') as f:
+        f.write(js)
+
+    print(f'\nWritten: {OUTPUT_FILE} ({len(data)} players)')
+    print(f'Top 10 by FTX_Rank:')
+    top = sorted(data.items(), key=lambda x: x[1].get('FTX_Rank', 9999))[:10]
+    seed_map = {p['id']: p['n'] for p in players}
+    for pid, fields in top:
+        print(f"  #{fields['FTX_Rank']:3d}  {seed_map.get(pid, pid)}")
+
+if __name__ == '__main__':
+    main()
