@@ -4,41 +4,36 @@
  */
 
 const InjuryManager = {
-    // We use a public RSS-to-JSON proxy for Rotoworld (NBC Sports)
-    FEED_URL: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.nbcsports.com/fantasy/baseball/player-news?format=rss',
+    // rss2json proxy — inner URL must be fully encoded as a single param value
+    RSS_BASE: 'https://api.rss2json.com/v1/api.json?rss_url=',
+    NBC_BASE: 'https://www.nbcsports.com/fantasy/baseball/player-news',
 
     async refreshNews() {
-        console.log("[InjuryManager] Fetching latest news...");
+        const url = this.RSS_BASE + encodeURIComponent(this.NBC_BASE + '?format=rss');
         try {
-            const res = await fetch(this.FEED_URL);
+            const res = await fetch(url);
             const data = await res.json();
-            
-            if (data.status !== 'ok') throw new Error("Feed unavailable");
-
-            const items = data.items || [];
-            return this.processItems(items);
+            if (data.status !== 'ok') throw new Error('Feed unavailable');
+            return this.processItems(data.items || []);
         } catch (e) {
-            console.error("[InjuryManager] Error:", e);
+            console.error('[InjuryManager] refreshNews:', e.message);
             return -1;
         }
     },
 
-    /**
-     * Targeted search for a single player to get deep history/blurbs.
-     */
     async searchForPlayer(player) {
-        console.log(`[InjuryManager] Deep search for ${player.n}...`);
-        const queryUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(player.n)}&format=rss`;
+        const innerUrl = `${this.NBC_BASE}?search=${encodeURIComponent(player.n)}&format=rss`;
+        const url = this.RSS_BASE + encodeURIComponent(innerUrl);
         try {
-            const res = await fetch(queryUrl);
+            const res = await fetch(url);
             const data = await res.json();
-            if (data.status === 'ok' && data.items.length > 0) {
+            if (data.status === 'ok' && data.items?.length > 0) {
                 this.processItems(data.items);
                 return true;
             }
             return false;
         } catch (e) {
-            console.error(e);
+            console.error('[InjuryManager] searchForPlayer:', e.message);
             return false;
         }
     },

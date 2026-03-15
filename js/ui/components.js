@@ -4,8 +4,34 @@
 
 const UI = {
     async init() {
+        // Admin mode: only unlocked via ?admin URL param + password
+        window.ADMIN_MODE = false;
+        if (new URLSearchParams(window.location.search).has('admin')) {
+            const authed = sessionStorage.getItem('tbg_admin');
+            if (authed === '1') {
+                window.ADMIN_MODE = true;
+            } else {
+                const pw = prompt('Admin password:');
+                if (pw === ADMIN_PASS) {
+                    sessionStorage.setItem('tbg_admin', '1');
+                    window.ADMIN_MODE = true;
+                } else {
+                    alert('Incorrect password. Entering read-only mode.');
+                    history.replaceState(null, '', window.location.pathname);
+                }
+            }
+        }
+
+        // Hide admin-only tabs in public mode
+        if (!window.ADMIN_MODE) {
+            ['tab-ai', 'tab-import'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+        }
+
         this.populateTeams();
-        
+
         // Initial data load
         if (AppState.players.length === 0) {
             if (typeof SEED_PLAYERS !== 'undefined') {
@@ -136,7 +162,7 @@ const UI = {
                                     <td>${this.formatCsArb(p.csArb)}</td>
                                     <td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>
                                     <td>
-                                        ${dr ? `<span class="gold">${isMe ? '★ MINE' : 'GONE'} $${dr.cost}</span>` :
+                                        ${dr ? `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ ' : ''}${isMe ? 'MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>` :
                                         `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}
                                     </td>
                                 </tr>
@@ -617,8 +643,19 @@ Be concise and direct. Lead with the recommendation, then brief reasoning.`;
         projDiv.textContent = proj;
 
         const rotoworld = document.getElementById('linkRotoworld');
-        rotoworld.innerHTML = news ? `NEWS: ${news.blurb.substring(0, 180)}…` : 'SEARCH ROTOWORLD / NBC SPORTS';
-        rotoworld.href = news ? news.link : `https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(p.n)}`;
+        const fallbackHref = `https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(p.n)}`;
+        if (news) {
+            rotoworld.innerHTML = `NEWS: ${news.blurb.substring(0, 200)}…`;
+            rotoworld.href = news.link;
+        } else {
+            rotoworld.innerHTML = '⟳ Fetching latest news…';
+            rotoworld.href = fallbackHref;
+            InjuryManager.searchForPlayer(p).then(() => {
+                const fresh = InjuryManager.getLatestFor(id);
+                rotoworld.innerHTML = fresh ? `NEWS: ${fresh.blurb.substring(0, 200)}…` : 'SEARCH NBC SPORTS / ROTOWORLD ↗';
+                if (fresh) rotoworld.href = fresh.link;
+            });
+        }
 
         document.getElementById('linkCBS').href = `https://www.cbssports.com/mlb/players/search/${encodeURIComponent(p.n)}/`;
         document.getElementById('linkFG').href = `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;

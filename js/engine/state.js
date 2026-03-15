@@ -3,7 +3,8 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.1.1';
+const APP_VERSION = '1.1.2';
+const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',
