@@ -20,6 +20,8 @@ const Modals = {
         if (!costEl.disabled) {
             costEl.value = existing ? existing.cost : Math.min(p.csValAAdj || p.aValAdj || 1, parseInt(costEl.max) || 202);
         }
+        const undraftBtn = document.getElementById('mUndraftBtn');
+        if (undraftBtn) undraftBtn.style.display = existing ? '' : 'none';
         document.getElementById('modalBg').classList.add('open');
         setTimeout(() => { if (!costEl.disabled) costEl.select(); }, 50);
     },
@@ -44,7 +46,11 @@ const Modals = {
             .filter(([pid, v]) => v.team === teamId && pid !== id);
         const spent = realTeamPicks.reduce((s, [, v]) => s + v.cost, 0);
 
-        if (slotsLeft <= 0) {
+        // If the existing pick already has a cost, it's an auction pick — always show cost field
+        const existingCost = AppState.drafted[id]?.cost;
+        const forceAuction = existingCost != null && existingCost > 0;
+
+        if (slotsLeft <= 0 && !forceAuction) {
             // Snake phase for this team — no budget cost
             constraintsEl.innerHTML = `<span style="color:#406080">Snake pick — no auction cost</span>`;
             costField.style.display = 'none';

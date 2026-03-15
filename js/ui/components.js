@@ -395,6 +395,7 @@ const UI = {
     // --- Modal Proxies ---
     openDraftModal(id) { Modals.openDraftModal(id); },
     confirmDraft() { Modals.confirmDraft(); },
+    undraftPending() { const id = AppState.pendingPlayerId; if (id) { Modals.closeModal(); Modals.undraftPlayer(id); } },
     openInjuryModal(id) { Modals.openInjuryModal(id); },
     savePlayerNote() { Modals.savePlayerNote(); },
     closeModal() { Modals.closeModal(); },
