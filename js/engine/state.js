@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.4.4';
+const APP_VERSION = '1.4.5';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -49,6 +49,8 @@ let AppState = {
     injuryCache: {},  // Map of playerID -> { title, blurb, ts, isNew, link }
     playerNotes: {},  // Map of playerID -> "Custom scouting/injury notes"
     aiHistory: [],    // Array of { q, a, ts } AI advisor exchanges
+    snakeOrder: [],   // Array of 10 team IDs in snake draft order (slot 1 → slot 10)
+    snakePick: 0,     // Current pick index (0-based); auto-advances on snake pick confirm
     settings: {
         hitSplit: 65,
         snakeDisc: true,
@@ -84,6 +86,8 @@ const StateManager = {
                 injuryCache: AppState.injuryCache,
                 playerNotes: AppState.playerNotes,
                 aiHistory: AppState.aiHistory,
+                snakeOrder: AppState.snakeOrder,
+                snakePick: AppState.snakePick,
                 version: APP_VERSION
             };
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(dataToSave));
@@ -103,6 +107,8 @@ const StateManager = {
                 AppState.injuryCache = parsed.injuryCache || {};
                 AppState.playerNotes = parsed.playerNotes || {};
                 AppState.aiHistory = parsed.aiHistory || [];
+                AppState.snakeOrder = parsed.snakeOrder || [];
+                AppState.snakePick  = parsed.snakePick  || 0;
             }
         } catch (e) {
             console.error('Error loading state:', e);
@@ -167,6 +173,22 @@ const StateManager = {
 
 // Auto-load on init
 StateManager.load();
+
+/**
+ * Returns the team ID whose turn it is in the snake draft, based on
+ * AppState.snakeOrder and AppState.snakePick. Returns null if order not set.
+ * Snake alternates: odd rounds reverse order (picks 10→1).
+ */
+function currentSnakeTeam() {
+    const order = AppState.snakeOrder;
+    if (!order.length) return null;
+    const n    = order.length;
+    const pick = AppState.snakePick;
+    const round = Math.floor(pick / n);
+    const pos   = pick % n;
+    const idx   = round % 2 === 0 ? pos : (n - 1 - pos);
+    return order[idx] || null;
+}
 
 /**
  * Returns merged drafted + simDrafted when simulation is active.

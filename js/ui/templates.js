@@ -441,6 +441,120 @@ const Templates = {
             </table></div>`;
     },
 
+    snake() {
+        const order     = AppState.snakeOrder;          // array of teamIds, length 0–10
+        const teams     = Object.keys(LG.teamsMap);
+        const n         = teams.length;                 // 10
+        const pick      = AppState.snakePick;           // current pick index (0-based)
+        const round     = Math.floor(pick / n);         // 0-based round
+        const roundNum  = round + 1;
+        const posInRound = pick % n;
+        const curTeam   = currentSnakeTeam();
+        const curInfo   = curTeam ? LG.teamsMap[curTeam] : null;
+        const sRounds   = LG.sSlots; // 14
+
+        // Real snake picks from draftLog (cost === 0 = snake pick)
+        const snakePicks = (AppState.draftLog || []).filter(e => e.cost === 0);
+
+        // Order setup section
+        const orderSetup = `
+            <div style="background:#060e18;border:1px solid #0a1e30;border-radius:4px;padding:12px;margin-bottom:12px">
+                <div style="font-size:11px;font-weight:700;color:#7090a8;letter-spacing:1px;margin-bottom:10px">DRAFT ORDER SETUP (Slot 1 = First Pick)</div>
+                <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px">
+                    ${Array.from({ length: n }, (_, slot) => {
+                        const cur = order[slot] || '';
+                        return `
+                            <div style="background:#0a1420;border:1px solid #1a3050;border-radius:3px;padding:6px 8px">
+                                <div style="font-size:10px;color:#406080;margin-bottom:4px">SLOT ${i + 1}</div>
+                                <select onchange="UI.setSnakeSlot(${slot}, this.value)" style="width:100%;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:3px;font-size:10px">
+                                    <option value="">— unset —</option>
+                                    ${teams.map(tid => `<option value="${tid}" ${cur === tid ? 'selected' : ''}>${LG.teamsMap[tid].team}</option>`).join('')}
+                                </select>
+                            </div>`;
+                    }).join('')}
+                </div>
+            </div>`;
+
+        // Current pick banner
+        const isOrderSet = order.length === n && order.every(Boolean);
+        const allDone    = pick >= n * sRounds;
+        const banner = `
+            <div style="display:flex;align-items:center;gap:12px;background:${curTeam === 'me' ? '#0a2010' : '#060e18'};border:1px solid ${curTeam === 'me' ? '#1a5020' : '#0a1e30'};border-radius:4px;padding:10px 14px;margin-bottom:12px">
+                ${isOrderSet && !allDone ? `
+                    <div style="flex:1">
+                        <div style="font-size:10px;color:#406080;margin-bottom:2px">CURRENT PICK</div>
+                        <div style="font-size:16px;font-weight:700;color:${curTeam === 'me' ? '#40b870' : '#c8d8e8'}">
+                            Round ${roundNum} · Pick ${posInRound + 1} of ${n}
+                            ${curInfo ? `&nbsp;—&nbsp; <span style="color:${curTeam === 'me' ? '#40b870' : '#e8c040'}">${curInfo.team}</span>` : ''}
+                            ${curTeam === 'me' ? '<span style="font-size:11px;color:#40b870;margin-left:6px">★ YOUR PICK</span>' : ''}
+                        </div>
+                        <div style="font-size:10px;color:#406080;margin-top:2px">Overall snake pick #${pick + 1} of ${n * sRounds}</div>
+                    </div>
+                    <div style="display:flex;gap:6px;align-items:center">
+                        <button class="btn" onclick="UI.advanceSnakePick(-1)" ${pick <= 0 ? 'disabled' : ''}>◀ BACK</button>
+                        <button class="btn btn-go" onclick="UI.advanceSnakePick(1)">NEXT ▶</button>
+                    </div>
+                ` : isOrderSet && allDone ? `
+                    <div style="flex:1;color:#40b870;font-weight:700">Snake draft complete (${n * sRounds} picks)</div>
+                    <button class="btn" onclick="UI.resetSnakePick()">RESET PICK #</button>
+                ` : `
+                    <div style="flex:1;color:#406080;font-size:12px">Set all 10 draft order slots above to enable pick tracking.</div>
+                `}
+            </div>`;
+
+        // Snake board grid
+        const boardHtml = isOrderSet ? `
+            <div style="font-size:11px;font-weight:700;color:#7090a8;letter-spacing:1px;margin-bottom:6px">SNAKE BOARD</div>
+            <div style="overflow-x:auto">
+                <table style="border-collapse:collapse;width:100%;font-size:10px">
+                    <thead>
+                        <tr>
+                            <th style="padding:4px 6px;color:#406080;text-align:left;white-space:nowrap">Round</th>
+                            ${order.map(tid => {
+                                const info = LG.teamsMap[tid];
+                                return `<th style="padding:4px 6px;color:${tid === 'me' ? '#40b870' : '#406080'};text-align:center;white-space:nowrap">${info?.team || '?'}</th>`;
+                            }).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${Array.from({ length: sRounds }, (_, r) => {
+                            const isEven = r % 2 === 0;
+                            const slotOrder = isEven ? order : [...order].reverse();
+                            return `<tr style="border-top:1px solid #0a1e30">
+                                <td style="padding:4px 6px;color:#406080;font-weight:700">R${r + 1}</td>
+                                ${slotOrder.map((tid, slot) => {
+                                    const pickIdx = r * n + slot;
+                                    const isCurrent = pickIdx === pick;
+                                    const isDone    = pickIdx < pick;
+                                    // Find real pick in this slot
+                                    const slotPick  = snakePicks[pickIdx];
+                                    const player    = slotPick ? AppState.players.find(p => p.id === slotPick.id) : null;
+                                    const isMe      = tid === 'me';
+                                    const bg = isCurrent ? (isMe ? '#0a2010' : '#0a1a2a') : 'transparent';
+                                    const border = isCurrent ? `border:1px solid ${isMe ? '#1a5020' : '#1a3050'}` : '';
+                                    return `<td style="padding:4px 6px;text-align:center;background:${bg};${border};${isDone ? 'opacity:0.6' : ''}">
+                                        ${player
+                                            ? `<span style="color:${isMe ? '#40b870' : '#c8d8e8'}">${player.n.split(' ').pop()}</span><br><span style="color:#406080">${slotPick.team !== tid ? `⚠` : ''}</span>`
+                                            : isCurrent ? `<span style="color:${isMe ? '#40b870' : '#e8c040'};font-weight:700">NOW</span>`
+                                            : isDone ? `<span style="color:#1a3050">—</span>`
+                                            : `<span style="color:#1a3050">·</span>`
+                                        }
+                                    </td>`;
+                                }).join('')}
+                            </tr>`;
+                        }).join('')}
+                    </tbody>
+                </table>
+            </div>` : '';
+
+        return `
+            <div style="padding:12px 16px;max-width:1200px">
+                ${orderSetup}
+                ${banner}
+                ${boardHtml}
+            </div>`;
+    },
+
     ai() {
         const apiKey = localStorage.getItem('claudeApiKey') || '';
         const history = AppState.aiHistory || [];

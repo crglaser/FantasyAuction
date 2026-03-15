@@ -16,7 +16,9 @@ const Modals = {
         const label = realPick ? `Edit Pick: ${p.n}` : simPick ? `Edit Sim: ${p.n}` : `Draft: ${p.n}`;
         document.getElementById('modalTitle').textContent = label;
         const teamSel = document.getElementById('mTeam');
-        teamSel.value = existing ? existing.team : 'me';
+        // Default team: existing pick → its team; new pick → snake order if set, else 'me'
+        const snakeDefault = (!existing && currentSnakeTeam()) ? currentSnakeTeam() : null;
+        teamSel.value = existing ? existing.team : (snakeDefault || 'me');
         this.updateDraftConstraints(teamSel.value);
         const costEl = document.getElementById('mCost');
         if (!costEl.disabled) {
@@ -108,6 +110,11 @@ const Modals = {
             AppState.drafted[id] = { cost, team: teamId, ts: Date.now() };
             if (isNew) {
                 AppState.draftLog.push({ id, ...AppState.drafted[id] });
+                // Auto-advance snake pick counter when a snake-phase pick is confirmed
+                if (cost === 0 && AppState.snakeOrder.length) {
+                    const max = AppState.snakeOrder.length * LG.sSlots;
+                    if (AppState.snakePick < max) AppState.snakePick++;
+                }
             } else {
                 const entry = AppState.draftLog.find(e => e.id === id);
                 if (entry) Object.assign(entry, AppState.drafted[id]);

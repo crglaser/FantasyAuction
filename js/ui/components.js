@@ -148,6 +148,7 @@ const UI = {
         else if (tab === 'myteam') content.innerHTML = Templates.myteam();
         else if (tab === 'league') content.innerHTML = Templates.league();
         else if (tab === 'standings') content.innerHTML = Templates.standings();
+        else if (tab === 'snake')    content.innerHTML = Templates.snake();
         else if (tab === 'ai') content.innerHTML = Templates.ai();
         else if (tab === 'import') content.innerHTML = Templates.import();
     },
@@ -406,6 +407,26 @@ const UI = {
 
     setMyteamView(tid) {
         AppState.ui.myteamView = tid;
+        this.render();
+    },
+
+    setSnakeSlot(slot, teamId) {
+        if (AppState.snakeOrder.length < 10) AppState.snakeOrder = new Array(10).fill('');
+        AppState.snakeOrder[slot] = teamId;
+        StateManager.save();
+        this.render();
+    },
+
+    advanceSnakePick(delta) {
+        const max = Object.keys(LG.teamsMap).length * LG.sSlots;
+        AppState.snakePick = Math.max(0, Math.min(max, AppState.snakePick + delta));
+        StateManager.save();
+        this.render();
+    },
+
+    resetSnakePick() {
+        AppState.snakePick = 0;
+        StateManager.save();
         this.render();
     },
 
