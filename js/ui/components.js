@@ -48,6 +48,8 @@ const UI = {
         else if (tab === 'arb') content.innerHTML = this.templateArb(players);
         else if (tab === 'myteam') content.innerHTML = this.templateMyTeam();
         else if (tab === 'league') content.innerHTML = this.templateLeague();
+        else if (tab === 'standings') content.innerHTML = this.templateStandings();
+        else if (tab === 'ai') content.innerHTML = this.templateAI();
         else if (tab === 'import') content.innerHTML = this.templateImport();
     },
 
@@ -120,12 +122,13 @@ const UI = {
                             const rowCls = (isMe ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const injNews = InjuryManager.getLatestFor(p.id);
                             const hasNote = !!AppState.playerNotes[p.id];
-                            const injTag = p.inj ? `<span class="pb ${injNews?.isNew ? 'pulse' : ''}" style="background:#401010;border-color:#802020;color:#f0a0a0;cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ${injNews?.isNew ? '!' : ''}${hasNote ? '*' : ''}</span>` : '';
-                            
+                            const hasNews = !!injNews;
+                            const injTag = p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>` : (hasNews ? `<span class="pb" style="background:#102010;border-color:#205020;color:#80c880">NEWS</span>` : (hasNote ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : ''));
+
                             return `
                                 <tr class="${rowCls}">
                                     <td class="mono muted">${p.csRank}</td>
-                                    <td class="nm">${p.n}${injTag}</td>
+                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${injTag}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
@@ -318,6 +321,172 @@ const UI = {
         `;
     },
 
+    templateStandings() {
+        const teams = Object.keys(LG.teamsMap);
+        const stats = {};
+        teams.forEach(tid => {
+            const picks = Object.entries(AppState.drafted)
+                .filter(([,v]) => v.team === tid)
+                .map(([id]) => AppState.players.find(p => p.id === id))
+                .filter(Boolean);
+            const H = picks.filter(p => p.PA > 0);
+            const P = picks.filter(p => p.IP > 0);
+            let PAw=0, OBPw=0, IPw=0, ERAw=0, WHIPw=0;
+            H.forEach(p => { PAw += p.PA; OBPw += p.OBP * p.PA; });
+            P.forEach(p => { IPw += p.IP; ERAw += p.ERA * p.IP; WHIPw += p.WHIP * p.IP; });
+            stats[tid] = {
+                HR: H.reduce((s,p)=>s+p.HR,0), SB: H.reduce((s,p)=>s+p.SB,0),
+                XBH: H.reduce((s,p)=>s+p.XBH,0), OBP: PAw ? OBPw/PAw : 0,
+                RP: H.reduce((s,p)=>s+p.RP,0), K: P.reduce((s,p)=>s+p.K,0),
+                W: P.reduce((s,p)=>s+p.W,0), SVH: P.reduce((s,p)=>s+p.SVH,0),
+                ERA: IPw ? ERAw/IPw : 99, WHIP: IPw ? WHIPw/IPw : 99,
+                IP: Math.round(IPw), n: picks.length
+            };
+        });
+
+        const cats = ['HR','SB','XBH','OBP','RP','K','W','SVH','ERA','WHIP'];
+        const inv = new Set(['ERA','WHIP']);
+        const ranks = {};
+        teams.forEach(tid => { ranks[tid] = { total: 0 }; });
+        cats.forEach(cat => {
+            const sorted = [...teams].sort((a,b) => inv.has(cat) ? stats[a][cat]-stats[b][cat] : stats[b][cat]-stats[a][cat]);
+            sorted.forEach((tid,i) => { ranks[tid][cat] = 10-i; ranks[tid].total += 10-i; });
+        });
+        const sorted = [...teams].sort((a,b) => ranks[b].total - ranks[a].total);
+
+        const cell = (tid, cat) => {
+            const s = stats[tid]; const r = ranks[tid][cat];
+            const val = cat==='OBP' ? s[cat].toFixed(3) : cat==='ERA'||cat==='WHIP' ? s[cat].toFixed(2) : Math.round(s[cat]);
+            const clr = r>=8 ? '#40b870' : r<=3 ? '#d04040' : '#c8d8e8';
+            return `<td style="text-align:center;font-size:11px"><span style="color:${clr}">${s.n?val:'—'}</span><br><span class="muted" style="font-size:10px">(${r})</span></td>`;
+        };
+
+        return `
+            <div style="padding:8px 0 12px;color:#7090a8;font-size:11px">
+                Projected Roto standings based on drafted players. Updates live as picks are recorded. Each cell shows projected stat + rank (10=best).
+            </div>
+            <div class="tbl-wrap"><table>
+                <thead><tr>
+                    <th>#</th><th>Team</th><th class="gold">PTS</th>
+                    <th>HR</th><th>SB</th><th>XBH</th><th>OBP</th><th>RP</th>
+                    <th>K</th><th>W</th><th>SVH</th><th>ERA</th><th>WHIP</th>
+                    <th>IP</th><th>Picks</th>
+                </tr></thead>
+                <tbody>
+                    ${sorted.map((tid,i) => {
+                        const info = LG.teamsMap[tid]; const s = stats[tid]; const r = ranks[tid];
+                        const ipColor = s.IP > 0 && s.IP < (LG.minIP / LG.total * s.n * 0.9) ? '#d04040' : '#7090a8';
+                        return `<tr class="${tid==='me'?'mine':''}">
+                            <td class="mono muted">${i+1}</td>
+                            <td style="font-weight:700">${info.team}</td>
+                            <td class="gold" style="font-weight:700;text-align:center">${r.total}</td>
+                            ${cats.map(c => cell(tid,c)).join('')}
+                            <td style="text-align:center;font-size:11px;color:${ipColor}">${s.IP||'—'}</td>
+                            <td class="mono muted" style="text-align:center">${s.n}</td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table></div>
+            <div style="margin-top:12px;font-size:10px;color:#406080">
+                Green = top 3 in category · Red = bottom 3 · ERA/WHIP inverted (lower = better rank) · IP pace flag at 90% of target
+            </div>`;
+    },
+
+    templateAI() {
+        const apiKey = localStorage.getItem('claudeApiKey') || '';
+        const history = AppState.aiHistory || [];
+        return `
+            <div style="max-width:800px;margin:0 auto;padding:16px">
+                ${!apiKey ? `
+                    <div style="background:#0a1a2a;border:1px solid #1a3050;border-radius:6px;padding:16px;margin-bottom:16px">
+                        <div style="font-weight:700;color:#c8d8e8;margin-bottom:6px">CLAUDE API KEY</div>
+                        <div class="muted" style="font-size:11px;margin-bottom:10px">Stored in localStorage only — sent directly to Anthropic's API, nowhere else.</div>
+                        <input type="password" id="aiKeyInput" placeholder="sk-ant-..." style="width:100%;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px;margin-bottom:8px;box-sizing:border-box">
+                        <button class="btn btn-go" onclick="UI.saveApiKey()">SAVE KEY</button>
+                    </div>
+                ` : `<div style="font-size:11px;color:#406080;margin-bottom:10px">✓ API key saved · <a href="#" onclick="event.preventDefault();localStorage.removeItem('claudeApiKey');UI.render()" style="color:#406080">clear</a></div>`}
+                <div id="aiHistory" style="max-height:420px;overflow-y:auto;margin-bottom:12px;display:flex;flex-direction:column;gap:12px">
+                    ${history.length === 0 ? `
+                        <div style="padding:24px;color:#1a3050;font-style:italic;text-align:center;line-height:2">
+                            Ask anything about your draft strategy.<br>
+                            <span style="color:#2a4060;font-size:11px">
+                                "Who should I target with my last $45?" &nbsp;·&nbsp; "What categories am I weakest in?"<br>
+                                "Is $28 fair for Bregman right now?" &nbsp;·&nbsp; "Team X just loaded up on SPs — how does that affect me?"
+                            </span>
+                        </div>
+                    ` : history.map(h => `
+                        <div>
+                            <div style="color:#406080;font-size:10px;margin-bottom:3px">YOU</div>
+                            <div style="color:#c8d8e8;padding:8px;background:#0a1a2a;border-radius:4px;margin-bottom:6px">${h.q}</div>
+                            <div style="color:#406080;font-size:10px;margin-bottom:3px">CLAUDE</div>
+                            <div style="color:#c8d8e8;padding:10px;background:#060e18;border:1px solid #1a3050;border-radius:4px;white-space:pre-wrap;font-size:12px;line-height:1.6">${h.a}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                    <textarea id="aiInput" placeholder="Ask about your draft strategy..." rows="3"
+                        style="flex:1;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px;resize:vertical"
+                        onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();UI.handleAIQuery()}"
+                    ></textarea>
+                    <button class="btn btn-go" id="aiBtnSend" onclick="UI.handleAIQuery()">ASK</button>
+                </div>
+                <div style="font-size:10px;color:#406080;margin-top:5px">Enter to send · Shift+Enter for newline · Context: your roster, all budgets, league rules</div>
+            </div>`;
+    },
+
+    saveApiKey() {
+        const key = document.getElementById('aiKeyInput')?.value?.trim();
+        if (key) { localStorage.setItem('claudeApiKey', key); this.render(); }
+    },
+
+    async handleAIQuery() {
+        const apiKey = localStorage.getItem('claudeApiKey');
+        if (!apiKey) { alert('Enter your Claude API key first.'); return; }
+        const input = document.getElementById('aiInput');
+        const question = input?.value?.trim();
+        if (!question) return;
+
+        const btn = document.getElementById('aiBtnSend');
+        if (btn) { btn.textContent = '...'; btn.disabled = true; }
+
+        const ctx = StateManager.generateAIContext();
+        const system = `You are a sharp fantasy baseball draft advisor for the Teddy Ballgame League (10-team Roto, Fantrax).
+Format: ${ctx.rules}
+Roto categories: HR, SB, XBH (2B+3B), OBP, RP (R+RBI) | K, W, ERA, SVH (SV+HLD), WHIP.
+Critical rule: 1,000 IP minimum — missing it loses both ERA and WHIP for the season.
+Draft: Auction (17 players/$202 budget) + 14-round snake (31 total per team). $400 FAAB in-season.
+My team (${ctx.rosterSize}): ${ctx.currentRoster.join(' | ')}
+Budget remaining: $${ctx.budgetRemaining}
+Be concise and direct. Lead with the recommendation, then brief reasoning.`;
+
+        try {
+            const res = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01',
+                    'content-type': 'application/json',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({
+                    model: 'claude-haiku-4-5-20251001',
+                    max_tokens: 1024,
+                    system,
+                    messages: [{ role: 'user', content: question }]
+                })
+            });
+            if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || `HTTP ${res.status}`); }
+            const data = await res.json();
+            AppState.aiHistory.unshift({ q: question, a: data.content[0]?.text || '(no response)', ts: Date.now() });
+            if (AppState.aiHistory.length > 20) AppState.aiHistory.pop();
+            StateManager.save();
+        } catch (e) {
+            AppState.aiHistory.unshift({ q: question, a: `Error: ${e.message}`, ts: Date.now() });
+        }
+        this.render();
+        setTimeout(() => document.getElementById('aiInput')?.focus(), 50);
+    },
+
     templateControls() {
         const ui = AppState.ui;
         const set = AppState.settings;
@@ -427,26 +596,42 @@ const UI = {
         const news = InjuryManager.getLatestFor(id);
         const note = AppState.playerNotes[id] || "";
         
-        document.getElementById('injName').textContent = p.n;
-        document.getElementById('injTitle').innerHTML = news ? `${news.title}` : `No recent news for ${p.n}`;
-        
-        const rotoworld = document.getElementById('linkRotoworld');
-        rotoworld.innerHTML = news ? `LATEST: ${news.blurb.substring(0, 150)}... <br> (CLICK FOR FULL)` : "DEEP SEARCH ROTOWORLD";
-        rotoworld.href = news ? news.link : `https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(p.n)}`;
-        
-        document.getElementById('linkCBS').href = `https://www.cbssports.com/mlb/players/playerpage/${p.id}/status`;
-        document.getElementById('linkFG').href = `https://www.fangraphs.com/players/${p.n.toLowerCase().replace(/ /g, '-')}`;
+        const proj = p.PA
+            ? `OBP ${p.OBP.toFixed(3)} · HR ${p.HR} · SB ${p.SB} · XBH ${p.XBH} · RP ${p.RP}`
+            : `ERA ${p.ERA?.toFixed(2)} · WHIP ${p.WHIP?.toFixed(2)} · K ${p.K} · W ${p.W} · SVH ${p.SVH} · IP ${p.IP}`;
 
-        // Add Notes UI to the modal dynamically
+        document.getElementById('injName').textContent = `${p.n} · ${p.t} · ${p.pos.join('/')}`;
+        document.getElementById('injTitle').innerHTML = news
+            ? `<span style="color:#f0a0a0">⚠ ${news.title}</span>`
+            : `${p.n}`;
+
+        // Projections line
         const modal = document.getElementById('injuryModal').querySelector('.modal');
+        let projDiv = document.getElementById('modalProj');
+        if (!projDiv) {
+            projDiv = document.createElement('div');
+            projDiv.id = 'modalProj';
+            projDiv.style.cssText = 'font-size:11px;color:#7090a8;margin-bottom:12px;font-family:monospace';
+            modal.insertBefore(projDiv, modal.querySelector('.field'));
+        }
+        projDiv.textContent = proj;
+
+        const rotoworld = document.getElementById('linkRotoworld');
+        rotoworld.innerHTML = news ? `NEWS: ${news.blurb.substring(0, 180)}…` : 'SEARCH ROTOWORLD / NBC SPORTS';
+        rotoworld.href = news ? news.link : `https://www.nbcsports.com/fantasy/baseball/player-news?search=${encodeURIComponent(p.n)}`;
+
+        document.getElementById('linkCBS').href = `https://www.cbssports.com/mlb/players/search/${encodeURIComponent(p.n)}/`;
+        document.getElementById('linkFG').href = `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
+
+        // Notes field
         let noteField = document.getElementById('noteArea');
         if (!noteField) {
             const field = document.createElement('div');
             field.className = 'field';
-            field.style.marginTop = '20px';
-            field.innerHTML = `<label>Internal Notes / Recovery Estimate</label>
+            field.style.marginTop = '12px';
+            field.innerHTML = `<label>Scouting Notes</label>
                                <textarea id="noteArea" style="width:100%;height:60px;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px"></textarea>
-                               <button class="btn btn-go" style="width:100%;margin-top:5px" onclick="UI.savePlayerNote()">SAVE NOTES</button>`;
+                               <button class="btn btn-go" style="width:100%;margin-top:5px" onclick="UI.savePlayerNote()">SAVE</button>`;
             modal.insertBefore(field, modal.querySelector('.modal-btns'));
             noteField = document.getElementById('noteArea');
         }
@@ -505,6 +690,7 @@ const UI = {
         AppState.ui.activeTab = tab;
         document.querySelectorAll('.tab').forEach(el => el.classList.toggle('active', el.id === `tab-${tab}`));
         const hasControls = ['auction', 'season', 'arb'].includes(tab);
+        AppState.ui.search = ''; // clear search on tab switch
         const ctrlBar = document.getElementById('controlsBar');
         if (ctrlBar) ctrlBar.style.display = hasControls ? 'block' : 'none';
         this.render();

@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.1.1';
 
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',
@@ -45,6 +45,7 @@ let AppState = {
     drafted: {},      // Map of playerID -> { cost, team, timestamp }
     injuryCache: {},  // Map of playerID -> { title, blurb, ts, isNew, link }
     playerNotes: {},  // Map of playerID -> "Custom scouting/injury notes"
+    aiHistory: [],    // Array of { q, a, ts } AI advisor exchanges
     settings: {
         hitSplit: 65,
         snakeDisc: true,
@@ -75,6 +76,7 @@ const StateManager = {
                 settings: AppState.settings,
                 injuryCache: AppState.injuryCache,
                 playerNotes: AppState.playerNotes,
+                aiHistory: AppState.aiHistory,
                 version: APP_VERSION
             };
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(dataToSave));
@@ -92,6 +94,7 @@ const StateManager = {
                 AppState.settings = { ...AppState.settings, ...parsed.settings };
                 AppState.injuryCache = parsed.injuryCache || {};
                 AppState.playerNotes = parsed.playerNotes || {};
+                AppState.aiHistory = parsed.aiHistory || [];
             }
         } catch (e) {
             console.error('Error loading state:', e);
