@@ -89,14 +89,14 @@ const UI = {
                 <table>
                     <thead>
                         <tr>
-                            ${this.th('aRank', '#')}
+                            ${this.th('csRank', '#')}
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('aValAdj', 'AUC $★')}
-                            ${this.th('aVal', 'BASE $')}
-                            ${this.th('fVal', 'SEASON $')}
-                            ${this.th('arb', 'ARB Δ')}
+                            ${this.th('csValAAdj', 'AUC $★')}
+                            ${this.th('csValS', 'SEASON $')}
+                            ${this.th('csArb', 'ARB Δ')}
+                            ${this.th('aValAdj', 'OUR $')}
                             <th>PROJECTIONS</th>
                             <th>ACTION</th>
                         </tr>
@@ -105,21 +105,21 @@ const UI = {
                         ${players.map(p => {
                             const dr = AppState.drafted[p.id];
                             const isMe = dr?.team === 'me';
-                            const rowCls = (isMe ? 'mine' : '') + (dr ? ' drafted' : '') + (p.arb > 1.5 && !dr ? ' aup' : '') + (p.arb < -1.5 && !dr ? ' adn' : '');
+                            const rowCls = (isMe ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const stats = p.PA ? `HR:${p.HR} SB:${p.SB} XBH:${p.XBH} OBP:${p.OBP.toFixed(3)}` : `K:${p.K} W:${p.W} ERA:${p.ERA.toFixed(2)} SVH:${p.SVH}`;
                             return `
                                 <tr class="${rowCls}">
-                                    <td class="mono muted">${p.aRank}</td>
+                                    <td class="mono muted">${p.csRank}</td>
                                     <td class="nm">${p.n}${p.inj ? '<span class="wb">INJ</span>' : ''}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td class="gold">$${p.aValAdj}</td>
-                                    <td class="muted">$${p.aVal}</td>
-                                    <td class="grn">$${p.fVal}</td>
-                                    <td>${this.formatArb(p.arb)}</td>
+                                    <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
+                                    <td class="grn">$${p.csValS}</td>
+                                    <td>${this.formatCsArb(p.csArb)}</td>
+                                    <td class="muted">$${p.aValAdj}</td>
                                     <td class="mono muted" style="font-size:10px">${stats}</td>
                                     <td>
-                                        ${dr ? `<span class="gold">${isMe ? '★ MINE' : 'GONE'} $${dr.cost}</span>` : 
+                                        ${dr ? `<span class="gold">${isMe ? '★ MINE' : 'GONE'} $${dr.cost}</span>` :
                                         `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}
                                     </td>
                                 </tr>
@@ -137,13 +137,14 @@ const UI = {
                 <table>
                     <thead>
                         <tr>
-                            ${this.th('fRank', '#')}
+                            ${this.th('csValS', '#')}
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('fVal', 'SEASON $')}
-                            ${this.th('aValAdj', 'AUC $★')}
-                            ${this.th('arb', 'ARB Δ')}
+                            ${this.th('csValS', 'SEASON $★')}
+                            ${this.th('csValAAdj', 'AUC $')}
+                            ${this.th('csArb', 'ARB Δ')}
+                            ${this.th('fVal', 'OUR $')}
                             <th>PROJECTIONS</th>
                         </tr>
                     </thead>
@@ -153,13 +154,14 @@ const UI = {
                             const stats = p.PA ? `HR:${p.HR} SB:${p.SB} XBH:${p.XBH} OBP:${p.OBP.toFixed(3)}` : `K:${p.K} W:${p.W} ERA:${p.ERA.toFixed(2)} SVH:${p.SVH}`;
                             return `
                                 <tr class="${dr ? 'drafted' : ''}">
-                                    <td class="mono muted">${p.fRank}</td>
+                                    <td class="mono muted">${p.csRank}</td>
                                     <td class="nm">${p.n}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td class="grn" style="font-weight:700">$${p.fVal}</td>
-                                    <td class="gold">$${p.aValAdj}</td>
-                                    <td>${this.formatArb(p.arb)}</td>
+                                    <td class="grn" style="font-weight:700">$${p.csValS}</td>
+                                    <td class="gold">$${p.csValAAdj}</td>
+                                    <td>${this.formatCsArb(p.csArb)}</td>
+                                    <td class="muted">$${p.fVal}</td>
                                     <td class="mono muted" style="font-size:10px">${stats}</td>
                                 </tr>
                             `;
@@ -173,8 +175,8 @@ const UI = {
     templateArb(players) {
         return this.templateControls() + `
             <div class="arb-legend">
-                <span><span class="grn">■</span> POSITIVE = Better season value than auction → <strong>BUY</strong></span>
-                <span><span class="red">■</span> NEGATIVE = Auction value exceeds season → <strong>TRAP</strong></span>
+                <span><span class="grn">■</span> POSITIVE = Season value exceeds auction → <strong>BUY at auction</strong></span>
+                <span><span class="red">■</span> NEGATIVE = Auction value exceeds season → <strong>TRAP / snake target</strong></span>
             </div>
             <div class="tbl-wrap">
                 <table>
@@ -183,25 +185,22 @@ const UI = {
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('arb', 'ARB SCORE')}
-                            <th>SEASON $</th>
-                            <th>AUC $★</th>
-                            <th>$ DELTA</th>
+                            ${this.th('csArb', 'ARB ($)')}
+                            ${this.th('csValS', 'SEASON $★')}
+                            ${this.th('csValAAdj', 'AUC $★')}
                         </tr>
                     </thead>
                     <tbody>
                         ${players.map(p => {
                             const dr = AppState.drafted[p.id];
-                            const delta = p.fVal - p.aValAdj;
                             return `
-                                <tr class="${dr ? 'drafted' : ''}">
-                                    <td class="nm">${p.n}</td>
+                                <tr class="${dr ? 'drafted' : ''}${p.csArb > 3 && !dr ? ' aup' : ''}${p.csArb < -3 && !dr ? ' adn' : ''}">
+                                    <td class="nm">${p.n}${p.inj ? '<span class="wb">INJ</span>' : ''}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td style="font-size:15px">${this.formatArb(p.arb)}</td>
-                                    <td class="grn">$${p.fVal}</td>
-                                    <td class="gold">$${p.aValAdj}</td>
-                                    <td class="mono ${delta>=0?'grn':'red'}">${delta>=0?'+':''}${delta}</td>
+                                    <td style="font-size:15px">${this.formatCsArb(p.csArb)}</td>
+                                    <td class="grn">$${p.csValS}</td>
+                                    <td class="gold">$${p.csValAAdj}</td>
                                 </tr>
                             `;
                         }).join('')}
@@ -238,7 +237,7 @@ const UI = {
                     ${myDrafted.sort((a,b) => b.cost - a.cost).map(p => `
                         <div class="rslot">
                             <div><div style="font-weight:700;color:#c8daf0">${p.n}</div><div>${this.pb(p.pos)}</div></div>
-                            <div style="text-align:right"><div class="gold">$${p.cost}</div><div class="muted" style="font-size:10px">val:$${p.aValAdj}</div></div>
+                            <div style="text-align:right"><div class="gold">$${p.cost}</div><div class="muted" style="font-size:10px">val:$${p.csValAAdj || p.csValA || p.aValAdj}</div></div>
                         </div>
                     `).join('')}
                 </div>
@@ -459,6 +458,13 @@ const UI = {
         const color = val > 1.5 ? 'grn' : (val < -1.5 ? 'red' : 'muted');
         const sign = val >= 0 ? '+' : '';
         return `<span class="${color}" style="font-weight:700">${sign}${val.toFixed(2)}</span>`;
+    },
+
+    formatCsArb(val) {
+        if (val == null) return '-';
+        const color = val > 3 ? 'grn' : (val < -3 ? 'red' : 'muted');
+        const sign = val >= 0 ? '+' : '';
+        return `<span class="${color}" style="font-weight:700">${sign}$${val}</span>`;
     },
 
     // --- Actions ---

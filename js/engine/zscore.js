@@ -143,7 +143,7 @@ const ValEngine = {
             p.fVal = zf > 0 ? Math.max(1, Math.round((zf / (isH ? totalHitZF : totalPitZF)) * budget)) : 1;
         });
 
-        // 6. Ranks and Snake Discount
+        // 6. Ranks and Snake Discount (our z-score based)
         const byZA = [...players].sort((a, b) => (b.zA || 0) - (a.zA || 0));
         const byZF = [...players].sort((a, b) => (b.zF || 0) - (a.zF || 0));
 
@@ -152,11 +152,23 @@ const ValEngine = {
             p.fRank = byZF.findIndex(x => x.id === p.id) + 1;
 
             if (AppState.settings.snakeDisc && p.aRank > AppState.settings.snakeCutoff) {
-                // Graduated haircut: 0% at cutoff, ~90% at rank 200
                 const t = Math.min(1, (p.aRank - AppState.settings.snakeCutoff) / (200 - AppState.settings.snakeCutoff));
                 p.aValAdj = Math.max(1, Math.round(p.aVal * (1 - t * 0.9)));
             } else {
                 p.aValAdj = p.aVal;
+            }
+        });
+
+        // 7. CheatSheet-based values (primary display) with snake discount applied
+        const byCSA = [...players].sort((a, b) => (b.csValA || 0) - (a.csValA || 0));
+        players.forEach(p => {
+            p.csRank = byCSA.findIndex(x => x.id === p.id) + 1;
+            p.csArb  = Math.round((p.csValS || 0) - (p.csValA || 0));
+            if (AppState.settings.snakeDisc && p.csRank > AppState.settings.snakeCutoff) {
+                const t = Math.min(1, (p.csRank - AppState.settings.snakeCutoff) / (200 - AppState.settings.snakeCutoff));
+                p.csValAAdj = Math.max(1, Math.round((p.csValA || 1) * (1 - t * 0.9)));
+            } else {
+                p.csValAAdj = p.csValA || 1;
             }
         });
     }

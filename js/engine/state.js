@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.0.6';
+const APP_VERSION = '1.0.7';
 
 const LG = {
     name: 'Teddy Ballgame Fantasy Baseball League 2026',
@@ -58,7 +58,7 @@ let AppState = {
         posFilter: 'ALL',
         typeFilter: 'ALL',
         hideDrafted: false,
-        sortCol: 'aValAdj',
+        sortCol: 'csValAAdj',
         sortDir: 'desc'
     }
 };
