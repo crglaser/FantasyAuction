@@ -420,10 +420,23 @@ const Templates = {
 
     formatCloser(p) {
         if (!p.closerStatus) return '';
-        const cfg = { CLOSER: { color: '#40b870', label: 'CLO' }, HANDCUFF: { color: '#e8c040', label: 'HCF' }, DEEP: { color: '#406080', label: 'DPE' } };
-        const c = cfg[p.closerStatus];
-        if (c) return `<span class="pb" style="background:#0a1a0a;border-color:${c.color};color:${c.color}">${c.label}</span>`;
-        return `<span class="pb" style="background:#0a1a0a;border-color:#406080;color:#7090a8">${p.closerStatus}</span>`;
+        const parts = p.closerStatus.split(':');
+        const status = parts[0];
+        const team   = parts[1] || '';
+        const committee = parts[2] === '*';
+        const cfg = {
+            CLOSER:   { color: '#40b870', label: 'Closer' },
+            '1ST':    { color: '#e8c040', label: '1st in line' },
+            '2ND':    { color: '#406080', label: '2nd in line' },
+        };
+        const c = cfg[status];
+        if (!c) {
+            // SVH#N fallback from article rankings
+            return `<span class="pb" style="background:#0a1a0a;border-color:#406080;color:#7090a8">${p.closerStatus}</span>`;
+        }
+        const label = committee ? `${c.label}*` : c.label;
+        const teamTag = team ? `<span style="opacity:0.55;font-size:9px;margin-left:2px">${team}</span>` : '';
+        return `<span class="pb" style="background:#0a1a0a;border-color:${c.color};color:${c.color};white-space:nowrap">${label}${teamTag}</span>`;
     },
 
     formatCsArb(val) {

@@ -205,30 +205,44 @@ def fetch_closer_monkey():
     article_url = article_match.group(1) if article_match else None
 
     # Parse depth chart table (Table 0 on homepage)
-    closer_map = {}  # normalize(name) → status
+    # Each row has 10 cells: [team1, closer1, 1st1, 2nd1, date1, team2, closer2, 1st2, 2nd2, date2]
+    # Asterisk at START of name = closer by committee (e.g. "*Jax", "*Cleavinger")
+    # Value format stored: "STATUS:TEAM" or "STATUS:TEAM:*" (committee)
+    # STATUS: CLOSER | 1ST | 2ND
+    closer_map = {}
 
-    def add_player(name, status):
-        if not name or name.strip() in ('', '—', '-', 'TBD', 'N/A'): return
-        # Handle multiple players in one cell (e.g., "Hader/Smith")
-        for n in re.split(r'[/,]', name):
-            n = n.strip()
-            if n:
-                closer_map[name_key(n)] = status
+    def add_player(raw_cell, status, team):
+        if not raw_cell or raw_cell.strip() in ('', '—', '-', 'TBD', 'N/A'): return
+        cell_has_asterisk = '*' in raw_cell
+        # Strip leading/trailing asterisks and split on slash/comma
+        clean = raw_cell.replace('*', '').strip()
+        parts = [p.strip() for p in re.split(r'[/,]', clean) if p.strip()]
+        if not parts: return
+        is_committee = cell_has_asterisk or len(parts) > 1
+        flag = ':*' if is_committee else ''
+        for n in parts:
+            nk = name_key(n)
+            value = f'{status}:{team}{flag}'
+            closer_map[nk] = value
+            # Also index by last word so full-name seed players can match short names
+            last = nk.split()[-1]
+            if last != nk and last not in closer_map:
+                closer_map[last] = value
 
-    # Table rows: Team | Closer | 1st in line | 2nd in line | ...
+    # Table rows: each data row has two teams (10 cells)
     rows = re.findall(r'<tr[^>]*>(.*?)</tr>', html, re.DOTALL)
     for row in rows:
         cells = re.findall(r'<td[^>]*>(.*?)</td>', row, re.DOTALL)
         cells = [re.sub(r'<[^>]+>', '', c).strip() for c in cells]
-        if len(cells) < 3: continue
-        # cells[0]=team, cells[1]=closer, cells[2]=1st, cells[3]=2nd...
-        if cells[0] and len(cells[0]) <= 4:  # looks like a team abbrev
-            if len(cells) > 1 and cells[1]:
-                add_player(cells[1].rstrip('*'), 'CLOSER')
-            if len(cells) > 2 and cells[2]:
-                add_player(cells[2].rstrip('*'), 'HANDCUFF')
-            if len(cells) > 3 and cells[3]:
-                add_player(cells[3].rstrip('*'), 'DEEP')
+        if len(cells) < 5: continue
+        # Process left team (cols 0-4) and right team (cols 5-9)
+        for offset in (0, 5):
+            if offset + 3 >= len(cells): break
+            team = cells[offset].strip()
+            if not team or len(team) > 5: continue  # skip header/blank rows
+            add_player(cells[offset + 1], 'CLOSER', team)
+            add_player(cells[offset + 2], '1ST',    team)
+            add_player(cells[offset + 3], '2ND',    team)
 
     # Also fetch ranked saves list from latest article if found
     if article_url:
@@ -283,10 +297,23 @@ def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data):
             if adp_data['adp'] > 0:
                 entry['adp'] = adp_data['adp']
 
-        # CloserMonkey (RPs only)
-        is_rp = any(pos in p.get('pos', []) for pos in ['RP', 'SP'])
-        if is_rp or p.get('IP', 0) > 0:
+        # CloserMonkey (RPs only) — try full name, then last-name+team fallback
+        # Depth chart uses short names ("Helsley"), article uses full names ("Ryan Helsley").
+        # Prefer depth-chart (CLOSER/1ST/2ND) over article (SVH#N) when both exist.
+        is_rp  = 'RP' in p.get('pos', [])
+        has_ip = p.get('IP', 0) > 0
+        if is_rp or has_ip:
             cm = closer_data.get(key)
+            if is_rp and (not cm or cm.startswith('SVH')):
+                # Try last-name+team fallback to find depth-chart entry
+                last = key.split()[-1] if key.split() else ''
+                if last:
+                    candidate = closer_data.get(last)
+                    if candidate and not candidate.startswith('SVH'):
+                        cm_team   = candidate.split(':')[1].upper() if ':' in candidate else ''
+                        seed_team = p.get('t', '').upper()
+                        if cm_team and seed_team and cm_team == seed_team:
+                            cm = candidate  # upgrade SVH to depth-chart status
             if cm:
                 entry['closerStatus'] = cm
 
