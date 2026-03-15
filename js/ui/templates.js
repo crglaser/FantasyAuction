@@ -62,10 +62,12 @@ const Templates = {
                                 ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>`
                                 : (injNews ? `<span class="pb" style="background:#102010;border-color:#205020;color:#80c880">NEWS</span>`
                                 : (hasNote ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : ''));
+                            const unofficialClass = p.unofficial ? ' unofficial-est' : '';
+                            const estBadge = p.unofficial ? '<span class="est-badge">est</span>' : '';
                             return `
-                                <tr class="${rowCls}">
+                                <tr class="${rowCls}${unofficialClass}">
                                     <td class="mono muted">${p.csRank}</td>
-                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${injTag}</td>
+                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${estBadge}${injTag}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>

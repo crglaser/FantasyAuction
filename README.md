@@ -17,6 +17,30 @@ A high-performance, dark-themed draft dashboard for the Teddy Ballgame Fantasy B
 *   **IP Floor Monitor**: Persistent HUD tracking the critical 1,000 IP league minimum.
 *   **Custom Z-Score Logic**: Built-in engine for dynamic positional scarcity and graduated snake draft discounts.
 
+## Data Refresh
+
+The tool ships with pre-baked player data. To update it during the season:
+
+```bash
+# Refresh ECR, ESPN auction prices, CloserMonkey depth charts, and manual CSV rankings
+python3 scripts/fetch_rankings.py
+
+# Refresh unofficial Steamer projections for fringe players
+python3 scripts/generate_extras.py
+```
+
+**What each command does:**
+- `fetch_rankings.py` — Pulls FantasyPros ECR consensus rankings, ESPN fantasy auction values, and CloserMonkey closer depth charts. Then automatically re-bakes `data/manual/*.csv` into `js/data/manual_rankings.js`. Run weekly during draft prep.
+- `generate_extras.py` — Reads FanGraphs Steamer projections and generates unofficial value estimates for ~115 fringe pitchers not in the main player pool. These appear muted (with an "est" badge) in the auction board.
+
+**Adding custom data columns:**
+Drop a column into any file in `data/manual/` — e.g., add `PL_Rank` to `sp_rankings.csv` — then run `bake_manual.py`. The new column automatically appears as a toggleable column in the auction board.
+
+**Rebuilding player IDs** (once per season or after adding players to seed.js):
+```bash
+python3 scripts/fetch_rankings.py --ids  # slower: rebuilds ESPN/FanGraphs ID crosswalk via Chadwick Bureau
+```
+
 ## 🛠 Tech Stack
 
 *   **Vanilla JavaScript (ES6)**: No build steps, light and fast.

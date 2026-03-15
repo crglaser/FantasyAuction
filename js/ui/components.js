@@ -88,6 +88,15 @@ const UI = {
             AppState.manualCols = [];
         }
 
+        // Merge STEAMER_EXTRAS (unofficial Steamer estimates)
+        if (typeof STEAMER_EXTRAS !== 'undefined') {
+            // Only add extras not already in seed
+            const seedIds = new Set(AppState.players.map(p => p.id));
+            STEAMER_EXTRAS.forEach(p => {
+                if (!seedIds.has(p.id)) AppState.players.push(p);
+            });
+        }
+
         this.renderControls();
         this.render();
         this.setupEventListeners();
