@@ -9,15 +9,11 @@ const Modals = {
         const p = AppState.players.find(x => x.id === id);
         if (!p) return;
         AppState.pendingPlayerId = id;
-        const realPick = AppState.drafted[id];
-        const simPick  = AppState.simDrafted[id];
-        const existing = realPick || simPick;
-        AppState.pendingIsSim = !realPick && !!simPick;
-        const label = realPick ? `Edit Pick: ${p.n}` : simPick ? `Edit Sim: ${p.n}` : `Draft: ${p.n}`;
+        const existing = AppState.drafted[id];
+        const label = existing ? (existing.sim ? `Edit Sim: ${p.n}` : `Edit Pick: ${p.n}`) : `Draft: ${p.n}`;
         document.getElementById('modalTitle').textContent = label;
         const teamSel = document.getElementById('mTeam');
-        // Default team: existing pick → its team; new pick → snake order if set, else 'me'
-        const snakeDefault = (!existing && currentSnakeTeam()) ? currentSnakeTeam() : null;
+        const snakeDefault = !existing ? currentSnakeTeam() : null;
         teamSel.value = existing ? existing.team : (snakeDefault || 'me');
         this.updateDraftConstraints(teamSel.value);
         const costEl = document.getElementById('mCost');
@@ -102,26 +98,20 @@ const Modals = {
             if (cost > max) { alert(`Maximum bid for ${LG.teamsMap[teamId]?.team || teamId} is $${max}.`); return; }
         }
 
-        if (AppState.pendingIsSim) {
-            // Save back to simDrafted only — never touches draftLog
-            AppState.simDrafted[id] = { cost, team: teamId, sim: true };
-        } else {
-            const isNew = !AppState.drafted[id];
-            AppState.drafted[id] = { cost, team: teamId, ts: Date.now() };
-            if (isNew) {
-                AppState.draftLog.push({ id, ...AppState.drafted[id] });
-                // Auto-advance snake pick counter when a snake-phase pick is confirmed
-                if (cost === 0 && AppState.snakeOrder.length) {
-                    const max = AppState.snakeOrder.length * LG.sSlots;
-                    if (AppState.snakePick < max) AppState.snakePick++;
-                }
-            } else {
-                const entry = AppState.draftLog.find(e => e.id === id);
-                if (entry) Object.assign(entry, AppState.drafted[id]);
+        const isNew = !AppState.drafted[id];
+        // Editing a sim pick manually promotes it to a real pick (drop sim flag)
+        AppState.drafted[id] = { cost, team: teamId, ts: Date.now() };
+        if (isNew) {
+            AppState.draftLog.push({ id, ...AppState.drafted[id] });
+            if (cost === 0 && AppState.snakeOrder.length) {
+                const max = AppState.snakeOrder.length * LG.sSlots;
+                if (AppState.snakePick < max) AppState.snakePick++;
             }
-            StateManager.save();
+        } else {
+            const entry = AppState.draftLog.find(e => e.id === id);
+            if (entry) Object.assign(entry, AppState.drafted[id]);
         }
-        AppState.pendingIsSim = false;
+        StateManager.save();
         this.closeModal();
         UI.render();
     },

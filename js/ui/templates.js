@@ -367,7 +367,7 @@ const Templates = {
 
     standings() {
         const teams = Object.keys(LG.teamsMap);
-        const simActive = Object.keys(AppState.simDrafted || {}).length > 0;
+        const simActive = Object.values(AppState.drafted).some(v => v.sim);
         const drafted = effectiveDrafted();
         const stats = {};
         teams.forEach(tid => {

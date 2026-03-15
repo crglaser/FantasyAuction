@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.4.6';
+const APP_VERSION = '1.4.7';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -43,9 +43,8 @@ const LG = {
 
 let AppState = {
     players: [],      // Full list of player objects with projections and calculated values
-    drafted: {},      // Map of playerID -> { cost, team, timestamp }
-    simDrafted: {},   // Map of playerID -> { cost, team, sim:true } — simulation only, not persisted
-    draftLog: [],     // Ordered array of real picks: { id, cost, team, ts }
+    drafted: {},      // Map of playerID -> { cost, team, ts, sim?:true }
+    draftLog: [],     // Ordered array of all picks: { id, cost, team, ts, sim?:true }
     injuryCache: {},  // Map of playerID -> { title, blurb, ts, isNew, link }
     playerNotes: {},  // Map of playerID -> "Custom scouting/injury notes"
     aiHistory: [],    // Array of { q, a, ts } AI advisor exchanges
@@ -119,7 +118,6 @@ const StateManager = {
         if (confirm('Are you sure you want to reset ALL draft data? This cannot be undone.')) {
             AppState.drafted = {};
             AppState.draftLog = [];
-            AppState.simDrafted = {};
             this.save();
             location.reload();
         }
@@ -190,13 +188,7 @@ function currentSnakeTeam() {
     return order[idx] || null;
 }
 
-/**
- * Returns merged drafted + simDrafted when simulation is active.
- * Use this everywhere you need to display draft state — real picks always take precedence.
- */
+/** Returns all drafted picks. Sim picks (sim:true) live in the same map. */
 function effectiveDrafted() {
-    if (!AppState.simDrafted || Object.keys(AppState.simDrafted).length === 0) {
-        return AppState.drafted;
-    }
-    return { ...AppState.drafted, ...AppState.simDrafted };
+    return AppState.drafted;
 }

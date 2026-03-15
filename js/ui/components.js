@@ -236,9 +236,11 @@ const UI = {
     // --- Draft Simulation ---
     // Shared helpers for simulation
     _simBuildRealRosters(teams) {
+        // Only count non-sim picks as the "real" base when building sim rosters
         const realRosters = {};
         teams.forEach(tid => { realRosters[tid] = []; });
         Object.entries(AppState.drafted).forEach(([id, pick]) => {
+            if (pick.sim) return; // exclude previous sim picks
             const p = AppState.players.find(x => x.id === id);
             if (p && realRosters[pick.team]) realRosters[pick.team].push(p);
         });
@@ -246,23 +248,25 @@ const UI = {
     },
 
     _simAssignCosts(simRosters, realRosters) {
-        // Assign costs with ±30% variance; snake picks get $0
-        const realDrafted = AppState.drafted;
+        // Write sim picks directly into drafted + draftLog with sim:true flag
         Object.entries(simRosters).forEach(([tid, picks]) => {
             if (!picks.length) return;
             const auctionPicks = picks.filter(p => p._simAuction);
             const snakePicks   = picks.filter(p => !p._simAuction);
-            const realSpent    = realRosters[tid].reduce((s, p) => s + (realDrafted[p.id]?.cost || 0), 0);
+            const realSpent    = realRosters[tid].reduce((s, p) => s + (AppState.drafted[p.id]?.cost || 0), 0);
             const budget       = Math.max(LG.budget - realSpent, auctionPicks.length);
             const totalVal     = auctionPicks.reduce((s, p) => s + Math.max(p.csValAAdj || 1, 1), 0);
             auctionPicks.forEach(p => {
-                const base     = Math.max(p.csValAAdj || 1, 1) / totalVal * budget;
-                const variance = 0.70 + Math.random() * 0.60; // 0.70× – 1.30×
-                const cost     = Math.max(1, Math.round(base * variance));
-                AppState.simDrafted[p.id] = { cost, team: tid, sim: true };
+                const base  = Math.max(p.csValAAdj || 1, 1) / totalVal * budget;
+                const cost  = Math.max(1, Math.round(base * (0.70 + Math.random() * 0.60)));
+                const entry = { cost, team: tid, ts: Date.now(), sim: true };
+                AppState.drafted[p.id] = entry;
+                AppState.draftLog.push({ id: p.id, ...entry });
             });
             snakePicks.forEach(p => {
-                AppState.simDrafted[p.id] = { cost: 0, team: tid, sim: true };
+                const entry = { cost: 0, team: tid, ts: Date.now(), sim: true };
+                AppState.drafted[p.id] = entry;
+                AppState.draftLog.push({ id: p.id, ...entry });
             });
         });
     },
@@ -307,8 +311,9 @@ const UI = {
             }
         }
 
-        AppState.simDrafted = {};
+        this.clearSimulation(); // wipe any previous sim picks first
         this._simAssignCosts(simRosters, realRosters);
+        StateManager.save();
         this.render();
     },
 
@@ -372,13 +377,17 @@ const UI = {
             if (!anyPick) break;
         }
 
-        AppState.simDrafted = {};
+        this.clearSimulation(); // wipe any previous sim picks first
         this._simAssignCosts(simRosters, realRosters);
+        StateManager.save();
         this.render();
     },
 
     clearSimulation() {
-        AppState.simDrafted = {};
+        const simIds = new Set(Object.entries(AppState.drafted).filter(([,v]) => v.sim).map(([id]) => id));
+        simIds.forEach(id => delete AppState.drafted[id]);
+        AppState.draftLog = AppState.draftLog.filter(e => !simIds.has(e.id));
+        StateManager.save();
         this.render();
     },
 
