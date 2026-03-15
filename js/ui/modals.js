@@ -11,10 +11,64 @@ const Modals = {
         AppState.pendingPlayerId = id;
         const existing = AppState.drafted[id];
         document.getElementById('modalTitle').textContent = existing ? `Edit Pick: ${p.n}` : `Draft: ${p.n}`;
-        document.getElementById('mCost').value = existing ? existing.cost : (p.csValAAdj || p.aValAdj || 1);
-        document.getElementById('mTeam').value = existing ? existing.team : 'me';
+        const teamSel = document.getElementById('mTeam');
+        teamSel.value = existing ? existing.team : 'me';
+        this.updateDraftConstraints(teamSel.value);
+        // Set cost after constraints so it gets clamped if needed
+        const costEl = document.getElementById('mCost');
+        if (!costEl.disabled) {
+            costEl.value = existing ? existing.cost : Math.min(p.csValAAdj || p.aValAdj || 1, parseInt(costEl.max) || 202);
+        }
         document.getElementById('modalBg').classList.add('open');
-        setTimeout(() => document.getElementById('mCost').select(), 50);
+        setTimeout(() => { if (!costEl.disabled) costEl.select(); }, 50);
+    },
+
+    // Recalculate and display budget constraints for the selected team.
+    // Called on open and whenever the team dropdown changes.
+    updateDraftConstraints(teamId) {
+        const id = AppState.pendingPlayerId;
+        const constraintsEl = document.getElementById('draftConstraints');
+        const costField     = document.getElementById('draftCostField');
+        const costEl        = document.getElementById('mCost');
+        if (!constraintsEl || !costEl) return;
+
+        // Picks for this team, excluding the player currently being drafted/edited
+        const teamPicks = Object.entries(AppState.drafted)
+            .filter(([pid, v]) => v.team === teamId && pid !== id);
+        const slotsUsed = teamPicks.length;
+        const spent     = teamPicks.reduce((s, [, v]) => s + v.cost, 0);
+        const slotsLeft = LG.aSlots - slotsUsed; // slots remaining including this pick
+
+        if (slotsLeft <= 0) {
+            // Snake phase for this team — no budget cost
+            constraintsEl.innerHTML = `<span style="color:#406080">Snake pick — no auction cost</span>`;
+            costField.style.display = 'none';
+            costEl.disabled = true;
+            costEl.value = 0;
+        } else {
+            costField.style.display = '';
+            costEl.disabled = false;
+            const budgetLeft = LG.budget - spent;
+            // Must keep $1 per remaining slot (excluding this one)
+            const maxBid = Math.max(1, budgetLeft - (slotsLeft - 1));
+            costEl.max = maxBid;
+            costEl.min = 1;
+            const clr = maxBid < 10 ? '#d04040' : maxBid < 30 ? '#e8c040' : '#40b870';
+            const slotLabel = slotsLeft === 1 ? 'last auction slot' : `${slotsLeft} auction slots left`;
+            constraintsEl.innerHTML =
+                `<span style="color:#406080">Budget: </span><span class="gold">$${budgetLeft} left</span>` +
+                ` &nbsp;·&nbsp; <span style="color:#406080">${slotLabel}</span>` +
+                ` &nbsp;·&nbsp; <span style="color:#406080">Max bid: </span><span style="color:${clr};font-weight:700">$${maxBid}</span>`;
+            this.validateCostInput();
+        }
+    },
+
+    validateCostInput() {
+        const costEl = document.getElementById('mCost');
+        if (!costEl || costEl.disabled) return;
+        const val = parseInt(costEl.value) || 0;
+        const max = parseInt(costEl.max) || LG.budget;
+        costEl.style.borderColor = val > max || val < 1 ? '#d04040' : '';
     },
 
     closeModal() {
@@ -29,10 +83,20 @@ const Modals = {
     confirmDraft() {
         const id = AppState.pendingPlayerId;
         if (!id) return;
+        const costEl = document.getElementById('mCost');
+        const teamId = document.getElementById('mTeam').value;
+        const cost   = costEl.disabled ? 0 : (parseInt(costEl.value) || 0);
+
+        if (!costEl.disabled) {
+            const max = parseInt(costEl.max) || LG.budget;
+            if (cost < 1)   { alert('Minimum bid is $1.'); return; }
+            if (cost > max) { alert(`Maximum bid for ${LG.teamsMap[teamId]?.team || teamId} is $${max}.`); return; }
+        }
+
         const isNew = !AppState.drafted[id];
         AppState.drafted[id] = {
-            cost: parseInt(document.getElementById('mCost').value) || 0,
-            team: document.getElementById('mTeam').value,
+            cost,
+            team: teamId,
             ts: Date.now()
         };
         if (isNew) {

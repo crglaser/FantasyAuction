@@ -55,11 +55,17 @@
     <div class="modal-bg" id="modalBg">
         <div class="modal">
             <div class="modal-title" id="modalTitle">Draft Player</div>
-            <div class="field"><label>Final Auction Cost ($)</label><input type="number" id="mCost" min="1" max="202" value="1"></div>
-            <div class="field"><label>Drafted By</label>
-                <select id="mTeam">
+            <div class="field">
+                <label>Drafted By</label>
+                <select id="mTeam" onchange="Modals.updateDraftConstraints(this.value)">
                     <!-- Populated by UI.init -->
                 </select>
+            </div>
+            <div id="draftConstraints" style="font-size:11px;padding:6px 0 8px;min-height:18px"></div>
+            <div class="field" id="draftCostField">
+                <label>Final Auction Cost ($)</label>
+                <input type="number" id="mCost" min="1" max="202" value="1"
+                    oninput="Modals.validateCostInput()">
             </div>
             <div class="modal-btns">
                 <button class="btn btn-go" onclick="UI.confirmDraft()">✓ CONFIRM DRAFT</button>
