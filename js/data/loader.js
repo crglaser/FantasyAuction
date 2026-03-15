@@ -126,14 +126,13 @@ const DataLoader = {
      * Loads default CSVs with robust path handling.
      */
     async loadDefaultData() {
-        // If running as a local file (no HTTP server), skip fetch and use seed directly
-        if (window.location.protocol === 'file:') {
-            if (typeof SEED_PLAYERS !== 'undefined' && SEED_PLAYERS.length > 0) {
-                console.log(`[DataLoader] Local file mode — using ${SEED_PLAYERS.length} players from seed.js`);
-                return SEED_PLAYERS;
-            }
+        // Use pre-parsed seed data when available — works everywhere (file://, GitHub Pages, local server)
+        if (typeof SEED_PLAYERS !== 'undefined' && SEED_PLAYERS.length > 0) {
+            console.log(`[DataLoader] Using ${SEED_PLAYERS.length} players from seed.js`);
+            return SEED_PLAYERS;
         }
 
+        // Fallback: try fetching CSVs (requires a local HTTP server)
         try {
             const results = { auction: [], season: [] };
 
