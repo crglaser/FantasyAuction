@@ -1,79 +1,94 @@
 /**
- * ShareManager — v1.2.0
- * Handles state compression and TinyURL generation for remote viewing.
+ * ShareManager — v1.2.1
+ * Compact bit-packed share URLs: seedIndex.cost.teamNum per pick, joined by '_'
+ * Example: "42.10.1_15.45.0" = player at index 42 drafted for $10 by team t1, etc.
+ * Falls back to long URL if is.gd shortener fails (CORS or rate limit).
  */
 
 const ShareManager = {
-    /**
-     * Compresses the essential draft state into a URL-friendly string.
-     */
+    // Team ID ↔ compact integer (0=me, 1=t1 … 10=t10)
+    TEAM_TO_IDX: { me:0, t1:1, t2:2, t3:3, t4:4, t5:5, t6:6, t7:7, t8:8, t9:9, t10:10 },
+    IDX_TO_TEAM: ['me','t1','t2','t3','t4','t5','t6','t7','t8','t9','t10'],
+
     generateStateString() {
-        const data = {
-            d: AppState.drafted,     // { playerID: { cost, team } }
-            s: AppState.settings,    // { hitSplit, weights, etc }
-            v: APP_VERSION,
-            ts: Date.now()
-        };
-        // Use standard btoa for Base64 (simple, no extra libs needed)
-        // We URI encode first to handle any special chars in notes if we add them
-        const json = JSON.stringify(data);
-        return btoa(encodeURIComponent(json));
+        const idToIdx = {};
+        AppState.players.forEach((p, i) => { idToIdx[p.id] = i; });
+
+        const picks = Object.entries(AppState.drafted)
+            .map(([pid, pick]) => {
+                const idx = idToIdx[pid];
+                if (idx == null) return null;
+                const teamNum = this.TEAM_TO_IDX[pick.team] ?? 0;
+                return `${idx}.${pick.cost}.${teamNum}`;
+            })
+            .filter(Boolean);
+
+        return picks.join('_');
     },
 
-    /**
-     * Decompresses a state string from the URL.
-     */
     loadFromStateString(str) {
         try {
+            // Compact format: digits, dots, underscores only
+            if (/^[\d._]+$/.test(str)) {
+                return this._loadCompact(str);
+            }
+            // Legacy base64 format (backwards compat)
             const json = decodeURIComponent(atob(str));
             const data = JSON.parse(json);
-            
-            // Only update drafted and settings
             if (data.d) AppState.drafted = data.d;
-            if (data.s) AppState.settings = data.s;
-            
-            AppState.ui.isReadOnly = true; // Flag for UI
-            console.log("[ShareManager] Successfully loaded shared state from URL.");
+            if (data.s) AppState.settings = { ...AppState.settings, ...data.s };
+            AppState.ui.isReadOnly = true;
             return true;
         } catch (e) {
-            console.error("[ShareManager] Failed to decompress state:", e);
+            console.error('[ShareManager] Failed to load state:', e);
             return false;
         }
     },
 
-    /**
-     * Generates a TinyURL via their free API.
-     */
-    async getTinyUrl() {
-        const fullUrl = `${window.location.origin}${window.location.pathname}?s=${this.generateStateString()}`;
-        
-        // Note: TinyURL API requires an API Key for CORS. 
-        // We'll use the 'is.gd' API which is more open for simple GET requests.
-        const apiUrl = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(fullUrl)}`;
+    _loadCompact(str) {
+        const drafted = {};
+        str.split('_').forEach(pick => {
+            const parts = pick.split('.');
+            if (parts.length !== 3) return;
+            const [idxStr, costStr, teamStr] = parts;
+            const player = AppState.players[parseInt(idxStr)];
+            const team   = this.IDX_TO_TEAM[parseInt(teamStr)] || 'me';
+            if (player) drafted[player.id] = { cost: parseInt(costStr), team, ts: 0 };
+        });
+        AppState.drafted = drafted;
+        AppState.ui.isReadOnly = true;
+        console.log(`[ShareManager] Loaded ${Object.keys(drafted).length} picks from compact share.`);
+        return true;
+    },
 
+    async getTinyUrl(longUrl) {
         try {
-            const res = await fetch(apiUrl);
-            if (!res.ok) throw new Error("Shortener failed");
-            const shortUrl = await res.text();
-            return shortUrl;
+            const res = await fetch(
+                `https://is.gd/create.php?format=simple&url=${encodeURIComponent(longUrl)}`,
+                { mode: 'cors' }
+            );
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const short = (await res.text()).trim();
+            if (short.startsWith('http')) return short;
+            throw new Error('Unexpected response');
         } catch (e) {
-            console.warn("[ShareManager] URL Shortener failed, returning long URL:", e);
-            return fullUrl; // Fallback to long URL
+            console.warn('[ShareManager] Shortener failed, using long URL:', e.message);
+            return null;
         }
     },
 
     async copyShareLink() {
         const btn = document.getElementById('shareBtn');
-        const originalText = btn.textContent;
-        btn.textContent = "GENERATING...";
-        
-        const url = await this.getTinyUrl();
-        
+        const orig = btn.textContent;
+        btn.textContent = 'GENERATING...';
+
+        const stateStr = this.generateStateString();
+        const longUrl  = `${window.location.origin}${window.location.pathname}?s=${stateStr}`;
+        const url      = await this.getTinyUrl(longUrl) || longUrl;
+
         navigator.clipboard.writeText(url).then(() => {
-            btn.textContent = "COPIED!";
-            setTimeout(() => {
-                btn.textContent = originalText;
-            }, 2000);
+            btn.textContent = 'COPIED!';
+            setTimeout(() => { btn.textContent = orig; }, 2000);
         });
     }
 };
