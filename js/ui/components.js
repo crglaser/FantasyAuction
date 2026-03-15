@@ -147,7 +147,7 @@ const UI = {
         }
         if (ui.typeFilter === 'HIT') list = list.filter(p => p.PA > 0);
         if (ui.typeFilter === 'PIT') list = list.filter(p => p.IP > 0);
-        if (ui.hideDrafted) list = list.filter(p => !AppState.drafted[p.id]);
+        if (ui.hideDrafted) list = list.filter(p => !effectiveDrafted()[p.id]);
 
         return list.sort((a, b) => {
             const av = a[ui.sortCol];
@@ -160,7 +160,7 @@ const UI = {
     },
 
     updateHeader() {
-        const myDrafted = Object.entries(AppState.drafted).filter(([,v]) => v.team === 'me');
+        const myDrafted = Object.entries(effectiveDrafted()).filter(([,v]) => v.team === 'me');
         const spent = myDrafted.reduce((s, [,v]) => s + v.cost, 0);
         const myPlayers = myDrafted.map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
         const projIP = myPlayers.reduce((s, p) => s + (p.IP || 0), 0);

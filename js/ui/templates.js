@@ -36,6 +36,7 @@ const Templates = {
                 `).join('')}
             </div>`;
 
+        const drafted = effectiveDrafted();
         return `
             ${toggleBar}
             <div class="tbl-wrap">
@@ -59,9 +60,10 @@ const Templates = {
                     </thead>
                     <tbody>
                         ${players.map(p => {
-                            const dr = AppState.drafted[p.id];
+                            const dr = drafted[p.id];
+                            const isSim = dr?.sim;
                             const isMe = dr?.team === 'me';
-                            const rowCls = (isMe ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
+                            const rowCls = (isMe && !isSim ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const injNews = InjuryManager.getLatestFor(p.id);
                             const hasNote = !!AppState.playerNotes[p.id];
                             const injTag = p.inj
@@ -70,6 +72,11 @@ const Templates = {
                                 : (hasNote ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : ''));
                             const unofficialClass = p.unofficial ? ' unofficial-est' : '';
                             const estBadge = p.unofficial ? '<span class="est-badge">est</span>' : '';
+                            const actionCell = dr
+                                ? (isSim
+                                    ? `<span class="muted" style="font-size:10px;opacity:0.5">SIM · ${LG.teamsMap[dr.team]?.team || dr.team} <span class="gold">$${dr.cost}</span></span>`
+                                    : `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>`)
+                                : `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`;
                             return `
                                 <tr class="${rowCls}${unofficialClass}">
                                     <td class="mono muted">${p.csRank}</td>
@@ -88,10 +95,7 @@ const Templates = {
                                         if (v == null) return `<td class="mono muted" style="font-size:10px">—</td>`;
                                         return `<td class="mono" style="font-size:10px;color:#c8d8e8">${v}</td>`;
                                     }).join('')}
-                                    <td>
-                                        ${dr ? `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ ' : ''}${isMe ? 'MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>`
-                                             : `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}
-                                    </td>
+                                    <td>${actionCell}</td>
                                 </tr>`;
                         }).join('')}
                     </tbody>
@@ -100,6 +104,7 @@ const Templates = {
     },
 
     season(players) {
+        const drafted = effectiveDrafted();
         return `
             <div class="tbl-wrap">
                 <table>
@@ -117,7 +122,7 @@ const Templates = {
                     </thead>
                     <tbody>
                         ${players.map(p => {
-                            const dr = AppState.drafted[p.id];
+                            const dr = drafted[p.id];
                             const injNews = InjuryManager.getLatestFor(p.id);
                             const hasNote = !!AppState.playerNotes[p.id];
                             const injTag = p.inj ? `<span class="pb ${injNews?.isNew ? 'pulse' : ''}" style="background:#401010;border-color:#802020;color:#f0a0a0;cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ${hasNote ? '*' : ''}</span>` : '';
@@ -163,6 +168,7 @@ const Templates = {
                 <span style="color:#7090a8;font-size:10px">MKT RATIO = ESPN auction ÷ our AUC value (>1 = market overvalues, <1 = market undervalues)</span>
             </div>`;
 
+        const drafted = effectiveDrafted();
         return `
             ${toggleBar}
             <div class="tbl-wrap">
@@ -184,11 +190,17 @@ const Templates = {
                     </thead>
                     <tbody>
                         ${players.map(p => {
-                            const dr = AppState.drafted[p.id];
+                            const dr = drafted[p.id];
+                            const isSim = dr?.sim;
                             const rowCls = (dr ? 'drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
                             const mktColor = mktRatio == null ? '#7090a8' : mktRatio > 1.25 ? '#d04040' : mktRatio < 0.8 ? '#40b870' : '#c8d8e8';
                             const injBadge = p.inj ? `<span class="wb" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">INJ</span>` : '';
+                            const draftCell = dr
+                                ? (isSim
+                                    ? `<span class="muted" style="font-size:10px;opacity:0.5">SIM · ${LG.teamsMap[dr.team]?.team||dr.team} <span class="gold">$${dr.cost}</span></span>`
+                                    : `<span class="muted" style="font-size:10px">${dr.team==='me'?'★ MINE':(LG.teamsMap[dr.team]?.team||'GONE')} <span class="gold">$${dr.cost}</span></span>`)
+                                : `<button class="btn btn-go" style="font-size:10px;padding:2px 6px" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`;
                             return `
                                 <tr class="${rowCls}">
                                     <td class="nm">${p.n}${injBadge}</td>
@@ -201,7 +213,7 @@ const Templates = {
                                     ${vis('arb_espn')   ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
                                     ${vis('arb_mkt')    ? `<td class="mono" style="font-size:11px;color:${mktColor}">${mktRatio != null ? mktRatio.toFixed(2)+'×' : '—'}</td>` : ''}
                                     ${vis('arb_scout')  ? `<td>${this.formatScout(p)}</td>` : ''}
-                                    ${vis('arb_draft')  ? `<td>${dr ? `<span class="muted" style="font-size:10px">${dr.team==='me'?'★ MINE':(LG.teamsMap[dr.team]?.team||'GONE')} <span class="gold">$${dr.cost}</span></span>` : `<button class="btn btn-go" style="font-size:10px;padding:2px 6px" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`}</td>` : ''}
+                                    ${vis('arb_draft')  ? `<td>${draftCell}</td>` : ''}
                                 </tr>`;
                         }).join('')}
                     </tbody>
@@ -210,8 +222,9 @@ const Templates = {
     },
 
     myteam() {
-        const myDrafted = Object.entries(AppState.drafted).filter(([,v]) => v.team === 'me').map(([id, pick]) => ({...AppState.players.find(p => p.id === id), ...pick}));
-        const spent = myDrafted.reduce((s, p) => s + p.cost, 0);
+        const drafted = effectiveDrafted();
+        const myDrafted = Object.entries(drafted).filter(([,v]) => v.team === 'me').map(([id, pick]) => ({...AppState.players.find(p => p.id === id), ...pick}));
+        const spent = myDrafted.filter(p => !p.sim).reduce((s, p) => s + p.cost, 0);
         const hitters = myDrafted.filter(p => p.PA > 0);
         const pitchers = myDrafted.filter(p => p.IP > 0);
         const projIP = pitchers.reduce((s, p) => s + (p.IP || 0), 0);
@@ -232,8 +245,8 @@ const Templates = {
                 <div class="left-col">
                     <div class="sec">MY ROSTER (${myDrafted.length}/${LG.total})</div>
                     ${myDrafted.sort((a,b) => b.cost - a.cost).map(p => `
-                        <div class="rslot">
-                            <div><div style="font-weight:700;color:#c8daf0">${p.n}</div><div>${this.pb(p.pos)}</div></div>
+                        <div class="rslot" style="${p.sim ? 'opacity:0.55' : ''}">
+                            <div><div style="font-weight:700;color:#c8daf0">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080;font-weight:400">SIM</span>' : ''}</div><div>${this.pb(p.pos)}</div></div>
                             <div style="text-align:right"><div class="gold">$${p.cost}</div><div class="muted" style="font-size:10px">val:$${p.csValAAdj || p.csValA || p.aValAdj}</div></div>
                         </div>
                     `).join('')}
@@ -260,6 +273,38 @@ const Templates = {
                     </div>
                 </div>
             </div>
+            ${(() => {
+                const log = AppState.draftLog || [];
+                if (!log.length) return '';
+                return `
+                <div style="margin-top:16px">
+                    <div class="sec">DRAFT LOG (${log.length} picks — chronological)</div>
+                    <div class="tbl-wrap"><table>
+                        <thead><tr>
+                            <th style="width:30px">#</th><th>Player</th><th>Pos</th>
+                            <th>Team</th><th>Cost</th><th style="width:80px"></th>
+                        </tr></thead>
+                        <tbody>
+                            ${log.map((entry, i) => {
+                                const p = AppState.players.find(x => x.id === entry.id);
+                                const teamInfo = LG.teamsMap[entry.team];
+                                const isMe = entry.team === 'me';
+                                return `<tr class="${isMe ? 'mine' : ''}">
+                                    <td class="mono muted">${i + 1}</td>
+                                    <td class="nm">${p?.n || entry.id}</td>
+                                    <td>${p ? this.pb(p.pos) : ''}</td>
+                                    <td class="${isMe ? 'gold' : 'muted'}" style="font-size:11px">${teamInfo?.team || entry.team}</td>
+                                    <td class="gold">$${entry.cost}</td>
+                                    <td style="display:flex;gap:4px;padding:3px 6px">
+                                        <button class="btn" style="font-size:10px;padding:2px 6px" onclick="UI.openDraftModal('${entry.id}')">EDIT</button>
+                                        <button class="btn btn-danger" style="font-size:10px;padding:2px 6px" onclick="Modals.undraftPlayer('${entry.id}')">✕</button>
+                                    </td>
+                                </tr>`;
+                            }).join('')}
+                        </tbody>
+                    </table></div>
+                </div>`;
+            })()}
         `;
     },
 
@@ -280,9 +325,9 @@ const Templates = {
                         </tr>
                     </thead>
                     <tbody>
-                        ${teams.map(tid => {
+                        ${(() => { const drafted = effectiveDrafted(); return teams.map(tid => {
                             const info = LG.teamsMap[tid];
-                            const picks = Object.entries(AppState.drafted).filter(([,v]) => v.team === tid).map(([id,v]) => ({...AppState.players.find(p=>p.id===id), ...v})).filter(p => p.n);
+                            const picks = Object.entries(drafted).filter(([,v]) => v.team === tid).map(([id,v]) => ({...AppState.players.find(p=>p.id===id), ...v})).filter(p => p.n);
                             const spent = picks.reduce((sum, p) => sum + p.cost, 0);
                             const rem = LG.budget - spent;
                             const topPicks = picks.sort((a,b) => b.cost - a.cost).slice(0,3).map(p => `${p.n.split(' ').pop()} ($${p.cost})`).join(', ');
@@ -297,7 +342,7 @@ const Templates = {
                                     <td style="font-size:11px" class="muted">${topPicks || '—'}</td>
                                 </tr>
                             `;
-                        }).join('')}
+                        }).join(''); })()}
                     </tbody>
                 </table>
             </div>
@@ -307,12 +352,10 @@ const Templates = {
     standings() {
         const teams = Object.keys(LG.teamsMap);
         const simActive = Object.keys(AppState.simDrafted || {}).length > 0;
-        const effectiveDrafted = simActive
-            ? { ...AppState.drafted, ...AppState.simDrafted }
-            : AppState.drafted;
+        const drafted = effectiveDrafted();
         const stats = {};
         teams.forEach(tid => {
-            const picks = Object.entries(effectiveDrafted).filter(([,v]) => v.team === tid).map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
+            const picks = Object.entries(drafted).filter(([,v]) => v.team === tid).map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
             const H = picks.filter(p => p.PA > 0);
             const P = picks.filter(p => p.IP > 0);
             let PAw=0, OBPw=0, IPw=0, ERAw=0, WHIPw=0;

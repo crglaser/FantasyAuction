@@ -9,9 +9,10 @@ const Modals = {
         const p = AppState.players.find(x => x.id === id);
         if (!p) return;
         AppState.pendingPlayerId = id;
-        document.getElementById('modalTitle').textContent = `Draft: ${p.n}`;
-        document.getElementById('mCost').value = p.csValAAdj || p.aValAdj || 1;
-        document.getElementById('mTeam').value = 'me';
+        const existing = AppState.drafted[id];
+        document.getElementById('modalTitle').textContent = existing ? `Edit Pick: ${p.n}` : `Draft: ${p.n}`;
+        document.getElementById('mCost').value = existing ? existing.cost : (p.csValAAdj || p.aValAdj || 1);
+        document.getElementById('mTeam').value = existing ? existing.team : 'me';
         document.getElementById('modalBg').classList.add('open');
         setTimeout(() => document.getElementById('mCost').select(), 50);
     },
@@ -28,15 +29,29 @@ const Modals = {
     confirmDraft() {
         const id = AppState.pendingPlayerId;
         if (!id) return;
-        
+        const isNew = !AppState.drafted[id];
         AppState.drafted[id] = {
             cost: parseInt(document.getElementById('mCost').value) || 0,
             team: document.getElementById('mTeam').value,
             ts: Date.now()
         };
-        
+        if (isNew) {
+            AppState.draftLog.push({ id, ...AppState.drafted[id] });
+        } else {
+            const entry = AppState.draftLog.find(e => e.id === id);
+            if (entry) Object.assign(entry, AppState.drafted[id]);
+        }
         StateManager.save();
         this.closeModal();
+        UI.render();
+    },
+
+    undraftPlayer(id) {
+        const p = AppState.players.find(x => x.id === id);
+        if (!confirm(`Remove ${p?.n || id} from draft?`)) return;
+        delete AppState.drafted[id];
+        AppState.draftLog = AppState.draftLog.filter(e => e.id !== id);
+        StateManager.save();
         UI.render();
     },
 
