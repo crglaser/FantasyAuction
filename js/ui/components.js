@@ -30,6 +30,13 @@ const UI = {
             });
         }
 
+        // Pre-populate injury cache from baked-in data (don't overwrite user-added entries)
+        if (typeof INJURY_CACHE !== 'undefined') {
+            Object.entries(INJURY_CACHE).forEach(([id, news]) => {
+                if (!AppState.injuryCache[id]) AppState.injuryCache[id] = news;
+            });
+        }
+
         this.populateTeams();
 
         // Initial data load
@@ -440,12 +447,12 @@ const UI = {
                                 "Is $28 fair for Bregman right now?" &nbsp;·&nbsp; "Team X just loaded up on SPs — how does that affect me?"
                             </span>
                         </div>
-                    ` : history.map(h => `
+                    ` : history.map((h, i) => `
                         <div>
                             <div style="color:#406080;font-size:10px;margin-bottom:3px">YOU</div>
                             <div style="color:#c8d8e8;padding:8px;background:#0a1a2a;border-radius:4px;margin-bottom:6px">${h.q}</div>
-                            <div style="color:#406080;font-size:10px;margin-bottom:3px">CLAUDE</div>
-                            <div style="color:#c8d8e8;padding:10px;background:#060e18;border:1px solid #1a3050;border-radius:4px;white-space:pre-wrap;font-size:12px;line-height:1.6">${h.a}</div>
+                            <div style="color:#406080;font-size:10px;margin-bottom:3px">CLAUDE ${h.streaming ? '<span style="animation:pulse 1s infinite">⟳</span>' : ''}</div>
+                            <div ${i===0&&h.streaming?'id="aiStreamTarget"':''} style="color:#c8d8e8;padding:10px;background:#060e18;border:1px solid #1a3050;border-radius:4px;white-space:pre-wrap;font-size:12px;line-height:1.6">${h.a || '…'}</div>
                         </div>
                     `).join('')}
                 </div>
@@ -473,17 +480,41 @@ const UI = {
         if (!question) return;
 
         const btn = document.getElementById('aiBtnSend');
-        if (btn) { btn.textContent = '...'; btn.disabled = true; }
+        if (btn) { btn.textContent = '⟳ Thinking…'; btn.disabled = true; }
+        if (input) input.value = '';
 
+        // Build all-teams context
         const ctx = StateManager.generateAIContext();
-        const system = `You are a sharp fantasy baseball draft advisor for the Teddy Ballgame League (10-team Roto, Fantrax).
-Format: ${ctx.rules}
+        const teamsContext = Object.entries(LG.teamsMap).map(([tid, info]) => {
+            const picks = Object.entries(AppState.drafted)
+                .filter(([,v]) => v.team === tid)
+                .map(([id, pick]) => {
+                    const p = AppState.players.find(x => x.id === id);
+                    return p ? `${p.n} $${pick.cost}` : null;
+                }).filter(Boolean);
+            const spent = Object.entries(AppState.drafted)
+                .filter(([,v]) => v.team === tid)
+                .reduce((s,[,v]) => s + v.cost, 0);
+            return `${info.team}: $${LG.budget - spent} left, ${picks.length} players [${picks.join(', ') || 'none'}]`;
+        }).join('\n');
+
+        const system = `You are a sharp fantasy baseball advisor for the Teddy Ballgame League (10-team Roto, Fantrax).
 Roto categories: HR, SB, XBH (2B+3B), OBP, RP (R+RBI) | K, W, ERA, SVH (SV+HLD), WHIP.
-Critical rule: 1,000 IP minimum — missing it loses both ERA and WHIP for the season.
-Draft: Auction (17 players/$202 budget) + 14-round snake (31 total per team). $400 FAAB in-season.
-My team (${ctx.rosterSize}): ${ctx.currentRoster.join(' | ')}
-Budget remaining: $${ctx.budgetRemaining}
-Be concise and direct. Lead with the recommendation, then brief reasoning.`;
+CRITICAL: 1,000 IP minimum per season — missing it forfeits ERA + WHIP for the entire season.
+Draft format: Auction (17 players, $202 budget) + 14-round snake. $400 FAAB blind bid in-season.
+
+MY TEAM (${ctx.rosterSize}, $${ctx.budgetRemaining} remaining):
+${ctx.currentRoster.length ? ctx.currentRoster.join(' | ') : 'No picks yet'}
+
+ALL TEAMS:
+${teamsContext}
+
+Be concise. Lead with the recommendation, then brief reasoning.`;
+
+        // Push placeholder entry so user sees it immediately
+        const entry = { q: question, a: '', ts: Date.now(), streaming: true };
+        AppState.aiHistory.unshift(entry);
+        this.render();
 
         try {
             const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -497,17 +528,44 @@ Be concise and direct. Lead with the recommendation, then brief reasoning.`;
                 body: JSON.stringify({
                     model: 'claude-haiku-4-5-20251001',
                     max_tokens: 1024,
+                    stream: true,
                     system,
                     messages: [{ role: 'user', content: question }]
                 })
             });
             if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || `HTTP ${res.status}`); }
-            const data = await res.json();
-            AppState.aiHistory.unshift({ q: question, a: data.content[0]?.text || '(no response)', ts: Date.now() });
+
+            // Stream the response
+            const reader = res.body.getReader();
+            const decoder = new TextDecoder();
+            let answer = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value);
+                for (const line of chunk.split('\n')) {
+                    if (!line.startsWith('data: ')) continue;
+                    const data = line.slice(6);
+                    if (data === '[DONE]') continue;
+                    try {
+                        const evt = JSON.parse(data);
+                        if (evt.type === 'content_block_delta' && evt.delta?.text) {
+                            answer += evt.delta.text;
+                            entry.a = answer;
+                            // Update in-place without full re-render
+                            const el = document.getElementById('aiStreamTarget');
+                            if (el) el.textContent = answer;
+                        }
+                    } catch {}
+                }
+            }
+            entry.streaming = false;
             if (AppState.aiHistory.length > 20) AppState.aiHistory.pop();
             StateManager.save();
         } catch (e) {
-            AppState.aiHistory.unshift({ q: question, a: `Error: ${e.message}`, ts: Date.now() });
+            entry.a = `Error: ${e.message}`;
+            entry.streaming = false;
         }
         this.render();
         setTimeout(() => document.getElementById('aiInput')?.focus(), 50);
