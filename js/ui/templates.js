@@ -12,16 +12,21 @@ const Templates = {
         const mCols = AppState.manualCols || [];
 
         // Column toggle bar
+        // SCOUT_COL: the label shown in the toggle bar for the unified scout badge column
+        const SCOUT_COL = 'scout';
+        // Columns sourced from manual CSVs that are folded into SCOUT — hide from auto-discovered list
+        const SCOUT_FIELDS = new Set(['CM_Role', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos']);
         const staticToggles = [
             { key: 'csValS',      label: 'SEASON $' },
             { key: 'csArb',       label: 'ARB'      },
             { key: 'ecr',         label: 'ECR'      },
             { key: 'espnAuction', label: 'ESPN $'   },
             { key: 'projections', label: 'PROJ'     },
+            { key: SCOUT_COL,     label: 'SCOUT'    },
         ];
         const allToggles = [
             ...staticToggles,
-            ...mCols.map(k => ({ key: k, label: k.replace(/_/g, ' ') }))
+            ...mCols.filter(k => !SCOUT_FIELDS.has(k)).map(k => ({ key: k, label: k.replace(/_/g, ' ') }))
         ];
         const toggleBar = `
             <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
@@ -47,7 +52,8 @@ const Templates = {
                             ${vis('ecr')         ? this.th('ecr', 'ECR')        : ''}
                             ${vis('espnAuction') ? this.th('espnAuction', 'ESPN $') : ''}
                             ${vis('projections') ? '<th>PROJECTIONS</th>'       : ''}
-                            ${mCols.filter(k => vis(k)).map(k => this.th(k, k.replace(/_/g, ' '))).join('')}
+                            ${vis(SCOUT_COL)     ? '<th>SCOUT</th>'             : ''}
+                            ${mCols.filter(k => !SCOUT_FIELDS.has(k) && vis(k)).map(k => this.th(k, k.replace(/_/g, ' '))).join('')}
                             <th>ACTION</th>
                         </tr>
                     </thead>
@@ -76,13 +82,10 @@ const Templates = {
                                     ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
                                     ${vis('espnAuction')  ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
                                     ${vis('projections')  ? `<td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>` : ''}
-                                    ${mCols.filter(k => vis(k)).map(k => {
+                                    ${vis(SCOUT_COL)      ? `<td>${this.formatScout(p)}</td>` : ''}
+                                    ${mCols.filter(k => !SCOUT_FIELDS.has(k) && vis(k)).map(k => {
                                         const v = p[k];
                                         if (v == null) return `<td class="mono muted" style="font-size:10px">—</td>`;
-                                        // CM_Role values look like "CLOSER:SD" — render as closer badge
-                                        if (k === 'CM_Role' && typeof v === 'string' && v.includes(':')) {
-                                            return `<td>${this.formatCloser({closerStatus: v})}</td>`;
-                                        }
                                         return `<td class="mono" style="font-size:10px;color:#c8d8e8">${v}</td>`;
                                     }).join('')}
                                     <td>
@@ -437,6 +440,30 @@ const Templates = {
             return `HR:${p.HR} SB:${p.SB} XBH:${p.XBH || 0} OBP:${p.OBP.toFixed(3)} RP:${p.RP}`;
         }
         return `K:${p.K} W:${p.W} ERA:${p.ERA.toFixed(2)} WHIP:${p.WHIP.toFixed(2)} SVH:${p.SVH}`;
+    },
+
+    // Unified SCOUT badge — renders CM badge for RPs, PL badge for SPs, HL badge for hitters.
+    // To rename the column: change SCOUT_COL constant in auction() above.
+    formatScout(p) {
+        // RP: CloserMonkey role
+        if (p.CM_Role) return this.formatCloser({ closerStatus: p.CM_Role });
+        // SP: PitcherList rank + tier
+        if (p.PL_Rank) return this.formatRankBadge('PL', p.PL_Rank, p.PL_Tier);
+        // Hitter: HitterList rank + tier
+        if (p.HL_Rank) return this.formatRankBadge('HL', p.HL_Rank, p.HL_Tier);
+        return '<span class="muted" style="font-size:10px">—</span>';
+    },
+
+    // Colored rank badge for PitcherList / HitterList.
+    // Tier color scale: T1=gold, T2=green, T3-4=teal, T5-7=steel, T8+=gray
+    formatRankBadge(source, rank, tier) {
+        const tierColors = {
+            1: '#d4a017', 2: '#40b870', 3: '#3a90b0', 4: '#3a90b0',
+            5: '#5070a0', 6: '#5070a0', 7: '#5070a0',
+        };
+        const color = tierColors[tier] || '#506070';
+        const t = tier ? `T${tier}·` : '';
+        return `<span class="pb" style="background:#0a1a0a;border-color:${color};color:${color};white-space:nowrap;font-size:10px">${source} ${t}#${rank}</span>`;
     },
 
     formatCloser(p) {
