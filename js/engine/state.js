@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.3.4';
+const APP_VERSION = '1.3.5';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -44,6 +44,7 @@ const LG = {
 let AppState = {
     players: [],      // Full list of player objects with projections and calculated values
     drafted: {},      // Map of playerID -> { cost, team, timestamp }
+    simDrafted: {},   // Map of playerID -> { cost, team, sim:true } — simulation only, not persisted
     injuryCache: {},  // Map of playerID -> { title, blurb, ts, isNew, link }
     playerNotes: {},  // Map of playerID -> "Custom scouting/injury notes"
     aiHistory: [],    // Array of { q, a, ts } AI advisor exchanges

@@ -214,6 +214,85 @@ const UI = {
         this.render();
     },
 
+    // --- Draft Simulation ---
+    simulateDraft() {
+        const realDrafted = AppState.drafted;
+        const teams = Object.keys(LG.teamsMap);
+
+        // Build real rosters per team
+        const realRosters = {};
+        teams.forEach(tid => { realRosters[tid] = []; });
+        Object.entries(realDrafted).forEach(([id, pick]) => {
+            const p = AppState.players.find(x => x.id === id);
+            if (p && realRosters[pick.team]) realRosters[pick.team].push(p);
+        });
+
+        // Available pool (exclude real picks)
+        const taken = new Set(Object.keys(realDrafted));
+        const pool = AppState.players
+            .filter(p => !taken.has(p.id) && ((p.csValAAdj || 0) > 0 || (p.csValA || 0) > 0))
+            .sort((a, b) => (b.csValAAdj || b.csValA || 0) - (a.csValAAdj || a.csValA || 0));
+
+        // Position minimums per team
+        const quota = { C: 1, '1B': 2, '2B': 2, '3B': 2, SS: 2, OF: 5, SP: 5, RP: 3 };
+        const posOrder = ['SP', 'RP', 'C', '1B', 'SS', '2B', '3B', 'OF'];
+
+        const simRosters = {};
+        teams.forEach(tid => { simRosters[tid] = []; });
+        const simPicked = new Set();
+
+        const getCounts = tid => {
+            const all = [...realRosters[tid], ...simRosters[tid]];
+            const c = {};
+            all.forEach(p => p.pos.forEach(pos => { c[pos] = (c[pos] || 0) + 1; }));
+            return c;
+        };
+        const getSize = tid => realRosters[tid].length + simRosters[tid].length;
+        const needPos = tid => {
+            const c = getCounts(tid);
+            for (const pos of posOrder) {
+                if ((c[pos] || 0) < (quota[pos] || 0)) return pos;
+            }
+            return null;
+        };
+        const bestFor = posFilter => pool.find(p => !simPicked.has(p.id) && (!posFilter || p.pos.includes(posFilter)));
+
+        // Snake draft rounds
+        for (let round = 0; round < LG.total + 5; round++) {
+            const order = round % 2 === 0 ? [...teams] : [...teams].reverse();
+            let anyPick = false;
+            for (const tid of order) {
+                if (getSize(tid) >= LG.total) continue;
+                const pick = bestFor(needPos(tid)) || bestFor(null);
+                if (!pick) continue;
+                anyPick = true;
+                simPicked.add(pick.id);
+                simRosters[tid].push(pick);
+            }
+            if (!anyPick) break;
+        }
+
+        // Assign costs proportionally from remaining budget
+        AppState.simDrafted = {};
+        teams.forEach(tid => {
+            const picks = simRosters[tid];
+            if (!picks.length) return;
+            const realSpent = realRosters[tid].reduce((s, p) => s + (realDrafted[p.id]?.cost || 0), 0);
+            const budget = Math.max(LG.budget - realSpent, picks.length);
+            const total = picks.reduce((s, p) => s + Math.max(p.csValAAdj || 1, 1), 0);
+            picks.forEach(p => {
+                const cost = Math.max(1, Math.round(Math.max(p.csValAAdj || 1, 1) / total * budget));
+                AppState.simDrafted[p.id] = { cost, team: tid, sim: true };
+            });
+        });
+        this.render();
+    },
+
+    clearSimulation() {
+        AppState.simDrafted = {};
+        this.render();
+    },
+
     // --- Modal Proxies ---
     openDraftModal(id) { Modals.openDraftModal(id); },
     confirmDraft() { Modals.confirmDraft(); },

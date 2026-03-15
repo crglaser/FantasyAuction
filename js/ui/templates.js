@@ -306,9 +306,13 @@ const Templates = {
 
     standings() {
         const teams = Object.keys(LG.teamsMap);
+        const simActive = Object.keys(AppState.simDrafted || {}).length > 0;
+        const effectiveDrafted = simActive
+            ? { ...AppState.drafted, ...AppState.simDrafted }
+            : AppState.drafted;
         const stats = {};
         teams.forEach(tid => {
-            const picks = Object.entries(AppState.drafted).filter(([,v]) => v.team === tid).map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
+            const picks = Object.entries(effectiveDrafted).filter(([,v]) => v.team === tid).map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
             const H = picks.filter(p => p.PA > 0);
             const P = picks.filter(p => p.IP > 0);
             let PAw=0, OBPw=0, IPw=0, ERAw=0, WHIPw=0;
@@ -355,7 +359,13 @@ const Templates = {
         };
 
         return `
-            <div style="padding:8px 0 12px;color:#7090a8;font-size:11px">Projected Roto standings based on drafted players. Updates live.</div>
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 0 12px">
+                <span style="color:#7090a8;font-size:11px;flex:1">Projected Roto standings based on drafted players.${simActive ? ' <span style="color:#e8c040">★ SIMULATION ACTIVE</span>' : ' Updates live.'}</span>
+                ${simActive
+                    ? `<button class="btn btn-danger" onclick="UI.clearSimulation()">CLEAR SIM</button>`
+                    : `<button class="btn btn-go" onclick="UI.simulateDraft()">SIMULATE DRAFT</button>`
+                }
+            </div>
             <div class="tbl-wrap"><table>
                 <thead><tr><th>#</th><th>Team</th><th class="gold">PTS</th><th>HR</th><th>SB</th><th>XBH</th><th>OBP</th><th>RP</th><th>K</th><th>W</th><th>SVH</th><th>ERA</th><th>WHIP</th><th>IP</th><th>Picks</th></tr></thead>
                 <tbody>

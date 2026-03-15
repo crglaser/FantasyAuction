@@ -76,9 +76,26 @@ const Modals = {
             : `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
 
         document.getElementById('noteArea').value = note;
-        // Reset AI summary block for each new player
-        document.getElementById('injSummaryBlock').style.display = 'none';
-        document.getElementById('injSummarizeBtn').textContent = '⚡ AI SUMMARY';
+
+        // Pre-computed summary (from update_injuries.py --summarize) or reset for on-demand
+        const summaryBlock = document.getElementById('injSummaryBlock');
+        const summaryEl    = document.getElementById('injSummary');
+        const summarizeBtn = document.getElementById('injSummarizeBtn');
+        if (news?.summary) {
+            summaryBlock.style.display = 'block';
+            summarizeBtn.textContent = '⚡ AI SUMMARY';
+            // Format the 3 lines with colored labels (same as live summarize)
+            summaryEl.innerHTML = news.summary.split('\n').filter(l => l.trim()).map(line => {
+                const m = line.match(/^(INJURY|PROGNOSIS|RETURN):\s*(.*)/i);
+                if (!m) return `<span style="color:#c8d8e8">${line}</span>`;
+                const labelColor = { INJURY: '#e8c040', PROGNOSIS: '#7090a8', RETURN: '#40b870' }[m[1].toUpperCase()] || '#c8d8e8';
+                return `<span style="color:${labelColor};font-weight:700">${m[1]}:</span> <span style="color:#c8d8e8">${m[2]}</span>`;
+            }).join('<br>');
+        } else {
+            summaryBlock.style.display = 'none';
+            summarizeBtn.textContent = '⚡ AI SUMMARY';
+        }
+
         document.getElementById('injuryModal').classList.add('open');
         InjuryManager.markRead(id);
     },

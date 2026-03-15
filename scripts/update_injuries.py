@@ -12,7 +12,7 @@ Then:   git add js/data/injuries_cache.js && git commit -m "Refresh injuries $(d
         git push origin main
 """
 
-import json, urllib.request, urllib.parse, unicodedata, re, time, sys, argparse
+import json, urllib.request, urllib.parse, unicodedata, re, time, sys, argparse, os
 from datetime import datetime, timezone, timedelta
 
 SEED_FILE   = 'js/data/seed.js'
@@ -128,11 +128,54 @@ def make_cache_entry(item):
         'source':  'ESPN',
     }
 
+
+def ai_summarize(blurb, api_key):
+    """Call Claude Haiku to extract INJURY / PROGNOSIS / RETURN from a blurb."""
+    if not blurb or not api_key:
+        return None
+    payload = json.dumps({
+        'model': 'claude-haiku-4-5-20251001',
+        'max_tokens': 120,
+        'system': 'You are a terse fantasy baseball injury analyst. Respond with exactly 3 labeled lines and nothing else.',
+        'messages': [{
+            'role': 'user',
+            'content': (
+                'Summarize this injury report in exactly 3 lines:\n'
+                'INJURY: [type of injury]\n'
+                'PROGNOSIS: [good/moderate/serious/season-ending]\n'
+                'RETURN: [expected timeline, e.g. "2-3 weeks" or "day-to-day" or "out for season"]\n\n'
+                f'Report: {blurb[:600]}'
+            )
+        }]
+    }).encode()
+    req = urllib.request.Request(
+        'https://api.anthropic.com/v1/messages',
+        data=payload,
+        headers={
+            'Content-Type': 'application/json',
+            'x-api-key': api_key,
+            'anthropic-version': '2023-06-01',
+        },
+        method='POST'
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read())
+        return data.get('content', [{}])[0].get('text', '').strip() or None
+    except Exception as e:
+        print(f'    AI summary error: {e}')
+        return None
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--days', type=int, default=7)
     parser.add_argument('--all', action='store_true')
+    parser.add_argument('--summarize', action='store_true', help='Pre-compute AI injury summaries via Claude API')
     args = parser.parse_args()
+
+    api_key = os.environ.get('ANTHROPIC_API_KEY') if args.summarize else None
+    if args.summarize and not api_key:
+        print('WARNING: --summarize requires ANTHROPIC_API_KEY env var. Skipping AI summaries.')
 
     cutoff_ms = 0 if args.all else (
         (datetime.now(timezone.utc) - timedelta(days=args.days)).timestamp() * 1000
@@ -146,6 +189,7 @@ def main():
     updated       = []
     skipped       = 0
     no_espn       = []
+    summarized    = 0
 
     already_injured = {p['id'] for p in players if p.get('inj')}
     print(f'\nPool: {len(players)} players  |  Pre-flagged injured: {len(already_injured)}\n')
@@ -178,11 +222,27 @@ def main():
         blurb    = re.sub(r'<[^>]+>', '', latest.get('story', '') or '').strip()
 
         if is_inj:
-            cache[p['id']] = make_cache_entry(latest)
+            entry = make_cache_entry(latest)
+            if api_key and entry.get('blurb'):
+                summary = ai_summarize(entry['blurb'], api_key)
+                if summary:
+                    entry['summary'] = summary
+                    summarized += 1
+                    print(f'    ✓ AI summary: {summary[:60]}…')
+                time.sleep(0.5)  # brief pause between API calls
+            cache[p['id']] = entry
             updated.append(p['n'])
             print(f'  [UPD] {p["n"]}: {headline[:65]}')
         elif has_injury_content(headline, blurb):
-            cache[p['id']] = make_cache_entry(latest)
+            entry = make_cache_entry(latest)
+            if api_key and entry.get('blurb'):
+                summary = ai_summarize(entry['blurb'], api_key)
+                if summary:
+                    entry['summary'] = summary
+                    summarized += 1
+                    print(f'    ✓ AI summary: {summary[:60]}…')
+                time.sleep(0.5)
+            cache[p['id']] = entry
             newly_injured.append(p['n'])
             print(f'  [NEW ⚠] {p["n"]}: {headline[:65]}')
 
@@ -208,8 +268,12 @@ const INJURY_CACHE = {json.dumps(cache, indent=2)};
     print(f'Skipped (quiet): {skipped}')
     print(f'No ESPN match:   {len(no_espn)} ({", ".join(no_espn[:4])}{"…" if len(no_espn)>4 else ""})')
     print(f'\nWritten: {OUTPUT_FILE} ({len(cache)} players cached)')
+    if args.summarize:
+        print(f'AI summaries:   {summarized}')
     print(f'\nTo deploy:')
     print(f'  git add {OUTPUT_FILE} && git commit -m "Refresh injuries {now_str[:10]}" && git push')
+    print(f'\nTo run with AI summaries:')
+    print(f'  ANTHROPIC_API_KEY=sk-ant-... python3 scripts/update_injuries.py --summarize')
 
 if __name__ == '__main__':
     main()
