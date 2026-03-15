@@ -299,7 +299,19 @@ const Templates = {
         teams.forEach(tid => { ranks[tid] = { total: 0 }; });
         cats.forEach(cat => {
             const sorted = [...teams].sort((a,b) => inv.has(cat) ? stats[a][cat]-stats[b][cat] : stats[b][cat]-stats[a][cat]);
-            sorted.forEach((tid,i) => { ranks[tid][cat] = 10-i; ranks[tid].total += 10-i; });
+            // Tie handling: teams with equal values split the points for those positions
+            let i = 0;
+            while (i < sorted.length) {
+                let j = i;
+                const val = stats[sorted[i]][cat];
+                while (j < sorted.length && stats[sorted[j]][cat] === val) j++;
+                // Average rank points across the tied group (e.g. 3-way tie for 2nd: (8+7+6)/3 = 7)
+                let pts = 0;
+                for (let k = i; k < j; k++) pts += (teams.length - k);
+                const avg = pts / (j - i);
+                for (let k = i; k < j; k++) { ranks[sorted[k]][cat] = avg; ranks[sorted[k]].total += avg; }
+                i = j;
+            }
         });
         const sorted = [...teams].sort((a,b) => ranks[b].total - ranks[a].total);
 
@@ -307,7 +319,8 @@ const Templates = {
             const s = stats[tid]; const r = ranks[tid][cat];
             const val = cat==='OBP' ? s[cat].toFixed(3) : cat==='ERA'||cat==='WHIP' ? s[cat].toFixed(2) : Math.round(s[cat]);
             const clr = r>=8 ? '#40b870' : r<=3 ? '#d04040' : '#c8d8e8';
-            return `<td style="text-align:center;font-size:11px"><span style="color:${clr}">${s.n?val:'—'}</span><br><span class="muted" style="font-size:10px">(${r})</span></td>`;
+            const rDisp = Number.isInteger(r) ? r : r.toFixed(1);
+            return `<td style="text-align:center;font-size:11px"><span style="color:${clr}">${s.n?val:'—'}</span><br><span class="muted" style="font-size:10px">(${rDisp})</span></td>`;
         };
 
         return `
@@ -318,7 +331,7 @@ const Templates = {
                     ${sorted.map((tid,i) => {
                         const info = LG.teamsMap[tid]; const s = stats[tid]; const r = ranks[tid];
                         return `<tr class="${tid==='me'?'mine':''}">
-                            <td class="mono muted">${i+1}</td><td style="font-weight:700">${info.team}</td><td class="gold" style="font-weight:700;text-align:center">${r.total}</td>
+                            <td class="mono muted">${i+1}</td><td style="font-weight:700">${info.team}</td><td class="gold" style="font-weight:700;text-align:center">${Number.isInteger(r.total) ? r.total : r.total.toFixed(1)}</td>
                             ${cats.map(c => cell(tid,c)).join('')}
                             <td style="text-align:center;font-size:11px;color:#7090a8">${s.IP||'—'}</td><td class="mono muted" style="text-align:center">${s.n}</td>
                         </tr>`;
