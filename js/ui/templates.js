@@ -15,7 +15,7 @@ const Templates = {
         // SCOUT_COL: the label shown in the toggle bar for the unified scout badge column
         const SCOUT_COL = 'scout';
         // Columns sourced from manual CSVs that are folded into SCOUT — hide from auto-discovered list
-        const SCOUT_FIELDS = new Set(['CM_Role', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos']);
+        const SCOUT_FIELDS = new Set(['CM_Role', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG']);
         const staticToggles = [
             { key: 'csValS',      label: 'SEASON $' },
             { key: 'csArb',       label: 'ARB'      },
@@ -449,21 +449,31 @@ const Templates = {
         if (p.CM_Role) return this.formatCloser({ closerStatus: p.CM_Role });
         // SP: PitcherList rank + tier
         if (p.PL_Rank) return this.formatRankBadge('PL', p.PL_Rank, p.PL_Tier);
-        // Hitter: HitterList rank + tier
-        if (p.HL_Rank) return this.formatRankBadge('HL', p.HL_Rank, p.HL_Tier);
+        // Hitter: HitterList rank + tier + OBP-AVG adjustment signal
+        if (p.HL_Rank) return this.formatRankBadge('HL', p.HL_Rank, p.HL_Tier, p.OBP, p.AVG);
         return '<span class="muted" style="font-size:10px">—</span>';
     },
 
     // Colored rank badge for PitcherList / HitterList.
     // Tier color scale: T1=gold, T2=green, T3-4=teal, T5-7=steel, T8+=gray
-    formatRankBadge(source, rank, tier) {
+    // For HL badges: OBP-AVG delta adds a ▲ (red, walker underrated for OBP league) or
+    // ▽ (blue, AVG-dependent, overrated for OBP league) indicator.
+    formatRankBadge(source, rank, tier, obp, avg) {
         const tierColors = {
             1: '#d4a017', 2: '#40b870', 3: '#3a90b0', 4: '#3a90b0',
             5: '#5070a0', 6: '#5070a0', 7: '#5070a0',
         };
         const color = tierColors[tier] || '#506070';
         const t = tier ? `T${tier}·` : '';
-        return `<span class="pb" style="background:#0a1a0a;border-color:${color};color:${color};white-space:nowrap;font-size:10px">${source} ${t}#${rank}</span>`;
+
+        let adj = '';
+        if (source === 'HL' && obp != null && avg != null) {
+            const delta = obp - avg;
+            if (delta > 0.090)      adj = `<span style="color:#e05050;margin-left:3px;font-size:9px" title="High walker — underrated for OBP leagues">▲</span>`;
+            else if (delta < 0.055) adj = `<span style="color:#5080d0;margin-left:3px;font-size:9px" title="AVG-dependent — relatively overrated for OBP leagues">▽</span>`;
+        }
+
+        return `<span class="pb" style="background:#0a1a0a;border-color:${color};color:${color};white-space:nowrap;font-size:10px">${source} ${t}#${rank}${adj}</span>`;
     },
 
     formatCloser(p) {
