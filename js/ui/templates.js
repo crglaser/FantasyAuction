@@ -291,6 +291,48 @@ const Templates = {
             </table></div>`;
     },
 
+    ai() {
+        const apiKey = localStorage.getItem('claudeApiKey') || '';
+        const history = AppState.aiHistory || [];
+        return `
+            <div style="max-width:800px;margin:0 auto;padding:16px">
+                ${!apiKey ? `
+                    <div style="background:#0a1a2a;border:1px solid #1a3050;border-radius:6px;padding:16px;margin-bottom:16px">
+                        <div style="font-weight:700;color:#c8d8e8;margin-bottom:6px">CLAUDE API KEY</div>
+                        <div class="muted" style="font-size:11px;margin-bottom:10px">Stored in localStorage only — sent directly to Anthropic's API, nowhere else.</div>
+                        <input type="password" id="aiKeyInput" placeholder="sk-ant-..." style="width:100%;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px;margin-bottom:8px;box-sizing:border-box">
+                        <button class="btn btn-go" onclick="UI.saveApiKey()">SAVE KEY</button>
+                    </div>
+                ` : `<div style="font-size:11px;color:#406080;margin-bottom:10px">✓ API key saved · <a href="#" onclick="event.preventDefault();localStorage.removeItem('claudeApiKey');UI.render()" style="color:#406080">clear</a></div>`}
+                <div id="aiHistory" style="max-height:420px;overflow-y:auto;margin-bottom:12px;display:flex;flex-direction:column;gap:12px">
+                    ${history.length === 0 ? `
+                        <div style="padding:24px;color:#1a3050;font-style:italic;text-align:center;line-height:2">
+                            Ask anything about your draft strategy.<br>
+                            <span style="color:#2a4060;font-size:11px">
+                                "Who should I target with my last $45?" &nbsp;·&nbsp; "What categories am I weakest in?"<br>
+                                "Is $28 fair for Bregman right now?" &nbsp;·&nbsp; "Team X just loaded up on SPs — how does that affect me?"
+                            </span>
+                        </div>
+                    ` : history.map((h, i) => `
+                        <div>
+                            <div style="color:#406080;font-size:10px;margin-bottom:3px">YOU</div>
+                            <div style="color:#c8d8e8;padding:8px;background:#0a1a2a;border-radius:4px;margin-bottom:6px">${h.q}</div>
+                            <div style="color:#406080;font-size:10px;margin-bottom:3px">CLAUDE ${h.streaming ? '<span style="animation:pulse 1s infinite">⟳</span>' : ''}</div>
+                            <div ${i===0&&h.streaming?'id="aiStreamTarget"':''} style="color:#c8d8e8;padding:10px;background:#060e18;border:1px solid #1a3050;border-radius:4px;white-space:pre-wrap;font-size:12px;line-height:1.6">${h.a || '…'}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                    <textarea id="aiInput" placeholder="Ask about your draft strategy..." rows="3"
+                        style="flex:1;background:#060e18;color:#c8d8e8;border:1px solid #1a3050;padding:8px;font-size:12px;resize:vertical"
+                        onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();UI.handleAIQuery()}"
+                    ></textarea>
+                    <button class="btn btn-go" id="aiBtnSend" onclick="UI.handleAIQuery()">ASK</button>
+                </div>
+                <div style="font-size:10px;color:#406080;margin-top:5px">Enter to send · Shift+Enter for newline · Context: your roster, all budgets, league rules</div>
+            </div>`;
+    },
+
     import() {
         return `
             <div class="two-col">

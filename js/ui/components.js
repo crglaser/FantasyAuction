@@ -55,6 +55,27 @@ const UI = {
             }
         }
 
+        // Merge external rankings + IDs into player objects
+        if (typeof PLAYER_RANKINGS !== 'undefined') {
+            AppState.players.forEach(p => {
+                const r = PLAYER_RANKINGS[p.id];
+                if (!r) return;
+                if (r.ecr != null)         p.ecr          = r.ecr;
+                if (r.espnAuction != null)  p.espnAuction  = r.espnAuction;
+                if (r.adp != null)          p.adp          = r.adp;
+                if (r.closerStatus != null) {
+                    p.closerStatus = r.closerStatus;
+                    p.closerRank   = r.closerStatus === 'CLOSER' ? 3 : r.closerStatus === 'HANDCUFF' ? 2 : 1;
+                }
+            });
+        }
+        if (typeof PLAYER_IDS !== 'undefined') {
+            AppState.players.forEach(p => {
+                const ids = PLAYER_IDS[p.id];
+                if (ids?.fgId) p.fgId = ids.fgId;
+            });
+        }
+
         this.renderControls();
         this.render();
         this.setupEventListeners();
@@ -187,6 +208,102 @@ const UI = {
             AppState.ui.sortDir = 'desc';
         }
         this.render();
+    },
+
+    saveApiKey() {
+        const key = document.getElementById('aiKeyInput')?.value?.trim();
+        if (key) { localStorage.setItem('claudeApiKey', key); this.render(); }
+    },
+
+    handleAssistant() {
+        const input = document.getElementById('assistantInput');
+        const log = document.getElementById('assistantLog');
+        const res = Assistant.processCommand(input.value);
+        log.innerHTML = `<div style="margin-bottom:8px">${res}</div>` + log.innerHTML;
+        input.value = '';
+        this.render();
+    },
+
+    async handleAIQuery() {
+        const apiKey = localStorage.getItem('claudeApiKey');
+        if (!apiKey) { alert('Enter your Claude API key first.'); return; }
+        const input = document.getElementById('aiInput');
+        const question = input?.value?.trim();
+        if (!question) return;
+
+        const btn = document.getElementById('aiBtnSend');
+        if (btn) { btn.textContent = '⟳ Thinking…'; btn.disabled = true; }
+        if (input) input.value = '';
+
+        const ctx = StateManager.generateAIContext();
+        const teamsContext = Object.entries(LG.teamsMap).map(([tid, info]) => {
+            const picks = Object.entries(AppState.drafted)
+                .filter(([,v]) => v.team === tid)
+                .map(([id, pick]) => { const p = AppState.players.find(x => x.id === id); return p ? `${p.n} $${pick.cost}` : null; })
+                .filter(Boolean);
+            const spent = Object.entries(AppState.drafted).filter(([,v]) => v.team === tid).reduce((s,[,v]) => s + v.cost, 0);
+            return `${info.team}: $${LG.budget - spent} left, ${picks.length} players [${picks.join(', ') || 'none'}]`;
+        }).join('\n');
+
+        const system = `You are a sharp fantasy baseball advisor for the Teddy Ballgame League (10-team Roto, Fantrax).
+Roto categories: HR, SB, XBH (2B+3B), OBP, RP (R+RBI) | K, W, ERA, SVH (SV+HLD), WHIP.
+CRITICAL: 1,000 IP minimum per season — missing it forfeits ERA + WHIP for the entire season.
+Draft format: Auction (17 players, $202 budget) + 14-round snake. $400 FAAB blind bid in-season.
+
+MY TEAM (${ctx.rosterSize}, $${ctx.budgetRemaining} remaining):
+${ctx.currentRoster.length ? ctx.currentRoster.join(' | ') : 'No picks yet'}
+
+ALL TEAMS:
+${teamsContext}
+
+Be concise. Lead with the recommendation, then brief reasoning.`;
+
+        const entry = { q: question, a: '', ts: Date.now(), streaming: true };
+        AppState.aiHistory.unshift(entry);
+        this.render();
+
+        try {
+            const res = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'x-api-key': apiKey, 'anthropic-version': '2023-06-01',
+                    'content-type': 'application/json',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 1024, stream: true, system, messages: [{ role: 'user', content: question }] })
+            });
+            if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || `HTTP ${res.status}`); }
+
+            const reader = res.body.getReader();
+            const decoder = new TextDecoder();
+            let answer = '';
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                for (const line of decoder.decode(value).split('\n')) {
+                    if (!line.startsWith('data: ')) continue;
+                    const data = line.slice(6);
+                    if (data === '[DONE]') continue;
+                    try {
+                        const evt = JSON.parse(data);
+                        if (evt.type === 'content_block_delta' && evt.delta?.text) {
+                            answer += evt.delta.text;
+                            entry.a = answer;
+                            const el = document.getElementById('aiStreamTarget');
+                            if (el) el.textContent = answer;
+                        }
+                    } catch {}
+                }
+            }
+            entry.streaming = false;
+            if (AppState.aiHistory.length > 20) AppState.aiHistory.pop();
+            StateManager.save();
+        } catch (e) {
+            entry.a = `Error: ${e.message}`;
+            entry.streaming = false;
+        }
+        this.render();
+        setTimeout(() => document.getElementById('aiInput')?.focus(), 50);
     },
 
     copyAICatContext() {
