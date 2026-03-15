@@ -75,7 +75,7 @@ const Templates = {
                             const actionCell = dr
                                 ? (isSim
                                     ? `<span class="muted" style="font-size:10px;opacity:0.5">SIM · ${LG.teamsMap[dr.team]?.team || dr.team} <span class="gold">$${dr.cost}</span></span>`
-                                    : `<span class="${isMe ? 'gold' : 'muted'}">${isMe ? '★ MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span></span>`)
+                                    : `<span class="${isMe ? 'gold' : 'muted'}" style="cursor:pointer" title="Click to edit" onclick="UI.openDraftModal('${p.id}')">${isMe ? '★ MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span> <span style="font-size:9px;opacity:0.35">✎</span></span>`)
                                 : `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`;
                             return `
                                 <tr class="${rowCls}${unofficialClass}">
@@ -273,38 +273,7 @@ const Templates = {
                     </div>
                 </div>
             </div>
-            ${(() => {
-                const log = AppState.draftLog || [];
-                if (!log.length) return '';
-                return `
-                <div style="margin-top:16px">
-                    <div class="sec">DRAFT LOG (${log.length} picks — chronological)</div>
-                    <div class="tbl-wrap"><table>
-                        <thead><tr>
-                            <th style="width:30px">#</th><th>Player</th><th>Pos</th>
-                            <th>Team</th><th>Cost</th><th style="width:80px"></th>
-                        </tr></thead>
-                        <tbody>
-                            ${log.map((entry, i) => {
-                                const p = AppState.players.find(x => x.id === entry.id);
-                                const teamInfo = LG.teamsMap[entry.team];
-                                const isMe = entry.team === 'me';
-                                return `<tr class="${isMe ? 'mine' : ''}">
-                                    <td class="mono muted">${i + 1}</td>
-                                    <td class="nm">${p?.n || entry.id}</td>
-                                    <td>${p ? this.pb(p.pos) : ''}</td>
-                                    <td class="${isMe ? 'gold' : 'muted'}" style="font-size:11px">${teamInfo?.team || entry.team}</td>
-                                    <td class="gold">$${entry.cost}</td>
-                                    <td style="display:flex;gap:4px;padding:3px 6px">
-                                        <button class="btn" style="font-size:10px;padding:2px 6px" onclick="UI.openDraftModal('${entry.id}')">EDIT</button>
-                                        <button class="btn btn-danger" style="font-size:10px;padding:2px 6px" onclick="Modals.undraftPlayer('${entry.id}')">✕</button>
-                                    </td>
-                                </tr>`;
-                            }).join('')}
-                        </tbody>
-                    </table></div>
-                </div>`;
-            })()}
+            ${this.draftLog()}
         `;
     },
 
@@ -346,6 +315,7 @@ const Templates = {
                     </tbody>
                 </table>
             </div>
+            ${this.draftLog()}
         `;
     },
 
@@ -599,5 +569,44 @@ const Templates = {
         const color = val > 3 ? 'grn' : (val < -3 ? 'red' : 'muted');
         const sign = val >= 0 ? '+' : '';
         return `<span class="${color}" style="font-weight:700">${sign}$${val}</span>`;
+    },
+
+    // Shared draft log renderer used by myteam() and league().
+    // Shows all real picks across all teams in chronological order with EDIT/✕ actions.
+    draftLog(filterTeam) {
+        const log = AppState.draftLog || [];
+        const filtered = filterTeam ? log.filter(e => e.team === filterTeam) : log;
+        if (!filtered.length) return '';
+        const title = filterTeam
+            ? `${LG.teamsMap[filterTeam]?.team || filterTeam} — DRAFT LOG (${filtered.length} picks)`
+            : `DRAFT LOG — ALL TEAMS (${filtered.length} picks, chronological)`;
+        return `
+            <div style="margin-top:16px">
+                <div class="sec">${title}</div>
+                <div class="tbl-wrap"><table>
+                    <thead><tr>
+                        <th style="width:30px">#</th><th>Player</th><th>Pos</th>
+                        <th>Team</th><th>Cost</th><th style="width:90px"></th>
+                    </tr></thead>
+                    <tbody>
+                        ${filtered.map(entry => {
+                            const p = AppState.players.find(x => x.id === entry.id);
+                            const teamInfo = LG.teamsMap[entry.team];
+                            const isMe = entry.team === 'me';
+                            return `<tr class="${isMe ? 'mine' : ''}">
+                                <td class="mono muted">${log.indexOf(entry) + 1}</td>
+                                <td class="nm">${p?.n || entry.id}</td>
+                                <td>${p ? this.pb(p.pos) : ''}</td>
+                                <td class="${isMe ? 'gold' : 'muted'}" style="font-size:11px">${teamInfo?.team || entry.team}</td>
+                                <td class="gold">$${entry.cost}</td>
+                                <td style="display:flex;gap:4px;padding:3px 6px">
+                                    <button class="btn" style="font-size:10px;padding:2px 6px" onclick="UI.openDraftModal('${entry.id}')">EDIT</button>
+                                    <button class="btn btn-danger" style="font-size:10px;padding:2px 6px" onclick="Modals.undraftPlayer('${entry.id}')">✕</button>
+                                </td>
+                            </tr>`;
+                        }).join('')}
+                    </tbody>
+                </table></div>
+            </div>`;
     }
 };
