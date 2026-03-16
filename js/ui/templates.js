@@ -835,6 +835,12 @@ const Templates = {
                         <span class="lbl">Hide Injured</span>
                     </label>
                 </div>
+                <div class="ctrl">
+                    <label style="display:flex;gap:5px;align-items:center;cursor:pointer">
+                        <input type="checkbox" ${ui.scoutOnly?'checked':''} onchange="AppState.ui.scoutOnly=this.checked;UI.render()">
+                        <span class="lbl">Scout Only</span>
+                    </label>
+                </div>
                 <button class="btn" style="margin-left:auto" onclick="document.getElementById('rulesModal').classList.add('open')">RULES</button>
             </div>
         `;
