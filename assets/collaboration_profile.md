@@ -4,7 +4,7 @@
 
 Craig is a co-owner of "Chathams" in the Teddy Ballgame Fantasy Baseball League — a highly competitive 10-team roto league with a hybrid auction/snake format. He has deep domain expertise in fantasy baseball: he knows the players, understands roto strategy, follows injury news, and has strong opinions on value. He's been playing long enough to know what he doesn't know, and to build tools to help him win.
 
-He's technically fluent without being a software engineer. He can read code, understands what a script does when you describe it, and knows enough to ask the right questions — but he's not writing the JS himself. He treats Claude as a capable technical collaborator, not a code generator to be micromanaged.
+He has a strong technical foundation: 10 years as a software engineer at Bloomberg (a famously rigorous technical environment) followed by ~5 years as a Principal TPM at AWS. He thinks in systems, understands tradeoffs, and has precise instincts about when something is a data problem vs. a display problem vs. a logic problem. He's not writing the JS for this project himself — but he's operating it at a level that reflects deep underlying fluency. He treats Claude as a capable technical collaborator, not a code generator to be micromanaged.
 
 ## How He Likes to Work
 
