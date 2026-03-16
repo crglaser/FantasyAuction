@@ -68,10 +68,12 @@ const Templates = {
                             const rowCls = (isMe && !isSim ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const injNews = InjuryManager.getLatestFor(p.id);
                             const hasNote = !!AppState.playerNotes[p.id];
+                            const prog = (injNews?.summary?.match(/PROGNOSIS:\s*(\w+)/i) || [])[1]?.toLowerCase();
+                            const isInjured = p.inj || (prog && (prog === 'serious' || prog === 'moderate'));
                             const injTag = [
-                                p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>` : '',
+                                isInjured ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>` : '',
                                 injNews ? `<span class="pb" style="background:#102010;border-color:#205020;color:#80c880">NEWS</span>` : '',
-                                (!p.inj && !injNews && hasNote) ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : '',
+                                (!isInjured && !injNews && hasNote) ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : '',
                             ].join('');
                             const unofficialClass = p.unofficial ? ' unofficial-est' : '';
                             const estBadge = p.unofficial ? '<span class="est-badge">est</span>' : '';
