@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.6.1';
+const APP_VERSION = '1.6.2';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -37,7 +37,7 @@ const LG = {
         t7: { owner: 'Alex Tarshis', team: 'Let’s Deal' },
         t8: { owner: 'Bryan Boardman', team: 'Los Pollos Hermanos' },
         t9: { owner: 'Andy Enzweiler & Ed O’Brien', team: 'Diamond Hacks' },
-        t10: { owner: 'Derek Carlin & Justin Hurson', team: 'The Rookies' }
+        t10: { owner: 'Derek Carlin & Justin Hurson', team: 'Velvet Thunder' }
     }
 };
 
