@@ -17,50 +17,73 @@ This document tracks planned features and data integrity improvements for the Te
 - **FTX ghost-entry fix** — bake_assets.py now skips zero-score/rank>1000 duplicate rows; keeps best rank per name collision
 - **Snake Order tab** — set draft order, current-pick banner, 14-round snake board
 - **Unified sim/real picks** — sim picks in same AppState.drafted with sim:true flag; editable like real picks
+- **Draft Undo** — 10-pick undo stack, ↩ UNDO button in header
+- **Periodic Auto-Backup** — configurable N-pick auto-download of JSON backup
+- **ROSTER SCOUT tab** — position depth, top-N available per position, editable targets, right sidebar
+- **DATA AUDIT tab** — stat/value mismatches, large rank disagreements, missing source data sections
+- **AUC $ column** — now shows raw CheatSheet value; ADJ $ (snake-discounted) is a toggleable column
+- **Negative value display** — below-replacement players shown in red throughout
+- **85 seed value corrections** — Steamer-ratio values replaced with actual auction_values.csv negatives
+- **115 unofficial pitcher revaluations** — k-NN against seed comps to produce CS-consistent values
+- **87 unofficial batter revaluations** — same k-NN approach
+- **Hide Sub-Rep filter** — checkbox (on by default) hides csValS ≤ 0 players from all tabs
+- **MI/CI position filter fix** — correctly matches 2B/SS and 1B/3B respectively
 
 ---
 
-## 🛡 Mission Critical: Data Survival (Draft Day Essentials)
+## 🚨 Pre-Draft Checklist (Do Before Tuesday)
 
-### Draft Undo / History
-- **Concept**: Revert the last pick, or view a log of all picks in reverse order.
-- **Value**: Prevents corrupting state during the fast-paced auction. Currently picks can be edited one at a time but there's no bulk undo.
+- [ ] Run `python3 scripts/fetch_rankings.py` for fresh ECR + ESPN + CloserMonkey data
+- [ ] Run `python3 scripts/update_injuries.py --summarize` if ANTHROPIC_API_KEY is set
+- [ ] Verify auto-backup interval is set (Settings → backup every 10 picks)
+- [ ] Set snake draft order in SNAKE ORDER tab before auction starts
+- [ ] Test share link loads correctly in a second browser
+- [ ] Confirm browser localStorage is not cleared between sessions
+
+---
+
+## 🛡 Mission Critical: Data Survival
 
 ### Fantrax Console Recovery Script
-- **Concept**: A JS snippet to paste into the Fantrax "Team Rosters" browser console to export current rosters as JSON that can be imported back into the tool.
-- **Value**: "Break Glass" feature to restore state if browser data is ever lost during the draft.
-
-### Periodic Auto-Backup
-- **Concept**: Automatically trigger a JSON export every N picks (configurable, e.g. every 10).
-- **Value**: Local hard-copy of draft progress on your hard drive as insurance.
+- **Concept**: A JS snippet to paste into the Fantrax "Team Rosters" browser console to export current rosters as JSON that can be re-imported into the tool.
+- **Value**: "Break Glass" feature to restore state if browser data is ever lost mid-draft.
 
 ---
 
-## 🛡 Data Quality & Integrity (High Priority)
+## 🎯 High Priority (Nice Before / Soon After Draft)
 
-### Projection Sanity Shield
-- **Concept**: Flag players where stats are good but CS value is wildly low (e.g. Will Smith C at $2 with 18 HR). Already partially addressed by the sleeper badge system, but a dedicated audit script would help.
-- **Goal**: Prevent drafting based on spreadsheet glitches.
+### Realistic Draft Simulation
+- **Concept**: Budget-constrained auction sim where each team gets a randomized hit/pitch split strategy (55–75%), bids up to some fraction of remaining budget with noise, drops out when price > valuation. Snake portion stays as-is.
+- **Value**: Standings projections become believable — teams that overspend on studs run dry late, producing realistic roster imbalances.
+- **Current state**: Round-robin best-available with no budget enforcement.
 
-### Market Price Validation (Red Flags)
-- **Concept**: Flag players (🚩) where CS value disagrees with market (ECR/ESPN $) by >50%.
-- **Goal**: Spot "Bad Data Traps" or extreme "Arbitrage Steals" during the draft.
+### Nomination Queue / Watch List
+- **Concept**: Mark players as "want to nominate" or "watching" with a priority order. Surface as a sidebar or dedicated view during the draft.
+- **Value**: In the chaos of a live auction you lose track of which players to nominate next. A queue lets you plan 3–4 nominations ahead.
 
-### Match Confidence Score (🟢/🟡/🔴)
-- **Concept**: Indicator per player row showing how many sources successfully matched (ESPN, ECR, FTX, Steamer).
-- **Goal**: Instantly see which valuations are well-vetted vs potentially buggy.
+### Budget Pacing Indicator
+- **Concept**: Show how much budget each team *should* have spent by now (% of roster filled × $202), vs. actual. Red if over-pacing, green if underpacing.
+- **Value**: Real-time signal of who is running out of money or who has ammo left to outbid you.
+
+### Keyboard Shortcuts
+- **Concept**: `/` to focus search, `Escape` to close modal, number keys to quickly set bid amount.
+- **Value**: Speed during fast-paced auction; reduces mouse dependency.
 
 ---
 
 ## 📈 Dashboard & Visualization
 
-### Relative Category Standings (My Team)
-- **Concept**: Recalibrate the "My Team" progress bars to show where your team sits **relative to the league leader** for each category, not just a fixed max.
-- **Goal**: Know at a glance if you're leading in HR or getting crushed in SB.
+### My Team / League Dashboard Merge
+- **Concept**: Option 3 or 4 from earlier discussion — add league-relative context to My Team, or merge with Standings into a single dashboard view.
+- **Goal**: Eliminate ambiguity between My Team and League Tracker tabs.
 
-### Snake Draft Planner
-- **Concept**: The Snake tab identifies remaining roster needs (e.g., "Need 2 OF, 1 SP") and suggests the **Top 3 best-value** available players for those slots.
-- **Goal**: Seamless transition from the high-stakes auction into late-round snake picks.
+### Market Price Validation (Red Flags)
+- **Concept**: Flag players where CS value disagrees with market (ECR/ESPN $) by >50%.
+- **Goal**: Spot "Bad Data Traps" or extreme "Arbitrage Steals" during the draft.
+
+### Match Confidence Score (🟢/🟡/🔴)
+- **Concept**: Indicator per player showing how many sources successfully matched (ESPN, ECR, CS, Steamer).
+- **Goal**: Instantly see which valuations are well-vetted vs potentially buggy.
 
 ---
 
@@ -69,6 +92,9 @@ This document tracks planned features and data integrity improvements for the Te
 ### Trade Analyzer ("What-If" Mode)
 - **Concept**: Swap players between teams and see the immediate impact on projected Roto standings.
 - **Goal**: Win every trade by knowing exactly how many standing points it gains/loses.
+
+### Fantrax Live Roster Sync
+- **Concept**: Pull actual owned/unowned status from Fantrax API or console script to keep the board accurate mid-season.
 
 ---
 
