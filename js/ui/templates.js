@@ -353,7 +353,7 @@ const Templates = {
             return `<div style="margin-top:6px;border-top:1px solid #1a3050;padding-top:5px">
                 ${pairs.map((p, i) => `
                     <div style="display:flex;justify-content:space-between;padding:1px 2px;font-size:10px;
-                        color:${p.tid===viewTeam?'#90c8f0':i===0?'#40b870':'#4a6a8a'};
+                        color:${p.tid===viewTeam?'#90c8f0':i===0?'#40b870':'#4a6a8a'};font-size:11px;
                         font-weight:${p.tid===viewTeam?'700':'400'}">
                         <span>${i+1}. ${p.name}</span>
                         <span>${fmtCatVal(cat, p.val)}</span>

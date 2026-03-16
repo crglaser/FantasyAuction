@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.6.9';
+const APP_VERSION = '1.7.0';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -79,7 +79,8 @@ let AppState = {
         myteamSearch: '',
         leagueSearch: '',
         leagueTeamFilter: null,
-        catExpanded: null
+        catExpanded: null,
+        uiZoom: 1.0
     }
 };
 

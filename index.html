@@ -18,6 +18,8 @@
             <div class="pill"><div class="pill-lbl">Rostered</div><div class="pill-val" id="hRoster">0/31</div></div>
             <div class="pill"><div class="pill-lbl">Proj IP</div><div class="pill-val" id="hIP">0</div></div>
             <button class="btn" id="undoBtn" onclick="UI.undoLastPick()" title="Undo last pick (up to 10 picks back)">↩ UNDO</button>
+            <button class="btn" onclick="AppState.ui.uiZoom=Math.max(0.7,+(AppState.ui.uiZoom||1)-0.05).toFixed(2)*1;UI.render()" title="Decrease font size">A−</button>
+            <button class="btn" onclick="AppState.ui.uiZoom=Math.min(1.5,+(AppState.ui.uiZoom||1)+0.05).toFixed(2)*1;UI.render()" title="Increase font size">A+</button>
             <button class="btn btn-danger" onclick="StateManager.reset()">RESET DRAFT</button>
         </div>
     </div>

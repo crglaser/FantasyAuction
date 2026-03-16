@@ -163,6 +163,12 @@ const UI = {
         else if (tab === 'ai') content.innerHTML = Templates.ai();
         else if (tab === 'import') content.innerHTML = Templates.import();
 
+        // Apply zoom scaling
+        const zoom = AppState.ui.uiZoom || 1.0;
+        content.style.zoom = zoom;
+        const ctrlBar2 = document.getElementById('controlsBar');
+        if (ctrlBar2) ctrlBar2.style.zoom = zoom;
+
         // Restore focus to the input that was active before re-render
         if (saveFocusId) {
             const el = document.getElementById(saveFocusId);
