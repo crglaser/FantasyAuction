@@ -829,13 +829,11 @@ const Templates = {
     // Unified SCOUT badge — renders CM badge for RPs, PL badge for SPs, HL badge for hitters.
     // To rename the column: change SCOUT_COL constant in auction() above.
     formatScout(p) {
-        // RP: CloserMonkey role
-        if (p.CM_Role) return this.formatCloser({ closerStatus: p.CM_Role, closerRank: p.CM_Rank });
-        // SP: PitcherList rank + tier
-        if (p.PL_Rank) return this.formatRankBadge('PL', p.PL_Rank, p.PL_Tier);
-        // Hitter: HitterList rank + tier + OBP-AVG adjustment signal
-        if (p.HL_Rank) return this.formatRankBadge('HL', p.HL_Rank, p.HL_Tier, p.OBP, p.AVG);
-        return '<span class="muted" style="font-size:10px">—</span>';
+        const badges = [];
+        if (p.CM_Role) badges.push(this.formatCloser({ closerStatus: p.CM_Role, closerRank: p.CM_Rank }));
+        if (p.PL_Rank) badges.push(this.formatRankBadge('PL', p.PL_Rank, p.PL_Tier));
+        if (p.HL_Rank) badges.push(this.formatRankBadge('HL', p.HL_Rank, p.HL_Tier, p.OBP, p.AVG));
+        return badges.length ? badges.join(' ') : '<span class="muted" style="font-size:10px">—</span>';
     },
 
     // Colored rank badge for PitcherList / HitterList.
