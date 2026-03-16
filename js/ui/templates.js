@@ -10,6 +10,7 @@ const Templates = {
     auction(players) {
         const vis  = key => UI.colVisible(key);
         const mCols = AppState.manualCols || [];
+        const isFiltered = players.length < AppState.players.length;
 
         // Column toggle bar
         // SCOUT_COL: the label shown in the toggle bar for the unified scout badge column
@@ -45,6 +46,7 @@ const Templates = {
                     <thead>
                         <tr>
                             ${this.th('csRank', '#')}
+                            ${isFiltered ? '<th class="mono muted" style="font-size:10px">#F</th>' : ''}
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
@@ -87,6 +89,7 @@ const Templates = {
                             return `
                                 <tr class="${rowCls}${unofficialClass}">
                                     <td class="mono muted">${p.csRank}</td>
+                                    ${isFiltered ? `<td class="mono" style="font-size:10px;color:#2a6090">${fi + 1}</td>` : ''}
                                     <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${estBadge}${injTag}${sanityBadge}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>

@@ -149,6 +149,13 @@ const UI = {
         const players = this.getFilteredPlayers();
         this.updateHeader();
 
+        // Update filtered count in status bar
+        const sFiltered = document.getElementById('sFiltered');
+        const sFilteredN = document.getElementById('sFilteredN');
+        const isFiltered = players.length < AppState.players.length;
+        if (sFiltered) sFiltered.style.display = isFiltered ? '' : 'none';
+        if (sFilteredN) sFilteredN.textContent = players.length;
+
         const content = document.getElementById('mainContent');
         const tab = AppState.ui.activeTab;
 
