@@ -63,9 +63,19 @@ def safe_int(v):
     except (ValueError, TypeError):
         return None
 
+def is_ghost_row(row, stat_keys):
+    """Return True if this Fantrax row is a ghost/bench entry with no real projections."""
+    score = safe_float(row.get('Score'))
+    if score is not None and score == 0.0:
+        return True
+    rank = safe_int(row.get('RkOv'))
+    if rank is not None and rank > 1000:
+        return True
+    return False
+
 def parse_hitters(path, name_idx):
     result = {}
-    matched = unmatched = 0
+    matched = unmatched = skipped = 0
     with open(path, newline='', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -79,6 +89,14 @@ def parse_hitters(path, name_idx):
                 continue
             rank = safe_int(row.get('RkOv'))
             if rank is None:
+                continue
+            if is_ghost_row(row, ['AB', 'HR', 'SB']):
+                skipped += 1
+                continue
+            # Keep best (lowest) rank if player appears multiple times
+            existing = result.get(p['id'])
+            if existing and existing['FTX_Rank'] <= rank:
+                skipped += 1
                 continue
             xbh = safe_int(row.get('2B+3B'))
             result[p['id']] = {
@@ -92,12 +110,12 @@ def parse_hitters(path, name_idx):
                 'FTX_RP':    safe_int(row.get('RP')),
             }
             matched += 1
-    print(f'  Hitters: {matched} matched, {unmatched} unmatched')
+    print(f'  Hitters: {matched} matched, {unmatched} unmatched, {skipped} ghost/dup skipped')
     return result
 
 def parse_pitchers(path, name_idx):
     result = {}
-    matched = unmatched = 0
+    matched = unmatched = skipped = 0
     with open(path, newline='', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -112,6 +130,14 @@ def parse_pitchers(path, name_idx):
             rank = safe_int(row.get('RkOv'))
             if rank is None:
                 continue
+            if is_ghost_row(row, ['IP', 'K', 'SVH']):
+                skipped += 1
+                continue
+            # Keep best (lowest) rank if player appears multiple times
+            existing = result.get(p['id'])
+            if existing and existing['FTX_Rank'] <= rank:
+                skipped += 1
+                continue
             result[p['id']] = {
                 'FTX_Rank':  rank,
                 'FTX_Score': safe_float(row.get('Score'), 1),
@@ -123,7 +149,7 @@ def parse_pitchers(path, name_idx):
                 'FTX_SVH':   safe_int(row.get('SVH')),
             }
             matched += 1
-    print(f'  Pitchers: {matched} matched, {unmatched} unmatched')
+    print(f'  Pitchers: {matched} matched, {unmatched} unmatched, {skipped} ghost/dup skipped')
     return result
 
 def main():
@@ -139,8 +165,11 @@ def main():
     pitcher_data = parse_pitchers(PITCHERS_CSV, name_idx)
     for pid, fields in pitcher_data.items():
         if pid in data:
-            # Two-way: merge pitcher fields in, keep better rank
-            data[pid].update(fields)
+            # Two-way: merge pitcher fields in, but keep the better (lower) rank
+            if fields['FTX_Rank'] < data[pid]['FTX_Rank']:
+                data[pid]['FTX_Rank'] = fields['FTX_Rank']
+                data[pid]['FTX_Score'] = fields['FTX_Score']
+            data[pid].update({k: v for k, v in fields.items() if k not in ('FTX_Rank', 'FTX_Score')})
         else:
             data[pid] = fields
 
