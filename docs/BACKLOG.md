@@ -2,21 +2,37 @@
 
 This document tracks planned features and data integrity improvements for the Teddy Ballgame Fantasy Baseball Draft Tool.
 
+## 🛡 Mission Critical: Data Survival & Entry (Draft Day Essentials)
+
+### Draft Undo / History
+- **Concept**: A quick way to revert the last pick or view a history of all logged picks.
+- **Value**: Prevents corrupting the state with a typo during the fast-paced auction.
+
+### Fantrax Console Recovery Script
+- **Concept**: A small JavaScript snippet you paste into the Fantrax "Team Rosters" console to export current rosters as JSON.
+- **Value**: A "Break Glass" feature to instantly restore the tool's state if browser data is ever lost.
+
+### Automated Cloud-Packed Sharing
+- **Concept**: Further harden the Bit-Packed link generator.
+- **Value**: Keep a second "Hot Standby" browser open on another device in case of a crash.
+
+### Periodic Auto-Backup
+- **Concept**: Automatically trigger a JSON configuration download every 10 picks.
+- **Value**: Ensures a local hard-copy of the draft progress exists on your hard drive.
+
+---
+
 ## 🛡 Data Quality & Integrity (High Priority)
 
-### Match Confidence Score (🟢/🟡/🔴)
-- **Concept**: Add a confidence indicator to each player row based on successful data mapping.
-- **Logic**:
-    - **High (3/3)**: ID matched across ESPN, ECR, and Steamer.
-    - **Medium (2/3)**: Matched only 2 sources.
-    - **Low (1/3)**: Name-match only (needs manual verification).
-- **Goal**: Instantly identify which player valuations are most "vetted" versus potentially buggy.
-
-### Market Price Validation (The Red Flag System)
-- **Concept**: Flag players where our custom Z-Score/Cheat Sheet value disagrees with the market (ECR/ESPN Auction $) by more than 50%.
+### Market Price Validation (Discordance Red Flags)
+- **Concept**: Flag players (🚩) where our custom Z-Score/Cheat Sheet value disagrees with the market (ECR/ESPN Auction $) by more than 50%.
 - **Goal**: Spot "Bad Data Traps" or identify extreme "Arbitrage Steals" during the draft.
 
-### Projection Sanity Checks
+### Match Confidence Score (🟢/🟡/🔴)
+- **Concept**: Add a confidence indicator to each player row based on successful ID mapping across multiple sources (ESPN, ECR, Steamer).
+- **Goal**: Instantly identify which player valuations are most "vetted" versus potentially buggy name-matches.
+
+### Projection Sanity Shield
 - **Concept**: Automated flagging of impossible projections (e.g., >750 PA, >220 IP, or elite stats with a $0 valuation).
 - **Goal**: Prevent drafting based on spreadsheet glitches.
 
@@ -40,24 +56,13 @@ This document tracks planned features and data integrity improvements for the Te
 - **Concept**: A dedicated tab that identifies remaining roster needs (e.g., "Need 2 OF, 1 SP") and suggests the **Top 3 Best Value** available players for those specific empty slots.
 - **Goal**: Seamless transition from the high-stakes auction into the late-round snake.
 
-### Inflation Tracker
-- **Concept**: A live indicator of the current "Inflation Rate" in the auction.
-- **Goal**: See how overpays for superstars are increasing the effective price of the remaining mid-tier talent.
-
 ---
 
 ## 🏟 Post-Draft & Season Management (v2.0.0)
 
-### Fantrax Roster Sync
-- **Concept**: A copy-paste console script for Fantrax to instantly update all 10 team rosters in the tool.
-- **Goal**: Eliminate manual data entry for trades and FAAB pickups after the draft ends.
-
 ### Trade Analyzer (The "What-If" Mode)
 - **Concept**: Swap players between teams and see the immediate impact on projected Roto standings.
 - **Goal**: Win every trade by knowing exactly how many points it gains you in the standings.
-
-### FAAB Budget Manager
-- **Concept**: Track the remaining $400 FAAB for every team to predict opponent bidding power.
 
 ---
 
