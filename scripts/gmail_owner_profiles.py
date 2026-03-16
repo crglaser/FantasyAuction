@@ -56,52 +56,52 @@ OWNERS = {
     'me': {
         'name': 'Craig Glaser & Terry Lyons',
         'team': 'Chathams',
-        'emails': ['craigglaser', 'terrylyons'],  # partial match against From/To
+        'emails': ['crglaser@gmail.com', 'tl@terrylyons.com'],
     },
     't1': {
         'name': 'Brian Garber & Andrew Lombardi',
         'team': 'Spew',
-        'emails': ['briangarber', 'andrewlombardi', 'garber', 'lombardi'],
+        'emails': ['bngarber@yahoo.com', 'littleguyinc@yahoo.com'],
     },
     't2': {
         'name': 'Joe Achille',
         'team': 'Village Idiots',
-        'emails': ['achille'],
+        'emails': ['jachille1@yahoo.com'],
     },
     't3': {
         'name': 'Barry Carlin',
         'team': 'Happy Recap',
-        'emails': ['barrycarlin', 'barry.carlin'],
+        'emails': ['bcarlin56@gmail.com'],
     },
     't5': {
         'name': 'Andrew & Susan Grossman',
         'team': 'Widowmakers',
-        'emails': ['grossman'],
+        'emails': ['agbarrister@aol.com', 'ungersnug@aol.com'],
     },
     't6': {
         'name': 'Andy Korbak',
         'team': 'Dirt Dogs',
-        'emails': ['korbak'],
+        'emails': ['akorbak6@gmail.com'],
     },
     't7': {
         'name': 'Alex Tarshis',
         'team': "Let's Deal",
-        'emails': ['tarshis'],
+        'emails': ['atarshis@gmail.com'],
     },
     't8': {
         'name': 'Bryan Boardman',
         'team': 'Los Pollos Hermanos',
-        'emails': ['boardman'],
+        'emails': ['bryan.boardman@gmail.com'],
     },
     't9': {
         'name': 'Andy Enzweiler & Ed O\'Brien',
         'team': 'Diamond Hacks',
-        'emails': ['enzweiler', 'obrien'],
+        'emails': ['andrewenzweiler@gmail.com', 'edtempe@gmail.com'],
     },
     't10': {
         'name': 'Derek Carlin & Justin Hurson',
         'team': 'Velvet Thunder',
-        'emails': ['derekcarlin', 'derek.carlin', 'hurson'],
+        'emails': ['derekcarlin31@gmail.com', 'justinhurson23@gmail.com'],
     },
 }
 
