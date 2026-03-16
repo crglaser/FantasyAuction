@@ -178,14 +178,13 @@ const INJURY_CACHE = {
     "summary": "INJURY: None reported\nPROGNOSIS: N/A\nRETURN: N/A"
   },
   "huntergreene-cin": {
-    "title": "Fantasy baseball news or noise: Reds ace Hunter Greene shelved for months",
-    "blurb": "It's March and the fantasy baseball offseason is, pardon the pun, in full swing. The Olympics are in the rearview mirror and the World Baseball Classic is headed towards the quarterfinals. Still, most sports fans may be devoting the majority of their attention to the looming March Madness, as well as the NBA and NHL, where the games (both real and fantasy) take center stage -- and\u00a0understandably so.\nPerhaps you're hearing about the latest baseball buzz\u00a0only\u00a0in passing, if at all. That's perfectly fine. We're paying attention to what's going on and are here to let you know about the top stories that might have gone under your radar. Are they something you need to file away for draft day or ar",
-    "ts": 1773697497713,
-    "pubDate": "2026-03-10T16:58:41Z",
-    "link": "https://www.espn.com/fantasy/baseball/story/_/id/47550193",
+    "title": "Greene is scheduled to have bone chips removed from his right elbow and is expected to be out until July",
+    "blurb": "Greene is scheduled to have bone chips removed from his right elbow Wednesday and is expected to be out until July, Gordon Wittenmyer of The Cincinnati Enquirer reports. Manager Terry Francona revealed last week that Greene was headed for an MRI due to an elbow issue, which dates back to his final starts of last season. The 26-year-old avoided damage to his UCL, but the bone chips still require surgery and an extended absence.",
+    "ts": 1773698786710,
+    "pubDate": "2026-03-10",
     "isNew": true,
     "source": "ESPN",
-    "summary": "INJURY: None reported\nPROGNOSIS: N/A\nRETURN: N/A"
+    "summary": "INJURY: Bone chips in right elbow (surgery scheduled)\nPROGNOSIS: Serious\nRETURN: Expected July 2026"
   },
   "spencertorkelson-det": {
     "title": "Torkelson (forearm) will start at first base and bat cleanup in Thursday's Grapefruit League contest versus the Yankees.",
