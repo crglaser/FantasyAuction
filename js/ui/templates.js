@@ -681,25 +681,82 @@ const Templates = {
             </div>`;
 
         // Best Available by position
-        const scoutOnly  = AppState.ui.snakeScoutOnly !== false; // default true
-        const taken      = new Set(Object.keys(effectiveDrafted()));
-        const POS_GROUPS = ['C','1B','2B','SS','3B','OF','SP','RP'];
-        const N_BEST     = AppState.settings.snakePlannerN || 5;
-        let available    = AppState.players.filter(p => !taken.has(p.id) && (p.csValS || 0) > 0);
+        const scoutOnly   = AppState.ui.snakeScoutOnly !== false; // default true
+        const posFilter   = AppState.ui.snakePosFilter || ['C','1B','2B','SS','3B','OF','SP','RP'];
+        const taken       = new Set(Object.keys(effectiveDrafted()));
+        const ALL_POS     = ['C','1B','2B','SS','3B','OF','SP','RP'];
+        const N_BEST      = AppState.settings.snakePlannerN || 5;
+        let available     = AppState.players.filter(p => !taken.has(p.id) && (p.csValS || 0) > 0);
         if (scoutOnly) available = available.filter(p => p.CM_Role || p.PL_Rank || p.HL_Rank);
+        const activePOS   = ALL_POS.filter(pos => posFilter.includes(pos));
+
+        // Team needs matrix — how many of each position each team has drafted
+        const drafted    = effectiveDrafted();
+        const allTeams   = Object.keys(LG.teamsMap);
+        // Soft per-team targets for the snake phase
+        const POS_TGT    = { C:2, '1B':2, '2B':2, SS:2, '3B':2, OF:6, SP:6, RP:4 };
+        // Build roster counts per team per position
+        const teamRosters = {};
+        allTeams.forEach(tid => { teamRosters[tid] = {}; ALL_POS.forEach(pos => { teamRosters[tid][pos] = 0; }); });
+        Object.entries(drafted).forEach(([id, pick]) => {
+            const p = AppState.players.find(x => x.id === id);
+            if (!p) return;
+            ALL_POS.forEach(pos => { if (p.pos.includes(pos)) teamRosters[pick.team][pos] = (teamRosters[pick.team][pos] || 0) + 1; });
+        });
+
+        const teamNeedsHtml = `
+            <div style="margin-bottom:12px;overflow-x:auto">
+                <div style="font-size:11px;font-weight:700;color:#7090a8;letter-spacing:1px;margin-bottom:6px">TEAM POSITION NEEDS</div>
+                <table style="border-collapse:collapse;font-size:10px;white-space:nowrap">
+                    <thead>
+                        <tr>
+                            <th style="padding:3px 8px;color:#406080;text-align:left;border-bottom:1px solid #0a1e30">POS</th>
+                            ${allTeams.map(tid => {
+                                const info = LG.teamsMap[tid];
+                                return `<th style="padding:3px 6px;color:${tid==='me'?'#40b870':'#406080'};text-align:center;border-bottom:1px solid #0a1e30;font-weight:${tid==='me'?'700':'400'}">${info.team.split(' ')[0]}</th>`;
+                            }).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${ALL_POS.map(pos => {
+                            const tgt = POS_TGT[pos] || 2;
+                            return `<tr style="border-top:1px solid #080f1a">
+                                <td style="padding:3px 8px;color:#7090a8;font-weight:700">${pos}</td>
+                                ${allTeams.map(tid => {
+                                    const have = teamRosters[tid][pos] || 0;
+                                    const need = Math.max(0, tgt - have);
+                                    const color = have >= tgt ? '#204830' : need >= tgt ? '#401010' : '#403010';
+                                    const text  = have >= tgt ? `<span style="color:#40b870">✓${have}</span>`
+                                                : need > 0   ? `<span style="color:${need===tgt?'#d04040':'#e8c040'}">${have}/${tgt}</span>`
+                                                : `<span style="color:#40b870">${have}</span>`;
+                                    return `<td style="padding:3px 6px;text-align:center;background:${color}">${text}</td>`;
+                                }).join('')}
+                            </tr>`;
+                        }).join('')}
+                    </tbody>
+                </table>
+                <div style="font-size:9px;color:#2a4060;margin-top:4px">Soft targets — C:2 1B:2 2B:2 SS:2 3B:2 OF:6 SP:6 RP:4 · green=met, yellow=partial, red=none</div>
+            </div>`;
 
         const bestAvailHtml = `
             <div style="margin-bottom:12px">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px">
                     <div style="font-size:11px;font-weight:700;color:#7090a8;letter-spacing:1px">BEST AVAILABLE</div>
                     <button onclick="AppState.ui.snakeScoutOnly=!AppState.ui.snakeScoutOnly;UI.render()"
                         style="font-size:10px;padding:2px 10px;border:1px solid ${scoutOnly ? '#2a6040' : '#2a3a50'};background:${scoutOnly ? '#0a2818' : '#060e18'};color:${scoutOnly ? '#40b870' : '#406080'};cursor:pointer;border-radius:2px;font-weight:700">
                         ${scoutOnly ? '★ SCOUT ONLY' : '· ALL PLAYERS'}
                     </button>
-                    <span style="font-size:10px;color:#2a4060">${scoutOnly ? 'CM/PL/HL ranked players only' : 'showing all available'}</span>
+                    <div style="display:flex;gap:4px;flex-wrap:wrap">
+                        ${ALL_POS.map(pos => {
+                            const on = posFilter.includes(pos);
+                            return `<button onclick="UI.toggleSnakePos('${pos}')"
+                                style="font-size:10px;padding:2px 8px;border:1px solid ${on ? '#2a4060' : '#151f2a'};background:${on ? '#0a1e30' : '#040a10'};color:${on ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${pos}</button>`;
+                        }).join('')}
+                    </div>
                 </div>
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-                    ${POS_GROUPS.map(pos => {
+                ${teamNeedsHtml}
+                <div style="display:grid;grid-template-columns:repeat(${Math.min(activePOS.length, 4)},1fr);gap:8px">
+                    ${activePOS.map(pos => {
                         const group = available
                             .filter(p => p.pos.includes(pos))
                             .sort((a, b) => (b.csValS || 0) - (a.csValS || 0))

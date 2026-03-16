@@ -489,6 +489,13 @@ const UI = {
         this.render();
     },
 
+    toggleSnakePos(pos) {
+        const f = AppState.ui.snakePosFilter;
+        const idx = f.indexOf(pos);
+        if (idx >= 0) f.splice(idx, 1); else f.push(pos);
+        this.render();
+    },
+
     setRosterTarget(pos, val) {
         if (!AppState.settings.rosterTargets) AppState.settings.rosterTargets = {};
         const n = parseInt(val);
