@@ -18,6 +18,7 @@ const Templates = {
         const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG']);
         const staticToggles = [
             { key: 'csValS',      label: 'SEASON $' },
+            { key: 'csValAAdj',   label: 'ADJ $'    },
             { key: 'csArb',       label: 'ARB'      },
             { key: 'ecr',         label: 'ECR'      },
             { key: 'espnAuction', label: 'ESPN $'   },
@@ -47,7 +48,8 @@ const Templates = {
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('csValAAdj', 'AUC $★')}
+                            ${this.th('csValA', 'AUC $')}
+                            ${vis('csValAAdj')   ? this.th('csValAAdj', 'ADJ $') : ''}
                             ${vis('csValS')      ? this.th('csValS', 'SEASON $') : ''}
                             ${vis('csArb')       ? this.th('csArb', 'ARB Δ')    : ''}
                             ${vis('ecr')         ? this.th('ecr', 'ECR')        : ''}
@@ -85,7 +87,8 @@ const Templates = {
                                     <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${estBadge}${injTag}${sanityBadge}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
+                                    <td class="gold" style="font-weight:700">$${p.csValA}</td>
+                                    ${vis('csValAAdj')    ? `<td class="mono muted" style="font-size:11px">$${p.csValAAdj}</td>` : ''}
                                     ${vis('csValS')       ? `<td class="grn">$${p.csValS}</td>` : ''}
                                     ${vis('csArb')        ? `<td>${this.formatCsArb(p.csArb)}</td>` : ''}
                                     ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
@@ -117,7 +120,7 @@ const Templates = {
                             <th>Tm</th>
                             <th>Pos</th>
                             ${this.th('csValS', 'SEASON $★')}
-                            ${this.th('csValAAdj', 'AUC $')}
+                            ${this.th('csValA', 'AUC $')}
                             ${this.th('csArb', 'ARB Δ')}
                             <th>PROJECTIONS</th>
                         </tr>
@@ -135,7 +138,7 @@ const Templates = {
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="grn" style="font-weight:700">$${p.csValS}</td>
-                                    <td class="gold">$${p.csValAAdj}</td>
+                                    <td class="gold">$${p.csValA}</td>
                                     <td>${this.formatCsArb(p.csArb)}</td>
                                     <td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>
                                 </tr>
@@ -192,7 +195,7 @@ const Templates = {
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('csValAAdj', 'CS AUC $')}
+                            ${this.th('csValA', 'CS AUC $')}
                             ${vis('arb_season')  ? this.th('csValS',    'CS SZN $')   : ''}
                             ${vis('arb_ftxrank') ? this.th('FTX_Rank',  'FTX RK')     : ''}
                             ${vis('arb_rkdelta') ? this.th('ftxRkDelta','RK Δ')        : ''}
@@ -257,7 +260,7 @@ const Templates = {
                                     <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${injBadge}${sourceTags}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
+                                    <td class="gold" style="font-weight:700">$${p.csValA}</td>
                                     ${vis('arb_season')  ? `<td class="grn" style="font-size:11px">$${p.csValS}</td>` : ''}
                                     ${vis('arb_ftxrank') ? `<td class="mono muted" style="font-size:10px">${p.FTX_Rank ?? '—'}</td>` : ''}
                                     ${vis('arb_rkdelta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${rkColor}">${ftxRkDelta != null ? (ftxRkDelta > 0 ? '+' : '') + ftxRkDelta : '—'}</td>` : ''}
