@@ -3,7 +3,7 @@
 fetch_rankings.py — Pull ECR, ESPN ADP/auction, CloserMonkey, and FanGraphs IDs
 
 Writes:
-  js/data/player_ids.js   — fgId, mlbId, espnId per player (stable, commit once)
+  js/data/player_ids.js   — fgId, mlbId, espnId, fantraxId per player (stable, commit once)
   js/data/rankings.js     — ecr, adp, espnAuction, closerStatus (refresh weekly)
 
 Usage:
@@ -12,12 +12,13 @@ Usage:
   python3 scripts/fetch_rankings.py --ranks   # only refresh rankings (fast)
 """
 
-import json, urllib.request, urllib.parse, unicodedata, re, time, sys, argparse, csv, io
+import json, urllib.request, urllib.parse, unicodedata, re, time, sys, argparse, csv, io, glob, os
 from datetime import datetime, timezone
 
 SEED_FILE      = 'js/data/seed.js'
 IDS_FILE       = 'js/data/player_ids.js'
 RANKINGS_FILE  = 'js/data/rankings.js'
+ASSETS_DIR     = 'assets'
 RATE_DELAY     = 0.1
 SUFFIXES       = {'jr.', 'jr', 'sr.', 'sr', 'ii', 'iii', 'iv'}
 
@@ -106,17 +107,39 @@ def build_espn_id_map():
     print(f'  ESPN: {len(result)} players')
     return result
 
+
+def build_fantrax_id_map():
+    """Read local Fantrax CSV exports and return name_key → fantraxId map."""
+    result = {}
+    for pattern in ('Fantrax-Hitters*.csv', 'Fantrax-Pitchers*.csv'):
+        matches = sorted(glob.glob(os.path.join(ASSETS_DIR, pattern)))
+        if not matches:
+            print(f'  Fantrax: no file matching {ASSETS_DIR}/{pattern} — skipping')
+            continue
+        path = matches[-1]  # use latest if multiple
+        with open(path, newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                raw_id = row.get('ID', '').strip().strip('*')
+                name   = row.get('Player', '').strip()
+                if not raw_id or not name:
+                    continue
+                result[name_key(name)] = raw_id
+    print(f'  Fantrax: {len(result)} players from local CSVs')
+    return result
+
 def build_ids(players):
-    """Match seed players to MLBAM, FanGraphs, ESPN IDs."""
+    """Match seed players to MLBAM, FanGraphs, ESPN, and Fantrax IDs."""
     chadwick, _ = build_chadwick_map()
     espn_map    = build_espn_id_map()
+    fantrax_map = build_fantrax_id_map()
 
     ids = {}
-    matched_fg = 0; matched_espn = 0; unmatched = []
+    matched_fg = 0; matched_espn = 0; matched_ftx = 0; unmatched = []
 
     for p in players:
         key   = name_key(p['n'])
-        entry = {'fgId': None, 'mlbId': None, 'espnId': None}
+        entry = {'fgId': None, 'mlbId': None, 'espnId': None, 'fantraxId': None}
 
         # Chadwick match
         ch = chadwick.get(key)
@@ -136,12 +159,22 @@ def build_ids(players):
             entry['espnId'] = espn_id
             matched_espn += 1
 
-        if entry['fgId'] or entry['espnId']:
+        # Fantrax match
+        ftx_id = fantrax_map.get(key)
+        if not ftx_id:
+            words = key.split()
+            if words[-1] in SUFFIXES:
+                ftx_id = fantrax_map.get(' '.join(words[:-1]))
+        if ftx_id:
+            entry['fantraxId'] = ftx_id
+            matched_ftx += 1
+
+        if entry['fgId'] or entry['espnId'] or entry['fantraxId']:
             ids[p['id']] = {k: v for k, v in entry.items() if v is not None}
         else:
             unmatched.append(p['n'])
 
-    print(f'\nID matching: {matched_fg} FanGraphs IDs, {matched_espn} ESPN IDs')
+    print(f'\nID matching: {matched_fg} FanGraphs IDs, {matched_espn} ESPN IDs, {matched_ftx} Fantrax IDs')
     if unmatched:
         print(f'No IDs found for {len(unmatched)}: {", ".join(unmatched[:8])}{"…" if len(unmatched)>8 else ""}')
     return ids
@@ -339,10 +372,10 @@ def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data, close
 def write_ids(ids):
     now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
     js  = f"""/**
- * player_ids.js — External ID crosswalk (Chadwick Bureau + ESPN)
+ * player_ids.js — External ID crosswalk (Chadwick Bureau + ESPN + Fantrax)
  * Generated: {now}
  * Refresh: python3 scripts/fetch_rankings.py --ids
- * Fields: fgId (FanGraphs), mlbId (MLBAM), espnId (ESPN Fantasy)
+ * Fields: fgId (FanGraphs), mlbId (MLBAM), espnId (ESPN Fantasy), fantraxId (Fantrax)
  */
 const PLAYER_IDS = {json.dumps(ids, indent=2)};
 """
@@ -366,14 +399,99 @@ const PLAYER_RANKINGS = {json.dumps(rankings, indent=2)};
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 
+def load_existing_rankings():
+    try:
+        with open(RANKINGS_FILE) as f:
+            content = f.read()
+        m = re.search(r'const PLAYER_RANKINGS = (\{.*\});', content, re.DOTALL)
+        return json.loads(m.group(1)) if m else {}
+    except:
+        return {}
+
+
+def diff_rankings(old, new, players):
+    """Print a human-readable diff of what would change in rankings.js."""
+    pid_to_name = {p['id']: p['n'] for p in players}
+    fields = ['ecr', 'espnAuction', 'adp', 'closerStatus', 'closerRank']
+
+    added = []      # players gaining a field they didn't have
+    removed = []    # players losing a field
+    changed = []    # players with changed values
+
+    all_pids = set(old) | set(new)
+    for pid in sorted(all_pids, key=lambda p: pid_to_name.get(p, p)):
+        name = pid_to_name.get(pid, pid)
+        o = old.get(pid, {})
+        n = new.get(pid, {})
+        for f in fields:
+            ov, nv = o.get(f), n.get(f)
+            if ov == nv:
+                continue
+            if ov is None:
+                added.append((name, f, nv))
+            elif nv is None:
+                removed.append((name, f, ov))
+            else:
+                changed.append((name, f, ov, nv))
+
+    print(f'\n{"="*60}')
+    print(f'DRY RUN DIFF — rankings.js')
+    print(f'{"="*60}')
+    print(f'Players with ECR:         {sum(1 for v in new.values() if "ecr" in v)}')
+    print(f'Players with ESPN$:       {sum(1 for v in new.values() if "espnAuction" in v)}')
+    print(f'Players with closerStatus:{sum(1 for v in new.values() if "closerStatus" in v)}')
+    print(f'\nField changes: {len(changed)} changed | {len(added)} gained | {len(removed)} lost')
+
+    if changed:
+        print(f'\n── Changed values (showing up to 40) ──')
+        for name, f, ov, nv in changed[:40]:
+            print(f'  {name:<28} {f:<15} {str(ov):<12} → {nv}')
+        if len(changed) > 40:
+            print(f'  ... and {len(changed)-40} more')
+
+    if added:
+        print(f'\n── Newly tracked (gained data) ──')
+        for name, f, nv in added[:20]:
+            print(f'  {name:<28} {f:<15} (new) {nv}')
+        if len(added) > 20:
+            print(f'  ... and {len(added)-20} more')
+
+    if removed:
+        print(f'\n── Lost data (dropped from source) ──')
+        for name, f, ov in removed[:20]:
+            print(f'  {name:<28} {f:<15} was {ov}')
+        if len(removed) > 20:
+            print(f'  ... and {len(removed)-20} more')
+
+    # Closer role changes specifically — high signal
+    closer_changes = [(n, o, nv) for n, f, o, nv in changed if f == 'closerStatus']
+    closer_added   = [(n, nv) for n, f, nv in added if f == 'closerStatus']
+    closer_removed = [(n, ov) for n, f, ov in removed if f == 'closerStatus']
+    if closer_changes or closer_added or closer_removed:
+        print(f'\n── Closer role changes ──')
+        for name, ov, nv in closer_changes:
+            print(f'  {name:<28} {ov} → {nv}')
+        for name, nv in closer_added:
+            print(f'  {name:<28} (new role) {nv}')
+        for name, ov in closer_removed:
+            print(f'  {name:<28} lost role: was {ov}')
+
+    print(f'\nNo files written. Run without --dry-run to apply.')
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--ids',   action='store_true', help='Only rebuild IDs (Chadwick + ESPN)')
-    parser.add_argument('--ranks', action='store_true', help='Only refresh rankings (fast)')
+    parser.add_argument('--ids',      action='store_true', help='Only rebuild IDs (Chadwick + ESPN)')
+    parser.add_argument('--ranks',    action='store_true', help='Only refresh rankings (fast)')
+    parser.add_argument('--dry-run',  action='store_true', help='Fetch data but show diff only — write nothing')
     args = parser.parse_args()
 
     do_ids   = args.ids   or (not args.ids and not args.ranks)
     do_ranks = args.ranks or (not args.ids and not args.ranks)
+    dry_run  = args.dry_run
+
+    if dry_run:
+        print('*** DRY RUN — no files will be written ***\n')
 
     players      = load_seed()
     existing_ids = load_existing_ids()
@@ -383,41 +501,53 @@ def main():
     if do_ids:
         print('=== BUILDING PLAYER IDS ===')
         ids = build_ids(players)
-        # Merge with existing (preserve manual additions)
         merged = {**existing_ids, **ids}
-        write_ids(merged)
+        if dry_run:
+            new_count  = sum(1 for pid in ids if pid not in existing_ids)
+            diff_count = sum(
+                1 for pid, entry in ids.items()
+                if pid in existing_ids and entry != existing_ids[pid]
+            )
+            print(f'\nDRY RUN: {new_count} new players would be added, {diff_count} existing entries would change')
+            print('No files written.')
+        else:
+            write_ids(merged)
         existing_ids = merged
         print()
 
     if do_ranks:
         print('=== FETCHING RANKINGS ===')
-        ecr_data   = fetch_ecr()
-        espn_adp   = fetch_espn_adp()
+        ecr_data             = fetch_ecr()
+        espn_adp             = fetch_espn_adp()
         closer, closer_ranks = fetch_closer_monkey()
-        rankings   = build_rankings(players, existing_ids, ecr_data, espn_adp, closer, closer_ranks)
+        rankings             = build_rankings(players, existing_ids, ecr_data, espn_adp, closer, closer_ranks)
 
         matched_ecr    = sum(1 for v in rankings.values() if 'ecr' in v)
         matched_auct   = sum(1 for v in rankings.values() if 'espnAuction' in v)
         matched_closer = sum(1 for v in rankings.values() if 'closerStatus' in v)
         print(f'\nMatched: {matched_ecr} ECR  |  {matched_auct} ESPN auction  |  {matched_closer} CloserMonkey')
 
-        write_rankings(rankings)
+        if dry_run:
+            old_rankings = load_existing_rankings()
+            diff_rankings(old_rankings, rankings, players)
+        else:
+            write_rankings(rankings)
+            # Keep rp_rankings.csv CM_Role column in sync
+            print('\nSyncing CM_Role → data/manual/rp_rankings.csv ...')
+            try:
+                import subprocess
+                subprocess.run(['python3', 'scripts/bake_manual.py', '--sync'], check=True)
+            except Exception as e:
+                print(f'  (sync skipped: {e})')
 
-        # Keep rp_rankings.csv CM_Role column in sync
-        print('\nSyncing CM_Role → data/manual/rp_rankings.csv ...')
-        try:
-            import subprocess
-            subprocess.run(['python3', 'scripts/bake_manual.py', '--sync'], check=True)
-        except Exception as e:
-            print(f'  (sync skipped: {e})')
-
-    now = datetime.now(timezone.utc).strftime('%Y-%m-%d')
-    print(f'\nTo deploy:')
-    if do_ids:
-        print(f'  git add {IDS_FILE}')
-    if do_ranks:
-        print(f'  git add {RANKINGS_FILE} data/manual/rp_rankings.csv js/data/manual_rankings.js')
-    print(f'  git commit -m "Refresh rankings {now}" && git push')
+    if not dry_run:
+        now = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+        print(f'\nTo deploy:')
+        if do_ids:
+            print(f'  git add {IDS_FILE}')
+        if do_ranks:
+            print(f'  git add {RANKINGS_FILE} data/manual/rp_rankings.csv js/data/manual_rankings.js')
+        print(f'  git commit -m "Refresh rankings {now}" && git push')
 
 if __name__ == '__main__':
     main()

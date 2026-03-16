@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.6.4';
+const APP_VERSION = '1.6.5';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
