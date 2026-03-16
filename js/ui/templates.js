@@ -174,6 +174,10 @@ const Templates = {
             <div style="display:flex;align-items:center;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
                 <span style="font-size:10px;color:#406080;margin-right:4px">FILTER:</span>
                 <button onclick="UI.toggleArbOutlier()" id="arbOutlierBtn" style="font-size:10px;padding:2px 8px;border:1px solid ${AppState.ui.arbOutlierOnly ? '#205040' : '#1a2a3a'};background:${AppState.ui.arbOutlierOnly ? '#0a2018' : '#060e18'};color:${AppState.ui.arbOutlierOnly ? '#40c880' : '#2a4060'};cursor:pointer;border-radius:2px">&#128269; SLEEPERS ONLY</button>
+                <span style="font-size:10px;color:#406080;margin-left:12px">MIN AUC $</span>
+                <input id="arbMinValInput" type="number" min="0" max="100" value="${AppState.ui.arbMinVal || 0}"
+                    oninput="AppState.ui.arbMinVal=+this.value;UI.render()"
+                    style="width:52px;background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:2px 4px;font-size:11px;border-radius:2px">
             </div>
             <div class="arb-legend">
                 <span style="color:#7090a8;font-size:10px">
@@ -183,6 +187,9 @@ const Templates = {
                     FTX▲/ECR▲ = that source ranks player 30+ spots higher than CS (CS undervalues) &nbsp;·&nbsp; CS▲ = CS ranks player 30+ spots higher than FTX/ECR
                 </span>
             </div>`;
+
+        const minVal = AppState.ui.arbMinVal || 0;
+        if (minVal > 0) players = players.filter(p => (p.csValA || 0) >= minVal);
 
         const drafted = effectiveDrafted();
         return `
