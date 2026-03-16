@@ -10,8 +10,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 13.5,
-    "csValS": 9.9,
+    "csValA": -11.3,
+    "csValS": -3.5,
     "IP": 154,
     "W": 9.8,
     "SVH": 0,
@@ -27,8 +27,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 13.3,
-    "csValS": 9.6,
+    "csValA": -12.4,
+    "csValS": -4.1,
     "IP": 168,
     "W": 9.0,
     "SVH": 0,
@@ -44,8 +44,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 13.0,
-    "csValS": 9.8,
+    "csValA": -11.6,
+    "csValS": -3.6,
     "IP": 173,
     "W": 9.7,
     "SVH": 0,
@@ -61,8 +61,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 12.7,
-    "csValS": 9.6,
+    "csValA": -11.5,
+    "csValS": -3.6,
     "IP": 170,
     "W": 9.6,
     "SVH": 0,
@@ -78,8 +78,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 12.5,
-    "csValS": 9.2,
+    "csValA": -12.8,
+    "csValS": -4.3,
     "IP": 148,
     "W": 8.5,
     "SVH": 0,
@@ -95,8 +95,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 12.1,
-    "csValS": 9.1,
+    "csValA": -13.4,
+    "csValS": -4.8,
     "IP": 166,
     "W": 9.4,
     "SVH": 0,
@@ -112,8 +112,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 12.0,
-    "csValS": 9.2,
+    "csValA": -12.4,
+    "csValS": -4.2,
     "IP": 161,
     "W": 8.9,
     "SVH": 0,
@@ -129,8 +129,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 11.3,
-    "csValS": 8.2,
+    "csValA": -13.0,
+    "csValS": -4.5,
     "IP": 148,
     "W": 8.1,
     "SVH": 0,
@@ -146,8 +146,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 11.2,
-    "csValS": 8.3,
+    "csValA": -14.0,
+    "csValS": -5.2,
     "IP": 134,
     "W": 8.0,
     "SVH": 1,
@@ -163,8 +163,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 11.2,
-    "csValS": 8.8,
+    "csValA": -14.7,
+    "csValS": -5.7,
     "IP": 147,
     "W": 8.1,
     "SVH": 0,
@@ -180,8 +180,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 11.1,
-    "csValS": 8.6,
+    "csValA": -13.4,
+    "csValS": -4.9,
     "IP": 137,
     "W": 7.8,
     "SVH": 1,
@@ -197,8 +197,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 11.0,
-    "csValS": 8.5,
+    "csValA": -14.0,
+    "csValS": -5.2,
     "IP": 159,
     "W": 8.0,
     "SVH": 0,
@@ -214,8 +214,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.8,
-    "csValS": 7.8,
+    "csValA": -12.1,
+    "csValS": -4.3,
     "IP": 119,
     "W": 7.1,
     "SVH": 1,
@@ -231,8 +231,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.7,
-    "csValS": 7.9,
+    "csValA": -14.9,
+    "csValS": -5.8,
     "IP": 139,
     "W": 7.7,
     "SVH": 1,
@@ -248,8 +248,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.6,
-    "csValS": 9.0,
+    "csValA": -14.8,
+    "csValS": -5.7,
     "IP": 168,
     "W": 8.0,
     "SVH": 0,
@@ -265,8 +265,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.6,
-    "csValS": 8.3,
+    "csValA": -17.1,
+    "csValS": -7.2,
     "IP": 136,
     "W": 7.7,
     "SVH": 0,
@@ -282,8 +282,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.6,
-    "csValS": 7.7,
+    "csValA": -15.1,
+    "csValS": -5.8,
     "IP": 157,
     "W": 8.3,
     "SVH": 0,
@@ -299,8 +299,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.5,
-    "csValS": 7.9,
+    "csValA": -12.6,
+    "csValS": -4.3,
     "IP": 135,
     "W": 7.7,
     "SVH": 1,
@@ -316,8 +316,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.2,
-    "csValS": 7.9,
+    "csValA": -12.9,
+    "csValS": -4.5,
     "IP": 138,
     "W": 7.2,
     "SVH": 1,
@@ -333,8 +333,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 10.0,
-    "csValS": 7.0,
+    "csValA": -14.5,
+    "csValS": -5.7,
     "IP": 124,
     "W": 7.5,
     "SVH": 0,
@@ -350,8 +350,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 9.9,
-    "csValS": 7.6,
+    "csValA": -15.7,
+    "csValS": -6.2,
     "IP": 135,
     "W": 7.3,
     "SVH": 1,
@@ -367,8 +367,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 9.8,
-    "csValS": 7.4,
+    "csValA": -15.9,
+    "csValS": -6.4,
     "IP": 134,
     "W": 7.6,
     "SVH": 0,
@@ -384,8 +384,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 9.8,
-    "csValS": 7.8,
+    "csValA": -13.5,
+    "csValS": -4.9,
     "IP": 143,
     "W": 7.3,
     "SVH": 0,
@@ -401,8 +401,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 9.8,
-    "csValS": 7.2,
+    "csValA": -16.6,
+    "csValS": -6.8,
     "IP": 142,
     "W": 7.2,
     "SVH": 0,
@@ -418,8 +418,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 9.3,
-    "csValS": 7.2,
+    "csValA": -17.6,
+    "csValS": -7.5,
     "IP": 129,
     "W": 6.9,
     "SVH": 1,
@@ -435,8 +435,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 9.3,
-    "csValS": 6.8,
+    "csValA": -18.9,
+    "csValS": -8.5,
     "IP": 123,
     "W": 6.8,
     "SVH": 1,
@@ -452,8 +452,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 9.2,
-    "csValS": 7.5,
+    "csValA": -16.6,
+    "csValS": -6.8,
     "IP": 149,
     "W": 6.9,
     "SVH": 0,
@@ -469,8 +469,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 8.9,
-    "csValS": 6.9,
+    "csValA": -19.6,
+    "csValS": -9.1,
     "IP": 115,
     "W": 6.6,
     "SVH": 1,
@@ -486,8 +486,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 8.9,
-    "csValS": 6.5,
+    "csValA": -16.6,
+    "csValS": -7.2,
     "IP": 111,
     "W": 6.3,
     "SVH": 1,
@@ -503,8 +503,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 8.8,
-    "csValS": 6.7,
+    "csValA": -18.6,
+    "csValS": -8.2,
     "IP": 123,
     "W": 6.6,
     "SVH": 1,
@@ -514,14 +514,14 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "germnmrquez-sd",
-    "n": "Germán Márquez",
+    "n": "Germ\u00e1n M\u00e1rquez",
     "t": "SD",
     "pos": [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 8.8,
-    "csValS": 6.8,
+    "csValA": -17.9,
+    "csValS": -7.7,
     "IP": 129,
     "W": 7.1,
     "SVH": 1,
@@ -537,8 +537,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 8.7,
-    "csValS": 6.7,
+    "csValA": -18.6,
+    "csValS": -8.2,
     "IP": 123,
     "W": 6.2,
     "SVH": 1,
@@ -548,14 +548,14 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "randyvsquez-sd",
-    "n": "Randy Vásquez",
+    "n": "Randy V\u00e1squez",
     "t": "SD",
     "pos": [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 8.7,
-    "csValS": 6.9,
+    "csValA": -16.5,
+    "csValS": -6.8,
     "IP": 141,
     "W": 7.4,
     "SVH": 1,
@@ -571,8 +571,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 8.2,
-    "csValS": 7.2,
+    "csValA": -16.6,
+    "csValS": -6.9,
     "IP": 148,
     "W": 6.7,
     "SVH": 0,
@@ -726,8 +726,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 7.1,
-    "csValS": 5.7,
+    "csValA": -19.0,
+    "csValS": -8.4,
     "IP": 121,
     "W": 5.8,
     "SVH": 0,
@@ -777,8 +777,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 7.0,
-    "csValS": 5.5,
+    "csValA": -20.8,
+    "csValS": -9.8,
     "IP": 108,
     "W": 5.2,
     "SVH": 1,
@@ -839,7 +839,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "carlosnarvez-bos",
-    "n": "Carlos Narváez",
+    "n": "Carlos Narv\u00e1ez",
     "t": "BOS",
     "pos": [
       "C"
@@ -924,7 +924,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "luisangelacua-cws",
-    "n": "Luisangel Acuña",
+    "n": "Luisangel Acu\u00f1a",
     "t": "CWS",
     "pos": [
       "2B"
@@ -1027,7 +1027,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "mauriciodubn-atl",
-    "n": "Mauricio Dubón",
+    "n": "Mauricio Dub\u00f3n",
     "t": "ATL",
     "pos": [
       "2B",
@@ -1051,8 +1051,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 6.4,
-    "csValS": 4.9,
+    "csValA": -19.9,
+    "csValS": -9.4,
     "IP": 90,
     "W": 5.0,
     "SVH": 0,
@@ -1068,8 +1068,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 6.4,
-    "csValS": 4.9,
+    "csValA": -20.8,
+    "csValS": -9.8,
     "IP": 102,
     "W": 5.3,
     "SVH": 0,
@@ -1096,7 +1096,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "wenceelprez-det",
-    "n": "Wenceel Pérez",
+    "n": "Wenceel P\u00e9rez",
     "t": "DET",
     "pos": [
       "OF"
@@ -1119,8 +1119,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 6.2,
-    "csValS": 4.6,
+    "csValA": -20.6,
+    "csValS": -9.7,
     "IP": 100,
     "W": 4.7,
     "SVH": 0,
@@ -1166,7 +1166,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "nasimnuez-wsh",
-    "n": "Nasim Nuñez",
+    "n": "Nasim Nu\u00f1ez",
     "t": "WSH",
     "pos": [
       "SS"
@@ -1206,8 +1206,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 6.0,
-    "csValS": 5.6,
+    "csValA": -19.7,
+    "csValS": -9.0,
     "IP": 116,
     "W": 5.3,
     "SVH": 0,
@@ -1310,8 +1310,8 @@ const STEAMER_EXTRAS = [
       "SP"
     ],
     "unofficial": true,
-    "csValA": 5.7,
-    "csValS": 4.3,
+    "csValA": -20.6,
+    "csValS": -9.7,
     "IP": 90,
     "W": 4.3,
     "SVH": 0,
@@ -1389,7 +1389,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "joscaballero-nyy",
-    "n": "José Caballero",
+    "n": "Jos\u00e9 Caballero",
     "t": "NYY",
     "pos": [
       "2B",
@@ -1475,7 +1475,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "heribertohernndez-mia",
-    "n": "Heriberto Hernández",
+    "n": "Heriberto Hern\u00e1ndez",
     "t": "MIA",
     "pos": [
       "DH",
@@ -1614,7 +1614,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "pedropags-stl",
-    "n": "Pedro Pagés",
+    "n": "Pedro Pag\u00e9s",
     "t": "STL",
     "pos": [
       "C"
@@ -1666,7 +1666,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "javierbez-det",
-    "n": "Javier Báez",
+    "n": "Javier B\u00e1ez",
     "t": "DET",
     "pos": [
       "SS"
@@ -1734,7 +1734,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "andrschaparro-wsh",
-    "n": "Andrés Chaparro",
+    "n": "Andr\u00e9s Chaparro",
     "t": "WSH",
     "pos": [
       "1B",
@@ -1839,7 +1839,7 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "angelmartnez-cle",
-    "n": "Angel Martínez",
+    "n": "Angel Mart\u00ednez",
     "t": "CLE",
     "pos": [
       "OF"
@@ -2087,8 +2087,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 4.2,
-    "csValS": 4.3,
+    "csValA": -7.3,
+    "csValS": -2.6,
     "IP": 85,
     "W": 4.5,
     "SVH": 14,
@@ -2223,8 +2223,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.5,
-    "csValS": 3.6,
+    "csValA": -7.8,
+    "csValS": -2.9,
     "IP": 64,
     "W": 3.2,
     "SVH": 17,
@@ -2240,8 +2240,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.5,
-    "csValS": 3.8,
+    "csValA": -11.3,
+    "csValS": -5.2,
     "IP": 86,
     "W": 4.0,
     "SVH": 15,
@@ -2257,8 +2257,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.4,
-    "csValS": 3.6,
+    "csValA": -8.2,
+    "csValS": -3.3,
     "IP": 65,
     "W": 3.3,
     "SVH": 17,
@@ -2274,8 +2274,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.3,
-    "csValS": 3.5,
+    "csValA": -8.1,
+    "csValS": -3.2,
     "IP": 65,
     "W": 3.2,
     "SVH": 18,
@@ -2291,8 +2291,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.3,
-    "csValS": 3.5,
+    "csValA": -9.5,
+    "csValS": -4.1,
     "IP": 68,
     "W": 3.4,
     "SVH": 18,
@@ -2308,8 +2308,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.3,
-    "csValS": 3.5,
+    "csValA": -9.8,
+    "csValS": -4.4,
     "IP": 64,
     "W": 3.1,
     "SVH": 17,
@@ -2325,8 +2325,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.2,
-    "csValS": 3.3,
+    "csValA": -7.5,
+    "csValS": -2.9,
     "IP": 60,
     "W": 3.2,
     "SVH": 12,
@@ -2342,8 +2342,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.2,
-    "csValS": 3.3,
+    "csValA": -8.5,
+    "csValS": -3.6,
     "IP": 60,
     "W": 2.8,
     "SVH": 17,
@@ -2359,8 +2359,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.2,
-    "csValS": 3.2,
+    "csValA": -7.9,
+    "csValS": -3.2,
     "IP": 65,
     "W": 3.2,
     "SVH": 13,
@@ -2376,8 +2376,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.2,
-    "csValS": 3.6,
+    "csValA": -11.5,
+    "csValS": -5.3,
     "IP": 77,
     "W": 3.5,
     "SVH": 17,
@@ -2393,8 +2393,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.2,
-    "csValS": 3.4,
+    "csValA": -10.1,
+    "csValS": -4.5,
     "IP": 65,
     "W": 3.1,
     "SVH": 18,
@@ -2410,8 +2410,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.2,
-    "csValS": 3.5,
+    "csValA": -10.2,
+    "csValS": -4.6,
     "IP": 68,
     "W": 3.2,
     "SVH": 19,
@@ -2421,14 +2421,14 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "josbutt-sf",
-    "n": "José Buttó",
+    "n": "Jos\u00e9 Butt\u00f3",
     "t": "SF",
     "pos": [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.2,
-    "csValS": 3.4,
+    "csValA": -9.4,
+    "csValS": -4.2,
     "IP": 64,
     "W": 3.1,
     "SVH": 15,
@@ -2444,8 +2444,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.3,
+    "csValA": -8.0,
+    "csValS": -3.2,
     "IP": 66,
     "W": 3.4,
     "SVH": 12,
@@ -2461,8 +2461,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.2,
+    "csValA": -7.8,
+    "csValS": -3.0,
     "IP": 62,
     "W": 3.2,
     "SVH": 12,
@@ -2478,8 +2478,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.3,
+    "csValA": -8.3,
+    "csValS": -3.5,
     "IP": 61,
     "W": 3.0,
     "SVH": 13,
@@ -2495,8 +2495,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.2,
+    "csValA": -9.1,
+    "csValS": -4.0,
     "IP": 63,
     "W": 3.2,
     "SVH": 13,
@@ -2506,14 +2506,14 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "jonathanloisiga-ari",
-    "n": "Jonathan Loáisiga",
+    "n": "Jonathan Lo\u00e1isiga",
     "t": "ARI",
     "pos": [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.4,
+    "csValA": -8.0,
+    "csValS": -3.1,
     "IP": 59,
     "W": 3.0,
     "SVH": 14,
@@ -2529,8 +2529,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.3,
+    "csValA": -9.5,
+    "csValS": -4.3,
     "IP": 62,
     "W": 3.0,
     "SVH": 14,
@@ -2546,8 +2546,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.1,
+    "csValA": -7.9,
+    "csValS": -3.2,
     "IP": 60,
     "W": 3.0,
     "SVH": 14,
@@ -2563,8 +2563,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.2,
+    "csValA": -9.0,
+    "csValS": -3.9,
     "IP": 61,
     "W": 2.9,
     "SVH": 17,
@@ -2580,8 +2580,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.1,
+    "csValA": -9.4,
+    "csValS": -4.2,
     "IP": 60,
     "W": 2.9,
     "SVH": 16,
@@ -2597,8 +2597,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.1,
+    "csValA": -9.0,
+    "csValS": -3.9,
     "IP": 61,
     "W": 3.0,
     "SVH": 14,
@@ -2614,8 +2614,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.1,
-    "csValS": 3.4,
+    "csValA": -9.8,
+    "csValS": -4.3,
     "IP": 70,
     "W": 3.3,
     "SVH": 14,
@@ -2631,8 +2631,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.0,
+    "csValA": -7.4,
+    "csValS": -2.7,
     "IP": 56,
     "W": 2.8,
     "SVH": 13,
@@ -2648,8 +2648,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.2,
+    "csValA": -8.3,
+    "csValS": -3.4,
     "IP": 62,
     "W": 3.2,
     "SVH": 13,
@@ -2665,8 +2665,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.1,
+    "csValA": -8.1,
+    "csValS": -3.3,
     "IP": 58,
     "W": 3.0,
     "SVH": 12,
@@ -2682,8 +2682,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.0,
+    "csValA": -9.1,
+    "csValS": -4.0,
     "IP": 61,
     "W": 3.0,
     "SVH": 13,
@@ -2693,14 +2693,14 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "luisgarca-nym",
-    "n": "Luis García",
+    "n": "Luis Garc\u00eda",
     "t": "NYM",
     "pos": [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.2,
+    "csValA": -8.0,
+    "csValS": -3.1,
     "IP": 60,
     "W": 3.1,
     "SVH": 13,
@@ -2716,8 +2716,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.1,
+    "csValA": -9.3,
+    "csValS": -4.3,
     "IP": 61,
     "W": 2.9,
     "SVH": 13,
@@ -2733,8 +2733,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.2,
+    "csValA": -12.5,
+    "csValS": -5.9,
     "IP": 66,
     "W": 3.0,
     "SVH": 17,
@@ -2750,8 +2750,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 3.0,
-    "csValS": 3.1,
+    "csValA": -9.5,
+    "csValS": -4.1,
     "IP": 58,
     "W": 2.8,
     "SVH": 19,
@@ -2767,8 +2767,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.9,
-    "csValS": 3.1,
+    "csValA": -8.4,
+    "csValS": -3.5,
     "IP": 60,
     "W": 2.9,
     "SVH": 13,
@@ -2784,8 +2784,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.9,
-    "csValS": 3.0,
+    "csValA": -7.8,
+    "csValS": -3.0,
     "IP": 54,
     "W": 2.7,
     "SVH": 12,
@@ -2801,8 +2801,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.9,
-    "csValS": 3.0,
+    "csValA": -9.2,
+    "csValS": -4.0,
     "IP": 60,
     "W": 3.0,
     "SVH": 12,
@@ -2818,8 +2818,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.9,
-    "csValS": 3.1,
+    "csValA": -8.0,
+    "csValS": -3.1,
     "IP": 60,
     "W": 3.0,
     "SVH": 13,
@@ -2835,8 +2835,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.9,
-    "csValS": 3.0,
+    "csValA": -9.1,
+    "csValS": -4.0,
     "IP": 62,
     "W": 3.0,
     "SVH": 14,
@@ -2852,8 +2852,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.9,
-    "csValS": 3.2,
+    "csValA": -9.4,
+    "csValS": -4.0,
     "IP": 73,
     "W": 3.5,
     "SVH": 14,
@@ -2869,8 +2869,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.9,
-    "csValS": 3.1,
+    "csValA": -11.8,
+    "csValS": -5.5,
     "IP": 63,
     "W": 3.0,
     "SVH": 17,
@@ -2886,8 +2886,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 2.9,
+    "csValA": -9.8,
+    "csValS": -4.3,
     "IP": 60,
     "W": 2.9,
     "SVH": 12,
@@ -2903,8 +2903,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 2.9,
+    "csValA": -8.4,
+    "csValS": -3.6,
     "IP": 58,
     "W": 2.9,
     "SVH": 10,
@@ -2920,8 +2920,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 3.0,
+    "csValA": -9.1,
+    "csValS": -3.9,
     "IP": 58,
     "W": 2.8,
     "SVH": 13,
@@ -2937,8 +2937,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 3.0,
+    "csValA": -8.5,
+    "csValS": -3.6,
     "IP": 60,
     "W": 3.0,
     "SVH": 14,
@@ -2954,8 +2954,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 3.0,
+    "csValA": -9.4,
+    "csValS": -4.3,
     "IP": 59,
     "W": 2.8,
     "SVH": 13,
@@ -2971,8 +2971,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 3.0,
+    "csValA": -11.5,
+    "csValS": -5.3,
     "IP": 64,
     "W": 3.0,
     "SVH": 15,
@@ -2988,8 +2988,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 2.9,
+    "csValA": -9.6,
+    "csValS": -4.5,
     "IP": 58,
     "W": 2.8,
     "SVH": 12,
@@ -3005,8 +3005,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.8,
-    "csValS": 3.1,
+    "csValA": -10.3,
+    "csValS": -4.6,
     "IP": 66,
     "W": 3.3,
     "SVH": 15,
@@ -3022,8 +3022,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.7,
-    "csValS": 3.0,
+    "csValA": -8.2,
+    "csValS": -3.3,
     "IP": 58,
     "W": 2.9,
     "SVH": 11,
@@ -3039,8 +3039,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.7,
-    "csValS": 2.8,
+    "csValA": -10.4,
+    "csValS": -4.7,
     "IP": 58,
     "W": 2.8,
     "SVH": 12,
@@ -3056,8 +3056,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.7,
-    "csValS": 2.8,
+    "csValA": -9.7,
+    "csValS": -4.3,
     "IP": 59,
     "W": 2.7,
     "SVH": 14,
@@ -3067,14 +3067,14 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "cionelprez-wsh",
-    "n": "Cionel Pérez",
+    "n": "Cionel P\u00e9rez",
     "t": "WSH",
     "pos": [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.7,
-    "csValS": 2.8,
+    "csValA": -10.1,
+    "csValS": -4.4,
     "IP": 57,
     "W": 2.7,
     "SVH": 12,
@@ -3090,8 +3090,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.7,
-    "csValS": 2.9,
+    "csValA": -9.2,
+    "csValS": -4.0,
     "IP": 58,
     "W": 2.8,
     "SVH": 12,
@@ -3107,8 +3107,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.7,
-    "csValS": 2.8,
+    "csValA": -11.2,
+    "csValS": -5.1,
     "IP": 59,
     "W": 2.7,
     "SVH": 12,
@@ -3124,8 +3124,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.7,
+    "csValA": -9.5,
+    "csValS": -4.3,
     "IP": 58,
     "W": 2.8,
     "SVH": 10,
@@ -3141,8 +3141,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.7,
+    "csValA": -8.0,
+    "csValS": -3.2,
     "IP": 53,
     "W": 2.7,
     "SVH": 10,
@@ -3158,8 +3158,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.7,
+    "csValA": -8.0,
+    "csValS": -3.2,
     "IP": 54,
     "W": 2.7,
     "SVH": 10,
@@ -3175,8 +3175,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.8,
+    "csValA": -8.0,
+    "csValS": -3.2,
     "IP": 57,
     "W": 2.9,
     "SVH": 10,
@@ -3192,8 +3192,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.8,
+    "csValA": -8.0,
+    "csValS": -3.2,
     "IP": 56,
     "W": 2.8,
     "SVH": 10,
@@ -3203,14 +3203,14 @@ const STEAMER_EXTRAS = [
   },
   {
     "id": "yohanramrez-pit",
-    "n": "Yohan Ramírez",
+    "n": "Yohan Ram\u00edrez",
     "t": "PIT",
     "pos": [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.7,
+    "csValA": -9.4,
+    "csValS": -4.3,
     "IP": 56,
     "W": 2.7,
     "SVH": 10,
@@ -3226,8 +3226,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.7,
+    "csValA": -11.4,
+    "csValS": -5.3,
     "IP": 58,
     "W": 2.8,
     "SVH": 14,
@@ -3243,8 +3243,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.8,
+    "csValA": -9.3,
+    "csValS": -4.1,
     "IP": 58,
     "W": 2.7,
     "SVH": 12,
@@ -3260,8 +3260,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.9,
+    "csValA": -10.4,
+    "csValS": -4.7,
     "IP": 60,
     "W": 2.8,
     "SVH": 12,
@@ -3277,8 +3277,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.7,
+    "csValA": -8.2,
+    "csValS": -3.4,
     "IP": 56,
     "W": 2.8,
     "SVH": 10,
@@ -3294,8 +3294,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.6,
-    "csValS": 2.8,
+    "csValA": -12.0,
+    "csValS": -5.7,
     "IP": 60,
     "W": 2.8,
     "SVH": 14,
@@ -3311,8 +3311,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.5,
-    "csValS": 2.6,
+    "csValA": -9.2,
+    "csValS": -4.0,
     "IP": 54,
     "W": 2.8,
     "SVH": 12,
@@ -3328,8 +3328,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.5,
-    "csValS": 2.7,
+    "csValA": -9.3,
+    "csValS": -4.1,
     "IP": 56,
     "W": 2.7,
     "SVH": 10,
@@ -3345,8 +3345,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.5,
-    "csValS": 2.7,
+    "csValA": -9.8,
+    "csValS": -4.4,
     "IP": 59,
     "W": 2.9,
     "SVH": 11,
@@ -3362,8 +3362,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.5,
-    "csValS": 2.6,
+    "csValA": -9.7,
+    "csValS": -4.3,
     "IP": 56,
     "W": 2.7,
     "SVH": 10,
@@ -3379,8 +3379,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.5,
-    "csValS": 2.8,
+    "csValA": -9.9,
+    "csValS": -4.4,
     "IP": 63,
     "W": 2.9,
     "SVH": 12,
@@ -3396,8 +3396,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.4,
-    "csValS": 2.7,
+    "csValA": -11.9,
+    "csValS": -5.5,
     "IP": 58,
     "W": 2.7,
     "SVH": 11,
@@ -3413,8 +3413,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.4,
-    "csValS": 2.5,
+    "csValA": -9.6,
+    "csValS": -4.2,
     "IP": 55,
     "W": 2.8,
     "SVH": 13,
@@ -3430,8 +3430,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.3,
-    "csValS": 2.4,
+    "csValA": -9.8,
+    "csValS": -4.3,
     "IP": 54,
     "W": 2.6,
     "SVH": 11,
@@ -3447,8 +3447,8 @@ const STEAMER_EXTRAS = [
       "RP"
     ],
     "unofficial": true,
-    "csValA": 2.2,
-    "csValS": 2.6,
+    "csValA": -11.8,
+    "csValS": -5.5,
     "IP": 60,
     "W": 2.6,
     "SVH": 14,

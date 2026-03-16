@@ -1652,25 +1652,6 @@ const SEED_PLAYERS = [
     "SB": 7
   },
   {
-    "id": "maxmuncy-lad",
-    "n": "Max Muncy",
-    "t": "LAD",
-    "pos": [
-      "1B",
-      "3B"
-    ],
-    "inj": false,
-    "age": 0,
-    "csValA": 8.7,
-    "csValS": 8.1,
-    "PA": 351,
-    "OBP": 0.346,
-    "HR": 16,
-    "XBH": 12,
-    "RP": 90,
-    "SB": 2.2
-  },
-  {
     "id": "joshhader-hou",
     "n": "Josh Hader",
     "t": "HOU",
