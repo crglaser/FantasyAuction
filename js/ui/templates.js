@@ -791,6 +791,12 @@ const Templates = {
                         <span class="lbl">Hide Drafted</span>
                     </label>
                 </div>
+                <div class="ctrl">
+                    <label style="display:flex;gap:5px;align-items:center;cursor:pointer">
+                        <input type="checkbox" ${ui.hideSubRep?'checked':''} onchange="AppState.ui.hideSubRep=this.checked;UI.render()">
+                        <span class="lbl">Hide Sub-Rep</span>
+                    </label>
+                </div>
                 <button class="btn" style="margin-left:auto" onclick="document.getElementById('rulesModal').classList.add('open')">RULES</button>
             </div>
         `;

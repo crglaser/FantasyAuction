@@ -187,6 +187,7 @@ const UI = {
         if (ui.typeFilter === 'HIT') list = list.filter(p => p.PA > 0);
         if (ui.typeFilter === 'PIT') list = list.filter(p => p.IP > 0);
         if (ui.hideDrafted) list = list.filter(p => !effectiveDrafted()[p.id]);
+        if (ui.hideSubRep)  list = list.filter(p => (p.csValS || 0) > 0);
 
         return list.sort((a, b) => {
             const av = a[ui.sortCol];
