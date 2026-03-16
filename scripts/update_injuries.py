@@ -76,6 +76,8 @@ def load_seed_players():
     m = re.search(r'const SEED_PLAYERS = (\[.*\]);', content, re.DOTALL)
     return json.loads(m.group(1))
 
+INJURY_STATUSES = {'OUT', 'DOUBTFUL', 'QUESTIONABLE', 'INJURY_RESERVE'}
+
 def build_espn_map():
     print('Loading ESPN player list...')
     d = fetch(
@@ -87,7 +89,11 @@ def build_espn_map():
     for p in d:
         if 'fullName' not in p: continue
         key = normalize(p['fullName'])
-        result[key] = {'id': p['id'], 'lastNewsDate': p.get('lastNewsDate', 0)}
+        result[key] = {
+            'id': p['id'],
+            'lastNewsDate': p.get('lastNewsDate', 0),
+            'injuryStatus': p.get('injuryStatus', ''),
+        }
     print(f'  {len(result)} ESPN players loaded')
     return result
 
@@ -204,10 +210,11 @@ def main():
             no_espn.append(p['n'])
             continue
 
-        is_inj    = p['id'] in already_injured
-        is_recent = espn['lastNewsDate'] > cutoff_ms
+        is_inj      = p['id'] in already_injured
+        is_recent   = espn['lastNewsDate'] > cutoff_ms
+        is_out      = espn.get('injuryStatus', '') in INJURY_STATUSES
 
-        if not is_inj and not is_recent and not args.all:
+        if not is_inj and not is_recent and not is_out and not args.all:
             skipped += 1
             continue
 
@@ -219,13 +226,27 @@ def main():
             continue
 
         if not feed:
+            # No news blurb but ESPN flagged as OUT/DOUBTFUL — synthesize a minimal entry
+            if is_out:
+                status = espn.get('injuryStatus', 'OUT')
+                entry = {'headline': f'Status: {status} (no details available)', 'blurb': '', 'date': ''}
+                cache[p['id']] = entry
+                newly_injured.append(p['n'])
+                print(f'  [NEW ⚠] {p["n"]}: ESPN status={status}, no blurb')
             continue
 
-        latest   = feed[0]
+        # Prefer the most recent item with actual injury content; fall back to feed[0]
+        latest = feed[0]
+        for item in feed:
+            h = item.get('headline', '')
+            b = re.sub(r'<[^>]+>', '', item.get('story', '') or '').strip()
+            if has_injury_content(h, b):
+                latest = item
+                break
         headline = latest.get('headline', '')
         blurb    = re.sub(r'<[^>]+>', '', latest.get('story', '') or '').strip()
 
-        if is_inj or has_injury_content(headline, blurb):
+        if is_inj or is_out or has_injury_content(headline, blurb):
             entry = make_cache_entry(latest)
             prev  = existing_cache.get(p['id'], {})
 
