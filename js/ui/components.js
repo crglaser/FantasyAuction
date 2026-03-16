@@ -149,7 +149,8 @@ const UI = {
         else if (tab === 'myteam') content.innerHTML = Templates.myteam();
         else if (tab === 'league') content.innerHTML = Templates.league();
         else if (tab === 'standings') content.innerHTML = Templates.standings();
-        else if (tab === 'snake')    content.innerHTML = Templates.snake();
+        else if (tab === 'snake')        content.innerHTML = Templates.snake();
+        else if (tab === 'snakeplanner') content.innerHTML = Templates.snakeplanner();
         else if (tab === 'ai') content.innerHTML = Templates.ai();
         else if (tab === 'import') content.innerHTML = Templates.import();
     },
@@ -396,6 +397,7 @@ const UI = {
     openDraftModal(id) { Modals.openDraftModal(id); },
     confirmDraft() { Modals.confirmDraft(); },
     undraftPending() { const id = AppState.pendingPlayerId; if (id) { Modals.closeModal(); Modals.undraftPlayer(id); } },
+    undoLastPick() { StateManager.undoLastPick(); },
     openInjuryModal(id) { Modals.openInjuryModal(id); },
     savePlayerNote() { Modals.savePlayerNote(); },
     closeModal() { Modals.closeModal(); },
@@ -437,6 +439,12 @@ const UI = {
 
     resetSnakePick() {
         AppState.snakePick = 0;
+        StateManager.save();
+        this.render();
+    },
+
+    setSnakePlannerN(n) {
+        AppState.settings.snakePlannerN = parseInt(n);
         StateManager.save();
         this.render();
     },

@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.4.12';
+const APP_VERSION = '1.5.0';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -50,10 +50,13 @@ let AppState = {
     aiHistory: [],    // Array of { q, a, ts } AI advisor exchanges
     snakeOrder: [],   // Array of 10 team IDs in snake draft order (slot 1 → slot 10)
     snakePick: 0,     // Current pick index (0-based); auto-advances on snake pick confirm
+    undoStack: [],    // Not persisted; snapshots for undo (max 10)
     settings: {
         hitSplit: 65,
         snakeDisc: true,
         snakeCutoff: 150,
+        backupInterval: 10,  // Auto-backup every N real picks (0 = disabled)
+        snakePlannerN: 5,    // Top N players per position in snake planner
         weights: {
             HR: 1, SB: 1, XBH: 1, OBP: 1, RP: 1,
             K: 1, W: 1, ERA: 1, SVH: 1, WHIP: 1
@@ -120,9 +123,73 @@ const StateManager = {
         if (confirm('Are you sure you want to reset ALL draft data? This cannot be undone.')) {
             AppState.drafted = {};
             AppState.draftLog = [];
+            AppState.undoStack = [];
             this.save();
             location.reload();
         }
+    },
+
+    /**
+     * Push a snapshot of current draft state onto the undo stack (max 10).
+     * Call this BEFORE mutating AppState.drafted / draftLog.
+     */
+    pushUndo() {
+        AppState.undoStack.push({
+            drafted:   JSON.parse(JSON.stringify(AppState.drafted)),
+            draftLog:  JSON.parse(JSON.stringify(AppState.draftLog)),
+            snakePick: AppState.snakePick
+        });
+        if (AppState.undoStack.length > 10) AppState.undoStack.shift();
+    },
+
+    /** Revert the most recent pick. */
+    undoLastPick() {
+        const snap = AppState.undoStack.pop();
+        if (!snap) { alert('Nothing to undo.'); return; }
+        AppState.drafted  = snap.drafted;
+        AppState.draftLog = snap.draftLog;
+        AppState.snakePick = snap.snakePick;
+        this.save();
+        UI.render();
+    },
+
+    /**
+     * Called after every new real pick. Triggers an auto-backup download
+     * when the configured interval is reached.
+     */
+    checkAutoBackup() {
+        const interval = AppState.settings.backupInterval || 0;
+        if (!interval) return;
+        AppState._backupPickCount = (AppState._backupPickCount || 0) + 1;
+        if (AppState._backupPickCount >= interval) {
+            AppState._backupPickCount = 0;
+            this._doAutoBackup();
+        }
+    },
+
+    _doAutoBackup() {
+        const realPicks = Object.entries(AppState.drafted).filter(([, v]) => !v.sim).length;
+        const ts = new Date().toISOString().replace('T', '_').replace(/[:.]/g, '-').slice(0, 16);
+        const data = {
+            version: APP_VERSION,
+            backupTime: new Date().toISOString(),
+            totalRealPicks: realPicks,
+            drafted:     Object.fromEntries(Object.entries(AppState.drafted).filter(([, v]) => !v.sim)),
+            draftLog:    AppState.draftLog.filter(e => !e.sim),
+            settings:    AppState.settings,
+            playerNotes: AppState.playerNotes,
+            snakeOrder:  AppState.snakeOrder,
+            snakePick:   AppState.snakePick
+        };
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url  = URL.createObjectURL(blob);
+        const a    = document.createElement('a');
+        a.href     = url;
+        a.download = `tbg26_backup_${ts}_${realPicks}picks.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
     },
 
     /**

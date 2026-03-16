@@ -105,6 +105,8 @@ const Modals = {
         }
 
         const isNew = !AppState.drafted[id];
+        // Push undo snapshot before mutating state
+        StateManager.pushUndo();
         // Editing a sim pick manually promotes it to a real pick (drop sim flag)
         AppState.drafted[id] = { cost, team: teamId, ts: Date.now() };
         if (isNew) {
@@ -113,6 +115,8 @@ const Modals = {
                 const max = AppState.snakeOrder.length * LG.sSlots;
                 if (AppState.snakePick < max) AppState.snakePick++;
             }
+            // Auto-backup after new real picks
+            StateManager.checkAutoBackup();
         } else {
             const entry = AppState.draftLog.find(e => e.id === id);
             if (entry) Object.assign(entry, AppState.drafted[id]);

@@ -72,6 +72,8 @@ const Templates = {
                                 : (hasNote ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : ''));
                             const unofficialClass = p.unofficial ? ' unofficial-est' : '';
                             const estBadge = p.unofficial ? '<span class="est-badge">est</span>' : '';
+                            const sanityWarn = this._getSanityWarning(p);
+                            const sanityBadge = sanityWarn ? `<span class="pb" title="⚠ DATA CHECK: ${sanityWarn}" style="background:#201000;border-color:#604000;color:#c87020;cursor:default;font-size:9px">⚠</span>` : '';
                             const actionCell = dr
                                 ? (isSim
                                     ? `<span class="muted" style="font-size:10px;cursor:pointer" onclick="UI.openDraftModal('${p.id}')" title="Edit sim pick">${LG.teamsMap[dr.team]?.team || dr.team} <span class="gold">$${dr.cost}</span> <span style="font-size:9px;opacity:0.4">SIM✎</span></span>`
@@ -80,7 +82,7 @@ const Templates = {
                             return `
                                 <tr class="${rowCls}${unofficialClass}">
                                     <td class="mono muted">${p.csRank}</td>
-                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${estBadge}${injTag}</td>
+                                    <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${estBadge}${injTag}${sanityBadge}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="gold" style="font-weight:700">$${p.csValAAdj}</td>
@@ -795,6 +797,126 @@ const Templates = {
         const color = val > 3 ? 'grn' : (val < -3 ? 'red' : 'muted');
         const sign = val >= 0 ? '+' : '';
         return `<span class="${color}" style="font-weight:700">${sign}$${val}</span>`;
+    },
+
+    /**
+     * Projection Sanity Shield — returns a short warning string if a player's
+     * stats are notably good but their CS value is suspiciously low (likely bad data).
+     * Returns null if no issue detected.
+     */
+    _getSanityWarning(p) {
+        const val = p.csValAAdj;
+        if (!val || val > 6) return null;  // only flag low-value players
+        if (p.PA > 0) {
+            if (p.HR >= 18) return `HR ${p.HR} vs only $${val}`;
+            if (p.SB >= 25) return `SB ${p.SB} vs only $${val}`;
+        }
+        if (p.IP > 0) {
+            if (p.K >= 150) return `K ${p.K} vs only $${val}`;
+            if (p.IP >= 170) return `IP ${p.IP} vs only $${val}`;
+        }
+        // Source rank vs value mismatch (any player type)
+        if (p.FTX_Rank != null && p.FTX_Rank <= 50 && val <= 4) return `FTX #${p.FTX_Rank} vs only $${val}`;
+        if (p.ecr      != null && p.ecr      <= 50 && val <= 4) return `ECR #${Math.round(p.ecr)} vs only $${val}`;
+        return null;
+    },
+
+    snakeplanner() {
+        const drafted    = effectiveDrafted();
+        const myPicks    = Object.entries(drafted)
+            .filter(([, v]) => v.team === 'me')
+            .map(([id]) => AppState.players.find(p => p.id === id))
+            .filter(Boolean);
+        const taken      = new Set(Object.keys(drafted));
+        const available  = AppState.players.filter(p => !taken.has(p.id));
+        const n          = AppState.settings.snakePlannerN || 5;
+        const totalReal  = Object.values(AppState.drafted).filter(v => !v.sim && v.team === 'me').length;
+        const totalSim   = Object.values(drafted).filter(v => v.sim && v.team === 'me').length;
+
+        // Suggested full-roster depth targets (active + bench depth)
+        const posGroups = [
+            { pos: 'C',  target: 3, label: 'C — Catcher' },
+            { pos: '1B', target: 2, label: '1B — First Base' },
+            { pos: '2B', target: 2, label: '2B — Second Base' },
+            { pos: '3B', target: 2, label: '3B — Third Base' },
+            { pos: 'SS', target: 2, label: 'SS — Shortstop' },
+            { pos: 'OF', target: 7, label: 'OF — Outfield' },
+            { pos: 'SP', target: 7, label: 'SP — Starting Pitcher' },
+            { pos: 'RP', target: 5, label: 'RP — Relief Pitcher' },
+        ];
+
+        const nButtons = [3, 5, 7, 10].map(v =>
+            `<button onclick="UI.setSnakePlannerN(${v})" style="font-size:10px;padding:2px 8px;border:1px solid ${n === v ? '#2a5080' : '#1a2a3a'};background:${n === v ? '#0a2040' : '#060e18'};color:${n === v ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${v}</button>`
+        ).join('');
+
+        const sections = posGroups.map(({ pos, target, label }) => {
+            const myAtPos   = myPicks.filter(p => p.pos.includes(pos));
+            const have      = myAtPos.length;
+            const need      = Math.max(0, target - have);
+            const statusColor = have >= target ? '#40b870' : have === 0 ? '#d04040' : '#e8c040';
+            const statusText  = have >= target ? '✓ FILLED' : `NEED ${need}`;
+
+            const topPlayers = available
+                .filter(p => p.pos.includes(pos))
+                .sort((a, b) => (b.csValAAdj || 0) - (a.csValAAdj || 0))
+                .slice(0, n);
+
+            const playerRows = topPlayers.map(p => {
+                const injBadge   = p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0;font-size:9px">INJ</span>` : '';
+                const unoffBadge = p.unofficial ? `<span class="est-badge">est</span>` : '';
+                const sanityWarn = this._getSanityWarning(p);
+                const sanityBadge = sanityWarn ? `<span class="pb" title="⚠ DATA CHECK: ${sanityWarn}" style="background:#201000;border-color:#604000;color:#c87020;font-size:9px">⚠</span>` : '';
+                const ecrStr  = p.ecr     != null ? `<span class="muted" style="font-size:10px">ECR:${Math.round(p.ecr)}</span>` : '';
+                const ftxStr  = p.FTX_Rank != null ? `<span class="muted" style="font-size:10px">FTX:${p.FTX_Rank}</span>` : '';
+                return `
+                    <div style="padding:5px 10px;border-bottom:1px solid #0a1828;display:flex;align-items:center;gap:10px">
+                        <div style="width:170px;flex-shrink:0">
+                            <div style="color:#c8d8e8;font-size:12px;font-weight:600;cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${unoffBadge}${injBadge}${sanityBadge}</div>
+                            <div style="color:#406080;font-size:10px">${p.t} · ${p.pos.join('/')}</div>
+                        </div>
+                        <div style="display:flex;gap:8px;font-size:11px;flex:1;align-items:center;flex-wrap:wrap">
+                            <span class="gold" style="font-weight:700">$${p.csValAAdj}</span>
+                            ${p.csValS ? `<span class="grn" style="font-size:10px">$${p.csValS} SZN</span>` : ''}
+                            ${ecrStr}${ftxStr}
+                            <span class="muted" style="font-size:10px">${this.formatProjections(p)}</span>
+                            ${this.formatScout(p)}
+                        </div>
+                        <button class="btn btn-go" style="font-size:10px;padding:2px 8px;flex-shrink:0" onclick="UI.openDraftModal('${p.id}')">PICK</button>
+                    </div>`;
+            }).join('');
+
+            const myNames = myAtPos.slice(0, 5)
+                .map(p => `<span style="font-size:11px;color:#7090a8">${p.n.split(' ').pop()}</span>`)
+                .join('<span style="color:#1a3050;margin:0 3px">·</span>');
+
+            return `
+                <div style="background:#060e18;border:1px solid #0a1e30;border-radius:4px;margin-bottom:10px">
+                    <div style="display:flex;align-items:center;gap:12px;padding:7px 10px;background:#0a1420;border-bottom:1px solid #0a1e30;border-radius:4px 4px 0 0;flex-wrap:wrap">
+                        <div style="font-weight:700;color:#c8d8e8;min-width:160px">${label}</div>
+                        <div style="font-size:11px;color:#7090a8">Have: <span style="color:#c8d8e8;font-weight:700">${have}</span></div>
+                        <div style="font-size:11px;color:#7090a8">Target: <span style="color:#c8d8e8">${target}</span></div>
+                        <div style="font-size:11px;font-weight:700;color:${statusColor}">${statusText}</div>
+                        ${myNames ? `<div style="margin-left:8px;flex:1">${myNames}</div>` : '<div style="flex:1"></div>'}
+                    </div>
+                    ${playerRows || `<div style="padding:10px;color:#406080;font-size:11px;font-style:italic">No available players at this position</div>`}
+                </div>`;
+        }).join('');
+
+        return `
+            <div style="padding:12px 16px;max-width:1000px">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;padding:8px 12px;background:#060e18;border:1px solid #0a1e30;border-radius:4px">
+                    <span style="font-size:11px;color:#7090a8">Top N per position:</span>
+                    <div style="display:flex;gap:4px">${nButtons}</div>
+                    <span style="margin-left:auto;font-size:11px;color:#406080">
+                        My roster: <span style="color:#c8d8e8">${totalReal} real</span>${totalSim ? ` + ${totalSim} sim` : ''} / ${LG.total} total
+                        · <span style="color:#c8d8e8">${LG.total - myPicks.length}</span> spots open
+                    </span>
+                </div>
+                <div style="font-size:10px;color:#406080;margin-bottom:10px">
+                    Targets = suggested full-roster depth including bench. Available pool excludes all drafted players.
+                </div>
+                ${sections}
+            </div>`;
     },
 
     // Shared draft log renderer used by myteam() and league().
