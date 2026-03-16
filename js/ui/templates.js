@@ -747,15 +747,22 @@ const Templates = {
         };
         const color = tierColors[tier] || '#506070';
         const t = tier ? `T${tier}·` : '';
+        const sourceFull = source === 'PL' ? 'PitcherList' : 'HitterList';
 
-        let adj = '';
+        let adj = '', adjTooltip = '';
         if (source === 'HL' && obp != null && avg != null) {
             const delta = obp - avg;
-            if (delta > 0.090)      adj = `<span style="color:#e05050;margin-left:3px;font-size:9px" title="High walker — underrated for OBP leagues">▲</span>`;
-            else if (delta < 0.055) adj = `<span style="color:#5080d0;margin-left:3px;font-size:9px" title="AVG-dependent — relatively overrated for OBP leagues">▽</span>`;
+            if (delta > 0.090) {
+                adj = `<span style="color:#e05050;margin-left:3px;font-size:9px">▲</span>`;
+                adjTooltip = ' | High walker — underrated for OBP leagues';
+            } else if (delta < 0.055) {
+                adj = `<span style="color:#5080d0;margin-left:3px;font-size:9px">▽</span>`;
+                adjTooltip = ' | AVG-dependent — relatively overrated for OBP leagues';
+            }
         }
 
-        return `<span class="pb" style="background:#0a1a0a;border-color:${color};color:${color};white-space:nowrap;font-size:10px">${source} ${t}#${rank}${adj}</span>`;
+        const tooltip = `${sourceFull}: ${tier ? 'Tier ' + tier + ' · ' : ''}Rank #${rank}${adjTooltip}`;
+        return `<span class="pb" title="${tooltip}" style="background:#0a1a0a;border-color:${color};color:${color};white-space:nowrap;font-size:10px;cursor:default">${source} ${t}#${rank}${adj}</span>`;
     },
 
     formatCloser(p) {
@@ -772,12 +779,15 @@ const Templates = {
         const c = cfg[status];
         if (!c) {
             // SVH#N fallback from article rankings
-            return `<span class="pb" style="background:#0a1a0a;border-color:#406080;color:#7090a8">${p.closerStatus}</span>`;
+            const tooltip = `CloserMonkey: ${p.closerStatus}${p.closerRank ? ' · CM rank #' + p.closerRank : ''}`;
+            return `<span class="pb" title="${tooltip}" style="background:#0a1a0a;border-color:#406080;color:#7090a8;cursor:default">${p.closerStatus}</span>`;
         }
         const label = committee ? `${c.label}*` : c.label;
         const teamTag = team ? `<span style="opacity:0.55;font-size:9px;margin-left:2px">${team}</span>` : '';
         const rankTag = p.closerRank ? `<span style="opacity:0.6;font-size:9px;margin-left:3px">#${p.closerRank}</span>` : '';
-        return `<span class="pb" style="background:#0a1a0a;border-color:${c.color};color:${c.color};white-space:nowrap">${label}${teamTag}${rankTag}</span>`;
+        const committeeNote = committee ? ' (committee)' : '';
+        const tooltip = `CloserMonkey: ${label}${committeeNote}${team ? ' · ' + team : ''}${p.closerRank ? ' · CM rank #' + p.closerRank : ''}`;
+        return `<span class="pb" title="${tooltip}" style="background:#0a1a0a;border-color:${c.color};color:${c.color};white-space:nowrap;cursor:default">${label}${teamTag}${rankTag}</span>`;
     },
 
     formatCsArb(val) {

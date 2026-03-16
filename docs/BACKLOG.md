@@ -1,77 +1,83 @@
 # Teddy Ballgame Tool Backlog
 
-This document tracks planned features and data integrity improvements for the Teddy Ballgame Fantasy Baseball Draft Tool.
+This document tracks planned features and data integrity improvements for the Teddy Ballgame Draft Tool.
 
-## 🛡 Mission Critical: Data Survival & Entry (Draft Day Essentials)
+---
+
+## ✅ Recently Completed
+
+- **Scrollable My Team & League Tracker tabs** — flex/overflow fix, draftLog moved inside scroll region
+- **Name search filter** on My Team and League Tracker tabs
+- **Share URL fix** — shared state now loads after players are populated (was always empty)
+- **Sleeper filter (VALUE COMPARE)** — SLEEPERS ONLY button; bidirectional FTX▲/ECR▲/CS▲ source badges
+- **Edit auction picks correctly** — cost field forced visible when editing a pick that has cost > 0
+- **UNDRAFT button** in draft modal when editing an existing pick
+- **SCOUT badge hover tooltips** — `title` attribute on PL/HL/CM badges (Tier, Rank, source info)
+- **CloserMonkey rank in badge** — CM_Rank auto-derived from row order in rp_rankings.csv
+- **FTX ghost-entry fix** — bake_assets.py now skips zero-score/rank>1000 duplicate rows; keeps best rank per name collision
+- **Snake Order tab** — set draft order, current-pick banner, 14-round snake board
+- **Unified sim/real picks** — sim picks in same AppState.drafted with sim:true flag; editable like real picks
+
+---
+
+## 🛡 Mission Critical: Data Survival (Draft Day Essentials)
 
 ### Draft Undo / History
-- **Concept**: A quick way to revert the last pick or view a history of all logged picks.
-- **Value**: Prevents corrupting the state with a typo during the fast-paced auction.
+- **Concept**: Revert the last pick, or view a log of all picks in reverse order.
+- **Value**: Prevents corrupting state during the fast-paced auction. Currently picks can be edited one at a time but there's no bulk undo.
 
 ### Fantrax Console Recovery Script
-- **Concept**: A small JavaScript snippet you paste into the Fantrax "Team Rosters" console to export current rosters as JSON.
-- **Value**: A "Break Glass" feature to instantly restore the tool's state if browser data is ever lost.
-
-### Automated Cloud-Packed Sharing
-- **Concept**: Further harden the Bit-Packed link generator.
-- **Value**: Keep a second "Hot Standby" browser open on another device in case of a crash.
+- **Concept**: A JS snippet to paste into the Fantrax "Team Rosters" browser console to export current rosters as JSON that can be imported back into the tool.
+- **Value**: "Break Glass" feature to restore state if browser data is ever lost during the draft.
 
 ### Periodic Auto-Backup
-- **Concept**: Automatically trigger a JSON configuration download every 10 picks.
-- **Value**: Ensures a local hard-copy of the draft progress exists on your hard drive.
+- **Concept**: Automatically trigger a JSON export every N picks (configurable, e.g. every 10).
+- **Value**: Local hard-copy of draft progress on your hard drive as insurance.
 
 ---
 
 ## 🛡 Data Quality & Integrity (High Priority)
 
-### Market Price Validation (Discordance Red Flags)
-- **Concept**: Flag players (🚩) where our custom Z-Score/Cheat Sheet value disagrees with the market (ECR/ESPN Auction $) by more than 50%.
-- **Goal**: Spot "Bad Data Traps" or identify extreme "Arbitrage Steals" during the draft.
-
-### Match Confidence Score (🟢/🟡/🔴)
-- **Concept**: Add a confidence indicator to each player row based on successful ID mapping across multiple sources (ESPN, ECR, Steamer).
-- **Goal**: Instantly identify which player valuations are most "vetted" versus potentially buggy name-matches.
-
 ### Projection Sanity Shield
-- **Concept**: Automated flagging of impossible projections (e.g., >750 PA, >220 IP, or elite stats with a $0 valuation).
+- **Concept**: Flag players where stats are good but CS value is wildly low (e.g. Will Smith C at $2 with 18 HR). Already partially addressed by the sleeper badge system, but a dedicated audit script would help.
 - **Goal**: Prevent drafting based on spreadsheet glitches.
 
----
+### Market Price Validation (Red Flags)
+- **Concept**: Flag players (🚩) where CS value disagrees with market (ECR/ESPN $) by >50%.
+- **Goal**: Spot "Bad Data Traps" or extreme "Arbitrage Steals" during the draft.
 
-## 📈 Dashboard & Visualization (v1.6.0)
-
-### Relative Category Standings
-- **Concept**: Recalibrate the "My Team" progress bars to be **Relative to the League Leader** for each category.
-- **Goal**: Instead of fixed maximums, show where your team sits in the *distribution* of all 10 teams.
-
-### SCOUT Badge Hover Tooltips
-- **Concept**: Add mouseover tooltips to the unified SCOUT badge.
-- **Content**: Show raw Tier, Rank, and Status from the source (PitcherList, CloserMonkey, HitterList).
+### Match Confidence Score (🟢/🟡/🔴)
+- **Concept**: Indicator per player row showing how many sources successfully matched (ESPN, ECR, FTX, Steamer).
+- **Goal**: Instantly see which valuations are well-vetted vs potentially buggy.
 
 ---
 
-## 🐍 Draft Strategy Tools
+## 📈 Dashboard & Visualization
+
+### Relative Category Standings (My Team)
+- **Concept**: Recalibrate the "My Team" progress bars to show where your team sits **relative to the league leader** for each category, not just a fixed max.
+- **Goal**: Know at a glance if you're leading in HR or getting crushed in SB.
 
 ### Snake Draft Planner
-- **Concept**: A dedicated tab that identifies remaining roster needs (e.g., "Need 2 OF, 1 SP") and suggests the **Top 3 Best Value** available players for those specific empty slots.
-- **Goal**: Seamless transition from the high-stakes auction into the late-round snake.
+- **Concept**: The Snake tab identifies remaining roster needs (e.g., "Need 2 OF, 1 SP") and suggests the **Top 3 best-value** available players for those slots.
+- **Goal**: Seamless transition from the high-stakes auction into late-round snake picks.
 
 ---
 
-## 🏟 Post-Draft & Season Management (v2.0.0)
+## 🏟 Post-Draft & Season Management (v2.0)
 
-### Trade Analyzer (The "What-If" Mode)
+### Trade Analyzer ("What-If" Mode)
 - **Concept**: Swap players between teams and see the immediate impact on projected Roto standings.
-- **Goal**: Win every trade by knowing exactly how many points it gains you in the standings.
+- **Goal**: Win every trade by knowing exactly how many standing points it gains/loses.
 
 ---
 
 ## 📊 New Data Sources
 
 ### Statcast Integration (Baseball Savant)
-- **Points**: Add "Expected Stats" (xBA, xSLG, Hard Hit %).
-- **Goal**: Identify "Bad Luck" players who are prime buy-low candidates mid-season.
+- **Concept**: Add Expected Stats (xBA, xSLG, Hard Hit %) to the player detail/injury modal.
+- **Goal**: Identify "bad luck" players who are prime buy-low candidates.
 
 ### Baseball Prospectus (PECOTA)
-- **Points**: Incorporate BP valuations into the "Market Weighted Consensus Value."
-- **Goal**: Reach the ultimate "Market Intelligence" by blending Steamer, PECOTA, and our Z-Scores.
+- **Concept**: Incorporate PECOTA valuations alongside Steamer and our Z-scores.
+- **Goal**: Blended "Market Intelligence" consensus value.

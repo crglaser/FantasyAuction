@@ -84,6 +84,10 @@ def bake(players):
         matched = 0
         skipped = []
 
+        # Auto-derive CM_Rank from row order when CSV has CM_Role but no explicit CM_Rank
+        auto_cm_rank = 'CM_Role' in fields and 'CM_Rank' not in fields
+        cm_rank_counter = 0
+
         for row in reader:
             raw = (row.get('Name') or '').strip()
             if not raw or raw.startswith('#'):
@@ -108,6 +112,13 @@ def bake(players):
                 except ValueError:
                     merged[pid][field] = val
                 all_fields.add(field)
+
+            # Auto-assign CM_Rank from row position (CSV is in CloserMonkey rank order)
+            if auto_cm_rank and (row.get('CM_Role') or '').strip():
+                cm_rank_counter += 1
+                merged[pid]['CM_Rank'] = cm_rank_counter
+                all_fields.add('CM_Rank')
+
             if merged.get(pid):  # only count if at least one field had a value
                 matched += 1
             elif pid in merged and not merged[pid]:
