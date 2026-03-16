@@ -68,10 +68,11 @@ const Templates = {
                             const rowCls = (isMe && !isSim ? 'mine' : '') + (dr ? ' drafted' : '') + (p.csArb > 3 && !dr ? ' aup' : '') + (p.csArb < -3 && !dr ? ' adn' : '');
                             const injNews = InjuryManager.getLatestFor(p.id);
                             const hasNote = !!AppState.playerNotes[p.id];
-                            const injTag = p.inj
-                                ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>`
-                                : (injNews ? `<span class="pb" style="background:#102010;border-color:#205020;color:#80c880">NEWS</span>`
-                                : (hasNote ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : ''));
+                            const injTag = [
+                                p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0">${injNews?.isNew ? 'INJ!' : 'INJ'}${hasNote ? '*' : ''}</span>` : '',
+                                injNews ? `<span class="pb" style="background:#102010;border-color:#205020;color:#80c880">NEWS</span>` : '',
+                                (!p.inj && !injNews && hasNote) ? `<span class="pb" style="background:#101828;border-color:#1a3050;color:#7090a8">NOTE</span>` : '',
+                            ].join('');
                             const unofficialClass = p.unofficial ? ' unofficial-est' : '';
                             const estBadge = p.unofficial ? '<span class="est-badge">est</span>' : '';
                             const sanityWarn = this._getSanityWarning(p);
@@ -824,6 +825,12 @@ const Templates = {
                     <label style="display:flex;gap:5px;align-items:center;cursor:pointer">
                         <input type="checkbox" ${ui.hideSubRep?'checked':''} onchange="AppState.ui.hideSubRep=this.checked;UI.render()">
                         <span class="lbl">Hide Sub-Rep</span>
+                    </label>
+                </div>
+                <div class="ctrl">
+                    <label style="display:flex;gap:5px;align-items:center;cursor:pointer">
+                        <input type="checkbox" ${ui.hideInjured?'checked':''} onchange="AppState.ui.hideInjured=this.checked;UI.render()">
+                        <span class="lbl">Hide Injured</span>
                     </label>
                 </div>
                 <button class="btn" style="margin-left:auto" onclick="document.getElementById('rulesModal').classList.add('open')">RULES</button>
