@@ -63,7 +63,7 @@ const Templates = {
                         </tr>
                     </thead>
                     <tbody>
-                        ${players.map(p => {
+                        ${players.map((p, fi) => {
                             const dr = drafted[p.id];
                             const isSim = dr?.sim;
                             const isMe = dr?.team === 'me';
