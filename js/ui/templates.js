@@ -680,6 +680,54 @@ const Templates = {
                 `}
             </div>`;
 
+        // Best Available by position
+        const scoutOnly  = AppState.ui.snakeScoutOnly !== false; // default true
+        const taken      = new Set(Object.keys(effectiveDrafted()));
+        const POS_GROUPS = ['C','1B','2B','SS','3B','OF','SP','RP'];
+        const N_BEST     = AppState.settings.snakePlannerN || 5;
+        let available    = AppState.players.filter(p => !taken.has(p.id) && (p.csValS || 0) > 0);
+        if (scoutOnly) available = available.filter(p => p.CM_Role || p.PL_Rank || p.HL_Rank);
+
+        const bestAvailHtml = `
+            <div style="margin-bottom:12px">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+                    <div style="font-size:11px;font-weight:700;color:#7090a8;letter-spacing:1px">BEST AVAILABLE</div>
+                    <button onclick="AppState.ui.snakeScoutOnly=!AppState.ui.snakeScoutOnly;UI.render()"
+                        style="font-size:10px;padding:2px 10px;border:1px solid ${scoutOnly ? '#2a6040' : '#2a3a50'};background:${scoutOnly ? '#0a2818' : '#060e18'};color:${scoutOnly ? '#40b870' : '#406080'};cursor:pointer;border-radius:2px;font-weight:700">
+                        ${scoutOnly ? '★ SCOUT ONLY' : '· ALL PLAYERS'}
+                    </button>
+                    <span style="font-size:10px;color:#2a4060">${scoutOnly ? 'CM/PL/HL ranked players only' : 'showing all available'}</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+                    ${POS_GROUPS.map(pos => {
+                        const group = available
+                            .filter(p => p.pos.includes(pos))
+                            .sort((a, b) => (b.csValS || 0) - (a.csValS || 0))
+                            .slice(0, N_BEST);
+                        return `
+                            <div style="background:#060e18;border:1px solid #0a1e30;border-radius:4px">
+                                <div style="padding:5px 8px;background:#0a1420;border-bottom:1px solid #0a1e30;font-size:10px;font-weight:700;color:#7090a8;letter-spacing:1px">${pos}</div>
+                                ${group.length === 0
+                                    ? `<div style="padding:8px;font-size:10px;color:#2a4060;font-style:italic">none scouted</div>`
+                                    : group.map(p => {
+                                        const injBadge = p.inj ? `<span style="font-size:9px;color:#f0a0a0"> INJ</span>` : '';
+                                        return `<div style="padding:4px 8px;border-bottom:1px solid #080f1a;display:flex;align-items:center;gap:6px;cursor:pointer" onclick="UI.openDraftModal('${p.id}')">
+                                            <div style="flex:1;min-width:0">
+                                                <div style="font-size:11px;color:#c8d8e8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.n}${injBadge}</div>
+                                                <div style="font-size:9px;color:#406080">${p.t}</div>
+                                            </div>
+                                            <div style="flex-shrink:0;text-align:right">
+                                                <div style="font-size:11px;color:#40b870;font-weight:700">$${p.csValS}</div>
+                                                <div style="font-size:9px">${this.formatScout(p)}</div>
+                                            </div>
+                                        </div>`;
+                                    }).join('')
+                                }
+                            </div>`;
+                    }).join('')}
+                </div>
+            </div>`;
+
         // Snake board grid
         const boardHtml = isOrderSet ? `
             <div style="font-size:11px;font-weight:700;color:#7090a8;letter-spacing:1px;margin-bottom:6px">SNAKE BOARD</div>
@@ -729,6 +777,7 @@ const Templates = {
             <div style="padding:12px 16px;max-width:1200px">
                 ${orderSetup}
                 ${banner}
+                ${bestAvailHtml}
                 ${boardHtml}
             </div>`;
     },
