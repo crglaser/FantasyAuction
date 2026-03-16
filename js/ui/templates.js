@@ -339,6 +339,28 @@ const Templates = {
             return `<div class="bar-bg" title="Rank ${rank}/${allTeams.length} in league"><div class="bar-fill" style="width:${pct}%;background:${c}"></div></div>`;
         };
 
+        const fmtCatVal = (cat, v) => {
+            if (cat === 'OBP') return v.toFixed(3);
+            if (cat === 'ERA' || cat === 'WHIP') return v.toFixed(2);
+            return Math.round(v);
+        };
+
+        const catBreakdown = (cat, inv=false) => {
+            if (AppState.ui.catExpanded !== cat) return '';
+            const vals = lgCats[cat];
+            const pairs = allTeams.map((tid, i) => ({tid, name: LG.teamsMap[tid]?.team || tid, val: vals[i]}));
+            pairs.sort((a, b) => inv ? a.val - b.val : b.val - a.val);
+            return `<div style="margin-top:6px;border-top:1px solid #1a3050;padding-top:5px">
+                ${pairs.map((p, i) => `
+                    <div style="display:flex;justify-content:space-between;padding:1px 2px;font-size:10px;
+                        color:${p.tid===viewTeam?'#90c8f0':i===0?'#40b870':'#4a6a8a'};
+                        font-weight:${p.tid===viewTeam?'700':'400'}">
+                        <span>${i+1}. ${p.name}</span>
+                        <span>${fmtCatVal(cat, p.val)}</span>
+                    </div>`).join('')}
+            </div>`;
+        };
+
         const teamSelector = `
             <div style="display:flex;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-wrap:wrap">
                 ${Object.entries(LG.teamsMap).map(([tid, info]) => {
@@ -376,18 +398,18 @@ const Templates = {
                             <div class="stat-card"><div class="sclbl">Projected IP</div><div class="scval">${Math.round(projIP)}</div>${bar(projIP, LG.minIP)}</div>
                             <div class="stat-card"><div class="sclbl">H/P Split</div><div class="scval">${hitters.length}/${pitchers.length}</div></div>
                         </div>
-                        <div class="cat-hdr">PROJECTED CATEGORY TOTALS</div>
+                        <div class="cat-hdr">PROJECTED CATEGORY TOTALS <span style="font-size:9px;opacity:0.4;font-weight:400">click to compare</span></div>
                         <div class="cat-grid">
-                            <div class="cat-card"><div class="ccat">HR</div><div class="cval">${HR.toFixed(0)}</div>${lgBar(HR, 'HR')}</div>
-                            <div class="cat-card"><div class="ccat">SB</div><div class="cval">${SB.toFixed(0)}</div>${lgBar(SB, 'SB')}</div>
-                            <div class="cat-card"><div class="ccat">XBH</div><div class="cval">${XBH.toFixed(0)}</div>${lgBar(XBH, 'XBH')}</div>
-                            <div class="cat-card"><div class="ccat">OBP</div><div class="cval">${tOBP.toFixed(3)}</div>${lgBar(tOBP, 'OBP')}</div>
-                            <div class="cat-card"><div class="ccat">RP</div><div class="cval">${RP.toFixed(0)}</div>${lgBar(RP, 'RP')}</div>
-                            <div class="cat-card"><div class="ccat">K</div><div class="cval">${K.toFixed(0)}</div>${lgBar(K, 'K')}</div>
-                            <div class="cat-card"><div class="ccat">W</div><div class="cval">${W.toFixed(0)}</div>${lgBar(W, 'W')}</div>
-                            <div class="cat-card"><div class="ccat">ERA</div><div class="cval">${tERA.toFixed(2)}</div>${lgBar(tERA, 'ERA', true)}</div>
-                            <div class="cat-card"><div class="ccat">SVH</div><div class="cval">${SVH.toFixed(0)}</div>${lgBar(SVH, 'SVH')}</div>
-                            <div class="cat-card"><div class="ccat">WHIP</div><div class="cval">${tWHIP.toFixed(2)}</div>${lgBar(tWHIP, 'WHIP', true)}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='HR'?null:'HR';UI.render()"><div class="ccat">HR</div><div class="cval">${HR.toFixed(0)}</div>${lgBar(HR,'HR')}${catBreakdown('HR')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='SB'?null:'SB';UI.render()"><div class="ccat">SB</div><div class="cval">${SB.toFixed(0)}</div>${lgBar(SB,'SB')}${catBreakdown('SB')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='XBH'?null:'XBH';UI.render()"><div class="ccat">XBH</div><div class="cval">${XBH.toFixed(0)}</div>${lgBar(XBH,'XBH')}${catBreakdown('XBH')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='OBP'?null:'OBP';UI.render()"><div class="ccat">OBP</div><div class="cval">${tOBP.toFixed(3)}</div>${lgBar(tOBP,'OBP')}${catBreakdown('OBP')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='RP'?null:'RP';UI.render()"><div class="ccat">RP</div><div class="cval">${RP.toFixed(0)}</div>${lgBar(RP,'RP')}${catBreakdown('RP')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='K'?null:'K';UI.render()"><div class="ccat">K</div><div class="cval">${K.toFixed(0)}</div>${lgBar(K,'K')}${catBreakdown('K')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='W'?null:'W';UI.render()"><div class="ccat">W</div><div class="cval">${W.toFixed(0)}</div>${lgBar(W,'W')}${catBreakdown('W')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='ERA'?null:'ERA';UI.render()"><div class="ccat">ERA</div><div class="cval">${tERA.toFixed(2)}</div>${lgBar(tERA,'ERA',true)}${catBreakdown('ERA',true)}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='SVH'?null:'SVH';UI.render()"><div class="ccat">SVH</div><div class="cval">${SVH.toFixed(0)}</div>${lgBar(SVH,'SVH')}${catBreakdown('SVH')}</div>
+                            <div class="cat-card" style="cursor:pointer" onclick="AppState.ui.catExpanded=AppState.ui.catExpanded==='WHIP'?null:'WHIP';UI.render()"><div class="ccat">WHIP</div><div class="cval">${tWHIP.toFixed(2)}</div>${lgBar(tWHIP,'WHIP',true)}${catBreakdown('WHIP',true)}</div>
                         </div>
                     </div>
                 </div>
