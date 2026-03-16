@@ -57,6 +57,13 @@ This document tracks planned features and data integrity improvements for the Te
 - **Value**: Standings projections become believable — teams that overspend on studs run dry late, producing realistic roster imbalances.
 - **Current state**: Round-robin best-available with no budget enforcement.
 
+### Historical Draft Intelligence — Team Styles & Price Prediction
+- **Concept**: Import prior year(s) draft results (player, final price, team) and derive behavioral profiles per team. Two outputs: (1) **Team style cards** — e.g. "Barry tends to overpay for closers, underspends on OF, goes stars-and-scrubs"; (2) **Price prediction** — given a player's CS value and position, estimate what they'll actually go for based on historical closing prices vs. projected values.
+- **Data needed**: Past auction results CSV (player, cost, team). Fantrax may export this, or it could be manually entered once.
+- **Value**: Knowing Brian overbids on SPs by 20% on average is a real edge — you can let him have them and redirect budget. Price prediction turns "this guy is worth $24" into "this guy will probably go for $31 in this room."
+- **AI angle**: Historical patterns + current roster construction of each team = rich context for the AI advisor to give live auction advice ("Barry still needs a closer and has $60 left — expect him to go high on Miller").
+- **Connects to**: Realistic Draft Simulation (feed team style profiles into the sim for more accurate opponent behavior).
+
 ### Nomination Queue / Watch List
 - **Concept**: Mark players as "want to nominate" or "watching" with a priority order. Surface as a sidebar or dedicated view during the draft.
 - **Value**: In the chaos of a live auction you lose track of which players to nominate next. A queue lets you plan 3–4 nominations ahead.
