@@ -87,7 +87,7 @@ const Templates = {
                                     <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${estBadge}${injTag}${sanityBadge}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td class="gold" style="font-weight:700">$${p.csValA}</td>
+                                    <td>${this.formatAucVal(p.csValA)}</td>
                                     ${vis('csValAAdj')    ? `<td class="mono muted" style="font-size:11px">$${p.csValAAdj}</td>` : ''}
                                     ${vis('csValS')       ? `<td class="grn">$${p.csValS}</td>` : ''}
                                     ${vis('csArb')        ? `<td>${this.formatCsArb(p.csArb)}</td>` : ''}
@@ -138,7 +138,7 @@ const Templates = {
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td class="grn" style="font-weight:700">$${p.csValS}</td>
-                                    <td class="gold">$${p.csValA}</td>
+                                    <td>${this.formatAucVal(p.csValA)}</td>
                                     <td>${this.formatCsArb(p.csArb)}</td>
                                     <td class="mono muted" style="font-size:10px">${this.formatProjections(p)}</td>
                                 </tr>
@@ -260,7 +260,7 @@ const Templates = {
                                     <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${injBadge}${sourceTags}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
-                                    <td class="gold" style="font-weight:700">$${p.csValA}</td>
+                                    <td>${this.formatAucVal(p.csValA)}</td>
                                     ${vis('arb_season')  ? `<td class="grn" style="font-size:11px">$${p.csValS}</td>` : ''}
                                     ${vis('arb_ftxrank') ? `<td class="mono muted" style="font-size:10px">${p.FTX_Rank ?? '—'}</td>` : ''}
                                     ${vis('arb_rkdelta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${rkColor}">${ftxRkDelta != null ? (ftxRkDelta > 0 ? '+' : '') + ftxRkDelta : '—'}</td>` : ''}
@@ -877,6 +877,12 @@ const Templates = {
         const committeeNote = committee ? ' (committee)' : '';
         const tooltip = `CloserMonkey: ${label}${committeeNote}${team ? ' · ' + team : ''}${p.closerRank ? ' · CM rank #' + p.closerRank : ''}`;
         return `<span class="pb" title="${tooltip}" style="background:#0a1a0a;border-color:${c.color};color:${c.color};white-space:nowrap;cursor:default">${label}${teamTag}${rankTag}</span>`;
+    },
+
+    formatAucVal(val) {
+        if (val == null) return '—';
+        if (val < 0) return `<span style="color:#d04040;font-weight:700">$${val}</span>`;
+        return `<span class="gold" style="font-weight:700">$${val}</span>`;
     },
 
     formatCsArb(val) {
