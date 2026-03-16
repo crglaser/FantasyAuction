@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.5.1';
+const APP_VERSION = '1.5.2';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -57,6 +57,7 @@ let AppState = {
         snakeCutoff: 150,
         backupInterval: 10,  // Auto-backup every N real picks (0 = disabled)
         snakePlannerN: 5,    // Top N players per position in snake planner
+        rosterTargets: {},   // Per-position target overrides for Roster Scout
         weights: {
             HR: 1, SB: 1, XBH: 1, OBP: 1, RP: 1,
             K: 1, W: 1, ERA: 1, SVH: 1, WHIP: 1

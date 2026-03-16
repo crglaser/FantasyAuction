@@ -289,10 +289,44 @@ const Templates = {
         pitchers.forEach(p => { K+=p.K; W+=p.W; ERAw+=p.ERA*p.IP; SVH+=p.SVH; WHIPw+=p.WHIP*p.IP; IPw+=p.IP; });
         const tOBP = PAw ? OBPw/PAw : 0, tERA = IPw ? ERAw/IPw : 0, tWHIP = IPw ? WHIPw/IPw : 0;
 
-        const bar = (v, max, inv=false) => {
-            const pct = max ? Math.min(100, inv ? (1 - Math.min(v, max) / max) * 100 : (v / max) * 100) : 0;
+        // Compute category totals for ALL teams so bars reflect league-relative standing
+        const allTeams = Object.keys(LG.teamsMap);
+        const lgCats = {};
+        ['HR','SB','XBH','OBP','RP','K','W','ERA','SVH','WHIP'].forEach(cat => { lgCats[cat] = []; });
+        allTeams.forEach(tid => {
+            const tp = Object.entries(effectiveDrafted()).filter(([,v]) => v.team === tid)
+                .map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
+            const tH = tp.filter(p => p.PA > 0), tP = tp.filter(p => p.IP > 0);
+            let tPAw=0,tOBPw=0,tIPw=0,tERAw=0,tWHIPw=0;
+            tH.forEach(p => { tPAw+=p.PA; tOBPw+=p.OBP*p.PA; });
+            tP.forEach(p => { tIPw+=p.IP; tERAw+=p.ERA*p.IP; tWHIPw+=p.WHIP*p.IP; });
+            lgCats.HR.push(tH.reduce((s,p)=>s+p.HR,0));
+            lgCats.SB.push(tH.reduce((s,p)=>s+p.SB,0));
+            lgCats.XBH.push(tH.reduce((s,p)=>s+p.XBH,0));
+            lgCats.OBP.push(tPAw ? tOBPw/tPAw : 0);
+            lgCats.RP.push(tH.reduce((s,p)=>s+p.RP,0));
+            lgCats.K.push(tP.reduce((s,p)=>s+p.K,0));
+            lgCats.W.push(tP.reduce((s,p)=>s+p.W,0));
+            lgCats.ERA.push(tIPw ? tERAw/tIPw : 0);
+            lgCats.SVH.push(tP.reduce((s,p)=>s+p.SVH,0));
+            lgCats.WHIP.push(tIPw ? tWHIPw/tIPw : 0);
+        });
+
+        // bar(v, cat, inv): position v within the league distribution for cat
+        const bar = (v, maxFixed, inv=false) => {
+            const pct = maxFixed ? Math.min(100, inv ? (1 - Math.min(v, maxFixed) / maxFixed) * 100 : (v / maxFixed) * 100) : 0;
             const c = pct > 66 ? '#40b870' : (pct > 33 ? '#e8c040' : '#d04040');
             return `<div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${c}"></div></div>`;
+        };
+        const lgBar = (v, cat, inv=false) => {
+            const vals = lgCats[cat];
+            const min = Math.min(...vals), max = Math.max(...vals), range = max - min || 1;
+            const pct = Math.min(100, Math.max(0, inv ? (1-(v-min)/range)*100 : (v-min)/range*100));
+            const c = pct > 66 ? '#40b870' : (pct > 33 ? '#e8c040' : '#d04040');
+            const rank = [...vals].sort((a,b) => inv ? a-b : b-a).indexOf(
+                [...vals].sort((a,b) => inv ? a-b : b-a).find(x => Math.abs(x-v) < 0.0001) ?? v
+            ) + 1;
+            return `<div class="bar-bg" title="Rank ${rank}/${allTeams.length} in league"><div class="bar-fill" style="width:${pct}%;background:${c}"></div></div>`;
         };
 
         const teamSelector = `
@@ -310,7 +344,7 @@ const Templates = {
             <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
             ${teamSelector}
             <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0">
-                <input type="text" placeholder="Filter roster…" value="${AppState.ui.myteamSearch || ''}"
+                <input type="text" id="myteamSearchInput" placeholder="Filter roster…" value="${AppState.ui.myteamSearch || ''}"
                     oninput="AppState.ui.myteamSearch=this.value;UI.render()"
                     style="background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:3px 8px;font-size:11px;width:180px">
             </div>
@@ -334,16 +368,16 @@ const Templates = {
                         </div>
                         <div class="cat-hdr">PROJECTED CATEGORY TOTALS</div>
                         <div class="cat-grid">
-                            <div class="cat-card"><div class="ccat">HR</div><div class="cval">${HR.toFixed(0)}</div>${bar(HR, 200)}</div>
-                            <div class="cat-card"><div class="ccat">SB</div><div class="cval">${SB.toFixed(0)}</div>${bar(SB, 150)}</div>
-                            <div class="cat-card"><div class="ccat">XBH</div><div class="cval">${XBH.toFixed(0)}</div>${bar(XBH, 200)}</div>
-                            <div class="cat-card"><div class="ccat">OBP</div><div class="cval">${tOBP.toFixed(3)}</div>${bar(tOBP, 0.380)}</div>
-                            <div class="cat-card"><div class="ccat">RP</div><div class="cval">${RP.toFixed(0)}</div>${bar(RP, 1500)}</div>
-                            <div class="cat-card"><div class="ccat">K</div><div class="cval">${K.toFixed(0)}</div>${bar(K, 1400)}</div>
-                            <div class="cat-card"><div class="ccat">W</div><div class="cval">${W.toFixed(0)}</div>${bar(W, 90)}</div>
-                            <div class="cat-card"><div class="ccat">ERA</div><div class="cval">${tERA.toFixed(2)}</div>${bar(tERA, 4.5, true)}</div>
-                            <div class="cat-card"><div class="ccat">SVH</div><div class="cval">${SVH.toFixed(0)}</div>${bar(SVH, 130)}</div>
-                            <div class="cat-card"><div class="ccat">WHIP</div><div class="cval">${tWHIP.toFixed(2)}</div>${bar(tWHIP, 1.4, true)}</div>
+                            <div class="cat-card"><div class="ccat">HR</div><div class="cval">${HR.toFixed(0)}</div>${lgBar(HR, 'HR')}</div>
+                            <div class="cat-card"><div class="ccat">SB</div><div class="cval">${SB.toFixed(0)}</div>${lgBar(SB, 'SB')}</div>
+                            <div class="cat-card"><div class="ccat">XBH</div><div class="cval">${XBH.toFixed(0)}</div>${lgBar(XBH, 'XBH')}</div>
+                            <div class="cat-card"><div class="ccat">OBP</div><div class="cval">${tOBP.toFixed(3)}</div>${lgBar(tOBP, 'OBP')}</div>
+                            <div class="cat-card"><div class="ccat">RP</div><div class="cval">${RP.toFixed(0)}</div>${lgBar(RP, 'RP')}</div>
+                            <div class="cat-card"><div class="ccat">K</div><div class="cval">${K.toFixed(0)}</div>${lgBar(K, 'K')}</div>
+                            <div class="cat-card"><div class="ccat">W</div><div class="cval">${W.toFixed(0)}</div>${lgBar(W, 'W')}</div>
+                            <div class="cat-card"><div class="ccat">ERA</div><div class="cval">${tERA.toFixed(2)}</div>${lgBar(tERA, 'ERA', true)}</div>
+                            <div class="cat-card"><div class="ccat">SVH</div><div class="cval">${SVH.toFixed(0)}</div>${lgBar(SVH, 'SVH')}</div>
+                            <div class="cat-card"><div class="ccat">WHIP</div><div class="cval">${tWHIP.toFixed(2)}</div>${lgBar(tWHIP, 'WHIP', true)}</div>
                         </div>
                     </div>
                 </div>
@@ -408,7 +442,7 @@ const Templates = {
             <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
             ${teamFilterBar}
             <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0">
-                <input type="text" placeholder="Filter players…" value="${AppState.ui.leagueSearch || ''}"
+                <input type="text" id="leagueSearchInput" placeholder="Filter players…" value="${AppState.ui.leagueSearch || ''}"
                     oninput="AppState.ui.leagueSearch=this.value;UI.render()"
                     style="background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:3px 8px;font-size:11px;width:180px">
             </div>
@@ -883,41 +917,46 @@ const Templates = {
         const totalReal  = Object.values(AppState.drafted).filter(v => !v.sim && v.team === 'me').length;
         const totalSim   = Object.values(drafted).filter(v => v.sim && v.team === 'me').length;
 
-        // Suggested full-roster depth targets (active + bench depth)
+        // Default depth targets; user overrides stored in settings.rosterTargets
+        const DEFAULTS = { C: 3, '1B': 2, '2B': 2, '3B': 2, SS: 2, OF: 7, SP: 7, RP: 5 };
+        const overrides = AppState.settings.rosterTargets || {};
         const posGroups = [
-            { pos: 'C',  target: 3, label: 'C — Catcher' },
-            { pos: '1B', target: 2, label: '1B — First Base' },
-            { pos: '2B', target: 2, label: '2B — Second Base' },
-            { pos: '3B', target: 2, label: '3B — Third Base' },
-            { pos: 'SS', target: 2, label: 'SS — Shortstop' },
-            { pos: 'OF', target: 7, label: 'OF — Outfield' },
-            { pos: 'SP', target: 7, label: 'SP — Starting Pitcher' },
-            { pos: 'RP', target: 5, label: 'RP — Relief Pitcher' },
-        ];
+            { pos: 'C',  label: 'C — Catcher' },
+            { pos: '1B', label: '1B — First Base' },
+            { pos: '2B', label: '2B — Second Base' },
+            { pos: '3B', label: '3B — Third Base' },
+            { pos: 'SS', label: 'SS — Shortstop' },
+            { pos: 'OF', label: 'OF — Outfield' },
+            { pos: 'SP', label: 'SP — Starting Pitcher' },
+            { pos: 'RP', label: 'RP — Relief Pitcher' },
+        ].map(g => ({ ...g, target: overrides[g.pos] ?? DEFAULTS[g.pos] }));
+
+        // Compute all data per position once (used by both main sections and sidebar)
+        const posData = posGroups.map(({ pos, target, label }) => {
+            const myAtPos    = myPicks.filter(p => p.pos.includes(pos));
+            const have       = myAtPos.length;
+            const need       = Math.max(0, target - have);
+            const topPlayers = available
+                .filter(p => p.pos.includes(pos))
+                .sort((a, b) => (b.csValAAdj || 0) - (a.csValAAdj || 0))
+                .slice(0, n);
+            return { pos, target, label, have, need, myAtPos, topPlayers };
+        });
 
         const nButtons = [3, 5, 7, 10].map(v =>
             `<button onclick="UI.setSnakePlannerN(${v})" style="font-size:10px;padding:2px 8px;border:1px solid ${n === v ? '#2a5080' : '#1a2a3a'};background:${n === v ? '#0a2040' : '#060e18'};color:${n === v ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${v}</button>`
         ).join('');
 
-        const sections = posGroups.map(({ pos, target, label }) => {
-            const myAtPos   = myPicks.filter(p => p.pos.includes(pos));
-            const have      = myAtPos.length;
-            const need      = Math.max(0, target - have);
+        const sections = posData.map(({ target, label, have, need, myAtPos, topPlayers }) => {
             const statusColor = have >= target ? '#40b870' : have === 0 ? '#d04040' : '#e8c040';
             const statusText  = have >= target ? '✓ FILLED' : `NEED ${need}`;
-
-            const topPlayers = available
-                .filter(p => p.pos.includes(pos))
-                .sort((a, b) => (b.csValAAdj || 0) - (a.csValAAdj || 0))
-                .slice(0, n);
-
-            const playerRows = topPlayers.map(p => {
-                const injBadge   = p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0;font-size:9px">INJ</span>` : '';
-                const unoffBadge = p.unofficial ? `<span class="est-badge">est</span>` : '';
-                const sanityWarn = this._getSanityWarning(p);
+            const playerRows  = topPlayers.map(p => {
+                const injBadge    = p.inj ? `<span class="pb" style="background:#401010;border-color:#802020;color:#f0a0a0;font-size:9px">INJ</span>` : '';
+                const unoffBadge  = p.unofficial ? `<span class="est-badge">est</span>` : '';
+                const sanityWarn  = this._getSanityWarning(p);
                 const sanityBadge = sanityWarn ? `<span class="pb" title="⚠ DATA CHECK: ${sanityWarn}" style="background:#201000;border-color:#604000;color:#c87020;font-size:9px">⚠</span>` : '';
-                const ecrStr  = p.ecr     != null ? `<span class="muted" style="font-size:10px">ECR:${Math.round(p.ecr)}</span>` : '';
-                const ftxStr  = p.FTX_Rank != null ? `<span class="muted" style="font-size:10px">FTX:${p.FTX_Rank}</span>` : '';
+                const ecrStr      = p.ecr      != null ? `<span class="muted" style="font-size:10px">ECR:${Math.round(p.ecr)}</span>` : '';
+                const ftxStr      = p.FTX_Rank != null ? `<span class="muted" style="font-size:10px">FTX:${p.FTX_Rank}</span>` : '';
                 return `
                     <div style="padding:5px 10px;border-bottom:1px solid #0a1828;display:flex;align-items:center;gap:10px">
                         <div style="width:170px;flex-shrink:0">
@@ -952,6 +991,45 @@ const Templates = {
                 </div>`;
         }).join('');
 
+        // Right sidebar: position summary with editable targets
+        const sidebarRows = posData.map(({ pos, target, have, need }) => {
+            const sc = have >= target ? '#40b870' : have === 0 ? '#d04040' : '#e8c040';
+            const st = have >= target ? '✓' : `-${need}`;
+            // Sanitize pos for use as element ID (replace / with _)
+            const inputId = `tgt-${pos.replace(/\//g, '_')}`;
+            return `<tr style="border-top:1px solid #0a1828">
+                <td style="padding:5px 6px;font-size:12px;color:#c8d8e8;font-weight:700">${pos}</td>
+                <td style="text-align:center;padding:5px 4px;font-size:12px;font-weight:700;color:${sc}">${have}</td>
+                <td style="text-align:center;padding:3px 4px">
+                    <input type="number" min="1" max="20" value="${target}" id="${inputId}"
+                        onchange="UI.setRosterTarget('${pos}', this.value)"
+                        style="width:38px;background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:2px 3px;font-size:11px;text-align:center">
+                </td>
+                <td style="text-align:right;padding:5px 6px;font-size:12px;font-weight:700;color:${sc}">${st}</td>
+            </tr>`;
+        }).join('');
+
+        const hasOverrides = Object.keys(overrides).length > 0;
+        const sidebar = `
+            <div style="width:220px;flex-shrink:0;border-left:1px solid #0a1e30;background:#060e18;overflow-y:auto;min-height:0">
+                <div style="padding:10px 12px">
+                    <div style="font-size:10px;font-weight:700;color:#7090a8;letter-spacing:1px;margin-bottom:8px">POSITION NEEDS</div>
+                    <table style="width:100%;border-collapse:collapse">
+                        <thead><tr>
+                            <th style="text-align:left;font-size:9px;color:#406080;padding:2px 6px 4px">POS</th>
+                            <th style="text-align:center;font-size:9px;color:#406080;padding:2px 4px 4px">HAVE</th>
+                            <th style="text-align:center;font-size:9px;color:#406080;padding:2px 4px 4px">TGT</th>
+                            <th style="text-align:right;font-size:9px;color:#406080;padding:2px 6px 4px">NEED</th>
+                        </tr></thead>
+                        <tbody>${sidebarRows}</tbody>
+                    </table>
+                    ${hasOverrides ? `<button onclick="UI.resetRosterTargets()" style="margin-top:10px;font-size:10px;padding:2px 8px;border:1px solid #1a2a3a;background:#060e18;color:#2a4060;cursor:pointer;border-radius:2px;width:100%">RESET TO DEFAULTS</button>` : ''}
+                    <div style="margin-top:10px;font-size:10px;color:#406080;line-height:1.5">
+                        Depth targets incl. bench.<br>Edit TGT cells to customize.
+                    </div>
+                </div>
+            </div>`;
+
         return `
             <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
                 <div style="flex-shrink:0;display:flex;align-items:center;gap:12px;padding:8px 12px;background:#060e18;border-bottom:1px solid #0a1e30">
@@ -962,13 +1040,16 @@ const Templates = {
                         · <span style="color:#c8d8e8">${LG.total - myPicks.length}</span> spots open
                     </span>
                 </div>
-                <div style="flex:1;overflow-y:auto;min-height:0">
-                    <div style="padding:12px 16px;max-width:1000px">
-                        <div style="font-size:10px;color:#406080;margin-bottom:10px">
-                            Targets = suggested full-roster depth including bench. Available pool excludes all drafted players.
+                <div style="display:flex;flex:1;min-height:0">
+                    <div style="flex:1;overflow-y:auto;min-height:0">
+                        <div style="padding:12px 16px">
+                            <div style="font-size:10px;color:#406080;margin-bottom:10px">
+                                Targets = suggested full-roster depth including bench. Available pool excludes all drafted players.
+                            </div>
+                            ${sections}
                         </div>
-                        ${sections}
                     </div>
+                    ${sidebar}
                 </div>
             </div>`;
     },

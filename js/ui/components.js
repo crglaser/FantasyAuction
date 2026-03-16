@@ -137,10 +137,18 @@ const UI = {
     },
 
     render() {
+        // Save focused input inside mainContent so we can restore after DOM replacement
+        const mainContent = document.getElementById('mainContent');
+        const active = document.activeElement;
+        const saveFocusId  = (mainContent?.contains(active) && active?.id &&
+                              (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA'))
+                             ? active.id : null;
+        const saveSel      = saveFocusId ? active.selectionStart : null;
+
         ValEngine.calculateAll();
         const players = this.getFilteredPlayers();
         this.updateHeader();
-        
+
         const content = document.getElementById('mainContent');
         const tab = AppState.ui.activeTab;
 
@@ -154,6 +162,15 @@ const UI = {
         else if (tab === 'dataaudit')    content.innerHTML = Templates.dataaudit();
         else if (tab === 'ai') content.innerHTML = Templates.ai();
         else if (tab === 'import') content.innerHTML = Templates.import();
+
+        // Restore focus to the input that was active before re-render
+        if (saveFocusId) {
+            const el = document.getElementById(saveFocusId);
+            if (el) {
+                el.focus();
+                try { if (saveSel != null) el.setSelectionRange(saveSel, saveSel); } catch(e) {}
+            }
+        }
     },
 
     getFilteredPlayers() {
@@ -446,6 +463,20 @@ const UI = {
 
     setSnakePlannerN(n) {
         AppState.settings.snakePlannerN = parseInt(n);
+        StateManager.save();
+        this.render();
+    },
+
+    setRosterTarget(pos, val) {
+        if (!AppState.settings.rosterTargets) AppState.settings.rosterTargets = {};
+        const n = parseInt(val);
+        if (n >= 1 && n <= 20) AppState.settings.rosterTargets[pos] = n;
+        StateManager.save();
+        this.render();
+    },
+
+    resetRosterTargets() {
+        AppState.settings.rosterTargets = {};
         StateManager.save();
         this.render();
     },
