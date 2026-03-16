@@ -182,7 +182,9 @@ const UI = {
             list = list.filter(p => p.n.toLowerCase().includes(s) || p.t.toLowerCase().includes(s));
         }
         if (ui.posFilter !== 'ALL') {
-            list = list.filter(p => p.pos.includes(ui.posFilter));
+            if (ui.posFilter === 'MI') list = list.filter(p => p.pos.includes('2B') || p.pos.includes('SS'));
+            else if (ui.posFilter === 'CI') list = list.filter(p => p.pos.includes('1B') || p.pos.includes('3B'));
+            else list = list.filter(p => p.pos.includes(ui.posFilter));
         }
         if (ui.typeFilter === 'HIT') list = list.filter(p => p.PA > 0);
         if (ui.typeFilter === 'PIT') list = list.filter(p => p.IP > 0);
