@@ -74,7 +74,8 @@ let AppState = {
         arbOutlierOnly: false,
         myteamView: 'me',
         myteamSearch: '',
-        leagueSearch: ''
+        leagueSearch: '',
+        leagueTeamFilter: null
     }
 };
 

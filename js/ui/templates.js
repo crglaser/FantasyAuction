@@ -356,9 +356,57 @@ const Templates = {
     league() {
         const teams = Object.keys(LG.teamsMap);
         const lgSearch = (AppState.ui.leagueSearch || '').toLowerCase();
+        const teamFilter = AppState.ui.leagueTeamFilter || null;
         const drafted = effectiveDrafted();
+
+        const teamFilterBar = `
+            <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0">
+                <button onclick="AppState.ui.leagueTeamFilter=null;UI.render()" style="font-size:10px;padding:2px 8px;border:1px solid ${!teamFilter ? '#2a5080' : '#1a2a3a'};background:${!teamFilter ? '#0a2040' : '#060e18'};color:${!teamFilter ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">ALL</button>
+                ${teams.map(tid => {
+                    const active = teamFilter === tid;
+                    return `<button onclick="UI.setLeagueTeamFilter('${tid}')" style="font-size:10px;padding:2px 8px;border:1px solid ${active ? '#2a5080' : '#1a2a3a'};background:${active ? '#0a2040' : '#060e18'};color:${active ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${LG.teamsMap[tid].team}</button>`;
+                }).join('')}
+            </div>`;
+
+        // Team detail view when a specific team is selected
+        const teamDetail = teamFilter ? (() => {
+            const info  = LG.teamsMap[teamFilter];
+            const picks = Object.entries(drafted)
+                .filter(([, v]) => v.team === teamFilter)
+                .map(([id, v]) => ({ ...AppState.players.find(p => p.id === id), ...v }))
+                .filter(p => p.n)
+                .sort((a, b) => b.cost - a.cost);
+            const spent = picks.filter(p => !p.sim).reduce((s, p) => s + p.cost, 0);
+            const hitters  = picks.filter(p => p.PA > 0);
+            const pitchers = picks.filter(p => p.IP > 0);
+            return `
+                <div style="margin:12px;background:#060e18;border:1px solid #0a1e30;border-radius:4px">
+                    <div style="padding:8px 12px;background:#0a1420;border-bottom:1px solid #0a1e30;border-radius:4px 4px 0 0;display:flex;align-items:baseline;gap:10px">
+                        <div style="font-weight:700;font-size:14px;color:#c8d8e8">${info.team}</div>
+                        <div style="font-size:11px;color:#7090a8">${info.owner}</div>
+                        <div style="margin-left:auto;font-size:11px;color:#406080">
+                            ${picks.length} picks · <span class="gold">$${spent} spent</span> · <span style="color:#40b870">$${LG.budget - spent} left</span>
+                            · ${hitters.length}H / ${pitchers.length}P
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:0">
+                        ${picks.map(p => {
+                            return `<div style="width:200px;padding:5px 10px;border-right:1px solid #0a1828;border-bottom:1px solid #0a1828;cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">
+                                <div style="font-size:12px;color:#c8d8e8;font-weight:600">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080">SIM</span>' : ''}</div>
+                                <div style="display:flex;justify-content:space-between;margin-top:2px">
+                                    <span style="font-size:10px">${this.pb(p.pos)}</span>
+                                    <span class="${p.sim ? 'muted' : 'gold'}" style="font-size:11px;font-weight:700">$${p.cost}</span>
+                                </div>
+                            </div>`;
+                        }).join('')}
+                        ${!picks.length ? '<div style="padding:16px;color:#406080;font-size:11px">No picks yet</div>' : ''}
+                    </div>
+                </div>`;
+        })() : '';
+
         return `
             <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
+            ${teamFilterBar}
             <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0">
                 <input type="text" placeholder="Filter players…" value="${AppState.ui.leagueSearch || ''}"
                     oninput="AppState.ui.leagueSearch=this.value;UI.render()"
@@ -385,9 +433,10 @@ const Templates = {
                             const spent = picks.reduce((sum, p) => sum + p.cost, 0);
                             const rem = LG.budget - spent;
                             const topPicks = picks.sort((a,b) => b.cost - a.cost).slice(0,3).map(p => `${p.n.split(' ').pop()} ($${p.cost})`).join(', ');
+                            const isFiltered = teamFilter === tid;
                             return `
-                                <tr class="${tid === 'me' ? 'mine' : ''}">
-                                    <td style="font-weight:700">${info.team}</td>
+                                <tr class="${tid === 'me' ? 'mine' : ''}" style="${isFiltered ? 'outline:1px solid #2a5080;' : ''}" onclick="UI.setLeagueTeamFilter('${tid}')" title="Click to spotlight ${info.team}">
+                                    <td style="font-weight:700;cursor:pointer">${info.team}${isFiltered ? ' ◀' : ''}</td>
                                     <td class="muted">${info.owner}</td>
                                     <td class="mono">${picks.length}</td>
                                     <td class="gold">$${spent}</td>
@@ -400,6 +449,7 @@ const Templates = {
                     </tbody>
                 </table>
             </div>
+            ${teamDetail}
             ${lgSearch ? `
                 <div style="padding:8px 12px;font-size:11px;color:#7090a8;border-top:1px solid #0a1e30">
                     PLAYERS MATCHING "${lgSearch.toUpperCase()}":
@@ -415,7 +465,7 @@ const Templates = {
                         ${picks.map(p => `<span style="color:#c8d8e8;margin-left:8px">${p.n} <span class="gold">$${p.cost}</span>${p.sim ? ' <span style="color:#406080">SIM</span>' : ''}</span>`).join('')}
                     </div>`;
                 }).join('')}
-            ` : this.draftLog()}
+            ` : (!teamDetail ? this.draftLog() : '')}
             </div>
             </div>
         `;
@@ -821,7 +871,7 @@ const Templates = {
         return null;
     },
 
-    snakeplanner() {
+    rosterscout() {
         const drafted    = effectiveDrafted();
         const myPicks    = Object.entries(drafted)
             .filter(([, v]) => v.team === 'me')
@@ -903,8 +953,8 @@ const Templates = {
         }).join('');
 
         return `
-            <div style="padding:12px 16px;max-width:1000px">
-                <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;padding:8px 12px;background:#060e18;border:1px solid #0a1e30;border-radius:4px">
+            <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
+                <div style="flex-shrink:0;display:flex;align-items:center;gap:12px;padding:8px 12px;background:#060e18;border-bottom:1px solid #0a1e30">
                     <span style="font-size:11px;color:#7090a8">Top N per position:</span>
                     <div style="display:flex;gap:4px">${nButtons}</div>
                     <span style="margin-left:auto;font-size:11px;color:#406080">
@@ -912,10 +962,125 @@ const Templates = {
                         · <span style="color:#c8d8e8">${LG.total - myPicks.length}</span> spots open
                     </span>
                 </div>
-                <div style="font-size:10px;color:#406080;margin-bottom:10px">
-                    Targets = suggested full-roster depth including bench. Available pool excludes all drafted players.
+                <div style="flex:1;overflow-y:auto;min-height:0">
+                    <div style="padding:12px 16px;max-width:1000px">
+                        <div style="font-size:10px;color:#406080;margin-bottom:10px">
+                            Targets = suggested full-roster depth including bench. Available pool excludes all drafted players.
+                        </div>
+                        ${sections}
+                    </div>
                 </div>
-                ${sections}
+            </div>`;
+    },
+
+    dataaudit() {
+        const drafted = effectiveDrafted();
+        const players = AppState.players;
+
+        // Section 1: stat/value mismatches
+        const mismatches = players
+            .map(p => ({ p, warn: this._getSanityWarning(p) }))
+            .filter(x => x.warn)
+            .sort((a, b) => (a.p.csRank || 9999) - (b.p.csRank || 9999));
+
+        // Section 2: large source rank disagreements (top-200 CS, |delta| > 80)
+        const disagreements = players
+            .filter(p => p.csRank != null && p.csRank <= 200)
+            .map(p => {
+                const ftxD = (p.FTX_Rank != null) ? p.FTX_Rank - p.csRank : null;
+                const ecrD = (p.ecr      != null) ? p.ecr      - p.csRank : null;
+                const worst = [ftxD, ecrD].filter(d => d != null).sort((a,b) => Math.abs(b)-Math.abs(a))[0];
+                return { p, ftxD, ecrD, worst };
+            })
+            .filter(x => x.worst != null && Math.abs(x.worst) >= 80)
+            .sort((a, b) => Math.abs(b.worst) - Math.abs(a.worst));
+
+        // Section 3: top-150 CS players missing FTX or ECR data
+        const missingData = players
+            .filter(p => p.csRank != null && p.csRank <= 150 && (p.FTX_Rank == null || p.ecr == null))
+            .sort((a, b) => a.csRank - b.csRank);
+
+        const drTag = id => drafted[id]
+            ? `<span class="muted" style="font-size:10px">${LG.teamsMap[drafted[id].team]?.team || drafted[id].team} $${drafted[id].cost}</span>`
+            : `<button class="btn btn-go" style="font-size:10px;padding:1px 6px" onclick="UI.openDraftModal('${id}')">PICK</button>`;
+
+        const section = (title, color, count, body) => `
+            <div style="margin-bottom:16px">
+                <div style="font-size:11px;font-weight:700;color:${color};letter-spacing:1px;padding:6px 10px;background:#060e18;border:1px solid #0a1e30;border-radius:4px 4px 0 0">
+                    ${title} <span style="color:#406080;font-weight:400">(${count})</span>
+                </div>
+                ${body || `<div style="padding:10px 12px;font-size:11px;color:#406080;background:#060e18;border:1px solid #0a1e30;border-top:0;border-radius:0 0 4px 4px">None detected — data looks clean ✓</div>`}
+            </div>`;
+
+        const mismatchRows = mismatches.length ? `
+            <div class="tbl-wrap" style="border-top:0;border-radius:0 0 4px 4px"><table>
+                <thead><tr><th>Player</th><th>Pos</th><th>CS $</th><th>CS #</th><th>Issue</th><th>ECR</th><th>FTX</th><th></th></tr></thead>
+                <tbody>
+                ${mismatches.map(({ p, warn }) => `
+                    <tr class="${drafted[p.id] ? 'drafted' : ''}">
+                        <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}</td>
+                        <td>${this.pb(p.pos)}</td>
+                        <td class="gold">$${p.csValAAdj}</td>
+                        <td class="mono muted">${p.csRank || '—'}</td>
+                        <td style="font-size:11px;color:#c87020">${warn}</td>
+                        <td class="mono muted" style="font-size:10px">${p.ecr != null ? Math.round(p.ecr) : '—'}</td>
+                        <td class="mono muted" style="font-size:10px">${p.FTX_Rank ?? '—'}</td>
+                        <td>${drTag(p.id)}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table></div>` : '';
+
+        const disagreeRows = disagreements.length ? `
+            <div class="tbl-wrap" style="border-top:0;border-radius:0 0 4px 4px"><table>
+                <thead><tr><th>Player</th><th>Pos</th><th>CS $</th><th>CS #</th><th>FTX #</th><th>FTX Δ</th><th>ECR</th><th>ECR Δ</th><th></th></tr></thead>
+                <tbody>
+                ${disagreements.map(({ p, ftxD, ecrD }) => {
+                    const ftxColor = ftxD == null ? '#7090a8' : ftxD < -50 ? '#40b870' : ftxD > 50 ? '#d04040' : '#c8d8e8';
+                    const ecrColor = ecrD == null ? '#7090a8' : ecrD < -50 ? '#40b870' : ecrD > 50 ? '#d04040' : '#c8d8e8';
+                    return `<tr class="${drafted[p.id] ? 'drafted' : ''}">
+                        <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}</td>
+                        <td>${this.pb(p.pos)}</td>
+                        <td class="gold">$${p.csValAAdj}</td>
+                        <td class="mono muted">${p.csRank}</td>
+                        <td class="mono muted">${p.FTX_Rank ?? '—'}</td>
+                        <td class="mono" style="color:${ftxColor};font-weight:700">${ftxD != null ? (ftxD > 0 ? '+' : '') + Math.round(ftxD) : '—'}</td>
+                        <td class="mono muted">${p.ecr != null ? Math.round(p.ecr) : '—'}</td>
+                        <td class="mono" style="color:${ecrColor};font-weight:700">${ecrD != null ? (ecrD > 0 ? '+' : '') + Math.round(ecrD) : '—'}</td>
+                        <td>${drTag(p.id)}</td>
+                    </tr>`;
+                }).join('')}
+                </tbody>
+            </table></div>` : '';
+
+        const missingRows = missingData.length ? `
+            <div class="tbl-wrap" style="border-top:0;border-radius:0 0 4px 4px"><table>
+                <thead><tr><th>Player</th><th>Pos</th><th>CS $</th><th>CS #</th><th>FTX</th><th>ECR</th><th></th></tr></thead>
+                <tbody>
+                ${missingData.map(p => `
+                    <tr class="${drafted[p.id] ? 'drafted' : ''}">
+                        <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}</td>
+                        <td>${this.pb(p.pos)}</td>
+                        <td class="gold">$${p.csValAAdj}</td>
+                        <td class="mono muted">${p.csRank}</td>
+                        <td style="color:${p.FTX_Rank == null ? '#d04040' : '#40b870'};font-size:11px">${p.FTX_Rank != null ? `#${p.FTX_Rank}` : '✗ missing'}</td>
+                        <td style="color:${p.ecr == null ? '#d04040' : '#40b870'};font-size:11px">${p.ecr != null ? `#${Math.round(p.ecr)}` : '✗ missing'}</td>
+                        <td>${drTag(p.id)}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table></div>` : '';
+
+        return `
+            <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
+                <div style="flex-shrink:0;padding:8px 12px;background:#060e18;border-bottom:1px solid #0a1e30;font-size:11px;color:#7090a8">
+                    Flags potential data quality issues across all players. Drafted players shown greyed out.
+                    Run <span style="color:#406080;font-family:monospace">python3 scripts/bake_assets.py</span> and
+                    <span style="color:#406080;font-family:monospace">fetch_rankings.py --ranks</span> to refresh source data.
+                </div>
+                <div style="flex:1;overflow-y:auto;min-height:0;padding:12px 16px;max-width:1100px">
+                    ${section('⚠ STAT / VALUE MISMATCHES', '#c87020', mismatches.length, mismatchRows)}
+                    ${section('↕ LARGE SOURCE DISAGREEMENTS  (|Δ| ≥ 80, CS top 200)', '#4090c8', disagreements.length, disagreeRows)}
+                    ${section('🔍 MISSING SOURCE DATA  (CS top 150)', '#7090a8', missingData.length, missingRows)}
+                </div>
             </div>`;
     },
 

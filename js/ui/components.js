@@ -126,7 +126,7 @@ const UI = {
         const sel = document.getElementById('mTeam');
         if (!sel) return;
         sel.innerHTML = Object.entries(LG.teamsMap).map(([id, info]) =>
-            `<option value="${id}">${info.team} (${info.owner.split(' ')[0]})</option>`
+            `<option value="${id}">${info.team} (${info.owner})</option>`
         ).join('');
     },
 
@@ -150,7 +150,8 @@ const UI = {
         else if (tab === 'league') content.innerHTML = Templates.league();
         else if (tab === 'standings') content.innerHTML = Templates.standings();
         else if (tab === 'snake')        content.innerHTML = Templates.snake();
-        else if (tab === 'snakeplanner') content.innerHTML = Templates.snakeplanner();
+        else if (tab === 'rosterscout')  content.innerHTML = Templates.rosterscout();
+        else if (tab === 'dataaudit')    content.innerHTML = Templates.dataaudit();
         else if (tab === 'ai') content.innerHTML = Templates.ai();
         else if (tab === 'import') content.innerHTML = Templates.import();
     },
@@ -446,6 +447,11 @@ const UI = {
     setSnakePlannerN(n) {
         AppState.settings.snakePlannerN = parseInt(n);
         StateManager.save();
+        this.render();
+    },
+
+    setLeagueTeamFilter(tid) {
+        AppState.ui.leagueTeamFilter = (AppState.ui.leagueTeamFilter === tid) ? null : tid;
         this.render();
     },
 
