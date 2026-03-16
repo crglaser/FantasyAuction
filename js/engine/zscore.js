@@ -160,9 +160,14 @@ const ValEngine = {
         });
 
         // 7. CheatSheet-based values (primary display) with snake discount applied
+        // csRank is computed among official (seed) players only — unofficial steamer_extras
+        // should not push real CheatSheet-ranked players past the snake discount cliff.
         const byCSA = [...players].sort((a, b) => (b.csValA || 0) - (a.csValA || 0));
+        const officialByCSA = byCSA.filter(p => !p.unofficial);
         players.forEach(p => {
-            p.csRank = byCSA.findIndex(x => x.id === p.id) + 1;
+            p.csRank = p.unofficial
+                ? byCSA.findIndex(x => x.id === p.id) + 1          // extras ranked in full pool
+                : officialByCSA.findIndex(x => x.id === p.id) + 1; // seed players ranked among seeds only
             p.csArb  = Math.round((p.csValS || 0) - (p.csValA || 0));
             if (AppState.settings.snakeDisc && p.csRank > AppState.settings.snakeCutoff) {
                 const t = Math.min(1, (p.csRank - AppState.settings.snakeCutoff) / (200 - AppState.settings.snakeCutoff));
