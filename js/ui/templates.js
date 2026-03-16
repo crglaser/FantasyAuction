@@ -1077,9 +1077,13 @@ const Templates = {
             .filter(([, v]) => v.team === 'me')
             .map(([id]) => AppState.players.find(p => p.id === id))
             .filter(Boolean);
-        const taken      = new Set(Object.keys(drafted));
-        const available  = AppState.players.filter(p => !taken.has(p.id));
-        const n          = AppState.settings.snakePlannerN || 5;
+        const taken         = new Set(Object.keys(drafted));
+        const scoutOnly     = AppState.ui.rosterScoutOnly || false;
+        const rosterPosFilter = AppState.ui.rosterPosFilter || ['C','1B','2B','SS','3B','OF','SP','RP'];
+        const ALL_RS_POS    = ['C','1B','2B','SS','3B','OF','SP','RP'];
+        let available       = AppState.players.filter(p => !taken.has(p.id));
+        if (scoutOnly) available = available.filter(p => p.CM_Role || p.PL_Rank || p.HL_Rank);
+        const n             = AppState.settings.snakePlannerN || 5;
         const totalReal  = Object.values(AppState.drafted).filter(v => !v.sim && v.team === 'me').length;
         const totalSim   = Object.values(drafted).filter(v => v.sim && v.team === 'me').length;
 
@@ -1095,7 +1099,9 @@ const Templates = {
             { pos: 'OF', label: 'OF — Outfield' },
             { pos: 'SP', label: 'SP — Starting Pitcher' },
             { pos: 'RP', label: 'RP — Relief Pitcher' },
-        ].map(g => ({ ...g, target: overrides[g.pos] ?? DEFAULTS[g.pos] }));
+        ]
+        .filter(g => rosterPosFilter.includes(g.pos))
+        .map(g => ({ ...g, target: overrides[g.pos] ?? DEFAULTS[g.pos] }));
 
         // Compute all data per position once (used by both main sections and sidebar)
         const posData = posGroups.map(({ pos, target, label }) => {
@@ -1198,9 +1204,21 @@ const Templates = {
 
         return `
             <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
-                <div style="flex-shrink:0;display:flex;align-items:center;gap:12px;padding:8px 12px;background:#060e18;border-bottom:1px solid #0a1e30">
-                    <span style="font-size:11px;color:#7090a8">Top N per position:</span>
+                <div style="flex-shrink:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 12px;background:#060e18;border-bottom:1px solid #0a1e30">
+                    <span style="font-size:11px;color:#7090a8">Top N:</span>
                     <div style="display:flex;gap:4px">${nButtons}</div>
+                    <div style="width:1px;height:16px;background:#0a1e30"></div>
+                    <button onclick="AppState.ui.rosterScoutOnly=!AppState.ui.rosterScoutOnly;UI.render()"
+                        style="font-size:10px;padding:2px 10px;border:1px solid ${scoutOnly ? '#2a6040' : '#2a3a50'};background:${scoutOnly ? '#0a2818' : '#060e18'};color:${scoutOnly ? '#40b870' : '#406080'};cursor:pointer;border-radius:2px;font-weight:700">
+                        ${scoutOnly ? '★ SCOUT ONLY' : '· ALL PLAYERS'}
+                    </button>
+                    <div style="display:flex;gap:4px;flex-wrap:wrap">
+                        ${ALL_RS_POS.map(pos => {
+                            const on = rosterPosFilter.includes(pos);
+                            return `<button onclick="UI.toggleRosterPos('${pos}')"
+                                style="font-size:10px;padding:2px 8px;border:1px solid ${on ? '#2a4060' : '#151f2a'};background:${on ? '#0a1e30' : '#040a10'};color:${on ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${pos}</button>`;
+                        }).join('')}
+                    </div>
                     <span style="margin-left:auto;font-size:11px;color:#406080">
                         My roster: <span style="color:#c8d8e8">${totalReal} real</span>${totalSim ? ` + ${totalSim} sim` : ''} / ${LG.total} total
                         · <span style="color:#c8d8e8">${LG.total - myPicks.length}</span> spots open
