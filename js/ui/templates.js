@@ -305,48 +305,48 @@ const Templates = {
         const myFiltered = myDrafted.filter(p => !mySearch || p.n?.toLowerCase().includes(mySearch));
 
         return `
-            <div style="display:flex;flex-direction:column;height:100%;overflow:hidden">
+            <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
             ${teamSelector}
-            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
+            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0">
                 <input type="text" placeholder="Filter roster…" value="${AppState.ui.myteamSearch || ''}"
                     oninput="AppState.ui.myteamSearch=this.value;UI.render()"
                     style="background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:3px 8px;font-size:11px;width:180px">
             </div>
             <div style="flex:1;overflow-y:auto;min-height:0">
-            <div class="two-col" style="min-height:min-content">
-                <div class="left-col" style="overflow-y:visible">
-                    <div class="sec">${LG.teamsMap[viewTeam]?.team || viewTeam} ROSTER (${myDrafted.length}/${LG.total})</div>
-                    ${myFiltered.sort((a,b) => b.cost - a.cost).map(p => `
-                        <div class="rslot" style="${p.sim ? 'opacity:0.7' : ''};cursor:pointer" onclick="UI.openDraftModal('${p.id}')" title="${p.sim ? 'Edit sim pick' : 'Edit pick'}">
-                            <div><div style="font-weight:700;color:#c8daf0">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080;font-weight:400">SIM✎</span>' : ' <span style="font-size:9px;opacity:0.3">✎</span>'}</div><div>${this.pb(p.pos)}</div></div>
-                            <div style="text-align:right"><div class="gold">$${p.cost}</div><div class="muted" style="font-size:10px">val:$${p.csValAAdj || p.csValA || p.aValAdj}</div></div>
+                <div style="display:flex;min-height:min-content">
+                    <div style="width:265px;flex-shrink:0;border-right:1px solid #0a1828">
+                        <div class="sec">${LG.teamsMap[viewTeam]?.team || viewTeam} ROSTER (${myDrafted.length}/${LG.total})</div>
+                        ${myFiltered.sort((a,b) => b.cost - a.cost).map(p => `
+                            <div class="rslot" style="${p.sim ? 'opacity:0.7' : ''};cursor:pointer" onclick="UI.openDraftModal('${p.id}')" title="${p.sim ? 'Edit sim pick' : 'Edit pick'}">
+                                <div><div style="font-weight:700;color:#c8daf0">${p.n}${p.sim ? ' <span style="font-size:9px;color:#406080;font-weight:400">SIM✎</span>' : ' <span style="font-size:9px;opacity:0.3">✎</span>'}</div><div>${this.pb(p.pos)}</div></div>
+                                <div style="text-align:right"><div class="gold">$${p.cost}</div><div class="muted" style="font-size:10px">val:$${p.csValAAdj || p.csValA || p.aValAdj}</div></div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="flex:1;padding:14px">
+                        <div class="stat-grid">
+                            <div class="stat-card"><div class="sclbl">Budget Used</div><div class="scval">$${spent}</div>${bar(spent, LG.budget)}</div>
+                            <div class="stat-card"><div class="sclbl">Remaining</div><div class="scval" style="color:#40b870">$${LG.budget - spent}</div></div>
+                            <div class="stat-card"><div class="sclbl">Projected IP</div><div class="scval">${Math.round(projIP)}</div>${bar(projIP, LG.minIP)}</div>
+                            <div class="stat-card"><div class="sclbl">H/P Split</div><div class="scval">${hitters.length}/${pitchers.length}</div></div>
                         </div>
-                    `).join('')}
-                </div>
-                <div class="right-col">
-                    <div class="stat-grid">
-                        <div class="stat-card"><div class="sclbl">Budget Used</div><div class="scval">$${spent}</div>${bar(spent, LG.budget)}</div>
-                        <div class="stat-card"><div class="sclbl">Remaining</div><div class="scval" style="color:#40b870">$${LG.budget - spent}</div></div>
-                        <div class="stat-card"><div class="sclbl">Projected IP</div><div class="scval">${Math.round(projIP)}</div>${bar(projIP, LG.minIP)}</div>
-                        <div class="stat-card"><div class="sclbl">H/P Split</div><div class="scval">${hitters.length}/${pitchers.length}</div></div>
-                    </div>
-                    <div class="cat-hdr">PROJECTED CATEGORY TOTALS</div>
-                    <div class="cat-grid">
-                        <div class="cat-card"><div class="ccat">HR</div><div class="cval">${HR.toFixed(0)}</div>${bar(HR, 200)}</div>
-                        <div class="cat-card"><div class="ccat">SB</div><div class="cval">${SB.toFixed(0)}</div>${bar(SB, 150)}</div>
-                        <div class="cat-card"><div class="ccat">XBH</div><div class="cval">${XBH.toFixed(0)}</div>${bar(XBH, 200)}</div>
-                        <div class="cat-card"><div class="ccat">OBP</div><div class="cval">${tOBP.toFixed(3)}</div>${bar(tOBP, 0.380)}</div>
-                        <div class="cat-card"><div class="ccat">RP</div><div class="cval">${RP.toFixed(0)}</div>${bar(RP, 1500)}</div>
-                        <div class="cat-card"><div class="ccat">K</div><div class="cval">${K.toFixed(0)}</div>${bar(K, 1400)}</div>
-                        <div class="cat-card"><div class="ccat">W</div><div class="cval">${W.toFixed(0)}</div>${bar(W, 90)}</div>
-                        <div class="cat-card"><div class="ccat">ERA</div><div class="cval">${tERA.toFixed(2)}</div>${bar(tERA, 4.5, true)}</div>
-                        <div class="cat-card"><div class="ccat">SVH</div><div class="cval">${SVH.toFixed(0)}</div>${bar(SVH, 130)}</div>
-                        <div class="cat-card"><div class="ccat">WHIP</div><div class="cval">${tWHIP.toFixed(2)}</div>${bar(tWHIP, 1.4, true)}</div>
+                        <div class="cat-hdr">PROJECTED CATEGORY TOTALS</div>
+                        <div class="cat-grid">
+                            <div class="cat-card"><div class="ccat">HR</div><div class="cval">${HR.toFixed(0)}</div>${bar(HR, 200)}</div>
+                            <div class="cat-card"><div class="ccat">SB</div><div class="cval">${SB.toFixed(0)}</div>${bar(SB, 150)}</div>
+                            <div class="cat-card"><div class="ccat">XBH</div><div class="cval">${XBH.toFixed(0)}</div>${bar(XBH, 200)}</div>
+                            <div class="cat-card"><div class="ccat">OBP</div><div class="cval">${tOBP.toFixed(3)}</div>${bar(tOBP, 0.380)}</div>
+                            <div class="cat-card"><div class="ccat">RP</div><div class="cval">${RP.toFixed(0)}</div>${bar(RP, 1500)}</div>
+                            <div class="cat-card"><div class="ccat">K</div><div class="cval">${K.toFixed(0)}</div>${bar(K, 1400)}</div>
+                            <div class="cat-card"><div class="ccat">W</div><div class="cval">${W.toFixed(0)}</div>${bar(W, 90)}</div>
+                            <div class="cat-card"><div class="ccat">ERA</div><div class="cval">${tERA.toFixed(2)}</div>${bar(tERA, 4.5, true)}</div>
+                            <div class="cat-card"><div class="ccat">SVH</div><div class="cval">${SVH.toFixed(0)}</div>${bar(SVH, 130)}</div>
+                            <div class="cat-card"><div class="ccat">WHIP</div><div class="cval">${tWHIP.toFixed(2)}</div>${bar(tWHIP, 1.4, true)}</div>
+                        </div>
                     </div>
                 </div>
+                ${this.draftLog(viewTeam)}
             </div>
-            </div>
-            ${this.draftLog(viewTeam)}
             </div>
         `;
     },
@@ -356,8 +356,8 @@ const Templates = {
         const lgSearch = (AppState.ui.leagueSearch || '').toLowerCase();
         const drafted = effectiveDrafted();
         return `
-            <div style="display:flex;flex-direction:column;height:100%;overflow:hidden">
-            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
+            <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
+            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0">
                 <input type="text" placeholder="Filter players…" value="${AppState.ui.leagueSearch || ''}"
                     oninput="AppState.ui.leagueSearch=this.value;UI.render()"
                     style="background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:3px 8px;font-size:11px;width:180px">
