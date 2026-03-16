@@ -1,6 +1,6 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-16 20:33 UTC
+ * Generated: 2026-03-16 20:35 UTC
  * Fields: AVG, CM_Rank, CM_Role, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier
  * Run: python3 scripts/bake_manual.py
  */
@@ -864,6 +864,12 @@ const MANUAL_RANKINGS = {
     "HL_Tier": 14,
     "HL_Pos": "SS/OF",
     "AVG": 0.259
+  },
+  "maxmuncylad-lad": {
+    "HL_Rank": 145,
+    "HL_Tier": 14,
+    "HL_Pos": "3B",
+    "AVG": 0.239
   },
   "carloscorrea-hou": {
     "HL_Rank": 146,
