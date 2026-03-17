@@ -20,9 +20,11 @@ const Templates = {
         // Source groups: each entry toggles all keys together
         const SOURCE_GROUPS = [
             { label: 'CS',    keys: ['csValAAdj', 'csValS', 'csArb'] },
-            { label: 'ESPN',  keys: ['espnAuction'] },
-            { label: 'BP',    keys: ['BP_Ax', 'BP_Full'] },
+            { label: 'BP',    keys: ['BP_Ax', 'BP_Full', 'auc_bp_delta'] },
+            { label: 'FG',    keys: ['FG_Ax', 'FG_Full', 'auc_fg_delta'] },
+            { label: '#F',    keys: ['auc_filtr'] },
             { label: 'ECR',   keys: ['ecr'] },
+            { label: 'ESPN',  keys: ['espnAuction'] },
             { label: 'PROJ',  keys: ['projections'] },
             { label: 'SCOUT', keys: [SCOUT_COL] },
         ];
@@ -44,7 +46,8 @@ const Templates = {
                     <thead>
                         <tr>
                             ${this.th('csRank', '#')}
-                            ${isFiltered ? '<th class="mono muted" style="font-size:10px">#F</th>' : ''}
+                            ${isFiltered && vis('auc_filtr') ? '<th class="mono muted" style="font-size:10px">#F</th>' : ''}
+                            ${vis('ecr')         ? this.th('ecr',       'ECR')      : ''}
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
@@ -53,7 +56,10 @@ const Templates = {
                             ${vis('csValS')      ? this.th('csValS',    'CS SZN')   : ''}
                             ${vis('BP_Ax')       ? this.th('BP_Ax',     'BP AUC')   : ''}
                             ${vis('BP_Full')     ? this.th('BP_Full',   'BP FULL')  : ''}
-                            ${vis('ecr')         ? this.th('ecr',       'ECR')      : ''}
+                            ${vis('auc_bp_delta')? this.th('bpDelta',   'BP Δ CS')  : ''}
+                            ${vis('FG_Ax')       ? this.th('FG_Ax',     'FG AUC')   : ''}
+                            ${vis('FG_Full')     ? this.th('FG_Full',   'FG FULL')  : ''}
+                            ${vis('auc_fg_delta')? this.th('fgDelta',   'FG Δ CS')  : ''}
                             ${vis('csArb')       ? this.th('csArb',     'ARB Δ')    : ''}
                             ${vis('espnAuction') ? this.th('espnAuction','ESPN $')  : ''}
                             ${vis('projections') ? '<th>PROJECTIONS</th>'            : ''}
@@ -86,10 +92,16 @@ const Templates = {
                                     ? `<span class="muted" style="font-size:10px;cursor:pointer" onclick="UI.openDraftModal('${p.id}')" title="Edit sim pick">${LG.teamsMap[dr.team]?.team || dr.team} <span class="gold">$${dr.cost}</span> <span style="font-size:9px;opacity:0.4">SIM✎</span></span>`
                                     : `<span class="${isMe ? 'gold' : 'muted'}" style="cursor:pointer" title="Click to edit" onclick="UI.openDraftModal('${p.id}')">${isMe ? '★ MINE' : (LG.teamsMap[dr.team]?.team || 'GONE')} <span class="gold">$${dr.cost}</span> <span style="font-size:9px;opacity:0.35">✎</span></span>`)
                                 : `<button class="btn btn-go" onclick="UI.openDraftModal('${p.id}')">DRAFT</button>`;
+                            const bpDelta = (p.BP_Ax != null && p.csValAAdj != null) ? +(p.BP_Ax - p.csValAAdj).toFixed(1) : null;
+                            const fgDelta = (p.FG_Ax != null && p.csValAAdj != null) ? +(p.FG_Ax - p.csValAAdj).toFixed(1) : null;
+                            p.bpDelta = bpDelta; p.fgDelta = fgDelta;
+                            const deltaColor = d => d == null ? '#4a607a' : d > 0 ? '#40b870' : '#d05040';
+                            const deltaFmt = d => d != null ? (d > 0 ? '+' : '') + d : '—';
                             return `
                                 <tr class="${rowCls}${unofficialClass}">
                                     <td class="mono muted">${p.csRank}</td>
-                                    ${isFiltered ? `<td class="mono" style="font-size:10px;color:#2a6090">${fi + 1}</td>` : ''}
+                                    ${isFiltered && vis('auc_filtr') ? `<td class="mono" style="font-size:10px;color:#2a6090">${fi + 1}</td>` : ''}
+                                    ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
                                     <td class="nm" style="cursor:pointer" onclick="UI.openInjuryModal('${p.id}')">${p.n}${estBadge}${injTag}${sanityBadge}</td>
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
@@ -98,7 +110,10 @@ const Templates = {
                                     ${vis('csValS')       ? `<td class="grn">$${p.csValS}</td>` : ''}
                                     ${vis('BP_Ax')        ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}
                                     ${vis('BP_Full')      ? `<td class="mono" style="font-size:10px;color:#9060c0">${p.BP_Full ? '$'+p.BP_Full : '—'}</td>` : ''}
-                                    ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
+                                    ${vis('auc_bp_delta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${deltaColor(bpDelta)}">${deltaFmt(bpDelta)}</td>` : ''}
+                                    ${vis('FG_Ax')        ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax   ? '$'+p.FG_Ax   : '—'}</td>` : ''}
+                                    ${vis('FG_Full')      ? `<td class="mono" style="font-size:10px;color:#408070">${p.FG_Full ? '$'+p.FG_Full : '—'}</td>` : ''}
+                                    ${vis('auc_fg_delta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${deltaColor(fgDelta)}">${deltaFmt(fgDelta)}</td>` : ''}
                                     ${vis('csArb')        ? `<td>${this.formatCsArb(p.csArb)}</td>` : ''}
                                     ${vis('espnAuction')  ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
                                     ${vis('projections')  ? `<td class="mono" style="font-size:10px">${this.formatProjections(p)}</td>` : ''}
