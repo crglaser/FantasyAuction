@@ -1227,6 +1227,11 @@ const Templates = {
             </tr>`;
         }).join('');
 
+        const totalHave = posData.reduce((s, d) => s + d.have, 0);
+        const totalTarget = posData.reduce((s, d) => s + d.target, 0);
+        const totalNeed = posData.reduce((s, d) => s + d.need, 0);
+        const totalSc = totalHave >= totalTarget ? '#40b870' : totalHave === 0 ? '#d04040' : '#e8c040';
+
         const hasOverrides = Object.keys(overrides).length > 0;
         const sidebar = `
             <div style="width:220px;flex-shrink:0;border-left:1px solid #0a1e30;background:#060e18;overflow-y:auto;min-height:0">
@@ -1240,6 +1245,12 @@ const Templates = {
                             <th style="text-align:right;font-size:9px;color:#406080;padding:2px 6px 4px">NEED</th>
                         </tr></thead>
                         <tbody>${sidebarRows}</tbody>
+                        <tfoot><tr style="border-top:2px solid #1a3050">
+                            <td style="padding:6px 6px 4px;font-size:11px;color:#7090a8;font-weight:700">TOT</td>
+                            <td style="text-align:center;padding:6px 4px 4px;font-size:12px;font-weight:700;color:${totalSc}">${totalHave}</td>
+                            <td style="text-align:center;padding:6px 4px 4px;font-size:12px;color:#7090a8">${totalTarget}</td>
+                            <td style="text-align:right;padding:6px 6px 4px;font-size:12px;font-weight:700;color:${totalSc}">${totalNeed > 0 ? `-${totalNeed}` : '✓'}</td>
+                        </tr></tfoot>
                     </table>
                     ${hasOverrides ? `<button onclick="UI.resetRosterTargets()" style="margin-top:10px;font-size:10px;padding:2px 8px;border:1px solid #1a2a3a;background:#060e18;color:#2a4060;cursor:pointer;border-radius:2px;width:100%">RESET TO DEFAULTS</button>` : ''}
                     <div style="margin-top:10px;font-size:10px;color:#406080;line-height:1.5">
