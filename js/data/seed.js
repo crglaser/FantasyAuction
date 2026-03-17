@@ -8521,7 +8521,7 @@ const SEED_PLAYERS = [
     "pos": [
       "RP"
     ],
-    "inj": false,
+    "inj": true,
     "age": 38,
     "csValA": -8.0,
     "csValS": -3.0,
