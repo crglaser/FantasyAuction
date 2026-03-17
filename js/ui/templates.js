@@ -161,11 +161,11 @@ const Templates = {
     arb(players) {
         const vis = key => UI.colVisible(key);
         const arbSourceGroups = [
-            { label: 'CS',    keys: ['arb_season', 'arb_ftxrank', 'arb_rkdelta', 'arb_ftxscore'] },
-            { label: 'BP',    keys: ['arb_bp', 'arb_bp_full'] },
-            { label: 'FG',    keys: ['arb_fg', 'arb_fg_full'] },
-            { label: 'ECR',   keys: ['arb_ecr'] },
-            { label: 'ESPN',  keys: ['arb_espn', 'arb_mkt'] },
+            { label: 'CS',    keys: ['arb_season', 'arb_ftxrank', 'arb_rkdelta'] },
+            { label: 'BP',    keys: ['arb_bp', 'arb_bp_full', 'arb_bp_delta'] },
+            { label: 'FG',    keys: ['arb_fg', 'arb_fg_full', 'arb_fg_delta'] },
+            { label: 'ECR',   keys: ['arb_ecr_spr'] },
+            { label: 'ESPN',  keys: ['arb_espn', 'arb_pctowned', 'arb_mkt'] },
             { label: 'PROJ',  keys: ['arb_proj'] },
             { label: 'SCOUT', keys: ['arb_scout'] },
             { label: 'DRAFT', keys: ['arb_draft'] },
@@ -188,10 +188,12 @@ const Templates = {
             </div>
             <div class="arb-legend">
                 <span style="color:#7090a8;font-size:10px">
-                    CS FULL = MrCheatSheet full-roster auction value (baseline; inflates SP) &nbsp;·&nbsp;
-                    BP AUC / FG AUC = auction-slots calibrated (17 slots; more accurate for SP) &nbsp;·&nbsp;
-                    MKT RATIO = ESPN $ ÷ CS ADJ (&lt;0.8 = market underprices, &gt;1.25 = market inflated) &nbsp;·&nbsp;
-                    FTX▲/ECR▲ = that source ranks player 30+ spots higher than CS &nbsp;·&nbsp; CS▲ = CS ranks higher than FTX/ECR
+                    CS FULL = MrCheatSheet full-roster value &nbsp;·&nbsp;
+                    BP/FG Δ CS = auction value vs CS ADJ (green = source more bullish; sort to find sleepers) &nbsp;·&nbsp;
+                    ECR SPR = expert max−min rank spread (high = volatile, may slip cheap) &nbsp;·&nbsp;
+                    %OWN = ESPN ownership (low = room may not bid up) &nbsp;·&nbsp;
+                    MKT RATIO = ESPN $ ÷ CS ADJ &nbsp;·&nbsp;
+                    FTX▲ / BP▲ / FG▲ = that source is significantly more bullish than CS
                 </span>
             </div>`;
 
@@ -211,16 +213,18 @@ const Templates = {
                             <th>Pos</th>
                             ${this.th('csValA', 'CS FULL')}
                             ${vis('arb_season')  ? this.th('csValS',    'CS SZN')     : ''}
-                            ${vis('arb_ftxrank') ? this.th('FTX_Rank',  'FTX RK')     : ''}
-                            ${vis('arb_rkdelta') ? this.th('ftxRkDelta','RK Δ')        : ''}
-                            ${vis('arb_ftxscore')? this.th('FTX_Score', 'FTX SCORE')  : ''}
-                            ${vis('arb_bp')      ? this.th('BP_Ax',     'BP AUC')     : ''}
-                            ${vis('arb_bp_full') ? this.th('BP_Full',   'BP FULL')    : ''}
-                            ${vis('arb_fg')      ? this.th('FG_Ax',     'FG AUC')     : ''}
-                            ${vis('arb_fg_full') ? this.th('FG_Full',   'FG FULL')    : ''}
-                            ${vis('arb_ecr')     ? this.th('ecr',       'ECR')        : ''}
-                            ${vis('arb_espn')    ? this.th('espnAuction','ESPN $')    : ''}
-                            ${vis('arb_mkt')     ? this.th('mktRatio',  'MKT RATIO')  : ''}
+                            ${vis('arb_ftxrank')  ? this.th('FTX_Rank',  'FTX RK')    : ''}
+                            ${vis('arb_rkdelta')  ? this.th('ftxRkDelta','RK Δ')       : ''}
+                            ${vis('arb_bp')       ? this.th('BP_Ax',     'BP AUC')    : ''}
+                            ${vis('arb_bp_full')  ? this.th('BP_Full',   'BP FULL')   : ''}
+                            ${vis('arb_bp_delta') ? this.th('bpDelta',   'BP Δ CS')   : ''}
+                            ${vis('arb_fg')       ? this.th('FG_Ax',     'FG AUC')    : ''}
+                            ${vis('arb_fg_full')  ? this.th('FG_Full',   'FG FULL')   : ''}
+                            ${vis('arb_fg_delta') ? this.th('fgDelta',   'FG Δ CS')   : ''}
+                            ${vis('arb_ecr_spr')  ? this.th('ecrSpread', 'ECR SPR')   : ''}
+                            ${vis('arb_espn')     ? this.th('espnAuction','ESPN $')   : ''}
+                            ${vis('arb_pctowned') ? this.th('pctOwned',  '%OWN')      : ''}
+                            ${vis('arb_mkt')      ? this.th('mktRatio',  'MKT RATIO') : ''}
                             ${vis('arb_proj')    ? '<th>FTX PROJ</th>'               : ''}
                             ${vis('arb_scout')   ? '<th>SCOUT</th>'                  : ''}
                             ${vis('arb_draft')   ? '<th></th>'                       : ''}
@@ -230,30 +234,33 @@ const Templates = {
                         ${players.map(p => {
                             // Rank delta: positive = FTX ranks them lower (we like them more), negative = FTX likes them more
                             const ftxRkDelta = (p.FTX_Rank != null && p.csRank != null) ? p.FTX_Rank - p.csRank : null;
-                            p.ftxRkDelta = ftxRkDelta; // attach for sorting
+                            p.ftxRkDelta = ftxRkDelta;
                             const mktRatio = p.espnAuction && p.csValAAdj ? (p.espnAuction / p.csValAAdj) : null;
                             p.mktRatio = mktRatio;
-                            const ecrDelta = (p.ecr != null && p.csRank != null) ? p.ecr - p.csRank : null;
-                            // Sleeper sources: which lists are bullish on this player vs the others?
-                            // FTX/ECR sleeper: they rank the player 30+ higher than CS, and CS has them low
+                            // Dollar deltas vs CS ADJ — positive = that source more bullish than CS
+                            const bpDelta = (p.BP_Ax != null && p.csValAAdj != null) ? +(p.BP_Ax - p.csValAAdj).toFixed(1) : null;
+                            const fgDelta = (p.FG_Ax != null && p.csValAAdj != null) ? +(p.FG_Ax - p.csValAAdj).toFixed(1) : null;
+                            const ecrSpread = (p.ecrMax != null && p.ecrMin != null) ? (p.ecrMax - p.ecrMin) : null;
+                            p.bpDelta = bpDelta; p.fgDelta = fgDelta; p.ecrSpread = ecrSpread;
+                            // Sleeper detection: which sources are significantly more bullish than CS?
                             const csLow = (p.csRank == null || p.csRank > 75) || (p.csValAAdj != null && p.csValAAdj <= 15);
-                            const ftxBull = ftxRkDelta != null && ftxRkDelta < -30 && csLow;  // FTX likes them more, CS doesn't
-                            const ecrBull = ecrDelta   != null && ecrDelta   < -30 && csLow;  // ECR likes them more, CS doesn't
-                            // CS sleeper: CS ranks them 30+ higher than FTX or ECR, while those sources are low
+                            const ftxBull = ftxRkDelta != null && ftxRkDelta < -30 && csLow;
+                            const bpBull  = bpDelta  != null && bpDelta  > 6  && csLow;
+                            const fgBull  = fgDelta  != null && fgDelta  > 6  && csLow;
                             const ftxLow  = ftxRkDelta != null && ftxRkDelta > 30;
-                            const ecrLow  = ecrDelta   != null && ecrDelta   > 30;
                             const csTop   = p.csRank != null && p.csRank <= 100;
-                            const csBull  = csTop && (ftxLow || ecrLow);  // CS likes them more, FTX/ECR don't
-                            const isSleeper = ftxBull || ecrBull || csBull;
-                            // Source tags to display
+                            const csBull  = csTop && ftxLow;
+                            const isSleeper = ftxBull || bpBull || fgBull || csBull;
                             const sourceTags = [
                                 ftxBull ? `<span class="pb" style="background:#0a2010;border-color:#205030;color:#40c870;font-size:9px">FTX▲</span>` : '',
-                                ecrBull ? `<span class="pb" style="background:#0a1828;border-color:#1a3848;color:#4090c8;font-size:9px">ECR▲</span>` : '',
+                                bpBull  ? `<span class="pb" style="background:#1a0828;border-color:#4a1878;color:#c890f0;font-size:9px">BP▲</span>`  : '',
+                                fgBull  ? `<span class="pb" style="background:#001a10;border-color:#105030;color:#60c8a0;font-size:9px">FG▲</span>`  : '',
                                 csBull  ? `<span class="pb" style="background:#201a00;border-color:#403400;color:#c8a000;font-size:9px">CS▲</span>`  : '',
                             ].join('');
                             p.outlierScore = isSleeper ? Math.max(
                                 ftxRkDelta != null ? Math.abs(ftxRkDelta) : 0,
-                                ecrDelta   != null ? Math.abs(ecrDelta)   : 0
+                                bpDelta    != null ? Math.abs(bpDelta) * 3 : 0,
+                                fgDelta    != null ? Math.abs(fgDelta) * 3 : 0
                             ) : 0;
                             if (AppState.ui.arbOutlierOnly && !isSleeper) return '';
                             const dr = drafted[p.id];
@@ -280,16 +287,18 @@ const Templates = {
                                     <td>${this.pb(p.pos)}</td>
                                     <td>${this.formatAucVal(p.csValA)}</td>
                                     ${vis('arb_season')  ? `<td class="grn" style="font-size:11px">$${p.csValS}</td>` : ''}
-                                    ${vis('arb_ftxrank') ? `<td class="mono muted" style="font-size:10px">${p.FTX_Rank ?? '—'}</td>` : ''}
-                                    ${vis('arb_rkdelta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${rkColor}">${ftxRkDelta != null ? (ftxRkDelta > 0 ? '+' : '') + ftxRkDelta : '—'}</td>` : ''}
-                                    ${vis('arb_ftxscore')? `<td class="mono muted" style="font-size:10px">${p.FTX_Score != null ? p.FTX_Score : '—'}</td>` : ''}
-                                    ${vis('arb_ecr')     ? `<td class="mono muted" style="font-size:10px">${p.ecr ?? '—'}</td>` : ''}
-                                    ${vis('arb_bp')      ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}
-                                    ${vis('arb_bp_full') ? `<td class="mono" style="font-size:10px;color:#9060c0">${p.BP_Full ? '$'+p.BP_Full : '—'}</td>` : ''}
-                                    ${vis('arb_fg')      ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax   ? '$'+p.FG_Ax   : '—'}</td>` : ''}
-                                    ${vis('arb_fg_full') ? `<td class="mono" style="font-size:10px;color:#408070">${p.FG_Full ? '$'+p.FG_Full : '—'}</td>` : ''}
-                                    ${vis('arb_espn')    ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
-                                    ${vis('arb_mkt')     ? `<td class="mono" style="font-size:11px;color:${mktColor}">${mktRatio != null ? mktRatio.toFixed(2)+'×' : '—'}</td>` : ''}
+                                    ${vis('arb_ftxrank')  ? `<td class="mono muted" style="font-size:10px">${p.FTX_Rank ?? '—'}</td>` : ''}
+                                    ${vis('arb_rkdelta')  ? `<td class="mono" style="font-size:11px;font-weight:700;color:${rkColor}">${ftxRkDelta != null ? (ftxRkDelta > 0 ? '+' : '') + ftxRkDelta : '—'}</td>` : ''}
+                                    ${vis('arb_bp')       ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}
+                                    ${vis('arb_bp_full')  ? `<td class="mono" style="font-size:10px;color:#9060c0">${p.BP_Full ? '$'+p.BP_Full : '—'}</td>` : ''}
+                                    ${vis('arb_bp_delta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${bpDelta==null?'#4a607a':bpDelta>0?'#40b870':'#d05040'}">${bpDelta!=null?(bpDelta>0?'+':'')+bpDelta:'—'}</td>` : ''}
+                                    ${vis('arb_fg')       ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax   ? '$'+p.FG_Ax   : '—'}</td>` : ''}
+                                    ${vis('arb_fg_full')  ? `<td class="mono" style="font-size:10px;color:#408070">${p.FG_Full ? '$'+p.FG_Full : '—'}</td>` : ''}
+                                    ${vis('arb_fg_delta') ? `<td class="mono" style="font-size:11px;font-weight:700;color:${fgDelta==null?'#4a607a':fgDelta>0?'#40b870':'#d05040'}">${fgDelta!=null?(fgDelta>0?'+':'')+fgDelta:'—'}</td>` : ''}
+                                    ${vis('arb_ecr_spr')  ? `<td class="mono" style="font-size:10px;color:${ecrSpread==null?'#4a607a':ecrSpread>50?'#e87040':ecrSpread>25?'#e8c040':'#7090a8'}">${ecrSpread!=null?ecrSpread:'—'}</td>` : ''}
+                                    ${vis('arb_espn')     ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
+                                    ${vis('arb_pctowned') ? `<td class="mono" style="font-size:10px;color:${p.pctOwned==null?'#4a607a':p.pctOwned<30?'#40b870':p.pctOwned>80?'#d05040':'#c8d8e8'}">${p.pctOwned!=null?p.pctOwned+'%':'—'}</td>` : ''}
+                                    ${vis('arb_mkt')      ? `<td class="mono" style="font-size:11px;color:${mktColor}">${mktRatio != null ? mktRatio.toFixed(2)+'×' : '—'}</td>` : ''}
                                     ${vis('arb_proj')    ? `<td class="mono muted" style="font-size:10px">${ftxProj}</td>` : ''}
                                     ${vis('arb_scout')   ? `<td>${this.formatScout(p)}</td>` : ''}
                                     ${vis('arb_draft')   ? `<td>${draftCell}</td>` : ''}
