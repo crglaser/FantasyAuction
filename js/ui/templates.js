@@ -16,12 +16,12 @@ const Templates = {
         // SCOUT_COL: the label shown in the toggle bar for the unified scout badge column
         const SCOUT_COL = 'scout';
         // Columns sourced from manual CSVs that are folded into SCOUT — hide from auto-discovered list
-        const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG', 'Watch', 'BP_Ax', 'FG_Ax', 'FG_Full']);
+        const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG', 'Watch', 'BP_Ax', 'BP_Full', 'FG_Ax', 'FG_Full']);
         // Source groups: each entry toggles all keys together
         const SOURCE_GROUPS = [
             { label: 'CS',    keys: ['csValAAdj', 'csValS', 'csArb'] },
             { label: 'ESPN',  keys: ['espnAuction'] },
-            { label: 'BP',    keys: ['BP_Ax'] },
+            { label: 'BP',    keys: ['BP_Ax', 'BP_Full'] },
             { label: 'FG',    keys: ['FG_Ax', 'FG_Full'] },
             { label: 'ECR',   keys: ['ecr'] },
             { label: 'PROJ',  keys: ['projections'] },
@@ -53,6 +53,7 @@ const Templates = {
                             ${vis('csValAAdj')   ? this.th('csValAAdj', 'CS ADJ')   : ''}
                             ${vis('csValS')      ? this.th('csValS',    'CS SZN')   : ''}
                             ${vis('BP_Ax')       ? this.th('BP_Ax',     'BP AUC')   : ''}
+                            ${vis('BP_Full')     ? this.th('BP_Full',   'BP FULL')  : ''}
                             ${vis('FG_Ax')       ? this.th('FG_Ax',     'FG AUC')   : ''}
                             ${vis('FG_Full')     ? this.th('FG_Full',   'FG FULL')  : ''}
                             ${vis('ecr')         ? this.th('ecr',       'ECR')      : ''}
@@ -99,6 +100,7 @@ const Templates = {
                                     ${vis('csValAAdj')    ? `<td class="mono muted" style="font-size:11px">$${p.csValAAdj}</td>` : ''}
                                     ${vis('csValS')       ? `<td class="grn">$${p.csValS}</td>` : ''}
                                     ${vis('BP_Ax')        ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}
+                                    ${vis('BP_Full')      ? `<td class="mono" style="font-size:10px;color:#9060c0">${p.BP_Full ? '$'+p.BP_Full : '—'}</td>` : ''}
                                     ${vis('FG_Ax')        ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax   ? '$'+p.FG_Ax   : '—'}</td>` : ''}
                                     ${vis('FG_Full')      ? `<td class="mono" style="font-size:10px;color:#408070">${p.FG_Full ? '$'+p.FG_Full : '—'}</td>` : ''}
                                     ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
@@ -165,7 +167,7 @@ const Templates = {
         const vis = key => UI.colVisible(key);
         const arbSourceGroups = [
             { label: 'CS',    keys: ['arb_season', 'arb_ftxrank', 'arb_rkdelta', 'arb_ftxscore'] },
-            { label: 'BP',    keys: ['arb_bp'] },
+            { label: 'BP',    keys: ['arb_bp', 'arb_bp_full'] },
             { label: 'FG',    keys: ['arb_fg', 'arb_fg_full'] },
             { label: 'ECR',   keys: ['arb_ecr'] },
             { label: 'ESPN',  keys: ['arb_espn', 'arb_mkt'] },
@@ -218,6 +220,7 @@ const Templates = {
                             ${vis('arb_rkdelta') ? this.th('ftxRkDelta','RK Δ')        : ''}
                             ${vis('arb_ftxscore')? this.th('FTX_Score', 'FTX SCORE')  : ''}
                             ${vis('arb_bp')      ? this.th('BP_Ax',     'BP AUC')     : ''}
+                            ${vis('arb_bp_full') ? this.th('BP_Full',   'BP FULL')    : ''}
                             ${vis('arb_fg')      ? this.th('FG_Ax',     'FG AUC')     : ''}
                             ${vis('arb_fg_full') ? this.th('FG_Full',   'FG FULL')    : ''}
                             ${vis('arb_ecr')     ? this.th('ecr',       'ECR')        : ''}
@@ -287,6 +290,7 @@ const Templates = {
                                     ${vis('arb_ftxscore')? `<td class="mono muted" style="font-size:10px">${p.FTX_Score != null ? p.FTX_Score : '—'}</td>` : ''}
                                     ${vis('arb_ecr')     ? `<td class="mono muted" style="font-size:10px">${p.ecr ?? '—'}</td>` : ''}
                                     ${vis('arb_bp')      ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}
+                                    ${vis('arb_bp_full') ? `<td class="mono" style="font-size:10px;color:#9060c0">${p.BP_Full ? '$'+p.BP_Full : '—'}</td>` : ''}
                                     ${vis('arb_fg')      ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax   ? '$'+p.FG_Ax   : '—'}</td>` : ''}
                                     ${vis('arb_fg_full') ? `<td class="mono" style="font-size:10px;color:#408070">${p.FG_Full ? '$'+p.FG_Full : '—'}</td>` : ''}
                                     ${vis('arb_espn')    ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
