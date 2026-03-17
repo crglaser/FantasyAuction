@@ -1,6 +1,6 @@
 # RP Rankings — add columns for any source. Run: python3 scripts/bake_manual.py
 # Columns: Name (required) | PL_CloserRank (PitcherList saves rank) | add more freely
-Name,CM_Role,CM_Rank,PL_CloserRank
+Name,CM_Role,CM_Rank,PL_CloserRank,Watch
 Mason Miller,CLOSER:SD,2,
 Edwin Díaz,CLOSER:LAD,3,
 Cade Smith,CLOSER:CLE,1,
@@ -20,7 +20,7 @@ Garrett Cleavinger,1ST:TB:*,27,
 Raisel Iglesias,CLOSER:ATL,14,
 Trevor Megill,CLOSER:MIL:*,18,
 Edwin Uceta,,,
-Jeff Hoffman,CLOSER:TOR,10,
+Jeff Hoffman,CLOSER:TOR,10,,★
 A.J. Minter,,,
 Alex Vesia,2ND:LAD,,
 Matt Strahm,2ND:KC,45,

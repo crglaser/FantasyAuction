@@ -1,6 +1,6 @@
 # Hitter Rankings — add columns freely. Run: python3 scripts/bake_manual.py
 # Source: https://pitcherlist.com/top-300-hitters-for-fantasy-baseball-2026/
-Name,HL_Rank,HL_Tier,HL_Pos,AVG
+Name,HL_Rank,HL_Tier,HL_Pos,AVG,Watch
 Shohei Ohtani,1,1,DH,0.275
 Aaron Judge,2,1,OF,0.283
 Juan Soto,3,2,OF,0.273
@@ -101,7 +101,7 @@ Lawrence Butler,97,10,OF,0.245
 Daulton Varsho,98,10,OF,0.226
 Munetaka Murakami,99,11,3B,0.23
 Luis Arraez,100,11,1B/2B,0.305
-Jacob Wilson,101,11,SS,0.301
+Jacob Wilson,101,11,SS,0.301,★
 Ezequiel Tovar,102,11,SS,0.263
 Agustín Ramírez,103,11,C,0.25
 Heliot Ramos,104,11,OF,0.256
@@ -148,7 +148,7 @@ Max Muncy (LAD),145,14,3B,0.239
 Carlos Correa,146,14,3B/SS,0.268
 Andrew Vaughn,147,14,1B,0.248
 Jac Caglianone,148,14,1B/OF,0.256
-Jackson Holliday,149,15,2B/SS,0.251
+Jackson Holliday,149,15,2B/SS,0.251,★
 Kevin McGonigle,150,15,SS,0.258
 Kyle Manzardo,151,15,1B,0.236
 J.T. Realmuto,152,15,C,0.246

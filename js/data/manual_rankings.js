@@ -1,7 +1,7 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-16 20:35 UTC
- * Fields: AVG, CM_Rank, CM_Role, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier
+ * Generated: 2026-03-17 01:11 UTC
+ * Fields: AVG, CM_Rank, CM_Role, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier, Watch
  * Run: python3 scripts/bake_manual.py
  */
 const MANUAL_RANKINGS = {
@@ -611,7 +611,8 @@ const MANUAL_RANKINGS = {
     "HL_Rank": 101,
     "HL_Tier": 11,
     "HL_Pos": "SS",
-    "AVG": 0.301
+    "AVG": 0.301,
+    "Watch": "\u2605"
   },
   "ezequieltovar-col": {
     "HL_Rank": 102,
@@ -893,7 +894,8 @@ const MANUAL_RANKINGS = {
     "HL_Rank": 149,
     "HL_Tier": 15,
     "HL_Pos": "2B/SS",
-    "AVG": 0.251
+    "AVG": 0.251,
+    "Watch": "\u2605"
   },
   "kevinmcgonigle-det": {
     "HL_Rank": 150,
@@ -1650,7 +1652,8 @@ const MANUAL_RANKINGS = {
   },
   "jeffhoffman-tor": {
     "CM_Role": "CLOSER:TOR",
-    "CM_Rank": 10
+    "CM_Rank": 10,
+    "Watch": "\u2605"
   },
   "alexvesia-lad": {
     "CM_Role": "2ND:LAD"
@@ -1990,11 +1993,13 @@ const MANUAL_RANKINGS = {
   },
   "shotaimanaga-chc": {
     "PL_Rank": 32,
-    "PL_Tier": 6
+    "PL_Tier": 6,
+    "Watch": "\u2605"
   },
   "spencerstrider-atl": {
     "PL_Rank": 77,
-    "PL_Tier": 12
+    "PL_Tier": 12,
+    "Watch": "\u2605"
   },
   "tatsuyaimai-hou": {
     "PL_Rank": 37,
@@ -2082,7 +2087,8 @@ const MANUAL_RANKINGS = {
   },
   "sandyalcantara-mia": {
     "PL_Rank": 24,
-    "PL_Tier": 4
+    "PL_Tier": 4,
+    "Watch": "\u2605"
   },
   "robbieray-sf": {
     "PL_Rank": 38,

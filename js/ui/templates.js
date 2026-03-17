@@ -16,7 +16,7 @@ const Templates = {
         // SCOUT_COL: the label shown in the toggle bar for the unified scout badge column
         const SCOUT_COL = 'scout';
         // Columns sourced from manual CSVs that are folded into SCOUT — hide from auto-discovered list
-        const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG']);
+        const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG', 'Watch']);
         const staticToggles = [
             { key: 'csValS',      label: 'SEASON $' },
             { key: 'csValAAdj',   label: 'ADJ $'    },
@@ -976,6 +976,7 @@ const Templates = {
     // To rename the column: change SCOUT_COL constant in auction() above.
     formatScout(p) {
         const badges = [];
+        if (p.Watch) badges.push(`<span class="pb" title="Watch list" style="background:#1a1000;border-color:#806020;color:#e8c040;font-size:10px">★</span>`);
         if (p.CM_Role) badges.push(this.formatCloser({ closerStatus: p.CM_Role, closerRank: p.CM_Rank }));
         if (p.PL_Rank) badges.push(this.formatRankBadge('PL', p.PL_Rank, p.PL_Tier));
         if (p.HL_Rank) badges.push(this.formatRankBadge('HL', p.HL_Rank, p.HL_Tier, p.OBP, p.AVG));

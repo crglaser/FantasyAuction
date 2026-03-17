@@ -1,7 +1,7 @@
 # SP Rankings — add columns for any source. Run: python3 scripts/bake_manual.py
 # Columns: Name | PL_Rank (PitcherList numerical rank) | PL_Tier (1-5) | add more freely
 # Source: https://pitcherlist.com/top-100-starting-pitchers-for-2026-fantasy-baseball-3-13-update/
-Name,PL_Rank,PL_Tier
+Name,PL_Rank,PL_Tier,Watch
 Tarik Skubal,3,1
 Shohei Ohtani,9,2
 Paul Skenes,2,1
@@ -44,8 +44,8 @@ Kyle Bradish,19,4
 Joe Musgrove,100,15
 Matthew Boyd,52,8
 Spencer Schwellenbach,66,10
-Shota Imanaga,32,6
-Spencer Strider,77,12
+Shota Imanaga,32,6,★
+Spencer Strider,77,12,★
 Kade Anderson,,
 Jamie Arnold,,
 Tyler Bremner,,
@@ -136,7 +136,7 @@ Andrew Abbott,36,6
 Eury Pérez,22,4
 Nolan McLean,25,4
 Reynaldo López,,
-Sandy Alcantara,24,4
+Sandy Alcantara,24,4,★
 Sean Manaea,,
 Robbie Ray,38,6
 José Soriano,,
