@@ -1,6 +1,6 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-17 01:29 UTC
+ * Generated: 2026-03-17 01:44 UTC
  * Fields: AVG, CM_Rank, CM_Role, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier, Watch
  * Run: python3 scripts/bake_manual.py
  */
@@ -2231,6 +2231,10 @@ const MANUAL_RANKINGS = {
   },
   "ryanweiss-hou": {
     "PL_Rank": 90,
+    "PL_Tier": 13
+  },
+  "justinwrobleski-lad": {
+    "PL_Rank": 91,
     "PL_Tier": 13
   },
   "landenroupp-sf": {
