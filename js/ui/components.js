@@ -454,8 +454,23 @@ const UI = {
         this.render();
     },
 
+    toggleSource(keys) {
+        const h = AppState.ui.hiddenCols;
+        const anyVisible = keys.some(k => !h.includes(k));
+        if (anyVisible) {
+            keys.forEach(k => { if (!h.includes(k)) h.push(k); });
+        } else {
+            keys.forEach(k => { const i = h.indexOf(k); if (i !== -1) h.splice(i, 1); });
+        }
+        this.render();
+    },
+
     colVisible(key) {
         return !AppState.ui.hiddenCols.includes(key);
+    },
+
+    sourceVisible(keys) {
+        return keys.some(k => !AppState.ui.hiddenCols.includes(k));
     },
 
     toggleArbOutlier() {

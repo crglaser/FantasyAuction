@@ -16,26 +16,24 @@ const Templates = {
         // SCOUT_COL: the label shown in the toggle bar for the unified scout badge column
         const SCOUT_COL = 'scout';
         // Columns sourced from manual CSVs that are folded into SCOUT — hide from auto-discovered list
-        const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG', 'Watch', 'BP_Ax']);
-        const staticToggles = [
-            { key: 'csValS',      label: 'SEASON $' },
-            { key: 'csValAAdj',   label: 'ADJ $'    },
-            { key: 'csArb',       label: 'ARB'      },
-            { key: 'ecr',         label: 'ECR'      },
-            { key: 'espnAuction', label: 'ESPN $'   },
-            { key: 'BP_Ax',       label: 'BP $'     },
-            { key: 'projections', label: 'PROJ'     },
-            { key: SCOUT_COL,     label: 'SCOUT'    },
+        const SCOUT_FIELDS = new Set(['CM_Role', 'CM_Rank', 'PL_Rank', 'PL_Tier', 'HL_Rank', 'HL_Tier', 'HL_Pos', 'AVG', 'Watch', 'BP_Ax', 'FG_Ax', 'FG_Full']);
+        // Source groups: each entry toggles all keys together
+        const SOURCE_GROUPS = [
+            { label: 'CS',    keys: ['csValAAdj', 'csValS', 'csArb'] },
+            { label: 'ESPN',  keys: ['espnAuction'] },
+            { label: 'BP',    keys: ['BP_Ax'] },
+            { label: 'FG',    keys: ['FG_Ax', 'FG_Full'] },
+            { label: 'ECR',   keys: ['ecr'] },
+            { label: 'PROJ',  keys: ['projections'] },
+            { label: 'SCOUT', keys: [SCOUT_COL] },
         ];
-        const allToggles = [
-            ...staticToggles,
-            ...mCols.filter(k => !SCOUT_FIELDS.has(k)).map(k => ({ key: k, label: k.replace(/_/g, ' ') }))
-        ];
+        const extraToggles = mCols.filter(k => !SCOUT_FIELDS.has(k)).map(k => ({ label: k.replace(/_/g, ' '), keys: [k] }));
+        const sv = keys => UI.sourceVisible(keys);
         const toggleBar = `
             <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
-                <span style="font-size:10px;color:#406080;line-height:22px;margin-right:4px">COLUMNS:</span>
-                ${allToggles.map(({key, label}) => `
-                    <button onclick="UI.toggleCol('${key}')" style="font-size:10px;padding:2px 8px;border:1px solid ${vis(key) ? '#2a5080' : '#1a2a3a'};background:${vis(key) ? '#0a2040' : '#060e18'};color:${vis(key) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
+                <span style="font-size:10px;color:#406080;line-height:22px;margin-right:4px">SOURCES:</span>
+                ${[...SOURCE_GROUPS, ...extraToggles].map(({keys, label}) => `
+                    <button onclick="UI.toggleSource(${JSON.stringify(keys)})" style="font-size:10px;padding:2px 8px;border:1px solid ${sv(keys) ? '#2a5080' : '#1a2a3a'};background:${sv(keys) ? '#0a2040' : '#060e18'};color:${sv(keys) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
                 `).join('')}
             </div>`;
 
@@ -51,14 +49,16 @@ const Templates = {
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('csValA', 'AUC $')}
-                            ${vis('csValAAdj')   ? this.th('csValAAdj', 'ADJ $') : ''}
-                            ${vis('csValS')      ? this.th('csValS', 'SEASON $') : ''}
-                            ${vis('csArb')       ? this.th('csArb', 'ARB Δ')    : ''}
-                            ${vis('ecr')         ? this.th('ecr', 'ECR')        : ''}
-                            ${vis('espnAuction') ? this.th('espnAuction', 'ESPN $') : ''}
-                            ${vis('BP_Ax')       ? this.th('BP_Ax', 'BP $')     : ''}
-                            ${vis('projections') ? '<th>PROJECTIONS</th>'       : ''}
+                            ${this.th('csValA', 'CS FULL')}
+                            ${vis('csValAAdj')   ? this.th('csValAAdj', 'CS ADJ')   : ''}
+                            ${vis('csValS')      ? this.th('csValS',    'CS SZN')   : ''}
+                            ${vis('csArb')       ? this.th('csArb',     'ARB Δ')    : ''}
+                            ${vis('ecr')         ? this.th('ecr',       'ECR')      : ''}
+                            ${vis('espnAuction') ? this.th('espnAuction','ESPN $')  : ''}
+                            ${vis('BP_Ax')       ? this.th('BP_Ax',     'BP AUC')   : ''}
+                            ${vis('FG_Ax')       ? this.th('FG_Ax',     'FG AUC')   : ''}
+                            ${vis('FG_Full')     ? this.th('FG_Full',   'FG FULL')  : ''}
+                            ${vis('projections') ? '<th>PROJECTIONS</th>'            : ''}
                             ${vis(SCOUT_COL)     ? '<th>SCOUT</th>'             : ''}
                             ${mCols.filter(k => !SCOUT_FIELDS.has(k) && vis(k)).map(k => this.th(k, k.replace(/_/g, ' '))).join('')}
                             <th>ACTION</th>
@@ -101,7 +101,9 @@ const Templates = {
                                     ${vis('csArb')        ? `<td>${this.formatCsArb(p.csArb)}</td>` : ''}
                                     ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
                                     ${vis('espnAuction')  ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
-                                    ${vis('BP_Ax')        ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax ? '$'+p.BP_Ax : '—'}</td>` : ''}
+                                    ${vis('BP_Ax')        ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}
+                                    ${vis('FG_Ax')        ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax   ? '$'+p.FG_Ax   : '—'}</td>` : ''}
+                                    ${vis('FG_Full')      ? `<td class="mono" style="font-size:10px;color:#408070">${p.FG_Full ? '$'+p.FG_Full : '—'}</td>` : ''}
                                     ${vis('projections')  ? `<td class="mono" style="font-size:10px">${this.formatProjections(p)}</td>` : ''}
                                     ${vis(SCOUT_COL)      ? `<td>${this.formatScout(p)}</td>` : ''}
                                     ${mCols.filter(k => !SCOUT_FIELDS.has(k) && vis(k)).map(k => {
@@ -161,24 +163,22 @@ const Templates = {
 
     arb(players) {
         const vis = key => UI.colVisible(key);
-        const arbToggles = [
-            { key: 'arb_season', label: 'CS SEASON $' },
-            { key: 'arb_ftxrank', label: 'FTX RANK'   },
-            { key: 'arb_rkdelta', label: 'RANK Δ'      },
-            { key: 'arb_ftxscore', label: 'FTX SCORE'  },
-            { key: 'arb_ecr',    label: 'ECR'          },
-            { key: 'arb_espn',   label: 'ESPN $'       },
-            { key: 'arb_bp',     label: 'BP $'         },
-            { key: 'arb_mkt',    label: 'MKT RATIO'    },
-            { key: 'arb_proj',   label: 'FTX PROJ'     },
-            { key: 'arb_scout',  label: 'SCOUT'        },
-            { key: 'arb_draft',  label: 'DRAFT'        },
+        const arbSourceGroups = [
+            { label: 'CS',    keys: ['arb_season', 'arb_ftxrank', 'arb_rkdelta', 'arb_ftxscore'] },
+            { label: 'ESPN',  keys: ['arb_espn', 'arb_mkt'] },
+            { label: 'BP',    keys: ['arb_bp'] },
+            { label: 'FG',    keys: ['arb_fg'] },
+            { label: 'ECR',   keys: ['arb_ecr'] },
+            { label: 'PROJ',  keys: ['arb_proj'] },
+            { label: 'SCOUT', keys: ['arb_scout'] },
+            { label: 'DRAFT', keys: ['arb_draft'] },
         ];
+        const sv = keys => UI.sourceVisible(keys);
         const toggleBar = `
             <div style="display:flex;flex-wrap:wrap;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
-                <span style="font-size:10px;color:#406080;line-height:22px;margin-right:4px">COLUMNS:</span>
-                ${arbToggles.map(({key, label}) => `
-                    <button onclick="UI.toggleCol('${key}')" style="font-size:10px;padding:2px 8px;border:1px solid ${vis(key) ? '#2a5080' : '#1a2a3a'};background:${vis(key) ? '#0a2040' : '#060e18'};color:${vis(key) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
+                <span style="font-size:10px;color:#406080;line-height:22px;margin-right:4px">SOURCES:</span>
+                ${arbSourceGroups.map(({keys, label}) => `
+                    <button onclick="UI.toggleSource(${JSON.stringify(keys)})" style="font-size:10px;padding:2px 8px;border:1px solid ${sv(keys) ? '#2a5080' : '#1a2a3a'};background:${sv(keys) ? '#0a2040' : '#060e18'};color:${sv(keys) ? '#90b8d8' : '#2a4060'};cursor:pointer;border-radius:2px">${label}</button>
                 `).join('')}
             </div>
             <div style="display:flex;align-items:center;gap:4px;padding:6px 8px;background:#060e18;border-bottom:1px solid #0a1e30">
@@ -191,10 +191,10 @@ const Templates = {
             </div>
             <div class="arb-legend">
                 <span style="color:#7090a8;font-size:10px">
-                    CS $ = MrCheatSheet auction value (our baseline) &nbsp;·&nbsp;
-                    RANK Δ = FTX rank − CS rank (negative = Fantrax likes them more than we do) &nbsp;·&nbsp;
-                    MKT RATIO = ESPN $ ÷ CS $ (&lt;0.8 = market underprices, &gt;1.25 = market inflated) &nbsp;·&nbsp;
-                    FTX▲/ECR▲ = that source ranks player 30+ spots higher than CS (CS undervalues) &nbsp;·&nbsp; CS▲ = CS ranks player 30+ spots higher than FTX/ECR
+                    CS FULL = MrCheatSheet full-roster auction value (baseline; inflates SP) &nbsp;·&nbsp;
+                    BP AUC / FG AUC = auction-slots calibrated (17 slots; more accurate for SP) &nbsp;·&nbsp;
+                    MKT RATIO = ESPN $ ÷ CS ADJ (&lt;0.8 = market underprices, &gt;1.25 = market inflated) &nbsp;·&nbsp;
+                    FTX▲/ECR▲ = that source ranks player 30+ spots higher than CS &nbsp;·&nbsp; CS▲ = CS ranks higher than FTX/ECR
                 </span>
             </div>`;
 
@@ -212,14 +212,15 @@ const Templates = {
                             <th>Player</th>
                             <th>Tm</th>
                             <th>Pos</th>
-                            ${this.th('csValA', 'CS AUC $')}
-                            ${vis('arb_season')  ? this.th('csValS',    'CS SZN $')   : ''}
+                            ${this.th('csValA', 'CS FULL')}
+                            ${vis('arb_season')  ? this.th('csValS',    'CS SZN')     : ''}
                             ${vis('arb_ftxrank') ? this.th('FTX_Rank',  'FTX RK')     : ''}
                             ${vis('arb_rkdelta') ? this.th('ftxRkDelta','RK Δ')        : ''}
                             ${vis('arb_ftxscore')? this.th('FTX_Score', 'FTX SCORE')  : ''}
                             ${vis('arb_ecr')     ? this.th('ecr',       'ECR')        : ''}
                             ${vis('arb_espn')    ? this.th('espnAuction','ESPN $')    : ''}
-                            ${vis('arb_bp')      ? this.th('BP_Ax',     'BP $')       : ''}
+                            ${vis('arb_bp')      ? this.th('BP_Ax',     'BP AUC')     : ''}
+                            ${vis('arb_fg')      ? this.th('FG_Ax',     'FG AUC')     : ''}
                             ${vis('arb_mkt')     ? this.th('mktRatio',  'MKT RATIO')  : ''}
                             ${vis('arb_proj')    ? '<th>FTX PROJ</th>'               : ''}
                             ${vis('arb_scout')   ? '<th>SCOUT</th>'                  : ''}
@@ -286,6 +287,7 @@ const Templates = {
                                     ${vis('arb_ecr')     ? `<td class="mono muted" style="font-size:10px">${p.ecr ?? '—'}</td>` : ''}
                                     ${vis('arb_espn')    ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
                                     ${vis('arb_bp')      ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax ? '$'+p.BP_Ax : '—'}</td>` : ''}
+                                    ${vis('arb_fg')      ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax ? '$'+p.FG_Ax : '—'}</td>` : ''}
                                     ${vis('arb_mkt')     ? `<td class="mono" style="font-size:11px;color:${mktColor}">${mktRatio != null ? mktRatio.toFixed(2)+'×' : '—'}</td>` : ''}
                                     ${vis('arb_proj')    ? `<td class="mono muted" style="font-size:10px">${ftxProj}</td>` : ''}
                                     ${vis('arb_scout')   ? `<td>${this.formatScout(p)}</td>` : ''}
