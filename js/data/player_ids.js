@@ -1,6 +1,6 @@
 /**
  * player_ids.js — External ID crosswalk (Chadwick Bureau + ESPN + Fantrax)
- * Generated: 2026-03-16 21:37 UTC
+ * Generated: 2026-03-17 22:08 UTC
  * Refresh: python3 scripts/fetch_rankings.py --ids
  * Fields: fgId (FanGraphs), mlbId (MLBAM), espnId (ESPN Fantasy), fantraxId (Fantrax)
  */

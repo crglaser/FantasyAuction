@@ -1,6 +1,6 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-17 13:40 UTC
+ * Generated: 2026-03-17 22:08 UTC
  * Fields: AVG, BP_Ax, BP_Full, CM_Rank, CM_Role, FG_Ax, FG_Full, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier, Watch
  * Run: python3 scripts/bake_manual.py
  */
