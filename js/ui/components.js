@@ -52,7 +52,11 @@ const UI = {
                 const r = PLAYER_RANKINGS[p.id];
                 if (!r) return;
                 if (r.ecr != null)         p.ecr          = r.ecr;
+                if (r.ecrMin != null)       p.ecrMin       = r.ecrMin;
+                if (r.ecrMax != null)       p.ecrMax       = r.ecrMax;
                 if (r.espnAuction != null)  p.espnAuction  = r.espnAuction;
+                if (r.fpAuction != null)    p.fpAuction    = r.fpAuction;
+                if (r.pctOwned != null)     p.pctOwned     = r.pctOwned;
                 if (r.adp != null)          p.adp          = r.adp;
                 if (r.closerStatus != null) {
                     p.closerStatus = r.closerStatus;
