@@ -1,8 +1,8 @@
 /**
  * rankings.js — ECR, ESPN ADP/auction, CloserMonkey status
- * Generated: 2026-03-17 09:37 UTC
+ * Generated: 2026-03-17 09:41 UTC
  * Refresh: python3 scripts/fetch_rankings.py --ranks
- * Fields: ecr, ecrMin, ecrMax, espnAuction, fpAuction, pctOwned, adp, closerStatus, closerRank
+ * Fields: ecr, ecrMin, ecrMax, espnAuction, pctOwned, adp, closerStatus, closerRank
  */
 const PLAYER_RANKINGS = {
   "tarikskubal-det": {
@@ -11,8 +11,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 23,
     "espnAuction": 61.5,
     "adp": 6.3,
-    "pctOwned": 99.8,
-    "fpAuction": 7.0
+    "pctOwned": 99.8
   },
   "shoheiohtani-lad": {
     "ecr": 1,
@@ -20,8 +19,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 2,
     "espnAuction": 102.8,
     "adp": 1.4,
-    "pctOwned": 99.8,
-    "fpAuction": 1.0
+    "pctOwned": 99.8
   },
   "bobbywittjr-kc": {
     "ecr": 3,
@@ -29,8 +27,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 7,
     "espnAuction": 58.4,
     "adp": 6.3,
-    "pctOwned": 99.8,
-    "fpAuction": 3.0
+    "pctOwned": 99.8
   },
   "paulskenes-pit": {
     "ecr": 11,
@@ -38,8 +35,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 22,
     "espnAuction": 67.0,
     "adp": 5.1,
-    "pctOwned": 99.8,
-    "fpAuction": 11.0
+    "pctOwned": 99.8
   },
   "garrettcrochet-bos": {
     "ecr": 14,
@@ -47,8 +43,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 25,
     "espnAuction": 52.2,
     "adp": 9.8,
-    "pctOwned": 99.8,
-    "fpAuction": 14.0
+    "pctOwned": 99.8
   },
   "josramrez-cle": {
     "ecr": 5,
@@ -56,8 +51,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 18,
     "espnAuction": 61.7,
     "adp": 6.4,
-    "pctOwned": 99.8,
-    "fpAuction": 5.0
+    "pctOwned": 99.8
   },
   "corbincarroll-ari": {
     "ecr": 15,
@@ -65,8 +59,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 28,
     "espnAuction": 40.8,
     "adp": 17.3,
-    "pctOwned": 99.7,
-    "fpAuction": 15.0
+    "pctOwned": 99.7
   },
   "juansoto-nym": {
     "ecr": 4,
@@ -74,8 +67,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 6,
     "espnAuction": 67.0,
     "adp": 4.7,
-    "pctOwned": 99.8,
-    "fpAuction": 4.0
+    "pctOwned": 99.8
   },
   "aaronjudge-nyy": {
     "ecr": 2,
@@ -83,8 +75,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 4,
     "espnAuction": 79.5,
     "adp": 2.3,
-    "pctOwned": 99.9,
-    "fpAuction": 2.0
+    "pctOwned": 99.9
   },
   "vladimirguerrerojr-tor": {
     "ecr": 16,
@@ -92,8 +83,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 35,
     "espnAuction": 37.8,
     "adp": 16.6,
-    "pctOwned": 99.8,
-    "fpAuction": 16.0
+    "pctOwned": 99.8
   },
   "ellydelacruz-cin": {
     "ecr": 8,
@@ -101,8 +91,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 15,
     "espnAuction": 33.1,
     "adp": 33.5,
-    "pctOwned": 99.5,
-    "fpAuction": 8.0
+    "pctOwned": 99.5
   },
   "gunnarhenderson-bal": {
     "ecr": 13,
@@ -110,8 +99,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 22,
     "espnAuction": 33.4,
     "adp": 24.7,
-    "pctOwned": 99.5,
-    "fpAuction": 13.0
+    "pctOwned": 99.5
   },
   "freddiefreeman-lad": {
     "ecr": 48,
@@ -119,8 +107,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 88,
     "espnAuction": 12.4,
     "adp": 79.4,
-    "pctOwned": 95.5,
-    "fpAuction": 48.0
+    "pctOwned": 95.5
   },
   "bryanwoo-sea": {
     "ecr": 40,
@@ -128,8 +115,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 78,
     "espnAuction": 28.6,
     "adp": 27.7,
-    "pctOwned": 99.6,
-    "fpAuction": 40.0
+    "pctOwned": 99.6
   },
   "cristophersnchez-phi": {
     "ecr": 29,
@@ -137,8 +123,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 57,
     "espnAuction": 32.9,
     "adp": 23.3,
-    "pctOwned": 99.7,
-    "fpAuction": 29.0
+    "pctOwned": 99.7
   },
   "loganwebb-sf": {
     "ecr": 45,
@@ -146,8 +131,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 69,
     "espnAuction": 29.6,
     "adp": 24.6,
-    "pctOwned": 99.7,
-    "fpAuction": 45.0
+    "pctOwned": 99.7
   },
   "fernandotatisjr-sd": {
     "ecr": 12,
@@ -155,8 +139,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 17,
     "espnAuction": 40.8,
     "adp": 14.9,
-    "pctOwned": 99.8,
-    "fpAuction": 12.0
+    "pctOwned": 99.8
   },
   "kyletucker-lad": {
     "ecr": 10,
@@ -164,8 +147,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 16,
     "espnAuction": 44.4,
     "adp": 12.1,
-    "pctOwned": 99.8,
-    "fpAuction": 10.0
+    "pctOwned": 99.8
   },
   "juliorodrguez-sea": {
     "ecr": 9,
@@ -173,8 +155,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 22,
     "espnAuction": 37.8,
     "adp": 23.7,
-    "pctOwned": 99.8,
-    "fpAuction": 9.0
+    "pctOwned": 99.8
   },
   "bryceharper-phi": {
     "ecr": 32,
@@ -182,8 +163,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 50,
     "espnAuction": 16.0,
     "adp": 71.1,
-    "pctOwned": 96.2,
-    "fpAuction": 32.0
+    "pctOwned": 96.2
   },
   "mattolson-atl": {
     "ecr": 34,
@@ -191,8 +171,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 61,
     "espnAuction": 18.4,
     "adp": 58.8,
-    "pctOwned": 98.4,
-    "fpAuction": 34.0
+    "pctOwned": 98.4
   },
   "ronaldacuajr-atl": {
     "ecr": 6,
@@ -200,8 +179,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 12,
     "espnAuction": 48.9,
     "adp": 10.2,
-    "pctOwned": 99.8,
-    "fpAuction": 6.0
+    "pctOwned": 99.8
   },
   "calraleigh-sea": {
     "ecr": 19,
@@ -209,8 +187,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 31,
     "espnAuction": 39.5,
     "adp": 12.9,
-    "pctOwned": 99.9,
-    "fpAuction": 19.0
+    "pctOwned": 99.9
   },
   "jacksonchourio-mil": {
     "ecr": 18,
@@ -218,8 +195,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 62,
     "espnAuction": 27.2,
     "adp": 42.0,
-    "pctOwned": 98.8,
-    "fpAuction": 18.0
+    "pctOwned": 98.8
   },
   "petealonso-bal": {
     "ecr": 24,
@@ -227,8 +203,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 34,
     "espnAuction": 22.0,
     "adp": 55.1,
-    "pctOwned": 98.8,
-    "fpAuction": 24.0
+    "pctOwned": 98.8
   },
   "rafaeldevers-sf": {
     "ecr": 41,
@@ -236,8 +211,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 68,
     "espnAuction": 13.7,
     "adp": 87.0,
-    "pctOwned": 93.0,
-    "fpAuction": 41.0
+    "pctOwned": 93.0
   },
   "maikelgarcia-kc": {
     "ecr": 67,
@@ -245,8 +219,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 174,
     "espnAuction": 8.4,
     "adp": 102.8,
-    "pctOwned": 91.0,
-    "fpAuction": 67.0
+    "pctOwned": 91.0
   },
   "juniorcaminero-tb": {
     "ecr": 17,
@@ -254,8 +227,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 45,
     "espnAuction": 37.3,
     "adp": 19.4,
-    "pctOwned": 99.7,
-    "fpAuction": 17.0
+    "pctOwned": 99.7
   },
   "nickkurtz-ath": {
     "ecr": 20,
@@ -263,8 +235,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 33,
     "espnAuction": 26.2,
     "adp": 59.5,
-    "pctOwned": 96.4,
-    "fpAuction": 20.0
+    "pctOwned": 96.4
   },
   "logangilbert-sea": {
     "ecr": 38,
@@ -272,8 +243,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 79,
     "espnAuction": 30.1,
     "adp": 23.3,
-    "pctOwned": 99.6,
-    "fpAuction": 38.0
+    "pctOwned": 99.6
   },
   "jarrenduran-bos": {
     "ecr": 59,
@@ -281,8 +251,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 79,
     "espnAuction": 16.6,
     "adp": 55.0,
-    "pctOwned": 98.5,
-    "fpAuction": 59.0
+    "pctOwned": 98.5
   },
   "franciscolindor-nym": {
     "ecr": 26,
@@ -290,8 +259,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 43,
     "espnAuction": 32.3,
     "adp": 27.4,
-    "pctOwned": 99.6,
-    "fpAuction": 26.0
+    "pctOwned": 99.6
   },
   "zackwheeler-phi": {
     "ecr": 127,
@@ -299,8 +267,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 197,
     "espnAuction": 12.4,
     "adp": 78.5,
-    "pctOwned": 94.8,
-    "fpAuction": 127.0
+    "pctOwned": 94.8
   },
   "maxfried-nyy": {
     "ecr": 46,
@@ -308,8 +275,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 72,
     "espnAuction": 27.4,
     "adp": 31.2,
-    "pctOwned": 99.7,
-    "fpAuction": 46.0
+    "pctOwned": 99.7
   },
   "brentrooker-ath": {
     "ecr": 39,
@@ -317,8 +283,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 131,
     "espnAuction": 21.4,
     "adp": 46.0,
-    "pctOwned": 98.9,
-    "fpAuction": 39.0
+    "pctOwned": 98.9
   },
   "jameswood-wsn": {
     "ecr": 31,
@@ -326,8 +291,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 52,
     "espnAuction": 14.3,
     "adp": 91.6,
-    "pctOwned": 92.2,
-    "fpAuction": 31.0
+    "pctOwned": 92.2
   },
   "williamcontreras-mil": {
     "ecr": 58,
@@ -335,8 +299,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 117,
     "espnAuction": 21.8,
     "adp": 36.2,
-    "pctOwned": 99.4,
-    "fpAuction": 58.0
+    "pctOwned": 99.4
   },
   "chrissale-atl": {
     "ecr": 36,
@@ -344,8 +307,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 66,
     "espnAuction": 24.6,
     "adp": 38.1,
-    "pctOwned": 99.5,
-    "fpAuction": 36.0
+    "pctOwned": 99.5
   },
   "hunterbrown-hou": {
     "ecr": 37,
@@ -353,8 +315,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 59,
     "espnAuction": 29.0,
     "adp": 32.6,
-    "pctOwned": 99.5,
-    "fpAuction": 37.0
+    "pctOwned": 99.5
   },
   "jacobdegrom-tex": {
     "ecr": 44,
@@ -362,8 +323,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 74,
     "espnAuction": 21.1,
     "adp": 49.3,
-    "pctOwned": 98.7,
-    "fpAuction": 44.0
+    "pctOwned": 98.7
   },
   "mookiebetts-lad": {
     "ecr": 42,
@@ -371,8 +331,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 73,
     "espnAuction": 19.2,
     "adp": 41.7,
-    "pctOwned": 99.5,
-    "fpAuction": 42.0
+    "pctOwned": 99.5
   },
   "petecrowarmstrong-chc": {
     "ecr": 35,
@@ -380,8 +339,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 75,
     "espnAuction": 19.5,
     "adp": 52.7,
-    "pctOwned": 98.5,
-    "fpAuction": 35.0
+    "pctOwned": 98.5
   },
   "ketelmarte-ari": {
     "ecr": 25,
@@ -389,8 +347,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 41,
     "espnAuction": 36.7,
     "adp": 15.9,
-    "pctOwned": 99.8,
-    "fpAuction": 25.0
+    "pctOwned": 99.8
   },
   "treaturner-phi": {
     "ecr": 23,
@@ -398,8 +355,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 41,
     "espnAuction": 18.7,
     "adp": 78.4,
-    "pctOwned": 94.5,
-    "fpAuction": 23.0
+    "pctOwned": 94.5
   },
   "kyleschwarber-phi": {
     "ecr": 21,
@@ -407,8 +363,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 27,
     "espnAuction": 35.2,
     "adp": 21.4,
-    "pctOwned": 99.8,
-    "fpAuction": 21.0
+    "pctOwned": 99.8
   },
   "joshnaylor-sea": {
     "ecr": 53,
@@ -416,8 +371,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 97,
     "espnAuction": 10.2,
     "adp": 97.7,
-    "pctOwned": 92.4,
-    "fpAuction": 53.0
+    "pctOwned": 92.4
   },
   "zachneto-laa": {
     "ecr": 33,
@@ -425,8 +379,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 66,
     "espnAuction": 8.3,
     "adp": 167.2,
-    "pctOwned": 61.3,
-    "fpAuction": 33.0
+    "pctOwned": 61.3
   },
   "yoshinobuyamamoto-lad": {
     "ecr": 28,
@@ -434,8 +387,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 80,
     "espnAuction": 38.9,
     "adp": 14.6,
-    "pctOwned": 99.8,
-    "fpAuction": 28.0
+    "pctOwned": 99.8
   },
   "geraldoperdomo-ari": {
     "ecr": 71,
@@ -443,8 +395,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 145,
     "espnAuction": 12.1,
     "adp": 69.4,
-    "pctOwned": 96.5,
-    "fpAuction": 71.0
+    "pctOwned": 96.5
   },
   "georgekirby-sea": {
     "ecr": 60,
@@ -452,8 +403,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 86,
     "espnAuction": 16.3,
     "adp": 59.6,
-    "pctOwned": 97.8,
-    "fpAuction": 60.0
+    "pctOwned": 97.8
   },
   "coleragans-kc": {
     "ecr": 47,
@@ -461,8 +411,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 89,
     "espnAuction": 20.0,
     "adp": 52.7,
-    "pctOwned": 97.3,
-    "fpAuction": 47.0
+    "pctOwned": 97.3
   },
   "wyattlangford-tex": {
     "ecr": 43,
@@ -470,8 +419,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 101,
     "espnAuction": 10.3,
     "adp": 97.2,
-    "pctOwned": 91.2,
-    "fpAuction": 43.0
+    "pctOwned": 91.2
   },
   "cjabrams-wsn": {
     "ecr": 55,
@@ -479,8 +427,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 99,
     "espnAuction": 6.4,
     "adp": 159.7,
-    "pctOwned": 75.0,
-    "fpAuction": 55.0
+    "pctOwned": 75.0
   },
   "mannymachado-sd": {
     "ecr": 30,
@@ -488,8 +435,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 45,
     "espnAuction": 29.5,
     "adp": 26.4,
-    "pctOwned": 99.7,
-    "fpAuction": 30.0
+    "pctOwned": 99.7
   },
   "vinniepasquantino-kc": {
     "ecr": 64,
@@ -497,8 +443,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 84,
     "espnAuction": 12.8,
     "adp": 92.5,
-    "pctOwned": 91.8,
-    "fpAuction": 64.0
+    "pctOwned": 91.8
   },
   "masonmiller-sd": {
     "ecr": 52,
@@ -507,7 +452,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 23.0,
     "adp": 39.4,
     "pctOwned": 99.4,
-    "fpAuction": 52.0,
     "closerStatus": "CLOSER:SD",
     "closerRank": 2
   },
@@ -517,8 +461,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 104,
     "espnAuction": 14.7,
     "adp": 68.3,
-    "pctOwned": 96.9,
-    "fpAuction": 65.0
+    "pctOwned": 96.9
   },
   "mattchapman-sf": {
     "ecr": 134,
@@ -526,8 +469,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 195,
     "espnAuction": 3.1,
     "adp": 134.3,
-    "pctOwned": 85.8,
-    "fpAuction": 134.0
+    "pctOwned": 85.8
   },
   "nathaneovaldi-tex": {
     "ecr": 122,
@@ -535,8 +477,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 170,
     "espnAuction": 7.3,
     "adp": 103.6,
-    "pctOwned": 91.6,
-    "fpAuction": 122.0
+    "pctOwned": 91.6
   },
   "frambervaldez-det": {
     "ecr": 70,
@@ -544,8 +485,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 90,
     "espnAuction": 20.7,
     "adp": 44.3,
-    "pctOwned": 99.0,
-    "fpAuction": 70.0
+    "pctOwned": 99.0
   },
   "huntergreene-cin": {
     "ecr": 247,
@@ -553,8 +493,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 360,
     "espnAuction": 4.2,
     "adp": 203.8,
-    "pctOwned": 83.9,
-    "fpAuction": 247.0
+    "pctOwned": 83.9
   },
   "romananthony-bos": {
     "ecr": 50,
@@ -562,8 +501,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 210,
     "espnAuction": 19.8,
     "adp": 60.3,
-    "pctOwned": 95.1,
-    "fpAuction": 50.0
+    "pctOwned": 95.1
   },
   "spencertorkelson-det": {
     "ecr": 159,
@@ -571,8 +509,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 203,
     "espnAuction": 1.8,
     "adp": 210.7,
-    "pctOwned": 48.6,
-    "fpAuction": 159.0
+    "pctOwned": 48.6
   },
   "rileygreene-det": {
     "ecr": 57,
@@ -580,8 +517,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 80,
     "espnAuction": 6.9,
     "adp": 121.0,
-    "pctOwned": 88.9,
-    "fpAuction": 57.0
+    "pctOwned": 88.9
   },
   "yandydaz-tb": {
     "ecr": 104,
@@ -589,8 +525,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 170,
     "espnAuction": 2.8,
     "adp": 174.4,
-    "pctOwned": 76.7,
-    "fpAuction": 104.0
+    "pctOwned": 76.7
   },
   "jessluzardo-phi": {
     "ecr": 66,
@@ -598,8 +533,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 96,
     "espnAuction": 16.9,
     "adp": 52.5,
-    "pctOwned": 98.2,
-    "fpAuction": 66.0
+    "pctOwned": 98.2
   },
   "joeryan-min": {
     "ecr": 63,
@@ -607,8 +541,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 128,
     "espnAuction": 18.4,
     "adp": 51.6,
-    "pctOwned": 98.1,
-    "fpAuction": 63.0
+    "pctOwned": 98.1
   },
   "alexbregman-chc": {
     "ecr": 94,
@@ -616,8 +549,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 183,
     "espnAuction": 22.2,
     "adp": 35.8,
-    "pctOwned": 99.2,
-    "fpAuction": 94.0
+    "pctOwned": 99.2
   },
   "austinriley-atl": {
     "ecr": 51,
@@ -625,8 +557,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 77,
     "espnAuction": 12.5,
     "adp": 72.6,
-    "pctOwned": 95.9,
-    "fpAuction": 51.0
+    "pctOwned": 95.9
   },
   "willyadames-sf": {
     "ecr": 102,
@@ -634,8 +565,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 156,
     "espnAuction": 2.2,
     "adp": 156.0,
-    "pctOwned": 83.3,
-    "fpAuction": 102.0
+    "pctOwned": 83.3
   },
   "yordanalvarez-hou": {
     "ecr": 27,
@@ -643,8 +573,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 59,
     "espnAuction": 25.8,
     "adp": 35.7,
-    "pctOwned": 99.2,
-    "fpAuction": 27.0
+    "pctOwned": 99.2
   },
   "tylersoderstrom-ath": {
     "ecr": 85,
@@ -652,8 +581,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 150,
     "espnAuction": 7.2,
     "adp": 125.5,
-    "pctOwned": 85.9,
-    "fpAuction": 85.0
+    "pctOwned": 85.9
   },
   "sonnygray-bos": {
     "ecr": 106,
@@ -661,8 +589,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 170,
     "espnAuction": 8.1,
     "adp": 90.9,
-    "pctOwned": 94.7,
-    "fpAuction": 106.0
+    "pctOwned": 94.7
   },
   "michaelbusch-chc": {
     "ecr": 99,
@@ -670,8 +597,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 159,
     "espnAuction": 3.9,
     "adp": 192.5,
-    "pctOwned": 61.5,
-    "fpAuction": 99.0
+    "pctOwned": 61.5
   },
   "ianhapp-chc": {
     "ecr": 154,
@@ -679,8 +605,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 236,
     "espnAuction": 3.0,
     "adp": 139.6,
-    "pctOwned": 79.9,
-    "fpAuction": 154.0
+    "pctOwned": 79.9
   },
   "huntergoodman-col": {
     "ecr": 78,
@@ -688,8 +613,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 162,
     "espnAuction": 5.1,
     "adp": 146.0,
-    "pctOwned": 83.8,
-    "fpAuction": 78.0
+    "pctOwned": 83.8
   },
   "nicohoerner-chc": {
     "ecr": 91,
@@ -697,8 +621,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 132,
     "espnAuction": 14.3,
     "adp": 55.1,
-    "pctOwned": 99.0,
-    "fpAuction": 91.0
+    "pctOwned": 99.0
   },
   "briceturang-mil": {
     "ecr": 49,
@@ -706,8 +629,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 113,
     "espnAuction": 13.6,
     "adp": 74.9,
-    "pctOwned": 94.5,
-    "fpAuction": 49.0
+    "pctOwned": 94.5
   },
   "ceddannerafaela-bos": {
     "ecr": 148,
@@ -715,8 +637,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 253,
     "espnAuction": 1.8,
     "adp": 185.3,
-    "pctOwned": 68.1,
-    "fpAuction": 148.0
+    "pctOwned": 68.1
   },
   "jazzchisholmjr-nyy": {
     "ecr": 22,
@@ -724,8 +645,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 41,
     "espnAuction": 22.9,
     "adp": 53.9,
-    "pctOwned": 98.8,
-    "fpAuction": 22.0
+    "pctOwned": 98.8
   },
   "eugeniosurez-cin": {
     "ecr": 83,
@@ -733,8 +653,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 118,
     "espnAuction": 9.6,
     "adp": 109.5,
-    "pctOwned": 90.1,
-    "fpAuction": 83.0
+    "pctOwned": 90.1
   },
   "jakobmarsee-mia": {
     "ecr": 135,
@@ -742,8 +661,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 200,
     "espnAuction": 1.8,
     "adp": 186.2,
-    "pctOwned": 59.6,
-    "fpAuction": 135.0
+    "pctOwned": 59.6
   },
   "edwindaz-lad": {
     "ecr": 54,
@@ -752,7 +670,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 20.6,
     "adp": 45.3,
     "pctOwned": 99.4,
-    "fpAuction": 54.0,
     "closerStatus": "CLOSER:LAD",
     "closerRank": 3
   },
@@ -763,7 +680,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 14.8,
     "adp": 62.6,
     "pctOwned": 98.6,
-    "fpAuction": 77.0,
     "closerStatus": "CLOSER:CLE",
     "closerRank": 1
   },
@@ -773,8 +689,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 157,
     "espnAuction": 13.0,
     "adp": 59.9,
-    "pctOwned": 98.5,
-    "fpAuction": 101.0
+    "pctOwned": 98.5
   },
   "jacksonmerrill-sd": {
     "ecr": 61,
@@ -782,8 +697,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 204,
     "espnAuction": 14.1,
     "adp": 72.2,
-    "pctOwned": 96.1,
-    "fpAuction": 61.0
+    "pctOwned": 96.1
   },
   "bobichette-nym": {
     "ecr": 81,
@@ -791,8 +705,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 144,
     "espnAuction": 7.7,
     "adp": 115.9,
-    "pctOwned": 91.0,
-    "fpAuction": 81.0
+    "pctOwned": 91.0
   },
   "randyarozarena-sea": {
     "ecr": 79,
@@ -800,8 +713,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 109,
     "espnAuction": 6.2,
     "adp": 113.9,
-    "pctOwned": 90.2,
-    "fpAuction": 79.0
+    "pctOwned": 90.2
   },
   "shealangeliers-ath": {
     "ecr": 68,
@@ -809,8 +721,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 145,
     "espnAuction": 9.3,
     "adp": 85.4,
-    "pctOwned": 96.7,
-    "fpAuction": 68.0
+    "pctOwned": 96.7
   },
   "luisarraez-sf": {
     "ecr": 255,
@@ -818,8 +729,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 383,
     "espnAuction": 1.8,
     "adp": 192.2,
-    "pctOwned": 67.9,
-    "fpAuction": 255.0
+    "pctOwned": 67.9
   },
   "seiyasuzuki-chc": {
     "ecr": 82,
@@ -827,8 +737,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 183,
     "espnAuction": 7.3,
     "adp": 103.8,
-    "pctOwned": 91.9,
-    "fpAuction": 82.0
+    "pctOwned": 91.9
   },
   "joshhader-hou": {
     "ecr": 146,
@@ -837,7 +746,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 3.9,
     "adp": 140.0,
     "pctOwned": 90.4,
-    "fpAuction": 146.0,
     "closerStatus": "SVH#17",
     "closerRank": 17
   },
@@ -847,8 +755,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 91,
     "espnAuction": 18.1,
     "adp": 48.7,
-    "pctOwned": 99.2,
-    "fpAuction": 62.0
+    "pctOwned": 99.2
   },
   "agustnramrez-mia": {
     "ecr": 128,
@@ -856,8 +763,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 171,
     "espnAuction": 3.7,
     "adp": 136.6,
-    "pctOwned": 86.2,
-    "fpAuction": 128.0
+    "pctOwned": 86.2
   },
   "benrice-nyy": {
     "ecr": 72,
@@ -865,8 +771,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 149,
     "espnAuction": 13.8,
     "adp": 62.5,
-    "pctOwned": 98.1,
-    "fpAuction": 72.0
+    "pctOwned": 98.1
   },
   "jeremypea-hou": {
     "ecr": 84,
@@ -874,8 +779,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 130,
     "espnAuction": 3.6,
     "adp": 164.4,
-    "pctOwned": 80.6,
-    "fpAuction": 84.0
+    "pctOwned": 80.6
   },
   "miguelvargas-chw": {
     "ecr": 287,
@@ -883,8 +787,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 327,
     "espnAuction": 0.1,
     "adp": 254.3,
-    "pctOwned": 24.2,
-    "fpAuction": 287.0
+    "pctOwned": 24.2
   },
   "nickpivetta-sd": {
     "ecr": 89,
@@ -892,8 +795,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 120,
     "espnAuction": 13.1,
     "adp": 69.4,
-    "pctOwned": 97.0,
-    "fpAuction": 89.0
+    "pctOwned": 97.0
   },
   "brysonstott-phi": {
     "ecr": 195,
@@ -901,8 +803,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 281,
     "espnAuction": 1.2,
     "adp": 178.9,
-    "pctOwned": 68.5,
-    "fpAuction": 195.0
+    "pctOwned": 68.5
   },
   "gleybertorres-det": {
     "ecr": 201,
@@ -910,8 +811,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 280,
     "espnAuction": 3.0,
     "adp": 136.4,
-    "pctOwned": 79.8,
-    "fpAuction": 201.0
+    "pctOwned": 79.8
   },
   "jhoanduran-phi": {
     "ecr": 74,
@@ -920,7 +820,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 14.0,
     "adp": 68.6,
     "pctOwned": 98.2,
-    "fpAuction": 74.0,
     "closerStatus": "CLOSER:PHI",
     "closerRank": 4
   },
@@ -930,8 +829,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 283,
     "espnAuction": 0.2,
     "adp": 256.5,
-    "pctOwned": 7.4,
-    "fpAuction": 197.0
+    "pctOwned": 7.4
   },
   "freddyperalta-nym": {
     "ecr": 56,
@@ -939,8 +837,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 112,
     "espnAuction": 23.4,
     "adp": 38.8,
-    "pctOwned": 99.5,
-    "fpAuction": 56.0
+    "pctOwned": 99.5
   },
   "oneilcruz-pit": {
     "ecr": 92,
@@ -948,8 +845,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 120,
     "espnAuction": 3.8,
     "adp": 158.1,
-    "pctOwned": 75.1,
-    "fpAuction": 92.0
+    "pctOwned": 75.1
   },
   "michaelharrisii-atl": {
     "ecr": 88,
@@ -957,8 +853,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 142,
     "espnAuction": 3.0,
     "adp": 155.6,
-    "pctOwned": 83.1,
-    "fpAuction": 88.0
+    "pctOwned": 83.1
   },
   "alecbohm-phi": {
     "ecr": 233,
@@ -966,8 +861,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 296,
     "espnAuction": 0.4,
     "adp": 237.2,
-    "pctOwned": 28.1,
-    "fpAuction": 233.0
+    "pctOwned": 28.1
   },
   "abneruribe-mil": {
     "ecr": 223,
@@ -976,7 +870,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 1.4,
     "adp": 227.2,
     "pctOwned": 56.5,
-    "fpAuction": 223.0,
     "closerStatus": "1ST:MIL:*",
     "closerRank": 5
   },
@@ -986,8 +879,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 174,
     "espnAuction": 6.6,
     "adp": 105.8,
-    "pctOwned": 92.4,
-    "fpAuction": 137.0
+    "pctOwned": 92.4
   },
   "stevenkwan-cle": {
     "ecr": 150,
@@ -995,8 +887,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 238,
     "espnAuction": 8.9,
     "adp": 80.8,
-    "pctOwned": 95.3,
-    "fpAuction": 150.0
+    "pctOwned": 95.3
   },
   "lawrencebutler-ath": {
     "ecr": 132,
@@ -1004,8 +895,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 182,
     "espnAuction": 0.9,
     "adp": 237.1,
-    "pctOwned": 23.2,
-    "fpAuction": 132.0
+    "pctOwned": 23.2
   },
   "alecburleson-stl": {
     "ecr": 179,
@@ -1013,8 +903,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 277,
     "espnAuction": 1.8,
     "adp": 167.2,
-    "pctOwned": 75.9,
-    "fpAuction": 179.0
+    "pctOwned": 75.9
   },
   "byronbuxton-min": {
     "ecr": 69,
@@ -1022,8 +911,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 101,
     "espnAuction": 7.8,
     "adp": 121.8,
-    "pctOwned": 88.5,
-    "fpAuction": 69.0
+    "pctOwned": 88.5
   },
   "salvadorperez-kc": {
     "ecr": 103,
@@ -1031,8 +919,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 164,
     "espnAuction": 4.8,
     "adp": 118.0,
-    "pctOwned": 90.1,
-    "fpAuction": 103.0
+    "pctOwned": 90.1
   },
   "daylenlile-wsn": {
     "ecr": 189,
@@ -1040,8 +927,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 231,
     "espnAuction": 0.4,
     "adp": 244.4,
-    "pctOwned": 16.6,
-    "fpAuction": 189.0
+    "pctOwned": 16.6
   },
   "griffinjax-tb": {
     "ecr": 228,
@@ -1050,7 +936,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 1.9,
     "adp": 198.4,
     "pctOwned": 73.8,
-    "fpAuction": 228.0,
     "closerStatus": "CLOSER:TB:*",
     "closerRank": 23
   },
@@ -1061,7 +946,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 3.3,
     "adp": 148.6,
     "pctOwned": 85.8,
-    "fpAuction": 139.0,
     "closerRank": 25
   },
   "adleyrutschman-bal": {
@@ -1070,8 +954,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 260,
     "espnAuction": 3.0,
     "adp": 134.1,
-    "pctOwned": 85.1,
-    "fpAuction": 162.0
+    "pctOwned": 85.1
   },
   "devinwilliams-nym": {
     "ecr": 96,
@@ -1080,7 +963,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 7.8,
     "adp": 104.8,
     "pctOwned": 93.6,
-    "fpAuction": 96.0,
     "closerStatus": "CLOSER:NYM",
     "closerRank": 6
   },
@@ -1091,7 +973,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 259.8,
     "pctOwned": 6.3,
-    "fpAuction": 304.0,
     "closerStatus": "1ST:CHW",
     "closerRank": 29
   },
@@ -1101,8 +982,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 219,
     "espnAuction": 2.0,
     "adp": 159.0,
-    "pctOwned": 79.7,
-    "fpAuction": 133.0
+    "pctOwned": 79.7
   },
   "calebdurbin-bos": {
     "ecr": 234,
@@ -1110,8 +990,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 297,
     "espnAuction": 0.8,
     "adp": 217.9,
-    "pctOwned": 52.3,
-    "fpAuction": 234.0
+    "pctOwned": 52.3
   },
   "andrsmuoz-sea": {
     "ecr": 73,
@@ -1120,7 +999,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 15.9,
     "adp": 61.3,
     "pctOwned": 98.4,
-    "fpAuction": 73.0,
     "closerStatus": "CLOSER:SEA",
     "closerRank": 6
   },
@@ -1130,8 +1008,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 127,
     "espnAuction": 10.6,
     "adp": 76.5,
-    "pctOwned": 96.9,
-    "fpAuction": 95.0
+    "pctOwned": 96.9
   },
   "teoscarhernndez-lad": {
     "ecr": 98,
@@ -1139,8 +1016,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 139,
     "espnAuction": 2.6,
     "adp": 154.5,
-    "pctOwned": 83.5,
-    "fpAuction": 98.0
+    "pctOwned": 83.5
   },
   "davidbednar-nyy": {
     "ecr": 97,
@@ -1149,7 +1025,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 8.5,
     "adp": 102.0,
     "pctOwned": 94.0,
-    "fpAuction": 97.0,
     "closerStatus": "CLOSER:NYY",
     "closerRank": 9
   },
@@ -1159,8 +1034,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 216,
     "espnAuction": 1.2,
     "adp": 206.0,
-    "pctOwned": 57.0,
-    "fpAuction": 177.0
+    "pctOwned": 57.0
   },
   "taylorward-bal": {
     "ecr": 130,
@@ -1168,8 +1042,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 196,
     "espnAuction": 3.2,
     "adp": 140.8,
-    "pctOwned": 85.7,
-    "fpAuction": 130.0
+    "pctOwned": 85.7
   },
   "addisonbarger-tor": {
     "ecr": 191,
@@ -1177,8 +1050,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 284,
     "espnAuction": 0.7,
     "adp": 246.1,
-    "pctOwned": 19.3,
-    "fpAuction": 191.0
+    "pctOwned": 19.3
   },
   "aroldischapman-bos": {
     "ecr": 93,
@@ -1187,7 +1059,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 9.1,
     "adp": 89.2,
     "pctOwned": 97.1,
-    "fpAuction": 93.0,
     "closerStatus": "CLOSER:BOS",
     "closerRank": 7
   },
@@ -1197,8 +1068,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 272,
     "espnAuction": 1.4,
     "adp": 236.6,
-    "pctOwned": 27.5,
-    "fpAuction": 202.0
+    "pctOwned": 27.5
   },
   "masynwinn-stl": {
     "ecr": 245,
@@ -1206,8 +1076,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 319,
     "espnAuction": 0.2,
     "adp": 257.1,
-    "pctOwned": 6.6,
-    "fpAuction": 245.0
+    "pctOwned": 6.6
   },
   "tannerbibee-cle": {
     "ecr": 152,
@@ -1215,8 +1084,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 197,
     "espnAuction": 2.8,
     "adp": 146.6,
-    "pctOwned": 81.8,
-    "fpAuction": 152.0
+    "pctOwned": 81.8
   },
   "shanemcclanahan-tb": {
     "ecr": 185,
@@ -1224,8 +1092,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 274,
     "espnAuction": 0.7,
     "adp": 243.5,
-    "pctOwned": 28.1,
-    "fpAuction": 185.0
+    "pctOwned": 28.1
   },
   "georgespringer-tor": {
     "ecr": 76,
@@ -1233,8 +1100,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 104,
     "espnAuction": 10.3,
     "adp": 76.7,
-    "pctOwned": 97.1,
-    "fpAuction": 76.0
+    "pctOwned": 97.1
   },
   "junghoolee-sf": {
     "ecr": 273,
@@ -1242,8 +1108,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 311,
     "espnAuction": 0.7,
     "adp": 208.8,
-    "pctOwned": 45.9,
-    "fpAuction": 273.0
+    "pctOwned": 45.9
   },
   "ivnherrera-stl": {
     "ecr": 168,
@@ -1251,8 +1116,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 237,
     "espnAuction": 0.3,
     "adp": 257.2,
-    "pctOwned": 8.2,
-    "fpAuction": 168.0
+    "pctOwned": 8.2
   },
   "ozziealbies-atl": {
     "ecr": 123,
@@ -1260,8 +1124,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 165,
     "espnAuction": 6.7,
     "adp": 97.3,
-    "pctOwned": 92.4,
-    "fpAuction": 123.0
+    "pctOwned": 92.4
   },
   "nolanschanuel-laa": {
     "ecr": 257,
@@ -1269,8 +1132,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 361,
     "espnAuction": 0.1,
     "adp": 258.6,
-    "pctOwned": 5.2,
-    "fpAuction": 257.0
+    "pctOwned": 5.2
   },
   "marcussemien-nym": {
     "ecr": 186,
@@ -1278,8 +1140,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 249,
     "espnAuction": 1.8,
     "adp": 158.7,
-    "pctOwned": 74.8,
-    "fpAuction": 186.0
+    "pctOwned": 74.8
   },
   "bryanreynolds-pit": {
     "ecr": 165,
@@ -1287,8 +1148,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 264,
     "espnAuction": 1.3,
     "adp": 184.8,
-    "pctOwned": 65.0,
-    "fpAuction": 165.0
+    "pctOwned": 65.0
   },
   "tylerglasnow-lad": {
     "ecr": 105,
@@ -1296,8 +1156,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 168,
     "espnAuction": 5.2,
     "adp": 118.7,
-    "pctOwned": 90.3,
-    "fpAuction": 105.0
+    "pctOwned": 90.3
   },
   "drewrasmussen-tb": {
     "ecr": 140,
@@ -1305,8 +1164,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 183,
     "espnAuction": 2.4,
     "adp": 166.0,
-    "pctOwned": 81.6,
-    "fpAuction": 140.0
+    "pctOwned": 81.6
   },
   "bryanabreu-hou": {
     "ecr": 256,
@@ -1315,7 +1173,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 2.3,
     "adp": 207.1,
     "pctOwned": 67.7,
-    "fpAuction": 256.0,
     "closerStatus": "CLOSER:HOU",
     "closerRank": 22
   },
@@ -1325,8 +1182,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 241,
     "espnAuction": 1.6,
     "adp": 214.8,
-    "pctOwned": 62.8,
-    "fpAuction": 169.0
+    "pctOwned": 62.8
   },
   "mackenziegore-tex": {
     "ecr": 142,
@@ -1334,8 +1190,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 206,
     "espnAuction": 3.3,
     "adp": 159.3,
-    "pctOwned": 83.6,
-    "fpAuction": 142.0
+    "pctOwned": 83.6
   },
   "heliotramos-sf": {
     "ecr": 187,
@@ -1343,8 +1198,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 282,
     "espnAuction": 0.5,
     "adp": 243.4,
-    "pctOwned": 18.8,
-    "fpAuction": 187.0
+    "pctOwned": 18.8
   },
   "dansbyswanson-chc": {
     "ecr": 141,
@@ -1352,8 +1206,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 192,
     "espnAuction": 1.4,
     "adp": 224.2,
-    "pctOwned": 31.7,
-    "fpAuction": 141.0
+    "pctOwned": 31.7
   },
   "trevorstory-bos": {
     "ecr": 100,
@@ -1361,8 +1214,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 148,
     "espnAuction": 3.1,
     "adp": 218.1,
-    "pctOwned": 35.2,
-    "fpAuction": 100.0
+    "pctOwned": 35.2
   },
   "jeremiahestrada-sd": {
     "ecr": 369,
@@ -1371,7 +1223,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.5,
     "adp": 248.7,
     "pctOwned": 21.9,
-    "fpAuction": 369.0,
     "closerStatus": "1ST:SD",
     "closerRank": 8
   },
@@ -1381,8 +1232,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 240,
     "espnAuction": 2.3,
     "adp": 161.7,
-    "pctOwned": 77.2,
-    "fpAuction": 109.0
+    "pctOwned": 77.2
   },
   "aaronnola-phi": {
     "ecr": 173,
@@ -1390,8 +1240,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 257,
     "espnAuction": 1.5,
     "adp": 199.1,
-    "pctOwned": 54.1,
-    "fpAuction": 173.0
+    "pctOwned": 54.1
   },
   "brandonnimmo-tex": {
     "ecr": 117,
@@ -1399,8 +1248,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 184,
     "espnAuction": 4.5,
     "adp": 123.1,
-    "pctOwned": 88.8,
-    "fpAuction": 117.0
+    "pctOwned": 88.8
   },
   "garrettwhitlock-bos": {
     "ecr": 401,
@@ -1409,7 +1257,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.4,
     "adp": 251.6,
     "pctOwned": 17.8,
-    "fpAuction": 401.0,
     "closerStatus": "1ST:BOS",
     "closerRank": 28
   },
@@ -1417,8 +1264,7 @@ const PLAYER_RANKINGS = {
     "ecr": 110,
     "ecrMin": 75,
     "ecrMax": 167,
-    "adp": 259.9,
-    "fpAuction": 110.0
+    "adp": 259.9
   },
   "coreyseager-tex": {
     "ecr": 75,
@@ -1426,8 +1272,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 106,
     "espnAuction": 7.3,
     "adp": 110.7,
-    "pctOwned": 90.8,
-    "fpAuction": 75.0
+    "pctOwned": 90.8
   },
   "coltkeith-det": {
     "ecr": 315,
@@ -1435,8 +1280,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 318,
     "espnAuction": 0.1,
     "adp": 256.5,
-    "pctOwned": 8.4,
-    "fpAuction": 315.0
+    "pctOwned": 8.4
   },
   "brandonwoodruff-mil": {
     "ecr": 113,
@@ -1444,8 +1288,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 169,
     "espnAuction": 6.0,
     "adp": 119.8,
-    "pctOwned": 88.2,
-    "fpAuction": 113.0
+    "pctOwned": 88.2
   },
   "christianyelich-mil": {
     "ecr": 90,
@@ -1453,8 +1296,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 133,
     "espnAuction": 7.6,
     "adp": 101.4,
-    "pctOwned": 91.7,
-    "fpAuction": 90.0
+    "pctOwned": 91.7
   },
   "salstewart-cin": {
     "ecr": 203,
@@ -1462,8 +1304,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 258,
     "espnAuction": 1.0,
     "adp": 242.8,
-    "pctOwned": 22.3,
-    "fpAuction": 203.0
+    "pctOwned": 22.3
   },
   "garrettcleavinger-tb": {
     "ecr": 395,
@@ -1472,7 +1313,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 260.2,
     "pctOwned": 2.3,
-    "fpAuction": 395.0,
     "closerStatus": "1ST:TB:*",
     "closerRank": 27
   },
@@ -1482,8 +1322,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 209,
     "espnAuction": 8.1,
     "adp": 95.3,
-    "pctOwned": 95.6,
-    "fpAuction": 112.0
+    "pctOwned": 95.6
   },
   "ernieclement-tor": {
     "ecr": 324,
@@ -1491,8 +1330,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 309,
     "espnAuction": 1.8,
     "adp": 185.3,
-    "pctOwned": 66.9,
-    "fpAuction": 324.0
+    "pctOwned": 66.9
   },
   "kazumaokamoto-tor": {
     "ecr": 198,
@@ -1500,8 +1338,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 294,
     "espnAuction": 1.9,
     "adp": 207.5,
-    "pctOwned": 58.3,
-    "fpAuction": 198.0
+    "pctOwned": 58.3
   },
   "raiseliglesias-atl": {
     "ecr": 129,
@@ -1510,7 +1347,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 5.0,
     "adp": 124.6,
     "pctOwned": 90.8,
-    "fpAuction": 129.0,
     "closerStatus": "CLOSER:ATL",
     "closerRank": 14
   },
@@ -1520,8 +1356,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 170,
     "espnAuction": 8.5,
     "adp": 98.3,
-    "pctOwned": 91.2,
-    "fpAuction": 80.0
+    "pctOwned": 91.2
   },
   "willsoncontreras-bos": {
     "ecr": 149,
@@ -1529,8 +1364,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 212,
     "espnAuction": 0.8,
     "adp": 242.6,
-    "pctOwned": 19.1,
-    "fpAuction": 149.0
+    "pctOwned": 19.1
   },
   "joemusgrove-sd": {
     "ecr": 215,
@@ -1538,8 +1372,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 259,
     "espnAuction": 0.3,
     "adp": 248.5,
-    "pctOwned": 20.4,
-    "fpAuction": 215.0
+    "pctOwned": 20.4
   },
   "trevormegill-mil": {
     "ecr": 196,
@@ -1548,7 +1381,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 3.0,
     "adp": 167.5,
     "pctOwned": 84.9,
-    "fpAuction": 196.0,
     "closerStatus": "CLOSER:MIL:*",
     "closerRank": 18
   },
@@ -1558,8 +1390,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 350,
     "espnAuction": 0.1,
     "adp": 257.5,
-    "pctOwned": 5.3,
-    "fpAuction": 310.0
+    "pctOwned": 5.3
   },
   "matthewboyd-chc": {
     "ecr": 182,
@@ -1567,8 +1398,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 291,
     "espnAuction": 2.0,
     "adp": 171.0,
-    "pctOwned": 77.4,
-    "fpAuction": 182.0
+    "pctOwned": 77.4
   },
   "jordanbeck-col": {
     "ecr": 226,
@@ -1576,8 +1406,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 263,
     "espnAuction": 0.1,
     "adp": 260.2,
-    "pctOwned": 2.9,
-    "fpAuction": 226.0
+    "pctOwned": 2.9
   },
   "edwinuceta-tb": {
     "ecr": 307,
@@ -1585,8 +1414,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 418,
     "espnAuction": 0.1,
     "adp": 260.4,
-    "pctOwned": 14.2,
-    "fpAuction": 307.0
+    "pctOwned": 14.2
   },
   "jeffhoffman-tor": {
     "ecr": 144,
@@ -1595,7 +1423,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 1.9,
     "adp": 175.1,
     "pctOwned": 80.6,
-    "fpAuction": 144.0,
     "closerStatus": "CLOSER:TOR",
     "closerRank": 10
   },
@@ -1605,8 +1432,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 212,
     "espnAuction": 1.8,
     "adp": 152.9,
-    "pctOwned": 81.6,
-    "fpAuction": 161.0
+    "pctOwned": 81.6
   },
   "jacksonholliday-bal": {
     "ecr": 217,
@@ -1614,24 +1440,21 @@ const PLAYER_RANKINGS = {
     "ecrMax": 274,
     "espnAuction": 2.1,
     "adp": 193.4,
-    "pctOwned": 72.4,
-    "fpAuction": 217.0
+    "pctOwned": 72.4
   },
   "spencerhorwitz-pit": {
     "ecr": 358,
     "ecrMin": 215,
     "ecrMax": 405,
     "adp": 260.4,
-    "pctOwned": 1.6,
-    "fpAuction": 358.0
+    "pctOwned": 1.6
   },
   "ajminter-nym": {
     "ecr": 496,
     "ecrMin": 409,
     "ecrMax": 409,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 496.0
+    "pctOwned": 0.2
   },
   "juricksonprofar-atl": {
     "espnAuction": 0.3,
@@ -1644,8 +1467,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 509,
     "espnAuction": 0.1,
     "adp": 259.1,
-    "pctOwned": 27.8,
-    "fpAuction": 371.0
+    "pctOwned": 27.8
   },
   "jacobwilson-ath": {
     "ecr": 143,
@@ -1653,8 +1475,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 209,
     "espnAuction": 2.3,
     "adp": 162.7,
-    "pctOwned": 81.5,
-    "fpAuction": 143.0
+    "pctOwned": 81.5
   },
   "shotaimanaga-chc": {
     "ecr": 153,
@@ -1662,8 +1483,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 201,
     "espnAuction": 2.0,
     "adp": 180.7,
-    "pctOwned": 77.5,
-    "fpAuction": 153.0
+    "pctOwned": 77.5
   },
   "alexvesia-lad": {
     "ecr": 449,
@@ -1672,7 +1492,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.3,
     "adp": 256.5,
     "pctOwned": 7.5,
-    "fpAuction": 449.0,
     "closerStatus": "2ND:LAD"
   },
   "spencerstrider-atl": {
@@ -1681,8 +1500,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 194,
     "espnAuction": 9.9,
     "adp": 93.0,
-    "pctOwned": 93.3,
-    "fpAuction": 107.0
+    "pctOwned": 93.3
   },
   "mattstrahm-kc": {
     "ecr": 441,
@@ -1691,7 +1509,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 259.2,
     "pctOwned": 4.3,
-    "fpAuction": 441.0,
     "closerStatus": "2ND:KC",
     "closerRank": 45
   },
@@ -1700,8 +1517,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 592,
     "ecrMax": 592,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 687.0
+    "pctOwned": 0.1
   },
   "konnorgriffin-pit": {
     "ecr": 200,
@@ -1709,8 +1525,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 267,
     "espnAuction": 2.9,
     "adp": 223.4,
-    "pctOwned": 42.8,
-    "fpAuction": 200.0
+    "pctOwned": 42.8
   },
   "jonathanaranda-tb": {
     "ecr": 164,
@@ -1718,55 +1533,48 @@ const PLAYER_RANKINGS = {
     "ecrMax": 208,
     "espnAuction": 0.5,
     "adp": 251.9,
-    "pctOwned": 11.1,
-    "fpAuction": 164.0
+    "pctOwned": 11.1
   },
   "kempalderman-mia": {
     "ecr": 1532,
     "ecrMin": 1515,
     "ecrMax": 1515,
-    "adp": 260.0,
-    "fpAuction": 1532.0
+    "adp": 260.0
   },
   "nachoalvarezjr-atl": {
     "ecr": 1441,
     "ecrMin": 1418,
     "ecrMax": 1418,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 1441.0
+    "pctOwned": 0.1
   },
   "kadeanderson-sea": {
     "ecr": 750,
     "ecrMin": 638,
     "ecrMax": 638,
     "adp": 260.0,
-    "pctOwned": 1.2,
-    "fpAuction": 750.0
+    "pctOwned": 1.2
   },
   "jamiearnold-ath": {
     "ecr": 810,
     "ecrMin": 678,
     "ecrMax": 678,
     "adp": 260.0,
-    "pctOwned": 0.5,
-    "fpAuction": 810.0
+    "pctOwned": 0.5
   },
   "michaelarroyo-sea": {
     "ecr": 1512,
     "ecrMin": 1494,
     "ecrMax": 1494,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 1512.0
+    "pctOwned": 0.2
   },
   "joshuabaez-stl": {
     "ecr": 557,
     "ecrMin": 465,
     "ecrMax": 1324,
     "adp": 260.0,
-    "pctOwned": 0.6,
-    "fpAuction": 557.0
+    "pctOwned": 0.6
   },
   "moissballesteros-chc": {
     "ecr": 376,
@@ -1774,32 +1582,28 @@ const PLAYER_RANKINGS = {
     "ecrMax": 502,
     "espnAuction": 0.1,
     "adp": 260.1,
-    "pctOwned": 2.0,
-    "fpAuction": 376.0
+    "pctOwned": 2.0
   },
   "flixbautista-bal": {
     "ecr": 839,
     "ecrMin": 695,
     "ecrMax": 695,
     "adp": 259.9,
-    "pctOwned": 0.7,
-    "fpAuction": 839.0
+    "pctOwned": 0.7
   },
   "jalenbeeks-pit": {
     "ecr": 727,
     "ecrMin": 621,
     "ecrMax": 621,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 727.0
+    "pctOwned": 0.1
   },
   "warmingbernabel-wsn": {
     "ecr": 1405,
     "ecrMin": 1363,
     "ecrMax": 1363,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 1405.0
+    "pctOwned": 0.1
   },
   "leonardobernal-stl": {
     "adp": 260.0
@@ -1825,8 +1629,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 436,
     "ecrMax": 551,
     "adp": 259.9,
-    "pctOwned": 1.6,
-    "fpAuction": 525.0
+    "pctOwned": 1.6
   },
   "emmanuelclase-cle": {
     "adp": 259.1,
@@ -1836,63 +1639,55 @@ const PLAYER_RANKINGS = {
     "ecr": 663,
     "ecrMin": 575,
     "ecrMax": 575,
-    "adp": 260.0,
-    "fpAuction": 663.0
+    "adp": 260.0
   },
   "michaelconforto-lad": {
     "ecr": 855,
     "ecrMin": 705,
     "ecrMax": 1297,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 855.0
+    "pctOwned": 0.1
   },
   "josecorniell-tex": {
     "ecr": 910,
     "ecrMin": 741,
     "ecrMax": 741,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 910.0
+    "pctOwned": 0.2
   },
   "dannycoulombe-tex": {
     "ecr": 623,
     "ecrMin": 539,
     "ecrMax": 539,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 623.0
+    "pctOwned": 0.1
   },
   "kuttercrawford-bos": {
     "ecr": 505,
     "ecrMin": 416,
     "ecrMax": 615,
     "adp": 260.0,
-    "pctOwned": 0.4,
-    "fpAuction": 505.0
+    "pctOwned": 0.4
   },
   "coopercriswell-sea": {
     "ecr": 723,
     "ecrMin": 619,
     "ecrMax": 619,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 723.0
+    "pctOwned": 0.1
   },
   "colemancrow-mil": {
     "ecr": 781,
     "ecrMin": 661,
     "ecrMax": 661,
-    "adp": 260.0,
-    "fpAuction": 781.0
+    "adp": 260.0
   },
   "kaelenculpepper-min": {
     "ecr": 747,
     "ecrMin": 635,
     "ecrMax": 635,
     "adp": 260.0,
-    "pctOwned": 0.3,
-    "fpAuction": 747.0
+    "pctOwned": 0.3
   },
   "luisdelen-bal": {
     "adp": 260.0
@@ -1902,16 +1697,14 @@ const PLAYER_RANKINGS = {
     "ecrMin": 1379,
     "ecrMax": 1379,
     "adp": 259.9,
-    "pctOwned": 0.2,
-    "fpAuction": 1416.0
+    "pctOwned": 0.2
   },
   "enyeldelossantos-hou": {
     "ecr": 702,
     "ecrMin": 603,
     "ecrMax": 603,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 702.0
+    "pctOwned": 0.1
   },
   "josuedepaula-lad": {
     "adp": 260.0,
@@ -1922,32 +1715,28 @@ const PLAYER_RANKINGS = {
     "ecrMin": 591,
     "ecrMax": 1449,
     "adp": 259.9,
-    "pctOwned": 1.6,
-    "fpAuction": 684.0
+    "pctOwned": 1.6
   },
   "adriandelcastillo-ari": {
     "ecr": 524,
     "ecrMin": 434,
     "ecrMax": 1195,
     "adp": 260.1,
-    "pctOwned": 0.1,
-    "fpAuction": 524.0
+    "pctOwned": 0.1
   },
   "liamdoyle-stl": {
     "ecr": 795,
     "ecrMin": 670,
     "ecrMax": 670,
     "adp": 260.0,
-    "pctOwned": 0.7,
-    "fpAuction": 795.0
+    "pctOwned": 0.7
   },
   "christianencarnacionstrand-cin": {
     "ecr": 694,
     "ecrMin": 597,
     "ecrMax": 1351,
     "adp": 260.0,
-    "pctOwned": 0.3,
-    "fpAuction": 694.0
+    "pctOwned": 0.3
   },
   "danielespino-cle": {
     "adp": 260.0,
@@ -1958,22 +1747,19 @@ const PLAYER_RANKINGS = {
     "ecrMin": 747,
     "ecrMax": 1307,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 915.0
+    "pctOwned": 0.1
   },
   "yanquielfernndez-nyy": {
     "ecr": 1426,
     "ecrMin": 1395,
     "ecrMax": 1395,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 1426.0
+    "pctOwned": 0.1
   },
   "joseaferrer-sea": {
     "ecr": 406,
     "ecrMin": 272,
     "ecrMax": 539,
-    "fpAuction": 406.0,
     "closerStatus": "2ND:SEA"
   },
   "tyfrance-sd": {
@@ -1981,32 +1767,28 @@ const PLAYER_RANKINGS = {
     "ecrMin": 1277,
     "ecrMax": 1277,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 1342.0
+    "pctOwned": 0.2
   },
   "bowdenfrancis-tor": {
     "ecr": 1091,
     "ecrMin": 946,
     "ecrMax": 946,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1091.0
+    "pctOwned": 0.1
   },
   "didierfuentes-atl": {
     "ecr": 1184,
     "ecrMin": 1045,
     "ecrMax": 1045,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 1184.0
+    "pctOwned": 0.2
   },
   "mitchgarver-sea": {
     "ecr": 891,
     "ecrMin": 728,
     "ecrMax": 1215,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 891.0
+    "pctOwned": 0.1
   },
   "angelgenao-cle": {
     "adp": 260.0,
@@ -2017,24 +1799,21 @@ const PLAYER_RANKINGS = {
     "ecrMin": 995,
     "ecrMax": 995,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1138.0
+    "pctOwned": 0.1
   },
   "lucasgiolito-bos": {
     "ecr": 486,
     "ecrMin": 397,
     "ecrMax": 638,
     "adp": 260.4,
-    "pctOwned": 1.4,
-    "fpAuction": 486.0
+    "pctOwned": 1.4
   },
   "sawyergipsonlong-det": {
     "ecr": 690,
     "ecrMin": 594,
     "ecrMax": 738,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 690.0
+    "pctOwned": 0.1
   },
   "paulgoldschmidt-nyy": {
     "ecr": 418,
@@ -2042,48 +1821,42 @@ const PLAYER_RANKINGS = {
     "ecrMax": 480,
     "espnAuction": 0.1,
     "adp": 259.1,
-    "pctOwned": 2.1,
-    "fpAuction": 418.0
+    "pctOwned": 2.1
   },
   "yoendrysgmez-tb": {
     "ecr": 679,
     "ecrMin": 585,
     "ecrMax": 585,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 679.0
+    "pctOwned": 0.1
   },
   "gabrielgonzalez-min": {
     "ecr": 1440,
     "ecrMin": 1415,
     "ecrMax": 1415,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1440.0
+    "pctOwned": 0.1
   },
   "jongray-tex": {
     "ecr": 935,
     "ecrMin": 760,
     "ecrMax": 760,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 935.0
+    "pctOwned": 0.1
   },
   "emersonhancock-sea": {
     "ecr": 874,
     "ecrMin": 717,
     "ecrMax": 717,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 874.0
+    "pctOwned": 0.2
   },
   "jonahheim-atl": {
     "ecr": 535,
     "ecrMin": 445,
     "ecrMax": 1199,
     "adp": 260.0,
-    "pctOwned": 0.4,
-    "fpAuction": 535.0
+    "pctOwned": 0.4
   },
   "liamhendriks-min": {
     "ecr": 846,
@@ -2091,7 +1864,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 699,
     "adp": 260.0,
     "pctOwned": 0.1,
-    "fpAuction": 846.0,
     "closerStatus": "2ND:MIN:*"
   },
   "ronnyhenriquez-mia": {
@@ -2103,24 +1875,21 @@ const PLAYER_RANKINGS = {
     "ecrMin": 1233,
     "ecrMax": 1233,
     "adp": 259.2,
-    "pctOwned": 0.7,
-    "fpAuction": 1313.0
+    "pctOwned": 0.7
   },
   "djherz-wsn": {
     "ecr": 886,
     "ecrMin": 725,
     "ecrMax": 725,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 886.0
+    "pctOwned": 0.1
   },
   "brodyhopkins-tb": {
     "ecr": 945,
     "ecrMin": 766,
     "ecrMax": 1034,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 945.0
+    "pctOwned": 0.2
   },
   "rhyshoskins-cle": {
     "ecr": 437,
@@ -2128,8 +1897,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 512,
     "espnAuction": 0.1,
     "adp": 259.7,
-    "pctOwned": 1.8,
-    "fpAuction": 437.0
+    "pctOwned": 1.8
   },
   "tatsuyaimai-hou": {
     "ecr": 172,
@@ -2137,110 +1905,96 @@ const PLAYER_RANKINGS = {
     "ecrMax": 396,
     "espnAuction": 1.3,
     "adp": 219.1,
-    "pctOwned": 45.5,
-    "fpAuction": 172.0
+    "pctOwned": 45.5
   },
   "cooperingle-cle": {
     "ecr": 939,
     "ecrMin": 762,
     "ecrMax": 762,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 939.0
+    "pctOwned": 0.1
   },
   "joejimnez-atl": {
     "ecr": 823,
     "ecrMin": 686,
     "ecrMax": 686,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 823.0
+    "pctOwned": 0.1
   },
   "jacksonjobe-det": {
     "ecr": 1095,
     "ecrMin": 950,
     "ecrMax": 950,
     "adp": 260.0,
-    "pctOwned": 1.1,
-    "fpAuction": 1095.0
+    "pctOwned": 1.1
   },
   "ryanjohnson-laa": {
     "ecr": 953,
     "ecrMin": 773,
     "ecrMax": 773,
-    "adp": 260.0,
-    "fpAuction": 953.0
+    "adp": 260.0
   },
   "tyjohnson-tb": {
     "ecr": 973,
     "ecrMin": 801,
     "ecrMax": 801,
-    "adp": 260.0,
-    "fpAuction": 973.0
+    "adp": 260.0
   },
   "spencerjones-nyy": {
     "ecr": 562,
     "ecrMin": 471,
     "ecrMax": 1424,
     "adp": 259.8,
-    "pctOwned": 2.0,
-    "fpAuction": 562.0
+    "pctOwned": 2.0
   },
   "benjoyce-laa": {
     "ecr": 491,
     "ecrMin": 405,
     "ecrMax": 522,
     "adp": 259.9,
-    "pctOwned": 1.5,
-    "fpAuction": 491.0
+    "pctOwned": 1.5
   },
   "maxkepler-phi": {
     "ecr": 1353,
     "ecrMin": 1292,
     "ecrMax": 1292,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1353.0
+    "pctOwned": 0.1
   },
   "georgeklassen-laa": {
     "ecr": 905,
     "ecrMin": 737,
     "ecrMax": 1026,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 905.0
+    "pctOwned": 0.2
   },
   "michaelkopech-lad": {
     "ecr": 892,
     "ecrMin": 728,
     "ecrMax": 736,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 892.0
+    "pctOwned": 0.2
   },
   "carloslagrange-nyy": {
     "ecr": 739,
     "ecrMin": 630,
     "ecrMax": 630,
     "adp": 259.9,
-    "pctOwned": 1.0,
-    "fpAuction": 739.0
+    "pctOwned": 1.0
   },
   "haoyulee-det": {
     "ecr": 1505,
     "ecrMin": 1487,
     "ecrMax": 1487,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1505.0
+    "pctOwned": 0.1
   },
   "zacklittell-cin": {
     "ecr": 436,
     "ecrMin": 290,
     "ecrMax": 479,
     "adp": 259.9,
-    "pctOwned": 2.4,
-    "fpAuction": 436.0
+    "pctOwned": 2.4
   },
   "pablolpez-min": {
     "adp": 259.7,
@@ -2251,8 +2005,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 583,
     "ecrMax": 1216,
     "adp": 260.0,
-    "pctOwned": 0.3,
-    "fpAuction": 674.0
+    "pctOwned": 0.3
   },
   "jessmade-mil": {
     "ecr": 774,
@@ -2260,63 +2013,55 @@ const PLAYER_RANKINGS = {
     "ecrMax": 655,
     "espnAuction": 0.1,
     "adp": 259.8,
-    "pctOwned": 1.4,
-    "fpAuction": 774.0
+    "pctOwned": 1.4
   },
   "justinmartinez-ari": {
     "ecr": 693,
     "ecrMin": 596,
     "ecrMax": 596,
     "adp": 259.9,
-    "pctOwned": 0.3,
-    "fpAuction": 693.0
+    "pctOwned": 0.3
   },
   "quinnmathews-stl": {
     "ecr": 656,
     "ecrMin": 570,
     "ecrMax": 1134,
     "adp": 260.0,
-    "pctOwned": 0.5,
-    "fpAuction": 656.0
+    "pctOwned": 0.5
   },
   "tannermcdougal-chw": {
     "ecr": 1248,
     "ecrMin": 1121,
     "ecrMax": 1121,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1248.0
+    "pctOwned": 0.1
   },
   "troymelton-det": {
     "ecr": 498,
     "ecrMin": 410,
     "ecrMax": 529,
     "adp": 260.2,
-    "pctOwned": 0.9,
-    "fpAuction": 498.0
+    "pctOwned": 0.9
   },
   "cristianmena-ari": {
     "ecr": 926,
     "ecrMin": 754,
     "ecrMax": 754,
-    "adp": 260.0,
-    "fpAuction": 926.0
+    "adp": 260.0
   },
   "carmenmlodzinski-pit": {
     "ecr": 530,
     "ecrMin": 440,
     "ecrMax": 572,
     "adp": 260.1,
-    "pctOwned": 0.4,
-    "fpAuction": 530.0
+    "pctOwned": 0.4
   },
   "keidermontero-det": {
     "ecr": 921,
     "ecrMin": 750,
     "ecrMax": 750,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 921.0
+    "pctOwned": 0.1
   },
   "lazaromontes-sea": {
     "adp": 260.0,
@@ -2326,31 +2071,27 @@ const PLAYER_RANKINGS = {
     "ecr": 754,
     "ecrMin": 640,
     "ecrMax": 640,
-    "adp": 260.0,
-    "fpAuction": 754.0
+    "adp": 260.0
   },
   "andrewmorris-min": {
     "ecr": 946,
     "ecrMin": 766,
     "ecrMax": 766,
-    "adp": 260.0,
-    "fpAuction": 946.0
+    "adp": 260.0
   },
   "charliemorton-det": {
     "ecr": 1087,
     "ecrMin": 942,
     "ecrMax": 942,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1087.0
+    "pctOwned": 0.1
   },
   "tobiasmyers-nym": {
     "ecr": 635,
     "ecrMin": 550,
     "ecrMax": 708,
     "adp": 260.1,
-    "pctOwned": 0.3,
-    "fpAuction": 635.0
+    "pctOwned": 0.3
   },
   "reeseolson-det": {
     "adp": 260.0,
@@ -2362,16 +2103,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 324,
     "espnAuction": 0.3,
     "adp": 249.0,
-    "pctOwned": 14.4,
-    "fpAuction": 244.0
+    "pctOwned": 14.4
   },
   "mitchellparker-wsn": {
     "ecr": 924,
     "ecrMin": 753,
     "ecrMax": 841,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 924.0
+    "pctOwned": 0.1
   },
   "ethanpecko-hou": {
     "adp": 260.0
@@ -2381,55 +2120,48 @@ const PLAYER_RANKINGS = {
     "ecrMin": 862,
     "ecrMax": 862,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1021.0
+    "pctOwned": 0.1
   },
   "chasepetty-cin": {
     "ecr": 838,
     "ecrMin": 695,
     "ecrMax": 1210,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 838.0
+    "pctOwned": 0.1
   },
   "tommypham-pit": {
     "ecr": 798,
     "ecrMin": 672,
     "ecrMax": 1174,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 798.0
+    "pctOwned": 0.1
   },
   "cadepovich-bal": {
     "ecr": 651,
     "ecrMin": 566,
     "ecrMax": 797,
     "adp": 260.1,
-    "pctOwned": 0.2,
-    "fpAuction": 651.0
+    "pctOwned": 0.2
   },
   "cooperpratt-mil": {
     "ecr": 841,
     "ecrMin": 696,
     "ecrMax": 696,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 841.0
+    "pctOwned": 0.1
   },
   "connorprielipp-min": {
     "ecr": 775,
     "ecrMin": 656,
     "ecrMax": 656,
-    "adp": 260.0,
-    "fpAuction": 775.0
+    "adp": 260.0
   },
   "nelsonrada-laa": {
     "ecr": 852,
     "ecrMin": 703,
     "ecrMax": 1391,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 852.0
+    "pctOwned": 0.1
   },
   "jacobreimer-nym": {
     "adp": 260.0,
@@ -2440,39 +2172,34 @@ const PLAYER_RANKINGS = {
     "ecrMin": 372,
     "ecrMax": 436,
     "adp": 260.0,
-    "pctOwned": 1.1,
-    "fpAuction": 466.0
+    "pctOwned": 1.1
   },
   "jrritchie-atl": {
     "ecr": 595,
     "ecrMin": 505,
     "ecrMax": 915,
     "adp": 260.0,
-    "pctOwned": 0.5,
-    "fpAuction": 595.0
+    "pctOwned": 0.5
   },
   "bradgleyrodriguez-sd": {
     "ecr": 717,
     "ecrMin": 613,
     "ecrMax": 613,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 717.0
+    "pctOwned": 0.1
   },
   "elmerrodrguez-nyy": {
     "ecr": 603,
     "ecrMin": 517,
     "ecrMax": 933,
     "adp": 260.1,
-    "pctOwned": 0.3,
-    "fpAuction": 603.0
+    "pctOwned": 0.3
   },
   "hctorrodrguez-cin": {
     "ecr": 842,
     "ecrMin": 697,
     "ecrMax": 1495,
-    "adp": 260.0,
-    "fpAuction": 842.0
+    "adp": 260.0
   },
   "andrewsaalfrank-ari": {
     "adp": 260.0,
@@ -2487,8 +2214,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 598,
     "ecrMax": 939,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 695.0
+    "pctOwned": 0.1
   },
   "jonathansantucci-nym": {
     "adp": 260.0
@@ -2499,16 +2225,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 483,
     "espnAuction": 0.1,
     "adp": 259.2,
-    "pctOwned": 2.4,
-    "fpAuction": 561.0
+    "pctOwned": 2.4
   },
   "noahschultz-chw": {
     "ecr": 692,
     "ecrMin": 596,
     "ecrMax": 1106,
     "adp": 260.0,
-    "pctOwned": 0.8,
-    "fpAuction": 692.0
+    "pctOwned": 0.8
   },
   "christianscott-nym": {
     "ecr": 627,
@@ -2516,7 +2240,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 599,
     "adp": 260.1,
     "pctOwned": 0.3,
-    "fpAuction": 627.0,
     "closerRank": 34
   },
   "hagensmith-chw": {
@@ -2525,7 +2248,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 1150,
     "adp": 260.0,
     "pctOwned": 0.5,
-    "fpAuction": 1272.0,
     "closerRank": 3
   },
   "robbysnelling-mia": {
@@ -2533,8 +2255,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 210,
     "ecrMax": 518,
     "adp": 260.2,
-    "pctOwned": 1.6,
-    "fpAuction": 332.0
+    "pctOwned": 1.6
   },
   "khalstephen-cle": {
     "adp": 260.0,
@@ -2545,8 +2266,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 700,
     "ecrMax": 700,
     "adp": 260.0,
-    "pctOwned": 0.4,
-    "fpAuction": 847.0
+    "pctOwned": 0.4
   },
   "travissykora-was": {
     "adp": 260.0,
@@ -2557,78 +2277,68 @@ const PLAYER_RANKINGS = {
     "ecrMin": 1285,
     "ecrMax": 1285,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 1347.0
+    "pctOwned": 0.1
   },
   "rowdytellez-tex": {
     "ecr": 1289,
     "ecrMin": 1183,
     "ecrMax": 1183,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 1289.0
+    "pctOwned": 0.1
   },
   "kaiweiteng-hou": {
     "ecr": 919,
     "ecrMin": 749,
     "ecrMax": 749,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 919.0
+    "pctOwned": 0.1
   },
   "sterlinthompson-col": {
     "ecr": 1482,
     "ecrMin": 1463,
     "ecrMax": 1463,
-    "adp": 260.0,
-    "fpAuction": 1482.0
+    "adp": 260.0
   },
   "bladetidwell-sf": {
     "ecr": 1067,
     "ecrMin": 918,
     "ecrMax": 918,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1067.0
+    "pctOwned": 0.1
   },
   "rickytiedemann-tor": {
     "ecr": 721,
     "ecrMin": 617,
     "ecrMax": 823,
     "adp": 260.0,
-    "pctOwned": 0.4,
-    "fpAuction": 721.0
+    "pctOwned": 0.4
   },
   "michaeltoglia-cin": {
     "ecr": 872,
     "ecrMin": 716,
     "ecrMax": 1401,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 872.0
+    "pctOwned": 0.1
   },
   "paytontolle-bos": {
     "ecr": 429,
     "ecrMin": 267,
     "ecrMax": 554,
     "adp": 260.1,
-    "pctOwned": 2.1,
-    "fpAuction": 429.0
+    "pctOwned": 2.1
   },
   "ramnuras-stl": {
     "ecr": 899,
     "ecrMin": 733,
     "ecrMax": 1043,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 899.0
+    "pctOwned": 0.1
   },
   "esmerlynvaldez-pit": {
     "ecr": 1470,
     "ecrMin": 1451,
     "ecrMax": 1451,
-    "adp": 260.0,
-    "fpAuction": 1470.0
+    "adp": 260.0
   },
   "ralphyvelazquez-cle": {
     "adp": 260.0,
@@ -2639,16 +2349,14 @@ const PLAYER_RANKINGS = {
     "ecrMin": 667,
     "ecrMax": 667,
     "adp": 259.9,
-    "pctOwned": 1.1,
-    "fpAuction": 789.0
+    "pctOwned": 1.1
   },
   "ryanward-lad": {
     "ecr": 1516,
     "ecrMin": 1499,
     "ecrMax": 1499,
     "adp": 259.9,
-    "pctOwned": 0.1,
-    "fpAuction": 1516.0
+    "pctOwned": 0.1
   },
   "tylerwells-bal": {
     "ecr": 547,
@@ -2656,7 +2364,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 526,
     "adp": 260.2,
     "pctOwned": 0.5,
-    "fpAuction": 547.0,
     "closerStatus": "SVH#48",
     "closerRank": 48
   },
@@ -2673,69 +2380,60 @@ const PLAYER_RANKINGS = {
     "ecrMin": 675,
     "ecrMax": 675,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 804.0
+    "pctOwned": 0.1
   },
   "joshwhite-mia": {
     "ecr": 715,
     "ecrMin": 612,
-    "ecrMax": 612,
-    "fpAuction": 715.0
+    "ecrMax": 612
   },
   "thomaswhite-mia": {
     "ecr": 589,
     "ecrMin": 499,
     "ecrMax": 846,
     "adp": 260.1,
-    "pctOwned": 1.2,
-    "fpAuction": 589.0
+    "pctOwned": 1.2
   },
   "jordanwicks-chc": {
     "ecr": 890,
     "ecrMin": 727,
     "ecrMax": 727,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 890.0
+    "pctOwned": 0.1
   },
   "jaxonwiggins-chc": {
     "ecr": 814,
     "ecrMin": 680,
     "ecrMax": 680,
     "adp": 260.1,
-    "pctOwned": 0.5,
-    "fpAuction": 814.0
+    "pctOwned": 0.5
   },
   "brockwilken-mil": {
     "ecr": 1469,
     "ecrMin": 1450,
     "ecrMax": 1450,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 1469.0
+    "pctOwned": 0.1
   },
   "justinwilson-bos": {
     "ecr": 650,
     "ecrMin": 565,
     "ecrMax": 565,
-    "adp": 259.9,
-    "fpAuction": 650.0
+    "adp": 259.9
   },
   "justinwrobleski-lad": {
     "ecr": 540,
     "ecrMin": 450,
     "ecrMax": 629,
     "adp": 260.1,
-    "pctOwned": 0.5,
-    "fpAuction": 540.0
+    "pctOwned": 0.5
   },
   "craigyoho-mil": {
     "ecr": 758,
     "ecrMin": 643,
     "ecrMax": 643,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 758.0
+    "pctOwned": 0.1
   },
   "lukekeaschall-min": {
     "ecr": 115,
@@ -2743,8 +2441,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 167,
     "espnAuction": 3.6,
     "adp": 148.5,
-    "pctOwned": 77.5,
-    "fpAuction": 115.0
+    "pctOwned": 77.5
   },
   "michaelking-sd": {
     "ecr": 121,
@@ -2752,8 +2449,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 160,
     "espnAuction": 2.6,
     "adp": 158.3,
-    "pctOwned": 82.9,
-    "fpAuction": 121.0
+    "pctOwned": 82.9
   },
   "mattmclain-cin": {
     "ecr": 178,
@@ -2761,8 +2457,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 260,
     "espnAuction": 0.8,
     "adp": 246.7,
-    "pctOwned": 17.3,
-    "fpAuction": 178.0
+    "pctOwned": 17.3
   },
   "brendandonovan-sea": {
     "ecr": 232,
@@ -2770,8 +2465,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 289,
     "espnAuction": 1.1,
     "adp": 210.5,
-    "pctOwned": 56.1,
-    "fpAuction": 232.0
+    "pctOwned": 56.1
   },
   "xanderbogaerts-sd": {
     "ecr": 230,
@@ -2779,8 +2473,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 291,
     "espnAuction": 0.3,
     "adp": 250.2,
-    "pctOwned": 13.5,
-    "fpAuction": 230.0
+    "pctOwned": 13.5
   },
   "adrianmorejon-sd": {
     "ecr": 416,
@@ -2789,7 +2482,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.3,
     "adp": 252.4,
     "pctOwned": 11.9,
-    "fpAuction": 416.0,
     "closerStatus": "2ND:SD",
     "closerRank": 51
   },
@@ -2800,7 +2492,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 2.4,
     "adp": 183.8,
     "pctOwned": 77.3,
-    "fpAuction": 131.0,
     "closerStatus": "CLOSER:BAL",
     "closerRank": 9
   },
@@ -2810,8 +2501,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 181,
     "espnAuction": 4.7,
     "adp": 116.2,
-    "pctOwned": 91.2,
-    "fpAuction": 111.0
+    "pctOwned": 91.2
   },
   "jackflaherty-det": {
     "ecr": 171,
@@ -2819,8 +2509,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 268,
     "espnAuction": 1.4,
     "adp": 180.0,
-    "pctOwned": 71.1,
-    "fpAuction": 171.0
+    "pctOwned": 71.1
   },
   "willicastro-col": {
     "ecr": 291,
@@ -2828,8 +2517,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 452,
     "espnAuction": 0.2,
     "adp": 254.1,
-    "pctOwned": 9.2,
-    "fpAuction": 291.0
+    "pctOwned": 9.2
   },
   "braxtonashcraft-pit": {
     "ecr": 308,
@@ -2837,8 +2525,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 318,
     "espnAuction": 0.2,
     "adp": 258.4,
-    "pctOwned": 5.8,
-    "fpAuction": 308.0
+    "pctOwned": 5.8
   },
   "christianwalker-hou": {
     "ecr": 174,
@@ -2846,8 +2533,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 240,
     "espnAuction": 1.3,
     "adp": 207.3,
-    "pctOwned": 51.2,
-    "fpAuction": 174.0
+    "pctOwned": 51.2
   },
   "joeycantillo-cle": {
     "ecr": 277,
@@ -2855,8 +2541,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 311,
     "espnAuction": 0.3,
     "adp": 255.7,
-    "pctOwned": 7.4,
-    "fpAuction": 277.0
+    "pctOwned": 7.4
   },
   "petefairbanks-mia": {
     "ecr": 167,
@@ -2865,7 +2550,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 2.2,
     "adp": 160.6,
     "pctOwned": 81.8,
-    "fpAuction": 167.0,
     "closerStatus": "CLOSER:MIA",
     "closerRank": 11
   },
@@ -2875,7 +2559,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 545,
     "adp": 260.0,
     "pctOwned": 0.3,
-    "fpAuction": 457.0,
     "closerStatus": "1ST:CHC"
   },
   "jakecronenworth-sd": {
@@ -2884,8 +2567,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 426,
     "espnAuction": 0.2,
     "adp": 257.6,
-    "pctOwned": 6.8,
-    "fpAuction": 336.0
+    "pctOwned": 6.8
   },
   "carterjensen-kc": {
     "ecr": 258,
@@ -2893,8 +2575,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 295,
     "espnAuction": 0.4,
     "adp": 255.6,
-    "pctOwned": 9.6,
-    "fpAuction": 258.0
+    "pctOwned": 9.6
   },
   "adolisgarca-phi": {
     "ecr": 208,
@@ -2902,8 +2583,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 259,
     "espnAuction": 0.4,
     "adp": 247.7,
-    "pctOwned": 16.4,
-    "fpAuction": 208.0
+    "pctOwned": 16.4
   },
   "jordanwestburg-bal": {
     "ecr": 266,
@@ -2911,8 +2591,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 294,
     "espnAuction": 0.3,
     "adp": 254.1,
-    "pctOwned": 42.7,
-    "fpAuction": 266.0
+    "pctOwned": 42.7
   },
   "gerritcole-nyy": {
     "ecr": 213,
@@ -2920,8 +2599,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 284,
     "espnAuction": 3.2,
     "adp": 193.2,
-    "pctOwned": 73.7,
-    "fpAuction": 213.0
+    "pctOwned": 73.7
   },
   "ottolopez-mia": {
     "ecr": 224,
@@ -2929,8 +2607,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 275,
     "espnAuction": 0.4,
     "adp": 233.2,
-    "pctOwned": 34.1,
-    "fpAuction": 224.0
+    "pctOwned": 34.1
   },
   "mattbrash-sea": {
     "ecr": 435,
@@ -2939,7 +2616,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 259.3,
     "pctOwned": 5.2,
-    "fpAuction": 435.0,
     "closerStatus": "1ST:SEA"
   },
   "ryanwalker-sf": {
@@ -2949,7 +2625,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.7,
     "adp": 247.1,
     "pctOwned": 36.4,
-    "fpAuction": 199.0,
     "closerStatus": "CLOSER:SF",
     "closerRank": 15
   },
@@ -2958,8 +2633,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 315,
     "ecrMax": 610,
     "adp": 260.3,
-    "pctOwned": 1.3,
-    "fpAuction": 427.0
+    "pctOwned": 1.3
   },
   "andrewvaughn-mil": {
     "ecr": 221,
@@ -2967,8 +2641,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 267,
     "espnAuction": 0.1,
     "adp": 258.4,
-    "pctOwned": 5.8,
-    "fpAuction": 221.0
+    "pctOwned": 5.8
   },
   "ryanohearn-pit": {
     "ecr": 290,
@@ -2976,8 +2649,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 349,
     "espnAuction": 0.3,
     "adp": 239.3,
-    "pctOwned": 26.3,
-    "fpAuction": 290.0
+    "pctOwned": 26.3
   },
   "danielpalencia-chc": {
     "ecr": 155,
@@ -2986,7 +2658,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 1.9,
     "adp": 209.3,
     "pctOwned": 68.2,
-    "fpAuction": 155.0,
     "closerStatus": "CLOSER:CHC",
     "closerRank": 13
   },
@@ -2996,8 +2667,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 245,
     "espnAuction": 0.6,
     "adp": 248.5,
-    "pctOwned": 13.3,
-    "fpAuction": 160.0
+    "pctOwned": 13.3
   },
   "gabespeier-sea": {
     "ecr": 442,
@@ -3005,8 +2675,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 629,
     "espnAuction": 0.1,
     "adp": 259.8,
-    "pctOwned": 2.1,
-    "fpAuction": 442.0
+    "pctOwned": 2.1
   },
   "kylemanzardo-cle": {
     "ecr": 216,
@@ -3014,8 +2683,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 262,
     "espnAuction": 0.2,
     "adp": 257.7,
-    "pctOwned": 6.6,
-    "fpAuction": 216.0
+    "pctOwned": 6.6
   },
   "codyponce-tor": {
     "ecr": 271,
@@ -3023,8 +2691,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 302,
     "espnAuction": 0.1,
     "adp": 257.7,
-    "pctOwned": 7.2,
-    "fpAuction": 271.0
+    "pctOwned": 7.2
   },
   "nolanarenado-ari": {
     "ecr": 343,
@@ -3032,8 +2699,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 406,
     "espnAuction": 0.2,
     "adp": 253.2,
-    "pctOwned": 13.6,
-    "fpAuction": 343.0
+    "pctOwned": 13.6
   },
   "isaacparedes-hou": {
     "ecr": 212,
@@ -3041,8 +2707,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 263,
     "espnAuction": 1.9,
     "adp": 171.9,
-    "pctOwned": 72.7,
-    "fpAuction": 212.0
+    "pctOwned": 72.7
   },
   "krisbubic-kc": {
     "ecr": 181,
@@ -3050,8 +2715,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 254,
     "espnAuction": 1.2,
     "adp": 217.7,
-    "pctOwned": 50.0,
-    "fpAuction": 181.0
+    "pctOwned": 50.0
   },
   "dylanlee-atl": {
     "ecr": 461,
@@ -3059,7 +2723,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 353,
     "adp": 260.0,
     "pctOwned": 0.8,
-    "fpAuction": 461.0,
     "closerStatus": "2ND:ATL"
   },
   "tylerrogers-tor": {
@@ -3069,7 +2732,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.3,
     "adp": 251.6,
     "pctOwned": 13.6,
-    "fpAuction": 481.0,
     "closerStatus": "1ST:TOR"
   },
   "spencersteer-cin": {
@@ -3078,16 +2740,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 382,
     "espnAuction": 0.2,
     "adp": 257.1,
-    "pctOwned": 7.5,
-    "fpAuction": 269.0
+    "pctOwned": 7.5
   },
   "connornorby-mia": {
     "ecr": 422,
     "ecrMin": 343,
     "ecrMax": 393,
     "adp": 260.2,
-    "pctOwned": 1.3,
-    "fpAuction": 422.0
+    "pctOwned": 1.3
   },
   "willvest-det": {
     "ecr": 350,
@@ -3096,7 +2756,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.2,
     "adp": 256.3,
     "pctOwned": 18.0,
-    "fpAuction": 350.0,
     "closerStatus": "1ST:DET",
     "closerRank": 44
   },
@@ -3107,7 +2766,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 260.1,
     "pctOwned": 2.0,
-    "fpAuction": 450.0,
     "closerStatus": "2ND:CHC"
   },
   "lukeweaver-nym": {
@@ -3117,7 +2775,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 257.4,
     "pctOwned": 7.5,
-    "fpAuction": 438.0,
     "closerStatus": "1ST:NYM",
     "closerRank": 43
   },
@@ -3128,7 +2785,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 3.2,
     "adp": 151.6,
     "pctOwned": 84.5,
-    "fpAuction": 170.0,
     "closerStatus": "CLOSER:CIN",
     "closerRank": 12
   },
@@ -3139,7 +2795,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.2,
     "adp": 258.2,
     "pctOwned": 8.3,
-    "fpAuction": 353.0,
     "closerStatus": "1ST:STL:*",
     "closerRank": 33
   },
@@ -3149,8 +2804,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 257,
     "espnAuction": 0.3,
     "adp": 251.1,
-    "pctOwned": 18.9,
-    "fpAuction": 183.0
+    "pctOwned": 18.9
   },
   "edwardcabrera-chc": {
     "ecr": 163,
@@ -3158,8 +2812,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 236,
     "espnAuction": 0.8,
     "adp": 227.0,
-    "pctOwned": 45.0,
-    "fpAuction": 163.0
+    "pctOwned": 45.0
   },
   "luisrobertjr-nym": {
     "ecr": 120,
@@ -3167,8 +2820,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 190,
     "espnAuction": 1.7,
     "adp": 227.3,
-    "pctOwned": 31.2,
-    "fpAuction": 120.0
+    "pctOwned": 31.2
   },
   "bryanking-hou": {
     "ecr": 474,
@@ -3177,7 +2829,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 259.8,
     "pctOwned": 2.5,
-    "fpAuction": 474.0,
     "closerStatus": "1ST:HOU"
   },
   "tylerholton-det": {
@@ -3185,8 +2836,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 357,
     "ecrMax": 357,
     "adp": 260.0,
-    "pctOwned": 1.3,
-    "fpAuction": 465.0
+    "pctOwned": 1.3
   },
   "zacgallen-ari": {
     "ecr": 176,
@@ -3194,8 +2844,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 270,
     "espnAuction": 3.0,
     "adp": 147.4,
-    "pctOwned": 83.8,
-    "fpAuction": 176.0
+    "pctOwned": 83.8
   },
   "merrillkelly-ari": {
     "ecr": 211,
@@ -3203,15 +2852,13 @@ const PLAYER_RANKINGS = {
     "ecrMax": 274,
     "espnAuction": 0.5,
     "adp": 241.7,
-    "pctOwned": 44.7,
-    "fpAuction": 211.0
+    "pctOwned": 44.7
   },
   "fernandocruz-nyy": {
     "ecr": 475,
     "ecrMin": 381,
     "ecrMax": 656,
     "adp": 260.0,
-    "fpAuction": 475.0,
     "closerStatus": "2ND:NYY"
   },
   "tannerscott-lad": {
@@ -3221,7 +2868,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.2,
     "adp": 258.8,
     "pctOwned": 5.8,
-    "fpAuction": 383.0,
     "closerStatus": "1ST:LAD",
     "closerRank": 34
   },
@@ -3230,8 +2876,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 389,
     "ecrMax": 389,
     "adp": 260.1,
-    "pctOwned": 0.5,
-    "fpAuction": 479.0
+    "pctOwned": 0.5
   },
   "ryanpepiot-tb": {
     "ecr": 125,
@@ -3239,8 +2884,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 195,
     "espnAuction": 6.0,
     "adp": 113.2,
-    "pctOwned": 89.2,
-    "fpAuction": 125.0
+    "pctOwned": 89.2
   },
   "jonathanindia-kc": {
     "ecr": 373,
@@ -3248,8 +2892,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 448,
     "espnAuction": 0.2,
     "adp": 251.0,
-    "pctOwned": 14.5,
-    "fpAuction": 373.0
+    "pctOwned": 14.5
   },
   "anthonyvolpe-nyy": {
     "ecr": 341,
@@ -3257,8 +2900,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 382,
     "espnAuction": 0.1,
     "adp": 258.9,
-    "pctOwned": 4.5,
-    "fpAuction": 341.0
+    "pctOwned": 4.5
   },
   "tjfriedl-cin": {
     "ecr": 238,
@@ -3266,16 +2908,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 292,
     "espnAuction": 0.2,
     "adp": 250.2,
-    "pctOwned": 11.7,
-    "fpAuction": 238.0
+    "pctOwned": 11.7
   },
   "andrsgimnez-tor": {
     "ecr": 283,
     "ecrMin": 175,
     "ecrMax": 316,
     "adp": 259.8,
-    "pctOwned": 2.5,
-    "fpAuction": 283.0
+    "pctOwned": 2.5
   },
   "dennissantana-pit": {
     "ecr": 209,
@@ -3284,7 +2924,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.6,
     "adp": 249.1,
     "pctOwned": 18.2,
-    "fpAuction": 209.0,
     "closerStatus": "CLOSER:PIT",
     "closerRank": 19
   },
@@ -3295,7 +2934,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.4,
     "adp": 252.4,
     "pctOwned": 24.3,
-    "fpAuction": 295.0,
     "closerStatus": "CLOSER:TEX:*",
     "closerRank": 26
   },
@@ -3305,8 +2943,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 160,
     "espnAuction": 2.5,
     "adp": 202.3,
-    "pctOwned": 42.9,
-    "fpAuction": 108.0
+    "pctOwned": 42.9
   },
   "jasonadam-sd": {
     "ecr": 471,
@@ -3314,8 +2951,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 662,
     "espnAuction": 0.8,
     "adp": 242.2,
-    "pctOwned": 16.4,
-    "fpAuction": 471.0
+    "pctOwned": 16.4
   },
   "salfrelick-mil": {
     "ecr": 222,
@@ -3323,8 +2959,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 262,
     "espnAuction": 0.9,
     "adp": 203.2,
-    "pctOwned": 46.9,
-    "fpAuction": 222.0
+    "pctOwned": 46.9
   },
   "nicklodolo-cin": {
     "ecr": 116,
@@ -3332,16 +2967,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 185,
     "espnAuction": 2.6,
     "adp": 160.0,
-    "pctOwned": 82.4,
-    "fpAuction": 116.0
+    "pctOwned": 82.4
   },
   "orionkerkering-phi": {
     "ecr": 448,
     "ecrMin": 325,
     "ecrMax": 725,
     "adp": 260.1,
-    "pctOwned": 0.9,
-    "fpAuction": 448.0
+    "pctOwned": 0.9
   },
   "josalvarado-phi": {
     "ecr": 455,
@@ -3349,7 +2982,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 579,
     "adp": 259.7,
     "pctOwned": 1.4,
-    "fpAuction": 455.0,
     "closerStatus": "2ND:PHI"
   },
   "robertsuarez-atl": {
@@ -3359,7 +2991,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 1.7,
     "adp": 217.3,
     "pctOwned": 56.8,
-    "fpAuction": 276.0,
     "closerStatus": "1ST:ATL",
     "closerRank": 25
   },
@@ -3369,8 +3000,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 292,
     "espnAuction": 0.3,
     "adp": 245.9,
-    "pctOwned": 16.9,
-    "fpAuction": 261.0
+    "pctOwned": 16.9
   },
   "huntergaddis-cle": {
     "ecr": 445,
@@ -3378,8 +3008,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 646,
     "espnAuction": 0.1,
     "adp": 257.6,
-    "pctOwned": 8.7,
-    "fpAuction": 445.0
+    "pctOwned": 8.7
   },
   "chaseburns-cin": {
     "ecr": 119,
@@ -3387,8 +3016,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 199,
     "espnAuction": 5.2,
     "adp": 127.2,
-    "pctOwned": 87.5,
-    "fpAuction": 119.0
+    "pctOwned": 87.5
   },
   "kenleyjansen-det": {
     "ecr": 188,
@@ -3397,7 +3025,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 1.8,
     "adp": 200.3,
     "pctOwned": 74.4,
-    "fpAuction": 188.0,
     "closerStatus": "CLOSER:DET",
     "closerRank": 16
   },
@@ -3407,8 +3034,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 359,
     "espnAuction": 0.1,
     "adp": 259.9,
-    "pctOwned": 5.9,
-    "fpAuction": 293.0
+    "pctOwned": 5.9
   },
   "camilodoval-nyy": {
     "ecr": 434,
@@ -3417,7 +3043,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 258.4,
     "pctOwned": 5.6,
-    "fpAuction": 434.0,
     "closerStatus": "1ST:NYY"
   },
   "jaredkoenig-mil": {
@@ -3426,7 +3051,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 729,
     "adp": 260.1,
     "pctOwned": 0.9,
-    "fpAuction": 468.0,
     "closerStatus": "2ND:MIL"
   },
   "jorgepolanco-nym": {
@@ -3435,8 +3059,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 268,
     "espnAuction": 0.6,
     "adp": 240.1,
-    "pctOwned": 26.9,
-    "fpAuction": 194.0
+    "pctOwned": 26.9
   },
   "reiddetmers-laa": {
     "ecr": 327,
@@ -3444,8 +3067,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 347,
     "espnAuction": 0.1,
     "adp": 258.9,
-    "pctOwned": 4.2,
-    "fpAuction": 327.0
+    "pctOwned": 4.2
   },
   "bryanbaker-tb": {
     "ecr": 509,
@@ -3453,7 +3075,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 665,
     "adp": 260.1,
     "pctOwned": 0.2,
-    "fpAuction": 509.0,
     "closerStatus": "2ND:TB:*",
     "closerRank": 40
   },
@@ -3463,7 +3084,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 538,
     "adp": 260.1,
     "pctOwned": 0.6,
-    "fpAuction": 452.0,
     "closerStatus": "1ST:TEX:*",
     "closerRank": 38
   },
@@ -3473,8 +3093,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 219,
     "espnAuction": 2.8,
     "adp": 192.7,
-    "pctOwned": 67.0,
-    "fpAuction": 124.0
+    "pctOwned": 67.0
   },
   "chandlersimpson-tb": {
     "ecr": 193,
@@ -3482,8 +3101,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 242,
     "espnAuction": 1.9,
     "adp": 238.3,
-    "pctOwned": 31.9,
-    "fpAuction": 193.0
+    "pctOwned": 31.9
   },
   "joadell-laa": {
     "ecr": 114,
@@ -3491,8 +3109,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 171,
     "espnAuction": 1.8,
     "adp": 188.2,
-    "pctOwned": 59.5,
-    "fpAuction": 114.0
+    "pctOwned": 59.5
   },
   "gavinwilliams-cle": {
     "ecr": 151,
@@ -3501,7 +3118,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 2.4,
     "adp": 158.1,
     "pctOwned": 83.0,
-    "fpAuction": 151.0,
     "closerRank": 5
   },
   "jakeburger-tex": {
@@ -3510,16 +3126,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 305,
     "espnAuction": 0.2,
     "adp": 259.1,
-    "pctOwned": 4.4,
-    "fpAuction": 250.0
+    "pctOwned": 4.4
   },
   "robertstephenson-laa": {
     "ecr": 378,
     "ecrMin": 294,
     "ecrMax": 423,
     "adp": 260.4,
-    "pctOwned": 1.1,
-    "fpAuction": 378.0
+    "pctOwned": 1.1
   },
   "joshbell-min": {
     "ecr": 301,
@@ -3527,8 +3141,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 392,
     "espnAuction": 0.1,
     "adp": 260.1,
-    "pctOwned": 2.3,
-    "fpAuction": 301.0
+    "pctOwned": 2.3
   },
   "dylancrews-wsn": {
     "ecr": 166,
@@ -3536,8 +3149,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 234,
     "espnAuction": 0.5,
     "adp": 252.0,
-    "pctOwned": 11.4,
-    "fpAuction": 166.0
+    "pctOwned": 11.4
   },
   "alejandrokirk-tor": {
     "ecr": 204,
@@ -3545,8 +3157,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 282,
     "espnAuction": 1.4,
     "adp": 177.6,
-    "pctOwned": 65.2,
-    "fpAuction": 204.0
+    "pctOwned": 65.2
   },
   "shanebieber-tor": {
     "ecr": 239,
@@ -3554,8 +3165,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 301,
     "espnAuction": 0.3,
     "adp": 254.1,
-    "pctOwned": 37.0,
-    "fpAuction": 239.0
+    "pctOwned": 37.0
   },
   "wilyerabreu-bos": {
     "ecr": 214,
@@ -3563,8 +3173,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 280,
     "espnAuction": 0.5,
     "adp": 247.5,
-    "pctOwned": 14.3,
-    "fpAuction": 214.0
+    "pctOwned": 14.3
   },
   "brooksraley-nym": {
     "ecr": 520,
@@ -3572,7 +3181,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 432,
     "adp": 259.8,
     "pctOwned": 0.6,
-    "fpAuction": 520.0,
     "closerStatus": "2ND:NYM"
   },
   "seranthonydomnguez-chw": {
@@ -3582,7 +3190,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.3,
     "adp": 255.8,
     "pctOwned": 11.2,
-    "fpAuction": 231.0,
     "closerStatus": "CLOSER:CHW",
     "closerRank": 21
   },
@@ -3592,7 +3199,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 518,
     "adp": 260.3,
     "pctOwned": 0.7,
-    "fpAuction": 414.0,
     "closerStatus": "CLOSER:MIN:*"
   },
   "rynenelson-ari": {
@@ -3601,8 +3207,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 338,
     "espnAuction": 0.1,
     "adp": 256.5,
-    "pctOwned": 8.2,
-    "fpAuction": 248.0
+    "pctOwned": 8.2
   },
   "markvientos-nym": {
     "ecr": 270,
@@ -3610,8 +3215,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 331,
     "espnAuction": 0.1,
     "adp": 259.7,
-    "pctOwned": 3.1,
-    "fpAuction": 270.0
+    "pctOwned": 3.1
   },
   "andrewabbott-cin": {
     "ecr": 184,
@@ -3619,8 +3223,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 260,
     "espnAuction": 1.1,
     "adp": 194.8,
-    "pctOwned": 66.5,
-    "fpAuction": 184.0
+    "pctOwned": 66.5
   },
   "shawnarmstrong-cle": {
     "ecr": 488,
@@ -3628,7 +3231,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 561,
     "adp": 260.1,
     "pctOwned": 1.0,
-    "fpAuction": 488.0,
     "closerStatus": "1ST:CLE"
   },
   "joeyortiz-mil": {
@@ -3636,16 +3238,14 @@ const PLAYER_RANKINGS = {
     "ecrMin": 247,
     "ecrMax": 402,
     "adp": 259.9,
-    "pctOwned": 1.0,
-    "fpAuction": 386.0
+    "pctOwned": 1.0
   },
   "stevenmatz-tb": {
     "ecr": 511,
     "ecrMin": 424,
     "ecrMax": 523,
     "adp": 260.2,
-    "pctOwned": 1.4,
-    "fpAuction": 511.0
+    "pctOwned": 1.4
   },
   "euryprez-mia": {
     "ecr": 87,
@@ -3653,8 +3253,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 150,
     "espnAuction": 6.1,
     "adp": 120.3,
-    "pctOwned": 85.6,
-    "fpAuction": 87.0
+    "pctOwned": 85.6
   },
   "nolanmclean-nym": {
     "ecr": 86,
@@ -3662,16 +3261,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 213,
     "espnAuction": 5.3,
     "adp": 147.8,
-    "pctOwned": 82.4,
-    "fpAuction": 86.0
+    "pctOwned": 82.4
   },
   "eduardbazardo-sea": {
     "ecr": 494,
     "ecrMin": 408,
     "ecrMax": 408,
     "adp": 260.1,
-    "pctOwned": 0.5,
-    "fpAuction": 494.0
+    "pctOwned": 0.5
   },
   "mickeymoniak-col": {
     "ecr": 260,
@@ -3679,8 +3276,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 297,
     "espnAuction": 0.1,
     "adp": 260.0,
-    "pctOwned": 3.3,
-    "fpAuction": 260.0
+    "pctOwned": 3.3
   },
   "reynaldolpez-atl": {
     "ecr": 309,
@@ -3688,8 +3284,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 313,
     "espnAuction": 0.1,
     "adp": 259.4,
-    "pctOwned": 4.5,
-    "fpAuction": 309.0
+    "pctOwned": 4.5
   },
   "sandyalcantara-mia": {
     "ecr": 136,
@@ -3697,8 +3292,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 270,
     "espnAuction": 1.9,
     "adp": 183.0,
-    "pctOwned": 70.9,
-    "fpAuction": 136.0
+    "pctOwned": 70.9
   },
   "seanmanaea-nym": {
     "ecr": 262,
@@ -3706,8 +3300,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 317,
     "espnAuction": 0.1,
     "adp": 259.4,
-    "pctOwned": 3.7,
-    "fpAuction": 262.0
+    "pctOwned": 3.7
   },
   "zachmckinstry-det": {
     "ecr": 402,
@@ -3715,8 +3308,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 472,
     "espnAuction": 0.1,
     "adp": 256.8,
-    "pctOwned": 6.8,
-    "fpAuction": 402.0
+    "pctOwned": 6.8
   },
   "carlosestvez-kc": {
     "ecr": 156,
@@ -3725,7 +3317,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 3.5,
     "adp": 164.9,
     "pctOwned": 86.3,
-    "fpAuction": 156.0,
     "closerStatus": "CLOSER:KC",
     "closerRank": 20
   },
@@ -3734,8 +3325,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 433,
     "ecrMax": 433,
     "adp": 260.1,
-    "pctOwned": 0.2,
-    "fpAuction": 523.0
+    "pctOwned": 0.2
   },
   "noelvimarte-cin": {
     "ecr": 158,
@@ -3743,8 +3333,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 266,
     "espnAuction": 0.9,
     "adp": 226.7,
-    "pctOwned": 32.8,
-    "fpAuction": 158.0
+    "pctOwned": 32.8
   },
   "yimigarca-tor": {
     "ecr": 504,
@@ -3752,7 +3341,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 647,
     "adp": 260.1,
     "pctOwned": 0.6,
-    "fpAuction": 504.0,
     "closerRank": 26
   },
   "lucaserceg-kc": {
@@ -3762,7 +3350,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 259.9,
     "pctOwned": 2.5,
-    "fpAuction": 454.0,
     "closerStatus": "1ST:KC",
     "closerRank": 39
   },
@@ -3772,8 +3359,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 239,
     "espnAuction": 1.5,
     "adp": 191.2,
-    "pctOwned": 64.6,
-    "fpAuction": 157.0
+    "pctOwned": 64.6
   },
   "robbieray-sf": {
     "ecr": 138,
@@ -3781,8 +3367,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 278,
     "espnAuction": 1.7,
     "adp": 181.3,
-    "pctOwned": 75.4,
-    "fpAuction": 138.0
+    "pctOwned": 75.4
   },
   "joshlowe-laa": {
     "ecr": 263,
@@ -3790,16 +3375,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 332,
     "espnAuction": 0.1,
     "adp": 260.3,
-    "pctOwned": 1.9,
-    "fpAuction": 263.0
+    "pctOwned": 1.9
   },
   "joshjung-tex": {
     "ecr": 360,
     "ecrMin": 272,
     "ecrMax": 377,
     "adp": 259.7,
-    "pctOwned": 2.0,
-    "fpAuction": 360.0
+    "pctOwned": 2.0
   },
   "daultonvarsho-tor": {
     "ecr": 192,
@@ -3807,8 +3390,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 238,
     "espnAuction": 0.4,
     "adp": 246.8,
-    "pctOwned": 13.9,
-    "fpAuction": 192.0
+    "pctOwned": 13.9
   },
   "mattsvanson-stl": {
     "ecr": 483,
@@ -3816,7 +3398,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 497,
     "adp": 260.2,
     "pctOwned": 1.0,
-    "fpAuction": 483.0,
     "closerStatus": "2ND:STL:*",
     "closerRank": 42
   },
@@ -3826,8 +3407,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 360,
     "espnAuction": 0.3,
     "adp": 246.2,
-    "pctOwned": 17.4,
-    "fpAuction": 253.0
+    "pctOwned": 17.4
   },
   "rileyobrien-stl": {
     "ecr": 313,
@@ -3836,7 +3416,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 259.4,
     "pctOwned": 4.5,
-    "fpAuction": 313.0,
     "closerStatus": "CLOSER:STL:*"
   },
   "jossoriano-laa": {
@@ -3845,8 +3424,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 314,
     "espnAuction": 0.1,
     "adp": 254.1,
-    "pctOwned": 9.2,
-    "fpAuction": 249.0
+    "pctOwned": 9.2
   },
   "baileyober-min": {
     "ecr": 285,
@@ -3854,8 +3432,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 314,
     "espnAuction": 0.3,
     "adp": 244.7,
-    "pctOwned": 22.0,
-    "fpAuction": 285.0
+    "pctOwned": 22.0
   },
   "ryanthompson-ari": {
     "ecr": 532,
@@ -3863,7 +3440,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 627,
     "adp": 260.1,
     "pctOwned": 0.3,
-    "fpAuction": 532.0,
     "closerStatus": "2ND:ARI"
   },
   "louisvarland-tor": {
@@ -3873,7 +3449,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 259.3,
     "pctOwned": 2.8,
-    "fpAuction": 638.0,
     "closerStatus": "2ND:TOR"
   },
   "brycemiller-sea": {
@@ -3883,7 +3458,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.4,
     "adp": 252.8,
     "pctOwned": 14.8,
-    "fpAuction": 242.0,
     "closerRank": 1
   },
   "ryanjeffers-min": {
@@ -3892,8 +3466,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 345,
     "espnAuction": 0.1,
     "adp": 257.0,
-    "pctOwned": 5.7,
-    "fpAuction": 331.0
+    "pctOwned": 5.7
   },
   "jacobmisiorowski-mil": {
     "ecr": 118,
@@ -3901,8 +3474,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 240,
     "espnAuction": 5.6,
     "adp": 120.6,
-    "pctOwned": 89.4,
-    "fpAuction": 118.0
+    "pctOwned": 89.4
   },
   "claytonbeeter-wsn": {
     "ecr": 340,
@@ -3911,7 +3483,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 260.1,
     "pctOwned": 2.3,
-    "fpAuction": 340.0,
     "closerStatus": "SVH#32",
     "closerRank": 32
   },
@@ -3921,8 +3492,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 419,
     "espnAuction": 0.1,
     "adp": 258.7,
-    "pctOwned": 2.9,
-    "fpAuction": 393.0
+    "pctOwned": 2.9
   },
   "justinsteele-chc": {
     "ecr": 335,
@@ -3930,8 +3500,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 328,
     "espnAuction": 0.2,
     "adp": 257.9,
-    "pctOwned": 13.7,
-    "fpAuction": 335.0
+    "pctOwned": 13.7
   },
   "jjwetherholt-stl": {
     "ecr": 235,
@@ -3939,8 +3508,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 296,
     "espnAuction": 0.9,
     "adp": 243.7,
-    "pctOwned": 22.5,
-    "fpAuction": 235.0
+    "pctOwned": 22.5
   },
   "colsonmontgomery-chw": {
     "ecr": 207,
@@ -3948,16 +3516,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 271,
     "espnAuction": 0.5,
     "adp": 251.0,
-    "pctOwned": 12.0,
-    "fpAuction": 207.0
+    "pctOwned": 12.0
   },
   "larsnootbaar-stl": {
     "ecr": 338,
     "ecrMin": 248,
     "ecrMax": 413,
     "adp": 259.8,
-    "pctOwned": 2.7,
-    "fpAuction": 338.0
+    "pctOwned": 2.7
   },
   "coltoncowser-bal": {
     "ecr": 252,
@@ -3965,8 +3531,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 278,
     "espnAuction": 0.1,
     "adp": 259.7,
-    "pctOwned": 4.7,
-    "fpAuction": 252.0
+    "pctOwned": 4.7
   },
   "kyleteel-chw": {
     "ecr": 265,
@@ -3974,8 +3539,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 283,
     "espnAuction": 0.2,
     "adp": 254.9,
-    "pctOwned": 11.1,
-    "fpAuction": 265.0
+    "pctOwned": 11.1
   },
   "samuelbasallo-bal": {
     "ecr": 237,
@@ -3983,8 +3547,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 281,
     "espnAuction": 0.8,
     "adp": 235.3,
-    "pctOwned": 24.9,
-    "fpAuction": 237.0
+    "pctOwned": 24.9
   },
   "justincrawford-phi": {
     "ecr": 280,
@@ -3992,8 +3555,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 384,
     "espnAuction": 0.1,
     "adp": 259.1,
-    "pctOwned": 4.2,
-    "fpAuction": 280.0
+    "pctOwned": 4.2
   },
   "jpcrawford-sea": {
     "ecr": 344,
@@ -4001,8 +3563,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 415,
     "espnAuction": 0.1,
     "adp": 258.2,
-    "pctOwned": 5.2,
-    "fpAuction": 344.0
+    "pctOwned": 5.2
   },
   "gregorysoto-pit": {
     "ecr": 518,
@@ -4010,7 +3571,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 514,
     "adp": 259.9,
     "pctOwned": 0.5,
-    "fpAuction": 518.0,
     "closerStatus": "1ST:PIT"
   },
   "zacheflin-bal": {
@@ -4018,8 +3578,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 188,
     "ecrMax": 378,
     "adp": 260.1,
-    "pctOwned": 1.8,
-    "fpAuction": 311.0
+    "pctOwned": 1.8
   },
   "keeganakin-bal": {
     "ecr": 554,
@@ -4027,7 +3586,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 694,
     "adp": 260.1,
     "pctOwned": 0.4,
-    "fpAuction": 554.0,
     "closerStatus": "2ND:BAL"
   },
   "jakobjunis-tex": {
@@ -4035,8 +3593,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 500,
     "ecrMax": 500,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 592.0
+    "pctOwned": 0.1
   },
   "kirbyyates-laa": {
     "ecr": 329,
@@ -4045,7 +3602,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 260.0,
     "pctOwned": 2.4,
-    "fpAuction": 329.0,
     "closerStatus": "CLOSER:LAA:*",
     "closerRank": 31
   },
@@ -4054,8 +3610,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 266,
     "ecrMax": 455,
     "adp": 260.0,
-    "pctOwned": 1.0,
-    "fpAuction": 411.0
+    "pctOwned": 1.0
   },
   "jordanleasure-chw": {
     "ecr": 460,
@@ -4063,7 +3618,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 450,
     "adp": 260.4,
     "pctOwned": 1.2,
-    "fpAuction": 460.0,
     "closerStatus": "2ND:CHW"
   },
   "blaketreinen-lad": {
@@ -4071,24 +3625,21 @@ const PLAYER_RANKINGS = {
     "ecrMin": 479,
     "ecrMax": 479,
     "adp": 260.0,
-    "pctOwned": 0.3,
-    "fpAuction": 572.0
+    "pctOwned": 0.3
   },
   "edouardjulien-col": {
     "ecr": 579,
     "ecrMin": 491,
     "ecrMax": 805,
     "adp": 260.1,
-    "pctOwned": 0.3,
-    "fpAuction": 579.0
+    "pctOwned": 0.3
   },
   "brayanrocchio-cle": {
     "ecr": 544,
     "ecrMin": 452,
     "ecrMax": 493,
     "adp": 260.0,
-    "pctOwned": 0.6,
-    "fpAuction": 544.0
+    "pctOwned": 0.6
   },
   "davidpeterson-nym": {
     "ecr": 274,
@@ -4096,32 +3647,28 @@ const PLAYER_RANKINGS = {
     "ecrMax": 348,
     "espnAuction": 0.1,
     "adp": 258.7,
-    "pctOwned": 6.2,
-    "fpAuction": 274.0
+    "pctOwned": 6.2
   },
   "chasemeidroth-chw": {
     "ecr": 352,
     "ecrMin": 259,
     "ecrMax": 396,
     "adp": 260.1,
-    "pctOwned": 2.5,
-    "fpAuction": 352.0
+    "pctOwned": 2.5
   },
   "brandonmarsh-phi": {
     "ecr": 333,
     "ecrMin": 244,
     "ecrMax": 373,
     "adp": 259.6,
-    "pctOwned": 1.8,
-    "fpAuction": 333.0
+    "pctOwned": 1.8
   },
   "andrewnardi-mia": {
     "ecr": 549,
     "ecrMin": 459,
     "ecrMax": 459,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 549.0
+    "pctOwned": 0.1
   },
   "kevinginkel-ari": {
     "ecr": 361,
@@ -4130,7 +3677,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 260.0,
     "pctOwned": 3.5,
-    "fpAuction": 361.0,
     "closerStatus": "1ST:ARI:*"
   },
   "brandonpfaadt-ari": {
@@ -4139,8 +3685,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 417,
     "espnAuction": 0.1,
     "adp": 259.4,
-    "pctOwned": 4.3,
-    "fpAuction": 314.0
+    "pctOwned": 4.3
   },
   "caseymize-det": {
     "ecr": 254,
@@ -4148,8 +3693,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 280,
     "espnAuction": 0.2,
     "adp": 258.6,
-    "pctOwned": 8.0,
-    "fpAuction": 254.0
+    "pctOwned": 8.0
   },
   "joshsmith-tex": {
     "ecr": 394,
@@ -4157,8 +3701,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 386,
     "espnAuction": 0.1,
     "adp": 258.3,
-    "pctOwned": 5.3,
-    "fpAuction": 394.0
+    "pctOwned": 5.3
   },
   "loganhenderson-mil": {
     "ecr": 268,
@@ -4166,8 +3709,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 335,
     "espnAuction": 0.1,
     "adp": 259.8,
-    "pctOwned": 5.6,
-    "fpAuction": 268.0
+    "pctOwned": 5.6
   },
   "jaccaglianone-kc": {
     "ecr": 210,
@@ -4175,8 +3717,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 253,
     "espnAuction": 1.1,
     "adp": 242.2,
-    "pctOwned": 20.5,
-    "fpAuction": 210.0
+    "pctOwned": 20.5
   },
   "austinwells-nyy": {
     "ecr": 299,
@@ -4184,8 +3725,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 300,
     "espnAuction": 0.3,
     "adp": 247.6,
-    "pctOwned": 14.5,
-    "fpAuction": 299.0
+    "pctOwned": 14.5
   },
   "ryanmcmahon-nyy": {
     "ecr": 387,
@@ -4193,16 +3733,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 444,
     "espnAuction": 0.1,
     "adp": 259.3,
-    "pctOwned": 3.0,
-    "fpAuction": 387.0
+    "pctOwned": 3.0
   },
   "jaredtriolo-pit": {
     "ecr": 443,
     "ecrMin": 368,
     "ecrMax": 443,
     "adp": 259.8,
-    "pctOwned": 0.6,
-    "fpAuction": 443.0
+    "pctOwned": 0.6
   },
   "gabrielmoreno-ari": {
     "ecr": 218,
@@ -4210,8 +3748,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 286,
     "espnAuction": 0.5,
     "adp": 236.7,
-    "pctOwned": 23.5,
-    "fpAuction": 218.0
+    "pctOwned": 23.5
   },
   "mattwallner-min": {
     "ecr": 303,
@@ -4219,8 +3756,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 323,
     "espnAuction": 0.1,
     "adp": 260.3,
-    "pctOwned": 2.1,
-    "fpAuction": 303.0
+    "pctOwned": 2.1
   },
   "dylanbeavers-bal": {
     "ecr": 366,
@@ -4228,16 +3764,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 407,
     "espnAuction": 0.1,
     "adp": 260.3,
-    "pctOwned": 2.3,
-    "fpAuction": 366.0
+    "pctOwned": 2.3
   },
   "ajpuk-ari": {
     "ecr": 542,
     "ecrMin": 451,
     "ecrMax": 559,
     "adp": 260.0,
-    "pctOwned": 0.4,
-    "fpAuction": 542.0
+    "pctOwned": 0.4
   },
   "erikmiller-sf": {
     "ecr": 553,
@@ -4245,7 +3779,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 462,
     "adp": 260.0,
     "pctOwned": 0.1,
-    "fpAuction": 553.0,
     "closerRank": 1
   },
   "tonysantillan-cin": {
@@ -4255,7 +3788,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.1,
     "adp": 258.4,
     "pctOwned": 6.2,
-    "fpAuction": 499.0,
     "closerStatus": "1ST:CIN"
   },
   "angelzerpa-mil": {
@@ -4263,8 +3795,7 @@ const PLAYER_RANKINGS = {
     "ecrMin": 486,
     "ecrMax": 486,
     "adp": 260.0,
-    "pctOwned": 0.1,
-    "fpAuction": 577.0
+    "pctOwned": 0.1
   },
   "trentgrisham-nyy": {
     "ecr": 220,
@@ -4272,8 +3803,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 289,
     "espnAuction": 0.3,
     "adp": 251.0,
-    "pctOwned": 13.3,
-    "fpAuction": 220.0
+    "pctOwned": 13.3
   },
   "justinsterner-ath": {
     "ecr": 439,
@@ -4281,7 +3811,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 397,
     "adp": 260.2,
     "pctOwned": 1.1,
-    "fpAuction": 439.0,
     "closerStatus": "2ND:ATH:*",
     "closerRank": 46
   },
@@ -4291,8 +3820,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 298,
     "espnAuction": 0.6,
     "adp": 243.8,
-    "pctOwned": 17.4,
-    "fpAuction": 205.0
+    "pctOwned": 17.4
   },
   "chrisbassitt-bal": {
     "ecr": 322,
@@ -4300,16 +3828,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 403,
     "espnAuction": 0.1,
     "adp": 256.7,
-    "pctOwned": 8.5,
-    "fpAuction": 322.0
+    "pctOwned": 8.5
   },
   "yenniercano-bal": {
     "ecr": 599,
     "ecrMin": 510,
     "ecrMax": 510,
     "adp": 260.1,
-    "pctOwned": 0.4,
-    "fpAuction": 599.0
+    "pctOwned": 0.4
   },
   "graysonrodriguez-laa": {
     "ecr": 243,
@@ -4317,8 +3843,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 453,
     "espnAuction": 0.3,
     "adp": 258.3,
-    "pctOwned": 6.5,
-    "fpAuction": 243.0
+    "pctOwned": 6.5
   },
   "markleiterjr-ath": {
     "ecr": 512,
@@ -4326,7 +3851,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 546,
     "adp": 260.2,
     "pctOwned": 0.3,
-    "fpAuction": 512.0,
     "closerStatus": "CLOSER:ATH:*",
     "closerRank": 47
   },
@@ -4336,16 +3860,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 252,
     "espnAuction": 2.4,
     "adp": 194.2,
-    "pctOwned": 64.2,
-    "fpAuction": 190.0
+    "pctOwned": 64.2
   },
   "johnschreiber-kc": {
     "ecr": 642,
     "ecrMin": 558,
     "ecrMax": 558,
     "adp": 260.1,
-    "pctOwned": 0.3,
-    "fpAuction": 642.0
+    "pctOwned": 0.3
   },
   "jordanlawlar-ari": {
     "ecr": 320,
@@ -4353,16 +3875,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 556,
     "espnAuction": 0.1,
     "adp": 259.4,
-    "pctOwned": 4.2,
-    "fpAuction": 320.0
+    "pctOwned": 4.2
   },
   "fostergriffin-wsn": {
     "ecr": 482,
     "ecrMin": 392,
     "ecrMax": 542,
     "adp": 260.1,
-    "pctOwned": 0.4,
-    "fpAuction": 482.0
+    "pctOwned": 0.4
   },
   "trevorrogers-bal": {
     "ecr": 147,
@@ -4370,16 +3890,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 288,
     "espnAuction": 2.2,
     "adp": 187.4,
-    "pctOwned": 73.0,
-    "fpAuction": 147.0
+    "pctOwned": 73.0
   },
   "braxtongarrett-mia": {
     "ecr": 357,
     "ecrMin": 277,
     "ecrMax": 397,
     "adp": 260.4,
-    "pctOwned": 2.3,
-    "fpAuction": 357.0
+    "pctOwned": 2.3
   },
   "cadehorton-chc": {
     "ecr": 175,
@@ -4387,8 +3905,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 263,
     "espnAuction": 1.2,
     "adp": 225.2,
-    "pctOwned": 43.1,
-    "fpAuction": 175.0
+    "pctOwned": 43.1
   },
   "franciscoalvarez-nym": {
     "ecr": 219,
@@ -4396,8 +3913,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 287,
     "espnAuction": 0.2,
     "adp": 255.4,
-    "pctOwned": 8.0,
-    "fpAuction": 219.0
+    "pctOwned": 8.0
   },
   "ramonlaureano-sd": {
     "ecr": 229,
@@ -4405,16 +3921,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 274,
     "espnAuction": 0.1,
     "adp": 258.7,
-    "pctOwned": 5.9,
-    "fpAuction": 229.0
+    "pctOwned": 5.9
   },
   "jordanwalker-stl": {
     "ecr": 355,
     "ecrMin": 265,
     "ecrMax": 349,
     "adp": 259.9,
-    "pctOwned": 1.2,
-    "fpAuction": 355.0
+    "pctOwned": 1.2
   },
   "brettbaty-nym": {
     "ecr": 281,
@@ -4422,16 +3936,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 341,
     "espnAuction": 0.1,
     "adp": 258.7,
-    "pctOwned": 4.2,
-    "fpAuction": 281.0
+    "pctOwned": 4.2
   },
   "taylorrogers-min": {
     "ecr": 362,
     "ecrMin": 270,
     "ecrMax": 371,
     "adp": 260.1,
-    "pctOwned": 1.0,
-    "fpAuction": 362.0
+    "pctOwned": 1.0
   },
   "mitchkeller-pit": {
     "ecr": 279,
@@ -4439,8 +3951,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 361,
     "espnAuction": 0.2,
     "adp": 252.3,
-    "pctOwned": 14.3,
-    "fpAuction": 279.0
+    "pctOwned": 14.3
   },
   "dustinmay-stl": {
     "ecr": 421,
@@ -4448,8 +3959,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 418,
     "espnAuction": 0.1,
     "adp": 259.8,
-    "pctOwned": 2.5,
-    "fpAuction": 421.0
+    "pctOwned": 2.5
   },
   "bradysinger-cin": {
     "ecr": 284,
@@ -4457,8 +3967,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 345,
     "espnAuction": 0.1,
     "adp": 253.4,
-    "pctOwned": 11.2,
-    "fpAuction": 284.0
+    "pctOwned": 11.2
   },
   "mikeburrows-hou": {
     "ecr": 294,
@@ -4466,8 +3975,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 366,
     "espnAuction": 0.2,
     "adp": 259.1,
-    "pctOwned": 4.9,
-    "fpAuction": 294.0
+    "pctOwned": 4.9
   },
   "ryanweathers-nyy": {
     "ecr": 246,
@@ -4475,16 +3983,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 309,
     "espnAuction": 0.1,
     "adp": 259.1,
-    "pctOwned": 5.5,
-    "fpAuction": 246.0
+    "pctOwned": 5.5
   },
   "jaredjones-pit": {
     "ecr": 533,
     "ecrMin": 443,
     "ecrMax": 443,
     "adp": 260.1,
-    "pctOwned": 4.8,
-    "fpAuction": 533.0
+    "pctOwned": 4.8
   },
   "brookslee-min": {
     "ecr": 323,
@@ -4492,16 +3998,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 352,
     "espnAuction": 0.2,
     "adp": 258.2,
-    "pctOwned": 6.0,
-    "fpAuction": 323.0
+    "pctOwned": 6.0
   },
   "bonaylor-cle": {
     "ecr": 407,
     "ecrMin": 281,
     "ecrMax": 388,
     "adp": 259.3,
-    "pctOwned": 1.6,
-    "fpAuction": 407.0
+    "pctOwned": 1.6
   },
   "cedricmullins-tb": {
     "ecr": 297,
@@ -4509,8 +4013,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 363,
     "espnAuction": 0.1,
     "adp": 259.7,
-    "pctOwned": 3.6,
-    "fpAuction": 297.0
+    "pctOwned": 3.6
   },
   "victorscottii-stl": {
     "ecr": 356,
@@ -4518,8 +4021,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 391,
     "espnAuction": 0.1,
     "adp": 260.0,
-    "pctOwned": 2.1,
-    "fpAuction": 356.0
+    "pctOwned": 2.1
   },
   "yuseikikuchi-laa": {
     "ecr": 289,
@@ -4527,8 +4029,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 363,
     "espnAuction": 0.2,
     "adp": 248.7,
-    "pctOwned": 13.9,
-    "fpAuction": 289.0
+    "pctOwned": 13.9
   },
   "shanebaz-bal": {
     "ecr": 180,
@@ -4536,16 +4037,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 256,
     "espnAuction": 0.8,
     "adp": 226.5,
-    "pctOwned": 29.4,
-    "fpAuction": 180.0
+    "pctOwned": 29.4
   },
   "sladececconi-cle": {
     "ecr": 424,
     "ecrMin": 294,
     "ecrMax": 488,
     "adp": 260.1,
-    "pctOwned": 1.5,
-    "fpAuction": 424.0
+    "pctOwned": 1.5
   },
   "parkermessick-cle": {
     "ecr": 272,
@@ -4553,8 +4052,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 365,
     "espnAuction": 0.1,
     "adp": 260.2,
-    "pctOwned": 3.5,
-    "fpAuction": 272.0
+    "pctOwned": 3.5
   },
   "evancarter-tex": {
     "ecr": 326,
@@ -4562,24 +4060,21 @@ const PLAYER_RANKINGS = {
     "ecrMax": 333,
     "espnAuction": 0.2,
     "adp": 259.3,
-    "pctOwned": 5.5,
-    "fpAuction": 326.0
+    "pctOwned": 5.5
   },
   "lourdesgurrieljr-ari": {
     "ecr": 467,
     "ecrMin": 374,
     "ecrMax": 434,
     "adp": 260.1,
-    "pctOwned": 1.9,
-    "fpAuction": 467.0
+    "pctOwned": 1.9
   },
   "kebryanhayes-cin": {
     "ecr": 423,
     "ecrMin": 262,
     "ecrMax": 496,
     "adp": 259.8,
-    "pctOwned": 0.9,
-    "fpAuction": 423.0
+    "pctOwned": 0.9
   },
   "tommyedman-lad": {
     "ecr": 334,
@@ -4587,16 +4082,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 409,
     "espnAuction": 0.1,
     "adp": 257.6,
-    "pctOwned": 6.5,
-    "fpAuction": 334.0
+    "pctOwned": 6.5
   },
   "isaaccollins-kc": {
     "ecr": 375,
     "ecrMin": 258,
     "ecrMax": 435,
     "adp": 260.2,
-    "pctOwned": 0.9,
-    "fpAuction": 375.0
+    "pctOwned": 0.9
   },
   "willwarren-nyy": {
     "ecr": 296,
@@ -4604,8 +4097,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 428,
     "espnAuction": 0.1,
     "adp": 260.0,
-    "pctOwned": 3.2,
-    "fpAuction": 296.0
+    "pctOwned": 3.2
   },
   "sethlugo-kc": {
     "ecr": 316,
@@ -4613,8 +4105,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 455,
     "espnAuction": 0.3,
     "adp": 253.2,
-    "pctOwned": 11.4,
-    "fpAuction": 316.0
+    "pctOwned": 11.4
   },
   "camschlittler-nyy": {
     "ecr": 126,
@@ -4622,40 +4113,35 @@ const PLAYER_RANKINGS = {
     "ecrMax": 283,
     "espnAuction": 3.2,
     "adp": 152.5,
-    "pctOwned": 83.7,
-    "fpAuction": 126.0
+    "pctOwned": 83.7
   },
   "lanethomas-kc": {
     "ecr": 502,
     "ecrMin": 413,
     "ecrMax": 455,
     "adp": 260.0,
-    "pctOwned": 0.5,
-    "fpAuction": 502.0
+    "pctOwned": 0.5
   },
   "jesussanchez-tor": {
     "ecr": 380,
     "ecrMin": 229,
     "ecrMax": 394,
     "adp": 260.4,
-    "pctOwned": 1.2,
-    "fpAuction": 380.0
+    "pctOwned": 1.2
   },
   "mikeyastrzemski-atl": {
     "ecr": 364,
     "ecrMin": 265,
     "ecrMax": 370,
     "adp": 259.5,
-    "pctOwned": 2.5,
-    "fpAuction": 364.0
+    "pctOwned": 2.5
   },
   "tylerstephenson-cin": {
     "ecr": 305,
     "ecrMin": 220,
     "ecrMax": 352,
     "adp": 259.8,
-    "pctOwned": 2.0,
-    "fpAuction": 305.0
+    "pctOwned": 2.0
   },
   "kodaisenga-nym": {
     "ecr": 241,
@@ -4663,8 +4149,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 284,
     "espnAuction": 0.4,
     "adp": 250.1,
-    "pctOwned": 18.2,
-    "fpAuction": 241.0
+    "pctOwned": 18.2
   },
   "maxmeyer-mia": {
     "ecr": 432,
@@ -4672,8 +4157,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 481,
     "espnAuction": 0.1,
     "adp": 260.0,
-    "pctOwned": 2.8,
-    "fpAuction": 432.0
+    "pctOwned": 2.8
   },
   "noahcameron-kc": {
     "ecr": 251,
@@ -4681,16 +4165,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 372,
     "espnAuction": 0.3,
     "adp": 251.8,
-    "pctOwned": 16.6,
-    "fpAuction": 251.0
+    "pctOwned": 16.6
   },
   "landenroupp-sf": {
     "ecr": 531,
     "ecrMin": 441,
     "ecrMax": 466,
     "adp": 260.1,
-    "pctOwned": 0.8,
-    "fpAuction": 531.0
+    "pctOwned": 0.8
   },
   "grantholmes-atl": {
     "ecr": 390,
@@ -4698,16 +4180,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 447,
     "espnAuction": 0.1,
     "adp": 259.6,
-    "pctOwned": 2.5,
-    "fpAuction": 390.0
+    "pctOwned": 2.5
   },
   "tajbradley-min": {
     "ecr": 405,
     "ecrMin": 287,
     "ecrMax": 442,
     "adp": 260.0,
-    "pctOwned": 1.6,
-    "fpAuction": 405.0
+    "pctOwned": 1.6
   },
   "justinverlander-det": {
     "ecr": 537,
@@ -4715,8 +4195,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 484,
     "espnAuction": 0.1,
     "adp": 258.2,
-    "pctOwned": 5.2,
-    "fpAuction": 537.0
+    "pctOwned": 5.2
   },
   "harrisonbader-sf": {
     "ecr": 347,
@@ -4724,24 +4203,21 @@ const PLAYER_RANKINGS = {
     "ecrMax": 438,
     "espnAuction": 0.1,
     "adp": 259.7,
-    "pctOwned": 2.8,
-    "fpAuction": 347.0
+    "pctOwned": 2.8
   },
   "trevorlarnach-min": {
     "ecr": 385,
     "ecrMin": 241,
     "ecrMax": 447,
     "adp": 260.4,
-    "pctOwned": 1.6,
-    "fpAuction": 385.0
+    "pctOwned": 1.6
   },
   "pavinsmith-ari": {
     "ecr": 570,
     "ecrMin": 477,
     "ecrMax": 490,
     "adp": 260.0,
-    "pctOwned": 0.3,
-    "fpAuction": 570.0
+    "pctOwned": 0.3
   },
   "victorvodnik-col": {
     "ecr": 374,
@@ -4749,7 +4225,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 445,
     "adp": 260.2,
     "pctOwned": 1.0,
-    "fpAuction": 374.0,
     "closerStatus": "CLOSER:COL:*"
   },
   "hoganharris-ath": {
@@ -4758,7 +4233,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 631,
     "adp": 260.1,
     "pctOwned": 0.8,
-    "fpAuction": 606.0,
     "closerStatus": "1ST:ATH:*",
     "closerRank": 37
   },
@@ -4768,8 +4242,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 321,
     "espnAuction": 1.5,
     "adp": 228.2,
-    "pctOwned": 35.1,
-    "fpAuction": 145.0
+    "pctOwned": 35.1
   },
   "brayanbello-bos": {
     "ecr": 298,
@@ -4777,8 +4250,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 387,
     "espnAuction": 0.1,
     "adp": 254.5,
-    "pctOwned": 10.7,
-    "fpAuction": 298.0
+    "pctOwned": 10.7
   },
   "matthewliberatore-stl": {
     "ecr": 425,
@@ -4786,8 +4258,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 465,
     "espnAuction": 0.1,
     "adp": 259.9,
-    "pctOwned": 2.2,
-    "fpAuction": 425.0
+    "pctOwned": 2.2
   },
   "jackleiter-tex": {
     "ecr": 227,
@@ -4796,7 +4267,6 @@ const PLAYER_RANKINGS = {
     "espnAuction": 0.3,
     "adp": 253.5,
     "pctOwned": 11.5,
-    "fpAuction": 227.0,
     "closerRank": 47
   },
   "andrewbenintendi-cws": {
@@ -4805,16 +4275,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 430,
     "espnAuction": 0.1,
     "adp": 259.8,
-    "pctOwned": 2.5,
-    "fpAuction": 381.0
+    "pctOwned": 2.5
   },
   "edgarquero-cws": {
     "ecr": 368,
     "ecrMin": 262,
     "ecrMax": 387,
     "adp": 260.3,
-    "pctOwned": 1.3,
-    "fpAuction": 368.0
+    "pctOwned": 1.3
   },
   "gavinsheets-sd": {
     "ecr": 389,
@@ -4822,24 +4290,21 @@ const PLAYER_RANKINGS = {
     "ecrMax": 394,
     "espnAuction": 0.2,
     "adp": 260.4,
-    "pctOwned": 2.4,
-    "fpAuction": 389.0
+    "pctOwned": 2.4
   },
   "gavinlux-tb": {
     "ecr": 550,
     "ecrMin": 460,
     "ecrMax": 498,
     "adp": 260.3,
-    "pctOwned": 0.9,
-    "fpAuction": 550.0
+    "pctOwned": 0.9
   },
   "jjbleday-cin": {
     "ecr": 631,
     "ecrMin": 548,
     "ecrMax": 582,
     "adp": 260.1,
-    "pctOwned": 0.3,
-    "fpAuction": 631.0
+    "pctOwned": 0.3
   },
   "corbinburnes-ari": {
     "ecr": 591,
@@ -4847,8 +4312,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 525,
     "espnAuction": 0.1,
     "adp": 259.1,
-    "pctOwned": 8.9,
-    "fpAuction": 591.0
+    "pctOwned": 8.9
   },
   "colehenry-wsh": {
     "ecr": 476,
@@ -4856,7 +4320,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 618,
     "adp": 260.1,
     "pctOwned": 0.2,
-    "fpAuction": 476.0,
     "closerStatus": "SVH#50",
     "closerRank": 50
   },
@@ -4866,16 +4329,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 325,
     "espnAuction": 0.5,
     "adp": 254.5,
-    "pctOwned": 10.9,
-    "fpAuction": 240.0
+    "pctOwned": 10.9
   },
   "jakemeyers-hou": {
     "ecr": 413,
     "ecrMin": 347,
     "ecrMax": 460,
     "adp": 260.1,
-    "pctOwned": 0.6,
-    "fpAuction": 413.0
+    "pctOwned": 0.6
   },
   "loganohoppe-laa": {
     "ecr": 306,
@@ -4883,8 +4344,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 320,
     "espnAuction": 0.1,
     "adp": 258.8,
-    "pctOwned": 3.5,
-    "fpAuction": 306.0
+    "pctOwned": 3.5
   },
   "nickcastellanos-sd": {
     "ecr": 349,
@@ -4892,16 +4352,14 @@ const PLAYER_RANKINGS = {
     "ecrMax": 529,
     "espnAuction": 0.1,
     "adp": 259.7,
-    "pctOwned": 2.5,
-    "fpAuction": 349.0
+    "pctOwned": 2.5
   },
   "kyleharrison-mil": {
     "ecr": 431,
     "ecrMin": 246,
     "ecrMax": 569,
     "adp": 260.1,
-    "pctOwned": 1.6,
-    "fpAuction": 431.0
+    "pctOwned": 1.6
   },
   "luisgil-nyy": {
     "ecr": 363,
@@ -4909,40 +4367,35 @@ const PLAYER_RANKINGS = {
     "ecrMax": 450,
     "espnAuction": 0.2,
     "adp": 258.3,
-    "pctOwned": 9.2,
-    "fpAuction": 363.0
+    "pctOwned": 9.2
   },
   "yoanmoncada-laa": {
     "ecr": 625,
     "ecrMin": 540,
     "ecrMax": 546,
     "adp": 260.0,
-    "pctOwned": 0.3,
-    "fpAuction": 625.0
+    "pctOwned": 0.3
   },
   "haseongkim-atl": {
     "ecr": 462,
     "ecrMin": 367,
     "ecrMax": 485,
     "adp": 259.8,
-    "pctOwned": 0.9,
-    "fpAuction": 462.0
+    "pctOwned": 0.9
   },
   "jorgesoler-laa": {
     "ecr": 384,
     "ecrMin": 226,
     "ecrMax": 414,
     "adp": 260.2,
-    "pctOwned": 1.3,
-    "fpAuction": 384.0
+    "pctOwned": 1.3
   },
   "ryanweiss-hou": {
     "ecr": 630,
     "ecrMin": 547,
     "ecrMax": 555,
     "adp": 260.1,
-    "pctOwned": 0.2,
-    "fpAuction": 630.0
+    "pctOwned": 0.2
   },
   "cadecavalli-wsh": {
     "ecr": 325,
@@ -4950,24 +4403,21 @@ const PLAYER_RANKINGS = {
     "ecrMax": 503,
     "espnAuction": 0.1,
     "adp": 259.8,
-    "pctOwned": 2.9,
-    "fpAuction": 325.0
+    "pctOwned": 2.9
   },
   "kyleisbel-kc": {
     "ecr": 587,
     "ecrMin": 496,
     "ecrMax": 710,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 587.0
+    "pctOwned": 0.2
   },
   "jocpederson-tex": {
     "ecr": 451,
     "ecrMin": 355,
     "ecrMax": 607,
     "adp": 260.0,
-    "pctOwned": 0.2,
-    "fpAuction": 451.0
+    "pctOwned": 0.2
   },
   "mickabel-min": {
     "ecr": 359,
@@ -4975,8 +4425,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 1085,
     "espnAuction": 0.1,
     "adp": 260.1,
-    "pctOwned": 1.8,
-    "fpAuction": 359.0
+    "pctOwned": 1.8
   },
   "tyleroneill-bal": {
     "ecr": 382,
@@ -4984,8 +4433,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 457,
     "espnAuction": 0.1,
     "adp": 260.1,
-    "pctOwned": 1.1,
-    "fpAuction": 382.0
+    "pctOwned": 1.1
   },
   "andrewpainter-phi": {
     "ecr": 302,
@@ -4993,8 +4441,7 @@ const PLAYER_RANKINGS = {
     "ecrMax": 794,
     "espnAuction": 0.2,
     "adp": 257.4,
-    "pctOwned": 8.3,
-    "fpAuction": 302.0
+    "pctOwned": 8.3
   },
   "giancarlostanton-nyy": {
     "ecr": 292,
@@ -5002,32 +4449,28 @@ const PLAYER_RANKINGS = {
     "ecrMax": 380,
     "espnAuction": 0.8,
     "adp": 244.2,
-    "pctOwned": 24.9,
-    "fpAuction": 292.0
+    "pctOwned": 24.9
   },
   "freddyfermin-sd": {
     "ecr": 444,
     "ecrMin": 375,
     "ecrMax": 416,
     "adp": 259.9,
-    "pctOwned": 0.6,
-    "fpAuction": 444.0
+    "pctOwned": 0.6
   },
   "spencerarrighetti-hou": {
     "ecr": 477,
     "ecrMin": 400,
     "ecrMax": 636,
     "adp": 260.1,
-    "pctOwned": 0.7,
-    "fpAuction": 477.0
+    "pctOwned": 0.7
   },
   "anthonykay-cws": {
     "ecr": 716,
     "ecrMin": 613,
     "ecrMax": 818,
     "adp": 260.1,
-    "pctOwned": 0.2,
-    "fpAuction": 716.0
+    "pctOwned": 0.2
   },
   "chasedelauter-cle": {
     "ecr": 275,
@@ -5035,7 +4478,6 @@ const PLAYER_RANKINGS = {
     "ecrMax": 419,
     "espnAuction": 0.1,
     "adp": 259.6,
-    "pctOwned": 4.2,
-    "fpAuction": 275.0
+    "pctOwned": 4.2
   }
 };

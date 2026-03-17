@@ -181,24 +181,6 @@ def build_ids(players):
 
 # ── FantasyPros ECR + Auction AAV ────────────────────────────────────────────
 
-def fetch_fp_auction():
-    print('Fetching FantasyPros auction AAV...')
-    url = ('https://partners.fantasypros.com/api/v1/consensus-rankings.php'
-           '?sport=MLB&year=2026&week=0&id=0&position=ALL&type=auction&scoring=H&teams=0&draft=0')
-    try:
-        d = fetch_json(url)
-        players = d.get('players', [])
-        result = {}
-        for p in players:
-            key = name_key(p.get('player_name', ''))
-            aav = p.get('rank_ecr')  # auction endpoint stores AAV in rank_ecr
-            if aav and float(aav) > 0:
-                result[key] = round(float(aav), 1)
-        print(f'  FP Auction: {len(result)} players with AAV')
-        return result
-    except Exception as e:
-        print(f'  FP Auction fetch failed: {e}')
-        return {}
 
 def fetch_ecr():
     print('Fetching FantasyPros ECR...')
@@ -325,7 +307,7 @@ def fetch_closer_monkey():
 
 # ── Merge everything ─────────────────────────────────────────────────────────
 
-def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data, closer_ranks, fp_auction=None):
+def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data, closer_ranks):
     rankings = {}
 
     for p in players:
@@ -357,15 +339,6 @@ def build_rankings(players, existing_ids, ecr_data, espn_adp, closer_data, close
             if adp_data.get('pctOwned', 0) > 0:
                 entry['pctOwned'] = adp_data['pctOwned']
 
-        # FP Auction AAV
-        if fp_auction:
-            fp_aav = fp_auction.get(key)
-            if not fp_aav:
-                words = key.split()
-                if words[-1] in SUFFIXES:
-                    fp_aav = fp_auction.get(' '.join(words[:-1]))
-            if fp_aav and fp_aav > 0:
-                entry['fpAuction'] = fp_aav
 
         # CloserMonkey (RPs only) — try full name, then last-name+team fallback
         # Depth chart uses short names ("Helsley"), article uses full names ("Ryan Helsley").
@@ -420,7 +393,7 @@ def write_rankings(rankings):
  * rankings.js — ECR, ESPN ADP/auction, CloserMonkey status
  * Generated: {now}
  * Refresh: python3 scripts/fetch_rankings.py --ranks
- * Fields: ecr, ecrMin, ecrMax, espnAuction, fpAuction, pctOwned, adp, closerStatus, closerRank
+ * Fields: ecr, ecrMin, ecrMax, espnAuction, pctOwned, adp, closerStatus, closerRank
  */
 const PLAYER_RANKINGS = {json.dumps(rankings, indent=2)};
 """
@@ -443,7 +416,7 @@ def load_existing_rankings():
 def diff_rankings(old, new, players):
     """Print a human-readable diff of what would change in rankings.js."""
     pid_to_name = {p['id']: p['n'] for p in players}
-    fields = ['ecr', 'espnAuction', 'fpAuction', 'pctOwned', 'adp', 'closerStatus', 'closerRank']
+    fields = ['ecr', 'espnAuction', 'pctOwned', 'adp', 'closerStatus', 'closerRank']
 
     added = []      # players gaining a field they didn't have
     removed = []    # players losing a field
@@ -550,16 +523,14 @@ def main():
         print('=== FETCHING RANKINGS ===')
         ecr_data             = fetch_ecr()
         espn_adp             = fetch_espn_adp()
-        fp_auction           = fetch_fp_auction()
         closer, closer_ranks = fetch_closer_monkey()
-        rankings             = build_rankings(players, existing_ids, ecr_data, espn_adp, closer, closer_ranks, fp_auction)
+        rankings             = build_rankings(players, existing_ids, ecr_data, espn_adp, closer, closer_ranks)
 
         matched_ecr    = sum(1 for v in rankings.values() if 'ecr' in v)
         matched_auct   = sum(1 for v in rankings.values() if 'espnAuction' in v)
-        matched_fp     = sum(1 for v in rankings.values() if 'fpAuction' in v)
         matched_pct    = sum(1 for v in rankings.values() if 'pctOwned' in v)
         matched_closer = sum(1 for v in rankings.values() if 'closerStatus' in v)
-        print(f'\nMatched: {matched_ecr} ECR  |  {matched_auct} ESPN$  |  {matched_fp} FP AAV  |  {matched_pct} pctOwned  |  {matched_closer} CloserMonkey')
+        print(f'\nMatched: {matched_ecr} ECR  |  {matched_auct} ESPN$  |  {matched_pct} pctOwned  |  {matched_closer} CloserMonkey')
 
         if dry_run:
             old_rankings = load_existing_rankings()
