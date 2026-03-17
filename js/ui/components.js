@@ -203,7 +203,8 @@ const UI = {
         if (ui.typeFilter === 'PIT') list = list.filter(p => p.IP > 0);
         if (ui.hideDrafted) list = list.filter(p => !effectiveDrafted()[p.id]);
         if (ui.hideSubRep)  list = list.filter(p => (p.csValS || 0) > 0);
-        if (ui.scoutOnly) list = list.filter(p => p.CM_Role || p.PL_Rank || p.HL_Rank);
+        if (ui.scoutOnly)  list = list.filter(p => p.CM_Role || p.PL_Rank || p.HL_Rank);
+        if (ui.watchOnly)  list = list.filter(p => p.Watch);
         if (ui.hideInjured) list = list.filter(p => {
             const news = InjuryManager.getLatestFor(p.id);
             const prog = (news?.summary?.match(/PROGNOSIS:\s*(\w+)/i) || [])[1]?.toLowerCase();

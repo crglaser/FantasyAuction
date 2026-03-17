@@ -950,6 +950,12 @@ const Templates = {
                         <span class="lbl">Scout Only</span>
                     </label>
                 </div>
+                <div class="ctrl">
+                    <label style="display:flex;gap:5px;align-items:center;cursor:pointer">
+                        <input type="checkbox" ${ui.watchOnly?'checked':''} onchange="AppState.ui.watchOnly=this.checked;UI.render()">
+                        <span class="lbl" style="color:${ui.watchOnly?'#e8c040':''}">★ Watch</span>
+                    </label>
+                </div>
                 <button class="btn" style="margin-left:auto" onclick="document.getElementById('rulesModal').classList.add('open')">RULES</button>
             </div>
         `;

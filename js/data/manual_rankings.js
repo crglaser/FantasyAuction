@@ -1,6 +1,6 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-17 01:11 UTC
+ * Generated: 2026-03-17 01:20 UTC
  * Fields: AVG, CM_Rank, CM_Role, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier, Watch
  * Run: python3 scripts/bake_manual.py
  */
@@ -455,7 +455,8 @@ const MANUAL_RANKINGS = {
     "HL_Rank": 75,
     "HL_Tier": 9,
     "HL_Pos": "C",
-    "AVG": 0.268
+    "AVG": 0.268,
+    "Watch": "\u2605"
   },
   "randyarozarena-sea": {
     "HL_Rank": 76,
@@ -708,7 +709,8 @@ const MANUAL_RANKINGS = {
     "HL_Rank": 117,
     "HL_Tier": 12,
     "HL_Pos": "OF",
-    "AVG": 0.283
+    "AVG": 0.283,
+    "Watch": "\u2605"
   },
   "salstewart-cin": {
     "HL_Rank": 118,
@@ -828,7 +830,8 @@ const MANUAL_RANKINGS = {
     "HL_Rank": 138,
     "HL_Tier": 14,
     "HL_Pos": "OF",
-    "AVG": 0.249
+    "AVG": 0.249,
+    "Watch": "\u2605"
   },
   "isaacparedes-hou": {
     "HL_Rank": 139,
@@ -864,7 +867,8 @@ const MANUAL_RANKINGS = {
     "HL_Rank": 144,
     "HL_Tier": 14,
     "HL_Pos": "SS/OF",
-    "AVG": 0.259
+    "AVG": 0.259,
+    "Watch": "\u2605"
   },
   "maxmuncylad-lad": {
     "HL_Rank": 145,
@@ -1650,6 +1654,9 @@ const MANUAL_RANKINGS = {
     "CM_Role": "CLOSER:MIL:*",
     "CM_Rank": 18
   },
+  "edwinuceta-tb": {
+    "Watch": "\u2605"
+  },
   "jeffhoffman-tor": {
     "CM_Role": "CLOSER:TOR",
     "CM_Rank": 10,
@@ -1985,7 +1992,8 @@ const MANUAL_RANKINGS = {
   },
   "matthewboyd-chc": {
     "PL_Rank": 52,
-    "PL_Tier": 8
+    "PL_Tier": 8,
+    "Watch": "\u2605"
   },
   "spencerschwellenbach-atl": {
     "PL_Rank": 66,
@@ -2011,7 +2019,8 @@ const MANUAL_RANKINGS = {
   },
   "jackflaherty-det": {
     "PL_Rank": 79,
-    "PL_Tier": 12
+    "PL_Tier": 12,
+    "Watch": "\u2605"
   },
   "braxtonashcraft-pit": {
     "PL_Rank": 85,
@@ -2047,7 +2056,8 @@ const MANUAL_RANKINGS = {
   },
   "ryanpepiot-tb": {
     "PL_Rank": 26,
-    "PL_Tier": 5
+    "PL_Tier": 5,
+    "Watch": "\u2605"
   },
   "nicklodolo-cin": {
     "PL_Rank": 47,
@@ -2055,7 +2065,8 @@ const MANUAL_RANKINGS = {
   },
   "chaseburns-cin": {
     "PL_Rank": 40,
-    "PL_Tier": 7
+    "PL_Tier": 7,
+    "Watch": "\u2605"
   },
   "treyyesavage-tor": {
     "PL_Rank": 42,
@@ -2079,7 +2090,8 @@ const MANUAL_RANKINGS = {
   },
   "euryprez-mia": {
     "PL_Rank": 22,
-    "PL_Tier": 4
+    "PL_Tier": 4,
+    "Watch": "\u2605"
   },
   "nolanmclean-nym": {
     "PL_Rank": 25,
