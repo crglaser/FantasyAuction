@@ -22,7 +22,6 @@ const Templates = {
             { label: 'CS',    keys: ['csValAAdj', 'csValS', 'csArb'] },
             { label: 'ESPN',  keys: ['espnAuction'] },
             { label: 'BP',    keys: ['BP_Ax', 'BP_Full'] },
-            { label: 'FG',    keys: ['FG_Ax', 'FG_Full'] },
             { label: 'ECR',   keys: ['ecr'] },
             { label: 'PROJ',  keys: ['projections'] },
             { label: 'SCOUT', keys: [SCOUT_COL] },
@@ -54,8 +53,6 @@ const Templates = {
                             ${vis('csValS')      ? this.th('csValS',    'CS SZN')   : ''}
                             ${vis('BP_Ax')       ? this.th('BP_Ax',     'BP AUC')   : ''}
                             ${vis('BP_Full')     ? this.th('BP_Full',   'BP FULL')  : ''}
-                            ${vis('FG_Ax')       ? this.th('FG_Ax',     'FG AUC')   : ''}
-                            ${vis('FG_Full')     ? this.th('FG_Full',   'FG FULL')  : ''}
                             ${vis('ecr')         ? this.th('ecr',       'ECR')      : ''}
                             ${vis('csArb')       ? this.th('csArb',     'ARB Δ')    : ''}
                             ${vis('espnAuction') ? this.th('espnAuction','ESPN $')  : ''}
@@ -101,8 +98,6 @@ const Templates = {
                                     ${vis('csValS')       ? `<td class="grn">$${p.csValS}</td>` : ''}
                                     ${vis('BP_Ax')        ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}
                                     ${vis('BP_Full')      ? `<td class="mono" style="font-size:10px;color:#9060c0">${p.BP_Full ? '$'+p.BP_Full : '—'}</td>` : ''}
-                                    ${vis('FG_Ax')        ? `<td class="mono" style="font-size:10px;color:#60c8a0">${p.FG_Ax   ? '$'+p.FG_Ax   : '—'}</td>` : ''}
-                                    ${vis('FG_Full')      ? `<td class="mono" style="font-size:10px;color:#408070">${p.FG_Full ? '$'+p.FG_Full : '—'}</td>` : ''}
                                     ${vis('ecr')          ? `<td class="mono muted" style="font-size:10px">${p.ecr != null ? p.ecr : '—'}</td>` : ''}
                                     ${vis('csArb')        ? `<td>${this.formatCsArb(p.csArb)}</td>` : ''}
                                     ${vis('espnAuction')  ? `<td class="mono" style="font-size:10px;color:#e8c040">${p.espnAuction ? '$'+p.espnAuction : '—'}</td>` : ''}
