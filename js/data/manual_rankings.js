@@ -1,14 +1,14 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-17 10:04 UTC
+ * Generated: 2026-03-17 10:16 UTC
  * Fields: AVG, BP_Ax, CM_Rank, CM_Role, FG_Ax, FG_Full, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier, Watch
  * Run: python3 scripts/bake_manual.py
  */
 const MANUAL_RANKINGS = {
   "shoheiohtani-lad": {
-    "BP_Ax": 11.5,
-    "FG_Ax": 7.8,
-    "FG_Full": 7.8,
+    "BP_Ax": 66.7,
+    "FG_Ax": 39.9,
+    "FG_Full": 32.1,
     "HL_Rank": 1,
     "HL_Tier": 1,
     "HL_Pos": "DH",
@@ -1495,14 +1495,6 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "1B",
     "AVG": 0.252
   },
-  "jorgepolanco-nym": {
-    "BP_Ax": 0.0,
-    "FG_Full": 0.6,
-    "HL_Rank": 107,
-    "HL_Tier": 11,
-    "HL_Pos": "2B/3B",
-    "AVG": 0.248
-  },
   "jhoanduran-phi": {
     "FG_Ax": 16.4,
     "FG_Full": 10.7,
@@ -1628,10 +1620,6 @@ const MANUAL_RANKINGS = {
     "PL_Rank": 43,
     "PL_Tier": 7
   },
-  "gabespeier-sea": {
-    "FG_Ax": 2.6,
-    "FG_Full": 3.3
-  },
   "joadell-laa": {
     "FG_Full": 2.6,
     "HL_Rank": 68,
@@ -1639,6 +1627,10 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "OF",
     "AVG": 0.237,
     "Watch": "\u2605"
+  },
+  "gabespeier-sea": {
+    "FG_Ax": 2.6,
+    "FG_Full": 3.3
   },
   "andypages-lad": {
     "FG_Ax": 2.5,
@@ -1648,6 +1640,10 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "OF",
     "AVG": 0.255
   },
+  "dylanlee-atl": {
+    "FG_Full": 2.4,
+    "CM_Role": "2ND:ATL"
+  },
   "alecbohm-phi": {
     "FG_Ax": 2.4,
     "FG_Full": 2.5,
@@ -1656,15 +1652,16 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "1B/3B",
     "AVG": 0.275
   },
-  "dylanlee-atl": {
-    "FG_Full": 2.4,
-    "CM_Role": "2ND:ATL"
-  },
   "petefairbanks-mia": {
     "FG_Ax": 2.4,
     "FG_Full": 3.8,
     "CM_Role": "CLOSER:MIA",
     "CM_Rank": 11
+  },
+  "tannerscott-lad": {
+    "FG_Full": 2.3,
+    "CM_Role": "1ST:LAD",
+    "CM_Rank": 34
   },
   "chaseburns-cin": {
     "FG_Full": 2.3,
@@ -1672,15 +1669,15 @@ const MANUAL_RANKINGS = {
     "PL_Tier": 7,
     "Watch": "\u2605"
   },
-  "tannerscott-lad": {
-    "FG_Full": 2.3,
-    "CM_Role": "1ST:LAD",
-    "CM_Rank": 34
-  },
   "joemusgrove-sd": {
     "FG_Full": 2.2,
     "PL_Rank": 100,
     "PL_Tier": 15
+  },
+  "shanebieber-tor": {
+    "FG_Full": 2.1,
+    "PL_Rank": 70,
+    "PL_Tier": 10
   },
   "willvest-det": {
     "FG_Ax": 2.1,
@@ -1693,16 +1690,6 @@ const MANUAL_RANKINGS = {
     "CM_Role": "1ST:NYM",
     "CM_Rank": 43
   },
-  "shanebieber-tor": {
-    "FG_Full": 2.1,
-    "PL_Rank": 70,
-    "PL_Tier": 10
-  },
-  "louisvarland-tor": {
-    "FG_Ax": 2.0,
-    "FG_Full": 3.4,
-    "CM_Role": "2ND:TOR"
-  },
   "mattstrahm-kc": {
     "FG_Full": 2.0,
     "CM_Role": "2ND:KC",
@@ -1710,6 +1697,11 @@ const MANUAL_RANKINGS = {
   },
   "seanmanaea-nym": {
     "FG_Full": 2.0
+  },
+  "louisvarland-tor": {
+    "FG_Ax": 2.0,
+    "FG_Full": 3.4,
+    "CM_Role": "2ND:TOR"
   },
   "garrettwhitlock-bos": {
     "FG_Ax": 1.9,
@@ -1723,17 +1715,17 @@ const MANUAL_RANKINGS = {
     "PL_Tier": 4,
     "Watch": "\u2605"
   },
-  "hunterharvey-chc": {
-    "FG_Ax": 1.7,
-    "FG_Full": 2.9,
-    "CM_Role": "1ST:CHC"
-  },
   "jonathanindia-kc": {
     "FG_Full": 1.7,
     "HL_Rank": 223,
     "HL_Tier": 19,
     "HL_Pos": "2B/3B/OF",
     "AVG": 0.248
+  },
+  "hunterharvey-chc": {
+    "FG_Ax": 1.7,
+    "FG_Full": 2.9,
+    "CM_Role": "1ST:CHC"
   },
   "calebdurbin-bos": {
     "FG_Ax": 1.7,
@@ -1748,36 +1740,25 @@ const MANUAL_RANKINGS = {
     "PL_Rank": 87,
     "PL_Tier": 13
   },
-  "jaredkoenig-mil": {
-    "FG_Full": 1.5,
-    "CM_Role": "2ND:MIL"
-  },
   "gerritcole-nyy": {
     "FG_Full": 1.5,
     "PL_Rank": 61,
     "PL_Tier": 10
-  },
-  "frambervaldez-det": {
-    "FG_Ax": 1.5,
-    "FG_Full": 6.1,
-    "PL_Rank": 23,
-    "PL_Tier": 4
   },
   "carlosrodn-nyy": {
     "FG_Full": 1.5,
     "PL_Rank": 62,
     "PL_Tier": 10
   },
-  "jeffmcneil-ath": {
-    "FG_Full": 1.4,
-    "HL_Rank": 168,
-    "HL_Tier": 16,
-    "HL_Pos": "2B/OF",
-    "AVG": 0.264
+  "jaredkoenig-mil": {
+    "FG_Full": 1.5,
+    "CM_Role": "2ND:MIL"
   },
-  "yimigarca-tor": {
-    "FG_Full": 1.4,
-    "CM_Rank": 26
+  "frambervaldez-det": {
+    "FG_Ax": 1.5,
+    "FG_Full": 6.1,
+    "PL_Rank": 23,
+    "PL_Tier": 4
   },
   "ivnherrera-stl": {
     "FG_Ax": 1.4,
@@ -1786,6 +1767,17 @@ const MANUAL_RANKINGS = {
     "HL_Tier": 8,
     "HL_Pos": "C/DH",
     "AVG": 0.273
+  },
+  "yimigarca-tor": {
+    "FG_Full": 1.4,
+    "CM_Rank": 26
+  },
+  "jeffmcneil-ath": {
+    "FG_Full": 1.4,
+    "HL_Rank": 168,
+    "HL_Tier": 16,
+    "HL_Pos": "2B/OF",
+    "AVG": 0.264
   },
   "jackflaherty-det": {
     "FG_Full": 1.3,
@@ -1800,16 +1792,16 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "2B/3B/OF",
     "AVG": 0.251
   },
-  "bryanbaker-tb": {
-    "FG_Full": 1.2,
-    "CM_Role": "2ND:TB:*",
-    "CM_Rank": 40
-  },
   "robertsuarez-atl": {
     "FG_Ax": 1.2,
     "FG_Full": 3.1,
     "CM_Role": "1ST:ATL",
     "CM_Rank": 25
+  },
+  "bryanbaker-tb": {
+    "FG_Full": 1.2,
+    "CM_Role": "2ND:TB:*",
+    "CM_Rank": 40
   },
   "robertgarcia-tex": {
     "FG_Ax": 1.1,
@@ -1821,17 +1813,9 @@ const MANUAL_RANKINGS = {
     "FG_Full": 1.1,
     "CM_Role": "1ST:NYY"
   },
-  "kenleyjansen-det": {
-    "FG_Full": 1.0,
-    "CM_Role": "CLOSER:DET",
-    "CM_Rank": 16
-  },
-  "carloscorrea-hou": {
-    "FG_Full": 1.0,
-    "HL_Rank": 146,
-    "HL_Tier": 14,
-    "HL_Pos": "3B/SS",
-    "AVG": 0.268
+  "ajminter-nym": {
+    "FG_Ax": 1.0,
+    "FG_Full": 2.5
   },
   "trentgrisham-nyy": {
     "FG_Full": 1.0,
@@ -1841,9 +1825,23 @@ const MANUAL_RANKINGS = {
     "AVG": 0.219,
     "Watch": "\u2605"
   },
-  "ajminter-nym": {
-    "FG_Ax": 1.0,
-    "FG_Full": 2.5
+  "jasonadam-sd": {
+    "FG_Full": 1.0
+  },
+  "rangersurez-bos": {
+    "FG_Full": 1.0,
+    "PL_Rank": 50,
+    "PL_Tier": 8
+  },
+  "carloscorrea-hou": {
+    "FG_Full": 1.0,
+    "HL_Rank": 146,
+    "HL_Tier": 14,
+    "HL_Pos": "3B/SS",
+    "AVG": 0.268
+  },
+  "orionkerkering-phi": {
+    "FG_Full": 1.0
   },
   "kevinmcgonigle-det": {
     "FG_Ax": 1.0,
@@ -1853,13 +1851,18 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "SS",
     "AVG": 0.258
   },
-  "jasonadam-sd": {
-    "FG_Full": 1.0
-  },
-  "rangersurez-bos": {
+  "kenleyjansen-det": {
     "FG_Full": 1.0,
-    "PL_Rank": 50,
-    "PL_Tier": 8
+    "CM_Role": "CLOSER:DET",
+    "CM_Rank": 16
+  },
+  "brandonlowe-pit": {
+    "FG_Full": 1.0,
+    "HL_Rank": 83,
+    "HL_Tier": 9,
+    "HL_Pos": "2B",
+    "AVG": 0.243,
+    "Watch": "\u2605"
   },
   "jakeburger-tex": {
     "FG_Ax": 1.0,
@@ -1876,29 +1879,18 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "1B/OF",
     "AVG": 0.269
   },
-  "orionkerkering-phi": {
-    "FG_Full": 1.0
-  },
-  "brandonlowe-pit": {
-    "FG_Full": 1.0,
-    "HL_Rank": 83,
-    "HL_Tier": 9,
-    "HL_Pos": "2B",
-    "AVG": 0.243,
-    "Watch": "\u2605"
-  },
-  "adrianmorejon-sd": {
-    "FG_Ax": 0.9,
-    "FG_Full": 2.8,
-    "CM_Role": "2ND:SD",
-    "CM_Rank": 51
-  },
   "larsnootbaar-stl": {
     "FG_Full": 0.9,
     "HL_Rank": 154,
     "HL_Tier": 15,
     "HL_Pos": "OF",
     "AVG": 0.249
+  },
+  "adrianmorejon-sd": {
+    "FG_Ax": 0.9,
+    "FG_Full": 2.8,
+    "CM_Role": "2ND:SD",
+    "CM_Rank": 51
   },
   "calebthielbar-chc": {
     "FG_Full": 0.9
@@ -1911,11 +1903,6 @@ const MANUAL_RANKINGS = {
     "FG_Full": 0.8,
     "CM_Role": "CLOSER:STL:*"
   },
-  "seranthonydomnguez-chw": {
-    "FG_Full": 0.7,
-    "CM_Role": "CLOSER:CHW",
-    "CM_Rank": 21
-  },
   "josalvarado-phi": {
     "FG_Ax": 0.7,
     "FG_Full": 2.6,
@@ -1923,6 +1910,11 @@ const MANUAL_RANKINGS = {
   },
   "eduardbazardo-sea": {
     "FG_Full": 0.7
+  },
+  "seranthonydomnguez-chw": {
+    "FG_Full": 0.7,
+    "CM_Role": "CLOSER:CHW",
+    "CM_Rank": 21
   },
   "mattwallner-min": {
     "FG_Full": 0.6,
@@ -1936,17 +1928,16 @@ const MANUAL_RANKINGS = {
     "PL_Rank": 82,
     "PL_Tier": 12
   },
+  "jorgepolanco-nym": {
+    "FG_Full": 0.6,
+    "HL_Rank": 107,
+    "HL_Tier": 11,
+    "HL_Pos": "2B/3B",
+    "AVG": 0.248
+  },
   "gregorysoto-pit": {
     "FG_Full": 0.5,
     "CM_Role": "1ST:PIT"
-  },
-  "yainerdiaz-hou": {
-    "FG_Ax": 0.4,
-    "FG_Full": 0.4,
-    "HL_Rank": 113,
-    "HL_Tier": 12,
-    "HL_Pos": "C/1B",
-    "AVG": 0.273
   },
   "kylestowers-mia": {
     "FG_Ax": 0.4,
@@ -1957,24 +1948,18 @@ const MANUAL_RANKINGS = {
     "AVG": 0.241,
     "Watch": "\u2605"
   },
+  "yainerdiaz-hou": {
+    "FG_Ax": 0.4,
+    "FG_Full": 0.4,
+    "HL_Rank": 113,
+    "HL_Tier": 12,
+    "HL_Pos": "C/1B",
+    "AVG": 0.273
+  },
   "spencerschwellenbach-atl": {
     "FG_Full": 0.4,
     "PL_Rank": 66,
     "PL_Tier": 10
-  },
-  "chrismartin-tex": {
-    "FG_Ax": 0.3,
-    "FG_Full": 2.2,
-    "CM_Role": "1ST:TEX:*",
-    "CM_Rank": 38
-  },
-  "miguelvargas-chw": {
-    "FG_Ax": 0.3,
-    "FG_Full": 1.0,
-    "HL_Rank": 167,
-    "HL_Tier": 16,
-    "HL_Pos": "1B/3B",
-    "AVG": 0.136
   },
   "huntergreene-cin": {
     "FG_Full": 0.3,
@@ -1989,10 +1974,6 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "3B",
     "AVG": 0.251
   },
-  "shawnarmstrong-cle": {
-    "FG_Full": 0.3,
-    "CM_Role": "1ST:CLE"
-  },
   "salfrelick-mil": {
     "FG_Full": 0.3,
     "HL_Rank": 170,
@@ -2000,17 +1981,23 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "OF",
     "AVG": 0.271
   },
-  "jakecronenworth-sd": {
-    "FG_Full": 0.2,
-    "HL_Rank": 217,
-    "HL_Tier": 19,
-    "HL_Pos": "2B",
-    "AVG": 0.236
+  "shawnarmstrong-cle": {
+    "FG_Full": 0.3,
+    "CM_Role": "1ST:CLE"
   },
-  "claytonbeeter-wsn": {
-    "FG_Full": 0.2,
-    "CM_Role": "SVH#32",
-    "CM_Rank": 32
+  "miguelvargas-chw": {
+    "FG_Ax": 0.3,
+    "FG_Full": 1.0,
+    "HL_Rank": 167,
+    "HL_Tier": 16,
+    "HL_Pos": "1B/3B",
+    "AVG": 0.136
+  },
+  "chrismartin-tex": {
+    "FG_Ax": 0.3,
+    "FG_Full": 2.2,
+    "CM_Role": "1ST:TEX:*",
+    "CM_Rank": 38
   },
   "coltkeith-det": {
     "FG_Full": 0.2,
@@ -2019,18 +2006,17 @@ const MANUAL_RANKINGS = {
     "HL_Pos": "1B/2B/3B",
     "AVG": 0.262
   },
-  "wilyerabreu-bos": {
-    "FG_Ax": 0.1,
-    "FG_Full": 3.8,
-    "HL_Rank": 121,
-    "HL_Tier": 12,
-    "HL_Pos": "OF",
-    "AVG": 0.25
+  "claytonbeeter-wsn": {
+    "FG_Full": 0.2,
+    "CM_Role": "SVH#32",
+    "CM_Rank": 32
   },
-  "dennissantana-pit": {
-    "FG_Full": 0.1,
-    "CM_Role": "CLOSER:PIT",
-    "CM_Rank": 19
+  "jakecronenworth-sd": {
+    "FG_Full": 0.2,
+    "HL_Rank": 217,
+    "HL_Tier": 19,
+    "HL_Pos": "2B",
+    "AVG": 0.236
   },
   "nolanarenado-ari": {
     "FG_Full": 0.1,
@@ -2044,10 +2030,18 @@ const MANUAL_RANKINGS = {
     "CM_Role": "1ST:STL:*",
     "CM_Rank": 33
   },
-  "jaredjones-pit": {
-    "FG_Full": 0.0,
-    "PL_Rank": 65,
-    "PL_Tier": 10
+  "dennissantana-pit": {
+    "FG_Full": 0.1,
+    "CM_Role": "CLOSER:PIT",
+    "CM_Rank": 19
+  },
+  "wilyerabreu-bos": {
+    "FG_Ax": 0.1,
+    "FG_Full": 3.8,
+    "HL_Rank": 121,
+    "HL_Tier": 12,
+    "HL_Pos": "OF",
+    "AVG": 0.25
   },
   "jjwetherholt-stl": {
     "FG_Full": 0.0,
@@ -2055,6 +2049,11 @@ const MANUAL_RANKINGS = {
     "HL_Tier": 17,
     "HL_Pos": "SS",
     "AVG": 0.255
+  },
+  "jaredjones-pit": {
+    "FG_Full": 0.0,
+    "PL_Rank": 65,
+    "PL_Tier": 10
   },
   "trevorstory-bos": {
     "HL_Rank": 53,

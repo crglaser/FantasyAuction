@@ -1,4 +1,4 @@
-# BP The Ax 2026 auction values (10-team, $202, auction slots only). Run: python3 scripts/bake_manual.py
+# BP The Ax 2026 auction values (10-team $202 auction slots, hitter value for two-way). Run: python3 scripts/bake_manual.py
 Name,BP_Ax
 Shohei Ohtani,66.7
 Tarik Skubal,57.6
@@ -63,7 +63,6 @@ Jose Altuve,12.3
 Agustín Ramírez,12.2
 Edwin Díaz,12.1
 Tatsuya Imai,11.7
-Shohei Ohtani,11.5
 Randy Arozarena,11.2
 Xavier Edwards,11.1
 Josh Naylor,10.5
@@ -186,4 +185,3 @@ Otto Lopez,0.2
 Christian Walker,0.1
 Ryan Walker,0.1
 Josh Bell,0.1
-Jorge Polanco,0.0
