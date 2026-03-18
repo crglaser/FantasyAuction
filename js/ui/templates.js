@@ -738,8 +738,9 @@ const Templates = {
         };
         const expandedTid = AppState.ui.standingsExpandedTeam;
         return `
+        <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
             <div style="display:flex;align-items:center;gap:10px;padding:8px 16px;flex-shrink:0;flex-wrap:wrap;background:#060e18;border-bottom:1px solid #0a1e30">
-                <span style="color:#7090a8;font-size:11px;flex:1">Projected Roto standings. Click column headers to sort. Click LINEUP to view/adjust a team's active roster.${simActive ? ' <span style="color:#e8c040">★ SIMULATION ACTIVE</span>' : ''}</span>
+                <span style="color:#7090a8;font-size:11px;flex:1">Click column headers to sort · Click ▼ next to team name to view/edit lineup</span>
                 ${chk('projOptimal','OPT LINEUP','Use optimal active lineup (23 starters) instead of summing all roster players')}
                 ${chk('projILRepl','+ IL REPL','Add replacement-level stats for injured players with significantly reduced projected PA/IP')}
                 ${simActive
@@ -756,29 +757,29 @@ const Templates = {
                     ${sth('HR','HR')}${sth('SB','SB')}${sth('XBH','XBH')}${sth('OBP','OBP')}${sth('RP','RP')}
                     ${sth('K','K')}${sth('W','W')}${sth('SVH','SVH')}${sth('ERA','ERA')}${sth('WHIP','WHIP')}
                     ${sth('IP','IP')}${sth('n','Picks')}
-                    <th>LINEUP</th>
                 </tr></thead>
                 <tbody>
                     ${sorted.map((tid,i) => {
                         const info = LG.teamsMap[tid]; const s = stats[tid]; const r = ranks[tid];
                         const isExp = expandedTid === tid;
                         const hasOv = !!(overrides[tid]);
+                        const lineupBtn = `<button onclick="UI.toggleStandingsTeam('${tid}')"
+                            style="font-size:10px;padding:1px 6px;margin-left:6px;border:1px solid ${isExp ? '#205040' : '#1a2a3a'};background:${isExp ? '#0a2018' : 'transparent'};color:${isExp ? '#40b870' : '#406080'};cursor:pointer;border-radius:2px;vertical-align:middle">
+                            ${isExp ? '▲' : '▼'}${hasOv ? '✎' : ''}
+                        </button>`;
                         return `<tr class="${tid==='me'?'mine':''}">
                             <td class="mono muted">${i+1}</td>
-                            <td style="font-weight:700">${info.team}${hasOv ? ' <span style="font-size:9px;color:#e8c040">✎</span>' : ''}</td>
+                            <td style="font-weight:700;white-space:nowrap">${info.team}${lineupBtn}</td>
                             <td class="gold" style="font-weight:700;text-align:center">${Number.isInteger(r.total) ? r.total : r.total.toFixed(1)}</td>
                             ${cats.map(c => cell(tid,c)).join('')}
                             <td style="text-align:center;font-size:11px;color:#7090a8">${s.IP||'—'}</td>
                             <td class="mono muted" style="text-align:center">${s.n}</td>
-                            <td><button onclick="UI.toggleStandingsTeam('${tid}')"
-                                style="font-size:10px;padding:2px 8px;border:1px solid ${isExp ? '#205040' : '#1a2a3a'};background:${isExp ? '#0a2018' : '#060e18'};color:${isExp ? '#40b870' : '#406080'};cursor:pointer;border-radius:2px;white-space:nowrap">
-                                ${isExp ? '▲ CLOSE' : '▼ LINEUP'}${hasOv ? ' ✎' : ''}
-                            </button></td>
                         </tr>
-                        ${isExp ? `<tr><td colspan="16" style="padding:0;background:#060e18">${this.standingsLineup(tid, overrides)}</td></tr>` : ''}`;
+                        ${isExp ? `<tr><td colspan="15" style="padding:0;background:#060e18">${this.standingsLineup(tid, overrides)}</td></tr>` : ''}`;
                     }).join('')}
                 </tbody>
-            </table></div>`;
+            </table></div>
+        </div>`;
     },
 
     standingsLineup(tid, overrides) {

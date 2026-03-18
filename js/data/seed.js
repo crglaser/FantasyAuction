@@ -10624,6 +10624,7 @@ const SEED_PLAYERS = [
   {"id": "shanesmith-cws", "n": "Shane Smith", "t": "CWS", "pos": ["SP"], "inj": false, "age": 27, "csValA": 13.3, "csValS": 9.6, "IP": 168, "W": 9.0, "SVH": 0.0, "K": 153.8, "ERA": 4.38, "WHIP": 1.351},
   {"id": "michaelwacha-kc", "n": "Michael Wacha", "t": "KC", "pos": ["SP"], "inj": false, "age": 34, "csValA": 12.7, "csValS": 9.6, "IP": 170, "W": 9.6, "SVH": 0.0, "K": 135.3, "ERA": 4.5, "WHIP": 1.329},
   {"id": "chadpatrick-mil", "n": "Chad Patrick", "t": "MIL", "pos": ["SP"], "inj": false, "age": 26, "csValA": 11.3, "csValS": 8.2, "IP": 148, "W": 8.1, "SVH": 0.0, "K": 133.6, "ERA": 4.47, "WHIP": 1.3},
+  {"id": "nickmartinez-tb", "n": "Nick Martinez", "t": "TB", "pos": ["SP", "RP"], "inj": false, "age": 33, "csValA": 11.2, "csValS": 8.5, "IP": 144, "W": 8, "SVH": 1, "K": 114, "ERA": 4.39, "WHIP": 1.32},
   {"id": "rokisasaki-lad", "n": "Roki Sasaki", "t": "LAD", "pos": ["SP"], "inj": false, "age": 24, "csValA": 10.2, "csValS": 7.4, "IP": 117, "W": 7.4, "SVH": 0.8, "K": 111.6, "ERA": 4.21, "WHIP": 1.338},
   {"id": "tylermahle-sf", "n": "Tyler Mahle", "t": "SF", "pos": ["SP"], "inj": false, "age": 30, "csValA": 12.5, "csValS": 9.2, "IP": 148, "W": 8.5, "SVH": 0.0, "K": 126.2, "ERA": 4.16, "WHIP": 1.302},
   {"id": "bradkeller-phi", "n": "Brad Keller", "t": "PHI", "pos": ["RP"], "inj": false, "age": 30, "csValA": 3.3, "csValS": 3.5, "IP": 68, "W": 3.4, "SVH": 18.0, "K": 60.5, "ERA": 3.97, "WHIP": 1.352},
