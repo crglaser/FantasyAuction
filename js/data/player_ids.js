@@ -1,6 +1,6 @@
 /**
  * player_ids.js — External ID crosswalk (Chadwick Bureau + ESPN + Fantrax)
- * Generated: 2026-03-17 22:08 UTC
+ * Generated: 2026-03-18 03:30 UTC
  * Refresh: python3 scripts/fetch_rankings.py --ids
  * Fields: fgId (FanGraphs), mlbId (MLBAM), espnId (ESPN Fantasy), fantraxId (Fantrax)
  */
@@ -2727,5 +2727,71 @@ const PLAYER_IDS = {
   "chasedelauter-cle": {
     "espnId": 4619649,
     "fantraxId": "05uei"
+  },
+  "ianseymour-tb": {
+    "espnId": 4669425,
+    "fantraxId": "05jpd"
+  },
+  "emiliopagan-cin": {
+    "fgId": 14771,
+    "mlbId": 641941,
+    "espnId": 33403,
+    "fantraxId": "031cy"
+  },
+  "shanesmith-cws": {
+    "espnId": 5201814,
+    "fantraxId": "06dqb"
+  },
+  "michaelwacha-kc": {
+    "espnId": 32640,
+    "fantraxId": "02iug"
+  },
+  "chadpatrick-mil": {
+    "espnId": 5131708,
+    "fantraxId": "05yb8"
+  },
+  "rokisasaki-lad": {
+    "espnId": 5134638,
+    "fantraxId": "05gdz"
+  },
+  "tylermahle-sf": {
+    "espnId": 34973,
+    "fantraxId": "0312g"
+  },
+  "bradkeller-phi": {
+    "espnId": 35292,
+    "fantraxId": "0312l"
+  },
+  "brendonlittle-tor": {
+    "espnId": 39645,
+    "fantraxId": "04afl"
+  },
+  "jakemccarthy-col": {
+    "espnId": 41197,
+    "fantraxId": "03qyv"
+  },
+  "jassondominguez-nyy": {
+    "espnId": 42401,
+    "fantraxId": "050c3"
+  },
+  "marcelomayer-bos": {
+    "espnId": 4872648,
+    "fantraxId": "05r9j"
+  },
+  "camsmith-hou": {
+    "espnId": 5080766,
+    "fantraxId": "060jo"
+  },
+  "josecaballero-nyy": {
+    "fgId": 23401,
+    "mlbId": 676609,
+    "espnId": 42135,
+    "fantraxId": "04eig"
+  },
+  "luisgarcajr-wsh": {
+    "fgId": 20391,
+    "mlbId": 671277,
+    "espnId": 4684365,
+    "fantraxId": "0321h"
   }
 };

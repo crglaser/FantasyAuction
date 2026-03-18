@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚾ Teddy Ballgame Draft Tool 2026</title>
+    <title>⚾ Teddy Ballgame 2026 Season</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="hdr">
         <div>
-            <div class="hdr-title">⚾ Teddy Ballgame Draft 2026 <span id="appVersion" style="font-size: 10px; opacity: 0.5; vertical-align: middle;"></span></div>
-            <div class="hdr-sub">10-TEAM ROTISSERIE · $202 AUCTION (17) + 14-RD SNAKE · FANTRAX</div>
+            <div class="hdr-title">⚾ Teddy Ballgame 2026 <span id="appVersion" style="font-size: 10px; opacity: 0.5; vertical-align: middle;"></span></div>
+            <div class="hdr-sub">10-TEAM ROTISSERIE · SEASON MODE · FANTRAX</div>
         </div>
         <div class="hdr-right">
             <div class="pill"><div class="pill-lbl">Budget Left</div><div class="pill-val" id="hBudget">$202</div></div>
@@ -25,18 +25,19 @@
     </div>
 
     <div class="tabs">
-        <div class="tab active" id="tab-auction" onclick="UI.showTab('auction')">AUCTION BOARD</div>
-        <div class="tab" id="tab-arb" onclick="UI.showTab('arb')">VALUE COMPARE ★</div>
-        <div class="tab" id="tab-myteam" onclick="UI.showTab('myteam')">MY TEAM</div>
+        <div class="tab active" id="tab-myteam" onclick="UI.showTab('myteam')">MY TEAM</div>
         <div class="tab" id="tab-league" onclick="UI.showTab('league')">LEAGUE TRACKER</div>
         <div class="tab" id="tab-standings" onclick="UI.showTab('standings')">STANDINGS ★</div>
-        <div class="tab" id="tab-snake" onclick="UI.showTab('snake')">SNAKE ORDER</div>
         <div class="tab" id="tab-rosterscout" onclick="UI.showTab('rosterscout')">ROSTER SCOUT</div>
-        <div class="tab" id="tab-dataaudit" onclick="UI.showTab('dataaudit')">DATA AUDIT ⚠</div>
         <div class="tab" id="tab-ai" onclick="UI.showTab('ai')">AI ADVISOR 🤖</div>
-        <div class="tab" id="tab-import" onclick="UI.showTab('import')">IMPORT DATA</div>
+        <div class="tab draft-only" id="tab-auction" onclick="UI.showTab('auction')" style="display:none">AUCTION BOARD</div>
+        <div class="tab draft-only" id="tab-arb" onclick="UI.showTab('arb')" style="display:none">VALUE COMPARE ★</div>
+        <div class="tab draft-only" id="tab-snake" onclick="UI.showTab('snake')" style="display:none">SNAKE ORDER</div>
+        <div class="tab draft-only" id="tab-dataaudit" onclick="UI.showTab('dataaudit')" style="display:none">DATA AUDIT ⚠</div>
+        <div class="tab draft-only" id="tab-import" onclick="UI.showTab('import')" style="display:none">IMPORT DATA</div>
         <div id="readOnlyBanner" style="display:none;margin-left:auto;align-items:center;padding:0 15px;color:#e8c040;font-size:11px;font-weight:700;letter-spacing:1px">READ-ONLY MODE (SHARED)</div>
-        <button id="shareBtn" class="btn btn-go" style="margin-left:auto;border-radius:0;border-top:0;border-bottom:0" onclick="ShareManager.copyShareLink()">SHARE LINK</button>
+        <button class="btn" style="margin-left:auto;border-radius:0;border-top:0;border-bottom:0;font-size:10px;opacity:0.5" onclick="UI.toggleDraftMode()" title="Show/hide draft tools">DRAFT TOOLS</button>
+        <button id="shareBtn" class="btn btn-go" style="border-radius:0;border-top:0;border-bottom:0" onclick="ShareManager.copyShareLink()">SHARE LINK</button>
     </div>
 
     <div id="controlsBar"></div>
@@ -140,6 +141,7 @@
     <script src="js/data/player_ids.js"></script>
     <script src="js/data/rankings.js"></script>
     <script src="js/data/manual_rankings.js"></script>
+    <script src="js/data/draft_state_2026.js"></script>
     <script src="js/data/fantrax_data.js"></script>
     <script src="js/data/loader.js"></script>
     <script src="js/ui/templates.js"></script>

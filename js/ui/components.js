@@ -280,6 +280,12 @@ const UI = {
         this.render();
     },
 
+    toggleDraftMode() {
+        const draftTabs = document.querySelectorAll('.draft-only');
+        const anyVisible = [...draftTabs].some(el => el.style.display !== 'none');
+        draftTabs.forEach(el => { el.style.display = anyVisible ? 'none' : ''; });
+    },
+
     // --- Draft Simulation ---
     // Shared helpers for simulation
     _simBuildRealRosters(teams) {

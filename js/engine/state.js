@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '1.9.5';
+const APP_VERSION = '2.0.0';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -64,7 +64,7 @@ let AppState = {
         }
     },
     ui: {
-        activeTab: 'auction',
+        activeTab: 'myteam',
         search: '',
         posFilter: 'ALL',
         typeFilter: 'ALL',
@@ -127,6 +127,12 @@ const StateManager = {
                 AppState.aiHistory = parsed.aiHistory || [];
                 AppState.snakeOrder = parsed.snakeOrder || [];
                 AppState.snakePick  = parsed.snakePick  || 0;
+            }
+            // Auto-load baked 2026 draft state if localStorage has no picks
+            if (!Object.keys(AppState.drafted).length && typeof DRAFT_STATE_2026 !== 'undefined') {
+                AppState.drafted  = DRAFT_STATE_2026.drafted  || {};
+                AppState.draftLog = DRAFT_STATE_2026.draftLog || [];
+                AppState.snakePick = DRAFT_STATE_2026.snakePick || 0;
             }
         } catch (e) {
             console.error('Error loading state:', e);
