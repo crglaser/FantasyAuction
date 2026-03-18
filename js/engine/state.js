@@ -3,7 +3,7 @@
  * Handles localStorage persistence and provides an AI-ready data structure.
  */
 
-const APP_VERSION = '2.1.0';
+const APP_VERSION = '2.2.0';
 const ADMIN_PASS = 'chathams26'; // Change this to your preferred password
 
 const LG = {
@@ -51,6 +51,7 @@ let AppState = {
     snakeOrder: [],   // Array of 10 team IDs in snake draft order (slot 1 → slot 10)
     snakePick: 0,     // Current pick index (0-based); auto-advances on snake pick confirm
     undoStack: [],    // Not persisted; snapshots for undo (max 10)
+    watchlist: [],    // Array of player IDs added to personal watchlist (persisted)
     settings: {
         hitSplit: 65,
         snakeDisc: true,
@@ -88,7 +89,11 @@ let AppState = {
         snakeScoutOnly: true,
         snakePosFilter: ['C','1B','2B','SS','3B','OF','SP','RP'],
         rosterScoutOnly: false,
-        rosterPosFilter: ['C','1B','2B','SS','3B','OF','SP','RP']
+        rosterPosFilter: ['C','1B','2B','SS','3B','OF','SP','RP'],
+        standingsSortCol: 'total',
+        standingsSortDir: 'desc',
+        standingsExpandedTeam: null,
+        lineupOverrides: {}   // map of teamId -> { active: [playerIds], bench: [playerIds] }
     }
 };
 
@@ -106,6 +111,7 @@ const StateManager = {
                 aiHistory: AppState.aiHistory,
                 snakeOrder: AppState.snakeOrder,
                 snakePick: AppState.snakePick,
+                watchlist: AppState.watchlist,
                 version: APP_VERSION
             };
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(dataToSave));
@@ -127,6 +133,7 @@ const StateManager = {
                 AppState.aiHistory = parsed.aiHistory || [];
                 AppState.snakeOrder = parsed.snakeOrder || [];
                 AppState.snakePick  = parsed.snakePick  || 0;
+                AppState.watchlist  = parsed.watchlist  || [];
             }
         } catch (e) {
             console.error('Error loading state:', e);

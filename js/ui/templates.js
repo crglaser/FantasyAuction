@@ -206,7 +206,8 @@ const Templates = {
                                         if (v == null) return `<td class="mono muted" style="font-size:10px">—</td>`;
                                         return `<td class="mono" style="font-size:10px;color:#c8d8e8">${v}</td>`;
                                     }).join('')}
-                                    <td>${actionCell}</td>
+                                    <td style="white-space:nowrap">
+                                        <button onclick="event.stopPropagation();UI.toggleWatchlist('${p.id}')" title="${AppState.watchlist?.includes(p.id) ? 'Remove from watchlist' : 'Add to watchlist'}" style="background:none;border:none;cursor:pointer;font-size:13px;padding:0 4px 0 0;opacity:${AppState.watchlist?.includes(p.id) ? '1' : '0.3'};color:#e8c040">${AppState.watchlist?.includes(p.id) ? '★' : '☆'}</button>${actionCell}</td>
                                 </tr>`;
                         }).join('')}
                     </tbody>
@@ -675,6 +676,20 @@ const Templates = {
             stats[tid] = { ...projStats(active, useRepl), n: picks.length };
         });
 
+        // Override-aware stat calculation for teams with manual lineup changes
+        const overrides = AppState.ui.lineupOverrides || {};
+        if (Object.keys(overrides).length) {
+            teams.forEach(tid => {
+                if (!overrides[tid]) return;
+                const picks = Object.entries(drafted)
+                    .filter(([,v]) => v.team === tid)
+                    .map(([id]) => AppState.players.find(p => p.id === id))
+                    .filter(Boolean);
+                const active = overrides[tid].active.map(id => picks.find(p => p.id === id)).filter(Boolean);
+                stats[tid] = { ...projStats(active, useRepl), n: picks.length };
+            });
+        }
+
         const cats = ['HR','SB','XBH','OBP','RP','K','W','SVH','ERA','WHIP'];
         const inv = new Set(['ERA','WHIP']);
         const ranks = {};
@@ -695,7 +710,14 @@ const Templates = {
                 i = j;
             }
         });
-        const sorted = [...teams].sort((a,b) => ranks[b].total - ranks[a].total);
+        // Dynamic sort based on standingsSortCol/Dir
+        const sCol = AppState.ui.standingsSortCol || 'total';
+        const sDir = AppState.ui.standingsSortDir || 'desc';
+        const sorted = [...teams].sort((a, b) => {
+            const va = sCol === 'total' ? ranks[a].total : sCol === 'n' ? stats[a].n : (stats[a][sCol] ?? 0);
+            const vb = sCol === 'total' ? ranks[b].total : sCol === 'n' ? stats[b].n : (stats[b][sCol] ?? 0);
+            return sDir === 'desc' ? vb - va : va - vb;
+        });
 
         const cell = (tid, cat) => {
             const s = stats[tid]; const r = ranks[tid][cat];
@@ -708,6 +730,13 @@ const Templates = {
         const chk = (key, label, title) =>
             `<label style="font-size:10px;color:#7090a8;display:flex;align-items:center;gap:3px;cursor:pointer;white-space:nowrap" title="${title}">
                 <input type="checkbox" ${AppState.ui[key]!==false?'checked':''} onchange="AppState.ui['${key}']=this.checked;UI.render()"> ${label}</label>`;
+        const sth = (col, label, cls='') => {
+            const cur = sCol === col;
+            const arrow = cur ? (sDir === 'desc' ? ' ▼' : ' ▲') : '';
+            const style = `cursor:pointer;user-select:none;${cur ? 'color:#90c8f0' : ''}`;
+            return `<th class="${cls}" style="${style}" onclick="UI.setStandingsSort('${col}')">${label}${arrow}</th>`;
+        };
+        const expandedTid = AppState.ui.standingsExpandedTeam;
         return `
             <div style="display:flex;align-items:center;gap:10px;padding:8px 0 12px;flex-wrap:wrap">
                 <span style="color:#7090a8;font-size:11px;flex:1">Projected Roto standings based on drafted players.${simActive ? ' <span style="color:#e8c040">★ SIMULATION ACTIVE</span>' : ' Updates live.'}</span>
@@ -720,18 +749,105 @@ const Templates = {
                 }
             </div>
             <div class="tbl-wrap"><table>
-                <thead><tr><th>#</th><th>Team</th><th class="gold">PTS</th><th>HR</th><th>SB</th><th>XBH</th><th>OBP</th><th>RP</th><th>K</th><th>W</th><th>SVH</th><th>ERA</th><th>WHIP</th><th>IP</th><th>Picks</th></tr></thead>
+                <thead><tr>
+                    <th>#</th>
+                    <th>Team</th>
+                    ${sth('total','PTS','gold')}
+                    ${sth('HR','HR')}${sth('SB','SB')}${sth('XBH','XBH')}${sth('OBP','OBP')}${sth('RP','RP')}
+                    ${sth('K','K')}${sth('W','W')}${sth('SVH','SVH')}${sth('ERA','ERA')}${sth('WHIP','WHIP')}
+                    ${sth('IP','IP')}${sth('n','Picks')}
+                </tr></thead>
                 <tbody>
                     ${sorted.map((tid,i) => {
                         const info = LG.teamsMap[tid]; const s = stats[tid]; const r = ranks[tid];
-                        return `<tr class="${tid==='me'?'mine':''}">
-                            <td class="mono muted">${i+1}</td><td style="font-weight:700">${info.team}</td><td class="gold" style="font-weight:700;text-align:center">${Number.isInteger(r.total) ? r.total : r.total.toFixed(1)}</td>
+                        const isExp = expandedTid === tid;
+                        const hasOv = !!(overrides[tid]);
+                        return `<tr class="${tid==='me'?'mine':''}" style="cursor:pointer" onclick="UI.toggleStandingsTeam('${tid}')" title="Click to view lineup">
+                            <td class="mono muted">${i+1}</td>
+                            <td style="font-weight:700">${info.team}${hasOv ? ' <span style="font-size:9px;color:#e8c040">✎</span>' : ''} <span style="font-size:9px;opacity:0.4">${isExp ? '▲' : '▼'}</span></td>
+                            <td class="gold" style="font-weight:700;text-align:center">${Number.isInteger(r.total) ? r.total : r.total.toFixed(1)}</td>
                             ${cats.map(c => cell(tid,c)).join('')}
-                            <td style="text-align:center;font-size:11px;color:#7090a8">${s.IP||'—'}</td><td class="mono muted" style="text-align:center">${s.n}</td>
-                        </tr>`;
+                            <td style="text-align:center;font-size:11px;color:#7090a8">${s.IP||'—'}</td>
+                            <td class="mono muted" style="text-align:center">${s.n}</td>
+                        </tr>
+                        ${isExp ? `<tr><td colspan="15" style="padding:0;background:#060e18">${this.standingsLineup(tid, overrides)}</td></tr>` : ''}`;
                     }).join('')}
                 </tbody>
             </table></div>`;
+    },
+
+    standingsLineup(tid, overrides) {
+        const drafted = effectiveDrafted();
+        const picks = Object.entries(drafted)
+            .filter(([,v]) => v.team === tid)
+            .map(([id]) => AppState.players.find(p => p.id === id))
+            .filter(Boolean);
+        if (!picks.length) return `<div style="padding:12px;color:#406080;font-size:11px">No players drafted yet.</div>`;
+
+        const useRepl = AppState.ui.projILRepl !== false;
+        const ov = overrides[tid];
+        let activeIds, benchIds;
+        if (ov) {
+            activeIds = ov.active;
+            benchIds = picks.filter(p => !activeIds.includes(p.id)).map(p => p.id);
+        } else {
+            const { starters, bench } = optimalLineup(picks);
+            activeIds = starters.map(p => p.id);
+            benchIds = bench.map(p => p.id);
+        }
+
+        const activePlayers = activeIds.map(id => picks.find(p => p.id === id)).filter(Boolean);
+        const benchPlayers  = benchIds.map(id => picks.find(p => p.id === id)).filter(Boolean);
+        const ps = projStats(activePlayers, useRepl);
+
+        const statBar = `
+            <div style="display:flex;gap:12px;padding:6px 10px;background:#040a10;border-bottom:1px solid #0a1e30;font-size:11px;flex-wrap:wrap;align-items:center">
+                <span style="color:#406080;font-size:10px">ACTIVE ${activePlayers.length}</span>
+                <span>HR <span class="gold">${Math.round(ps.HR)}</span></span>
+                <span>SB <span class="gold">${Math.round(ps.SB)}</span></span>
+                <span>XBH <span class="gold">${Math.round(ps.XBH)}</span></span>
+                <span>OBP <span class="gold">${ps.OBP.toFixed(3)}</span></span>
+                <span>RP <span class="gold">${Math.round(ps.RP)}</span></span>
+                <span>K <span class="gold">${Math.round(ps.K)}</span></span>
+                <span>W <span class="gold">${Math.round(ps.W)}</span></span>
+                <span>ERA <span class="gold">${ps.ERA.toFixed(2)}</span></span>
+                <span>SVH <span class="gold">${Math.round(ps.SVH)}</span></span>
+                <span>WHIP <span class="gold">${ps.WHIP.toFixed(2)}</span></span>
+                <span style="color:#7090a8">IP ${ps.IP}</span>
+                ${ov ? `<button class="btn" style="font-size:10px;padding:1px 8px;margin-left:auto" onclick="event.stopPropagation();UI.resetLineupOverride('${tid}')">↺ RESET</button>` : ''}
+            </div>`;
+
+        const pRow = (p, isActive) => {
+            const dr = drafted[p.id];
+            const inj = p.inj ? `<span style="font-size:9px;color:#f0a0a0;margin-left:3px">INJ</span>` : '';
+            const cost = dr ? `<span class="gold" style="font-size:10px"> $${dr.cost}</span>` : '';
+            const proj = p.PA > 0
+                ? `HR:${p.HR} SB:${p.SB} OBP:${(p.OBP||0).toFixed(3)}`
+                : `K:${p.K} W:${p.W} ERA:${(p.ERA||0).toFixed(2)}`;
+            return `
+                <div style="display:flex;align-items:center;gap:8px;padding:3px 8px;border-bottom:1px solid #061018">
+                    <div style="min-width:28px">${this.pb(p.pos)}</div>
+                    <div style="flex:1;font-size:12px;color:#c8d8e8">${p.n}${inj}${cost}</div>
+                    <div style="font-size:10px;color:#406080;min-width:140px">${proj}</div>
+                    <button onclick="event.stopPropagation();UI.toggleLineupPlayer('${tid}','${p.id}')"
+                        style="font-size:10px;padding:1px 8px;border:1px solid ${isActive ? '#401010' : '#103010'};background:${isActive ? '#1a0808' : '#081808'};color:${isActive ? '#d05050' : '#40a860'};cursor:pointer;border-radius:2px">
+                        ${isActive ? '→ BENCH' : '→ ACTIVE'}
+                    </button>
+                </div>`;
+        };
+
+        return `
+            ${statBar}
+            <div style="display:flex">
+                <div style="flex:1;border-right:1px solid #0a1828">
+                    <div style="padding:4px 8px;font-size:10px;color:#406080;background:#060e18;border-bottom:1px solid #0a1828">ACTIVE (${activePlayers.length})</div>
+                    ${activePlayers.map(p => pRow(p, true)).join('') || '<div style="padding:8px;color:#406080;font-size:11px">—</div>'}
+                </div>
+                <div style="width:300px;flex-shrink:0">
+                    <div style="padding:4px 8px;font-size:10px;color:#406080;background:#060e18;border-bottom:1px solid #0a1828">BENCH (${benchPlayers.length})</div>
+                    ${benchPlayers.map(p => pRow(p, false)).join('') || '<div style="padding:8px;color:#406080;font-size:11px">—</div>'}
+                </div>
+            </div>`;
     },
 
     snake() {
