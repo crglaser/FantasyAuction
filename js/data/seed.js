@@ -8301,6 +8301,7 @@ const SEED_PLAYERS = [
     "n": "JJ Wetherholt",
     "t": "STL",
     "pos": [
+      "2B",
       "SS"
     ],
     "inj": false,
