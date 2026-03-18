@@ -1485,21 +1485,6 @@ const DRAFT_STATE_2026 = {
       "team": "me",
       "ts": 1742241600000
     },
-    "kylemanzardo-cle": {
-      "cost": 0,
-      "team": "me",
-      "ts": 1742328000000
-    },
-    "reynaldolpez-atl": {
-      "cost": 0,
-      "team": "me",
-      "ts": 1742328000000
-    },
-    "nickmartinez-tb": {
-      "cost": 0,
-      "team": "me",
-      "ts": 1742328000000
-    },
     "emiliopagan-cin": {
       "cost": 0,
       "team": "t9",
@@ -3431,24 +3416,6 @@ const DRAFT_STATE_2026 = {
       "cost": 0,
       "team": "t1",
       "ts": 1742241600000
-    },
-    {
-      "id": "kylemanzardo-cle",
-      "cost": 0,
-      "team": "me",
-      "ts": 1742328000000
-    },
-    {
-      "id": "reynaldolpez-atl",
-      "cost": 0,
-      "team": "me",
-      "ts": 1742328000000
-    },
-    {
-      "id": "nickmartinez-tb",
-      "cost": 0,
-      "team": "me",
-      "ts": 1742328000000
     }
   ],
   "snakePick": 140
