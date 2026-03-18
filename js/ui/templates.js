@@ -932,6 +932,7 @@ const Templates = {
                     <div class="modal-btns">
                         <button class="btn" onclick="StateManager.exportConfig()">EXPORT CONFIG (JSON)</button>
                         <button class="btn btn-go" onclick="UI.copyAICatContext()">COPY FOR AI</button>
+                        <label class="btn" style="cursor:pointer;margin-top:6px">IMPORT DRAFT JSON<input type="file" accept=".json" style="display:none" onchange="(async(e)=>{const t=await e.target.files[0].text();const msg=StateManager.importDraftState(t);document.getElementById('importStatus').textContent=msg;})(event)"></label>
                     </div>
                     <div id="importStatus" style="margin-top:20px" class="grn"></div>
                 </div>

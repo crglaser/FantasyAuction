@@ -233,6 +233,25 @@ const StateManager = {
      * Export all configuration and state to a JSON file.
      * This makes the tool "season-reusable".
      */
+    /**
+     * Import a draft state JSON (from draft_state_2026.json or auto-backup).
+     * Merges drafted + draftLog; preserves existing settings/notes.
+     */
+    importDraftState(json) {
+        try {
+            const data = typeof json === 'string' ? JSON.parse(json) : json;
+            if (data.drafted) AppState.drafted = data.drafted;
+            if (data.draftLog) AppState.draftLog = data.draftLog;
+            if (data.snakePick) AppState.snakePick = data.snakePick;
+            if (data.settings) AppState.settings = { ...AppState.settings, ...data.settings };
+            this.save();
+            UI.render();
+            return `Loaded ${Object.keys(data.drafted || {}).length} picks.`;
+        } catch (e) {
+            return 'Import failed: ' + e.message;
+        }
+    },
+
     exportConfig() {
         const data = {
             config: LG,

@@ -1,0 +1,3423 @@
+{
+  "drafted": {
+    "juansoto-nym": {
+      "cost": 39,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "shoheiohtani-lad": {
+      "cost": 40,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "aaronjudge-nyy": {
+      "cost": 40,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "paulskenes-pit": {
+      "cost": 34,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "calraleigh-sea": {
+      "cost": 12,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "kyletucker-lad": {
+      "cost": 24,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "bobbywittjr-kc": {
+      "cost": 38,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "tarikskubal-det": {
+      "cost": 37,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "jazzchisholmjr-nyy": {
+      "cost": 15,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "ronaldacuajr-atl": {
+      "cost": 36,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "ellydelacruz-cin": {
+      "cost": 30,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "garrettcrochet-bos": {
+      "cost": 34,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "josramrez-cle": {
+      "cost": 38,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "nickkurtz-ath": {
+      "cost": 19,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "gunnarhenderson-bal": {
+      "cost": 35,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "briceturang-mil": {
+      "cost": 16,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "kyleschwarber-phi": {
+      "cost": 19,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "bryanwoo-sea": {
+      "cost": 23,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "petecrowarmstrong-chc": {
+      "cost": 15,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "mannymachado-sd": {
+      "cost": 18,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "romananthony-bos": {
+      "cost": 15,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "corbincarroll-ari": {
+      "cost": 33,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "vladimirguerrerojr-tor": {
+      "cost": 24,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "jacksonchourio-mil": {
+      "cost": 18,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "treaturner-phi": {
+      "cost": 21,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "yordanalvarez-hou": {
+      "cost": 20,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "hunterbrown-hou": {
+      "cost": 21,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "masonmiller-sd": {
+      "cost": 13,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "geraldoperdomo-ari": {
+      "cost": 21,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "logangilbert-sea": {
+      "cost": 20,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "juniorcaminero-tb": {
+      "cost": 17,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "juliorodrguez-sea": {
+      "cost": 28,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "yoshinobuyamamoto-lad": {
+      "cost": 23,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "ketelmarte-ari": {
+      "cost": 23,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "mookiebetts-lad": {
+      "cost": 16,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "coleragans-kc": {
+      "cost": 11,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "mattolson-atl": {
+      "cost": 22,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "loganwebb-sf": {
+      "cost": 26,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "freddyperalta-nym": {
+      "cost": 15,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "cristophersnchez-phi": {
+      "cost": 23,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "jameswood-wsn": {
+      "cost": 17,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "fernandotatisjr-sd": {
+      "cost": 27,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "georgekirby-sea": {
+      "cost": 15,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "edwindaz-lad": {
+      "cost": 11,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "franciscolindor-nym": {
+      "cost": 20,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "chrissale-atl": {
+      "cost": 20,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "bryceharper-phi": {
+      "cost": 21,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "williamcontreras-mil": {
+      "cost": 8,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "spencerstrider-atl": {
+      "cost": 5,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "petealonso-bal": {
+      "cost": 20,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "zachneto-laa": {
+      "cost": 16,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "brentrooker-ath": {
+      "cost": 21,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "joshnaylor-sea": {
+      "cost": 11,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "joeryan-min": {
+      "cost": 19,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "willyadames-sf": {
+      "cost": 11,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "nicohoerner-chc": {
+      "cost": 10,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "austinriley-atl": {
+      "cost": 19,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "frambervaldez-det": {
+      "cost": 17,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "rileygreene-det": {
+      "cost": 7,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "wyattlangford-tex": {
+      "cost": 22,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "jacksonmerrill-sd": {
+      "cost": 16,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "randyarozarena-sea": {
+      "cost": 13,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "eugeniosurez-cin": {
+      "cost": 11,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "jacobdegrom-tex": {
+      "cost": 11,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "rafaeldevers-sf": {
+      "cost": 22,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "cjabrams-wsn": {
+      "cost": 10,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "jarrenduran-bos": {
+      "cost": 23,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "huntergoodman-col": {
+      "cost": 9,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "shealangeliers-ath": {
+      "cost": 10,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "maxfried-nyy": {
+      "cost": 19,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "codybellinger-nyy": {
+      "cost": 8,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "freddiefreeman-lad": {
+      "cost": 19,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "benrice-nyy": {
+      "cost": 12,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "byronbuxton-min": {
+      "cost": 7,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "vinniepasquantino-kc": {
+      "cost": 10,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "mattchapman-sf": {
+      "cost": 7,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "jessluzardo-phi": {
+      "cost": 11,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "zackwheeler-phi": {
+      "cost": 9,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "nickpivetta-sd": {
+      "cost": 6,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "kylebradish-bal": {
+      "cost": 8,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "alexbregman-chc": {
+      "cost": 10,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "oneilcruz-pit": {
+      "cost": 11,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "andrsmuoz-sea": {
+      "cost": 4,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "cadesmith-cle": {
+      "cost": 9,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "dylancease-tor": {
+      "cost": 12,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "coreyseager-tex": {
+      "cost": 8,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "kevingausman-tor": {
+      "cost": 16,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "brandonwoodruff-mil": {
+      "cost": 1,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "georgespringer-tor": {
+      "cost": 7,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "camschlittler-nyy": {
+      "cost": 5,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "jhoanduran-phi": {
+      "cost": 6,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "maikelgarcia-kc": {
+      "cost": 19,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "nolanmclean-nym": {
+      "cost": 10,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "devinwilliams-nym": {
+      "cost": 6,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "tylerglasnow-lad": {
+      "cost": 5,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "josealtuve-hou": {
+      "cost": 6,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "christianyelich-mil": {
+      "cost": 7,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "euryprez-mia": {
+      "cost": 12,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "jakobmarsee-mia": {
+      "cost": 9,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "bobichette-nym": {
+      "cost": 6,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "jacobmisiorowski-mil": {
+      "cost": 9,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "michaelbusch-chc": {
+      "cost": 6,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "drewrasmussen-tb": {
+      "cost": 7,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "luiscastillo-sea": {
+      "cost": 3,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "sonnygray-bos": {
+      "cost": 9,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "nathaneovaldi-tex": {
+      "cost": 7,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "brysonstott-phi": {
+      "cost": 6,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "ceddannerafaela-bos": {
+      "cost": 11,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "trevorstory-bos": {
+      "cost": 3,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "aroldischapman-bos": {
+      "cost": 5,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "chandlersimpson-tb": {
+      "cost": 3,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "trevorrogers-bal": {
+      "cost": 2,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "brandonnimmo-tex": {
+      "cost": 1,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "chaseburns-cin": {
+      "cost": 7,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "robbieray-sf": {
+      "cost": 3,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "lukekeaschall-min": {
+      "cost": 9,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "ozziealbies-atl": {
+      "cost": 2,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "seiyasuzuki-chc": {
+      "cost": 9,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "teoscarhernndez-lad": {
+      "cost": 2,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "ianhapp-chc": {
+      "cost": 6,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "xavieredwards-mia": {
+      "cost": 8,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "michaelking-sd": {
+      "cost": 8,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "tannerbibee-cle": {
+      "cost": 2,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "daylenlile-wsn": {
+      "cost": 1,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "willsmith-lad": {
+      "cost": 1,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "salstewart-cin": {
+      "cost": 5,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "ryanpepiot-tb": {
+      "cost": 10,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "spencertorkelson-det": {
+      "cost": 3,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "taylorward-bal": {
+      "cost": 4,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "agustnramrez-mia": {
+      "cost": 7,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "stevenkwan-cle": {
+      "cost": 3,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "gavinwilliams-cle": {
+      "cost": 1,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "xanderbogaerts-sd": {
+      "cost": 1,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "yandydaz-tb": {
+      "cost": 3,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "nicklodolo-cin": {
+      "cost": 5,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "luisrobertjr-nym": {
+      "cost": 3,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "kylestowers-mia": {
+      "cost": 3,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "emmetsheehan-lad": {
+      "cost": 5,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "davidbednar-nyy": {
+      "cost": 7,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "sandyalcantara-mia": {
+      "cost": 3,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "griffinjax-tb": {
+      "cost": 3,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "rangersurez-bos": {
+      "cost": 5,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "gleybertorres-det": {
+      "cost": 2,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "cadehorton-chc": {
+      "cost": 5,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "abneruribe-mil": {
+      "cost": 3,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "zacgallen-ari": {
+      "cost": 17,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "andypages-lad": {
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "dansbyswanson-chc": {
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "willsoncontreras-bos": {
+      "cost": 7,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "shotaimanaga-chc": {
+      "cost": 4,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "shanemcclanahan-tb": {
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "adolisgarca-phi": {
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "jacobwilson-ath": {
+      "cost": 10,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "calebdurbin-bos": {
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "munetakamurakami-chw": {
+      "cost": 3,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "joadell-laa": {
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "brentondoyle-col": {
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "petefairbanks-mia": {
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "matthewboyd-chc": {
+      "cost": 5,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "blakesnell-lad": {
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "tylersoderstrom-ath": {
+      "cost": 10,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "michaelharrisii-atl": {
+      "cost": 2,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "mackenziegore-tex": {
+      "cost": 2,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "krisbubic-kc": {
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "christianwalker-hou": {
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "gerritcole-nyy": {
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "mattmclain-cin": {
+      "cost": 1,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "jjwetherholt-stl": {
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "raiseliglesias-atl": {
+      "cost": 2,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "bubbachandler-pit": {
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "salfrelick-mil": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "wilyerabreu-bos": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "robertsuarez-atl": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "danielpalencia-chc": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "miketrout-laa": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "tatsuyaimai-hou": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "aaronnola-phi": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "bryanabreu-hou": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "alecburleson-stl": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "ryanhelsley-bal": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "drakebaldwin-atl": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "alecbohm-phi": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "jeffhoffman-tor": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "treyyesavage-tor": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "trevormegill-mil": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "edwardcabrera-chc": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "garrettwhitlock-bos": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "garrettcleavinger-tb": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "bradysinger-cin": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "brayanbello-bos": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "jeremypea-hou": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "willicastro-col": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "bryanreynolds-pit": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "heliotramos-sf": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "andrewabbott-cin": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "lawrencebutler-ath": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "daultonvarsho-tor": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "brandonlowe-pit": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "konnorgriffin-pit": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "jackflaherty-det": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "addisonbarger-tor": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "kodaisenga-nym": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "ryanwalker-sf": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "justincrawford-phi": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "philmaton-chc": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "tjfriedl-cin": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "tylerrogers-tor": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "tannerscott-lad": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "brendandonovan-sea": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "junghoolee-sf": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "cadecavalli-wsh": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "rynenelson-ari": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "ivnherrera-stl": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "jeffmcneil-ath": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "noelvimarte-cin": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "granttaylor-chw": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "jaccaglianone-kc": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "jackleiter-tex": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "maxmuncylad-lad": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "jeremiahestrada-sd": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "joshhader-hou": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "jordanlawlar-ari": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "kenleyjansen-det": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "willvest-det": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "adleyrutschman-bal": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "jacksonholliday-bal": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "spencersteer-cin": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "robertgarcia-tex": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "mattwallner-min": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "colsonmontgomery-chw": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "dennissantana-pit": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "alexvesia-lad": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "ryanweathers-nyy": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "jonathanaranda-tb": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "caseymize-det": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "jojoromero-stl": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "mikeburrows-hou": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "carlosrodn-nyy": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "jossoriano-laa": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "shanebaz-bal": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "carlosestvez-kc": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "kazumaokamoto-tor": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "joseaferrer-sea": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "orionkerkering-phi": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "dylancrews-wsn": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "ezequieltovar-col": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "chasedelauter-cle": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "graysonrodriguez-laa": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "noahcameron-kc": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "jakeburger-tex": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "codyponce-tor": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "luisarraez-sf": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "jorgepolanco-nym": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "jordanwestburg-bal": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "isaacparedes-hou": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "rileyobrien-stl": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "ryanohearn-pit": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "jordanbeck-col": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "evancarter-tex": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "carterjensen-kc": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "dylanlee-atl": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "salvadorperez-kc": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "jasonadam-sd": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "maxmeyer-mia": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "mickeymoniak-col": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "nolanschanuel-laa": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "alejandrokirk-tor": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "kerrycarpenter-det": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "andrewvaughn-mil": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "marcussemien-nym": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "carloscorrea-hou": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "davidpeterson-nym": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "miguelvargas-chw": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "kevinmcgonigle-det": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "braxtonashcraft-pit": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "seanmanaea-nym": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "mattbrash-sea": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "coltoncowser-bal": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "ernieclement-tor": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "ottolopez-mia": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "brandonmarsh-phi": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "brycemiller-sea": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "dylanbeavers-bal": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "trentgrisham-nyy": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "marcellozuna-pit": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "edwinuceta-tb": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "fernandocruz-nyy": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "mitchkeller-pit": {
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    "huntergreene-cin": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "joshsmith-tex": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "justinsterner-ath": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "kevinginkel-ari": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "lourdesgurrieljr-ari": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "nickcastellanos-sd": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "ramonlaureano-sd": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "ianseymour-tb": {
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    "emiliopagan-cin": {
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    "josecaballero-nyy": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "shanesmith-cws": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "jakemccarthy-col": {
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    "michaelwacha-kc": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "jassondominguez-nyy": {
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    "marcelomayer-bos": {
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    "chadpatrick-mil": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "rokisasaki-lad": {
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    "tylermahle-sf": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "camsmith-hou": {
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    "bradkeller-phi": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    "brendonlittle-tor": {
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    "luisgarcajr-wsh": {
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    }
+  },
+  "draftLog": [
+    {
+      "id": "juansoto-nym",
+      "cost": 39,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "shoheiohtani-lad",
+      "cost": 40,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "aaronjudge-nyy",
+      "cost": 40,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "paulskenes-pit",
+      "cost": 34,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "calraleigh-sea",
+      "cost": 12,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kyletucker-lad",
+      "cost": 24,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bobbywittjr-kc",
+      "cost": 38,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tarikskubal-det",
+      "cost": 37,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jazzchisholmjr-nyy",
+      "cost": 15,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ronaldacuajr-atl",
+      "cost": 36,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ellydelacruz-cin",
+      "cost": 30,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "garrettcrochet-bos",
+      "cost": 34,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "josramrez-cle",
+      "cost": 38,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nickkurtz-ath",
+      "cost": 19,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "gunnarhenderson-bal",
+      "cost": 35,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "briceturang-mil",
+      "cost": 16,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kyleschwarber-phi",
+      "cost": 19,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bryanwoo-sea",
+      "cost": 23,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "petecrowarmstrong-chc",
+      "cost": 15,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mannymachado-sd",
+      "cost": 18,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "romananthony-bos",
+      "cost": 15,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "corbincarroll-ari",
+      "cost": 33,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "vladimirguerrerojr-tor",
+      "cost": 24,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jacksonchourio-mil",
+      "cost": 18,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "treaturner-phi",
+      "cost": 21,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "yordanalvarez-hou",
+      "cost": 20,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "hunterbrown-hou",
+      "cost": 21,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "masonmiller-sd",
+      "cost": 13,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "geraldoperdomo-ari",
+      "cost": 21,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "logangilbert-sea",
+      "cost": 20,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "juniorcaminero-tb",
+      "cost": 17,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "juliorodrguez-sea",
+      "cost": 28,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "yoshinobuyamamoto-lad",
+      "cost": 23,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ketelmarte-ari",
+      "cost": 23,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mookiebetts-lad",
+      "cost": 16,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "coleragans-kc",
+      "cost": 11,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mattolson-atl",
+      "cost": 22,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "loganwebb-sf",
+      "cost": 26,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "freddyperalta-nym",
+      "cost": 15,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "cristophersnchez-phi",
+      "cost": 23,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jameswood-wsn",
+      "cost": 17,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "fernandotatisjr-sd",
+      "cost": 27,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "georgekirby-sea",
+      "cost": 15,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "edwindaz-lad",
+      "cost": 11,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "franciscolindor-nym",
+      "cost": 20,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "chrissale-atl",
+      "cost": 20,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bryceharper-phi",
+      "cost": 21,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "williamcontreras-mil",
+      "cost": 8,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "spencerstrider-atl",
+      "cost": 5,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "petealonso-bal",
+      "cost": 20,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "zachneto-laa",
+      "cost": 16,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brentrooker-ath",
+      "cost": 21,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "joshnaylor-sea",
+      "cost": 11,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "joeryan-min",
+      "cost": 19,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "willyadames-sf",
+      "cost": 11,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nicohoerner-chc",
+      "cost": 10,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "austinriley-atl",
+      "cost": 19,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "frambervaldez-det",
+      "cost": 17,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "rileygreene-det",
+      "cost": 7,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "wyattlangford-tex",
+      "cost": 22,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jacksonmerrill-sd",
+      "cost": 16,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "randyarozarena-sea",
+      "cost": 13,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "eugeniosurez-cin",
+      "cost": 11,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jacobdegrom-tex",
+      "cost": 11,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "rafaeldevers-sf",
+      "cost": 22,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "cjabrams-wsn",
+      "cost": 10,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jarrenduran-bos",
+      "cost": 23,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "huntergoodman-col",
+      "cost": 9,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "shealangeliers-ath",
+      "cost": 10,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "maxfried-nyy",
+      "cost": 19,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "codybellinger-nyy",
+      "cost": 8,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "freddiefreeman-lad",
+      "cost": 19,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "benrice-nyy",
+      "cost": 12,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "byronbuxton-min",
+      "cost": 7,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "vinniepasquantino-kc",
+      "cost": 10,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mattchapman-sf",
+      "cost": 7,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jessluzardo-phi",
+      "cost": 11,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "zackwheeler-phi",
+      "cost": 9,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nickpivetta-sd",
+      "cost": 6,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kylebradish-bal",
+      "cost": 8,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "alexbregman-chc",
+      "cost": 10,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "oneilcruz-pit",
+      "cost": 11,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "andrsmuoz-sea",
+      "cost": 4,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "cadesmith-cle",
+      "cost": 9,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "dylancease-tor",
+      "cost": 12,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "coreyseager-tex",
+      "cost": 8,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kevingausman-tor",
+      "cost": 16,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brandonwoodruff-mil",
+      "cost": 1,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "georgespringer-tor",
+      "cost": 7,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "camschlittler-nyy",
+      "cost": 5,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jhoanduran-phi",
+      "cost": 6,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "maikelgarcia-kc",
+      "cost": 19,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nolanmclean-nym",
+      "cost": 10,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "devinwilliams-nym",
+      "cost": 6,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tylerglasnow-lad",
+      "cost": 5,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "josealtuve-hou",
+      "cost": 6,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "christianyelich-mil",
+      "cost": 7,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "euryprez-mia",
+      "cost": 12,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jakobmarsee-mia",
+      "cost": 9,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bobichette-nym",
+      "cost": 6,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jacobmisiorowski-mil",
+      "cost": 9,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "michaelbusch-chc",
+      "cost": 6,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "drewrasmussen-tb",
+      "cost": 7,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "luiscastillo-sea",
+      "cost": 3,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "sonnygray-bos",
+      "cost": 9,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nathaneovaldi-tex",
+      "cost": 7,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brysonstott-phi",
+      "cost": 6,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ceddannerafaela-bos",
+      "cost": 11,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "trevorstory-bos",
+      "cost": 3,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "aroldischapman-bos",
+      "cost": 5,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "chandlersimpson-tb",
+      "cost": 3,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "trevorrogers-bal",
+      "cost": 2,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brandonnimmo-tex",
+      "cost": 1,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "chaseburns-cin",
+      "cost": 7,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "robbieray-sf",
+      "cost": 3,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "lukekeaschall-min",
+      "cost": 9,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ozziealbies-atl",
+      "cost": 2,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "seiyasuzuki-chc",
+      "cost": 9,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "teoscarhernndez-lad",
+      "cost": 2,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ianhapp-chc",
+      "cost": 6,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "xavieredwards-mia",
+      "cost": 8,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "michaelking-sd",
+      "cost": 8,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tannerbibee-cle",
+      "cost": 2,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "daylenlile-wsn",
+      "cost": 1,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "willsmith-lad",
+      "cost": 1,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "salstewart-cin",
+      "cost": 5,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ryanpepiot-tb",
+      "cost": 10,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "spencertorkelson-det",
+      "cost": 3,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "taylorward-bal",
+      "cost": 4,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "agustnramrez-mia",
+      "cost": 7,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "stevenkwan-cle",
+      "cost": 3,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "gavinwilliams-cle",
+      "cost": 1,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "xanderbogaerts-sd",
+      "cost": 1,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "yandydaz-tb",
+      "cost": 3,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nicklodolo-cin",
+      "cost": 5,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "luisrobertjr-nym",
+      "cost": 3,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kylestowers-mia",
+      "cost": 3,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "emmetsheehan-lad",
+      "cost": 5,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "davidbednar-nyy",
+      "cost": 7,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "sandyalcantara-mia",
+      "cost": 3,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "griffinjax-tb",
+      "cost": 3,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "rangersurez-bos",
+      "cost": 5,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "gleybertorres-det",
+      "cost": 2,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "cadehorton-chc",
+      "cost": 5,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "abneruribe-mil",
+      "cost": 3,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "zacgallen-ari",
+      "cost": 17,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "andypages-lad",
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "dansbyswanson-chc",
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "willsoncontreras-bos",
+      "cost": 7,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "shotaimanaga-chc",
+      "cost": 4,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "shanemcclanahan-tb",
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "adolisgarca-phi",
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jacobwilson-ath",
+      "cost": 10,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "calebdurbin-bos",
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "munetakamurakami-chw",
+      "cost": 3,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "joadell-laa",
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brentondoyle-col",
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "petefairbanks-mia",
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "matthewboyd-chc",
+      "cost": 5,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "blakesnell-lad",
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tylersoderstrom-ath",
+      "cost": 10,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "michaelharrisii-atl",
+      "cost": 2,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mackenziegore-tex",
+      "cost": 2,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "krisbubic-kc",
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "christianwalker-hou",
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "gerritcole-nyy",
+      "cost": 1,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mattmclain-cin",
+      "cost": 1,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jjwetherholt-stl",
+      "cost": 1,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "raiseliglesias-atl",
+      "cost": 2,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bubbachandler-pit",
+      "cost": 1,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "salfrelick-mil",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "wilyerabreu-bos",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "robertsuarez-atl",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "danielpalencia-chc",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "miketrout-laa",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tatsuyaimai-hou",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "aaronnola-phi",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bryanabreu-hou",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "alecburleson-stl",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ryanhelsley-bal",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "drakebaldwin-atl",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "alecbohm-phi",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jeffhoffman-tor",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "treyyesavage-tor",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "trevormegill-mil",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "edwardcabrera-chc",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "garrettwhitlock-bos",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "garrettcleavinger-tb",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bradysinger-cin",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brayanbello-bos",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jeremypea-hou",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "willicastro-col",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bryanreynolds-pit",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "heliotramos-sf",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "andrewabbott-cin",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "lawrencebutler-ath",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "daultonvarsho-tor",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brandonlowe-pit",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "konnorgriffin-pit",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jackflaherty-det",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "addisonbarger-tor",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kodaisenga-nym",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ryanwalker-sf",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "justincrawford-phi",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "philmaton-chc",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tjfriedl-cin",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tylerrogers-tor",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tannerscott-lad",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brendandonovan-sea",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "junghoolee-sf",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "cadecavalli-wsh",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "rynenelson-ari",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ivnherrera-stl",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jeffmcneil-ath",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "noelvimarte-cin",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "granttaylor-chw",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jaccaglianone-kc",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jackleiter-tex",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "maxmuncylad-lad",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jeremiahestrada-sd",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "joshhader-hou",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jordanlawlar-ari",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kenleyjansen-det",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "willvest-det",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "adleyrutschman-bal",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jacksonholliday-bal",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "spencersteer-cin",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "robertgarcia-tex",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mattwallner-min",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "colsonmontgomery-chw",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "dennissantana-pit",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "alexvesia-lad",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ryanweathers-nyy",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jonathanaranda-tb",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "caseymize-det",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jojoromero-stl",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mikeburrows-hou",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "carlosrodn-nyy",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jossoriano-laa",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "shanebaz-bal",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "carlosestvez-kc",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kazumaokamoto-tor",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "joseaferrer-sea",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "orionkerkering-phi",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "dylancrews-wsn",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ezequieltovar-col",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "chasedelauter-cle",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "graysonrodriguez-laa",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "noahcameron-kc",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jakeburger-tex",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "codyponce-tor",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "luisarraez-sf",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jorgepolanco-nym",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jordanwestburg-bal",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "isaacparedes-hou",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "rileyobrien-stl",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ryanohearn-pit",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jordanbeck-col",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "evancarter-tex",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "carterjensen-kc",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "dylanlee-atl",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "salvadorperez-kc",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jasonadam-sd",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "maxmeyer-mia",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mickeymoniak-col",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nolanschanuel-laa",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "alejandrokirk-tor",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kerrycarpenter-det",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "andrewvaughn-mil",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "marcussemien-nym",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "carloscorrea-hou",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "davidpeterson-nym",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "miguelvargas-chw",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kevinmcgonigle-det",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "braxtonashcraft-pit",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "seanmanaea-nym",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mattbrash-sea",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "coltoncowser-bal",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ernieclement-tor",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ottolopez-mia",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brandonmarsh-phi",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brycemiller-sea",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "dylanbeavers-bal",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "trentgrisham-nyy",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "marcellozuna-pit",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "edwinuceta-tb",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "fernandocruz-nyy",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "mitchkeller-pit",
+      "cost": 0,
+      "team": "t6",
+      "ts": 1742241600000
+    },
+    {
+      "id": "huntergreene-cin",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "joshsmith-tex",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "justinsterner-ath",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "kevinginkel-ari",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "lourdesgurrieljr-ari",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "nickcastellanos-sd",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ramonlaureano-sd",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "ianseymour-tb",
+      "cost": 0,
+      "team": "me",
+      "ts": 1742241600000
+    },
+    {
+      "id": "emiliopagan-cin",
+      "cost": 0,
+      "team": "t9",
+      "ts": 1742241600000
+    },
+    {
+      "id": "josecaballero-nyy",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "shanesmith-cws",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jakemccarthy-col",
+      "cost": 0,
+      "team": "t5",
+      "ts": 1742241600000
+    },
+    {
+      "id": "michaelwacha-kc",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "jassondominguez-nyy",
+      "cost": 0,
+      "team": "t7",
+      "ts": 1742241600000
+    },
+    {
+      "id": "marcelomayer-bos",
+      "cost": 0,
+      "team": "t2",
+      "ts": 1742241600000
+    },
+    {
+      "id": "chadpatrick-mil",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "rokisasaki-lad",
+      "cost": 0,
+      "team": "t8",
+      "ts": 1742241600000
+    },
+    {
+      "id": "tylermahle-sf",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "camsmith-hou",
+      "cost": 0,
+      "team": "t10",
+      "ts": 1742241600000
+    },
+    {
+      "id": "bradkeller-phi",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    },
+    {
+      "id": "brendonlittle-tor",
+      "cost": 0,
+      "team": "t3",
+      "ts": 1742241600000
+    },
+    {
+      "id": "luisgarcajr-wsh",
+      "cost": 0,
+      "team": "t1",
+      "ts": 1742241600000
+    }
+  ],
+  "settings": {},
+  "injuryCache": {},
+  "playerNotes": {},
+  "aiHistory": [],
+  "snakeOrder": [],
+  "snakePick": 140,
+  "version": "1.9.5"
+}

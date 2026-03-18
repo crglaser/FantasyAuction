@@ -1,6 +1,6 @@
 /**
  * manual_rankings.js — Hand-curated rankings from data/manual/*.csv
- * Generated: 2026-03-17 22:08 UTC
+ * Generated: 2026-03-18 03:30 UTC
  * Fields: AVG, BP_Ax, BP_Full, CM_Rank, CM_Role, FG_Ax, FG_Full, HL_Pos, HL_Rank, HL_Tier, PL_Rank, PL_Tier, Watch
  * Run: python3 scripts/bake_manual.py
  */
@@ -1027,7 +1027,7 @@ const MANUAL_RANKINGS = {
     "PL_Tier": 6,
     "Watch": "\u2605"
   },
-  "luisgarcajr-wsn": {
+  "luisgarcajr-wsh": {
     "BP_Ax": 7.38,
     "BP_Full": 6.25,
     "FG_Ax": 1.0,
@@ -1207,6 +1207,10 @@ const MANUAL_RANKINGS = {
     "HL_Tier": 13,
     "HL_Pos": "3B",
     "AVG": 0.248
+  },
+  "michaelwacha-kc": {
+    "BP_Ax": 4.4,
+    "BP_Full": 4.49
   },
   "ezequieltovar-col": {
     "BP_Ax": 5.15,
@@ -1493,6 +1497,10 @@ const MANUAL_RANKINGS = {
     "PL_Tier": 8,
     "Watch": "\u2605"
   },
+  "chadpatrick-mil": {
+    "BP_Ax": 0.8,
+    "BP_Full": 2.39
+  },
   "mattmclain-cin": {
     "BP_Ax": 2.53,
     "BP_Full": 2.36,
@@ -1654,7 +1662,7 @@ const MANUAL_RANKINGS = {
     "FG_Full": 2.2,
     "CM_Role": "2ND:LAD"
   },
-  "emiliopagn-cin": {
+  "emiliopagan-cin": {
     "BP_Ax": 0.3,
     "BP_Full": 1.83,
     "FG_Full": 1.7,

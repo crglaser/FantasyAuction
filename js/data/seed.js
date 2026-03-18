@@ -10617,4 +10617,20 @@ const SEED_PLAYERS = [
     "RP": 93,
     "SB": 3.0
   }
+,
+  {"id": "ianseymour-tb", "n": "Ian Seymour", "t": "TB", "pos": ["SP", "RP"], "inj": false, "age": 26, "csValA": 9.1, "csValS": 6.5, "IP": 103, "W": 5.6, "SVH": 0.7, "K": 98.3, "ERA": 4.02, "WHIP": 1.24},
+  {"id": "emiliopagan-cin", "n": "Emilio Pag\u00e1n", "t": "CIN", "pos": ["RP"], "inj": false, "age": 33, "csValA": 4.1, "csValS": 4.2, "IP": 66, "W": 3.2, "SVH": 30.5, "K": 72.7, "ERA": 4.14, "WHIP": 1.245},
+  {"id": "shanesmith-cws", "n": "Shane Smith", "t": "CWS", "pos": ["SP"], "inj": false, "age": 27, "csValA": 13.3, "csValS": 9.6, "IP": 168, "W": 9.0, "SVH": 0.0, "K": 153.8, "ERA": 4.38, "WHIP": 1.351},
+  {"id": "michaelwacha-kc", "n": "Michael Wacha", "t": "KC", "pos": ["SP"], "inj": false, "age": 34, "csValA": 12.7, "csValS": 9.6, "IP": 170, "W": 9.6, "SVH": 0.0, "K": 135.3, "ERA": 4.5, "WHIP": 1.329},
+  {"id": "chadpatrick-mil", "n": "Chad Patrick", "t": "MIL", "pos": ["SP"], "inj": false, "age": 26, "csValA": 11.3, "csValS": 8.2, "IP": 148, "W": 8.1, "SVH": 0.0, "K": 133.6, "ERA": 4.47, "WHIP": 1.3},
+  {"id": "rokisasaki-lad", "n": "Roki Sasaki", "t": "LAD", "pos": ["SP"], "inj": false, "age": 24, "csValA": 10.2, "csValS": 7.4, "IP": 117, "W": 7.4, "SVH": 0.8, "K": 111.6, "ERA": 4.21, "WHIP": 1.338},
+  {"id": "tylermahle-sf", "n": "Tyler Mahle", "t": "SF", "pos": ["SP"], "inj": false, "age": 30, "csValA": 12.5, "csValS": 9.2, "IP": 148, "W": 8.5, "SVH": 0.0, "K": 126.2, "ERA": 4.16, "WHIP": 1.302},
+  {"id": "bradkeller-phi", "n": "Brad Keller", "t": "PHI", "pos": ["RP"], "inj": false, "age": 30, "csValA": 3.3, "csValS": 3.5, "IP": 68, "W": 3.4, "SVH": 18.0, "K": 60.5, "ERA": 3.97, "WHIP": 1.352},
+  {"id": "brendonlittle-tor", "n": "Brendon Little", "t": "TOR", "pos": ["RP"], "inj": false, "age": 28, "csValA": 2.9, "csValS": 2.9, "IP": 54, "W": 2.9, "SVH": 9.6, "K": 57.1, "ERA": 3.37, "WHIP": 1.376},
+  {"id": "jakemccarthy-col", "n": "Jake McCarthy", "t": "COL", "pos": ["OF"], "inj": false, "age": 28, "csValA": 5.2, "csValS": 5.5, "PA": 319, "OBP": 0.332, "HR": 6, "XBH": 23, "RP": 70, "SB": 11.9},
+  {"id": "jassondominguez-nyy", "n": "Jasson Dom\u00ednguez", "t": "NYY", "pos": ["OF"], "inj": false, "age": 23, "csValA": 1.7, "csValS": 1.8, "PA": 101, "OBP": 0.327, "HR": 3, "XBH": 7, "RP": 23, "SB": 4.4},
+  {"id": "marcelomayer-bos", "n": "Marcelo Mayer", "t": "BOS", "pos": ["SS", "3B"], "inj": false, "age": 23, "csValA": 4.8, "csValS": 5.0, "PA": 312, "OBP": 0.31, "HR": 8, "XBH": 27, "RP": 71, "SB": 3.6},
+  {"id": "camsmith-hou", "n": "Cam Smith", "t": "HOU", "pos": ["OF"], "inj": false, "age": 24, "csValA": 5.2, "csValS": 5.5, "PA": 360, "OBP": 0.315, "HR": 9, "XBH": 26, "RP": 79, "SB": 4.9},
+  {"id": "josecaballero-nyy", "n": "Jos\u00e9 Caballero", "t": "NYY", "pos": ["SS", "2B"], "inj": false, "age": 27, "csValA": 3.9, "csValS": 4.1, "PA": 277, "OBP": 0.313, "HR": 4, "XBH": 17, "RP": 56, "SB": 26.4},
+  {"id": "luisgarcajr-wsh", "n": "Luis Garc\u00eda Jr.", "t": "WSH", "pos": ["2B"], "inj": false, "age": 25, "csValA": 7.7, "csValS": 8.1, "PA": 458, "OBP": 0.315, "HR": 14, "XBH": 39, "RP": 111, "SB": 12.5}
 ];
