@@ -3,6 +3,89 @@
  * Houses all table builders, category formatters, and UI strings.
  */
 
+/**
+ * Returns the optimal active lineup (starters) for a team's full player pool.
+ * Fills positions greedily from most restrictive (C, SS) to most flexible (UT, P).
+ * Roster slots: C, 1B, 2B, 3B, SS, CI, MI, OF×5, UT, SP×5, RP×3, P×2
+ */
+function optimalLineup(picks) {
+    const SLOTS = [
+        { key: 'C',  count: 1, eligible: p => p.pos.includes('C') && (p.PA||0) > 0 },
+        { key: 'SS', count: 1, eligible: p => p.pos.includes('SS') },
+        { key: '2B', count: 1, eligible: p => p.pos.includes('2B') },
+        { key: '1B', count: 1, eligible: p => p.pos.includes('1B') },
+        { key: '3B', count: 1, eligible: p => p.pos.includes('3B') },
+        { key: 'CI', count: 1, eligible: p => p.pos.some(x => x==='1B'||x==='3B') },
+        { key: 'MI', count: 1, eligible: p => p.pos.some(x => x==='2B'||x==='SS') },
+        { key: 'OF', count: 5, eligible: p => p.pos.includes('OF') },
+        { key: 'UT', count: 1, eligible: p => (p.PA||0) > 0 },
+        { key: 'SP', count: 5, eligible: p => p.pos.includes('SP') },
+        { key: 'RP', count: 3, eligible: p => p.pos.includes('RP') },
+        { key: 'P',  count: 2, eligible: p => p.pos.includes('SP') || p.pos.includes('RP') },
+    ];
+    const pool = [...picks].sort((a, b) => (b.csValAAdj||b.csValA||0) - (a.csValAAdj||a.csValA||0));
+    const used = new Set();
+    const starters = [];
+    for (const slot of SLOTS) {
+        let filled = 0;
+        for (const p of pool) {
+            if (filled >= slot.count) break;
+            if (used.has(p.id) || !slot.eligible(p)) continue;
+            starters.push(p);
+            used.add(p.id);
+            filled++;
+        }
+    }
+    return { starters, bench: picks.filter(p => !used.has(p.id)) };
+}
+
+// Replacement-level baselines per full season of playing time
+const _REPL = {
+    PA: 500, IP_SP: 175, IP_RP: 60,
+    hit: { OBP: 0.295, HR: 5, XBH: 17, RP: 38, SB: 3 },
+    sp:  { ERA: 5.00, WHIP: 1.45, K: 108, W: 9,  SVH: 0 },
+    rp:  { ERA: 4.50, WHIP: 1.40, K: 60,  W: 2,  SVH: 3 },
+};
+
+/**
+ * Calculates projected stats for an array of active roster players.
+ * If useRepl=true, pads injured players' (inj field set, PA < 400 or IP < threshold)
+ * missing playing time with replacement-level stats.
+ */
+function projStats(starters, useRepl) {
+    let HR=0, SB=0, XBH=0, OBPw=0, RPr=0, PAw=0;
+    let K=0, W=0, ERAw=0, SVH=0, WHIPw=0, IPw=0;
+    starters.filter(p => (p.PA||0) > 0).forEach(p => {
+        let pa=p.PA, hr=p.HR||0, sb=p.SB||0, xbh=p.XBH||0, rp=p.RP||0, obpPA=(p.OBP||0)*p.PA;
+        if (useRepl && p.inj && pa < 400) {
+            const miss = Math.max(0, _REPL.PA - pa), f = miss / _REPL.PA;
+            hr += f*_REPL.hit.HR; sb += f*_REPL.hit.SB; xbh += f*_REPL.hit.XBH;
+            rp += f*_REPL.hit.RP; obpPA += _REPL.hit.OBP*miss; pa += miss;
+        }
+        HR+=hr; SB+=sb; XBH+=xbh; RPr+=rp; OBPw+=obpPA; PAw+=pa;
+    });
+    starters.filter(p => (p.IP||0) > 0).forEach(p => {
+        const isSP = p.pos.includes('SP');
+        let ip=p.IP, k=p.K||0, w=p.W||0, svh=p.SVH||0, eraW=(p.ERA||0)*p.IP, whipW=(p.WHIP||0)*p.IP;
+        if (useRepl && p.inj) {
+            const full = isSP ? _REPL.IP_SP : _REPL.IP_RP;
+            const thr  = isSP ? 120 : 40;
+            if (ip < thr) {
+                const miss = Math.max(0, full - ip), f = miss / full;
+                const r = isSP ? _REPL.sp : _REPL.rp;
+                k += f*r.K; w += f*r.W; svh += f*r.SVH;
+                eraW += r.ERA*miss; whipW += r.WHIP*miss; ip += miss;
+            }
+        }
+        K+=k; W+=w; SVH+=svh; ERAw+=eraW; WHIPw+=whipW; IPw+=ip;
+    });
+    return {
+        HR, SB, XBH, OBP: PAw ? OBPw/PAw : 0, RP: RPr,
+        K, W, SVH, ERA: IPw ? ERAw/IPw : 99, WHIP: IPw ? WHIPw/IPw : 99,
+        IP: Math.round(IPw), n: starters.length
+    };
+}
+
 const Templates = {
 
     // --- Tab Templates ---
@@ -329,36 +412,32 @@ const Templates = {
         const drafted = effectiveDrafted();
         const myDrafted = Object.entries(drafted).filter(([,v]) => v.team === viewTeam).map(([id, pick]) => ({...AppState.players.find(p => p.id === id), ...pick}));
         const spent = myDrafted.filter(p => !p.sim).reduce((s, p) => s + p.cost, 0);
-        const hitters = myDrafted.filter(p => p.PA > 0);
-        const pitchers = myDrafted.filter(p => p.IP > 0);
-        const projIP = pitchers.reduce((s, p) => s + (p.IP || 0), 0);
-
-        let HR=0, SB=0, XBH=0, OBPw=0, RP=0, PAw=0, K=0, W=0, ERAw=0, SVH=0, WHIPw=0, IPw=0;
-        hitters.forEach(p => { HR+=p.HR; SB+=p.SB; XBH+=p.XBH; OBPw+=p.OBP*p.PA; RP+=p.RP; PAw+=p.PA; });
-        pitchers.forEach(p => { K+=p.K; W+=p.W; ERAw+=p.ERA*p.IP; SVH+=p.SVH; WHIPw+=p.WHIP*p.IP; IPw+=p.IP; });
-        const tOBP = PAw ? OBPw/PAw : 0, tERA = IPw ? ERAw/IPw : 0, tWHIP = IPw ? WHIPw/IPw : 0;
+        const useOptimal = AppState.ui.projOptimal !== false;
+        const useRepl    = AppState.ui.projILRepl  !== false;
+        const activePicks = useOptimal ? optimalLineup(myDrafted).starters : myDrafted;
+        const ps = projStats(activePicks, useRepl);
+        const { HR, SB, XBH, K, W, SVH } = ps;
+        const RP = ps.RP;
+        const hitters  = activePicks.filter(p => (p.PA||0) > 0);
+        const pitchers = activePicks.filter(p => (p.IP||0) > 0);
+        const projIP = ps.IP;
+        const tOBP = ps.OBP, tERA = ps.ERA, tWHIP = ps.WHIP;
 
         // Compute category totals for ALL teams so bars reflect league-relative standing
         const allTeams = Object.keys(LG.teamsMap);
         const lgCats = {};
         ['HR','SB','XBH','OBP','RP','K','W','ERA','SVH','WHIP'].forEach(cat => { lgCats[cat] = []; });
         allTeams.forEach(tid => {
-            const tp = Object.entries(effectiveDrafted()).filter(([,v]) => v.team === tid)
+            const tp = Object.entries(effectiveDrafted())
+                .filter(([,v]) => v.team === tid)
                 .map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
-            const tH = tp.filter(p => p.PA > 0), tP = tp.filter(p => p.IP > 0);
-            let tPAw=0,tOBPw=0,tIPw=0,tERAw=0,tWHIPw=0;
-            tH.forEach(p => { tPAw+=p.PA; tOBPw+=p.OBP*p.PA; });
-            tP.forEach(p => { tIPw+=p.IP; tERAw+=p.ERA*p.IP; tWHIPw+=p.WHIP*p.IP; });
-            lgCats.HR.push(tH.reduce((s,p)=>s+p.HR,0));
-            lgCats.SB.push(tH.reduce((s,p)=>s+p.SB,0));
-            lgCats.XBH.push(tH.reduce((s,p)=>s+p.XBH,0));
-            lgCats.OBP.push(tPAw ? tOBPw/tPAw : 0);
-            lgCats.RP.push(tH.reduce((s,p)=>s+p.RP,0));
-            lgCats.K.push(tP.reduce((s,p)=>s+p.K,0));
-            lgCats.W.push(tP.reduce((s,p)=>s+p.W,0));
-            lgCats.ERA.push(tIPw ? tERAw/tIPw : 0);
-            lgCats.SVH.push(tP.reduce((s,p)=>s+p.SVH,0));
-            lgCats.WHIP.push(tIPw ? tWHIPw/tIPw : 0);
+            const active = useOptimal ? optimalLineup(tp).starters : tp;
+            const ts = projStats(active, useRepl);
+            lgCats.HR.push(ts.HR);   lgCats.SB.push(ts.SB);
+            lgCats.XBH.push(ts.XBH); lgCats.OBP.push(ts.OBP);
+            lgCats.RP.push(ts.RP);   lgCats.K.push(ts.K);
+            lgCats.W.push(ts.W);     lgCats.ERA.push(ts.ERA);
+            lgCats.SVH.push(ts.SVH); lgCats.WHIP.push(ts.WHIP);
         });
 
         // bar(v, cat, inv): position v within the league distribution for cat
@@ -414,10 +493,14 @@ const Templates = {
         return `
             <div style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden">
             ${teamSelector}
-            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0">
+            <div style="padding:4px 8px;background:#060e18;border-bottom:1px solid #0a1e30;flex-shrink:0;display:flex;align-items:center;gap:12px">
                 <input type="text" id="myteamSearchInput" placeholder="Filter roster…" value="${AppState.ui.myteamSearch || ''}"
                     oninput="AppState.ui.myteamSearch=this.value;UI.render()"
                     style="background:#0a1420;color:#c8d8e8;border:1px solid #1a3050;padding:3px 8px;font-size:11px;width:180px">
+                <label style="font-size:10px;color:#7090a8;display:flex;align-items:center;gap:3px;cursor:pointer;white-space:nowrap" title="Use optimal active lineup (23 starters) instead of summing all roster players">
+                    <input type="checkbox" ${useOptimal?'checked':''} onchange="AppState.ui.projOptimal=this.checked;UI.render()"> OPT LINEUP</label>
+                <label style="font-size:10px;color:#7090a8;display:flex;align-items:center;gap:3px;cursor:pointer;white-space:nowrap" title="Add replacement-level stats for injured players with reduced projected PA/IP">
+                    <input type="checkbox" ${useRepl?'checked':''} onchange="AppState.ui.projILRepl=this.checked;UI.render()"> + IL REPL</label>
             </div>
             <div style="flex:1;overflow-y:auto;min-height:0">
                 <div style="display:flex;min-height:min-content">
@@ -581,21 +664,15 @@ const Templates = {
         const simActive = Object.values(AppState.drafted).some(v => v.sim);
         const drafted = effectiveDrafted();
         const stats = {};
+        const useOptimal = AppState.ui.projOptimal !== false;
+        const useRepl    = AppState.ui.projILRepl  !== false;
         teams.forEach(tid => {
-            const picks = Object.entries(drafted).filter(([,v]) => v.team === tid).map(([id]) => AppState.players.find(p => p.id === id)).filter(Boolean);
-            const H = picks.filter(p => p.PA > 0);
-            const P = picks.filter(p => p.IP > 0);
-            let PAw=0, OBPw=0, IPw=0, ERAw=0, WHIPw=0;
-            H.forEach(p => { PAw += p.PA; OBPw += p.OBP * p.PA; });
-            P.forEach(p => { IPw += p.IP; ERAw += p.ERA * p.IP; WHIPw += p.WHIP * p.IP; });
-            stats[tid] = {
-                HR: H.reduce((s,p)=>s+p.HR,0), SB: H.reduce((s,p)=>s+p.SB,0),
-                XBH: H.reduce((s,p)=>s+p.XBH,0), OBP: PAw ? OBPw/PAw : 0,
-                RP: H.reduce((s,p)=>s+p.RP,0), K: P.reduce((s,p)=>s+p.K,0),
-                W: P.reduce((s,p)=>s+p.W,0), SVH: P.reduce((s,p)=>s+p.SVH,0),
-                ERA: IPw ? ERAw/IPw : 99, WHIP: IPw ? WHIPw/IPw : 99,
-                IP: Math.round(IPw), n: picks.length
-            };
+            const picks = Object.entries(drafted)
+                .filter(([,v]) => v.team === tid)
+                .map(([id]) => AppState.players.find(p => p.id === id))
+                .filter(Boolean);
+            const active = useOptimal ? optimalLineup(picks).starters : picks;
+            stats[tid] = { ...projStats(active, useRepl), n: picks.length };
         });
 
         const cats = ['HR','SB','XBH','OBP','RP','K','W','SVH','ERA','WHIP'];
@@ -628,9 +705,14 @@ const Templates = {
             return `<td style="text-align:center;font-size:11px"><span style="color:${clr}">${s.n?val:'—'}</span><br><span class="muted" style="font-size:10px">(${rDisp})</span></td>`;
         };
 
+        const chk = (key, label, title) =>
+            `<label style="font-size:10px;color:#7090a8;display:flex;align-items:center;gap:3px;cursor:pointer;white-space:nowrap" title="${title}">
+                <input type="checkbox" ${AppState.ui[key]!==false?'checked':''} onchange="AppState.ui['${key}']=this.checked;UI.render()"> ${label}</label>`;
         return `
-            <div style="display:flex;align-items:center;gap:10px;padding:8px 0 12px">
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 0 12px;flex-wrap:wrap">
                 <span style="color:#7090a8;font-size:11px;flex:1">Projected Roto standings based on drafted players.${simActive ? ' <span style="color:#e8c040">★ SIMULATION ACTIVE</span>' : ' Updates live.'}</span>
+                ${chk('projOptimal','OPT LINEUP','Use optimal active lineup (23 starters) instead of summing all roster players')}
+                ${chk('projILRepl','+ IL REPL','Add replacement-level stats for injured players with significantly reduced projected PA/IP')}
                 ${simActive
                     ? `<button class="btn btn-danger" onclick="UI.clearSimulation()">CLEAR SIM</button>`
                     : `<button class="btn btn-go" onclick="UI.simulateDraft()">SIM FULL DRAFT</button>

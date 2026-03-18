@@ -172,6 +172,12 @@ const UI = {
 
         if (tab === 'auction') content.innerHTML = Templates.auction(players);
         else if (tab === 'arb') content.innerHTML = Templates.arb(players);
+        else if (tab === 'freeagents') {
+            const was = AppState.ui.hideDrafted;
+            AppState.ui.hideDrafted = true;
+            content.innerHTML = Templates.auction(this.getFilteredPlayers());
+            AppState.ui.hideDrafted = was;
+        }
         else if (tab === 'myteam') content.innerHTML = Templates.myteam();
         else if (tab === 'league') content.innerHTML = Templates.league();
         else if (tab === 'standings') content.innerHTML = Templates.standings();
@@ -282,7 +288,7 @@ const UI = {
     showTab(tab) {
         AppState.ui.activeTab = tab;
         document.querySelectorAll('.tab').forEach(el => el.classList.toggle('active', el.id === `tab-${tab}`));
-        const hasControls = ['auction', 'arb'].includes(tab);
+        const hasControls = ['auction', 'arb', 'freeagents'].includes(tab);
         const ctrlBar = document.getElementById('controlsBar');
         if (ctrlBar) ctrlBar.style.display = hasControls ? 'block' : 'none';
         this.render();
