@@ -120,6 +120,14 @@ const UI = {
             }
         }
 
+        // Auto-load baked 2026 draft state if localStorage has no picks
+        // Must run here (not StateManager.load) because draft_state_2026.js loads after state.js
+        if (!Object.keys(AppState.drafted).length && typeof DRAFT_STATE_2026 !== 'undefined') {
+            AppState.drafted   = DRAFT_STATE_2026.drafted   || {};
+            AppState.draftLog  = DRAFT_STATE_2026.draftLog  || [];
+            AppState.snakePick = DRAFT_STATE_2026.snakePick || 0;
+        }
+
         this.renderControls();
         this.render();
         this.setupEventListeners();
