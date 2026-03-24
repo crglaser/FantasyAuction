@@ -1,0 +1,27 @@
+{
+  "owner_key": "me",
+  "owner_name": "Craig Glaser & Terry Lyons",
+  "team": "Chathams",
+  "thread_count": 6,
+  "auction_style": "Extreme stars-and-scrubs. In both 2024 and 2025, Chathams spent 65-75% of their budget on 4 players in the first 13 picks, then essentially nothing in the $10-25 middle tier, then dollar bins for the remainder. 2025: De La Cruz $36, Soto $44, Ohtani $44, Henderson $28 — $152 on 4 players. 2024: Acuna $55, Ohtani $30, De La Cruz $21, Pablo Lopez $24 — $130 on 4. They have a repeat-target premium problem: paid $14 more for Ohtani and $15 more for De La Cruz year-over-year. They essentially skip the RP market at auction ($2 total across both years) and rely on the snake to fill bullpen depth.",
+  "positions_they_favor": ["SS", "OF", "SP"],
+  "positions_they_avoid": ["C", "RP-at-auction"],
+  "price_tendency": "overbids_on_stars_value_on_scrubs",
+  "price_tendency_detail": "Will pay elite prices for top-tier targets with no ceiling — Acuna $55 in 2024 was the highest single price in two years of data. Year-over-year they pay more for the same players (Ohtani +$14, De La Cruz +$15 from 2024 to 2025). The middle market ($10-25) is almost entirely skipped. At the bottom they are excellent value hunters, e.g. Jack Flaherty $1, Senga $2, Gavin Williams $1.",
+  "trade_style": "Very active traders. Most trade-active team in the league. They take on injury risk for upside (Bohm for Nimmo, Yandy/Williams/Megill for Matthews/Reynolds/Realmuto) and churn acquired assets at peak value (acquired Maikel Garcia at auction 2025 Rd1 snake, traded him for good return mid-season). They favor pitching-for-hitting swaps and initiate most deals proactively.",
+  "trash_talk_level": "light",
+  "notable_tendencies": [
+    "Extreme stars-and-scrubs: 65-75% of budget on 4 players, almost nothing in the $10-25 middle band",
+    "Repeat-target premium: paid $14 more for Ohtani and $15 more for De La Cruz from 2024 to 2025",
+    "2B is a chronic auction blind spot — filled with snake picks both years (Donovan/Castro in 2025, McNeil/Cronenworth in 2024)",
+    "Snake strategy is coherent: fills RP depth (4-5 arms/year) and SP upside arms in back half",
+    "Zero auction dollars on RP both years despite closers going $6-9 in this room — missed SVH category anchor",
+    "Flips draft-acquired assets at value peak (Garcia example); draft-day acquisitions are often trade fodder",
+    "Builds custom auction tools — most analytically prepared team at the table",
+    "Terry Lyons runs draft night; Craig Glaser handles analytics and in-season management",
+    "Won 2022, 2023 back-to-back championships + 2019 co-title; 2024 Let's Deal won the title",
+    "Tendency to hold underperforming players too long before pulling the in-season trade trigger"
+  ],
+  "intel_summary": "Chathams are the most analytically prepared team in the league and exploit the late auction/snake value bands extremely well. Their weakness is a structural one: the extreme stars-and-scrubs approach leaves no budget for the solid $15-20 contributors, and they've completely ceded the RP auction market despite closers going cheaply in this room. Their snake is intelligently constructed to patch those gaps, but they're buying worse players at the same positions than they could have gotten cheaper at auction. Best counter-strategy: let their repeat targets run past their 2025 prices — they will chase.",
+  "confidence": "high"
+}

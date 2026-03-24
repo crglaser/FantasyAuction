@@ -122,6 +122,7 @@ const Modals = {
             if (entry) Object.assign(entry, AppState.drafted[id]);
         }
         StateManager.save();
+        UI.clearAnalysisCache();
         this.closeModal();
         UI.render();
     },
@@ -132,6 +133,7 @@ const Modals = {
         delete AppState.drafted[id];
         AppState.draftLog = AppState.draftLog.filter(e => e.id !== id);
         StateManager.save();
+        UI.clearAnalysisCache();
         UI.render();
     },
 

@@ -1,0 +1,23 @@
+{
+  "owner_key": "t2",
+  "owner_name": "Joe Achille",
+  "team": "Village Idiots",
+  "thread_count": 4,
+  "auction_style": "Joe Achille is a veteran champion (4 titles: 2007, 2009, 2011, 2016) who runs the auction Zoom logistics for the league — giving him detailed familiarity with the live auction environment. Based on his trade negotiations, he is assertive about fair value and willing to offer multiple SP in deals, suggesting he drafts pitching depth. His challenge style in the 2019 Chathams trade negotiations — where he aggressively called out Craig for poor trade form — shows he takes negotiations seriously and won't quietly accept lowball offers.",
+  "positions_they_favor": ["SP", "SS"],
+  "positions_they_avoid": ["unknown"],
+  "price_tendency": "unknown",
+  "price_tendency_detail": "Insufficient auction price data. His 2019 trade behavior — offering multiple SPs and speed while demanding specific outfielders — suggests he builds surplus pitching at auction and uses it as trade currency.",
+  "trade_style": "Active and sometimes confrontational. Achille initiates trades by reading the 'On the Block' postings and constructs multi-player offers. He becomes frustrated when counterparts don't engage meaningfully and will call it out directly ('what the hell is that?'). He is willing to negotiate and modify proposals but expects genuine dialogue in return.",
+  "trash_talk_level": "moderate",
+  "notable_tendencies": [
+    "Runs the Zoom logistics for draft night every year — has seen every auction live from the moderator seat",
+    "Gets genuinely frustrated by non-responsive trade partners and says so directly via iPhone messages",
+    "Has won championships in 2007, 2009, 2011, and 2016 — consistent long-term performer",
+    "Noted by league as a fellow Red Sox fan alongside Korbak — possible drafting affinity for Boston players",
+    "In 2017 sarcastically noted he'd have the '4th honor' of nominating first as defending champ, then deflated",
+    "Willing to package multiple SPs to acquire specific position needs (speed, OF depth)"
+  ],
+  "intel_summary": "Achille is the league's most experienced champion and a formidable auction competitor. He runs the Zoom so he watches every bid carefully and knows how people bid under pressure. His confrontational trade style suggests he has strong conviction on player values and won't be pushed around. Watch for him to build surplus SP depth at the auction and flip it for hitting needs later in the season.",
+  "confidence": "medium"
+}

@@ -1,0 +1,19 @@
+{
+  "owner_key": "t4",
+  "owner_name": "unknown",
+  "team": "unknown",
+  "thread_count": 0,
+  "auction_style": "No data available. Thread file does not exist.",
+  "positions_they_favor": [],
+  "positions_they_avoid": [],
+  "price_tendency": "unknown",
+  "price_tendency_detail": "No thread file exists for t4.",
+  "trade_style": "Unknown — no data.",
+  "trash_talk_level": "silent",
+  "notable_tendencies": [
+    "No thread file (threads_t4.json) was found in the owner_profiles directory",
+    "Owner slot may not be filled or data was not collected"
+  ],
+  "intel_summary": "No data available for t4. This owner slot either does not exist or email threads were not collected.",
+  "confidence": "low"
+}

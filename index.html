@@ -30,6 +30,9 @@
         <div class="tab" id="tab-standings" onclick="UI.showTab('standings')">STANDINGS ★</div>
         <div class="tab" id="tab-rosterscout" onclick="UI.showTab('rosterscout')">ROSTER SCOUT</div>
         <div class="tab" id="tab-freeagents" onclick="UI.showTab('freeagents')">FREE AGENTS</div>
+        <div class="tab" id="tab-faab" onclick="UI.showTab('faab')">FAAB ADVISOR</div>
+        <div class="tab" id="tab-trade" onclick="UI.showTab('trade')">TRADE LAB</div>
+        <div class="tab" id="tab-watchlist" onclick="UI.showTab('watchlist')">WATCHLIST ★</div>
         <div class="tab" id="tab-ai" onclick="UI.showTab('ai')">AI ADVISOR 🤖</div>
         <div class="tab draft-only" id="tab-auction" onclick="UI.showTab('auction')" style="display:none">AUCTION BOARD</div>
         <div class="tab draft-only" id="tab-arb" onclick="UI.showTab('arb')" style="display:none">VALUE COMPARE ★</div>
@@ -136,6 +139,8 @@
     <script src="js/engine/injuries.js"></script>
     <script src="js/engine/zscore.js"></script>
     <script src="js/engine/assistant.js"></script>
+    <script src="js/engine/faab_engine.js"></script>
+    <script src="js/engine/trade_engine.js"></script>
     <script src="js/data/seed.js"></script>
     <script src="js/data/steamer_extras.js"></script>
     <script src="js/data/injuries_cache.js"></script>
@@ -144,6 +149,7 @@
     <script src="js/data/manual_rankings.js"></script>
     <script src="js/data/draft_state_2026.js"></script>
     <script src="js/data/fantrax_data.js"></script>
+    <script src="js/data/fantrax_rosters.js" onerror="window.FANTRAX_ROSTERS=null"></script>
     <script src="js/data/loader.js"></script>
     <script src="js/ui/templates.js"></script>
     <script src="js/ui/modals.js"></script>

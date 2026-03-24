@@ -3,6 +3,16 @@
  * Includes robust error handling and diagnostics.
  */
 
+/**
+ * Merge FANTRAX_ROSTERS global (from fantrax_rosters.js) into AppState.
+ * Called once during UI.init() after all data scripts have loaded.
+ */
+function mergeFantraxRosters() {
+    if (typeof FANTRAX_ROSTERS === 'undefined' || !FANTRAX_ROSTERS) return;
+    AppState.fantraxRosters = FANTRAX_ROSTERS;
+    console.log('[DataLoader] FANTRAX_ROSTERS loaded:', FANTRAX_ROSTERS._meta);
+}
+
 const DataLoader = {
     
     /**

@@ -690,26 +690,9 @@ const Templates = {
             });
         }
 
+        // Roto ranking — delegated to FaabEngine (single source of truth)
+        const ranks = FaabEngine.computeRotoRanks(stats);
         const cats = ['HR','SB','XBH','OBP','RP','K','W','SVH','ERA','WHIP'];
-        const inv = new Set(['ERA','WHIP']);
-        const ranks = {};
-        teams.forEach(tid => { ranks[tid] = { total: 0 }; });
-        cats.forEach(cat => {
-            const sorted = [...teams].sort((a,b) => inv.has(cat) ? stats[a][cat]-stats[b][cat] : stats[b][cat]-stats[a][cat]);
-            // Tie handling: teams with equal values split the points for those positions
-            let i = 0;
-            while (i < sorted.length) {
-                let j = i;
-                const val = stats[sorted[i]][cat];
-                while (j < sorted.length && stats[sorted[j]][cat] === val) j++;
-                // Average rank points across the tied group (e.g. 3-way tie for 2nd: (8+7+6)/3 = 7)
-                let pts = 0;
-                for (let k = i; k < j; k++) pts += (teams.length - k);
-                const avg = pts / (j - i);
-                for (let k = i; k < j; k++) { ranks[sorted[k]][cat] = avg; ranks[sorted[k]].total += avg; }
-                i = j;
-            }
-        });
         // Dynamic sort based on standingsSortCol/Dir
         const sCol = AppState.ui.standingsSortCol || 'total';
         const sDir = AppState.ui.standingsSortDir || 'desc';

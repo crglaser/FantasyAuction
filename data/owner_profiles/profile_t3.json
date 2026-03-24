@@ -1,0 +1,23 @@
+{
+  "owner_key": "t3",
+  "owner_name": "Barry Carlin",
+  "team": "Happy Recap",
+  "thread_count": 105,
+  "auction_style": "Barry is the Commissioner — he sends the vast majority of emails and controls league operations. His email threads show he's organized, detail-oriented, and runs a tight ship. As a competitor, he's a three-time champion (2006, 2015, 2017) suggesting he's skilled at auction prep. His commissioner role also gives him unique intel on all transactions, injuries, and rule interpretations before others. He tends toward balanced, disciplined roster building based on his approach to league administration.",
+  "positions_they_favor": ["SP", "3B"],
+  "positions_they_avoid": ["unknown"],
+  "price_tendency": "unknown",
+  "price_tendency_detail": "As Commissioner, Barry rarely discusses his own team's strategy openly. His detailed knowledge of league rules and procedures suggests he exploits edge cases and roster flexibility better than most.",
+  "trade_style": "Selectively active. Barry's commissioner role means he processes all trades, giving him full information. He occasionally makes targeted moves but appears more conservative than teams like Chathams or Let's Deal. His 2023 team of the week win with Devers/Peralta suggests he values elite power hitters and top-line SP.",
+  "trash_talk_level": "moderate",
+  "notable_tendencies": [
+    "Commissioner since founding — processes all trades and has full information on every transaction in real time",
+    "3 championships (2006, 2015, 2017) — proves he competes seriously despite administrative load",
+    "Writes annual season-in-review recaps — knows every team's moves and results in exhaustive detail",
+    "Uses humor in emails: 'As a team owner I hope everyone is unprepared!' etc.",
+    "Son Derek Carlin co-owns Velvet Thunder (t10) — potential coordination concern",
+    "Voted to keep Team of the Week bonus (which he won Week 21 in 2023) vs. Team of the Month proposal"
+  ],
+  "intel_summary": "Barry is the most informed person in the league by virtue of his commissioner role — he sees every trade, every pickup, every injury replacement request. He competes seriously and has won three titles, though his administrative duties may distract from in-season optimization. His son's team creates a potential conflict of interest to be aware of during trade negotiations. His 105-thread email history is almost entirely administrative broadcasts, making his personal draft strategy hard to read.",
+  "confidence": "low"
+}
