@@ -153,7 +153,18 @@ const Modals = {
             : p.n;
 
         document.getElementById('injName').textContent =
-            `${p.t}  ·  ${p.pos.join('/')}  ·  AUC $${p.csValAAdj || p.csValA || '—'}  ·  SZN $${p.csValS || '—'}`;
+            `${p.t}  ·  ${p.pos.join('/')}  ·  AUC $${p.csValAAdj || p.csValA || '—'}  ·  SZN $${p.csValS || '—'}  ·  Age ${p.age || '?'}`;
+
+        // Role section
+        const roleEl = document.getElementById('injRoleSection');
+        const roleParts = this._buildRoleParts(p);
+        if (roleParts.length) {
+            roleEl.style.display = 'flex';
+            roleEl.innerHTML = roleParts.join('');
+        } else {
+            roleEl.style.display = 'none';
+            roleEl.innerHTML = '';
+        }
 
         document.getElementById('modalProj').textContent = proj;
 
@@ -162,34 +173,126 @@ const Modals = {
             blurbEl.textContent = news.blurb;
             blurbEl.style.color = '#c8d8e8';
         } else {
-            blurbEl.textContent = 'No cached news. Check the links below for current status.';
+            blurbEl.textContent = 'No cached news — fetching live...';
             blurbEl.style.color = '#406080';
         }
 
+        // Links
         document.getElementById('linkCBS').href =
             `https://www.cbssports.com/mlb/players/search/${encodeURIComponent(p.n)}/`;
         document.getElementById('linkFG').href = p.fgId
             ? `https://www.fangraphs.com/statss.aspx?playerid=${p.fgId}&position=${p.IP > 0 ? 'P' : 'PB'}`
             : `https://www.fangraphs.com/search?query=${encodeURIComponent(p.n)}`;
+        const savantEl = document.getElementById('linkSavant');
+        if (p.mlbId) {
+            savantEl.href = `https://baseballsavant.mlb.com/savant-player/${p.mlbId}`;
+            savantEl.style.opacity = '1';
+        } else {
+            savantEl.href = `https://baseballsavant.mlb.com/search?player_type=batter&results=&game_date_gt=&game_date_lt=&player_lookup%5B%5D=${encodeURIComponent(p.n)}`;
+            savantEl.style.opacity = '0.5';
+        }
+        document.getElementById('linkRoto').href =
+            `https://www.rotoballer.com/player-news?sport=baseball&player=${encodeURIComponent(p.n)}`;
 
         document.getElementById('noteArea').value = note;
 
-        // Pre-computed summary (from update_injuries.py --summarize) or on-demand button
+        // Pre-computed summary or on-demand button
         const summaryBlock = document.getElementById('injSummaryBlock');
         const summaryEl    = document.getElementById('injSummary');
         const summarizeBtn = document.getElementById('injSummarizeBtn');
         if (news?.summary) {
             summaryBlock.style.display = 'block';
-            summarizeBtn.style.display = 'none'; // already computed, no need to re-run
+            summarizeBtn.style.display = 'none';
             summaryEl.innerHTML = this._formatSummary(news.summary);
         } else {
             summaryBlock.style.display = 'none';
-            summarizeBtn.style.display = news?.blurb ? '' : 'none'; // only show if there's something to summarize
+            summarizeBtn.style.display = news?.blurb ? '' : 'none';
             summarizeBtn.textContent = '⚡ AI SUMMARY';
         }
 
         document.getElementById('injuryModal').classList.add('open');
         InjuryManager.markRead(id);
+
+        // Auto-fetch live news in background
+        const fetchStatusEl = document.getElementById('injLiveFetchStatus');
+        fetchStatusEl.textContent = 'fetching...';
+        InjuryManager.searchForPlayer(p).then(found => {
+            if (AppState.pendingPlayerId !== id) return; // modal closed/changed
+            const refreshed = InjuryManager.getLatestFor(id);
+            if (found && refreshed) {
+                blurbEl.textContent = refreshed.blurb;
+                blurbEl.style.color = '#c8d8e8';
+                const ago = this._timeAgo(refreshed.ts);
+                fetchStatusEl.textContent = ago;
+                if (refreshed.summary) {
+                    summaryBlock.style.display = 'block';
+                    summarizeBtn.style.display = 'none';
+                    summaryEl.innerHTML = this._formatSummary(refreshed.summary);
+                } else if (refreshed.blurb) {
+                    summarizeBtn.style.display = '';
+                }
+            } else if (!news) {
+                blurbEl.textContent = 'No news found. Check the links below.';
+                blurbEl.style.color = '#304050';
+                fetchStatusEl.textContent = 'no reports';
+            } else {
+                const ago = this._timeAgo(news.ts);
+                fetchStatusEl.textContent = `cached ${ago}`;
+            }
+        });
+    },
+
+    _timeAgo(ts) {
+        if (!ts) return '';
+        const mins = Math.floor((Date.now() - ts) / 60000);
+        if (mins < 60) return `${mins}m ago`;
+        const hrs = Math.floor(mins / 60);
+        if (hrs < 24) return `${hrs}h ago`;
+        return `${Math.floor(hrs / 24)}d ago`;
+    },
+
+    _buildRoleParts(p) {
+        const parts = [];
+        // Closer role from CM_Role
+        if (p.CM_Role) {
+            const segments = p.CM_Role.split(':');
+            const status = segments[0];
+            const committee = segments[2] === '*';
+            const colors = { CLOSER: '#40b870', '1ST': '#e8c040', '2ND': '#6090c0' };
+            const labels = { CLOSER: 'CLOSER', '1ST': '1ST IN LINE', '2ND': '2ND IN LINE' };
+            const color = colors[status] || '#6090c0';
+            const label = (labels[status] || status) + (committee ? ' (COM)' : '');
+            parts.push(`<span style="background:${color};color:#000;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px">${label}</span>`);
+        } else if (p.closerStatus) {
+            const colors = { CLOSER: '#40b870', '1ST': '#e8c040', '2ND': '#6090c0' };
+            const color = colors[p.closerStatus] || '#6090c0';
+            parts.push(`<span style="background:${color};color:#000;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px">${p.closerStatus}</span>`);
+        }
+        // PL rank for SPs
+        if (p.PL_Rank && p.IP > 0) {
+            const t = p.PL_Tier || 99;
+            const c = t <= 1 ? '#e8c040' : t <= 2 ? '#40b870' : t <= 4 ? '#409080' : '#7090a8';
+            parts.push(`<span style="color:${c};font-size:11px;font-weight:600">PL SP #${p.PL_Rank}${p.PL_Tier ? ` T${p.PL_Tier}` : ''}</span>`);
+        }
+        // HL rank for hitters
+        if (p.HL_Rank && p.PA > 0) {
+            const t = p.HL_Tier || 99;
+            const c = t <= 1 ? '#e8c040' : t <= 2 ? '#40b870' : t <= 4 ? '#409080' : '#7090a8';
+            parts.push(`<span style="color:${c};font-size:11px;font-weight:600">HL #${p.HL_Rank}${p.HL_Tier ? ` T${p.HL_Tier}` : ''}</span>`);
+        }
+        // ECR
+        if (p.ecr) {
+            parts.push(`<span style="color:#7090a8;font-size:11px">ECR #${Math.round(p.ecr)}</span>`);
+        }
+        // ESPN auction $
+        if (p.espnAuction) {
+            parts.push(`<span style="color:#7090a8;font-size:11px">ESPN $${p.espnAuction}</span>`);
+        }
+        // ADP
+        if (p.adp) {
+            parts.push(`<span style="color:#7090a8;font-size:11px">ADP ${p.adp.toFixed(0)}</span>`);
+        }
+        return parts;
     },
 
     _formatSummary(text) {

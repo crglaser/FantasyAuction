@@ -106,10 +106,15 @@
 
     <!-- Player Info Modal -->
     <div class="modal-bg" id="injuryModal" onclick="if(event.target===this)this.classList.remove('open')">
-        <div class="modal" style="max-width:620px;width:95%">
+        <div class="modal" style="max-width:660px;width:95%">
             <div class="modal-title" id="injTitle" style="font-size:15px"></div>
-            <div id="injName" style="font-size:11px;color:#7090a8;margin:-8px 0 12px"></div>
-            <div id="modalProj" style="font-size:11px;color:#406080;font-family:monospace;margin-bottom:14px;padding:6px 8px;background:#060e18;border-radius:4px"></div>
+            <div id="injName" style="font-size:11px;color:#7090a8;margin:-8px 0 8px"></div>
+            <div id="injRoleSection" style="display:none;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"></div>
+            <div id="modalProj" style="font-size:11px;color:#406080;font-family:monospace;margin-bottom:12px;padding:6px 8px;background:#060e18;border-radius:4px"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <div style="font-size:10px;color:#406080">NEWS</div>
+                <div id="injLiveFetchStatus" style="font-size:10px;color:#304050"></div>
+            </div>
             <div id="injNewsBlurb" style="font-size:12px;color:#c8d8e8;line-height:1.7;max-height:160px;overflow-y:auto;padding:10px 12px;background:#0a1420;border:1px solid #1a3050;border-radius:4px;margin-bottom:8px;white-space:pre-wrap"></div>
             <div id="injSummaryBlock" style="display:none;margin-bottom:12px">
                 <div style="font-size:10px;color:#406080;margin-bottom:4px">AI SUMMARY</div>
@@ -118,9 +123,11 @@
             <div style="display:flex;gap:8px;margin-bottom:12px">
                 <button id="injSummarizeBtn" class="btn" style="font-size:11px;flex:1" onclick="Modals.summarizeInjury()">⚡ AI SUMMARY</button>
             </div>
-            <div style="display:flex;gap:8px;margin-bottom:14px">
-                <a id="linkCBS" class="btn" target="_blank" style="flex:1;text-align:center;text-decoration:none;font-size:11px">CBS SPORTS</a>
-                <a id="linkFG" class="btn" target="_blank" style="flex:1;text-align:center;text-decoration:none;font-size:11px">FANGRAPHS</a>
+            <div style="display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap">
+                <a id="linkCBS" class="btn" target="_blank" style="flex:1;min-width:80px;text-align:center;text-decoration:none;font-size:10px">CBS</a>
+                <a id="linkFG" class="btn" target="_blank" style="flex:1;min-width:80px;text-align:center;text-decoration:none;font-size:10px">FANGRAPHS</a>
+                <a id="linkSavant" class="btn" target="_blank" style="flex:1;min-width:80px;text-align:center;text-decoration:none;font-size:10px">SAVANT</a>
+                <a id="linkRoto" class="btn" target="_blank" style="flex:1;min-width:80px;text-align:center;text-decoration:none;font-size:10px">ROTOBALLER</a>
             </div>
             <div id="noteSection">
                 <label style="font-size:11px;color:#7090a8;display:block;margin-bottom:4px">SCOUTING NOTES</label>
