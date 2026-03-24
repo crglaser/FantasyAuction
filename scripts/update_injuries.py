@@ -178,10 +178,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--days', type=int, default=7)
     parser.add_argument('--all', action='store_true')
+    parser.add_argument('--no-summarize', action='store_true', help='Skip AI summaries even if claude CLI is available')
     args = parser.parse_args()
 
     claude_bin = subprocess.run(['which', 'claude'], capture_output=True, text=True).stdout.strip()
-    use_ai = bool(claude_bin)
+    use_ai = bool(claude_bin) and not args.no_summarize
     print(f'AI summaries: {"enabled (claude CLI found at " + claude_bin + ")" if use_ai else "disabled (claude CLI not found)"}')
 
     cutoff_ms = 0 if args.all else (
