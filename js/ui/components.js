@@ -801,6 +801,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
             'Fit':   (a, b) => b._teamFit   - a._teamFit,
             'Score': (a, b) => b.Score       - a.Score,
             'ADP':   (a, b) => (a.ADP || 999) - (b.ADP || 999),
+            'IP':    (a, b) => (b._player && (b._player.IP || b._player.PA) || 0) - (a._player && (a._player.IP || a._player.PA) || 0),
             'HR':    (a, b) => (b._player && b._player.HR || 0) - (a._player && a._player.HR || 0),
             'SB':    (a, b) => (b._player && b._player.SB || 0) - (a._player && a._player.SB || 0),
             'K':     (a, b) => (b._player && b._player.K  || 0) - (a._player && a._player.K  || 0),
@@ -829,7 +830,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
             </select>
             <label style="font-size:11px;color:#9cb8d8;margin-left:8px">Sort:</label>
             <select onchange="AppState.ui.faabStatSort=this.value;UI.render()" style="font-size:11px;padding:2px 6px">
-                ${selOpts(statSort, ['ROTO+','Fit','Score','ADP','HR','SB','K','W','SVH','ERA','WHIP'])}
+                ${selOpts(statSort, ['ROTO+','Fit','Score','ADP','IP','K','W','SVH','HR','SB','ERA','WHIP'])}
             </select>
             <span style="font-size:11px;color:#506878;margin-left:8px">${visible.length} players · ROTO+ = rank-pts gained by adding player</span>
         </div>
@@ -841,6 +842,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                 <th style="width:50px;text-align:right" title="Fantrax score">Score</th>
                 <th style="width:44px;text-align:right">ADP</th>
                 <th style="width:52px;text-align:right;color:#40b870" title="Roto rank-points gained by adding to your team">ROTO+</th>
+                <th style="width:38px;text-align:right" title="Projected IP (pitchers) or PA (hitters) — counting stat volume">IP/PA</th>
                 <th style="width:38px;text-align:right" title="Team fit (position need + scarcity)">Fit</th>
                 <th style="width:90px" title="Team that benefits most from adding this player (trade demand)">Best Trade-To</th>
                 <th style="width:110px" title="Who gets bumped off active lineup to make room (open slot = fills empty roster spot)">Replaces</th>
@@ -849,7 +851,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
             <tbody>`;
 
         if (!visible.length) {
-            html += `<tr><td colspan="10" style="text-align:center;color:#88a8c4;padding:20px">No players found for filter.</td></tr>`;
+            html += `<tr><td colspan="11" style="text-align:center;color:#88a8c4;padding:20px">No players found for filter.</td></tr>`;
         } else {
             visible.slice(0, 75).forEach((r, idx) => {
                 const p   = r._player || {};
@@ -884,6 +886,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                     <td style="text-align:right">${(+r.Score || 0).toFixed(1)}</td>
                     <td style="text-align:right;color:#7090a8">${r.ADP && r.ADP < 900 ? (+r.ADP).toFixed(0) : '—'}</td>
                     <td style="text-align:right;font-weight:700;color:${drClr}">${dr > 0 ? '+' : ''}${dr.toFixed(2)}</td>
+                    <td style="text-align:right;color:#7090a8">${p.IP ? Math.round(p.IP) + ' IP' : p.PA ? p.PA + ' PA' : '—'}</td>
                     <td style="text-align:right;color:#9cb8d8">${r._teamFit.toFixed(1)}</td>
                     <td>${tradeTo}</td>
                     <td>${replacesCell}</td>

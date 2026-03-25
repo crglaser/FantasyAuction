@@ -17,18 +17,61 @@ const FaabEngine = {
     // ─────────────────────────────────────────────
 
     /**
+     * Apply live injury cache to a roster, overriding stale inj flags and
+     * reducing projected IP/PA for players confirmed on IL.
+     * This ensures the roto simulation doesn't count injured players as fully healthy.
+     *
+     * IP/PA reduction logic (triggers projStats replacement-level padding):
+     *   60-day IL:       SP → 80 IP,  RP → 25 IP,  Hitter → 150 PA
+     *   Opening-day IL:  SP → 110 IP, RP → 35 IP,  Hitter → 380 PA
+     * projStats padding threshold: SP < 120 IP, RP < 40 IP (from _REPL constants)
+     */
+    _applyInjuryCache(roster) {
+        const cache = AppState.injuryCache;
+        if (!cache) return roster;
+        return roster.map(p => {
+            const news = cache[p.id];
+            if (!news) return p;
+            const text = ((news.title || '') + ' ' + (news.blurb || '')).toLowerCase();
+            const on60  = /60-day (il|injured list|disabled)/.test(text);
+            const onIL  = on60
+                || /placed on the (il|injured list)/.test(text)
+                || /begin.{0,20}(season|year).{0,20}(il|injured list)/.test(text)
+                || /begin.{0,5}the.{0,20}(il|injured list)/.test(text);
+            if (!onIL) return { ...p, inj: true };  // day-to-day — flag inj but keep stats
+            const isSP = (p.pos || []).includes('SP') && !(p.PA > 0);
+            const isRP = (p.pos || []).includes('RP') && !(p.PA > 0) && !isSP;
+            const isHitter = (p.PA || 0) > 0;
+            const overrides = { inj: true };
+            if (on60) {
+                if (isSP)     overrides.IP = Math.min(p.IP || 0, 80);
+                else if (isRP) overrides.IP = Math.min(p.IP || 0, 25);
+                else if (isHitter) overrides.PA = Math.min(p.PA || 0, 150);
+            } else {
+                if (isSP)     overrides.IP = Math.min(p.IP || 0, 110);
+                else if (isRP) overrides.IP = Math.min(p.IP || 0, 35);
+                else if (isHitter) overrides.PA = Math.min(p.PA || 0, 380);
+            }
+            return { ...p, ...overrides };
+        });
+    },
+
+    /**
      * Get the current roster for a team.
      * Prefers AppState.fantraxRosters (live Fantrax data) over effectiveDrafted() fallback.
-     * Filters out _unmatched entries which lack projection data.
+     * Filters out _unmatched entries, then applies live injury cache overrides.
      */
     _getRosterByTid(tid, drafted, players) {
+        let roster;
         if (AppState.fantraxRosters && AppState.fantraxRosters[tid]) {
-            return AppState.fantraxRosters[tid].filter(p => !p._unmatched);
+            roster = AppState.fantraxRosters[tid].filter(p => !p._unmatched);
+        } else {
+            roster = Object.entries(drafted)
+                .filter(([, v]) => v.team === tid)
+                .map(([id]) => players.find(p => p.id === id))
+                .filter(Boolean);
         }
-        return Object.entries(drafted)
-            .filter(([, v]) => v.team === tid)
-            .map(([id]) => players.find(p => p.id === id))
-            .filter(Boolean);
+        return this._applyInjuryCache(roster);
     },
 
     /**
