@@ -843,12 +843,13 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                 <th style="width:52px;text-align:right;color:#40b870" title="Roto rank-points gained by adding to your team">ROTO+</th>
                 <th style="width:38px;text-align:right" title="Team fit (position need + scarcity)">Fit</th>
                 <th style="width:90px" title="Team that benefits most from adding this player (trade demand)">Best Trade-To</th>
+                <th style="width:110px" title="Who gets bumped off active lineup to make room (open slot = fills empty roster spot)">Replaces</th>
                 <th>Role / News</th>
             </tr></thead>
             <tbody>`;
 
         if (!visible.length) {
-            html += `<tr><td colspan="9" style="text-align:center;color:#88a8c4;padding:20px">No players found for filter.</td></tr>`;
+            html += `<tr><td colspan="10" style="text-align:center;color:#88a8c4;padding:20px">No players found for filter.</td></tr>`;
         } else {
             visible.slice(0, 75).forEach((r, idx) => {
                 const p   = r._player || {};
@@ -865,6 +866,17 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                 const roleShort = (r._roleNews || '—').substring(0, 70);
                 const roleFull  = (r._roleNews || '').replace(/"/g, '&quot;');
 
+                let replacesCell = '—';
+                if (r._fillsOpenSlot) {
+                    replacesCell = '<span style="color:#40b870;font-size:10px">fills open slot</span>';
+                } else if (r._replacedPlayer) {
+                    const rp = r._replacedPlayer;
+                    const rpVal = rp.csValAAdj || rp.csValA || 0;
+                    replacesCell = `<span style="color:#e8c040;font-size:10px" title="$${rpVal} value">${rp.n}</span>`;
+                } else if (r._deltaROTO <= 0) {
+                    replacesCell = '<span style="color:#304050;font-size:10px">bench only</span>';
+                }
+
                 html += `<tr${r._alreadyDrafted ? ' style="opacity:0.35"' : ''}>
                     <td style="text-align:right;color:#506878">${idx + 1}</td>
                     <td>${r.Player}${injBadge}${unmatch}</td>
@@ -874,6 +886,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                     <td style="text-align:right;font-weight:700;color:${drClr}">${dr > 0 ? '+' : ''}${dr.toFixed(2)}</td>
                     <td style="text-align:right;color:#9cb8d8">${r._teamFit.toFixed(1)}</td>
                     <td>${tradeTo}</td>
+                    <td>${replacesCell}</td>
                     <td style="color:#7090a8;font-size:11px" title="${roleFull}">${roleShort}</td>
                 </tr>`;
             });

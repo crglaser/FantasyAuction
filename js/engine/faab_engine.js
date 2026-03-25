@@ -262,6 +262,12 @@ const FaabEngine = {
             const delta    = +(newRanks[myTid].total - oldTotal).toFixed(2);
             const newRank  = this._rankFromRanks(newRanks, myTid);
 
+            // Who gets bumped off the active lineup to make room?
+            const beforeActive = new Set(optimalLineup(myRoster).starters.map(p => p.id));
+            const afterActive  = new Set(optimalLineup([...myRoster, base]).starters.map(p => p.id));
+            const replacedPlayer = myRoster.find(p => beforeActive.has(p.id) && !afterActive.has(p.id)) || null;
+            const fillsOpenSlot  = afterActive.has(base.id) && !replacedPlayer;
+
             // Trade map
             const tradeMap = this.computeTradeMap(base, drafted, players, opts, baseStats, baseRanks);
 
@@ -292,8 +298,10 @@ const FaabEngine = {
                 _teamFit:        teamFit,
                 _tradeMap:       tradeMap,
                 _bestTradeTo:    bestTradeTo,
-                _roleNews:       this._buildRoleNews(base),
-                _alreadyDrafted: alreadyDrafted,
+                _roleNews:        this._buildRoleNews(base),
+                _alreadyDrafted:  alreadyDrafted,
+                _replacedPlayer:  replacedPlayer,
+                _fillsOpenSlot:   fillsOpenSlot,
                 _aVal:           base.aValAdj  || base.aVal  || 0,
                 _fVal:           base.fVal      || 0,
                 _csVal:          base.csValAAdj || base.csValA || 0,
