@@ -767,11 +767,18 @@ const Templates = {
     },
 
     standingsLineup(tid, overrides) {
+        // Prefer live Fantrax roster data (has real slot assignments) over draft state.
         const drafted = effectiveDrafted();
-        const picks = Object.entries(drafted)
-            .filter(([,v]) => v.team === tid)
-            .map(([id]) => AppState.players.find(p => p.id === id))
-            .filter(Boolean);
+        const ftxRoster = AppState.fantraxRosters?.[tid];
+        let picks;
+        if (ftxRoster && ftxRoster.length) {
+            picks = ftxRoster.filter(p => p.slot !== 'INJURED_RESERVE');
+        } else {
+            picks = Object.entries(drafted)
+                .filter(([,v]) => v.team === tid)
+                .map(([id]) => AppState.players.find(p => p.id === id))
+                .filter(Boolean);
+        }
         if (!picks.length) return `<div style="padding:12px;color:#406080;font-size:11px">No players drafted yet.</div>`;
 
         const useRepl = AppState.ui.projILRepl !== false;
@@ -780,6 +787,10 @@ const Templates = {
         if (ov) {
             activeIds = ov.active;
             benchIds = picks.filter(p => !activeIds.includes(p.id)).map(p => p.id);
+        } else if (ftxRoster && ftxRoster.length) {
+            // Use real Fantrax slot assignments
+            activeIds = picks.filter(p => p.slot === 'ACTIVE').map(p => p.id);
+            benchIds  = picks.filter(p => p.slot !== 'ACTIVE').map(p => p.id);
         } else {
             const { starters, bench } = optimalLineup(picks);
             activeIds = starters.map(p => p.id);

@@ -166,6 +166,8 @@ After any meaningful change:
 6. Drop the app URL: `https://crglaser.github.io/FantasyAuction/`
 
 ## Version History
+2.3.19 — standingsLineup uses real Fantrax slot (ACTIVE/RESERVE) instead of optimalLineup when rosters loaded
+2.3.18 — fetch_fantrax_rosters.py --csv flag: merges CSV roster assignments to handle post-FAAB API lag
 2.3.17 — inject all 25 FAAB adds across all teams from CSV (API lagging post-FAAB)
 2.3.16 — inject 4 FAAB pickups (Early/Harvey/Lowe/Painter) into Chathams roster; API was lagging
 2.3.15 — 3/26 post-FAAB update: fresh CSV coverage check (clean), FA pool re-scored
