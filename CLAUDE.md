@@ -163,6 +163,7 @@ After any meaningful change:
 6. Drop the repo URL: `https://github.com/crglaser/FantasyAuction`
 
 ## Version History
+2.3.9 — Fix ROTO+ simulation bug: FA candidates were excluded from active lineup when Fantrax slot data loaded
 2.3.8 — Added 13 missing high-ownership FAs to seed/extras; coverage check in fetch_fantrax_rosters.py
 2.3.7 — Fantrax as source of truth: ftxEligiblePos in optimalLineup, FAAB filter, enrichment; fa_report uses live rosters
 2.3.6 — fetch_fantrax_rosters.py: live API pull (no auth); slot-aware standings (ACTIVE only when slot data present)

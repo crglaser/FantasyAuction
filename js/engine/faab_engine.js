@@ -137,9 +137,12 @@ const FaabEngine = {
             const picks = rosterOverrides[tid] !== undefined
                 ? rosterOverrides[tid]
                 : this._getRosterByTid(tid, drafted, players);
-            // If Fantrax slot data is available, use actual active roster;
-            // otherwise fall back to optimalLineup heuristic.
-            const hasSlotData = picks.length > 0 && picks[0].slot !== undefined;
+            // If this is a real roster (not a simulation override) and Fantrax slot data
+            // is available, use actual active roster. For overrides (hypothetical simulations),
+            // always use optimalLineup — the new player has no slot and would be incorrectly
+            // excluded if we filtered by slot === 'ACTIVE'.
+            const isOverride = rosterOverrides[tid] !== undefined;
+            const hasSlotData = !isOverride && picks.length > 0 && picks[0].slot !== undefined;
             let active;
             if (hasSlotData) {
                 active = picks.filter(p => p.slot === 'ACTIVE');
