@@ -268,6 +268,46 @@ def main():
 
     print(f'\nWrote {out_path}')
 
+    # ── Coverage check ───────────────────────────────────────────────────────
+    # Find the most recent AllRostersAndFA CSV in data/ for ownership % data.
+    csv_files = sorted(Path('data').glob('*.csv'), key=lambda p: p.stat().st_mtime, reverse=True)
+    roster_csv = next((f for f in csv_files if 'Fantrax-Players' in f.name), None)
+    if roster_csv:
+        import csv as csv_mod
+        ownership = {}
+        with open(roster_csv, newline='', encoding='utf-8') as cf:
+            for row in csv_mod.DictReader(cf):
+                if row.get('Status', '').strip() != 'FA':
+                    continue
+                ftx_id_raw = row.get('ID', '').strip('*').strip()
+                try:
+                    pct = float(row.get('%D', '0') or 0)
+                except ValueError:
+                    pct = 0
+                if ftx_id_raw:
+                    ownership[ftx_id_raw] = (pct, row.get('Player', ''), row.get('Position', ''), row.get('Team', ''))
+
+        gaps = []
+        for ftx_id, (pct, name, pos, team) in ownership.items():
+            if pct < 5:
+                continue
+            player, matched = resolve_player(ftx_id, ftx_player_lookup, ftx_id_to_name, ftx_to_seed, by_id, by_name)
+            if not matched:
+                gaps.append((pct, name, pos, team))
+
+        gaps.sort(reverse=True)
+        if gaps:
+            print(f'\n⚠  COVERAGE GAPS — FAs >5% owned not in seed (from {roster_csv.name}):')
+            print(f'  {"Own%":>5}  {"Name":<25} {"Pos":<8} {"Team"}')
+            for pct, name, pos, team in gaps[:20]:
+                print(f'  {pct:5.1f}  {name:<25} {pos:<8} {team}')
+            if len(gaps) > 20:
+                print(f'  ... and {len(gaps)-20} more')
+        else:
+            print(f'\n✓  Coverage check passed — no FAs >5% owned missing from seed')
+    else:
+        print('\n(No Fantrax-Players CSV found in data/ — skipping coverage check)')
+
 
 if __name__ == '__main__':
     main()

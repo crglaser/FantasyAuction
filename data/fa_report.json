@@ -1,6 +1,6 @@
 {
   "myTid": "me",
-  "generatedAt": "2026-03-26T02:23:36.351914+00:00",
+  "generatedAt": "2026-03-26T02:34:54.096674+00:00",
   "sp": [
     {
       "id": "yuseikikuchi-laa",
@@ -1040,6 +1040,28 @@
       }
     },
     {
+      "id": "joseberrios-tor",
+      "name": "Jose Berrios",
+      "team": "TOR",
+      "pos": [
+        "SP"
+      ],
+      "score": 19.61,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": false,
+      "csValA": 9.5,
+      "csValS": 8.0,
+      "stats": {
+        "IP": 119,
+        "K": 106,
+        "W": 6.7,
+        "ERA": 4.22,
+        "WHIP": 1.29
+      }
+    },
+    {
       "id": "luisgil-nyy",
       "name": "Luis Gil",
       "team": "NYY",
@@ -1260,6 +1282,28 @@
       }
     },
     {
+      "id": "joeboyle-tb",
+      "name": "Joe Boyle",
+      "team": "TB",
+      "pos": [
+        "SP"
+      ],
+      "score": 18.31,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": false,
+      "csValA": 8.0,
+      "csValS": 6.5,
+      "stats": {
+        "IP": 91,
+        "K": 102,
+        "W": 5.2,
+        "ERA": 3.92,
+        "WHIP": 1.37
+      }
+    },
+    {
       "id": "andrewpainter-phi",
       "name": "Andrew Painter",
       "team": "PHI",
@@ -1323,6 +1367,28 @@
         "W": 5.8,
         "ERA": 5.44,
         "WHIP": 1.53
+      }
+    },
+    {
+      "id": "johanoviedo-bos",
+      "name": "Johan Oviedo",
+      "team": "BOS",
+      "pos": [
+        "SP"
+      ],
+      "score": 17.72,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": false,
+      "csValA": 7.5,
+      "csValS": 6.5,
+      "stats": {
+        "IP": 103,
+        "K": 101,
+        "W": 5.6,
+        "ERA": 4.19,
+        "WHIP": 1.35
       }
     },
     {
@@ -1681,6 +1747,28 @@
       }
     },
     {
+      "id": "hurstonwaldrep-atl",
+      "name": "Hurston Waldrep",
+      "team": "ATL",
+      "pos": [
+        "SP"
+      ],
+      "score": 10.02,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": true,
+      "csValA": 4.5,
+      "csValS": 4.0,
+      "stats": {
+        "IP": 64,
+        "K": 56,
+        "W": 3.8,
+        "ERA": 4.31,
+        "WHIP": 1.44
+      }
+    },
+    {
       "id": "corbinburnes-ari",
       "name": "Corbin Burnes",
       "team": "ARI",
@@ -1700,6 +1788,50 @@
         "W": 2.4,
         "ERA": 3.84,
         "WHIP": 1.27
+      }
+    },
+    {
+      "id": "jonahtong-nym",
+      "name": "Jonah Tong",
+      "team": "NYM",
+      "pos": [
+        "SP"
+      ],
+      "score": 8.02,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": true,
+      "csValA": 3.5,
+      "csValS": 3.0,
+      "stats": {
+        "IP": 26,
+        "K": 29,
+        "W": 1.7,
+        "ERA": 3.41,
+        "WHIP": 1.24
+      }
+    },
+    {
+      "id": "jpsears-sd",
+      "name": "J.P. Sears",
+      "team": "SD",
+      "pos": [
+        "SP"
+      ],
+      "score": 6.09,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": true,
+      "csValA": 3.5,
+      "csValS": 3.0,
+      "stats": {
+        "IP": 34,
+        "K": 31,
+        "W": 1.8,
+        "ERA": 4.33,
+        "WHIP": 1.23
       }
     },
     {
@@ -5842,6 +5974,30 @@
       }
     },
     {
+      "id": "zackgelof-ath",
+      "name": "Zack Gelof",
+      "team": "ATH",
+      "pos": [
+        "2B",
+        "3B"
+      ],
+      "score": 28.79,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": false,
+      "csValA": 8.0,
+      "csValS": 7.0,
+      "stats": {
+        "PA": 450,
+        "HR": 15,
+        "SB": 14,
+        "OBP": 0.31,
+        "XBH": 27,
+        "RP": 95
+      }
+    },
+    {
       "id": "carsonbenge-nym",
       "name": "Carson Benge",
       "team": "NYM",
@@ -8986,6 +9142,53 @@
       }
     },
     {
+      "id": "tristoncasas-bos",
+      "name": "Triston Casas",
+      "team": "BOS",
+      "pos": [
+        "1B"
+      ],
+      "score": 8.73,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": false,
+      "csValA": 6.5,
+      "csValS": 5.5,
+      "stats": {
+        "PA": 145,
+        "HR": 6,
+        "SB": 1,
+        "OBP": 0.34,
+        "XBH": 6,
+        "RP": 37
+      }
+    },
+    {
+      "id": "cobymayo-bal",
+      "name": "Coby Mayo",
+      "team": "BAL",
+      "pos": [
+        "1B",
+        "3B"
+      ],
+      "score": 8.47,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": true,
+      "csValA": 6.5,
+      "csValS": 5.5,
+      "stats": {
+        "PA": 170,
+        "HR": 7,
+        "SB": 1,
+        "OBP": 0.309,
+        "XBH": 8,
+        "RP": 40
+      }
+    },
+    {
       "id": "luistorrens-nym",
       "name": "Luis Torrens",
       "team": "NYM",
@@ -9030,81 +9233,12 @@
         "XBH": 9,
         "RP": 43
       }
-    },
-    {
-      "id": "rhyshoskins-cle",
-      "name": "Rhys Hoskins",
-      "team": "CLE",
-      "pos": [
-        "1B"
-      ],
-      "score": 6.09,
-      "ftxScore": 0,
-      "injNote": "",
-      "roleNote": "HL#199 T18",
-      "unofficial": false,
-      "csValA": 0,
-      "csValS": 0,
-      "stats": {
-        "PA": 550,
-        "HR": 0,
-        "SB": 0,
-        "OBP": 0.32,
-        "XBH": 0,
-        "RP": 0
-      }
-    },
-    {
-      "id": "kempalderman-mia",
-      "name": "Kemp Alderman",
-      "team": "MIA",
-      "pos": [
-        "OF"
-      ],
-      "score": 6.05,
-      "ftxScore": 0,
-      "injNote": "",
-      "roleNote": "",
-      "unofficial": false,
-      "csValA": 0,
-      "csValS": 0,
-      "stats": {
-        "PA": 550,
-        "HR": 0,
-        "SB": 0,
-        "OBP": 0.32,
-        "XBH": 0,
-        "RP": 0
-      }
-    },
-    {
-      "id": "nachoalvarezjr-atl",
-      "name": "Nacho Alvarez Jr.",
-      "team": "ATL",
-      "pos": [
-        "3B"
-      ],
-      "score": 6.05,
-      "ftxScore": 0,
-      "injNote": "",
-      "roleNote": "",
-      "unofficial": false,
-      "csValA": 0,
-      "csValS": 0,
-      "stats": {
-        "PA": 550,
-        "HR": 0,
-        "SB": 0,
-        "OBP": 0.32,
-        "XBH": 0,
-        "RP": 0
-      }
     }
   ],
   "_meta": {
-    "totalSP": 136,
+    "totalSP": 142,
     "totalRP": 118,
-    "totalHitters": 198,
+    "totalHitters": 205,
     "injuredExcluded": 16
   }
 }

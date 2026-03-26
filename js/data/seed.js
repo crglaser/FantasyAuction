@@ -10616,5 +10616,10 @@ const SEED_PLAYERS = [
   {"id": "marcelomayer-bos", "n": "Marcelo Mayer", "t": "BOS", "pos": ["SS", "3B"], "inj": false, "age": 23, "csValA": 4.8, "csValS": 5.0, "PA": 312, "OBP": 0.31, "HR": 8, "XBH": 27, "RP": 71, "SB": 3.6},
   {"id": "camsmith-hou", "n": "Cam Smith", "t": "HOU", "pos": ["OF"], "inj": false, "age": 24, "csValA": 5.2, "csValS": 5.5, "PA": 360, "OBP": 0.315, "HR": 9, "XBH": 26, "RP": 79, "SB": 4.9},
   {"id": "josecaballero-nyy", "n": "Jos\u00e9 Caballero", "t": "NYY", "pos": ["SS", "2B"], "inj": false, "age": 27, "csValA": 3.9, "csValS": 4.1, "PA": 277, "OBP": 0.313, "HR": 4, "XBH": 17, "RP": 56, "SB": 26.4},
-  {"id": "luisgarcajr-wsh", "n": "Luis Garc\u00eda Jr.", "t": "WSH", "pos": ["2B"], "inj": false, "age": 25, "csValA": 7.7, "csValS": 8.1, "PA": 458, "OBP": 0.315, "HR": 14, "XBH": 39, "RP": 111, "SB": 12.5}
+  {"id": "luisgarcajr-wsh", "n": "Luis Garc\u00eda Jr.", "t": "WSH", "pos": ["2B"], "inj": false, "age": 25, "csValA": 7.7, "csValS": 8.1, "PA": 458, "OBP": 0.315, "HR": 14, "XBH": 39, "RP": 111, "SB": 12.5},
+  {"id": "joseberrios-tor", "n": "Jose Berrios", "t": "TOR", "pos": ["SP"], "inj": false, "age": 31, "csValA": 9.5, "csValS": 8.0, "IP": 119, "W": 6.7, "SVH": 1, "K": 106, "ERA": 4.22, "WHIP": 1.29},
+  {"id": "joeboyle-tb", "n": "Joe Boyle", "t": "TB", "pos": ["SP"], "inj": false, "age": 25, "csValA": 8.0, "csValS": 6.5, "IP": 91, "W": 5.2, "SVH": 1, "K": 102, "ERA": 3.92, "WHIP": 1.37},
+  {"id": "johanoviedo-bos", "n": "Johan Oviedo", "t": "BOS", "pos": ["SP"], "inj": false, "age": 27, "csValA": 7.5, "csValS": 6.5, "IP": 103, "W": 5.6, "SVH": 1, "K": 101, "ERA": 4.19, "WHIP": 1.35},
+  {"id": "zackgelof-ath", "n": "Zack Gelof", "t": "ATH", "pos": ["2B", "3B"], "inj": false, "age": 24, "csValA": 8.0, "csValS": 7.0, "PA": 450, "OBP": 0.310, "HR": 15, "XBH": 27, "RP": 95, "SB": 14},
+  {"id": "tristoncasas-bos", "n": "Triston Casas", "t": "BOS", "pos": ["1B"], "inj": false, "age": 25, "csValA": 6.5, "csValS": 5.5, "PA": 145, "OBP": 0.340, "HR": 6, "XBH": 6, "RP": 37, "SB": 1}
 ];

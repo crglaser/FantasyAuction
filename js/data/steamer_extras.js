@@ -3508,5 +3508,13 @@ const STEAMER_EXTRAS = [
     "XBH": 22,
     "RP": 55,
     "SB": 2
-  }
+  },
+  {"id": "cobymayo-bal", "n": "Coby Mayo", "t": "BAL", "pos": ["1B", "3B"], "unofficial": true, "age": 23, "csValA": 6.5, "csValS": 5.5, "PA": 170, "OBP": 0.309, "HR": 7, "XBH": 8, "RP": 40, "SB": 1},
+  {"id": "travisbazzana-cle", "n": "Travis Bazzana", "t": "CLE", "pos": ["2B"], "unofficial": true, "age": 23, "csValA": 5.5, "csValS": 4.5, "PA": 181, "OBP": 0.308, "HR": 4, "XBH": 8, "RP": 35, "SB": 3},
+  {"id": "hurstonwaldrep-atl", "n": "Hurston Waldrep", "t": "ATL", "pos": ["SP"], "unofficial": true, "age": 23, "csValA": 4.5, "csValS": 4.0, "IP": 64, "W": 3.8, "SVH": 0, "K": 56, "ERA": 4.31, "WHIP": 1.44},
+  {"id": "kristiancampbell-bos", "n": "Kristian Campbell", "t": "BOS", "pos": ["2B", "SS"], "unofficial": true, "age": 22, "csValA": 3.5, "csValS": 3.0, "PA": 89, "OBP": 0.334, "HR": 2, "XBH": 4, "RP": 19, "SB": 1},
+  {"id": "hyeseongkim-lad", "n": "Hyeseong Kim", "t": "LAD", "pos": ["2B", "SS"], "unofficial": true, "age": 27, "csValA": 3.5, "csValS": 3.0, "PA": 76, "OBP": 0.310, "HR": 1, "XBH": 3, "RP": 16, "SB": 3},
+  {"id": "jonahtong-nym", "n": "Jonah Tong", "t": "NYM", "pos": ["SP"], "unofficial": true, "age": 23, "csValA": 3.5, "csValS": 3.0, "IP": 26, "W": 1.7, "SVH": 0, "K": 29, "ERA": 3.41, "WHIP": 1.24},
+  {"id": "jpsears-sd", "n": "J.P. Sears", "t": "SD", "pos": ["SP"], "unofficial": true, "age": 30, "csValA": 3.5, "csValS": 3.0, "IP": 34, "W": 1.8, "SVH": 1, "K": 31, "ERA": 4.33, "WHIP": 1.23},
+  {"id": "walkerjenkins-min", "n": "Walker Jenkins", "t": "MIN", "pos": ["OF"], "unofficial": true, "age": 21, "csValA": 3.0, "csValS": 2.5, "PA": 46, "OBP": 0.321, "HR": 1, "XBH": 2, "RP": 10, "SB": 1}
 ];
