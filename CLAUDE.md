@@ -166,6 +166,7 @@ After any meaningful change:
 6. Drop the app URL: `https://crglaser.github.io/FantasyAuction/`
 
 ## Version History
+2.3.16 — inject 4 FAAB pickups (Early/Harvey/Lowe/Painter) into Chathams roster; API was lagging
 2.3.15 — 3/26 post-FAAB update: fresh CSV coverage check (clean), FA pool re-scored
 2.3.14 — post-FAAB roster refresh: live rosters + updated FA pool (period 2, 23A/8BN all teams)
 2.3.13 — sync_projections.py: all 591 seed players synced to FG Steamer; injured SPs get real projections
