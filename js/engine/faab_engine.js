@@ -137,7 +137,15 @@ const FaabEngine = {
             const picks = rosterOverrides[tid] !== undefined
                 ? rosterOverrides[tid]
                 : this._getRosterByTid(tid, drafted, players);
-            const active = useOptimal ? optimalLineup(picks).starters : picks;
+            // If Fantrax slot data is available, use actual active roster;
+            // otherwise fall back to optimalLineup heuristic.
+            const hasSlotData = picks.length > 0 && picks[0].slot !== undefined;
+            let active;
+            if (hasSlotData) {
+                active = picks.filter(p => p.slot === 'ACTIVE');
+            } else {
+                active = useOptimal ? optimalLineup(picks).starters : picks;
+            }
             stats[tid] = Object.assign({}, projStats(active, useRepl), { n: picks.length });
         });
         return stats;

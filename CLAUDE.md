@@ -160,9 +160,10 @@ After any meaningful change:
 3. Stage relevant files (never the backup JSONs or private Fantrax CSVs)
 4. `git commit -m "vX.Y.Z: <short description>"`
 5. `git push`
-6. Drop the commit URL: `https://github.com/crglaser/FantasyAuction/commit/<sha>`
+6. Drop the repo URL: `https://github.com/crglaser/FantasyAuction`
 
 ## Version History
+2.3.6 — fetch_fantrax_rosters.py: live API pull (no auth); slot-aware standings (ACTIVE only when slot data present)
 2.3.5 — fa_report.py pipeline wired into FAAB tab; FA pool expanded to 150/group; Benge/Harrison/Abel/Painter/Sproat/Rumfield data fixes
 2.3.4 — (previous session — faab_engine.js + trade_engine.js + Trade Lab tab)
 1.3.5 — Draft simulation + pre-computed AI injury summaries
