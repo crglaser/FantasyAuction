@@ -9,19 +9,25 @@
  * Roster slots: C, 1B, 2B, 3B, SS, CI, MI, OF×5, UT, SP×5, RP×3, P×2
  */
 function optimalLineup(picks) {
+    // Use Fantrax position eligibility when available (updates mid-season as players earn slots).
+    // Falls back to seed pos[] for players without live Fantrax data.
+    function ppos(p) {
+        if (p.ftxEligiblePos) return p.ftxEligiblePos.split(',').map(s => s.trim());
+        return p.pos || [];
+    }
     const SLOTS = [
-        { key: 'C',  count: 1, eligible: p => p.pos.includes('C') && (p.PA||0) > 0 },
-        { key: 'SS', count: 1, eligible: p => p.pos.includes('SS') },
-        { key: '2B', count: 1, eligible: p => p.pos.includes('2B') },
-        { key: '1B', count: 1, eligible: p => p.pos.includes('1B') },
-        { key: '3B', count: 1, eligible: p => p.pos.includes('3B') },
-        { key: 'CI', count: 1, eligible: p => p.pos.some(x => x==='1B'||x==='3B') },
-        { key: 'MI', count: 1, eligible: p => p.pos.some(x => x==='2B'||x==='SS') },
-        { key: 'OF', count: 5, eligible: p => p.pos.includes('OF') },
-        { key: 'UT', count: 1, eligible: p => (p.PA||0) > 0 },
-        { key: 'SP', count: 5, eligible: p => p.pos.includes('SP') },
-        { key: 'RP', count: 3, eligible: p => p.pos.includes('RP') },
-        { key: 'P',  count: 2, eligible: p => p.pos.includes('SP') || p.pos.includes('RP') },
+        { key: 'C',  count: 1, eligible: p => ppos(p).includes('C') && (p.PA||0) > 0 },
+        { key: 'SS', count: 1, eligible: p => ppos(p).includes('SS') },
+        { key: '2B', count: 1, eligible: p => ppos(p).includes('2B') },
+        { key: '1B', count: 1, eligible: p => ppos(p).includes('1B') },
+        { key: '3B', count: 1, eligible: p => ppos(p).includes('3B') },
+        { key: 'CI', count: 1, eligible: p => ppos(p).some(x => x==='1B'||x==='3B'||x==='CI') },
+        { key: 'MI', count: 1, eligible: p => ppos(p).some(x => x==='2B'||x==='SS'||x==='MI') },
+        { key: 'OF', count: 5, eligible: p => ppos(p).includes('OF') },
+        { key: 'UT', count: 1, eligible: p => ppos(p).includes('UT') || (p.PA||0) > 0 },
+        { key: 'SP', count: 5, eligible: p => ppos(p).includes('SP') },
+        { key: 'RP', count: 3, eligible: p => ppos(p).includes('RP') },
+        { key: 'P',  count: 2, eligible: p => ppos(p).includes('SP') || ppos(p).includes('RP') },
     ];
     const pool = [...picks].sort((a, b) => (b.csValAAdj||b.csValA||0) - (a.csValAAdj||a.csValA||0));
     const used = new Set();

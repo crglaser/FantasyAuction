@@ -285,7 +285,8 @@ const FaabEngine = {
         return recs.map(r => {
             // Normalize rec fields — handle both sources
             const playerName = r.Player || r.n || '';
-            const pos        = r.Position || (Array.isArray(r.pos) ? r.pos.join(',') : (r.pos || ''));
+            // Prefer live Fantrax eligibility > Position field > seed pos array
+            const pos        = r.ftxEligiblePos || r.Position || (Array.isArray(r.pos) ? r.pos.join(',') : (r.pos || ''));
             const score      = r.Score  != null ? r.Score  : (r.ftxScore || 0);
             const adp        = r.ADP    != null ? r.ADP    : (r.ftxAdp   || 999);
             const rank       = r.Rank   != null ? r.Rank   : (r.ftxRank  || 9999);

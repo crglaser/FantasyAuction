@@ -163,6 +163,7 @@ After any meaningful change:
 6. Drop the repo URL: `https://github.com/crglaser/FantasyAuction`
 
 ## Version History
+2.3.7 — Fantrax as source of truth: ftxEligiblePos in optimalLineup, FAAB filter, enrichment; fa_report uses live rosters
 2.3.6 — fetch_fantrax_rosters.py: live API pull (no auth); slot-aware standings (ACTIVE only when slot data present)
 2.3.5 — fa_report.py pipeline wired into FAAB tab; FA pool expanded to 150/group; Benge/Harrison/Abel/Painter/Sproat/Rumfield data fixes
 2.3.4 — (previous session — faab_engine.js + trade_engine.js + Trade Lab tab)

@@ -828,7 +828,8 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
         let visible = enriched.filter(r => {
             if (r._alreadyDrafted) return false;
             if (posFilter === 'ALL') return true;
-            return (r.Position || '').split(',').map(p => p.trim()).includes(posFilter);
+            const posStr = r._player && r._player.ftxEligiblePos || r.Position || '';
+            return posStr.split(',').map(p => p.trim()).includes(posFilter);
         });
 
         // Sort

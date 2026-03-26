@@ -1,6 +1,6 @@
 {
   "myTid": "me",
-  "generatedAt": "2026-03-26T00:45:09.845291+00:00",
+  "generatedAt": "2026-03-26T02:23:36.351914+00:00",
   "sp": [
     {
       "id": "yuseikikuchi-laa",
@@ -10,7 +10,7 @@
         "SP"
       ],
       "score": 34.64,
-      "ftxScore": 61.45,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -32,7 +32,7 @@
         "SP"
       ],
       "score": 31.39,
-      "ftxScore": 70.03,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#78 T13",
       "unofficial": false,
@@ -54,7 +54,7 @@
         "SP"
       ],
       "score": 29.82,
-      "ftxScore": 57.48,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -76,7 +76,7 @@
         "SP"
       ],
       "score": 29.64,
-      "ftxScore": 51.49,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#80 T13",
       "unofficial": false,
@@ -98,7 +98,7 @@
         "SP"
       ],
       "score": 28.18,
-      "ftxScore": 59.21,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -121,7 +121,7 @@
         "SP"
       ],
       "score": 28.13,
-      "ftxScore": 60.96,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#83 T14",
       "unofficial": false,
@@ -144,7 +144,7 @@
         "RP"
       ],
       "score": 27.98,
-      "ftxScore": 49.69,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -166,7 +166,7 @@
         "SP"
       ],
       "score": 27.48,
-      "ftxScore": 71.41,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -188,7 +188,7 @@
         "SP"
       ],
       "score": 27.35,
-      "ftxScore": 34.18,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#69 T12",
       "unofficial": false,
@@ -210,7 +210,7 @@
         "SP"
       ],
       "score": 27.08,
-      "ftxScore": 53.89,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -232,7 +232,7 @@
         "SP"
       ],
       "score": 26.98,
-      "ftxScore": 50.94,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -254,7 +254,7 @@
         "SP"
       ],
       "score": 26.95,
-      "ftxScore": 55.58,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -276,7 +276,7 @@
         "SP"
       ],
       "score": 26.77,
-      "ftxScore": 74.91,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -298,7 +298,7 @@
         "SP"
       ],
       "score": 26.52,
-      "ftxScore": 52.03,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -320,7 +320,7 @@
         "SP"
       ],
       "score": 26.34,
-      "ftxScore": 55.76,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#81 T13",
       "unofficial": false,
@@ -342,7 +342,7 @@
         "SP"
       ],
       "score": 26.0,
-      "ftxScore": 66.91,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -364,7 +364,7 @@
         "SP"
       ],
       "score": 25.86,
-      "ftxScore": 67.14,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -386,7 +386,7 @@
         "SP"
       ],
       "score": 25.32,
-      "ftxScore": 51.89,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -408,7 +408,7 @@
         "SP"
       ],
       "score": 25.29,
-      "ftxScore": 55.22,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#93 T16",
       "unofficial": false,
@@ -430,7 +430,7 @@
         "SP"
       ],
       "score": 25.22,
-      "ftxScore": 72.47,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -474,7 +474,7 @@
         "SP"
       ],
       "score": 24.31,
-      "ftxScore": 8.73,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#65 T12",
       "unofficial": false,
@@ -496,7 +496,7 @@
         "SP"
       ],
       "score": 24.25,
-      "ftxScore": 52.73,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -518,7 +518,7 @@
         "SP"
       ],
       "score": 24.16,
-      "ftxScore": 50.86,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -540,7 +540,7 @@
         "SP"
       ],
       "score": 24.12,
-      "ftxScore": 57.55,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#74 T13",
       "unofficial": false,
@@ -562,7 +562,7 @@
         "SP"
       ],
       "score": 23.87,
-      "ftxScore": 37.51,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -584,7 +584,7 @@
         "SP"
       ],
       "score": 23.6,
-      "ftxScore": 45.97,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#86 T14",
       "unofficial": false,
@@ -606,7 +606,7 @@
         "SP"
       ],
       "score": 23.52,
-      "ftxScore": 66.95,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -628,7 +628,7 @@
         "SP"
       ],
       "score": 23.36,
-      "ftxScore": 49.54,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -650,7 +650,7 @@
         "SP"
       ],
       "score": 23.29,
-      "ftxScore": 47.22,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -672,7 +672,7 @@
         "SP"
       ],
       "score": 23.04,
-      "ftxScore": 38.77,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -694,7 +694,7 @@
         "SP"
       ],
       "score": 22.7,
-      "ftxScore": 47.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -716,7 +716,7 @@
         "SP"
       ],
       "score": 22.62,
-      "ftxScore": 44.9,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -738,7 +738,7 @@
         "SP"
       ],
       "score": 22.58,
-      "ftxScore": 29.52,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#70 T12",
       "unofficial": false,
@@ -760,7 +760,7 @@
         "SP"
       ],
       "score": 22.5,
-      "ftxScore": 58.17,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#91 T15",
       "unofficial": false,
@@ -782,7 +782,7 @@
         "SP"
       ],
       "score": 22.22,
-      "ftxScore": 39.89,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -804,7 +804,7 @@
         "SP"
       ],
       "score": 22.18,
-      "ftxScore": 40.03,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -826,7 +826,7 @@
         "SP"
       ],
       "score": 22.16,
-      "ftxScore": 49.68,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -848,7 +848,7 @@
         "SP"
       ],
       "score": 22.15,
-      "ftxScore": 69.4,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#100 T17",
       "unofficial": false,
@@ -871,7 +871,7 @@
         "RP"
       ],
       "score": 21.66,
-      "ftxScore": 70.73,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -893,7 +893,7 @@
         "SP"
       ],
       "score": 21.57,
-      "ftxScore": 74.02,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#99 T17",
       "unofficial": false,
@@ -915,7 +915,7 @@
         "SP"
       ],
       "score": 21.21,
-      "ftxScore": 53.23,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -937,7 +937,7 @@
         "SP"
       ],
       "score": 21.14,
-      "ftxScore": 57.48,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -959,7 +959,7 @@
         "SP"
       ],
       "score": 20.89,
-      "ftxScore": 45.61,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -981,7 +981,7 @@
         "SP"
       ],
       "score": 20.79,
-      "ftxScore": 50.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1003,7 +1003,7 @@
         "SP"
       ],
       "score": 20.73,
-      "ftxScore": 42.0,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#94 T16",
       "unofficial": false,
@@ -1025,7 +1025,7 @@
         "SP"
       ],
       "score": 19.7,
-      "ftxScore": 43.57,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1047,7 +1047,7 @@
         "SP"
       ],
       "score": 19.54,
-      "ftxScore": 55.14,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#89 T14",
       "unofficial": false,
@@ -1069,7 +1069,7 @@
         "SP"
       ],
       "score": 19.53,
-      "ftxScore": 36.93,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1091,7 +1091,7 @@
         "SP"
       ],
       "score": 19.05,
-      "ftxScore": 43.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1113,7 +1113,7 @@
         "SP"
       ],
       "score": 19.01,
-      "ftxScore": 32.52,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1135,7 +1135,7 @@
         "SP"
       ],
       "score": 18.73,
-      "ftxScore": 43.91,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1157,7 +1157,7 @@
         "SP"
       ],
       "score": 18.56,
-      "ftxScore": 34.41,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1179,7 +1179,7 @@
         "SP"
       ],
       "score": 18.54,
-      "ftxScore": 45.84,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1201,7 +1201,7 @@
         "SP"
       ],
       "score": 18.53,
-      "ftxScore": 48.05,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1223,7 +1223,7 @@
         "SP"
       ],
       "score": 18.44,
-      "ftxScore": 33.66,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1245,7 +1245,7 @@
         "SP"
       ],
       "score": 18.44,
-      "ftxScore": 24.21,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1267,7 +1267,7 @@
         "SP"
       ],
       "score": 18.02,
-      "ftxScore": 48.6,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#72 T12",
       "unofficial": false,
@@ -1289,7 +1289,7 @@
         "SP"
       ],
       "score": 17.95,
-      "ftxScore": 39.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1311,7 +1311,7 @@
         "SP"
       ],
       "score": 17.73,
-      "ftxScore": 26.58,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1333,7 +1333,7 @@
         "SP"
       ],
       "score": 17.52,
-      "ftxScore": 55.3,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1355,7 +1355,7 @@
         "SP"
       ],
       "score": 17.48,
-      "ftxScore": 34.15,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1377,7 +1377,7 @@
         "SP"
       ],
       "score": 17.03,
-      "ftxScore": 41.44,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1399,7 +1399,7 @@
         "SP"
       ],
       "score": 16.7,
-      "ftxScore": 36.23,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1421,7 +1421,7 @@
         "SP"
       ],
       "score": 15.29,
-      "ftxScore": 38.55,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#84 T14",
       "unofficial": false,
@@ -1443,7 +1443,7 @@
         "SP"
       ],
       "score": 15.07,
-      "ftxScore": 30.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1465,7 +1465,7 @@
         "SP"
       ],
       "score": 14.6,
-      "ftxScore": 25.9,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1487,7 +1487,7 @@
         "SP"
       ],
       "score": 14.03,
-      "ftxScore": 38.05,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1509,7 +1509,7 @@
         "SP"
       ],
       "score": 14.01,
-      "ftxScore": 41.39,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1532,7 +1532,7 @@
         "SP"
       ],
       "score": 13.59,
-      "ftxScore": 65.74,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#88",
       "unofficial": false,
@@ -1554,7 +1554,7 @@
         "SP"
       ],
       "score": 13.37,
-      "ftxScore": 40.06,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1576,7 +1576,7 @@
         "SP"
       ],
       "score": 13.18,
-      "ftxScore": 44.13,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1599,7 +1599,7 @@
         "SP"
       ],
       "score": 13.1,
-      "ftxScore": 73.48,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1622,7 +1622,7 @@
         "SP"
       ],
       "score": 12.76,
-      "ftxScore": 52.47,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1644,7 +1644,7 @@
         "SP"
       ],
       "score": 12.69,
-      "ftxScore": 32.69,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1666,7 +1666,7 @@
         "SP"
       ],
       "score": 12.15,
-      "ftxScore": 43.14,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -1688,7 +1688,7 @@
         "SP"
       ],
       "score": 8.39,
-      "ftxScore": 54.45,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1710,7 +1710,7 @@
         "SP"
       ],
       "score": 5.69,
-      "ftxScore": 51.43,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#82 T13",
       "unofficial": false,
@@ -1732,7 +1732,7 @@
         "SP"
       ],
       "score": 4.89,
-      "ftxScore": 18.38,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL#92 T15",
       "unofficial": false,
@@ -1820,7 +1820,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 41.32,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1842,7 +1842,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 68.46,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1864,7 +1864,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 47.52,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1886,7 +1886,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 56.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1952,7 +1952,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 21.76,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1974,7 +1974,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 36.53,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -1996,7 +1996,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 52.97,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2019,7 +2019,7 @@
         "RP"
       ],
       "score": 4.25,
-      "ftxScore": 38.0,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2042,7 +2042,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 22.95,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2065,7 +2065,7 @@
         "RP"
       ],
       "score": 4.25,
-      "ftxScore": 24.36,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2087,7 +2087,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 22.28,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2109,7 +2109,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 14.71,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2131,7 +2131,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 47.67,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2153,7 +2153,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 15.33,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2175,7 +2175,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 10.16,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2197,7 +2197,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 58.5,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2219,7 +2219,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 22.51,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2241,7 +2241,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 52.97,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2263,7 +2263,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 15.67,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2286,7 +2286,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 53.4,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2309,7 +2309,7 @@
         "RP"
       ],
       "score": 4.25,
-      "ftxScore": 22.95,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2354,7 +2354,7 @@
         "RP"
       ],
       "score": 4.25,
-      "ftxScore": 39.47,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2377,7 +2377,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 44.09,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2399,7 +2399,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 32.66,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2421,7 +2421,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 28.84,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2443,7 +2443,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 31.24,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2465,7 +2465,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 6.54,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2487,7 +2487,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 37.83,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2509,7 +2509,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 12.94,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2531,7 +2531,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 26.23,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2554,7 +2554,7 @@
         "RP"
       ],
       "score": 4.25,
-      "ftxScore": 30.66,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2576,7 +2576,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 44.56,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2642,7 +2642,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 39.73,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2664,7 +2664,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 17.0,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2686,7 +2686,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 36.82,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2730,7 +2730,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 19.75,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2774,7 +2774,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 18.46,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2796,7 +2796,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 11.29,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2818,7 +2818,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 15.95,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2840,7 +2840,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 50.26,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2862,7 +2862,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 46.01,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2884,7 +2884,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 36.81,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2906,7 +2906,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 33.98,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2950,7 +2950,7 @@
         "SP"
       ],
       "score": 4.25,
-      "ftxScore": 27.32,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -2973,7 +2973,7 @@
         "RP"
       ],
       "score": 4.25,
-      "ftxScore": 29.1,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -3019,7 +3019,7 @@
         "RP"
       ],
       "score": 29.16,
-      "ftxScore": 52.17,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "CLOSER:CHW | PL_RP#24",
       "unofficial": false,
@@ -3041,7 +3041,7 @@
         "RP"
       ],
       "score": 24.6,
-      "ftxScore": 56.45,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "CLOSER:LAA (committee) | PL_RP#28",
       "unofficial": false,
@@ -3063,7 +3063,7 @@
         "RP"
       ],
       "score": 23.03,
-      "ftxScore": 51.1,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "CLOSER:ATH (committee) | PL_RP#47",
       "unofficial": false,
@@ -3085,7 +3085,7 @@
         "RP"
       ],
       "score": 21.98,
-      "ftxScore": 44.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:CHC | PL_RP#77",
       "unofficial": false,
@@ -3107,7 +3107,7 @@
         "RP"
       ],
       "score": 21.77,
-      "ftxScore": 68.65,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:NYM | PL_RP#61",
       "unofficial": false,
@@ -3129,7 +3129,7 @@
         "RP"
       ],
       "score": 21.64,
-      "ftxScore": 62.67,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:CIN | PL_RP#76",
       "unofficial": false,
@@ -3151,7 +3151,7 @@
         "RP"
       ],
       "score": 20.56,
-      "ftxScore": 69.73,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:KC | PL_RP#55",
       "unofficial": false,
@@ -3173,7 +3173,7 @@
         "RP"
       ],
       "score": 19.37,
-      "ftxScore": 60.07,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:TEX (committee) | PL_RP#43",
       "unofficial": false,
@@ -3195,7 +3195,7 @@
         "RP"
       ],
       "score": 19.29,
-      "ftxScore": 43.71,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#46",
       "unofficial": false,
@@ -3217,7 +3217,7 @@
         "RP"
       ],
       "score": 19.08,
-      "ftxScore": 52.54,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#39",
       "unofficial": false,
@@ -3239,7 +3239,7 @@
         "RP"
       ],
       "score": 19.06,
-      "ftxScore": 76.56,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:HOU | PL_RP#98",
       "unofficial": false,
@@ -3261,7 +3261,7 @@
         "RP"
       ],
       "score": 18.8,
-      "ftxScore": 40.27,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#40",
       "unofficial": false,
@@ -3283,7 +3283,7 @@
         "RP"
       ],
       "score": 18.5,
-      "ftxScore": 52.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:PIT | PL_RP#75",
       "unofficial": false,
@@ -3305,7 +3305,7 @@
         "RP"
       ],
       "score": 18.46,
-      "ftxScore": 75.92,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:SD | PL_RP#32",
       "unofficial": false,
@@ -3327,7 +3327,7 @@
         "RP"
       ],
       "score": 18.14,
-      "ftxScore": 60.87,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:NYY | PL_RP#64",
       "unofficial": false,
@@ -3349,7 +3349,7 @@
         "RP"
       ],
       "score": 17.95,
-      "ftxScore": 79.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:KC | PL_RP#53",
       "unofficial": false,
@@ -3371,7 +3371,7 @@
         "RP"
       ],
       "score": 17.56,
-      "ftxScore": 34.78,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#45",
       "unofficial": false,
@@ -3393,7 +3393,7 @@
         "RP"
       ],
       "score": 17.5,
-      "ftxScore": 64.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:ARI",
       "unofficial": false,
@@ -3415,7 +3415,7 @@
         "RP"
       ],
       "score": 17.07,
-      "ftxScore": 79.96,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#69",
       "unofficial": false,
@@ -3437,7 +3437,7 @@
         "RP"
       ],
       "score": 16.58,
-      "ftxScore": 68.15,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "1ST:CLE | PL_RP#90",
       "unofficial": false,
@@ -3459,7 +3459,7 @@
         "RP"
       ],
       "score": 16.57,
-      "ftxScore": 73.18,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -3481,7 +3481,7 @@
         "RP"
       ],
       "score": 16.26,
-      "ftxScore": 33.22,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#50",
       "unofficial": false,
@@ -3503,7 +3503,7 @@
         "RP"
       ],
       "score": 16.24,
-      "ftxScore": 42.5,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:CHW | PL_RP#49",
       "unofficial": false,
@@ -3525,7 +3525,7 @@
         "RP"
       ],
       "score": 15.91,
-      "ftxScore": 56.05,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:TB (committee) | PL_RP#51",
       "unofficial": false,
@@ -3547,7 +3547,7 @@
         "RP"
       ],
       "score": 15.49,
-      "ftxScore": 73.45,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:MIL",
       "unofficial": false,
@@ -3569,7 +3569,7 @@
         "RP"
       ],
       "score": 15.47,
-      "ftxScore": 54.96,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:STL (committee) | PL_RP#52",
       "unofficial": false,
@@ -3591,7 +3591,7 @@
         "RP"
       ],
       "score": 14.92,
-      "ftxScore": 58.15,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -3635,7 +3635,7 @@
         "RP"
       ],
       "score": 13.32,
-      "ftxScore": 69.82,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:NYM",
       "unofficial": false,
@@ -3657,7 +3657,7 @@
         "RP"
       ],
       "score": 12.94,
-      "ftxScore": 76.37,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#82",
       "unofficial": false,
@@ -3679,7 +3679,7 @@
         "RP"
       ],
       "score": 12.91,
-      "ftxScore": 49.04,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -3701,7 +3701,7 @@
         "RP"
       ],
       "score": 12.89,
-      "ftxScore": 64.05,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -3723,7 +3723,7 @@
         "RP"
       ],
       "score": 12.85,
-      "ftxScore": 63.22,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -3745,7 +3745,7 @@
         "RP"
       ],
       "score": 12.73,
-      "ftxScore": 53.59,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3767,7 +3767,7 @@
         "RP"
       ],
       "score": 12.49,
-      "ftxScore": 27.07,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3789,7 +3789,7 @@
         "RP"
       ],
       "score": 12.43,
-      "ftxScore": 64.11,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -3811,7 +3811,7 @@
         "RP"
       ],
       "score": 12.3,
-      "ftxScore": 39.9,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3833,7 +3833,7 @@
         "RP"
       ],
       "score": 12.25,
-      "ftxScore": 53.78,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3855,7 +3855,7 @@
         "RP"
       ],
       "score": 12.23,
-      "ftxScore": 62.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3877,7 +3877,7 @@
         "RP"
       ],
       "score": 12.22,
-      "ftxScore": 63.01,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3899,7 +3899,7 @@
         "RP"
       ],
       "score": 12.21,
-      "ftxScore": 51.97,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:TOR | PL_RP#74",
       "unofficial": false,
@@ -3921,7 +3921,7 @@
         "RP"
       ],
       "score": 12.07,
-      "ftxScore": 47.53,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3943,7 +3943,7 @@
         "RP"
       ],
       "score": 11.95,
-      "ftxScore": 36.01,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3965,7 +3965,7 @@
         "RP"
       ],
       "score": 11.93,
-      "ftxScore": 41.8,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -3987,7 +3987,7 @@
         "RP"
       ],
       "score": 11.89,
-      "ftxScore": 63.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -4009,7 +4009,7 @@
         "RP"
       ],
       "score": 11.87,
-      "ftxScore": 51.46,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4031,7 +4031,7 @@
         "RP"
       ],
       "score": 11.78,
-      "ftxScore": 51.25,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4053,7 +4053,7 @@
         "RP"
       ],
       "score": 11.71,
-      "ftxScore": 34.36,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4075,7 +4075,7 @@
         "RP"
       ],
       "score": 11.59,
-      "ftxScore": 50.87,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4097,7 +4097,7 @@
         "RP"
       ],
       "score": 11.36,
-      "ftxScore": 67.38,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -4119,7 +4119,7 @@
         "RP"
       ],
       "score": 11.28,
-      "ftxScore": 40.24,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4141,7 +4141,7 @@
         "RP"
       ],
       "score": 11.07,
-      "ftxScore": 54.37,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -4163,7 +4163,7 @@
         "RP"
       ],
       "score": 11.05,
-      "ftxScore": 24.57,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4185,7 +4185,7 @@
         "RP"
       ],
       "score": 10.68,
-      "ftxScore": 49.31,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4207,7 +4207,7 @@
         "RP"
       ],
       "score": 10.62,
-      "ftxScore": 43.88,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4229,7 +4229,7 @@
         "RP"
       ],
       "score": 10.61,
-      "ftxScore": 50.2,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4251,7 +4251,7 @@
         "RP"
       ],
       "score": 10.33,
-      "ftxScore": 50.51,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -4273,7 +4273,7 @@
         "RP"
       ],
       "score": 10.31,
-      "ftxScore": 32.22,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4295,7 +4295,7 @@
         "RP"
       ],
       "score": 10.19,
-      "ftxScore": 68.11,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#97",
       "unofficial": false,
@@ -4317,7 +4317,7 @@
         "RP"
       ],
       "score": 10.13,
-      "ftxScore": 28.86,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4339,7 +4339,7 @@
         "RP"
       ],
       "score": 10.12,
-      "ftxScore": 59.17,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4361,7 +4361,7 @@
         "RP"
       ],
       "score": 10.06,
-      "ftxScore": 44.49,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4383,7 +4383,7 @@
         "RP"
       ],
       "score": 10.06,
-      "ftxScore": 40.88,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4405,7 +4405,7 @@
         "RP"
       ],
       "score": 10.03,
-      "ftxScore": 29.61,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4427,7 +4427,7 @@
         "RP"
       ],
       "score": 10.02,
-      "ftxScore": 28.84,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4449,7 +4449,7 @@
         "RP"
       ],
       "score": 9.96,
-      "ftxScore": 55.37,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4471,7 +4471,7 @@
         "RP"
       ],
       "score": 9.87,
-      "ftxScore": 51.72,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4493,7 +4493,7 @@
         "RP"
       ],
       "score": 9.86,
-      "ftxScore": 44.92,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4515,7 +4515,7 @@
         "RP"
       ],
       "score": 9.85,
-      "ftxScore": 51.02,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4537,7 +4537,7 @@
         "RP"
       ],
       "score": 9.83,
-      "ftxScore": 55.2,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4559,7 +4559,7 @@
         "RP"
       ],
       "score": 9.82,
-      "ftxScore": 62.17,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#85",
       "unofficial": false,
@@ -4581,7 +4581,7 @@
         "RP"
       ],
       "score": 9.82,
-      "ftxScore": 60.72,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4603,7 +4603,7 @@
         "RP"
       ],
       "score": 9.82,
-      "ftxScore": 51.77,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4625,7 +4625,7 @@
         "RP"
       ],
       "score": 9.78,
-      "ftxScore": 22.02,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4669,7 +4669,7 @@
         "RP"
       ],
       "score": 9.74,
-      "ftxScore": 32.98,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4691,7 +4691,7 @@
         "RP"
       ],
       "score": 9.62,
-      "ftxScore": 28.38,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4713,7 +4713,7 @@
         "RP"
       ],
       "score": 9.57,
-      "ftxScore": 63.9,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4735,7 +4735,7 @@
         "RP"
       ],
       "score": 9.57,
-      "ftxScore": 66.69,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4757,7 +4757,7 @@
         "RP"
       ],
       "score": 9.52,
-      "ftxScore": 57.4,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#70",
       "unofficial": false,
@@ -4779,7 +4779,7 @@
         "RP"
       ],
       "score": 9.52,
-      "ftxScore": 47.56,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "PL_RP#89",
       "unofficial": false,
@@ -4801,7 +4801,7 @@
         "RP"
       ],
       "score": 9.52,
-      "ftxScore": 24.14,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4823,7 +4823,7 @@
         "RP"
       ],
       "score": 9.5,
-      "ftxScore": 21.67,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4845,7 +4845,7 @@
         "RP"
       ],
       "score": 9.49,
-      "ftxScore": 64.4,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4867,7 +4867,7 @@
         "RP"
       ],
       "score": 9.44,
-      "ftxScore": 56.83,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4889,7 +4889,7 @@
         "RP"
       ],
       "score": 9.43,
-      "ftxScore": 45.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4911,7 +4911,7 @@
         "RP"
       ],
       "score": 9.33,
-      "ftxScore": 27.06,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4933,7 +4933,7 @@
         "RP"
       ],
       "score": 9.23,
-      "ftxScore": 38.32,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4955,7 +4955,7 @@
         "RP"
       ],
       "score": 9.23,
-      "ftxScore": 48.39,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4977,7 +4977,7 @@
         "RP"
       ],
       "score": 9.19,
-      "ftxScore": 22.48,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -4999,7 +4999,7 @@
         "RP"
       ],
       "score": 9.16,
-      "ftxScore": 53.83,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5021,7 +5021,7 @@
         "RP"
       ],
       "score": 9.12,
-      "ftxScore": 42.24,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5043,7 +5043,7 @@
         "RP"
       ],
       "score": 9.0,
-      "ftxScore": 58.74,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5065,7 +5065,7 @@
         "RP"
       ],
       "score": 8.92,
-      "ftxScore": 25.43,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5087,7 +5087,7 @@
         "RP"
       ],
       "score": 8.88,
-      "ftxScore": 38.01,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5109,7 +5109,7 @@
         "RP"
       ],
       "score": 8.88,
-      "ftxScore": 28.83,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5131,7 +5131,7 @@
         "RP"
       ],
       "score": 8.8,
-      "ftxScore": 62.3,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5175,7 +5175,7 @@
         "RP"
       ],
       "score": 8.68,
-      "ftxScore": 75.18,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5197,7 +5197,7 @@
         "RP"
       ],
       "score": 8.56,
-      "ftxScore": 53.91,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5219,7 +5219,7 @@
         "RP"
       ],
       "score": 8.48,
-      "ftxScore": 54.69,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5241,7 +5241,7 @@
         "RP"
       ],
       "score": 8.44,
-      "ftxScore": 14.27,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5263,7 +5263,7 @@
         "RP"
       ],
       "score": 8.17,
-      "ftxScore": 36.49,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5285,7 +5285,7 @@
         "RP"
       ],
       "score": 8.11,
-      "ftxScore": 52.97,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5307,7 +5307,7 @@
         "RP"
       ],
       "score": 8.06,
-      "ftxScore": 45.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5329,7 +5329,7 @@
         "RP"
       ],
       "score": 8.05,
-      "ftxScore": 49.59,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5351,7 +5351,7 @@
         "RP"
       ],
       "score": 8.02,
-      "ftxScore": 51.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5373,7 +5373,7 @@
         "RP"
       ],
       "score": 8.0,
-      "ftxScore": 42.03,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5395,7 +5395,7 @@
         "RP"
       ],
       "score": 7.9,
-      "ftxScore": 26.33,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5410,28 +5410,6 @@
       }
     },
     {
-      "id": "daniellynchiv-kc",
-      "name": "Daniel Lynch IV",
-      "team": "KC",
-      "pos": [
-        "RP"
-      ],
-      "score": 7.89,
-      "ftxScore": 0,
-      "injNote": "",
-      "roleNote": "",
-      "unofficial": true,
-      "csValA": -9.8,
-      "csValS": -4.4,
-      "stats": {
-        "SVH": 11,
-        "K": 46,
-        "ERA": 4.26,
-        "WHIP": 1.35,
-        "IP": 59
-      }
-    },
-    {
       "id": "sammoll-cin",
       "name": "Sam Moll",
       "team": "CIN",
@@ -5439,7 +5417,7 @@
         "RP"
       ],
       "score": 7.78,
-      "ftxScore": 38.89,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5461,7 +5439,7 @@
         "RP"
       ],
       "score": 7.75,
-      "ftxScore": 53.05,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5483,7 +5461,7 @@
         "RP"
       ],
       "score": 7.74,
-      "ftxScore": 25.89,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5505,7 +5483,7 @@
         "RP"
       ],
       "score": 7.67,
-      "ftxScore": 30.6,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5527,7 +5505,7 @@
         "RP"
       ],
       "score": 7.58,
-      "ftxScore": 46.14,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5549,7 +5527,7 @@
         "RP"
       ],
       "score": 7.54,
-      "ftxScore": 52.27,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5571,7 +5549,7 @@
         "RP"
       ],
       "score": 6.15,
-      "ftxScore": 49.47,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -5593,7 +5571,7 @@
         "RP"
       ],
       "score": 3.62,
-      "ftxScore": 62.82,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -5615,7 +5593,7 @@
         "RP"
       ],
       "score": 1.5,
-      "ftxScore": 17.55,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "2ND:MIN (committee)",
       "unofficial": false,
@@ -5639,7 +5617,7 @@
         "SS"
       ],
       "score": 34.08,
-      "ftxScore": 58.2,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#182 T17",
       "unofficial": false,
@@ -5662,7 +5640,7 @@
         "SS"
       ],
       "score": 33.35,
-      "ftxScore": 61.24,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#173 T16",
       "unofficial": false,
@@ -5685,7 +5663,7 @@
         "OF"
       ],
       "score": 32.98,
-      "ftxScore": 64.64,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#185 T17",
       "unofficial": false,
@@ -5708,7 +5686,7 @@
         "3B"
       ],
       "score": 32.41,
-      "ftxScore": 53.5,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#132 T13",
       "unofficial": false,
@@ -5724,29 +5702,6 @@
       }
     },
     {
-      "id": "luisgarcajr-wsn",
-      "name": "Luis García Jr.",
-      "team": "WSN",
-      "pos": [
-        "2B"
-      ],
-      "score": 32.19,
-      "ftxScore": 0,
-      "injNote": "",
-      "roleNote": "",
-      "unofficial": false,
-      "csValA": 0.0,
-      "csValS": 2.0,
-      "stats": {
-        "PA": 550,
-        "HR": 16,
-        "SB": 14,
-        "OBP": 0.32,
-        "XBH": 26,
-        "RP": 109
-      }
-    },
-    {
       "id": "yainerdiaz-hou",
       "name": "Yainer Diaz",
       "team": "HOU",
@@ -5754,7 +5709,7 @@
         "C"
       ],
       "score": 31.26,
-      "ftxScore": 63.54,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#113 T12",
       "unofficial": false,
@@ -5800,7 +5755,7 @@
         "1B"
       ],
       "score": 31.17,
-      "ftxScore": 58.97,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#151 T15",
       "unofficial": false,
@@ -5824,7 +5779,7 @@
         "SS"
       ],
       "score": 31.0,
-      "ftxScore": 58.98,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#201 T18",
       "unofficial": false,
@@ -5848,7 +5803,7 @@
         "2B"
       ],
       "score": 29.14,
-      "ftxScore": 55.4,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#141 T14",
       "unofficial": false,
@@ -5871,7 +5826,7 @@
         "SS"
       ],
       "score": 28.91,
-      "ftxScore": 58.79,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#187 T17",
       "unofficial": false,
@@ -5894,7 +5849,7 @@
         "OF"
       ],
       "score": 28.25,
-      "ftxScore": 46.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -5919,7 +5874,7 @@
         "2B"
       ],
       "score": 28.24,
-      "ftxScore": 51.04,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#178 T17",
       "unofficial": false,
@@ -5942,7 +5897,7 @@
         "C"
       ],
       "score": 28.09,
-      "ftxScore": 52.6,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#142 T14",
       "unofficial": false,
@@ -5965,7 +5920,7 @@
         "3B"
       ],
       "score": 27.92,
-      "ftxScore": 58.88,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#214 T19",
       "unofficial": false,
@@ -5988,7 +5943,7 @@
         "C"
       ],
       "score": 27.72,
-      "ftxScore": 57.26,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#152 T15",
       "unofficial": false,
@@ -6012,7 +5967,7 @@
         "2B"
       ],
       "score": 27.54,
-      "ftxScore": 51.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#183 T17",
       "unofficial": false,
@@ -6035,7 +5990,7 @@
         "OF"
       ],
       "score": 27.5,
-      "ftxScore": 59.01,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#163 T16",
       "unofficial": false,
@@ -6058,7 +6013,7 @@
         "3B"
       ],
       "score": 27.44,
-      "ftxScore": 52.83,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#190 T17",
       "unofficial": false,
@@ -6081,7 +6036,7 @@
         "SS"
       ],
       "score": 27.29,
-      "ftxScore": 62.24,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#162 T16",
       "unofficial": false,
@@ -6104,7 +6059,7 @@
         "1B"
       ],
       "score": 27.23,
-      "ftxScore": 50.95,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#155 T15",
       "unofficial": false,
@@ -6150,7 +6105,7 @@
         "1B"
       ],
       "score": 27.08,
-      "ftxScore": 52.91,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#194 T17",
       "unofficial": false,
@@ -6173,7 +6128,7 @@
         "3B"
       ],
       "score": 26.99,
-      "ftxScore": 55.62,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#174 T17",
       "unofficial": false,
@@ -6199,7 +6154,7 @@
         "3B"
       ],
       "score": 26.88,
-      "ftxScore": 34.42,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#189 T17",
       "unofficial": false,
@@ -6222,7 +6177,7 @@
         "OF"
       ],
       "score": 26.71,
-      "ftxScore": 50.52,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#225 T19",
       "unofficial": false,
@@ -6246,7 +6201,7 @@
         "2B"
       ],
       "score": 26.49,
-      "ftxScore": 44.28,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#265 T21",
       "unofficial": false,
@@ -6269,7 +6224,7 @@
         "3B"
       ],
       "score": 26.48,
-      "ftxScore": 52.04,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#243 T20",
       "unofficial": false,
@@ -6294,7 +6249,7 @@
         "SS"
       ],
       "score": 26.39,
-      "ftxScore": 54.1,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#217 T19",
       "unofficial": false,
@@ -6317,7 +6272,7 @@
         "C"
       ],
       "score": 26.36,
-      "ftxScore": 45.17,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#153 T15",
       "unofficial": false,
@@ -6342,7 +6297,7 @@
         "OF"
       ],
       "score": 26.34,
-      "ftxScore": 51.82,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#206 T18",
       "unofficial": false,
@@ -6365,7 +6320,7 @@
         "C"
       ],
       "score": 26.25,
-      "ftxScore": 50.08,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#125 T13",
       "unofficial": false,
@@ -6389,7 +6344,7 @@
         "OF"
       ],
       "score": 25.94,
-      "ftxScore": 55.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#110 T12",
       "unofficial": false,
@@ -6414,7 +6369,7 @@
         "OF"
       ],
       "score": 25.74,
-      "ftxScore": 57.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#223 T19",
       "unofficial": false,
@@ -6437,7 +6392,7 @@
         "3B"
       ],
       "score": 25.39,
-      "ftxScore": 49.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#289 T21",
       "unofficial": false,
@@ -6460,7 +6415,7 @@
         "OF"
       ],
       "score": 25.18,
-      "ftxScore": 52.77,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#195 T17",
       "unofficial": false,
@@ -6483,7 +6438,7 @@
         "C"
       ],
       "score": 24.91,
-      "ftxScore": 51.44,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#210 T18",
       "unofficial": false,
@@ -6506,7 +6461,7 @@
         "OF"
       ],
       "score": 24.57,
-      "ftxScore": 50.96,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#205 T18",
       "unofficial": false,
@@ -6530,7 +6485,7 @@
         "2B"
       ],
       "score": 24.46,
-      "ftxScore": 38.26,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#288 T21",
       "unofficial": false,
@@ -6553,7 +6508,7 @@
         "C"
       ],
       "score": 24.41,
-      "ftxScore": 52.29,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#198 T18",
       "unofficial": false,
@@ -6577,7 +6532,7 @@
         "SS"
       ],
       "score": 23.21,
-      "ftxScore": 52.45,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#179 T17",
       "unofficial": false,
@@ -6600,7 +6555,7 @@
         "C"
       ],
       "score": 23.17,
-      "ftxScore": 53.36,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#181 T17",
       "unofficial": false,
@@ -6623,7 +6578,7 @@
         "OF"
       ],
       "score": 23.16,
-      "ftxScore": 52.78,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#191 T17",
       "unofficial": false,
@@ -6646,7 +6601,7 @@
         "OF"
       ],
       "score": 23.02,
-      "ftxScore": 43.49,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -6669,7 +6624,7 @@
         "C"
       ],
       "score": 22.97,
-      "ftxScore": 45.44,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#221 T19",
       "unofficial": false,
@@ -6692,7 +6647,7 @@
         "OF"
       ],
       "score": 22.88,
-      "ftxScore": 53.54,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#165 T16",
       "unofficial": false,
@@ -6715,7 +6670,7 @@
         "OF"
       ],
       "score": 22.88,
-      "ftxScore": 47.67,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#215 T19",
       "unofficial": false,
@@ -6738,7 +6693,7 @@
         "OF"
       ],
       "score": 22.71,
-      "ftxScore": 48.51,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#269 T21",
       "unofficial": false,
@@ -6761,7 +6716,7 @@
         "OF"
       ],
       "score": 22.46,
-      "ftxScore": 37.39,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#264 T21",
       "unofficial": false,
@@ -6784,7 +6739,7 @@
         "SS"
       ],
       "score": 22.39,
-      "ftxScore": 33.11,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -6800,30 +6755,6 @@
       }
     },
     {
-      "id": "joscaballero-nyy",
-      "name": "José Caballero",
-      "team": "NYY",
-      "pos": [
-        "2B",
-        "SS"
-      ],
-      "score": 22.07,
-      "ftxScore": 0,
-      "injNote": "",
-      "roleNote": "",
-      "unofficial": true,
-      "csValA": -14.2,
-      "csValS": -7.5,
-      "stats": {
-        "PA": 278,
-        "HR": 5,
-        "SB": 26.4,
-        "OBP": 0.313,
-        "XBH": 12,
-        "RP": 57
-      }
-    },
-    {
       "id": "gavinsheets-sd",
       "name": "Gavin Sheets",
       "team": "SD",
@@ -6832,7 +6763,7 @@
         "OF"
       ],
       "score": 21.75,
-      "ftxScore": 51.29,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#159 T15",
       "unofficial": false,
@@ -6855,7 +6786,7 @@
         "SS"
       ],
       "score": 21.52,
-      "ftxScore": 41.82,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#244 T20",
       "unofficial": false,
@@ -6878,7 +6809,7 @@
         "OF"
       ],
       "score": 20.94,
-      "ftxScore": 52.45,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#208 T18",
       "unofficial": false,
@@ -6901,7 +6832,7 @@
         "2B"
       ],
       "score": 20.8,
-      "ftxScore": 58.31,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -6924,7 +6855,7 @@
         "3B"
       ],
       "score": 20.77,
-      "ftxScore": 53.1,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -6947,7 +6878,7 @@
         "3B"
       ],
       "score": 20.73,
-      "ftxScore": 57.17,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#229 T19",
       "unofficial": false,
@@ -6970,7 +6901,7 @@
         "2B"
       ],
       "score": 20.45,
-      "ftxScore": 45.59,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#274 T21",
       "unofficial": false,
@@ -6993,7 +6924,7 @@
         "C"
       ],
       "score": 20.44,
-      "ftxScore": 46.4,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -7016,7 +6947,7 @@
         "OF"
       ],
       "score": 20.39,
-      "ftxScore": 57.2,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7039,7 +6970,7 @@
         "3B"
       ],
       "score": 20.07,
-      "ftxScore": 49.2,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#207 T18",
       "unofficial": false,
@@ -7063,7 +6994,7 @@
         "OF"
       ],
       "score": 19.83,
-      "ftxScore": 55.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7087,7 +7018,7 @@
         "OF"
       ],
       "score": 19.6,
-      "ftxScore": 57.3,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#224 T19",
       "unofficial": false,
@@ -7110,7 +7041,7 @@
         "C"
       ],
       "score": 19.55,
-      "ftxScore": 48.74,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#212 T19",
       "unofficial": false,
@@ -7133,7 +7064,7 @@
         "OF"
       ],
       "score": 19.32,
-      "ftxScore": 42.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -7156,7 +7087,7 @@
         "OF"
       ],
       "score": 19.2,
-      "ftxScore": 38.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7179,7 +7110,7 @@
         "SS"
       ],
       "score": 19.07,
-      "ftxScore": 50.08,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7202,7 +7133,7 @@
         "OF"
       ],
       "score": 19.04,
-      "ftxScore": 23.56,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#300 T21",
       "unofficial": false,
@@ -7225,7 +7156,7 @@
         "OF"
       ],
       "score": 18.7,
-      "ftxScore": 57.58,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7249,7 +7180,7 @@
         "OF"
       ],
       "score": 18.66,
-      "ftxScore": 41.28,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -7273,7 +7204,7 @@
         "OF"
       ],
       "score": 18.41,
-      "ftxScore": 41.03,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7296,7 +7227,7 @@
         "OF"
       ],
       "score": 18.34,
-      "ftxScore": 39.94,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7319,7 +7250,7 @@
         "C"
       ],
       "score": 18.18,
-      "ftxScore": 37.75,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#276 T21",
       "unofficial": false,
@@ -7342,7 +7273,7 @@
         "OF"
       ],
       "score": 18.16,
-      "ftxScore": 43.46,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7365,7 +7296,7 @@
         "OF"
       ],
       "score": 18.15,
-      "ftxScore": 49.62,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7388,7 +7319,7 @@
         "SS"
       ],
       "score": 17.89,
-      "ftxScore": 46.3,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7411,7 +7342,7 @@
         "2B"
       ],
       "score": 17.68,
-      "ftxScore": 38.49,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7435,7 +7366,7 @@
         "DH"
       ],
       "score": 17.51,
-      "ftxScore": 38.29,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#211 T19",
       "unofficial": false,
@@ -7458,7 +7389,7 @@
         "3B"
       ],
       "score": 17.39,
-      "ftxScore": 38.59,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": false,
@@ -7481,7 +7412,7 @@
         "C"
       ],
       "score": 17.33,
-      "ftxScore": 40.75,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7504,7 +7435,7 @@
         "C"
       ],
       "score": 17.04,
-      "ftxScore": 51.26,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7528,7 +7459,7 @@
         "OF"
       ],
       "score": 16.96,
-      "ftxScore": 24.25,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7551,7 +7482,7 @@
         "2B"
       ],
       "score": 16.73,
-      "ftxScore": 52.59,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "HL#255 T20",
       "unofficial": false,
@@ -7574,7 +7505,7 @@
         "OF"
       ],
       "score": 16.7,
-      "ftxScore": 51.73,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7597,7 +7528,7 @@
         "C"
       ],
       "score": 16.55,
-      "ftxScore": 47.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7620,7 +7551,7 @@
         "OF"
       ],
       "score": 16.27,
-      "ftxScore": 51.19,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7643,7 +7574,7 @@
         "C"
       ],
       "score": 16.2,
-      "ftxScore": 35.06,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7666,7 +7597,7 @@
         "OF"
       ],
       "score": 16.2,
-      "ftxScore": 33.12,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7689,7 +7620,7 @@
         "2B"
       ],
       "score": 16.14,
-      "ftxScore": 36.47,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7712,7 +7643,7 @@
         "C"
       ],
       "score": 15.94,
-      "ftxScore": 51.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7736,7 +7667,7 @@
         "OF"
       ],
       "score": 15.92,
-      "ftxScore": 31.35,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7760,7 +7691,7 @@
         "OF"
       ],
       "score": 15.84,
-      "ftxScore": 37.94,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7783,7 +7714,7 @@
         "C"
       ],
       "score": 15.81,
-      "ftxScore": 42.06,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7806,7 +7737,7 @@
         "OF"
       ],
       "score": 15.76,
-      "ftxScore": 23.22,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7829,7 +7760,7 @@
         "OF"
       ],
       "score": 15.65,
-      "ftxScore": 32.41,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7852,7 +7783,7 @@
         "OF"
       ],
       "score": 15.28,
-      "ftxScore": 38.75,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7875,7 +7806,7 @@
         "C"
       ],
       "score": 15.18,
-      "ftxScore": 29.87,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7898,7 +7829,7 @@
         "OF"
       ],
       "score": 15.09,
-      "ftxScore": 47.74,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7922,7 +7853,7 @@
         "DH"
       ],
       "score": 14.81,
-      "ftxScore": 36.83,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7938,29 +7869,6 @@
       }
     },
     {
-      "id": "zachcole-hou",
-      "name": "Zach Cole",
-      "team": "HOU",
-      "pos": [
-        "OF"
-      ],
-      "score": 14.73,
-      "ftxScore": 0,
-      "injNote": "",
-      "roleNote": "",
-      "unofficial": true,
-      "csValA": -16.7,
-      "csValS": -11.1,
-      "stats": {
-        "PA": 268,
-        "HR": 9,
-        "SB": 6.6,
-        "OBP": 0.287,
-        "XBH": 12,
-        "RP": 60
-      }
-    },
-    {
       "id": "keibertruiz-wsh",
       "name": "Keibert Ruiz",
       "team": "WSH",
@@ -7968,7 +7876,7 @@
         "C"
       ],
       "score": 14.62,
-      "ftxScore": 44.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -7991,7 +7899,7 @@
         "OF"
       ],
       "score": 14.59,
-      "ftxScore": 11.9,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8014,7 +7922,7 @@
         "1B"
       ],
       "score": 14.55,
-      "ftxScore": 26.16,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8038,7 +7946,7 @@
         "OF"
       ],
       "score": 14.35,
-      "ftxScore": 39.71,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8061,7 +7969,7 @@
         "2B"
       ],
       "score": 13.95,
-      "ftxScore": 40.71,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8084,7 +7992,7 @@
         "OF"
       ],
       "score": 13.81,
-      "ftxScore": 51.69,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8107,7 +8015,7 @@
         "1B"
       ],
       "score": 13.79,
-      "ftxScore": 41.68,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8130,7 +8038,7 @@
         "3B"
       ],
       "score": 13.69,
-      "ftxScore": 38.03,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8153,7 +8061,7 @@
         "SS"
       ],
       "score": 13.52,
-      "ftxScore": 44.41,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8176,7 +8084,7 @@
         "OF"
       ],
       "score": 13.0,
-      "ftxScore": 38.58,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8199,7 +8107,7 @@
         "OF"
       ],
       "score": 12.99,
-      "ftxScore": 28.14,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8222,7 +8130,7 @@
         "OF"
       ],
       "score": 12.96,
-      "ftxScore": 17.84,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8246,7 +8154,7 @@
         "OF"
       ],
       "score": 12.95,
-      "ftxScore": 33.45,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8270,7 +8178,7 @@
         "OF"
       ],
       "score": 12.57,
-      "ftxScore": 41.76,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8294,7 +8202,7 @@
         "3B"
       ],
       "score": 12.56,
-      "ftxScore": 44.54,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8317,7 +8225,7 @@
         "OF"
       ],
       "score": 12.37,
-      "ftxScore": 29.07,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8340,7 +8248,7 @@
         "C"
       ],
       "score": 12.07,
-      "ftxScore": 26.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8363,7 +8271,7 @@
         "OF"
       ],
       "score": 12.02,
-      "ftxScore": 37.55,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8386,7 +8294,7 @@
         "OF"
       ],
       "score": 12.02,
-      "ftxScore": 28.62,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8410,7 +8318,7 @@
         "2B"
       ],
       "score": 11.83,
-      "ftxScore": 35.37,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8434,7 +8342,7 @@
         "OF"
       ],
       "score": 11.71,
-      "ftxScore": 28.6,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8457,7 +8365,7 @@
         "2B"
       ],
       "score": 11.57,
-      "ftxScore": 48.89,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8481,7 +8389,7 @@
         "OF"
       ],
       "score": 11.56,
-      "ftxScore": 14.51,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8504,7 +8412,7 @@
         "OF"
       ],
       "score": 11.36,
-      "ftxScore": 30.48,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8527,7 +8435,7 @@
         "C"
       ],
       "score": 11.34,
-      "ftxScore": 40.77,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8550,7 +8458,7 @@
         "OF"
       ],
       "score": 11.23,
-      "ftxScore": 19.55,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8573,7 +8481,7 @@
         "3B"
       ],
       "score": 11.05,
-      "ftxScore": 20.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8596,7 +8504,7 @@
         "C"
       ],
       "score": 10.94,
-      "ftxScore": 32.5,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8620,7 +8528,7 @@
         "DH"
       ],
       "score": 10.9,
-      "ftxScore": 32.7,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8643,7 +8551,7 @@
         "3B"
       ],
       "score": 10.87,
-      "ftxScore": 36.05,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8666,7 +8574,7 @@
         "SS"
       ],
       "score": 10.85,
-      "ftxScore": 11.12,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8689,7 +8597,7 @@
         "OF"
       ],
       "score": 10.84,
-      "ftxScore": 43.48,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8712,7 +8620,7 @@
         "OF"
       ],
       "score": 10.61,
-      "ftxScore": 42.63,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8735,7 +8643,7 @@
         "C"
       ],
       "score": 10.55,
-      "ftxScore": 37.22,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8759,7 +8667,7 @@
         "OF"
       ],
       "score": 10.54,
-      "ftxScore": 33.88,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8782,7 +8690,7 @@
         "1B"
       ],
       "score": 10.32,
-      "ftxScore": 38.61,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8805,7 +8713,7 @@
         "3B"
       ],
       "score": 10.16,
-      "ftxScore": 33.75,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8829,7 +8737,7 @@
         "SS"
       ],
       "score": 9.9,
-      "ftxScore": 36.05,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8853,7 +8761,7 @@
         "1B"
       ],
       "score": 9.89,
-      "ftxScore": 35.36,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8876,7 +8784,7 @@
         "C"
       ],
       "score": 9.89,
-      "ftxScore": 27.72,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8899,7 +8807,7 @@
         "SS"
       ],
       "score": 9.74,
-      "ftxScore": 14.32,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8922,7 +8830,7 @@
         "C"
       ],
       "score": 9.7,
-      "ftxScore": 23.21,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8946,7 +8854,7 @@
         "SS"
       ],
       "score": 9.65,
-      "ftxScore": 33.71,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8970,7 +8878,7 @@
         "SS"
       ],
       "score": 9.58,
-      "ftxScore": 36.29,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -8993,7 +8901,7 @@
         "3B"
       ],
       "score": 9.58,
-      "ftxScore": 27.85,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -9016,7 +8924,7 @@
         "OF"
       ],
       "score": 9.5,
-      "ftxScore": 34.38,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -9039,7 +8947,7 @@
         "2B"
       ],
       "score": 9.26,
-      "ftxScore": 32.24,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -9062,7 +8970,7 @@
         "1B"
       ],
       "score": 9.12,
-      "ftxScore": 8.42,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -9085,7 +8993,7 @@
         "C"
       ],
       "score": 8.26,
-      "ftxScore": 27.96,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -9108,7 +9016,7 @@
         "C"
       ],
       "score": 8.02,
-      "ftxScore": 24.48,
+      "ftxScore": 0,
       "injNote": "",
       "roleNote": "",
       "unofficial": true,
@@ -9122,12 +9030,81 @@
         "XBH": 9,
         "RP": 43
       }
+    },
+    {
+      "id": "rhyshoskins-cle",
+      "name": "Rhys Hoskins",
+      "team": "CLE",
+      "pos": [
+        "1B"
+      ],
+      "score": 6.09,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "HL#199 T18",
+      "unofficial": false,
+      "csValA": 0,
+      "csValS": 0,
+      "stats": {
+        "PA": 550,
+        "HR": 0,
+        "SB": 0,
+        "OBP": 0.32,
+        "XBH": 0,
+        "RP": 0
+      }
+    },
+    {
+      "id": "kempalderman-mia",
+      "name": "Kemp Alderman",
+      "team": "MIA",
+      "pos": [
+        "OF"
+      ],
+      "score": 6.05,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": false,
+      "csValA": 0,
+      "csValS": 0,
+      "stats": {
+        "PA": 550,
+        "HR": 0,
+        "SB": 0,
+        "OBP": 0.32,
+        "XBH": 0,
+        "RP": 0
+      }
+    },
+    {
+      "id": "nachoalvarezjr-atl",
+      "name": "Nacho Alvarez Jr.",
+      "team": "ATL",
+      "pos": [
+        "3B"
+      ],
+      "score": 6.05,
+      "ftxScore": 0,
+      "injNote": "",
+      "roleNote": "",
+      "unofficial": false,
+      "csValA": 0,
+      "csValS": 0,
+      "stats": {
+        "PA": 550,
+        "HR": 0,
+        "SB": 0,
+        "OBP": 0.32,
+        "XBH": 0,
+        "RP": 0
+      }
     }
   ],
   "_meta": {
     "totalSP": 136,
-    "totalRP": 119,
-    "totalHitters": 202,
+    "totalRP": 118,
+    "totalHitters": 198,
     "injuredExcluded": 16
   }
 }
