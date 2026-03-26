@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-"""Fetch live Fantrax roster data via the public fxea API and bake fantrax_rosters.js.
+"""Fetch live Fantrax roster + FA data via the public fxea API.
 
 No auth required — the fxea/general API is publicly accessible.
+
+Pulls from two endpoints:
+  getTeamRosters  — 310 rostered players with ACTIVE/RESERVE/INJURED_RESERVE slot
+  getLeagueInfo   — FA/rostered status + current Fantrax position eligibility for all players
 
 Usage:
   python3 scripts/fetch_fantrax_rosters.py
   python3 scripts/fetch_fantrax_rosters.py --league icfsou40mkzpn7lg
-  python3 scripts/fetch_fantrax_rosters.py --out js/data/fantrax_rosters.js
 
 Output:
-  js/data/fantrax_rosters.js — same shape as bake_rosters.py output, with added
-  `slot` field per player: ACTIVE | RESERVE | INJURED_RESERVE
+  js/data/fantrax_rosters.js
+    - me/t1/.../t10: rostered players with `slot` (ACTIVE|RESERVE|INJURED_RESERVE)
+                     and `ftxEligiblePos` (current Fantrax position eligibility)
+    - fa: seed-matched FAs sorted by csValA desc
 
 Refresh workflow:
   python3 scripts/fetch_fantrax_rosters.py && reload browser
@@ -25,9 +30,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-LEAGUE_ID   = 'icfsou40mkzpn7lg'
-ROSTERS_URL = 'https://www.fantrax.com/fxea/general/getTeamRosters?leagueId={league_id}'
-FA_URL      = 'https://www.fantrax.com/fxea/general/getLeagueInfo?leagueId={league_id}'
+LEAGUE_ID    = 'icfsou40mkzpn7lg'
+ROSTERS_URL  = 'https://www.fantrax.com/fxea/general/getTeamRosters?leagueId={league_id}'
+LEAGUE_URL   = 'https://www.fantrax.com/fxea/general/getLeagueInfo?leagueId={league_id}'
+PLAYER_ID_URL = 'https://www.fantrax.com/fxea/general/getPlayerIds?sport=MLB'
 
 # Fantrax team name → internal tid
 TEAM_NAME_MAP = {
@@ -54,12 +60,12 @@ def canonical(name: str) -> str:
 
 def fetch_json(url: str) -> dict:
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-    with urllib.request.urlopen(req, timeout=15) as resp:
+    with urllib.request.urlopen(req, timeout=20) as resp:
         return json.loads(resp.read().decode('utf-8'))
 
 
-def load_seed_players() -> dict:
-    """Return {canonical_name: player} and {id: player} from seed.js + steamer_extras.js."""
+def load_seed_players():
+    """Return (by_name, by_id) dicts from seed.js + steamer_extras.js."""
     by_name = {}
     by_id   = {}
 
@@ -70,10 +76,8 @@ def load_seed_players() -> dict:
         return json.loads(text[start:end])
 
     def name_variants(name):
-        """Yield canonical forms of a name to handle seed quirks like
-        'Max Muncy (LAD)' or 'Jose A. Ferrer' matching plain Fantrax names."""
         yield canonical(name)
-        # Strip parenthetical team suffixes: "Max Muncy (LAD)" → "Max Muncy"
+        # Strip parenthetical suffixes: "Max Muncy (LAD)" → "Max Muncy"
         stripped = re.sub(r'\s*\([^)]+\)', '', name).strip()
         if stripped != name:
             yield canonical(stripped)
@@ -98,14 +102,13 @@ def load_seed_players() -> dict:
     return by_name, by_id
 
 
-def load_player_ids() -> dict:
+def load_player_ids():
     """Return {fantraxId: seed_player_id} from player_ids.js."""
     path = Path('js/data/player_ids.js')
     if not path.exists():
         print('  WARNING: player_ids.js not found')
         return {}
     text = path.read_text(encoding='utf-8')
-    # Extract the object literal
     m = re.search(r'const\s+PLAYER_IDS\s*=\s*', text)
     if not m:
         return {}
@@ -122,17 +125,22 @@ def load_player_ids() -> dict:
                     break
                 except Exception:
                     return {}
+    return {ids['fantraxId']: sid for sid, ids in raw.items() if ids.get('fantraxId')}
 
-    ftx_to_seed = {}
-    for seed_id, ids in raw.items():
-        ftx_id = ids.get('fantraxId')
-        if ftx_id:
-            ftx_to_seed[ftx_id] = seed_id
-    return ftx_to_seed
+
+def resolve_player(ftx_id, ftx_player_lookup, ftx_id_to_name, ftx_to_seed, by_id, by_name):
+    """Return (seed_player_or_None, matched:bool)."""
+    seed_id = ftx_to_seed.get(ftx_id)
+    player  = by_id.get(seed_id) if seed_id else None
+    if not player:
+        ftx_name = ftx_id_to_name.get(ftx_id)
+        if ftx_name:
+            player = by_name.get(ftx_name)
+    return player, player is not None
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Fetch live Fantrax rosters via API')
+    parser = argparse.ArgumentParser(description='Fetch live Fantrax rosters + FAs via API')
     parser.add_argument('--league', default=LEAGUE_ID, help='Fantrax league ID')
     parser.add_argument('--out', default='js/data/fantrax_rosters.js', help='Output JS file')
     args = parser.parse_args()
@@ -146,9 +154,8 @@ def main():
     print(f'  {len(ftx_to_seed)} fantraxId → seed_id mappings')
 
     print('\nFetching Fantrax player name lookup...')
-    ftx_player_lookup = fetch_json('https://www.fantrax.com/fxea/general/getPlayerIds?sport=MLB')
-    # Build {fantraxId: canonical_name} for fallback name matching.
-    # Fantrax names are "Last, First" — swap to "First Last" before canonicalizing.
+    ftx_player_lookup = fetch_json(PLAYER_ID_URL)
+
     def ftx_canonical(raw_name):
         if ',' in raw_name:
             last, first = raw_name.split(',', 1)
@@ -161,18 +168,25 @@ def main():
     }
     print(f'  {len(ftx_id_to_name)} Fantrax player IDs loaded')
 
-    print(f'\nFetching rosters from Fantrax API (league={args.league})...')
-    data = fetch_json(ROSTERS_URL.format(league_id=args.league))
-    period = data.get('period', '?')
-    print(f'  Period: {period}, Teams: {len(data.get("rosters", {}))}')
+    print(f'\nFetching league info (FA status + position eligibility)...')
+    league_data   = fetch_json(LEAGUE_URL.format(league_id=args.league))
+    player_info   = league_data.get('playerInfo', {})
+    # {ftxId: {status:'FA'|'T', eligiblePos:'OF,UT,...'}}
+    ftx_elig      = {pid: info.get('eligiblePos', '') for pid, info in player_info.items()}
+    fa_ftx_ids    = {pid for pid, info in player_info.items() if info.get('status') == 'FA'}
+    print(f'  {len(fa_ftx_ids)} FAs, {len(player_info) - len(fa_ftx_ids)} rostered in league data')
 
-    rosters = {tid: [] for tid in ALL_TIDS}
+    print(f'\nFetching team rosters (slot assignments)...')
+    roster_data = fetch_json(ROSTERS_URL.format(league_id=args.league))
+    period      = roster_data.get('period', '?')
+    print(f'  Period: {period}, Teams: {len(roster_data.get("rosters", {}))}')
+
+    rosters  = {tid: [] for tid in ALL_TIDS}
     rosters['fa'] = []
+    rostered_matched = unmatched_roster = 0
 
-    matched   = 0
-    unmatched = []
-
-    for ftx_team_id, team in data.get('rosters', {}).items():
+    # ── Rostered players ────────────────────────────────────────────────────
+    for ftx_team_id, team in roster_data.get('rosters', {}).items():
         team_name = team.get('teamName', '').strip()
         tid = TEAM_NAME_MAP.get(team_name.lower())
         if tid is None:
@@ -181,65 +195,65 @@ def main():
 
         for item in team.get('rosterItems', []):
             ftx_id = item.get('id', '').strip('*')
-            slot   = item.get('status', 'RESERVE')   # ACTIVE | RESERVE | INJURED_RESERVE
+            slot   = item.get('status', 'RESERVE')
             pos    = item.get('position', '')
 
-            # Match to seed: fantraxId crosswalk → canonical name fallback
-            seed_id = ftx_to_seed.get(ftx_id)
-            player  = by_id.get(seed_id) if seed_id else None
-
-            if not player:
-                # Fallback: look up name via getPlayerIds, then match to seed by canonical name
-                ftx_name = ftx_id_to_name.get(ftx_id)
-                if ftx_name:
-                    player = by_name.get(ftx_name)
-
-            if player:
+            player, matched = resolve_player(
+                ftx_id, ftx_player_lookup, ftx_id_to_name, ftx_to_seed, by_id, by_name
+            )
+            if matched:
                 entry = {**player}
-                matched += 1
+                rostered_matched += 1
             else:
                 ftx_name_raw = ftx_player_lookup.get(ftx_id, {}).get('name', ftx_id)
-                entry = {
-                    'id':         ftx_id,
-                    'n':          ftx_name_raw,
-                    'pos':        [pos] if pos else [],
-                    'csValA':     0,
-                    'csValS':     0,
-                    '_unmatched': True,
-                }
-                unmatched.append(f'{ftx_id} ({ftx_name_raw})')
+                entry = {'id': ftx_id, 'n': ftx_name_raw, 'pos': [pos] if pos else [],
+                         'csValA': 0, 'csValS': 0, '_unmatched': True}
+                unmatched_roster += 1
 
-            entry['ftxId']      = ftx_id
-            entry['ftxTeamId']  = ftx_team_id
-            entry['slot']       = slot   # ACTIVE | RESERVE | INJURED_RESERVE
+            entry['ftxId']          = ftx_id
+            entry['ftxTeamId']      = ftx_team_id
+            entry['slot']           = slot
+            entry['ftxEligiblePos'] = ftx_elig.get(ftx_id, '')
             rosters[tid].append(entry)
 
-    print(f'\nMatched: {matched}  Unmatched: {len(unmatched)}')
+    # ── Free agents ─────────────────────────────────────────────────────────
+    fa_matched = fa_unmatched = 0
+    for ftx_id in fa_ftx_ids:
+        player, matched = resolve_player(
+            ftx_id, ftx_player_lookup, ftx_id_to_name, ftx_to_seed, by_id, by_name
+        )
+        if matched:
+            entry = {**player}
+            entry['ftxId']          = ftx_id
+            entry['ftxEligiblePos'] = ftx_elig.get(ftx_id, '')
+            rosters['fa'].append(entry)
+            fa_matched += 1
+        # Skip FAs not in seed — not relevant for our analysis
+
+    # Sort FA by csValA desc so engines see best players first
+    rosters['fa'].sort(key=lambda p: p.get('csValA', 0), reverse=True)
+
+    # ── Summary ─────────────────────────────────────────────────────────────
+    print(f'\nRostered: {rostered_matched} matched, {unmatched_roster} unmatched')
     for tid in ALL_TIDS:
         active  = sum(1 for p in rosters[tid] if p.get('slot') == 'ACTIVE')
         reserve = sum(1 for p in rosters[tid] if p.get('slot') == 'RESERVE')
         inj     = sum(1 for p in rosters[tid] if p.get('slot') == 'INJURED_RESERVE')
-        parts   = [f'{active}A/{reserve}BN']
-        if inj:
-            parts.append(f'{inj}IL')
-        print(f'  {tid}: {" ".join(parts)}')
-
-    if unmatched[:10]:
-        print(f'\nUnmatched fantraxIds (not in player_ids.js):')
-        for fid in unmatched[:10]:
-            print(f'  {fid}')
-        if len(unmatched) > 10:
-            print(f'  ... and {len(unmatched) - 10} more')
+        tag = f'{active}A/{reserve}BN' + (f'/{inj}IL' if inj else '')
+        print(f'  {tid}: {tag}')
+    print(f'\nFAs: {fa_matched} seed-matched (of {len(fa_ftx_ids)} total)')
 
     output = {
         **rosters,
         '_meta': {
-            'source':    f'fxea API period={period}',
-            'baked':     datetime.now(timezone.utc).isoformat(),
-            'leagueId':  args.league,
-            'period':    period,
-            'matched':   matched,
-            'unmatched': len(unmatched),
+            'source':       f'fxea API period={period}',
+            'baked':        datetime.now(timezone.utc).isoformat(),
+            'leagueId':     args.league,
+            'period':       period,
+            'rosterMatched': rostered_matched,
+            'rosterUnmatched': unmatched_roster,
+            'faMatched':    fa_matched,
+            'faTotal':      len(fa_ftx_ids),
         },
     }
 
@@ -247,7 +261,7 @@ def main():
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write('// Generated by scripts/fetch_fantrax_rosters.py — do not edit\n')
-        f.write(f'// Run: python3 scripts/fetch_fantrax_rosters.py\n')
+        f.write('// Run: python3 scripts/fetch_fantrax_rosters.py\n')
         f.write('const FANTRAX_ROSTERS = ')
         f.write(json.dumps(output, indent=2, ensure_ascii=False))
         f.write(';\n')
