@@ -10,6 +10,12 @@ Pulls from two endpoints:
 Usage:
   python3 scripts/fetch_fantrax_rosters.py
   python3 scripts/fetch_fantrax_rosters.py --league icfsou40mkzpn7lg
+  python3 scripts/fetch_fantrax_rosters.py --csv "data/new.3.26.Fantrax-Players-Teddy Ballgame League .csv"
+
+The --csv flag merges roster assignments from a Fantrax export CSV with the API data.
+This handles API lag after FAAB: if a player appears rostered in the CSV but is still
+showing as FA in the API, they are added as RESERVE to the correct team. CSV wins on
+team assignment; API slot data (ACTIVE/RESERVE/IL) is used when available.
 
 Output:
   js/data/fantrax_rosters.js
@@ -18,7 +24,7 @@ Output:
     - fa: seed-matched FAs sorted by csValA desc
 
 Refresh workflow:
-  python3 scripts/fetch_fantrax_rosters.py && reload browser
+  python3 scripts/fetch_fantrax_rosters.py --csv "data/<latest>.csv" && reload browser
 """
 
 import argparse
@@ -29,6 +35,20 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+
+# CSV Status column → internal tid
+CSV_STATUS_MAP = {
+    'chathams': 'me',
+    'spew':     't1',
+    'idiots':   't2',
+    'recap':    't3',
+    'bw':       't5',
+    'dogs':     't6',
+    'deal':     't7',
+    'pollos':   't8',
+    'hacks':    't9',
+    'vt':       't10',
+}
 
 LEAGUE_ID    = 'icfsou40mkzpn7lg'
 ROSTERS_URL  = 'https://www.fantrax.com/fxea/general/getTeamRosters?leagueId={league_id}'
@@ -139,10 +159,103 @@ def resolve_player(ftx_id, ftx_player_lookup, ftx_id_to_name, ftx_to_seed, by_id
     return player, player is not None
 
 
+def load_csv_assignments(csv_path):
+    """Parse a Fantrax export CSV → {ftx_id: tid} for all rostered players.
+
+    Ignores FA rows. Strips asterisks from IDs.
+    Returns empty dict if file not found or parse error.
+    """
+    import csv as csv_mod
+    assignments = {}
+    path = Path(csv_path)
+    if not path.exists():
+        print(f'  WARNING: CSV not found: {csv_path}')
+        return assignments
+    try:
+        with open(path, newline='', encoding='utf-8') as f:
+            for row in csv_mod.DictReader(f):
+                status = row.get('Status', '').strip()
+                tid = CSV_STATUS_MAP.get(status.lower())
+                if tid is None:
+                    continue  # FA or unknown
+                ftx_id = row.get('ID', '').strip('*').strip()
+                if ftx_id:
+                    assignments[ftx_id] = tid
+        print(f'  {len(assignments)} rostered players in CSV (non-FA)')
+    except Exception as e:
+        print(f'  WARNING: CSV parse error: {e}')
+    return assignments
+
+
+def merge_csv_into_rosters(rosters, csv_assignments, ftx_id_to_name, ftx_elig,
+                           ftx_to_seed, by_id, by_name, ftx_player_lookup):
+    """Add CSV-rostered players that the API missed (post-FAAB lag).
+
+    For each player in csv_assignments:
+      - If already in the correct team's roster: skip (API has them, no action needed)
+      - If in FA list or missing entirely: add as RESERVE to the CSV-assigned team,
+        remove from FA list
+    """
+    # Build a quick index: ftx_id → (tid, entry) for already-rostered players
+    rostered_ids = {}
+    for tid, players in rosters.items():
+        if tid in ('fa', '_meta'):
+            continue
+        for p in players:
+            if p.get('ftxId'):
+                rostered_ids[p['ftxId']] = tid
+
+    fa_by_ftx = {p['ftxId']: p for p in rosters['fa'] if p.get('ftxId')}
+
+    added = 0
+    moved = 0
+    for ftx_id, csv_tid in csv_assignments.items():
+        existing_tid = rostered_ids.get(ftx_id)
+        if existing_tid == csv_tid:
+            continue  # API already has them on the right team
+
+        # Resolve player
+        player, matched = resolve_player(
+            ftx_id, ftx_player_lookup, ftx_id_to_name, ftx_to_seed, by_id, by_name
+        )
+        if matched:
+            entry = {**player}
+        else:
+            ftx_name_raw = ftx_player_lookup.get(ftx_id, {}).get('name', ftx_id)
+            entry = {'id': ftx_id, 'n': ftx_name_raw, 'pos': [], 'csValA': 0, 'csValS': 0, '_unmatched': True}
+
+        entry['ftxId']          = ftx_id
+        entry['slot']           = 'RESERVE'  # conservative default; API slot data takes precedence if player IS in API
+        entry['ftxEligiblePos'] = ftx_elig.get(ftx_id, '')
+
+        if existing_tid is not None and existing_tid != csv_tid:
+            # On wrong team in API — move them (shouldn't normally happen, log it)
+            print(f'  CSV: moving {entry["n"]} from {existing_tid} → {csv_tid}')
+            rosters[existing_tid] = [p for p in rosters[existing_tid] if p.get('ftxId') != ftx_id]
+
+        if ftx_id in fa_by_ftx:
+            rosters['fa'] = [p for p in rosters['fa'] if p.get('ftxId') != ftx_id]
+            moved += 1
+            print(f'  CSV inject (was FA): {entry["n"]} → {csv_tid}')
+        elif existing_tid is None:
+            added += 1
+            print(f'  CSV inject (not in API): {entry["n"]} → {csv_tid}')
+
+        rosters[csv_tid].append(entry)
+
+    if added + moved:
+        print(f'  Merged {added + moved} players from CSV ({moved} from FA, {added} new)')
+    else:
+        print('  CSV merge: no new adds (API is up to date)')
+
+
 def main():
     parser = argparse.ArgumentParser(description='Fetch live Fantrax rosters + FAs via API')
     parser.add_argument('--league', default=LEAGUE_ID, help='Fantrax league ID')
     parser.add_argument('--out', default='js/data/fantrax_rosters.js', help='Output JS file')
+    parser.add_argument('--csv', default=None, metavar='PATH',
+                        help='Path to Fantrax export CSV. Merges roster assignments with API '
+                             'data to handle post-FAAB API lag.')
     args = parser.parse_args()
 
     print('Loading seed players...')
@@ -233,6 +346,20 @@ def main():
     # Sort FA by csValA desc so engines see best players first
     rosters['fa'].sort(key=lambda p: p.get('csValA', 0), reverse=True)
 
+    # ── CSV merge (post-FAAB lag fix) ────────────────────────────────────────
+    csv_source = None
+    if args.csv:
+        print(f'\nMerging CSV: {args.csv}')
+        csv_assignments = load_csv_assignments(args.csv)
+        merge_csv_into_rosters(
+            rosters, csv_assignments, ftx_id_to_name, ftx_elig,
+            ftx_to_seed, by_id, by_name, ftx_player_lookup
+        )
+        rosters['fa'].sort(key=lambda p: p.get('csValA', 0), reverse=True)
+        csv_source = Path(args.csv).name
+    else:
+        print('\n(No --csv supplied — using API data only. Use --csv to merge FAAB adds.)')
+
     # ── Summary ─────────────────────────────────────────────────────────────
     print(f'\nRostered: {rostered_matched} matched, {unmatched_roster} unmatched')
     for tid in ALL_TIDS:
@@ -246,14 +373,14 @@ def main():
     output = {
         **rosters,
         '_meta': {
-            'source':       f'fxea API period={period}',
-            'baked':        datetime.now(timezone.utc).isoformat(),
-            'leagueId':     args.league,
-            'period':       period,
-            'rosterMatched': rostered_matched,
+            'source':          f'fxea API period={period}' + (f' + {csv_source}' if csv_source else ''),
+            'baked':           datetime.now(timezone.utc).isoformat(),
+            'leagueId':        args.league,
+            'period':          period,
+            'rosterMatched':   rostered_matched,
             'rosterUnmatched': unmatched_roster,
-            'faMatched':    fa_matched,
-            'faTotal':      len(fa_ftx_ids),
+            'faMatched':       fa_matched,
+            'faTotal':         len(fa_ftx_ids),
         },
     }
 
