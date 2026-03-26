@@ -670,17 +670,12 @@ const Templates = {
         const teams = Object.keys(LG.teamsMap);
         const simActive = Object.values(AppState.drafted).some(v => v.sim);
         const drafted = effectiveDrafted();
-        const stats = {};
         const useOptimal = AppState.ui.projOptimal !== false;
         const useRepl    = AppState.ui.projILRepl  !== false;
-        teams.forEach(tid => {
-            const picks = Object.entries(drafted)
-                .filter(([,v]) => v.team === tid)
-                .map(([id]) => AppState.players.find(p => p.id === id))
-                .filter(Boolean);
-            const active = useOptimal ? optimalLineup(picks).starters : picks;
-            stats[tid] = { ...projStats(active, useRepl), n: picks.length };
-        });
+        // Use FaabEngine so standings respects live Fantrax slot assignments
+        // (ACTIVE/RESERVE/IL) when fantrax_rosters.js is loaded, and falls
+        // back to optimalLineup heuristic otherwise.
+        const stats = FaabEngine.computeAllTeamStats(drafted, AppState.players, { useOptimal, useRepl });
 
         // Override-aware stat calculation for teams with manual lineup changes
         const overrides = AppState.ui.lineupOverrides || {};

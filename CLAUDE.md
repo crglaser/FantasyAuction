@@ -160,9 +160,10 @@ After any meaningful change:
 3. Stage relevant files (never the backup JSONs or private Fantrax CSVs)
 4. `git commit -m "vX.Y.Z: <short description>"`
 5. `git push`
-6. Drop the repo URL: `https://github.com/crglaser/FantasyAuction`
+6. Drop the app URL: `https://crglaser.github.io/FantasyAuction/`
 
 ## Version History
+2.3.10 — Fix standings: use FaabEngine.computeAllTeamStats so Fantrax slot assignments (ACTIVE/RESERVE/IL) are respected
 2.3.9 — Fix ROTO+ simulation bug: FA candidates were excluded from active lineup when Fantrax slot data loaded
 2.3.8 — Added 13 missing high-ownership FAs to seed/extras; coverage check in fetch_fantrax_rosters.py
 2.3.7 — Fantrax as source of truth: ftxEligiblePos in optimalLineup, FAAB filter, enrichment; fa_report uses live rosters
