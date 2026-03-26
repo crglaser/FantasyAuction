@@ -69,14 +69,27 @@ def load_seed_players() -> dict:
         end   = text.rindex(']') + 1
         return json.loads(text[start:end])
 
+    def name_variants(name):
+        """Yield canonical forms of a name to handle seed quirks like
+        'Max Muncy (LAD)' or 'Jose A. Ferrer' matching plain Fantrax names."""
+        yield canonical(name)
+        # Strip parenthetical team suffixes: "Max Muncy (LAD)" → "Max Muncy"
+        stripped = re.sub(r'\s*\([^)]+\)', '', name).strip()
+        if stripped != name:
+            yield canonical(stripped)
+        # Strip middle initial: "Jose A. Ferrer" → "Jose Ferrer"
+        no_initial = re.sub(r'\b[A-Z]\.\s+', '', name).strip()
+        if no_initial != name:
+            yield canonical(no_initial)
+
     for path in ('js/data/seed.js', 'js/data/steamer_extras.js'):
         if not Path(path).exists():
             continue
         try:
             for p in _load_js_array(path):
-                key = canonical(p['n'])
-                if key not in by_name:
-                    by_name[key] = p
+                for key in name_variants(p['n']):
+                    if key not in by_name:
+                        by_name[key] = p
                 if p.get('id') and p['id'] not in by_id:
                     by_id[p['id']] = p
         except Exception as e:

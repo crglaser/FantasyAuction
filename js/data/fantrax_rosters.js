@@ -4410,14 +4410,22 @@ const FANTRAX_ROSTERS = {
       "slot": "ACTIVE"
     },
     {
-      "id": "02mzg",
-      "n": "Muncy, Max",
+      "id": "maxmuncylad-lad",
+      "n": "Max Muncy (LAD)",
+      "t": "LAD",
       "pos": [
         "3B"
       ],
-      "csValA": 0,
-      "csValS": 0,
-      "_unmatched": true,
+      "inj": false,
+      "age": 35,
+      "csValA": -8.0,
+      "csValS": -6.0,
+      "PA": 550,
+      "OBP": 0.346,
+      "HR": 20,
+      "XBH": 16,
+      "RP": 90,
+      "SB": 3,
       "ftxId": "02mzg",
       "ftxTeamId": "g8iixgtrmkzpn7lw",
       "slot": "ACTIVE"
@@ -6457,14 +6465,22 @@ const FANTRAX_ROSTERS = {
       "slot": "ACTIVE"
     },
     {
-      "id": "062ob",
-      "n": "Ferrer, Jose",
+      "id": "joseaferrer-sea",
+      "n": "Jose A. Ferrer",
+      "t": "SEA",
       "pos": [
         "RP"
       ],
+      "inj": false,
+      "age": 26,
       "csValA": 0,
       "csValS": 0,
-      "_unmatched": true,
+      "IP": 170,
+      "W": 0,
+      "SVH": 0,
+      "K": 0,
+      "ERA": 4.0,
+      "WHIP": 1.3,
       "ftxId": "062ob",
       "ftxTeamId": "pavkwb4gmkzpn7lv",
       "slot": "RESERVE"
@@ -6558,10 +6574,10 @@ const FANTRAX_ROSTERS = {
   "fa": [],
   "_meta": {
     "source": "fxea API period=2",
-    "baked": "2026-03-26T01:50:09.901000+00:00",
+    "baked": "2026-03-26T02:11:34.285545+00:00",
     "leagueId": "icfsou40mkzpn7lg",
     "period": 2,
-    "matched": 308,
-    "unmatched": 2
+    "matched": 310,
+    "unmatched": 0
   }
 };
