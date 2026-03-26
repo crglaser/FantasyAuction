@@ -289,22 +289,30 @@ def main():
 
         gaps = []
         for ftx_id, (pct, name, pos, team) in ownership.items():
-            if pct < 5:
+            if pct < 1:
                 continue
             player, matched = resolve_player(ftx_id, ftx_player_lookup, ftx_id_to_name, ftx_to_seed, by_id, by_name)
             if not matched:
                 gaps.append((pct, name, pos, team))
 
         gaps.sort(reverse=True)
-        if gaps:
-            print(f'\n⚠  COVERAGE GAPS — FAs >5% owned not in seed (from {roster_csv.name}):')
-            print(f'  {"Own%":>5}  {"Name":<25} {"Pos":<8} {"Team"}')
-            for pct, name, pos, team in gaps[:20]:
-                print(f'  {pct:5.1f}  {name:<25} {pos:<8} {team}')
-            if len(gaps) > 20:
-                print(f'  ... and {len(gaps)-20} more')
-        else:
-            print(f'\n✓  Coverage check passed — no FAs >5% owned missing from seed')
+        TIERS = [
+            (20, 999, '🔴 >20%'),
+            (10,  20, '🟡 10–20%'),
+            ( 5,  10, '🟠  5–10%'),
+            ( 1,   5, '⚪   1–5%'),
+        ]
+        any_gap = False
+        print(f'\nCoverage check (from {roster_csv.name}):')
+        for lo, hi, label in TIERS:
+            tier_gaps = [(pct, n, p, t) for pct, n, p, t in gaps if lo <= pct < hi]
+            if tier_gaps:
+                any_gap = True
+                print(f'  {label} owned — not in seed:')
+                for pct, name, pos, team in tier_gaps:
+                    print(f'    {pct:5.1f}%  {name:<25} {pos:<8} {team}')
+        if not any_gap:
+            print('  ✓ No FAs >1% owned missing from seed')
     else:
         print('\n(No Fantrax-Players CSV found in data/ — skipping coverage check)')
 
