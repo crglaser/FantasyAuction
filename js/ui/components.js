@@ -754,26 +754,62 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
         const content = document.getElementById('mainContent');
         if (!content) return;
 
-        // Determine FA source: live fantraxRosters.fa (preferred) or recommendations JSON
+        // Determine FA source: live fantraxRosters.fa (preferred) → FA_REPORT → legacy JSON
         const liveFa = AppState.fantraxRosters && AppState.fantraxRosters.fa;
+        if (!AppState.faab && window.FA_REPORT) this._seedFaabFromFaReport();
         const hasFaab = AppState.faab && AppState.faab.recommendations;
 
         if (!liveFa && !hasFaab) {
             content.innerHTML = `
                 <div style="padding:30px;text-align:center;color:#dde8f8;font-size:14px;line-height:1.5">
                     <div style="margin-bottom:8px">Loading FAAB recommendations…</div>
-                    <div style="font-size:12px;opacity:0.6">Source: data/faab_recommendations.json</div>
+                    <div style="font-size:12px;opacity:0.6">Source: data/fa_report.js</div>
                     <button class="btn btn-go" style="margin-top:10px" onclick="UI.loadFaabRecommendations()">Reload</button>
                 </div>`;
             this.loadFaabRecommendations();
             return;
         }
 
-        const rawRecs = liveFa || AppState.faab.recommendations || [];
+        let rawRecs = liveFa || AppState.faab.recommendations || [];
         const budget  = (AppState.faab && AppState.faab.faabBudget) || 400;
+
+        // Supplement FA pool with PL/HL ranked players missing from Fantrax data.
+        // bake_rosters.py caps FA at top-500 by Fantrax score; PL-ranked SPs and
+        // HL-ranked hitters with lower Fantrax scores fall through the floor entirely.
+        {
+            const norm = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            const recNames = new Set(rawRecs.map(r => norm(r.Player || r.n || '')));
+            // All players on any roster (fantrax or drafted)
+            const onRoster = new Set();
+            if (AppState.fantraxRosters) {
+                Object.keys(LG.teamsMap).forEach(tid => {
+                    (AppState.fantraxRosters[tid] || []).forEach(p => onRoster.add(p.id));
+                });
+            }
+            const drafted = effectiveDrafted();
+            Object.keys(drafted).forEach(id => onRoster.add(id));
+
+            const supplements = AppState.players.filter(p => {
+                if (!p.PL_Rank && !p.HL_Rank) return false;
+                if (onRoster.has(p.id)) return false;
+                if (recNames.has(norm(p.n))) return false;
+                return true;
+            }).map(p => ({
+                // Mimic fantraxRosters.fa shape so enrichFaabCandidates normalizes it
+                n: p.n, Player: p.n, Position: (p.pos || []).join(','),
+                pos: p.pos, Score: 0, ADP: 999, Rank: 9999,
+                _fromSeed: true,  // marker for debugging
+            }));
+
+            if (supplements.length) rawRecs = [...rawRecs, ...supplements];
+        }
+        const seedSupplCount = rawRecs.filter(r => r._fromSeed).length;
+        const seedNote = seedSupplCount ? ` + ${seedSupplCount} PL/HL-ranked` : '';
         const srcLabel = liveFa
-            ? `Live Fantrax (${liveFa.length} FAs · ${AppState.fantraxRosters._meta && AppState.fantraxRosters._meta.source || ''})`
-            : `faab_recommendations.json · ${AppState.faab && AppState.faab.runAt || ''}`;
+            ? `Live Fantrax (${liveFa.length} FAs${seedNote} · ${AppState.fantraxRosters._meta && AppState.fantraxRosters._meta.source || ''})`
+            : window.FA_REPORT
+                ? `fa_report.js (${(AppState.faab.recommendations||[]).length} players${seedNote} · ${AppState.faab.runAt || ''})`
+                : `faab_recommendations.json${seedNote} · ${AppState.faab && AppState.faab.runAt || ''}`;
 
         const posFilter = AppState.ui.faabPosFilter || 'ALL';
         const statSort  = AppState.ui.faabStatSort  || 'ROTO+';
@@ -859,6 +895,22 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                 const drClr  = dr > 1 ? '#40b870' : dr > 0 ? '#8ec8a0' : dr < 0 ? '#d04040' : '#7090a8';
                 const injBadge = p.inj ? ' <span style="color:#e8c040;font-size:10px">INJ</span>' : '';
                 const unmatch  = !r._player ? ' <span style="opacity:0.4;font-size:10px">(est)</span>' : '';
+                // PL/HL/CM scout badge
+                let scoutBadge = '';
+                if (p.CM_Role && p.CM_Role.includes('CLOSER')) {
+                    scoutBadge = ' <span style="background:#1a4a1a;color:#40d870;font-size:9px;padding:1px 4px;border-radius:2px">CLOSER</span>';
+                } else if (p.CM_Role && p.CM_Role.includes('1ST')) {
+                    scoutBadge = ' <span style="background:#3a3000;color:#e8c040;font-size:9px;padding:1px 4px;border-radius:2px">1ST</span>';
+                } else if (p.CM_Role && p.CM_Role.includes('2ND')) {
+                    scoutBadge = ' <span style="background:#001a3a;color:#4090e0;font-size:9px;padding:1px 4px;border-radius:2px">2ND</span>';
+                } else if (p.PL_Rank) {
+                    const tierClr = p.PL_Tier <= 1 ? '#e8c040' : p.PL_Tier <= 2 ? '#40b870' : '#5090a8';
+                    scoutBadge = ` <span style="color:${tierClr};font-size:9px;padding:1px 3px;border:1px solid ${tierClr}33;border-radius:2px">PL#${p.PL_Rank}</span>`;
+                } else if (p.HL_Rank) {
+                    const tierClr = p.HL_Tier <= 1 ? '#e8c040' : p.HL_Tier <= 2 ? '#40b870' : '#5090a8';
+                    scoutBadge = ` <span style="color:${tierClr};font-size:9px;padding:1px 3px;border:1px solid ${tierClr}33;border-radius:2px">HL#${p.HL_Rank}</span>`;
+                }
+                const seedBadge = r._fromSeed ? ' <span style="color:#506878;font-size:9px" title="Not in Fantrax FA data — seed-supplemented">*</span>' : '';
 
                 let tradeTo = '—';
                 if (r._bestTradeTo && r._bestTradeTo.delta > 0) {
@@ -881,7 +933,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
 
                 html += `<tr${r._alreadyDrafted ? ' style="opacity:0.35"' : ''}>
                     <td style="text-align:right;color:#506878">${idx + 1}</td>
-                    <td>${r.Player}${injBadge}${unmatch}</td>
+                    <td>${r.Player}${scoutBadge}${injBadge}${unmatch}${seedBadge}</td>
                     <td style="color:#9cb8d8">${r.Position}</td>
                     <td style="text-align:right">${(+r.Score || 0).toFixed(1)}</td>
                     <td style="text-align:right;color:#7090a8">${r.ADP && r.ADP < 900 ? (+r.ADP).toFixed(0) : '—'}</td>
@@ -899,14 +951,42 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
         content.innerHTML = html;
     },
 
+    // Load FA_REPORT (pre-baked by scripts/fa_report.py) into AppState.faab format.
+    // FA_REPORT has {sp:[],rp:[],hitters[]} — flatten and normalize to {Player,Position,Score,ADP}.
+    _seedFaabFromFaReport() {
+        const r = window.FA_REPORT;
+        if (!r) return false;
+        const all = [...(r.sp || []), ...(r.rp || []), ...(r.hitters || [])];
+        AppState.faab = {
+            recommendations: all.map(p => ({
+                Player:    p.name,
+                Position:  (p.pos || []).join(','),
+                Score:     p.ftxScore || 0,
+                ADP:       999,
+                _faScore:  p.score,
+                _roleNote: p.roleNote,
+                _injNote:  p.injNote,
+            })),
+            faabBudget: 400,
+            runAt: r.generatedAt ? new Date(r.generatedAt).toLocaleString() : 'fa_report.js',
+        };
+        return true;
+    },
+
     loadFaabRecommendations() {
+        // Prefer pre-baked FA_REPORT if available; fall back to legacy JSON fetch.
+        if (this._seedFaabFromFaReport()) {
+            AppState.faabEnriched = null;
+            this.render();
+            return;
+        }
         fetch('data/faab_recommendations.json', {cache: 'no-store'})
             .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
             .then(data => {
                 AppState.faab = data;
                 if (!AppState.faab.faabBudget) AppState.faab.faabBudget = 400;
                 AppState.faab.runAt = new Date().toLocaleString();
-                AppState.faabEnriched = null; // bust cache
+                AppState.faabEnriched = null;
                 this.render();
             })
             .catch(err => {

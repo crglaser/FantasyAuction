@@ -6700,24 +6700,6 @@ const SEED_PLAYERS = [
     "WHIP": 1.22
   },
   {
-    "id": "emiliopagn-cin",
-    "n": "Emilio Pag\u00e1n",
-    "t": "CIN",
-    "pos": [
-      "RP"
-    ],
-    "inj": false,
-    "age": 34,
-    "csValA": -3.0,
-    "csValS": 0.0,
-    "IP": 65,
-    "W": 3,
-    "SVH": 29,
-    "K": 69,
-    "ERA": 3.91,
-    "WHIP": 1.17
-  },
-  {
     "id": "jojoromero-stl",
     "n": "JoJo Romero",
     "t": "STL",
@@ -10318,9 +10300,9 @@ const SEED_PLAYERS = [
       "SP"
     ],
     "inj": false,
-    "age": 0,
-    "csValA": -18.0,
-    "csValS": -8.0,
+    "age": 24,
+    "csValA": 9.0,
+    "csValS": 7.5,
     "IP": 111,
     "W": 6.4,
     "SVH": 0,
@@ -10481,9 +10463,9 @@ const SEED_PLAYERS = [
       "SP"
     ],
     "inj": false,
-    "age": 0,
-    "csValA": -22.0,
-    "csValS": -10.0,
+    "age": 24,
+    "csValA": 7.5,
+    "csValS": 6.5,
     "IP": 136,
     "W": 7.4,
     "SVH": 0,
@@ -10517,9 +10499,9 @@ const SEED_PLAYERS = [
       "SP"
     ],
     "inj": false,
-    "age": 0,
-    "csValA": -24.0,
-    "csValS": -12.0,
+    "age": 22,
+    "csValA": 6.0,
+    "csValS": 5.0,
     "IP": 115,
     "W": 6.1,
     "SVH": 0,

@@ -152,7 +152,19 @@ CM_Role column: renders as colored closer badge (CLOSER=green, 1ST=yellow, 2ND=b
 - Standings tab uses merged `{...drafted, ...simDrafted}` when sim is active
 - "CLEAR SIM" button resets AppState.simDrafted = {}
 
+## Release Workflow
+
+After any meaningful change:
+1. Bump `APP_VERSION` in `js/engine/state.js`
+2. Add entry to Version History below
+3. Stage relevant files (never the backup JSONs or private Fantrax CSVs)
+4. `git commit -m "vX.Y.Z: <short description>"`
+5. `git push`
+6. Drop the commit URL: `https://github.com/crglaser/FantasyAuction/commit/<sha>`
+
 ## Version History
+2.3.5 — fa_report.py pipeline wired into FAAB tab; FA pool expanded to 150/group; Benge/Harrison/Abel/Painter/Sproat/Rumfield data fixes
+2.3.4 — (previous session — faab_engine.js + trade_engine.js + Trade Lab tab)
 1.3.5 — Draft simulation + pre-computed AI injury summaries
 1.3.4 — SCOUT unified badge (CM/PL/HL) + HitterList data + OBP adjustment arrows + roto tie fix + arb tab redesign + AI injury summaries
 1.3.0 — steamer_extras.js (unofficial Steamer estimates for ~200 players)

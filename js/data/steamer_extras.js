@@ -3,6 +3,22 @@
 // NOT official values. Shown in muted style in the auction board.
 const STEAMER_EXTRAS = [
   {
+    "id": "connellyearly-bos",
+    "n": "Connelly Early",
+    "t": "BOS",
+    "pos": ["SP"],
+    "unofficial": true,
+    "age": 24,
+    "csValA": 10.5,
+    "csValS": 8.8,
+    "IP": 145,
+    "W": 8,
+    "K": 138,
+    "SVH": 0,
+    "ERA": 3.82,
+    "WHIP": 1.23
+  },
+  {
     "id": "clayholmes-nym",
     "n": "Clay Holmes",
     "t": "NYM",
@@ -692,8 +708,8 @@ const STEAMER_EXTRAS = [
       "OF"
     ],
     "unofficial": true,
-    "csValA": -14.6,
-    "csValS": -9.2,
+    "csValA": 6.5,
+    "csValS": 5.5,
     "PA": 329,
     "OBP": 0.308,
     "HR": 13,
@@ -1535,14 +1551,15 @@ const STEAMER_EXTRAS = [
       "OF"
     ],
     "unofficial": true,
-    "csValA": -14.1,
-    "csValS": -8.9,
-    "PA": 261,
-    "OBP": 0.314,
-    "HR": 6,
-    "XBH": 12,
-    "RP": 56,
-    "SB": 5.6
+    "age": 23,
+    "csValA": 10.5,
+    "csValS": 9.0,
+    "PA": 523,
+    "OBP": 0.329,
+    "HR": 13,
+    "XBH": 40,
+    "RP": 75,
+    "SB": 11
   },
   {
     "id": "jessewinker-fa",
@@ -3455,5 +3472,41 @@ const STEAMER_EXTRAS = [
     "K": 48,
     "ERA": 5.31,
     "WHIP": 1.53
+  },
+  {
+    "id": "brandonsproat-mil",
+    "n": "Brandon Sproat",
+    "t": "MIL",
+    "pos": [
+      "SP"
+    ],
+    "unofficial": true,
+    "age": 25,
+    "csValA": 4.5,
+    "csValS": 4.0,
+    "IP": 100,
+    "W": 5,
+    "SVH": 0,
+    "K": 83,
+    "ERA": 4.24,
+    "WHIP": 1.37
+  },
+  {
+    "id": "tjrumfield-col",
+    "n": "T.J. Rumfield",
+    "t": "COL",
+    "pos": [
+      "1B"
+    ],
+    "unofficial": true,
+    "age": 25,
+    "csValA": 4.5,
+    "csValS": 3.8,
+    "PA": 310,
+    "OBP": 0.324,
+    "HR": 8,
+    "XBH": 22,
+    "RP": 55,
+    "SB": 2
   }
 ];

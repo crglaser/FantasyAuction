@@ -84,7 +84,7 @@ def main():
     parser = argparse.ArgumentParser(description='Bake Fantrax roster CSV into JS')
     parser.add_argument('--csv', required=True, help='Path to Fantrax all-rosters CSV')
     parser.add_argument('--out', default='js/data/fantrax_rosters.js', help='Output JS file path')
-    parser.add_argument('--top-fa', type=int, default=500, help='Max FA players to include (by Score desc)')
+    parser.add_argument('--top-fa', type=int, default=0, help='Max FA players to include (0 = all)')
     args = parser.parse_args()
 
     seed_by_name = load_seed_players()
@@ -164,16 +164,19 @@ def main():
 
             rosters[tid].append(entry)
 
-    # Sort FA by score descending, then trim to top N
+    # Sort FA by score descending; trim only if --top-fa explicitly set
     rosters['fa'].sort(key=lambda p: p.get('ftxScore', 0), reverse=True)
     fa_total = len(rosters['fa'])
-    rosters['fa'] = rosters['fa'][:args.top_fa]
+    if args.top_fa > 0:
+        rosters['fa'] = rosters['fa'][:args.top_fa]
 
     # Print summary
     print(f'\nSeed matches: {matched}, Unmatched: {len(unmatched_names)}')
     for tid in ALL_TIDS:
         if tid == 'fa':
-            print(f'  fa: {fa_total} total, {len(rosters["fa"])} kept (top {args.top_fa} by Score)')
+            kept = len(rosters['fa'])
+            cap_note = f' (capped at {args.top_fa})' if args.top_fa > 0 and kept < fa_total else ''
+            print(f'  fa: {kept} players{cap_note}')
         else:
             print(f'  {tid}: {len(rosters[tid])} players')
 
@@ -193,7 +196,7 @@ def main():
             'matched':    matched,
             'unmatched':  len(unmatched_names),
             'faTotal':    fa_total,
-            'faKept':     len(rosters['fa']),
+            'faKept':     len(rosters['fa']),  # same as faTotal unless --top-fa used
         }
     }
 
