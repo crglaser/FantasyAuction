@@ -163,6 +163,7 @@ After any meaningful change:
 6. Drop the app URL: `https://crglaser.github.io/FantasyAuction/`
 
 ## Version History
+2.3.11 — FAAB VALUE column: composite 40% csValA + 40% ROTO+ + 20% Fit, normalized within candidate set; default sort
 2.3.10 — Fix standings: use FaabEngine.computeAllTeamStats so Fantrax slot assignments (ACTIVE/RESERVE/IL) are respected
 2.3.9 — Fix ROTO+ simulation bug: FA candidates were excluded from active lineup when Fantrax slot data loaded
 2.3.8 — Added 13 missing high-ownership FAs to seed/extras; coverage check in fetch_fantrax_rosters.py

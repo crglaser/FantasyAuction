@@ -285,7 +285,7 @@ const FaabEngine = {
 
         const POS_WEIGHTS = { C:0.5,'1B':0.6,'2B':1,'3B':1,SS:1,OF:0.6,SP:1,RP:1.2,DH:0.1 };
 
-        return recs.map(r => {
+        const enriched = recs.map(r => {
             // Normalize rec fields — handle both sources
             const playerName = r.Player || r.n || '';
             // Prefer live Fantrax eligibility > Position field > seed pos array
@@ -360,7 +360,26 @@ const FaabEngine = {
                 _aVal:           base.aValAdj  || base.aVal  || 0,
                 _fVal:           base.fVal      || 0,
                 _csVal:          base.csValAAdj || base.csValA || 0,
+                _faabValue:      0, // computed in second pass below
             });
         });
+
+        // Second pass: normalize csValA, ROTO+, Fit within the candidate set
+        // and compute composite _faabValue = 40% quality + 40% team fit + 20% positional need.
+        const vals  = enriched.map(e => e._csVal);
+        const rotos = enriched.map(e => e._deltaROTO);
+        const fits  = enriched.map(e => e._teamFit);
+        const minMax = arr => {
+            const mn = Math.min(...arr), mx = Math.max(...arr);
+            return mx > mn ? v => (v - mn) / (mx - mn) : () => 0.5;
+        };
+        const normVal  = minMax(vals);
+        const normRoto = minMax(rotos);
+        const normFit  = minMax(fits);
+        enriched.forEach(e => {
+            e._faabValue = +(0.4 * normVal(e._csVal) + 0.4 * normRoto(e._deltaROTO) + 0.2 * normFit(e._teamFit)).toFixed(3);
+        });
+
+        return enriched;
     },
 };

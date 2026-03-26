@@ -812,7 +812,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                 : `faab_recommendations.json${seedNote} · ${AppState.faab && AppState.faab.runAt || ''}`;
 
         const posFilter = AppState.ui.faabPosFilter || 'ALL';
-        const statSort  = AppState.ui.faabStatSort  || 'ROTO+';
+        const statSort  = AppState.ui.faabStatSort  || 'VALUE';
         const opts = { useOptimal: AppState.ui.projOptimal !== false, useRepl: AppState.ui.projILRepl !== false };
 
         // Enrichment — compute once, cache until roster changes or forced refresh
@@ -834,9 +834,10 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
 
         // Sort
         const sortBy = {
-            'ROTO+': (a, b) => b._deltaROTO - a._deltaROTO,
-            'Fit':   (a, b) => b._teamFit   - a._teamFit,
-            'Score': (a, b) => b.Score       - a.Score,
+            'VALUE': (a, b) => b._faabValue  - a._faabValue,
+            'ROTO+': (a, b) => b._deltaROTO  - a._deltaROTO,
+            'Fit':   (a, b) => b._teamFit    - a._teamFit,
+            'Score': (a, b) => b.Score        - a.Score,
             'ADP':   (a, b) => (a.ADP || 999) - (b.ADP || 999),
             'IP':    (a, b) => (b._player && (b._player.IP || b._player.PA) || 0) - (a._player && (a._player.IP || a._player.PA) || 0),
             'HR':    (a, b) => (b._player && b._player.HR || 0) - (a._player && a._player.HR || 0),
@@ -867,7 +868,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
             </select>
             <label style="font-size:11px;color:#9cb8d8;margin-left:8px">Sort:</label>
             <select onchange="AppState.ui.faabStatSort=this.value;UI.render()" style="font-size:11px;padding:2px 6px">
-                ${selOpts(statSort, ['ROTO+','Fit','Score','ADP','IP','K','W','SVH','HR','SB','ERA','WHIP'])}
+                ${selOpts(statSort, ['VALUE','ROTO+','Fit','Score','ADP','IP','K','W','SVH','HR','SB','ERA','WHIP'])}
             </select>
             <span style="font-size:11px;color:#506878;margin-left:8px">${visible.length} players · ROTO+ = rank-pts gained by adding player</span>
         </div>
@@ -878,6 +879,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                 <th style="width:70px">Pos</th>
                 <th style="width:50px;text-align:right" title="Fantrax score">Score</th>
                 <th style="width:44px;text-align:right">ADP</th>
+                <th style="width:52px;text-align:right;color:#e8c040" title="Composite value: 40% player quality (csValA) + 40% ROTO+ + 20% positional fit — normalized within candidate set">VALUE</th>
                 <th style="width:52px;text-align:right;color:#40b870" title="Roto rank-points gained by adding to your team">ROTO+</th>
                 <th style="width:38px;text-align:right" title="Projected IP (pitchers) or PA (hitters) — counting stat volume">IP/PA</th>
                 <th style="width:38px;text-align:right" title="Team fit (position need + scarcity)">Fit</th>
@@ -888,7 +890,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
             <tbody>`;
 
         if (!visible.length) {
-            html += `<tr><td colspan="11" style="text-align:center;color:#88a8c4;padding:20px">No players found for filter.</td></tr>`;
+            html += `<tr><td colspan="12" style="text-align:center;color:#88a8c4;padding:20px">No players found for filter.</td></tr>`;
         } else {
             visible.slice(0, 75).forEach((r, idx) => {
                 const p   = r._player || {};
@@ -938,6 +940,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                     <td style="color:#9cb8d8">${r.Position}</td>
                     <td style="text-align:right">${(+r.Score || 0).toFixed(1)}</td>
                     <td style="text-align:right;color:#7090a8">${r.ADP && r.ADP < 900 ? (+r.ADP).toFixed(0) : '—'}</td>
+                    <td style="text-align:right;font-weight:700;color:#e8c040">${(r._faabValue * 100).toFixed(0)}</td>
                     <td style="text-align:right;font-weight:700;color:${drClr}">${dr > 0 ? '+' : ''}${dr.toFixed(2)}</td>
                     <td style="text-align:right;color:#7090a8">${p.IP ? Math.round(p.IP) + ' IP' : p.PA ? p.PA + ' PA' : '—'}</td>
                     <td style="text-align:right;color:#9cb8d8">${r._teamFit.toFixed(1)}</td>
