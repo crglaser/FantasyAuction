@@ -7003,26 +7003,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "joemusgrove-sd",
-      "n": "Joe Musgrove",
-      "t": "SD",
-      "pos": [
-        "SP"
-      ],
-      "inj": true,
-      "age": 33,
-      "csValA": 13.8,
-      "csValS": 9.9,
-      "IP": 149.6,
-      "W": 9.2,
-      "SVH": 0,
-      "K": 142.0,
-      "ERA": 3.91,
-      "WHIP": 1.22,
-      "ftxId": "02bqy",
-      "ftxEligiblePos": "SP"
-    },
-    {
       "id": "brandonpfaadt-ari",
       "n": "Brandon Pfaadt",
       "t": "ARI",
@@ -7040,6 +7020,26 @@ const FANTRAX_ROSTERS = {
       "ERA": 4.31,
       "WHIP": 1.28,
       "ftxId": "05lg3",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "joemusgrove-sd",
+      "n": "Joe Musgrove",
+      "t": "SD",
+      "pos": [
+        "SP"
+      ],
+      "inj": true,
+      "age": 33,
+      "csValA": 13.8,
+      "csValS": 9.9,
+      "IP": 149.6,
+      "W": 9.2,
+      "SVH": 0,
+      "K": 142.0,
+      "ERA": 3.91,
+      "WHIP": 1.22,
+      "ftxId": "02bqy",
       "ftxEligiblePos": "SP"
     },
     {
@@ -7184,26 +7184,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "tajbradley-min",
-      "n": "Taj Bradley",
-      "t": "MIN",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 12.6,
-      "csValS": 9.1,
-      "IP": 145.4,
-      "W": 8.5,
-      "SVH": 1,
-      "K": 142.0,
-      "ERA": 4.23,
-      "WHIP": 1.32,
-      "ftxId": "04pr8",
-      "ftxEligiblePos": "SP"
-    },
-    {
       "id": "juliorodrguez-sea",
       "n": "Julio Rodríguez",
       "t": "SEA",
@@ -7222,6 +7202,26 @@ const FANTRAX_ROSTERS = {
       "SB": 22.6,
       "ftxId": "04awg",
       "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "tajbradley-min",
+      "n": "Taj Bradley",
+      "t": "MIN",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 12.6,
+      "csValS": 9.1,
+      "IP": 145.4,
+      "W": 8.5,
+      "SVH": 1,
+      "K": 142.0,
+      "ERA": 4.23,
+      "WHIP": 1.32,
+      "ftxId": "04pr8",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "fostergriffin-wsn",
@@ -7284,26 +7284,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "landenroupp-sf",
-      "n": "Landen Roupp",
-      "t": "SF",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 11.7,
-      "csValS": 8.5,
-      "IP": 131.9,
-      "W": 7.7,
-      "SVH": 1.0,
-      "K": 122.0,
-      "ERA": 4.09,
-      "WHIP": 1.37,
-      "ftxId": "05y72",
-      "ftxEligiblePos": "SP"
-    },
-    {
       "id": "sladececconi-cle",
       "n": "Slade Cecconi",
       "t": "CLE",
@@ -7321,6 +7301,26 @@ const FANTRAX_ROSTERS = {
       "ERA": 4.52,
       "WHIP": 1.31,
       "ftxId": "04tk1",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "landenroupp-sf",
+      "n": "Landen Roupp",
+      "t": "SF",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 11.7,
+      "csValS": 8.5,
+      "IP": 131.9,
+      "W": 7.7,
+      "SVH": 1.0,
+      "K": 122.0,
+      "ERA": 4.09,
+      "WHIP": 1.37,
+      "ftxId": "05y72",
       "ftxEligiblePos": "SP"
     },
     {
@@ -7461,8 +7461,8 @@ const FANTRAX_ROSTERS = {
       "K": 113,
       "ERA": 3.83,
       "WHIP": 1.24,
-      "ftxId": "05u30",
-      "ftxEligiblePos": "1B,UT,CI"
+      "ftxId": "05h2u",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "jaredjones-pit",
@@ -7481,8 +7481,8 @@ const FANTRAX_ROSTERS = {
       "K": 113,
       "ERA": 3.83,
       "WHIP": 1.24,
-      "ftxId": "05h2u",
-      "ftxEligiblePos": "SP"
+      "ftxId": "05u30",
+      "ftxEligiblePos": "1B,UT,CI"
     },
     {
       "id": "mickabel-min",
@@ -7565,6 +7565,26 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
+      "id": "joseberrios-tor",
+      "n": "Jose Berrios",
+      "t": "TOR",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 31,
+      "csValA": 10.0,
+      "csValS": 7.4,
+      "IP": 119.1,
+      "W": 6.7,
+      "SVH": 1,
+      "K": 106,
+      "ERA": 4.22,
+      "WHIP": 1.29,
+      "ftxId": "02mwk",
+      "ftxEligiblePos": "SP"
+    },
+    {
       "id": "carmenmlodzinski-pit",
       "n": "Carmen Mlodzinski",
       "t": "PIT",
@@ -7584,26 +7604,6 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.35,
       "ftxId": "05a29",
       "ftxEligiblePos": "SP,RP"
-    },
-    {
-      "id": "joseberrios-tor",
-      "n": "Jose Berrios",
-      "t": "TOR",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 31,
-      "csValA": 10.0,
-      "csValS": 7.4,
-      "IP": 119.1,
-      "W": 6.7,
-      "SVH": 1,
-      "K": 106,
-      "ERA": 4.22,
-      "WHIP": 1.29,
-      "ftxId": "02mwk",
-      "ftxEligiblePos": "SP"
     },
     {
       "id": "kyleharrison-mil",
@@ -7830,26 +7830,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "roycelewis-min",
-      "n": "Royce Lewis",
-      "t": "MIN",
-      "pos": [
-        "3B"
-      ],
-      "inj": false,
-      "age": 26,
-      "csValA": 8.1,
-      "csValS": 7.7,
-      "PA": 468.0,
-      "OBP": 0.311,
-      "HR": 20.2,
-      "XBH": 21.6,
-      "RP": 99.2,
-      "SB": 9.1,
-      "ftxId": "04aeb",
-      "ftxEligiblePos": "UT,3B,CI"
-    },
-    {
       "id": "tylerholton-det",
       "n": "Tyler Holton",
       "t": "DET",
@@ -7869,6 +7849,26 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.25,
       "ftxId": "04naz",
       "ftxEligiblePos": "SP,RP"
+    },
+    {
+      "id": "roycelewis-min",
+      "n": "Royce Lewis",
+      "t": "MIN",
+      "pos": [
+        "3B"
+      ],
+      "inj": false,
+      "age": 26,
+      "csValA": 8.1,
+      "csValS": 7.7,
+      "PA": 468.0,
+      "OBP": 0.311,
+      "HR": 20.2,
+      "XBH": 21.6,
+      "RP": 99.2,
+      "SB": 9.1,
+      "ftxId": "04aeb",
+      "ftxEligiblePos": "UT,3B,CI"
     },
     {
       "id": "justinsteele-chc",
@@ -7910,6 +7910,26 @@ const FANTRAX_ROSTERS = {
       "SB": 17.9,
       "ftxId": "03pzn",
       "ftxEligiblePos": "2B,UT,MI"
+    },
+    {
+      "id": "spencerschwellenbach-atl",
+      "n": "Spencer Schwellenbach",
+      "t": "ATL",
+      "pos": [
+        "SP"
+      ],
+      "inj": true,
+      "age": 25,
+      "csValA": 7.8,
+      "csValS": 5.6,
+      "IP": 76.9,
+      "W": 5.1,
+      "SVH": 0,
+      "K": 75.0,
+      "ERA": 3.65,
+      "WHIP": 1.18,
+      "ftxId": "05tq1",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "chasemeidroth-chw",
@@ -7954,26 +7974,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "spencerschwellenbach-atl",
-      "n": "Spencer Schwellenbach",
-      "t": "ATL",
-      "pos": [
-        "SP"
-      ],
-      "inj": true,
-      "age": 25,
-      "csValA": 7.8,
-      "csValS": 5.6,
-      "IP": 76.9,
-      "W": 5.1,
-      "SVH": 0,
-      "K": 75.0,
-      "ERA": 3.65,
-      "WHIP": 1.18,
-      "ftxId": "05tq1",
-      "ftxEligiblePos": "SP"
-    },
-    {
       "id": "larsnootbaar-stl",
       "n": "Lars Nootbaar",
       "t": "STL",
@@ -8014,6 +8014,26 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
+      "id": "ryanjeffers-min",
+      "n": "Ryan Jeffers",
+      "t": "MIN",
+      "pos": [
+        "C"
+      ],
+      "inj": false,
+      "age": 28,
+      "csValA": 7.6,
+      "csValS": 7.2,
+      "PA": 454.0,
+      "OBP": 0.329,
+      "HR": 15.4,
+      "XBH": 21.8,
+      "RP": 90.5,
+      "SB": 2.4,
+      "ftxId": "04pmu",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
       "id": "jonathanindia-kc",
       "n": "Jonathan India",
       "t": "KC",
@@ -8036,24 +8056,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT,2B,3B,CI,MI"
     },
     {
-      "id": "ryanjeffers-min",
-      "n": "Ryan Jeffers",
-      "t": "MIN",
+      "id": "jpcrawford-sea",
+      "n": "J.P. Crawford",
+      "t": "SEA",
       "pos": [
-        "C"
+        "SS"
       ],
       "inj": false,
-      "age": 28,
-      "csValA": 7.6,
-      "csValS": 7.2,
-      "PA": 454.0,
-      "OBP": 0.329,
-      "HR": 15.4,
-      "XBH": 21.8,
-      "RP": 90.5,
-      "SB": 2.4,
-      "ftxId": "04pmu",
-      "ftxEligiblePos": "C,UT"
+      "age": 31,
+      "csValA": 7.5,
+      "csValS": 7.1,
+      "PA": 498.0,
+      "OBP": 0.337,
+      "HR": 9.7,
+      "XBH": 21.2,
+      "RP": 92.6,
+      "SB": 4.8,
+      "ftxId": "0310z",
+      "ftxEligiblePos": "UT,SS,MI"
     },
     {
       "id": "tobiasmyers-nym",
@@ -8097,26 +8117,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "UT,3B,CI"
     },
     {
-      "id": "jpcrawford-sea",
-      "n": "J.P. Crawford",
-      "t": "SEA",
-      "pos": [
-        "SS"
-      ],
-      "inj": false,
-      "age": 31,
-      "csValA": 7.5,
-      "csValS": 7.1,
-      "PA": 498.0,
-      "OBP": 0.337,
-      "HR": 9.7,
-      "XBH": 21.2,
-      "RP": 92.6,
-      "SB": 4.8,
-      "ftxId": "0310z",
-      "ftxEligiblePos": "UT,SS,MI"
-    },
-    {
       "id": "ryanweiss-hou",
       "n": "Ryan Weiss",
       "t": "HOU",
@@ -8157,27 +8157,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "joshsmith-tex",
-      "n": "Josh Smith",
-      "t": "TEX",
-      "pos": [
-        "3B",
-        "SS"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 7.2,
-      "csValS": 6.8,
-      "PA": 475.0,
-      "OBP": 0.331,
-      "HR": 10.1,
-      "XBH": 22,
-      "RP": 91.1,
-      "SB": 8.3,
-      "ftxId": "04q72",
-      "ftxEligiblePos": "SP,RP"
-    },
-    {
       "id": "jorgesoler-laa",
       "n": "Jorge Soler",
       "t": "LAA",
@@ -8199,24 +8178,45 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "joeyortiz-mil",
-      "n": "Joey Ortiz",
-      "t": "MIL",
+      "id": "joshsmith-tex",
+      "n": "Josh Smith",
+      "t": "TEX",
       "pos": [
+        "3B",
         "SS"
       ],
       "inj": false,
-      "age": 27,
+      "age": 0,
+      "csValA": 7.2,
+      "csValS": 6.8,
+      "PA": 475.0,
+      "OBP": 0.331,
+      "HR": 10.1,
+      "XBH": 22,
+      "RP": 91.1,
+      "SB": 8.3,
+      "ftxId": "04q72",
+      "ftxEligiblePos": "SP,RP"
+    },
+    {
+      "id": "gabrielmoreno-ari",
+      "n": "Gabriel Moreno",
+      "t": "ARI",
+      "pos": [
+        "C"
+      ],
+      "inj": false,
+      "age": 26,
       "csValA": 7.1,
       "csValS": 6.7,
-      "PA": 480.0,
-      "OBP": 0.313,
-      "HR": 10,
-      "XBH": 25.4,
-      "RP": 92.4,
-      "SB": 12.0,
-      "ftxId": "0513c",
-      "ftxEligiblePos": "UT,SS,MI"
+      "PA": 400.0,
+      "OBP": 0.353,
+      "HR": 10.1,
+      "XBH": 20.4,
+      "RP": 85.0,
+      "SB": 4,
+      "ftxId": "04s1g",
+      "ftxEligiblePos": "C,UT"
     },
     {
       "id": "andrewbenintendi-cws",
@@ -8239,24 +8239,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "gabrielmoreno-ari",
-      "n": "Gabriel Moreno",
-      "t": "ARI",
+      "id": "joeyortiz-mil",
+      "n": "Joey Ortiz",
+      "t": "MIL",
       "pos": [
-        "C"
+        "SS"
       ],
       "inj": false,
-      "age": 26,
+      "age": 27,
       "csValA": 7.1,
       "csValS": 6.7,
-      "PA": 400.0,
-      "OBP": 0.353,
-      "HR": 10.1,
-      "XBH": 20.4,
-      "RP": 85.0,
-      "SB": 4,
-      "ftxId": "04s1g",
-      "ftxEligiblePos": "C,UT"
+      "PA": 480.0,
+      "OBP": 0.313,
+      "HR": 10,
+      "XBH": 25.4,
+      "RP": 92.4,
+      "SB": 12.0,
+      "ftxId": "0513c",
+      "ftxEligiblePos": "UT,SS,MI"
     },
     {
       "id": "spencerhorwitz-pit",
@@ -8360,6 +8360,26 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
+      "id": "connornorby-mia",
+      "n": "Connor Norby",
+      "t": "MIA",
+      "pos": [
+        "3B"
+      ],
+      "inj": false,
+      "age": 25,
+      "csValA": 6.6,
+      "csValS": 6.2,
+      "PA": 442.0,
+      "OBP": 0.303,
+      "HR": 13.2,
+      "XBH": 21.4,
+      "RP": 84.4,
+      "SB": 8.5,
+      "ftxId": "05tce",
+      "ftxEligiblePos": "UT,3B,CI"
+    },
+    {
       "id": "brookslee-min",
       "n": "Brooks Lee",
       "t": "MIN",
@@ -8399,26 +8419,6 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.23,
       "ftxId": "0473n",
       "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "connornorby-mia",
-      "n": "Connor Norby",
-      "t": "MIA",
-      "pos": [
-        "3B"
-      ],
-      "inj": false,
-      "age": 25,
-      "csValA": 6.6,
-      "csValS": 6.2,
-      "PA": 442.0,
-      "OBP": 0.303,
-      "HR": 13.2,
-      "XBH": 21.4,
-      "RP": 84.4,
-      "SB": 8.5,
-      "ftxId": "05tce",
-      "ftxEligiblePos": "UT,3B,CI"
     },
     {
       "id": "dominiccanzone-sea",
@@ -8461,6 +8461,26 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,CI"
     },
     {
+      "id": "tyleroneill-bal",
+      "n": "Tyler O'Neill",
+      "t": "BAL",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 6.5,
+      "csValS": 6.1,
+      "PA": 380,
+      "OBP": 0.318,
+      "HR": 16.8,
+      "XBH": 14.3,
+      "RP": 80.0,
+      "SB": 3.7,
+      "ftxId": "02yk4",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
       "id": "franciscoalvarez-nym",
       "n": "Francisco Alvarez",
       "t": "NYM",
@@ -8481,23 +8501,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "C,UT"
     },
     {
-      "id": "tyleroneill-bal",
-      "n": "Tyler O'Neill",
-      "t": "BAL",
+      "id": "lanethomas-kc",
+      "n": "Lane Thomas",
+      "t": "KC",
       "pos": [
         "OF"
       ],
       "inj": false,
       "age": 0,
-      "csValA": 6.5,
+      "csValA": 6.4,
       "csValS": 6.1,
-      "PA": 380,
-      "OBP": 0.318,
-      "HR": 16.8,
-      "XBH": 14.3,
-      "RP": 80.0,
-      "SB": 3.7,
-      "ftxId": "02yk4",
+      "PA": 414,
+      "OBP": 0.307,
+      "HR": 12.9,
+      "XBH": 20.5,
+      "RP": 83.5,
+      "SB": 14.5,
+      "ftxId": "03dei",
       "ftxEligiblePos": "OF,UT"
     },
     {
@@ -8522,46 +8542,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "maxmuncylad-lad",
-      "n": "Max Muncy (LAD)",
-      "t": "LAD",
-      "pos": [
-        "3B"
-      ],
-      "inj": false,
-      "age": 35,
-      "csValA": 6.4,
-      "csValS": 6.0,
-      "PA": 351.0,
-      "OBP": 0.346,
-      "HR": 16.2,
-      "XBH": 12.4,
-      "RP": 74.3,
-      "SB": 2.2,
-      "ftxId": "05t9l",
-      "ftxEligiblePos": "UT,2B,3B,CI,MI"
-    },
-    {
-      "id": "lanethomas-kc",
-      "n": "Lane Thomas",
-      "t": "KC",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 6.4,
-      "csValS": 6.1,
-      "PA": 414,
-      "OBP": 0.307,
-      "HR": 12.9,
-      "XBH": 20.5,
-      "RP": 83.5,
-      "SB": 14.5,
-      "ftxId": "03dei",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
       "id": "anthonyvolpe-nyy",
       "n": "Anthony Volpe",
       "t": "NYY",
@@ -8580,6 +8560,26 @@ const FANTRAX_ROSTERS = {
       "SB": 15.9,
       "ftxId": "04y9p",
       "ftxEligiblePos": "UT,SS,MI"
+    },
+    {
+      "id": "maxmuncylad-lad",
+      "n": "Max Muncy (LAD)",
+      "t": "LAD",
+      "pos": [
+        "3B"
+      ],
+      "inj": false,
+      "age": 35,
+      "csValA": 6.4,
+      "csValS": 6.0,
+      "PA": 351.0,
+      "OBP": 0.346,
+      "HR": 16.2,
+      "XBH": 12.4,
+      "RP": 74.3,
+      "SB": 2.2,
+      "ftxId": "05t9l",
+      "ftxEligiblePos": "UT,2B,3B,CI,MI"
     },
     {
       "id": "bonaylor-cle",
@@ -8645,44 +8645,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,3B,SS,CI,MI"
     },
     {
-      "id": "jesussanchez-tor",
-      "n": "Jesús Sánchez",
-      "t": "TOR",
+      "id": "mikeyastrzemski-atl",
+      "n": "Mike Yastrzemski",
+      "t": "ATL",
       "pos": [
         "OF"
       ],
       "inj": false,
       "age": 0,
       "csValA": 6.2,
-      "csValS": 5.9,
-      "PA": 369,
-      "OBP": 0.317,
-      "HR": 13.1,
-      "XBH": 18.5,
-      "RP": 75.8,
-      "SB": 8.2,
-      "ftxId": "03nru",
+      "csValS": 5.8,
+      "PA": 379,
+      "OBP": 0.319,
+      "HR": 13.5,
+      "XBH": 17.3,
+      "RP": 76.9,
+      "SB": 4.0,
+      "ftxId": "031dw",
       "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "reiddetmers-laa",
-      "n": "Reid Detmers",
-      "t": "LAA",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 26,
-      "csValA": 6.2,
-      "csValS": 6.4,
-      "IP": 150.7,
-      "W": 8.5,
-      "SVH": 1,
-      "K": 159.0,
-      "ERA": 4.03,
-      "WHIP": 1.29,
-      "ftxId": "0596g",
-      "ftxEligiblePos": "RP"
     },
     {
       "id": "austinwells-nyy",
@@ -8705,83 +8685,64 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "C,UT"
     },
     {
-      "id": "mikeyastrzemski-atl",
-      "n": "Mike Yastrzemski",
-      "t": "ATL",
+      "id": "reiddetmers-laa",
+      "n": "Reid Detmers",
+      "t": "LAA",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 26,
+      "csValA": 6.2,
+      "csValS": 6.4,
+      "IP": 150.7,
+      "W": 8.5,
+      "SVH": 1,
+      "K": 159.0,
+      "ERA": 4.03,
+      "WHIP": 1.29,
+      "ftxId": "0596g",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "jesussanchez-tor",
+      "n": "Jesús Sánchez",
+      "t": "TOR",
       "pos": [
         "OF"
       ],
       "inj": false,
       "age": 0,
       "csValA": 6.2,
-      "csValS": 5.8,
-      "PA": 379,
-      "OBP": 0.319,
-      "HR": 13.5,
-      "XBH": 17.3,
-      "RP": 76.9,
-      "SB": 4.0,
-      "ftxId": "031dw",
+      "csValS": 5.9,
+      "PA": 369,
+      "OBP": 0.317,
+      "HR": 13.1,
+      "XBH": 18.5,
+      "RP": 75.8,
+      "SB": 8.2,
+      "ftxId": "03nru",
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "tylerstephenson-cin",
-      "n": "Tyler Stephenson",
-      "t": "CIN",
+      "id": "gavinsheets-sd",
+      "n": "Gavin Sheets",
+      "t": "SD",
       "pos": [
-        "C"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 6.1,
-      "csValS": 5.8,
-      "PA": 399,
-      "OBP": 0.313,
-      "HR": 12.5,
-      "XBH": 17.3,
-      "RP": 73.6,
-      "SB": 1.4,
-      "ftxId": "03pix",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "jakemeyers-hou",
-      "n": "Jake Meyers",
-      "t": "HOU",
-      "pos": [
+        "DH",
         "OF"
       ],
       "inj": false,
       "age": 0,
       "csValA": 6.1,
       "csValS": 5.8,
-      "PA": 398.0,
-      "OBP": 0.32,
-      "HR": 9,
-      "XBH": 18.6,
-      "RP": 78.0,
-      "SB": 11.4,
-      "ftxId": "04emt",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "cedricmullins-tb",
-      "n": "Cedric Mullins",
-      "t": "TB",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 6.1,
-      "csValS": 5.7,
-      "PA": 412.0,
-      "OBP": 0.301,
-      "HR": 12,
-      "XBH": 19.4,
-      "RP": 78.9,
-      "SB": 16.6,
-      "ftxId": "03qr0",
+      "PA": 396.0,
+      "OBP": 0.31,
+      "HR": 12.7,
+      "XBH": 18.7,
+      "RP": 76.1,
+      "SB": 2.1,
+      "ftxId": "04eej",
       "ftxEligiblePos": "OF,UT"
     },
     {
@@ -8806,45 +8767,124 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP,RP"
     },
     {
-      "id": "gavinsheets-sd",
-      "n": "Gavin Sheets",
-      "t": "SD",
+      "id": "cedricmullins-tb",
+      "n": "Cedric Mullins",
+      "t": "TB",
       "pos": [
-        "DH",
+        "OF"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 6.1,
+      "csValS": 5.7,
+      "PA": 412.0,
+      "OBP": 0.301,
+      "HR": 12,
+      "XBH": 19.4,
+      "RP": 78.9,
+      "SB": 16.6,
+      "ftxId": "03qr0",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "jakemeyers-hou",
+      "n": "Jake Meyers",
+      "t": "HOU",
+      "pos": [
         "OF"
       ],
       "inj": false,
       "age": 0,
       "csValA": 6.1,
       "csValS": 5.8,
-      "PA": 396.0,
-      "OBP": 0.31,
-      "HR": 12.7,
-      "XBH": 18.7,
-      "RP": 76.1,
-      "SB": 2.1,
-      "ftxId": "04eej",
+      "PA": 398.0,
+      "OBP": 0.32,
+      "HR": 9,
+      "XBH": 18.6,
+      "RP": 78.0,
+      "SB": 11.4,
+      "ftxId": "04emt",
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "jtrealmuto-phi",
-      "n": "J.T. Realmuto",
-      "t": "PHI",
+      "id": "tylerstephenson-cin",
+      "n": "Tyler Stephenson",
+      "t": "CIN",
       "pos": [
         "C"
       ],
       "inj": false,
-      "age": 34,
+      "age": 0,
+      "csValA": 6.1,
+      "csValS": 5.8,
+      "PA": 399,
+      "OBP": 0.313,
+      "HR": 12.5,
+      "XBH": 17.3,
+      "RP": 73.6,
+      "SB": 1.4,
+      "ftxId": "03pix",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "camsmith-hou",
+      "n": "Cam Smith",
+      "t": "HOU",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 24,
       "csValA": 6.0,
       "csValS": 5.7,
-      "PA": 392.0,
-      "OBP": 0.304,
-      "HR": 11.5,
-      "XBH": 19.0,
-      "RP": 77.0,
-      "SB": 4.8,
-      "ftxId": "025i9",
-      "ftxEligiblePos": "C,UT"
+      "PA": 407.0,
+      "OBP": 0.316,
+      "HR": 10.4,
+      "XBH": 19.7,
+      "RP": 76.4,
+      "SB": 5.8,
+      "ftxId": "060jo",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "jocpederson-tex",
+      "n": "Joc Pederson",
+      "t": "TEX",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 6.0,
+      "csValS": 5.7,
+      "PA": 332.0,
+      "OBP": 0.338,
+      "HR": 14.7,
+      "XBH": 12.5,
+      "RP": 69.6,
+      "SB": 2.8,
+      "ftxId": "026qc",
+      "ftxEligiblePos": "1B,UT,CI"
+    },
+    {
+      "id": "kebryanhayes-cin",
+      "n": "Ke'Bryan Hayes",
+      "t": "CIN",
+      "pos": [
+        "3B"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 6.0,
+      "csValS": 5.7,
+      "PA": 425.0,
+      "OBP": 0.305,
+      "HR": 8.5,
+      "XBH": 18.9,
+      "RP": 78.4,
+      "SB": 9.1,
+      "ftxId": "03pji",
+      "ftxEligiblePos": "UT,3B,CI"
     },
     {
       "id": "emersonhancock-sea",
@@ -8868,84 +8908,45 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "jocpederson-tex",
-      "n": "Joc Pederson",
-      "t": "TEX",
+      "id": "jtrealmuto-phi",
+      "n": "J.T. Realmuto",
+      "t": "PHI",
       "pos": [
-        "OF"
+        "C"
       ],
       "inj": false,
-      "age": 0,
+      "age": 34,
       "csValA": 6.0,
       "csValS": 5.7,
-      "PA": 332.0,
-      "OBP": 0.338,
-      "HR": 14.7,
-      "XBH": 12.5,
-      "RP": 69.6,
-      "SB": 2.8,
-      "ftxId": "026qc",
-      "ftxEligiblePos": "1B,UT,CI"
-    },
-    {
-      "id": "camsmith-hou",
-      "n": "Cam Smith",
-      "t": "HOU",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 24,
-      "csValA": 6.0,
-      "csValS": 5.7,
-      "PA": 407.0,
-      "OBP": 0.316,
-      "HR": 10.4,
-      "XBH": 19.7,
-      "RP": 76.4,
-      "SB": 5.8,
-      "ftxId": "060jo",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "kebryanhayes-cin",
-      "n": "Ke'Bryan Hayes",
-      "t": "CIN",
-      "pos": [
-        "3B"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 6.0,
-      "csValS": 5.7,
-      "PA": 425.0,
-      "OBP": 0.305,
-      "HR": 8.5,
-      "XBH": 18.9,
-      "RP": 78.4,
-      "SB": 9.1,
-      "ftxId": "03pji",
-      "ftxEligiblePos": "UT,3B,CI"
-    },
-    {
-      "id": "bradyhouse-wsn",
-      "n": "Brady House",
-      "t": "WSN",
-      "pos": [
-        "3B"
-      ],
-      "inj": false,
-      "age": 22,
-      "csValA": 5.9,
-      "csValS": 5.6,
-      "PA": 430.0,
-      "OBP": 0.283,
-      "HR": 12.6,
-      "XBH": 19.6,
+      "PA": 392.0,
+      "OBP": 0.304,
+      "HR": 11.5,
+      "XBH": 19.0,
       "RP": 77.0,
-      "SB": 4.9,
-      "ftxId": "059bx",
-      "ftxEligiblePos": "UT,3B,CI"
+      "SB": 4.8,
+      "ftxId": "025i9",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "edgarquero-cws",
+      "n": "Edgar Quero",
+      "t": "CWS",
+      "pos": [
+        "C",
+        "DH"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 5.9,
+      "csValS": 5.5,
+      "PA": 372.0,
+      "OBP": 0.333,
+      "HR": 8.8,
+      "XBH": 16.1,
+      "RP": 70.1,
+      "SB": 1.2,
+      "ftxId": "05un2",
+      "ftxEligiblePos": "C,UT"
     },
     {
       "id": "masonmiller-sd",
@@ -8988,25 +8989,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "edgarquero-cws",
-      "n": "Edgar Quero",
-      "t": "CWS",
+      "id": "bradyhouse-wsn",
+      "n": "Brady House",
+      "t": "WSN",
       "pos": [
-        "C",
-        "DH"
+        "3B"
       ],
       "inj": false,
-      "age": 0,
+      "age": 22,
       "csValA": 5.9,
-      "csValS": 5.5,
-      "PA": 372.0,
-      "OBP": 0.333,
-      "HR": 8.8,
-      "XBH": 16.1,
-      "RP": 70.1,
-      "SB": 1.2,
-      "ftxId": "05un2",
-      "ftxEligiblePos": "C,UT"
+      "csValS": 5.6,
+      "PA": 430.0,
+      "OBP": 0.283,
+      "HR": 12.6,
+      "XBH": 19.6,
+      "RP": 77.0,
+      "SB": 4.9,
+      "ftxId": "059bx",
+      "ftxEligiblePos": "UT,3B,CI"
     },
     {
       "id": "brayanrocchio-cle",
@@ -9028,6 +9028,47 @@ const FANTRAX_ROSTERS = {
       "SB": 10.2,
       "ftxId": "04si3",
       "ftxEligiblePos": "UT,2B,SS,MI"
+    },
+    {
+      "id": "dylancrews-wsn",
+      "n": "Dylan Crews",
+      "t": "WSN",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 24,
+      "csValA": 5.7,
+      "csValS": 5.4,
+      "PA": 360.0,
+      "OBP": 0.307,
+      "HR": 11.7,
+      "XBH": 16.5,
+      "RP": 70.2,
+      "SB": 15.6,
+      "ftxId": "0596e",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "pavinsmith-ari",
+      "n": "Pavin Smith",
+      "t": "ARI",
+      "pos": [
+        "1B",
+        "OF"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 5.7,
+      "csValS": 5.4,
+      "PA": 361.0,
+      "OBP": 0.335,
+      "HR": 10.1,
+      "XBH": 16.5,
+      "RP": 69.0,
+      "SB": 3.0,
+      "ftxId": "04alq",
+      "ftxEligiblePos": "1B,UT,CI"
     },
     {
       "id": "paulgoldschmidt-nyy",
@@ -9070,45 +9111,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "UT,3B,CI"
     },
     {
-      "id": "pavinsmith-ari",
-      "n": "Pavin Smith",
-      "t": "ARI",
+      "id": "connorprielipp-min",
+      "n": "Connor Prielipp",
+      "t": "MIN",
       "pos": [
-        "1B",
-        "OF"
+        "SP"
       ],
       "inj": false,
-      "age": 0,
-      "csValA": 5.7,
-      "csValS": 5.4,
-      "PA": 361.0,
-      "OBP": 0.335,
-      "HR": 10.1,
-      "XBH": 16.5,
-      "RP": 69.0,
-      "SB": 3.0,
-      "ftxId": "04alq",
-      "ftxEligiblePos": "1B,UT,CI"
-    },
-    {
-      "id": "dylancrews-wsn",
-      "n": "Dylan Crews",
-      "t": "WSN",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 24,
-      "csValA": 5.7,
-      "csValS": 5.4,
-      "PA": 360.0,
-      "OBP": 0.307,
-      "HR": 11.7,
-      "XBH": 16.5,
-      "RP": 70.2,
-      "SB": 15.6,
-      "ftxId": "0596e",
-      "ftxEligiblePos": "OF,UT"
+      "age": 25,
+      "csValA": 5.6,
+      "csValS": 4.1,
+      "IP": 61.7,
+      "W": 3.3,
+      "SVH": 1.0,
+      "K": 57.0,
+      "ERA": 4.03,
+      "WHIP": 1.35,
+      "ftxId": "05joq",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "loganohoppe-laa",
@@ -9129,26 +9149,6 @@ const FANTRAX_ROSTERS = {
       "SB": 2.5,
       "ftxId": "04q56",
       "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "connorprielipp-min",
-      "n": "Connor Prielipp",
-      "t": "MIN",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 25,
-      "csValA": 5.6,
-      "csValS": 4.1,
-      "IP": 61.7,
-      "W": 3.3,
-      "SVH": 1.0,
-      "K": 57.0,
-      "ERA": 4.03,
-      "WHIP": 1.35,
-      "ftxId": "05joq",
-      "ftxEligiblePos": "SP"
     },
     {
       "id": "freddyfermin-sd",
@@ -9251,25 +9251,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "2B,UT,MI"
     },
     {
-      "id": "nickcastellanos-sd",
-      "n": "Nick Castellanos",
-      "t": "SD",
+      "id": "edwindaz-lad",
+      "n": "Edwin Díaz",
+      "t": "LAD",
       "pos": [
-        "3B",
-        "OF"
+        "RP"
       ],
       "inj": false,
-      "age": 0,
+      "age": 31,
       "csValA": 5.5,
-      "csValS": 5.2,
-      "PA": 376,
-      "OBP": 0.295,
-      "HR": 12.2,
-      "XBH": 17.8,
-      "RP": 73.8,
-      "SB": 2.6,
-      "ftxId": "01uc9",
-      "ftxEligiblePos": "OF,UT"
+      "csValS": 5.5,
+      "IP": 66.0,
+      "W": 3.9,
+      "SVH": 39.0,
+      "K": 91.0,
+      "ERA": 3.03,
+      "WHIP": 1.09,
+      "ftxId": "0375c",
+      "ftxEligiblePos": "UT,3B,SS,CI,MI"
     },
     {
       "id": "didierfuentes-atl",
@@ -9292,44 +9291,25 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "edwindaz-lad",
-      "n": "Edwin Díaz",
-      "t": "LAD",
+      "id": "nickcastellanos-sd",
+      "n": "Nick Castellanos",
+      "t": "SD",
       "pos": [
-        "RP"
+        "3B",
+        "OF"
       ],
       "inj": false,
-      "age": 31,
+      "age": 0,
       "csValA": 5.5,
-      "csValS": 5.5,
-      "IP": 66.0,
-      "W": 3.9,
-      "SVH": 39.0,
-      "K": 91.0,
-      "ERA": 3.03,
-      "WHIP": 1.09,
-      "ftxId": "0375c",
-      "ftxEligiblePos": "UT,3B,SS,CI,MI"
-    },
-    {
-      "id": "cadesmith-cle",
-      "n": "Cade Smith",
-      "t": "CLE",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 26,
-      "csValA": 5.4,
-      "csValS": 5.4,
-      "IP": 70.0,
-      "W": 3.8,
-      "SVH": 33.0,
-      "K": 88.0,
-      "ERA": 2.99,
-      "WHIP": 1.1,
-      "ftxId": "06f15",
-      "ftxEligiblePos": "SP"
+      "csValS": 5.2,
+      "PA": 376,
+      "OBP": 0.295,
+      "HR": 12.2,
+      "XBH": 17.8,
+      "RP": 73.8,
+      "SB": 2.6,
+      "ftxId": "01uc9",
+      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "luisrengifo-mil",
@@ -9352,6 +9332,26 @@ const FANTRAX_ROSTERS = {
       "SB": 9.8,
       "ftxId": "03avk",
       "ftxEligiblePos": "UT,2B,3B,CI,MI"
+    },
+    {
+      "id": "cadesmith-cle",
+      "n": "Cade Smith",
+      "t": "CLE",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 26,
+      "csValA": 5.4,
+      "csValS": 5.4,
+      "IP": 70.0,
+      "W": 3.8,
+      "SVH": 33.0,
+      "K": 88.0,
+      "ERA": 2.99,
+      "WHIP": 1.1,
+      "ftxId": "06f15",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "yoanmoncada-laa",
@@ -9434,26 +9434,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "C,UT"
     },
     {
-      "id": "tommyedman-lad",
-      "n": "Tommy Edman",
-      "t": "LAD",
-      "pos": [
-        "2B"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 4.9,
-      "csValS": 4.7,
-      "PA": 324.0,
-      "OBP": 0.305,
-      "HR": 9.3,
-      "XBH": 15.8,
-      "RP": 66.3,
-      "SB": 5.6,
-      "ftxId": "041sq",
-      "ftxEligiblePos": "OF,UT,2B,MI"
-    },
-    {
       "id": "bradgleyrodriguez-sd",
       "n": "Bradgley Rodriguez",
       "t": "SD",
@@ -9475,25 +9455,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "troymelton-det",
-      "n": "Troy Melton",
-      "t": "DET",
+      "id": "tommyedman-lad",
+      "n": "Tommy Edman",
+      "t": "LAD",
       "pos": [
-        "RP",
-        "SP"
+        "2B"
       ],
-      "inj": true,
-      "age": 25,
-      "csValA": 4.8,
-      "csValS": 3.5,
-      "IP": 53.3,
-      "W": 2.8,
-      "SVH": 1.0,
-      "K": 49.0,
-      "ERA": 3.88,
-      "WHIP": 1.25,
-      "ftxId": "05uc4",
-      "ftxEligiblePos": "SP,RP"
+      "inj": false,
+      "age": 0,
+      "csValA": 4.9,
+      "csValS": 4.7,
+      "PA": 324.0,
+      "OBP": 0.305,
+      "HR": 9.3,
+      "XBH": 15.8,
+      "RP": 66.3,
+      "SB": 5.6,
+      "ftxId": "041sq",
+      "ftxEligiblePos": "OF,UT,2B,MI"
     },
     {
       "id": "edouardjulien-col",
@@ -9515,6 +9494,27 @@ const FANTRAX_ROSTERS = {
       "SB": 3.8,
       "ftxId": "051dl",
       "ftxEligiblePos": "1B,UT,2B,CI,MI"
+    },
+    {
+      "id": "troymelton-det",
+      "n": "Troy Melton",
+      "t": "DET",
+      "pos": [
+        "RP",
+        "SP"
+      ],
+      "inj": true,
+      "age": 25,
+      "csValA": 4.8,
+      "csValS": 3.5,
+      "IP": 53.3,
+      "W": 2.8,
+      "SVH": 1.0,
+      "K": 49.0,
+      "ERA": 3.88,
+      "WHIP": 1.25,
+      "ftxId": "05uc4",
+      "ftxEligiblePos": "SP,RP"
     },
     {
       "id": "gavinlux-tb",
@@ -9599,26 +9599,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,CI"
     },
     {
-      "id": "brandonsproat-mil",
-      "n": "Brandon Sproat",
-      "t": "MIL",
-      "pos": [
-        "SP"
-      ],
-      "unofficial": true,
-      "age": 25,
-      "csValA": 4.5,
-      "csValS": 4.0,
-      "IP": 100,
-      "W": 5,
-      "SVH": 0,
-      "K": 83,
-      "ERA": 4.24,
-      "WHIP": 1.37,
-      "ftxId": "0515o",
-      "ftxEligiblePos": "SP"
-    },
-    {
       "id": "jjbleday-cin",
       "n": "JJ Bleday",
       "t": "CIN",
@@ -9637,6 +9617,26 @@ const FANTRAX_ROSTERS = {
       "SB": 2.3,
       "ftxId": "04y95",
       "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "brandonsproat-mil",
+      "n": "Brandon Sproat",
+      "t": "MIL",
+      "pos": [
+        "SP"
+      ],
+      "unofficial": true,
+      "age": 25,
+      "csValA": 4.5,
+      "csValS": 4.0,
+      "IP": 100,
+      "W": 5,
+      "SVH": 0,
+      "K": 83,
+      "ERA": 4.24,
+      "WHIP": 1.37,
+      "ftxId": "0515o",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "hurstonwaldrep-atl",
@@ -9821,23 +9821,43 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "louisvarland-tor",
-      "n": "Louis Varland",
-      "t": "TOR",
+      "id": "corbinburnes-ari",
+      "n": "Corbin Burnes",
+      "t": "ARI",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 3.8,
+      "csValS": 2.7,
+      "IP": 37.8,
+      "W": 2.4,
+      "SVH": 0,
+      "K": 38,
+      "ERA": 3.84,
+      "WHIP": 1.27,
+      "ftxId": "041rd",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "adrianmorejon-sd",
+      "n": "Adrian Morejon",
+      "t": "SD",
       "pos": [
         "RP"
       ],
       "inj": false,
-      "age": 28,
+      "age": 27,
       "csValA": 3.8,
       "csValS": 3.9,
-      "IP": 67.0,
+      "IP": 68.0,
       "W": 3.6,
-      "SVH": 15.0,
-      "K": 69.0,
-      "ERA": 3.38,
-      "WHIP": 1.17,
-      "ftxId": "051bm",
+      "SVH": 17.0,
+      "K": 70.0,
+      "ERA": 3.36,
+      "WHIP": 1.22,
+      "ftxId": "043ia",
       "ftxEligiblePos": "RP"
     },
     {
@@ -9859,46 +9879,6 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.34,
       "ftxId": "05jnq",
       "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "fernandocruz-nyy",
-      "n": "Fernando Cruz",
-      "t": "NYY",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 35,
-      "csValA": 3.8,
-      "csValS": 3.7,
-      "IP": 61.0,
-      "W": 3.4,
-      "SVH": 17.0,
-      "K": 81.0,
-      "ERA": 3.3,
-      "WHIP": 1.19,
-      "ftxId": "05yck",
-      "ftxEligiblePos": "UT,SS,MI"
-    },
-    {
-      "id": "corbinburnes-ari",
-      "n": "Corbin Burnes",
-      "t": "ARI",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 3.8,
-      "csValS": 2.7,
-      "IP": 37.8,
-      "W": 2.4,
-      "SVH": 0,
-      "K": 38,
-      "ERA": 3.84,
-      "WHIP": 1.27,
-      "ftxId": "041rd",
-      "ftxEligiblePos": "SP"
     },
     {
       "id": "josalvarado-phi",
@@ -9941,23 +9921,63 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "adrianmorejon-sd",
-      "n": "Adrian Morejon",
-      "t": "SD",
+      "id": "fernandocruz-nyy",
+      "n": "Fernando Cruz",
+      "t": "NYY",
       "pos": [
         "RP"
       ],
       "inj": false,
-      "age": 27,
+      "age": 35,
+      "csValA": 3.8,
+      "csValS": 3.7,
+      "IP": 61.0,
+      "W": 3.4,
+      "SVH": 17.0,
+      "K": 81.0,
+      "ERA": 3.3,
+      "WHIP": 1.19,
+      "ftxId": "05yck",
+      "ftxEligiblePos": "UT,SS,MI"
+    },
+    {
+      "id": "louisvarland-tor",
+      "n": "Louis Varland",
+      "t": "TOR",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 28,
       "csValA": 3.8,
       "csValS": 3.9,
-      "IP": 68.0,
+      "IP": 67.0,
       "W": 3.6,
-      "SVH": 17.0,
-      "K": 70.0,
-      "ERA": 3.36,
-      "WHIP": 1.22,
-      "ftxId": "043ia",
+      "SVH": 15.0,
+      "K": 69.0,
+      "ERA": 3.38,
+      "WHIP": 1.17,
+      "ftxId": "051bm",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "camilodoval-nyy",
+      "n": "Camilo Doval",
+      "t": "NYY",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 28,
+      "csValA": 3.7,
+      "csValS": 3.7,
+      "IP": 64.0,
+      "W": 3.4,
+      "SVH": 16.0,
+      "K": 74.0,
+      "ERA": 3.41,
+      "WHIP": 1.29,
+      "ftxId": "04k0w",
       "ftxEligiblePos": "RP"
     },
     {
@@ -10021,66 +10041,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "camilodoval-nyy",
-      "n": "Camilo Doval",
-      "t": "NYY",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 28,
-      "csValA": 3.7,
-      "csValS": 3.7,
-      "IP": 64.0,
-      "W": 3.4,
-      "SVH": 16.0,
-      "K": 74.0,
-      "ERA": 3.41,
-      "WHIP": 1.29,
-      "ftxId": "04k0w",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "quinnmathews-stl",
-      "n": "Quinn Mathews",
-      "t": "STL",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 25,
-      "csValA": 3.6,
-      "csValS": 2.6,
-      "IP": 46.2,
-      "W": 2.6,
-      "SVH": 0,
-      "K": 39.0,
-      "ERA": 4.27,
-      "WHIP": 1.46,
-      "ftxId": "060gd",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "jaredkoenig-mil",
-      "n": "Jared Koenig",
-      "t": "MIL",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 32,
-      "csValA": 3.6,
-      "csValS": 3.7,
-      "IP": 65,
-      "W": 3.4,
-      "SVH": 16.0,
-      "K": 68.0,
-      "ERA": 3.5,
-      "WHIP": 1.24,
-      "ftxId": "05ylp",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "gregorysoto-pit",
       "n": "Gregory Soto",
       "t": "PIT",
@@ -10121,64 +10081,44 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "calebthielbar-chc",
-      "n": "Caleb Thielbar",
-      "t": "CHC",
+      "id": "jaredkoenig-mil",
+      "n": "Jared Koenig",
+      "t": "MIL",
       "pos": [
         "RP"
       ],
       "inj": false,
-      "age": 39,
-      "csValA": 3.5,
-      "csValS": 3.6,
-      "IP": 66.0,
+      "age": 32,
+      "csValA": 3.6,
+      "csValS": 3.7,
+      "IP": 65,
       "W": 3.4,
       "SVH": 16.0,
-      "K": 69.0,
-      "ERA": 3.68,
-      "WHIP": 1.23,
-      "ftxId": "02hfr",
+      "K": 68.0,
+      "ERA": 3.5,
+      "WHIP": 1.24,
+      "ftxId": "05ylp",
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "jpsears-sd",
-      "n": "J.P. Sears",
-      "t": "SD",
+      "id": "quinnmathews-stl",
+      "n": "Quinn Mathews",
+      "t": "STL",
       "pos": [
         "SP"
       ],
-      "unofficial": true,
-      "age": 30,
-      "csValA": 3.5,
-      "csValS": 3.0,
-      "IP": 34,
-      "W": 1.8,
-      "SVH": 1,
-      "K": 31,
-      "ERA": 4.33,
-      "WHIP": 1.23,
-      "ftxId": "04eld",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "erikmiller-sf",
-      "n": "Erik Miller",
-      "t": "SF",
-      "pos": [
-        "RP"
-      ],
       "inj": false,
-      "age": 28,
-      "csValA": 3.5,
-      "csValS": 3.5,
-      "IP": 62.0,
-      "W": 3.2,
-      "SVH": 17.0,
-      "K": 71.0,
-      "ERA": 3.45,
-      "WHIP": 1.34,
-      "ftxId": "04y8z",
-      "ftxEligiblePos": "RP"
+      "age": 25,
+      "csValA": 3.6,
+      "csValS": 2.6,
+      "IP": 46.2,
+      "W": 2.6,
+      "SVH": 0,
+      "K": 39.0,
+      "ERA": 4.27,
+      "WHIP": 1.46,
+      "ftxId": "060gd",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "jonahtong-nym",
@@ -10201,64 +10141,43 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "hyeseongkim-lad",
-      "n": "Hyeseong Kim",
-      "t": "LAD",
+      "id": "jpsears-sd",
+      "n": "J.P. Sears",
+      "t": "SD",
       "pos": [
-        "2B",
-        "SS"
+        "SP"
       ],
       "unofficial": true,
-      "age": 27,
-      "csValA": 3.5,
-      "csValS": 3.0,
-      "PA": 76,
-      "OBP": 0.31,
-      "HR": 1,
-      "XBH": 3,
-      "RP": 16,
-      "SB": 3,
-      "ftxId": "06in4",
-      "ftxEligiblePos": "2B,UT,MI"
-    },
-    {
-      "id": "hoganharris-ath",
-      "n": "Hogan Harris",
-      "t": "ATH",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 0,
-      "csValA": 3.5,
-      "csValS": 3.6,
-      "IP": 66,
-      "W": 3.3,
-      "SVH": 21.0,
-      "K": 64,
-      "ERA": 4.15,
-      "WHIP": 1.37,
-      "ftxId": "04pps",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "lucaserceg-kc",
-      "n": "Lucas Erceg",
-      "t": "KC",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
       "age": 30,
       "csValA": 3.5,
-      "csValS": 3.7,
-      "IP": 64.0,
-      "W": 3.3,
-      "SVH": 17.0,
-      "K": 65.0,
-      "ERA": 3.65,
-      "WHIP": 1.29,
-      "ftxId": "041am",
+      "csValS": 3.0,
+      "IP": 34,
+      "W": 1.8,
+      "SVH": 1,
+      "K": 31,
+      "ERA": 4.33,
+      "WHIP": 1.23,
+      "ftxId": "04eld",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "calebthielbar-chc",
+      "n": "Caleb Thielbar",
+      "t": "CHC",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 39,
+      "csValA": 3.5,
+      "csValS": 3.6,
+      "IP": 66.0,
+      "W": 3.4,
+      "SVH": 16.0,
+      "K": 69.0,
+      "ERA": 3.68,
+      "WHIP": 1.23,
+      "ftxId": "02hfr",
       "ftxEligiblePos": "RP"
     },
     {
@@ -10282,23 +10201,84 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "mattsvanson-stl",
-      "n": "Matt Svanson",
-      "t": "STL",
+      "id": "hyeseongkim-lad",
+      "n": "Hyeseong Kim",
+      "t": "LAD",
+      "pos": [
+        "2B",
+        "SS"
+      ],
+      "unofficial": true,
+      "age": 27,
+      "csValA": 3.5,
+      "csValS": 3.0,
+      "PA": 76,
+      "OBP": 0.31,
+      "HR": 1,
+      "XBH": 3,
+      "RP": 16,
+      "SB": 3,
+      "ftxId": "06in4",
+      "ftxEligiblePos": "2B,UT,MI"
+    },
+    {
+      "id": "lucaserceg-kc",
+      "n": "Lucas Erceg",
+      "t": "KC",
       "pos": [
         "RP"
       ],
       "inj": false,
-      "age": 27,
+      "age": 30,
       "csValA": 3.5,
       "csValS": 3.7,
-      "IP": 65,
-      "W": 3.2,
+      "IP": 64.0,
+      "W": 3.3,
+      "SVH": 17.0,
+      "K": 65.0,
+      "ERA": 3.65,
+      "WHIP": 1.29,
+      "ftxId": "041am",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "hoganharris-ath",
+      "n": "Hogan Harris",
+      "t": "ATH",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 0,
+      "csValA": 3.5,
+      "csValS": 3.6,
+      "IP": 66,
+      "W": 3.3,
       "SVH": 21.0,
-      "K": 59.0,
-      "ERA": 3.84,
+      "K": 64,
+      "ERA": 4.15,
+      "WHIP": 1.37,
+      "ftxId": "04pps",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "erikmiller-sf",
+      "n": "Erik Miller",
+      "t": "SF",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 28,
+      "csValA": 3.5,
+      "csValS": 3.5,
+      "IP": 62.0,
+      "W": 3.2,
+      "SVH": 17.0,
+      "K": 71.0,
+      "ERA": 3.45,
       "WHIP": 1.34,
-      "ftxId": "06elo",
+      "ftxId": "04y8z",
       "ftxEligiblePos": "RP"
     },
     {
@@ -10323,6 +10303,46 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "2B,UT,MI"
     },
     {
+      "id": "mattsvanson-stl",
+      "n": "Matt Svanson",
+      "t": "STL",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 27,
+      "csValA": 3.5,
+      "csValS": 3.7,
+      "IP": 65,
+      "W": 3.2,
+      "SVH": 21.0,
+      "K": 59.0,
+      "ERA": 3.84,
+      "WHIP": 1.34,
+      "ftxId": "06elo",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "markleiterjr-ath",
+      "n": "Mark Leiter Jr.",
+      "t": "ATH",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 34,
+      "csValA": 3.4,
+      "csValS": 3.5,
+      "IP": 64.0,
+      "W": 3.3,
+      "SVH": 19,
+      "K": 66.0,
+      "ERA": 3.91,
+      "WHIP": 1.31,
+      "ftxId": "0319c",
+      "ftxEligiblePos": "RP"
+    },
+    {
       "id": "christianscott-nym",
       "n": "Christian Scott",
       "t": "NYM",
@@ -10341,26 +10361,6 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.16,
       "ftxId": "05xpq",
       "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "chrismartin-tex",
-      "n": "Chris Martin",
-      "t": "TEX",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 39,
-      "csValA": 3.4,
-      "csValS": 3.6,
-      "IP": 55.0,
-      "W": 2.9,
-      "SVH": 18.0,
-      "K": 56.0,
-      "ERA": 3.44,
-      "WHIP": 1.16,
-      "ftxId": "02j77",
-      "ftxEligiblePos": "RP"
     },
     {
       "id": "gabespeier-sea",
@@ -10383,23 +10383,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "markleiterjr-ath",
-      "n": "Mark Leiter Jr.",
-      "t": "ATH",
+      "id": "chrismartin-tex",
+      "n": "Chris Martin",
+      "t": "TEX",
       "pos": [
         "RP"
       ],
       "inj": false,
-      "age": 34,
+      "age": 39,
       "csValA": 3.4,
-      "csValS": 3.5,
-      "IP": 64.0,
-      "W": 3.3,
-      "SVH": 19,
-      "K": 66.0,
-      "ERA": 3.91,
-      "WHIP": 1.31,
-      "ftxId": "0319c",
+      "csValS": 3.6,
+      "IP": 55.0,
+      "W": 2.9,
+      "SVH": 18.0,
+      "K": 56.0,
+      "ERA": 3.44,
+      "WHIP": 1.16,
+      "ftxId": "02j77",
       "ftxEligiblePos": "RP"
     },
     {
@@ -10503,46 +10503,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "brooksraley-nym",
-      "n": "Brooks Raley",
-      "t": "NYM",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 37,
-      "csValA": 3.2,
-      "csValS": 3.3,
-      "IP": 62.0,
-      "W": 3.2,
-      "SVH": 15.0,
-      "K": 60.0,
-      "ERA": 3.82,
-      "WHIP": 1.29,
-      "ftxId": "01vxp",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "stevenokert-hou",
-      "n": "Steven Okert",
-      "t": "HOU",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 34,
-      "csValA": 3.2,
-      "csValS": 3.2,
-      "IP": 64.0,
-      "W": 3.2,
-      "SVH": 14.0,
-      "K": 71.0,
-      "ERA": 3.98,
-      "WHIP": 1.25,
-      "ftxId": "02myt",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "coopercriswell-sea",
       "n": "Cooper Criswell",
       "t": "SEA",
@@ -10560,6 +10520,26 @@ const FANTRAX_ROSTERS = {
       "ERA": 3.81,
       "WHIP": 1.27,
       "ftxId": "04px6",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "brooksraley-nym",
+      "n": "Brooks Raley",
+      "t": "NYM",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 37,
+      "csValA": 3.2,
+      "csValS": 3.3,
+      "IP": 62.0,
+      "W": 3.2,
+      "SVH": 15.0,
+      "K": 60.0,
+      "ERA": 3.82,
+      "WHIP": 1.29,
+      "ftxId": "01vxp",
       "ftxEligiblePos": "RP"
     },
     {
@@ -10603,44 +10583,44 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "jakobjunis-tex",
-      "n": "Jakob Junis",
-      "t": "TEX",
+      "id": "stevenokert-hou",
+      "n": "Steven Okert",
+      "t": "HOU",
       "pos": [
         "RP"
       ],
       "inj": false,
-      "age": 33,
-      "csValA": 3.1,
-      "csValS": 3.3,
-      "IP": 65,
+      "age": 34,
+      "csValA": 3.2,
+      "csValS": 3.2,
+      "IP": 64.0,
       "W": 3.2,
       "SVH": 14.0,
-      "K": 58.0,
-      "ERA": 4.1,
-      "WHIP": 1.26,
-      "ftxId": "02f9m",
+      "K": 71.0,
+      "ERA": 3.98,
+      "WHIP": 1.25,
+      "ftxId": "02myt",
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "andrewkittredge-bal",
-      "n": "Andrew Kittredge",
-      "t": "BAL",
+      "id": "haydenwesneski-hou",
+      "n": "Hayden Wesneski",
+      "t": "HOU",
       "pos": [
-        "RP"
+        "SP"
       ],
-      "inj": false,
-      "age": 35,
+      "inj": true,
+      "age": 28,
       "csValA": 3.1,
-      "csValS": 3.3,
-      "IP": 60.0,
-      "W": 3.1,
-      "SVH": 15.0,
-      "K": 60.0,
-      "ERA": 3.89,
-      "WHIP": 1.26,
-      "ftxId": "04ggi",
-      "ftxEligiblePos": "RP"
+      "csValS": 2.2,
+      "IP": 31.0,
+      "W": 1.6,
+      "SVH": 1.0,
+      "K": 31.0,
+      "ERA": 4.04,
+      "WHIP": 1.25,
+      "ftxId": "0514f",
+      "ftxEligiblePos": "SP,RP"
     },
     {
       "id": "yenniercano-bal",
@@ -10683,26 +10663,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "haydenwesneski-hou",
-      "n": "Hayden Wesneski",
-      "t": "HOU",
-      "pos": [
-        "SP"
-      ],
-      "inj": true,
-      "age": 28,
-      "csValA": 3.1,
-      "csValS": 2.2,
-      "IP": 31.0,
-      "W": 1.6,
-      "SVH": 1.0,
-      "K": 31.0,
-      "ERA": 4.04,
-      "WHIP": 1.25,
-      "ftxId": "0514f",
-      "ftxEligiblePos": "SP,RP"
-    },
-    {
       "id": "ajminter-nym",
       "n": "A.J. Minter",
       "t": "NYM",
@@ -10720,6 +10680,46 @@ const FANTRAX_ROSTERS = {
       "ERA": 3.3,
       "WHIP": 1.18,
       "ftxId": "03ppa",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "andrewkittredge-bal",
+      "n": "Andrew Kittredge",
+      "t": "BAL",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 35,
+      "csValA": 3.1,
+      "csValS": 3.3,
+      "IP": 60.0,
+      "W": 3.1,
+      "SVH": 15.0,
+      "K": 60.0,
+      "ERA": 3.89,
+      "WHIP": 1.26,
+      "ftxId": "04ggi",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "jakobjunis-tex",
+      "n": "Jakob Junis",
+      "t": "TEX",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 33,
+      "csValA": 3.1,
+      "csValS": 3.3,
+      "IP": 65,
+      "W": 3.2,
+      "SVH": 14.0,
+      "K": 58.0,
+      "ERA": 4.1,
+      "WHIP": 1.26,
+      "ftxId": "02f9m",
       "ftxEligiblePos": "RP"
     },
     {
@@ -10823,26 +10823,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "blaketreinen-lad",
-      "n": "Blake Treinen",
-      "t": "LAD",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 37,
-      "csValA": 2.8,
-      "csValS": 2.9,
-      "IP": 54.0,
-      "W": 2.9,
-      "SVH": 12.0,
-      "K": 60.0,
-      "ERA": 3.79,
-      "WHIP": 1.26,
-      "ftxId": "02bve",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "bladetidwell-sf",
       "n": "Blade Tidwell",
       "t": "SF",
@@ -10861,6 +10841,26 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.35,
       "ftxId": "05u2q",
       "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "blaketreinen-lad",
+      "n": "Blake Treinen",
+      "t": "LAD",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 37,
+      "csValA": 2.8,
+      "csValS": 2.9,
+      "IP": 54.0,
+      "W": 2.9,
+      "SVH": 12.0,
+      "K": 60.0,
+      "ERA": 3.79,
+      "WHIP": 1.26,
+      "ftxId": "02bve",
+      "ftxEligiblePos": "RP"
     },
     {
       "id": "jrritchie-atl",
@@ -10903,24 +10903,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "dannycoulombe-tex",
-      "n": "Danny Coulombe",
-      "t": "TEX",
+      "id": "tristoncasas-bos",
+      "n": "Triston Casas",
+      "t": "BOS",
       "pos": [
-        "RP"
+        "1B"
       ],
       "inj": false,
-      "age": 36,
+      "age": 25,
       "csValA": 2.6,
-      "csValS": 2.7,
-      "IP": 55.0,
-      "W": 2.7,
-      "SVH": 10.0,
-      "K": 53.0,
-      "ERA": 3.98,
-      "WHIP": 1.33,
-      "ftxId": "02hxd",
-      "ftxEligiblePos": "RP"
+      "csValS": 2.5,
+      "PA": 145,
+      "OBP": 0.34,
+      "HR": 6.1,
+      "XBH": 6.4,
+      "RP": 30.7,
+      "SB": 0.6,
+      "ftxId": "04de1",
+      "ftxEligiblePos": "1B,UT,CI"
     },
     {
       "id": "ryanjohnson-laa",
@@ -10940,6 +10940,27 @@ const FANTRAX_ROSTERS = {
       "ERA": 4.31,
       "WHIP": 1.34,
       "ftxId": "05zq4",
+      "ftxEligiblePos": "SP,RP"
+    },
+    {
+      "id": "sawyergipsonlong-det",
+      "n": "Sawyer Gipson-Long",
+      "t": "DET",
+      "pos": [
+        "SP",
+        "RP"
+      ],
+      "inj": false,
+      "age": 28,
+      "csValA": 2.6,
+      "csValS": 1.9,
+      "IP": 26.1,
+      "W": 1.4,
+      "SVH": 1.0,
+      "K": 24.0,
+      "ERA": 3.83,
+      "WHIP": 1.23,
+      "ftxId": "0514z",
       "ftxEligiblePos": "SP,RP"
     },
     {
@@ -10963,45 +10984,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "UT,SS,MI"
     },
     {
-      "id": "tristoncasas-bos",
-      "n": "Triston Casas",
-      "t": "BOS",
+      "id": "dannycoulombe-tex",
+      "n": "Danny Coulombe",
+      "t": "TEX",
       "pos": [
-        "1B"
-      ],
-      "inj": false,
-      "age": 25,
-      "csValA": 2.6,
-      "csValS": 2.5,
-      "PA": 145,
-      "OBP": 0.34,
-      "HR": 6.1,
-      "XBH": 6.4,
-      "RP": 30.7,
-      "SB": 0.6,
-      "ftxId": "04de1",
-      "ftxEligiblePos": "1B,UT,CI"
-    },
-    {
-      "id": "sawyergipsonlong-det",
-      "n": "Sawyer Gipson-Long",
-      "t": "DET",
-      "pos": [
-        "SP",
         "RP"
       ],
       "inj": false,
-      "age": 28,
+      "age": 36,
       "csValA": 2.6,
-      "csValS": 1.9,
-      "IP": 26.1,
-      "W": 1.4,
-      "SVH": 1.0,
-      "K": 24.0,
-      "ERA": 3.83,
-      "WHIP": 1.23,
-      "ftxId": "0514z",
-      "ftxEligiblePos": "SP,RP"
+      "csValS": 2.7,
+      "IP": 55.0,
+      "W": 2.7,
+      "SVH": 10.0,
+      "K": 53.0,
+      "ERA": 3.98,
+      "WHIP": 1.33,
+      "ftxId": "02hxd",
+      "ftxEligiblePos": "RP"
     },
     {
       "id": "thomaswhite-mia",
@@ -11042,6 +11042,66 @@ const FANTRAX_ROSTERS = {
       "SB": 0.5,
       "ftxId": "03whq",
       "ftxEligiblePos": "1B,UT,CI"
+    },
+    {
+      "id": "justinwrobleski-lad",
+      "n": "Justin Wrobleski",
+      "t": "LAD",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 25,
+      "csValA": 2.4,
+      "csValS": 2.5,
+      "IP": 64.4,
+      "W": 3.7,
+      "SVH": 1.0,
+      "K": 58.0,
+      "ERA": 4.1,
+      "WHIP": 1.32,
+      "ftxId": "05y9r",
+      "ftxEligiblePos": "SP,RP"
+    },
+    {
+      "id": "jalenbeeks-pit",
+      "n": "Jalen Beeks",
+      "t": "PIT",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 32,
+      "csValA": 2.4,
+      "csValS": 2.6,
+      "IP": 54.0,
+      "W": 2.7,
+      "SVH": 7.0,
+      "K": 50.0,
+      "ERA": 3.95,
+      "WHIP": 1.34,
+      "ftxId": "03djb",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "ajpuk-ari",
+      "n": "A.J. Puk",
+      "t": "ARI",
+      "pos": [
+        "RP"
+      ],
+      "inj": true,
+      "age": 30,
+      "csValA": 2.4,
+      "csValS": 2.5,
+      "IP": 42.0,
+      "W": 2.3,
+      "SVH": 7.0,
+      "K": 48.0,
+      "ERA": 3.46,
+      "WHIP": 1.2,
+      "ftxId": "03yso",
+      "ftxEligiblePos": "RP"
     },
     {
       "id": "zackgelof-ath",
@@ -11085,64 +11145,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "justinwrobleski-lad",
-      "n": "Justin Wrobleski",
-      "t": "LAD",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 25,
-      "csValA": 2.4,
-      "csValS": 2.5,
-      "IP": 64.4,
-      "W": 3.7,
-      "SVH": 1.0,
-      "K": 58.0,
-      "ERA": 4.1,
-      "WHIP": 1.32,
-      "ftxId": "05y9r",
-      "ftxEligiblePos": "SP,RP"
-    },
-    {
-      "id": "ajpuk-ari",
-      "n": "A.J. Puk",
-      "t": "ARI",
-      "pos": [
-        "RP"
-      ],
-      "inj": true,
-      "age": 30,
-      "csValA": 2.4,
-      "csValS": 2.5,
-      "IP": 42.0,
-      "W": 2.3,
-      "SVH": 7.0,
-      "K": 48.0,
-      "ERA": 3.46,
-      "WHIP": 1.2,
-      "ftxId": "03yso",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "jalenbeeks-pit",
-      "n": "Jalen Beeks",
+      "id": "tommypham-pit",
+      "n": "Tommy Pham",
       "t": "PIT",
       "pos": [
-        "RP"
+        "OF"
       ],
       "inj": false,
-      "age": 32,
-      "csValA": 2.4,
-      "csValS": 2.6,
-      "IP": 54.0,
-      "W": 2.7,
-      "SVH": 7.0,
-      "K": 50.0,
-      "ERA": 3.95,
-      "WHIP": 1.34,
-      "ftxId": "03djb",
-      "ftxEligiblePos": "RP"
+      "age": 37,
+      "csValA": 2.3,
+      "csValS": 2.2,
+      "PA": 156.0,
+      "OBP": 0.316,
+      "HR": 3.9,
+      "XBH": 7.0,
+      "RP": 29.7,
+      "SB": 2.4,
+      "ftxId": "025fx",
+      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "colemancrow-mil",
@@ -11226,26 +11246,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "tommypham-pit",
-      "n": "Tommy Pham",
-      "t": "PIT",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 37,
-      "csValA": 2.3,
-      "csValS": 2.2,
-      "PA": 156.0,
-      "OBP": 0.316,
-      "HR": 3.9,
-      "XBH": 7.0,
-      "RP": 29.7,
-      "SB": 2.4,
-      "ftxId": "025fx",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
       "id": "cadepovich-bal",
       "n": "Cade Povich",
       "t": "BAL",
@@ -11306,26 +11306,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP,RP"
     },
     {
-      "id": "noahschultz-chw",
-      "n": "Noah Schultz",
-      "t": "CHW",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 22,
-      "csValA": 1.9,
-      "csValS": 1.4,
-      "IP": 27.7,
-      "W": 1.5,
-      "SVH": 0,
-      "K": 22.0,
-      "ERA": 4.42,
-      "WHIP": 1.45,
-      "ftxId": "05uc7",
-      "ftxEligiblePos": "SP"
-    },
-    {
       "id": "luisperales-wsn",
       "n": "Luis Perales",
       "t": "WSN",
@@ -11344,6 +11324,26 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.34,
       "ftxId": "05gd5",
       "ftxEligiblePos": "SP,RP"
+    },
+    {
+      "id": "noahschultz-chw",
+      "n": "Noah Schultz",
+      "t": "CHW",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 22,
+      "csValA": 1.9,
+      "csValS": 1.4,
+      "IP": 27.7,
+      "W": 1.5,
+      "SVH": 0,
+      "K": 22.0,
+      "ERA": 4.42,
+      "WHIP": 1.45,
+      "ftxId": "05uc7",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "maxkepler-phi",
@@ -11406,26 +11406,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP,RP"
     },
     {
-      "id": "robertstephenson-laa",
-      "n": "Robert Stephenson",
-      "t": "LAA",
-      "pos": [
-        "RP"
-      ],
-      "inj": true,
-      "age": 33,
-      "csValA": 1.6,
-      "csValS": 1.6,
-      "IP": 36.0,
-      "W": 1.7,
-      "SVH": 1.0,
-      "K": 40.0,
-      "ERA": 3.93,
-      "WHIP": 1.23,
-      "ftxId": "02bq7",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "rickytiedemann-tor",
       "n": "Ricky Tiedemann",
       "t": "TOR",
@@ -11464,6 +11444,46 @@ const FANTRAX_ROSTERS = {
       "SB": 2.1,
       "ftxId": "03aay",
       "ftxEligiblePos": "2B,UT,MI"
+    },
+    {
+      "id": "robertstephenson-laa",
+      "n": "Robert Stephenson",
+      "t": "LAA",
+      "pos": [
+        "RP"
+      ],
+      "inj": true,
+      "age": 33,
+      "csValA": 1.6,
+      "csValS": 1.6,
+      "IP": 36.0,
+      "W": 1.7,
+      "SVH": 1.0,
+      "K": 40.0,
+      "ERA": 3.93,
+      "WHIP": 1.23,
+      "ftxId": "02bq7",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "deyvisondelossantos-mia",
+      "n": "Deyvison De Los Santos",
+      "t": "MIA",
+      "pos": [
+        "1B"
+      ],
+      "inj": false,
+      "age": 22,
+      "csValA": 1.5,
+      "csValS": 1.5,
+      "PA": 114.0,
+      "OBP": 0.283,
+      "HR": 3.8,
+      "XBH": 4.5,
+      "RP": 21.2,
+      "SB": 1.7,
+      "ftxId": "05nsq",
+      "ftxEligiblePos": "UT,3B,CI"
     },
     {
       "id": "michaelkopech-lad",
@@ -11506,44 +11526,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "C,UT"
     },
     {
-      "id": "deyvisondelossantos-mia",
-      "n": "Deyvison De Los Santos",
-      "t": "MIA",
+      "id": "jonahheim-atl",
+      "n": "Jonah Heim",
+      "t": "ATL",
       "pos": [
-        "1B"
+        "C"
       ],
       "inj": false,
-      "age": 22,
-      "csValA": 1.5,
-      "csValS": 1.5,
-      "PA": 114.0,
-      "OBP": 0.283,
-      "HR": 3.8,
-      "XBH": 4.5,
-      "RP": 21.2,
-      "SB": 1.7,
-      "ftxId": "05nsq",
-      "ftxEligiblePos": "UT,3B,CI"
-    },
-    {
-      "id": "carloslagrange-nyy",
-      "n": "Carlos Lagrange",
-      "t": "NYY",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 22,
+      "age": 30,
       "csValA": 1.4,
-      "csValS": 0.9,
-      "IP": 12.0,
-      "W": 0.6,
-      "SVH": 1.0,
-      "K": 13.0,
-      "ERA": 3.83,
-      "WHIP": 1.31,
-      "ftxId": "062h4",
-      "ftxEligiblePos": "SP"
+      "csValS": 1.3,
+      "PA": 105.0,
+      "OBP": 0.29,
+      "HR": 3.1,
+      "XBH": 4.1,
+      "RP": 19.5,
+      "SB": 0.6,
+      "ftxId": "031b2",
+      "ftxEligiblePos": "C,UT"
     },
     {
       "id": "tyjohnson-tb",
@@ -11566,24 +11566,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "jonahheim-atl",
-      "n": "Jonah Heim",
-      "t": "ATL",
+      "id": "carloslagrange-nyy",
+      "n": "Carlos Lagrange",
+      "t": "NYY",
       "pos": [
-        "C"
+        "SP"
       ],
       "inj": false,
-      "age": 30,
+      "age": 22,
       "csValA": 1.4,
-      "csValS": 1.3,
-      "PA": 105.0,
-      "OBP": 0.29,
-      "HR": 3.1,
-      "XBH": 4.1,
-      "RP": 19.5,
-      "SB": 0.6,
-      "ftxId": "031b2",
-      "ftxEligiblePos": "C,UT"
+      "csValS": 0.9,
+      "IP": 12.0,
+      "W": 0.6,
+      "SVH": 1.0,
+      "K": 13.0,
+      "ERA": 3.83,
+      "WHIP": 1.31,
+      "ftxId": "062h4",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "miketauchman-nym",
@@ -11670,26 +11670,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP,RP"
     },
     {
-      "id": "rowdytellez-tex",
-      "n": "Rowdy Tellez",
-      "t": "TEX",
-      "pos": [
-        "1B"
-      ],
-      "inj": false,
-      "age": 30,
-      "csValA": 1.1,
-      "csValS": 1.1,
-      "PA": 73.0,
-      "OBP": 0.295,
-      "HR": 3.2,
-      "XBH": 2.7,
-      "RP": 14.7,
-      "SB": 0.3,
-      "ftxId": "032gq",
-      "ftxEligiblePos": "1B,UT,CI"
-    },
-    {
       "id": "justinmartinez-ari",
       "n": "Justin Martinez",
       "t": "ARI",
@@ -11710,24 +11690,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "juricksonprofar-atl",
-      "n": "Jurickson Profar",
-      "t": "ATL",
+      "id": "rowdytellez-tex",
+      "n": "Rowdy Tellez",
+      "t": "TEX",
       "pos": [
-        "OF"
+        "1B"
       ],
       "inj": false,
-      "age": 33,
-      "csValA": 1.0,
-      "csValS": 0.9,
-      "PA": 56.0,
-      "OBP": 0.347,
-      "HR": 1.6,
-      "XBH": 2.5,
-      "RP": 11.6,
-      "SB": 0.8,
-      "ftxId": "01spl",
-      "ftxEligiblePos": "OF,UT"
+      "age": 30,
+      "csValA": 1.1,
+      "csValS": 1.1,
+      "PA": 73.0,
+      "OBP": 0.295,
+      "HR": 3.2,
+      "XBH": 2.7,
+      "RP": 14.7,
+      "SB": 0.3,
+      "ftxId": "032gq",
+      "ftxEligiblePos": "1B,UT,CI"
     },
     {
       "id": "nelsonrada-laa",
@@ -11750,6 +11730,26 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
+      "id": "juricksonprofar-atl",
+      "n": "Jurickson Profar",
+      "t": "ATL",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 33,
+      "csValA": 1.0,
+      "csValS": 0.9,
+      "PA": 56.0,
+      "OBP": 0.347,
+      "HR": 1.6,
+      "XBH": 2.5,
+      "RP": 11.6,
+      "SB": 0.8,
+      "ftxId": "01spl",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
       "id": "elmerrodrguez-nyy",
       "n": "Elmer Rodríguez",
       "t": "NYY",
@@ -11768,6 +11768,26 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.29,
       "ftxId": "05xoo",
       "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "joejimnez-atl",
+      "n": "Joe Jiménez",
+      "t": "ATL",
+      "pos": [
+        "RP"
+      ],
+      "inj": true,
+      "age": 31,
+      "csValA": 0.8,
+      "csValS": 0.8,
+      "IP": 16.0,
+      "W": 0.8,
+      "SVH": 1.0,
+      "K": 18.0,
+      "ERA": 3.77,
+      "WHIP": 1.22,
+      "ftxId": "03as0",
+      "ftxEligiblePos": "RP"
     },
     {
       "id": "spencerjones-nyy",
@@ -11810,24 +11830,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "joejimnez-atl",
-      "n": "Joe Jiménez",
-      "t": "ATL",
+      "id": "brodyhopkins-tb",
+      "n": "Brody Hopkins",
+      "t": "TB",
       "pos": [
-        "RP"
+        "SP"
       ],
-      "inj": true,
-      "age": 31,
-      "csValA": 0.8,
-      "csValS": 0.8,
-      "IP": 16.0,
-      "W": 0.8,
-      "SVH": 1.0,
-      "K": 18.0,
-      "ERA": 3.77,
-      "WHIP": 1.22,
-      "ftxId": "03as0",
-      "ftxEligiblePos": "RP"
+      "inj": false,
+      "age": 24,
+      "csValA": 0.7,
+      "csValS": 0.5,
+      "IP": 9.2,
+      "W": 0.5,
+      "SVH": 0,
+      "K": 8.0,
+      "ERA": 4.61,
+      "WHIP": 1.45,
+      "ftxId": "06f1b",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "flixbautista-bal",
@@ -11850,44 +11870,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "gabrielgonzalez-min",
-      "n": "Gabriel Gonzalez",
-      "t": "MIN",
+      "id": "christianencarnacionstrand-cin",
+      "n": "Christian Encarnacion-Strand",
+      "t": "CIN",
       "pos": [
-        "OF"
+        "1B"
       ],
       "inj": false,
-      "age": 22,
+      "age": 26,
       "csValA": 0.7,
       "csValS": 0.7,
-      "PA": 48.0,
-      "OBP": 0.319,
-      "HR": 1.1,
-      "XBH": 2.7,
-      "RP": 9.4,
-      "SB": 0.5,
-      "ftxId": "05rcs",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "brodyhopkins-tb",
-      "n": "Brody Hopkins",
-      "t": "TB",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 24,
-      "csValA": 0.7,
-      "csValS": 0.5,
-      "IP": 9.2,
-      "W": 0.5,
-      "SVH": 0,
-      "K": 8.0,
-      "ERA": 4.61,
-      "WHIP": 1.45,
-      "ftxId": "06f1b",
-      "ftxEligiblePos": "SP"
+      "PA": 44.0,
+      "OBP": 0.291,
+      "HR": 1.9,
+      "XBH": 2.1,
+      "RP": 9.1,
+      "SB": 0.3,
+      "ftxId": "05xor",
+      "ftxEligiblePos": "1B,UT,CI"
     },
     {
       "id": "brockwilken-mil",
@@ -11910,44 +11910,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "UT,3B,CI"
     },
     {
-      "id": "christianencarnacionstrand-cin",
-      "n": "Christian Encarnacion-Strand",
-      "t": "CIN",
+      "id": "gabrielgonzalez-min",
+      "n": "Gabriel Gonzalez",
+      "t": "MIN",
       "pos": [
-        "1B"
+        "OF"
       ],
       "inj": false,
-      "age": 26,
+      "age": 22,
       "csValA": 0.7,
       "csValS": 0.7,
-      "PA": 44.0,
-      "OBP": 0.291,
-      "HR": 1.9,
-      "XBH": 2.1,
-      "RP": 9.1,
-      "SB": 0.3,
-      "ftxId": "05xor",
-      "ftxEligiblePos": "1B,UT,CI"
-    },
-    {
-      "id": "michaeltoglia-cin",
-      "n": "Michael Toglia",
-      "t": "CIN",
-      "pos": [
-        "1B"
-      ],
-      "inj": false,
-      "age": 27,
-      "csValA": 0.6,
-      "csValS": 0.6,
-      "PA": 42.0,
-      "OBP": 0.284,
-      "HR": 1.8,
-      "XBH": 1.5,
-      "RP": 8.0,
-      "SB": 0.4,
-      "ftxId": "04ok3",
-      "ftxEligiblePos": "1B,UT,CI"
+      "PA": 48.0,
+      "OBP": 0.319,
+      "HR": 1.1,
+      "XBH": 2.7,
+      "RP": 9.4,
+      "SB": 0.5,
+      "ftxId": "05rcs",
+      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "sterlinthompson-col",
@@ -11990,24 +11970,44 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "hctorrodrguez-cin",
-      "n": "Héctor Rodríguez",
+      "id": "michaeltoglia-cin",
+      "n": "Michael Toglia",
       "t": "CIN",
       "pos": [
-        "OF"
+        "1B"
       ],
       "inj": false,
-      "age": 21,
+      "age": 27,
+      "csValA": 0.6,
+      "csValS": 0.6,
+      "PA": 42.0,
+      "OBP": 0.284,
+      "HR": 1.8,
+      "XBH": 1.5,
+      "RP": 8.0,
+      "SB": 0.4,
+      "ftxId": "04ok3",
+      "ftxEligiblePos": "1B,UT,CI"
+    },
+    {
+      "id": "haoyulee-det",
+      "n": "Hao-Yu  Lee",
+      "t": "DET",
+      "pos": [
+        "3B"
+      ],
+      "inj": false,
+      "age": 23,
       "csValA": 0.4,
       "csValS": 0.4,
-      "PA": 25.0,
-      "OBP": 0.294,
+      "PA": 31.0,
+      "OBP": 0.298,
       "HR": 0.7,
-      "XBH": 1.2,
-      "RP": 4.8,
-      "SB": 0.4,
-      "ftxId": "05xse",
-      "ftxEligiblePos": "OF,UT"
+      "XBH": 1.4,
+      "RP": 5.5,
+      "SB": 0.7,
+      "ftxId": "05u2k",
+      "ftxEligiblePos": "2B,UT,3B,CI,MI"
     },
     {
       "id": "nachoalvarezjr-atl",
@@ -12050,24 +12050,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,1B,UT,CI"
     },
     {
-      "id": "haoyulee-det",
-      "n": "Hao-Yu  Lee",
-      "t": "DET",
+      "id": "hctorrodrguez-cin",
+      "n": "Héctor Rodríguez",
+      "t": "CIN",
       "pos": [
-        "3B"
+        "OF"
       ],
       "inj": false,
-      "age": 23,
+      "age": 21,
       "csValA": 0.4,
       "csValS": 0.4,
-      "PA": 31.0,
-      "OBP": 0.298,
+      "PA": 25.0,
+      "OBP": 0.294,
       "HR": 0.7,
-      "XBH": 1.4,
-      "RP": 5.5,
-      "SB": 0.7,
-      "ftxId": "05u2k",
-      "ftxEligiblePos": "2B,UT,3B,CI,MI"
+      "XBH": 1.2,
+      "RP": 4.8,
+      "SB": 0.4,
+      "ftxId": "05xse",
+      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "kempalderman-mia",
@@ -12090,307 +12090,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "reeseolson-det",
-      "n": "Reese Olson",
-      "t": "DET",
-      "pos": [
-        "SP"
-      ],
-      "inj": true,
-      "age": 26,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 3.95,
-      "WHIP": 1.3,
-      "ftxId": "04px8",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "jonathansantucci-nym",
-      "n": "Jonathan Santucci",
-      "t": "NYM",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 23,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.04,
-      "WHIP": 1.35,
-      "ftxId": "060ue",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "bowdenfrancis-tor",
-      "n": "Bowden Francis",
-      "t": "TOR",
-      "pos": [
-        "SP"
-      ],
-      "inj": true,
-      "age": 29,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.61,
-      "WHIP": 1.31,
-      "ftxId": "0421k",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "josuebriceo-det",
-      "n": "Josue Briceño",
-      "t": "DET",
-      "pos": [
-        "C"
-      ],
-      "inj": false,
-      "age": 21,
-      "csValA": 0.1,
-      "csValS": 0,
-      "PA": 6.0,
-      "OBP": 0.31,
-      "HR": 0.2,
-      "XBH": 0.3,
-      "RP": 1.1,
-      "SB": 0,
-      "ftxId": "0637j",
-      "ftxEligiblePos": "C,1B,UT,CI"
-    },
-    {
-      "id": "emmanuelclase-cle",
-      "n": "Emmanuel Clase",
-      "t": "CLE",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 27,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 3.24,
-      "WHIP": 1.18,
-      "ftxId": "04ug5",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "ethanpecko-hou",
-      "n": "Ethan Pecko",
-      "t": "HOU",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 23,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.54,
-      "WHIP": 1.38,
-      "ftxId": "06f14",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "luisdelen-bal",
-      "n": "Luis De León",
-      "t": "BAL",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 22,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.47,
-      "WHIP": 1.53,
-      "ftxId": "06ckl",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "luisdelen-bal",
-      "n": "Luis De León",
-      "t": "BAL",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 22,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.47,
-      "WHIP": 1.53,
-      "ftxId": "06y9p",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "jaxonwiggins-chc",
-      "n": "Jaxon Wiggins",
-      "t": "CHC",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 24,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.43,
-      "WHIP": 1.41,
-      "ftxId": "05u2p",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "luiscastillo-sea",
-      "n": "Luis Castillo",
-      "t": "SEA",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 33,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.6,
-      "WHIP": 1.39,
-      "ftxId": "061v8",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "kaelenculpepper-min",
-      "n": "Kaelen Culpepper",
-      "t": "MIN",
-      "pos": [
-        "SS"
-      ],
-      "inj": false,
-      "age": 23,
-      "csValA": 0.1,
-      "csValS": 0,
-      "PA": 2.0,
-      "OBP": 0.306,
-      "HR": 0.1,
-      "XBH": 0.1,
-      "RP": 0.4,
-      "SB": 0,
-      "ftxId": "06hx4",
-      "ftxEligiblePos": "UT,SS,MI"
-    },
-    {
-      "id": "cooperingle-cle",
-      "n": "Cooper Ingle",
-      "t": "CLE",
-      "pos": [
-        "C"
-      ],
-      "inj": false,
-      "age": 24,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "PA": 11.0,
-      "OBP": 0.334,
-      "HR": 0.2,
-      "XBH": 0.5,
-      "RP": 1.9,
-      "SB": 0.1,
-      "ftxId": "06f0p",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "khalstephen-cle",
-      "n": "Khal Stephen",
-      "t": "CLE",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 23,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.78,
-      "WHIP": 1.35,
-      "ftxId": "06nub",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "joeywentz-atl",
-      "n": "Joey Wentz",
-      "t": "ATL",
-      "pos": [
-        "RP",
-        "SP"
-      ],
-      "inj": false,
-      "age": 28,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.47,
-      "WHIP": 1.4,
-      "ftxId": "041pr",
-      "ftxEligiblePos": "SP,RP"
-    },
-    {
-      "id": "luisdelen-bal",
-      "n": "Luis De León",
-      "t": "BAL",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 22,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.47,
-      "WHIP": 1.53,
-      "ftxId": "06c7h",
-      "ftxEligiblePos": "2B,UT,MI"
-    },
-    {
       "id": "jackwenninger-nym",
       "n": "Jack Wenninger",
       "t": "NYM",
@@ -12408,126 +12107,6 @@ const FANTRAX_ROSTERS = {
       "ERA": 4.27,
       "WHIP": 1.36,
       "ftxId": "06f1c",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "daurimoreta-pit",
-      "n": "Dauri Moreta",
-      "t": "PIT",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 29,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 3.92,
-      "WHIP": 1.29,
-      "ftxId": "05tux",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "jongray-tex",
-      "n": "Jon Gray",
-      "t": "TEX",
-      "pos": [
-        "RP"
-      ],
-      "inj": false,
-      "age": 34,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 3.75,
-      "WHIP": 1.22,
-      "ftxId": "02bxv",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "pablolpez-min",
-      "n": "Pablo López",
-      "t": "MIN",
-      "pos": [
-        "SP"
-      ],
-      "inj": true,
-      "age": 29,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 3.8,
-      "WHIP": 1.21,
-      "ftxId": "043f9",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "yanquielfernndez-nyy",
-      "n": "Yanquiel Fernández",
-      "t": "NYY",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 23,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "PA": 10.0,
-      "OBP": 0.289,
-      "HR": 0.3,
-      "XBH": 0.4,
-      "RP": 1.9,
-      "SB": 0,
-      "ftxId": "05g3k",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "ronnyhenriquez-mia",
-      "n": "Ronny Henriquez",
-      "t": "MIA",
-      "pos": [
-        "RP"
-      ],
-      "inj": true,
-      "age": 25,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 3.75,
-      "WHIP": 1.27,
-      "ftxId": "04tzu",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "jacksonjobe-det",
-      "n": "Jackson Jobe",
-      "t": "DET",
-      "pos": [
-        "SP"
-      ],
-      "inj": true,
-      "age": 23,
-      "csValA": 0.1,
-      "csValS": 0.1,
-      "IP": 1.0,
-      "W": 0.1,
-      "SVH": 0,
-      "K": 1.0,
-      "ERA": 4.76,
-      "WHIP": 1.44,
-      "ftxId": "05rb0",
       "ftxEligiblePos": "SP"
     },
     {
@@ -12551,64 +12130,425 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "sebastianwalcott-tex",
-      "n": "Sebastian Walcott",
-      "t": "TEX",
+      "id": "emmanuelclase-cle",
+      "n": "Emmanuel Clase",
+      "t": "CLE",
       "pos": [
-        "SS"
+        "RP"
       ],
       "inj": false,
-      "age": 19,
-      "csValA": 0,
-      "csValS": 0,
-      "PA": 1.0,
-      "OBP": 0.304,
-      "HR": 0,
-      "XBH": 0,
-      "RP": 0.2,
-      "SB": 0,
-      "ftxId": "0662o",
-      "ftxEligiblePos": "UT,SS,MI"
+      "age": 27,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 3.24,
+      "WHIP": 1.18,
+      "ftxId": "04ug5",
+      "ftxEligiblePos": "RP"
     },
     {
-      "id": "jamiearnold-ath",
-      "n": "Jamie Arnold",
-      "t": "ATH",
+      "id": "luisdelen-bal",
+      "n": "Luis De León",
+      "t": "BAL",
       "pos": [
         "SP"
       ],
       "inj": false,
-      "age": 21,
-      "csValA": 0,
-      "csValS": 0,
-      "IP": 170,
-      "W": 0,
+      "age": 22,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
       "SVH": 0,
-      "K": 0,
-      "ERA": 4.0,
-      "WHIP": 1.3,
-      "ftxId": "06ktt",
+      "K": 1.0,
+      "ERA": 4.47,
+      "WHIP": 1.53,
+      "ftxId": "06c7h",
+      "ftxEligiblePos": "2B,UT,MI"
+    },
+    {
+      "id": "yanquielfernndez-nyy",
+      "n": "Yanquiel Fernández",
+      "t": "NYY",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 23,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "PA": 10.0,
+      "OBP": 0.289,
+      "HR": 0.3,
+      "XBH": 0.4,
+      "RP": 1.9,
+      "SB": 0,
+      "ftxId": "05g3k",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "pablolpez-min",
+      "n": "Pablo López",
+      "t": "MIN",
+      "pos": [
+        "SP"
+      ],
+      "inj": true,
+      "age": 29,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 3.8,
+      "WHIP": 1.21,
+      "ftxId": "043f9",
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "angelgenao-cle",
-      "n": "Angel Genao",
-      "t": "CLE",
+      "id": "jaxonwiggins-chc",
+      "n": "Jaxon Wiggins",
+      "t": "CHC",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 24,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.43,
+      "WHIP": 1.41,
+      "ftxId": "05u2p",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "jacksonjobe-det",
+      "n": "Jackson Jobe",
+      "t": "DET",
+      "pos": [
+        "SP"
+      ],
+      "inj": true,
+      "age": 23,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.76,
+      "WHIP": 1.44,
+      "ftxId": "05rb0",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "kaelenculpepper-min",
+      "n": "Kaelen Culpepper",
+      "t": "MIN",
       "pos": [
         "SS"
       ],
       "inj": false,
-      "age": 21,
-      "csValA": 0,
+      "age": 23,
+      "csValA": 0.1,
       "csValS": 0,
-      "PA": 1.0,
-      "OBP": 0.297,
-      "HR": 0,
+      "PA": 2.0,
+      "OBP": 0.306,
+      "HR": 0.1,
       "XBH": 0.1,
-      "RP": 0.2,
+      "RP": 0.4,
       "SB": 0,
-      "ftxId": "05r5e",
-      "ftxEligiblePos": "UT,3B,SS,CI,MI"
+      "ftxId": "06hx4",
+      "ftxEligiblePos": "UT,SS,MI"
+    },
+    {
+      "id": "jongray-tex",
+      "n": "Jon Gray",
+      "t": "TEX",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 34,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 3.75,
+      "WHIP": 1.22,
+      "ftxId": "02bxv",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "josuebriceo-det",
+      "n": "Josue Briceño",
+      "t": "DET",
+      "pos": [
+        "C"
+      ],
+      "inj": false,
+      "age": 21,
+      "csValA": 0.1,
+      "csValS": 0,
+      "PA": 6.0,
+      "OBP": 0.31,
+      "HR": 0.2,
+      "XBH": 0.3,
+      "RP": 1.1,
+      "SB": 0,
+      "ftxId": "0637j",
+      "ftxEligiblePos": "C,1B,UT,CI"
+    },
+    {
+      "id": "ethanpecko-hou",
+      "n": "Ethan Pecko",
+      "t": "HOU",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 23,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.54,
+      "WHIP": 1.38,
+      "ftxId": "06f14",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "jonathansantucci-nym",
+      "n": "Jonathan Santucci",
+      "t": "NYM",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 23,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.04,
+      "WHIP": 1.35,
+      "ftxId": "060ue",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "luisdelen-bal",
+      "n": "Luis De León",
+      "t": "BAL",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 22,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.47,
+      "WHIP": 1.53,
+      "ftxId": "06y9p",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "cooperingle-cle",
+      "n": "Cooper Ingle",
+      "t": "CLE",
+      "pos": [
+        "C"
+      ],
+      "inj": false,
+      "age": 24,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "PA": 11.0,
+      "OBP": 0.334,
+      "HR": 0.2,
+      "XBH": 0.5,
+      "RP": 1.9,
+      "SB": 0.1,
+      "ftxId": "06f0p",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "ronnyhenriquez-mia",
+      "n": "Ronny Henriquez",
+      "t": "MIA",
+      "pos": [
+        "RP"
+      ],
+      "inj": true,
+      "age": 25,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 3.75,
+      "WHIP": 1.27,
+      "ftxId": "04tzu",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "khalstephen-cle",
+      "n": "Khal Stephen",
+      "t": "CLE",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 23,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.78,
+      "WHIP": 1.35,
+      "ftxId": "06nub",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "reeseolson-det",
+      "n": "Reese Olson",
+      "t": "DET",
+      "pos": [
+        "SP"
+      ],
+      "inj": true,
+      "age": 26,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 3.95,
+      "WHIP": 1.3,
+      "ftxId": "04px8",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "luisdelen-bal",
+      "n": "Luis De León",
+      "t": "BAL",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 22,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.47,
+      "WHIP": 1.53,
+      "ftxId": "06ckl",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "daurimoreta-pit",
+      "n": "Dauri Moreta",
+      "t": "PIT",
+      "pos": [
+        "RP"
+      ],
+      "inj": false,
+      "age": 29,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 3.92,
+      "WHIP": 1.29,
+      "ftxId": "05tux",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "luiscastillo-sea",
+      "n": "Luis Castillo",
+      "t": "SEA",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 33,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.6,
+      "WHIP": 1.39,
+      "ftxId": "061v8",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "joeywentz-atl",
+      "n": "Joey Wentz",
+      "t": "ATL",
+      "pos": [
+        "RP",
+        "SP"
+      ],
+      "inj": false,
+      "age": 28,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.47,
+      "WHIP": 1.4,
+      "ftxId": "041pr",
+      "ftxEligiblePos": "SP,RP"
+    },
+    {
+      "id": "bowdenfrancis-tor",
+      "n": "Bowden Francis",
+      "t": "TOR",
+      "pos": [
+        "SP"
+      ],
+      "inj": true,
+      "age": 29,
+      "csValA": 0.1,
+      "csValS": 0.1,
+      "IP": 1.0,
+      "W": 0.1,
+      "SVH": 0,
+      "K": 1.0,
+      "ERA": 4.61,
+      "WHIP": 1.31,
+      "ftxId": "0421k",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "danielespino-cle",
@@ -12631,24 +12571,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "maxclark-det",
-      "n": "Max Clark",
-      "t": "DET",
+      "id": "jarlinsusana-wsn",
+      "n": "Jarlin Susana",
+      "t": "WSN",
       "pos": [
-        "OF"
+        "SP"
       ],
       "inj": false,
       "age": 21,
       "csValA": 0,
       "csValS": 0,
-      "PA": 2.0,
-      "OBP": 0.329,
-      "HR": 0,
-      "XBH": 0.1,
-      "RP": 0.4,
-      "SB": 0,
-      "ftxId": "05u9y",
-      "ftxEligiblePos": "OF,UT"
+      "IP": 170,
+      "W": 0,
+      "SVH": 0,
+      "K": 0,
+      "ERA": 4.0,
+      "WHIP": 1.3,
+      "ftxId": "05y7n",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "josuedepaula-lad",
@@ -12671,34 +12611,34 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "henrybolte-ath",
-      "n": "Henry Bolte",
-      "t": "ATH",
+      "id": "bodavidson-sf",
+      "n": "Bo Davidson",
+      "t": "SF",
       "pos": [
         "OF"
       ],
       "inj": false,
-      "age": 22,
+      "age": 23,
       "csValA": 0,
       "csValS": 0,
-      "PA": 550,
-      "OBP": 0.32,
+      "PA": 2.0,
+      "OBP": 0.309,
       "HR": 0,
-      "XBH": 0,
-      "RP": 0,
+      "XBH": 0.1,
+      "RP": 0.3,
       "SB": 0,
-      "ftxId": "05y7t",
+      "ftxId": "06hua",
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "hagensmith-chw",
-      "n": "Hagen Smith",
-      "t": "CHW",
+      "id": "liamdoyle-stl",
+      "n": "Liam Doyle",
+      "t": "STL",
       "pos": [
         "SP"
       ],
       "inj": false,
-      "age": 22,
+      "age": 21,
       "csValA": 0,
       "csValS": 0,
       "IP": 170,
@@ -12707,7 +12647,27 @@ const FANTRAX_ROSTERS = {
       "K": 0,
       "ERA": 4.0,
       "WHIP": 1.3,
-      "ftxId": "05zd4",
+      "ftxId": "06roc",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "jamiearnold-ath",
+      "n": "Jamie Arnold",
+      "t": "ATH",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 21,
+      "csValA": 0,
+      "csValS": 0,
+      "IP": 170,
+      "W": 0,
+      "SVH": 0,
+      "K": 0,
+      "ERA": 4.0,
+      "WHIP": 1.3,
+      "ftxId": "06ktt",
       "ftxEligiblePos": "SP"
     },
     {
@@ -12732,134 +12692,34 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "jessmade-mil",
-      "n": "Jesús Made",
+      "id": "cooperpratt-mil",
+      "n": "Cooper Pratt",
       "t": "MIL",
       "pos": [
         "SS"
       ],
       "inj": false,
-      "age": 18,
+      "age": 21,
       "csValA": 0,
       "csValS": 0,
       "PA": 1.0,
-      "OBP": 0.276,
+      "OBP": 0.297,
       "HR": 0,
       "XBH": 0,
       "RP": 0.2,
       "SB": 0,
-      "ftxId": "06ibv",
+      "ftxId": "067xj",
       "ftxEligiblePos": "UT,SS,MI"
     },
     {
-      "id": "liamdoyle-stl",
-      "n": "Liam Doyle",
-      "t": "STL",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 21,
-      "csValA": 0,
-      "csValS": 0,
-      "IP": 170,
-      "W": 0,
-      "SVH": 0,
-      "K": 0,
-      "ERA": 4.0,
-      "WHIP": 1.3,
-      "ftxId": "06roc",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "jacobreimer-nym",
-      "n": "Jacob Reimer",
-      "t": "NYM",
-      "pos": [
-        "3B"
-      ],
-      "inj": false,
-      "age": 22,
-      "csValA": 0,
-      "csValS": 0,
-      "PA": 1.0,
-      "OBP": 0.303,
-      "HR": 0,
-      "XBH": 0,
-      "RP": 0.2,
-      "SB": 0,
-      "ftxId": "06481",
-      "ftxEligiblePos": "UT,3B,CI"
-    },
-    {
-      "id": "tylerbremner-laa",
-      "n": "Tyler Bremner",
-      "t": "LAA",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 21,
-      "csValA": 0,
-      "csValS": 0,
-      "IP": 170,
-      "W": 0,
-      "SVH": 0,
-      "K": 0,
-      "ERA": 4.0,
-      "WHIP": 1.3,
-      "ftxId": "06icx",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "jarlinsusana-wsn",
-      "n": "Jarlin Susana",
-      "t": "WSN",
-      "pos": [
-        "SP"
-      ],
-      "inj": false,
-      "age": 21,
-      "csValA": 0,
-      "csValS": 0,
-      "IP": 170,
-      "W": 0,
-      "SVH": 0,
-      "K": 0,
-      "ERA": 4.0,
-      "WHIP": 1.3,
-      "ftxId": "05y7n",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "esmerlynvaldez-pit",
-      "n": "Esmerlyn Valdez",
-      "t": "PIT",
+      "id": "henrybolte-ath",
+      "n": "Henry Bolte",
+      "t": "ATH",
       "pos": [
         "OF"
       ],
       "inj": false,
       "age": 22,
-      "csValA": 0,
-      "csValS": 0,
-      "PA": 1.0,
-      "OBP": 0.3,
-      "HR": 0,
-      "XBH": 0,
-      "RP": 0.2,
-      "SB": 0,
-      "ftxId": "05rbw",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "warmingbernabel-wsn",
-      "n": "Warming Bernabel",
-      "t": "WSN",
-      "pos": [
-        "1B"
-      ],
-      "inj": false,
-      "age": 23,
       "csValA": 0,
       "csValS": 0,
       "PA": 550,
@@ -12868,47 +12728,27 @@ const FANTRAX_ROSTERS = {
       "XBH": 0,
       "RP": 0,
       "SB": 0,
-      "ftxId": "04ybm",
-      "ftxEligiblePos": "1B,UT,CI"
+      "ftxId": "05y7t",
+      "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "michaelarroyo-sea",
-      "n": "Michael Arroyo",
-      "t": "SEA",
-      "pos": [
-        "2B"
-      ],
-      "inj": false,
-      "age": 21,
-      "csValA": 0,
-      "csValS": 0,
-      "PA": 1.0,
-      "OBP": 0.31,
-      "HR": 0,
-      "XBH": 0,
-      "RP": 0.2,
-      "SB": 0,
-      "ftxId": "05yid",
-      "ftxEligiblePos": "2B,UT,MI"
-    },
-    {
-      "id": "leonardobernal-stl",
-      "n": "Leonardo Bernal",
-      "t": "STL",
+      "id": "ethansalas-sd",
+      "n": "Ethan Salas",
+      "t": "SD",
       "pos": [
         "C"
       ],
       "inj": false,
-      "age": 22,
+      "age": 19,
       "csValA": 0,
       "csValS": 0,
       "PA": 1.0,
-      "OBP": 0.29,
+      "OBP": 0.279,
       "HR": 0,
       "XBH": 0,
       "RP": 0.2,
       "SB": 0,
-      "ftxId": "05rcw",
+      "ftxId": "05ybr",
       "ftxEligiblePos": "C,UT"
     },
     {
@@ -12932,9 +12772,149 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "kadeanderson-sea",
-      "n": "Kade Anderson",
+      "id": "angelgenao-cle",
+      "n": "Angel Genao",
+      "t": "CLE",
+      "pos": [
+        "SS"
+      ],
+      "inj": false,
+      "age": 21,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 1.0,
+      "OBP": 0.297,
+      "HR": 0,
+      "XBH": 0.1,
+      "RP": 0.2,
+      "SB": 0,
+      "ftxId": "05r5e",
+      "ftxEligiblePos": "UT,3B,SS,CI,MI"
+    },
+    {
+      "id": "ralphyvelazquez-cle",
+      "n": "Ralphy Velazquez",
+      "t": "CLE",
+      "pos": [
+        "1B"
+      ],
+      "inj": false,
+      "age": 20,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 1.0,
+      "OBP": 0.293,
+      "HR": 0,
+      "XBH": 0,
+      "RP": 0.2,
+      "SB": 0,
+      "ftxId": "067yp",
+      "ftxEligiblePos": "1B,UT,CI"
+    },
+    {
+      "id": "lazaromontes-sea",
+      "n": "Lazaro Montes",
       "t": "SEA",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 21,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 1.0,
+      "OBP": 0.294,
+      "HR": 0,
+      "XBH": 0,
+      "RP": 0.2,
+      "SB": 0,
+      "ftxId": "05rfc",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "jessmade-mil",
+      "n": "Jesús Made",
+      "t": "MIL",
+      "pos": [
+        "SS"
+      ],
+      "inj": false,
+      "age": 18,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 1.0,
+      "OBP": 0.276,
+      "HR": 0,
+      "XBH": 0,
+      "RP": 0.2,
+      "SB": 0,
+      "ftxId": "06ibv",
+      "ftxEligiblePos": "UT,SS,MI"
+    },
+    {
+      "id": "hagensmith-chw",
+      "n": "Hagen Smith",
+      "t": "CHW",
+      "pos": [
+        "SP"
+      ],
+      "inj": false,
+      "age": 22,
+      "csValA": 0,
+      "csValS": 0,
+      "IP": 170,
+      "W": 0,
+      "SVH": 0,
+      "K": 0,
+      "ERA": 4.0,
+      "WHIP": 1.3,
+      "ftxId": "05zd4",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "michaelarroyo-sea",
+      "n": "Michael Arroyo",
+      "t": "SEA",
+      "pos": [
+        "2B"
+      ],
+      "inj": false,
+      "age": 21,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 1.0,
+      "OBP": 0.31,
+      "HR": 0,
+      "XBH": 0,
+      "RP": 0.2,
+      "SB": 0,
+      "ftxId": "05yid",
+      "ftxEligiblePos": "2B,UT,MI"
+    },
+    {
+      "id": "sebastianwalcott-tex",
+      "n": "Sebastian Walcott",
+      "t": "TEX",
+      "pos": [
+        "SS"
+      ],
+      "inj": false,
+      "age": 19,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 1.0,
+      "OBP": 0.304,
+      "HR": 0,
+      "XBH": 0,
+      "RP": 0.2,
+      "SB": 0,
+      "ftxId": "0662o",
+      "ftxEligiblePos": "UT,SS,MI"
+    },
+    {
+      "id": "tylerbremner-laa",
+      "n": "Tyler Bremner",
+      "t": "LAA",
       "pos": [
         "SP"
       ],
@@ -12948,27 +12928,107 @@ const FANTRAX_ROSTERS = {
       "K": 0,
       "ERA": 4.0,
       "WHIP": 1.3,
-      "ftxId": "05ydp",
+      "ftxId": "06icx",
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "ethansalas-sd",
-      "n": "Ethan Salas",
-      "t": "SD",
+      "id": "travissykora-was",
+      "n": "Travis Sykora",
+      "t": "WAS",
       "pos": [
-        "C"
+        "SP"
       ],
       "inj": false,
-      "age": 19,
+      "age": 21,
+      "csValA": 0,
+      "csValS": 0,
+      "IP": 170,
+      "W": 0,
+      "SVH": 0,
+      "K": 0,
+      "ERA": 4.0,
+      "WHIP": 1.3,
+      "ftxId": "05ycl",
+      "ftxEligiblePos": "SP"
+    },
+    {
+      "id": "esmerlynvaldez-pit",
+      "n": "Esmerlyn Valdez",
+      "t": "PIT",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 22,
       "csValA": 0,
       "csValS": 0,
       "PA": 1.0,
-      "OBP": 0.279,
+      "OBP": 0.3,
       "HR": 0,
       "XBH": 0,
       "RP": 0.2,
       "SB": 0,
-      "ftxId": "05ybr",
+      "ftxId": "05rbw",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "maxclark-det",
+      "n": "Max Clark",
+      "t": "DET",
+      "pos": [
+        "OF"
+      ],
+      "inj": false,
+      "age": 21,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 2.0,
+      "OBP": 0.329,
+      "HR": 0,
+      "XBH": 0.1,
+      "RP": 0.4,
+      "SB": 0,
+      "ftxId": "05u9y",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "warmingbernabel-wsn",
+      "n": "Warming Bernabel",
+      "t": "WSN",
+      "pos": [
+        "1B"
+      ],
+      "inj": false,
+      "age": 23,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 550,
+      "OBP": 0.32,
+      "HR": 0,
+      "XBH": 0,
+      "RP": 0,
+      "SB": 0,
+      "ftxId": "04ybm",
+      "ftxEligiblePos": "1B,UT,CI"
+    },
+    {
+      "id": "leonardobernal-stl",
+      "n": "Leonardo Bernal",
+      "t": "STL",
+      "pos": [
+        "C"
+      ],
+      "inj": false,
+      "age": 22,
+      "csValA": 0,
+      "csValS": 0,
+      "PA": 1.0,
+      "OBP": 0.29,
+      "HR": 0,
+      "XBH": 0,
+      "RP": 0.2,
+      "SB": 0,
+      "ftxId": "05rcw",
       "ftxEligiblePos": "C,UT"
     },
     {
@@ -12992,29 +13052,29 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "cooperpratt-mil",
-      "n": "Cooper Pratt",
-      "t": "MIL",
+      "id": "jacobreimer-nym",
+      "n": "Jacob Reimer",
+      "t": "NYM",
       "pos": [
-        "SS"
+        "3B"
       ],
       "inj": false,
-      "age": 21,
+      "age": 22,
       "csValA": 0,
       "csValS": 0,
       "PA": 1.0,
-      "OBP": 0.297,
+      "OBP": 0.303,
       "HR": 0,
       "XBH": 0,
       "RP": 0.2,
       "SB": 0,
-      "ftxId": "067xj",
-      "ftxEligiblePos": "UT,SS,MI"
+      "ftxId": "06481",
+      "ftxEligiblePos": "UT,3B,CI"
     },
     {
-      "id": "travissykora-was",
-      "n": "Travis Sykora",
-      "t": "WAS",
+      "id": "kadeanderson-sea",
+      "n": "Kade Anderson",
+      "t": "SEA",
       "pos": [
         "SP"
       ],
@@ -13028,7 +13088,7 @@ const FANTRAX_ROSTERS = {
       "K": 0,
       "ERA": 4.0,
       "WHIP": 1.3,
-      "ftxId": "05ycl",
+      "ftxId": "05ydp",
       "ftxEligiblePos": "SP"
     },
     {
@@ -13050,66 +13110,6 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.3,
       "ftxId": "01seh",
       "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "ralphyvelazquez-cle",
-      "n": "Ralphy Velazquez",
-      "t": "CLE",
-      "pos": [
-        "1B"
-      ],
-      "inj": false,
-      "age": 20,
-      "csValA": 0,
-      "csValS": 0,
-      "PA": 1.0,
-      "OBP": 0.293,
-      "HR": 0,
-      "XBH": 0,
-      "RP": 0.2,
-      "SB": 0,
-      "ftxId": "067yp",
-      "ftxEligiblePos": "1B,UT,CI"
-    },
-    {
-      "id": "bodavidson-sf",
-      "n": "Bo Davidson",
-      "t": "SF",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 23,
-      "csValA": 0,
-      "csValS": 0,
-      "PA": 2.0,
-      "OBP": 0.309,
-      "HR": 0,
-      "XBH": 0.1,
-      "RP": 0.3,
-      "SB": 0,
-      "ftxId": "06hua",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "lazaromontes-sea",
-      "n": "Lazaro Montes",
-      "t": "SEA",
-      "pos": [
-        "OF"
-      ],
-      "inj": false,
-      "age": 21,
-      "csValA": 0,
-      "csValS": 0,
-      "PA": 1.0,
-      "OBP": 0.294,
-      "HR": 0,
-      "XBH": 0,
-      "RP": 0.2,
-      "SB": 0,
-      "ftxId": "05rfc",
-      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "aaronashby-mil",
@@ -13169,6 +13169,25 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
+      "id": "tannerbanks-phi",
+      "n": "Tanner Banks",
+      "t": "PHI",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -7.8,
+      "csValS": -3.0,
+      "IP": 62,
+      "W": 3.2,
+      "SVH": 12,
+      "K": 60,
+      "ERA": 3.79,
+      "WHIP": 1.24,
+      "ftxId": "03dqv",
+      "ftxEligiblePos": "RP"
+    },
+    {
       "id": "kylefinnegan-det",
       "n": "Kyle Finnegan",
       "t": "DET",
@@ -13207,23 +13226,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "tannerbanks-phi",
-      "n": "Tanner Banks",
-      "t": "PHI",
+      "id": "seannewcomb-cws",
+      "n": "Sean Newcomb",
+      "t": "CWS",
       "pos": [
         "RP"
       ],
       "unofficial": true,
-      "csValA": -7.8,
-      "csValS": -3.0,
-      "IP": 62,
+      "csValA": -7.9,
+      "csValS": -3.2,
+      "IP": 65,
       "W": 3.2,
-      "SVH": 12,
-      "K": 60,
+      "SVH": 13,
+      "K": 64,
       "ERA": 3.79,
-      "WHIP": 1.24,
-      "ftxId": "03dqv",
-      "ftxEligiblePos": "RP"
+      "WHIP": 1.32,
+      "ftxId": "032lk",
+      "ftxEligiblePos": "SP,RP"
     },
     {
       "id": "masonmontgomery-pit",
@@ -13245,60 +13264,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "seannewcomb-cws",
-      "n": "Sean Newcomb",
-      "t": "CWS",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -7.9,
-      "csValS": -3.2,
-      "IP": 65,
-      "W": 3.2,
-      "SVH": 13,
-      "K": 64,
-      "ERA": 3.79,
-      "WHIP": 1.32,
-      "ftxId": "032lk",
-      "ftxEligiblePos": "SP,RP"
-    },
-    {
-      "id": "luisgarca-nym",
-      "n": "Luis García",
-      "t": "NYM",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -8.0,
-      "csValS": -3.1,
-      "IP": 60,
-      "W": 3.1,
-      "SVH": 13,
-      "K": 55,
-      "ERA": 3.72,
-      "WHIP": 1.3,
-      "ftxId": "06rnx",
-      "ftxEligiblePos": "UT,SS,MI"
-    },
-    {
-      "id": "timherrin-cle",
-      "n": "Tim Herrin",
-      "t": "CLE",
+      "id": "wandyperalta-sd",
+      "n": "Wandy Peralta",
+      "t": "SD",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -8.0,
       "csValS": -3.2,
-      "IP": 54,
-      "W": 2.7,
+      "IP": 57,
+      "W": 2.9,
       "SVH": 10,
-      "K": 57,
-      "ERA": 3.78,
-      "WHIP": 1.36,
-      "ftxId": "061jc",
+      "K": 52,
+      "ERA": 3.68,
+      "WHIP": 1.37,
+      "ftxId": "047sh",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13340,23 +13321,42 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "jonathanloisiga-ari",
-      "n": "Jonathan Loáisiga",
-      "t": "ARI",
+      "id": "hobymilner-chc",
+      "n": "Hoby Milner",
+      "t": "CHC",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -8.0,
       "csValS": -3.1,
-      "IP": 59,
+      "IP": 60,
       "W": 3.0,
-      "SVH": 14,
-      "K": 52,
-      "ERA": 3.77,
-      "WHIP": 1.33,
-      "ftxId": "03db4",
+      "SVH": 13,
+      "K": 51,
+      "ERA": 3.8,
+      "WHIP": 1.32,
+      "ftxId": "02n0v",
       "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "paulblackburn-nyy",
+      "n": "Paul Blackburn",
+      "t": "NYY",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -8.0,
+      "csValS": -3.2,
+      "IP": 66,
+      "W": 3.4,
+      "SVH": 12,
+      "K": 58,
+      "ERA": 3.89,
+      "WHIP": 1.25,
+      "ftxId": "02mwd",
+      "ftxEligiblePos": "SP,RP"
     },
     {
       "id": "luisgarca-nym",
@@ -13378,9 +13378,9 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "hobymilner-chc",
-      "n": "Hoby Milner",
-      "t": "CHC",
+      "id": "luisgarca-nym",
+      "n": "Luis García",
+      "t": "NYM",
       "pos": [
         "RP"
       ],
@@ -13388,51 +13388,51 @@ const FANTRAX_ROSTERS = {
       "csValA": -8.0,
       "csValS": -3.1,
       "IP": 60,
-      "W": 3.0,
+      "W": 3.1,
       "SVH": 13,
-      "K": 51,
-      "ERA": 3.8,
-      "WHIP": 1.32,
-      "ftxId": "02n0v",
-      "ftxEligiblePos": "RP"
+      "K": 55,
+      "ERA": 3.72,
+      "WHIP": 1.3,
+      "ftxId": "06rnx",
+      "ftxEligiblePos": "UT,SS,MI"
     },
     {
-      "id": "wandyperalta-sd",
-      "n": "Wandy Peralta",
-      "t": "SD",
+      "id": "timherrin-cle",
+      "n": "Tim Herrin",
+      "t": "CLE",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -8.0,
       "csValS": -3.2,
-      "IP": 57,
-      "W": 2.9,
+      "IP": 54,
+      "W": 2.7,
       "SVH": 10,
-      "K": 52,
-      "ERA": 3.68,
-      "WHIP": 1.37,
-      "ftxId": "047sh",
+      "K": 57,
+      "ERA": 3.78,
+      "WHIP": 1.36,
+      "ftxId": "061jc",
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "paulblackburn-nyy",
-      "n": "Paul Blackburn",
-      "t": "NYY",
+      "id": "jonathanloisiga-ari",
+      "n": "Jonathan Loáisiga",
+      "t": "ARI",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -8.0,
-      "csValS": -3.2,
-      "IP": 66,
-      "W": 3.4,
-      "SVH": 12,
-      "K": 58,
-      "ERA": 3.89,
-      "WHIP": 1.25,
-      "ftxId": "02mwd",
-      "ftxEligiblePos": "SP,RP"
+      "csValS": -3.1,
+      "IP": 59,
+      "W": 3.0,
+      "SVH": 14,
+      "K": 52,
+      "ERA": 3.77,
+      "WHIP": 1.33,
+      "ftxId": "03db4",
+      "ftxEligiblePos": "RP"
     },
     {
       "id": "grahamashcraft-cin",
@@ -13473,22 +13473,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "brenanhanifee-det",
-      "n": "Brenan Hanifee",
-      "t": "DET",
+      "id": "kodyfunderburk-min",
+      "n": "Kody Funderburk",
+      "t": "MIN",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -8.2,
       "csValS": -3.3,
-      "IP": 58,
-      "W": 2.9,
-      "SVH": 11,
-      "K": 44,
-      "ERA": 3.86,
-      "WHIP": 1.32,
-      "ftxId": "041rq",
+      "IP": 65,
+      "W": 3.3,
+      "SVH": 17,
+      "K": 62,
+      "ERA": 3.69,
+      "WHIP": 1.35,
+      "ftxId": "04pyp",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13511,22 +13511,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "kodyfunderburk-min",
-      "n": "Kody Funderburk",
-      "t": "MIN",
+      "id": "brenanhanifee-det",
+      "n": "Brenan Hanifee",
+      "t": "DET",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -8.2,
       "csValS": -3.3,
-      "IP": 65,
-      "W": 3.3,
-      "SVH": 17,
-      "K": 62,
-      "ERA": 3.69,
-      "WHIP": 1.35,
-      "ftxId": "04pyp",
+      "IP": 58,
+      "W": 2.9,
+      "SVH": 11,
+      "K": 44,
+      "ERA": 3.86,
+      "WHIP": 1.32,
+      "ftxId": "041rq",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13568,25 +13568,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "joshsborz-tex",
-      "n": "Josh Sborz",
-      "t": "TEX",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -8.4,
-      "csValS": -3.6,
-      "IP": 58,
-      "W": 2.9,
-      "SVH": 10,
-      "K": 60,
-      "ERA": 4.03,
-      "WHIP": 1.32,
-      "ftxId": "03pp9",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "masonenglert-tb",
       "n": "Mason Englert",
       "t": "TB",
@@ -13606,22 +13587,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "taylorclarke-ari",
-      "n": "Taylor Clarke",
-      "t": "ARI",
+      "id": "joshsborz-tex",
+      "n": "Josh Sborz",
+      "t": "TEX",
       "pos": [
         "RP"
       ],
       "unofficial": true,
-      "csValA": -8.5,
+      "csValA": -8.4,
       "csValS": -3.6,
-      "IP": 60,
-      "W": 3.0,
-      "SVH": 14,
-      "K": 51,
-      "ERA": 4.12,
-      "WHIP": 1.3,
-      "ftxId": "03qjz",
+      "IP": 58,
+      "W": 2.9,
+      "SVH": 10,
+      "K": 60,
+      "ERA": 4.03,
+      "WHIP": 1.32,
+      "ftxId": "03pp9",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13641,6 +13622,25 @@ const FANTRAX_ROSTERS = {
       "ERA": 4.06,
       "WHIP": 1.29,
       "ftxId": "03di6",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "taylorclarke-ari",
+      "n": "Taylor Clarke",
+      "t": "ARI",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -8.5,
+      "csValS": -3.6,
+      "IP": 60,
+      "W": 3.0,
+      "SVH": 14,
+      "K": 51,
+      "ERA": 4.12,
+      "WHIP": 1.3,
+      "ftxId": "03qjz",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13682,22 +13682,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "tylerkinley-atl",
-      "n": "Tyler Kinley",
-      "t": "ATL",
+      "id": "piercejohnson-cin",
+      "n": "Pierce Johnson",
+      "t": "CIN",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -9.1,
       "csValS": -4.0,
-      "IP": 63,
-      "W": 3.2,
+      "IP": 61,
+      "W": 3.0,
       "SVH": 13,
-      "K": 68,
-      "ERA": 4.08,
-      "WHIP": 1.32,
-      "ftxId": "0313t",
+      "K": 67,
+      "ERA": 4.09,
+      "WHIP": 1.31,
+      "ftxId": "02hdy",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13720,22 +13720,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "piercejohnson-cin",
-      "n": "Pierce Johnson",
-      "t": "CIN",
+      "id": "tylerkinley-atl",
+      "n": "Tyler Kinley",
+      "t": "ATL",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -9.1,
       "csValS": -4.0,
-      "IP": 61,
-      "W": 3.0,
+      "IP": 63,
+      "W": 3.2,
       "SVH": 13,
-      "K": 67,
-      "ERA": 4.09,
-      "WHIP": 1.31,
-      "ftxId": "02hdy",
+      "K": 68,
+      "ERA": 4.08,
+      "WHIP": 1.32,
+      "ftxId": "0313t",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13756,6 +13756,25 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.31,
       "ftxId": "03dap",
       "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "jackdreyer-lad",
+      "n": "Jack Dreyer",
+      "t": "LAD",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -9.2,
+      "csValS": -4.0,
+      "IP": 54,
+      "W": 2.8,
+      "SVH": 12,
+      "K": 52,
+      "ERA": 4.08,
+      "WHIP": 1.32,
+      "ftxId": "06luc",
+      "ftxEligiblePos": "SP,RP"
     },
     {
       "id": "nickmears-kc",
@@ -13796,23 +13815,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "jackdreyer-lad",
-      "n": "Jack Dreyer",
-      "t": "LAD",
+      "id": "colesulser-tb",
+      "n": "Cole Sulser",
+      "t": "TB",
       "pos": [
         "RP"
       ],
       "unofficial": true,
-      "csValA": -9.2,
-      "csValS": -4.0,
-      "IP": 54,
-      "W": 2.8,
-      "SVH": 12,
-      "K": 52,
-      "ERA": 4.08,
-      "WHIP": 1.32,
-      "ftxId": "06luc",
-      "ftxEligiblePos": "SP,RP"
+      "csValA": -9.3,
+      "csValS": -4.1,
+      "IP": 56,
+      "W": 2.7,
+      "SVH": 10,
+      "K": 51,
+      "ERA": 4.07,
+      "WHIP": 1.33,
+      "ftxId": "031hc",
+      "ftxEligiblePos": "RP"
     },
     {
       "id": "mattfesta-cle",
@@ -13853,22 +13872,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "colesulser-tb",
-      "n": "Cole Sulser",
-      "t": "TB",
+      "id": "yohanramrez-pit",
+      "n": "Yohan Ramírez",
+      "t": "PIT",
       "pos": [
         "RP"
       ],
       "unofficial": true,
-      "csValA": -9.3,
-      "csValS": -4.1,
+      "csValA": -9.4,
+      "csValS": -4.3,
       "IP": 56,
       "W": 2.7,
       "SVH": 10,
-      "K": 51,
-      "ERA": 4.07,
-      "WHIP": 1.33,
-      "ftxId": "031hc",
+      "K": 54,
+      "ERA": 3.99,
+      "WHIP": 1.35,
+      "ftxId": "04ddz",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13891,25 +13910,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "rynestanek-stl",
-      "n": "Ryne Stanek",
-      "t": "STL",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -9.4,
-      "csValS": -4.2,
-      "IP": 60,
-      "W": 2.9,
-      "SVH": 16,
-      "K": 62,
-      "ERA": 4.01,
-      "WHIP": 1.33,
-      "ftxId": "02hhj",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "josbutt-sf",
       "n": "José Buttó",
       "t": "SF",
@@ -13926,25 +13926,6 @@ const FANTRAX_ROSTERS = {
       "ERA": 3.98,
       "WHIP": 1.35,
       "ftxId": "05oz7",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "yohanramrez-pit",
-      "n": "Yohan Ramírez",
-      "t": "PIT",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -9.4,
-      "csValS": -4.3,
-      "IP": 56,
-      "W": 2.7,
-      "SVH": 10,
-      "K": 54,
-      "ERA": 3.99,
-      "WHIP": 1.35,
-      "ftxId": "04ddz",
       "ftxEligiblePos": "RP"
     },
     {
@@ -13967,22 +13948,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP,RP"
     },
     {
-      "id": "justintopa-min",
-      "n": "Justin Topa",
-      "t": "MIN",
+      "id": "rynestanek-stl",
+      "n": "Ryne Stanek",
+      "t": "STL",
       "pos": [
         "RP"
       ],
       "unofficial": true,
-      "csValA": -9.5,
-      "csValS": -4.3,
-      "IP": 62,
-      "W": 3.0,
-      "SVH": 14,
-      "K": 53,
-      "ERA": 4.02,
-      "WHIP": 1.36,
-      "ftxId": "0318i",
+      "csValA": -9.4,
+      "csValS": -4.2,
+      "IP": 60,
+      "W": 2.9,
+      "SVH": 16,
+      "K": 62,
+      "ERA": 4.01,
+      "WHIP": 1.33,
+      "ftxId": "02hhj",
       "ftxEligiblePos": "RP"
     },
     {
@@ -14005,22 +13986,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "davidmorgan-sd",
-      "n": "David Morgan",
-      "t": "SD",
+      "id": "justintopa-min",
+      "n": "Justin Topa",
+      "t": "MIN",
       "pos": [
         "RP"
       ],
       "unofficial": true,
-      "csValA": -9.6,
-      "csValS": -4.5,
-      "IP": 58,
-      "W": 2.8,
-      "SVH": 12,
-      "K": 57,
-      "ERA": 4.06,
-      "WHIP": 1.35,
-      "ftxId": "066a8",
+      "csValA": -9.5,
+      "csValS": -4.3,
+      "IP": 62,
+      "W": 3.0,
+      "SVH": 14,
+      "K": 53,
+      "ERA": 4.02,
+      "WHIP": 1.36,
+      "ftxId": "0318i",
       "ftxEligiblePos": "RP"
     },
     {
@@ -14040,6 +14021,25 @@ const FANTRAX_ROSTERS = {
       "ERA": 4.44,
       "WHIP": 1.33,
       "ftxId": "05y4k",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "davidmorgan-sd",
+      "n": "David Morgan",
+      "t": "SD",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -9.6,
+      "csValS": -4.5,
+      "IP": 58,
+      "W": 2.8,
+      "SVH": 12,
+      "K": 57,
+      "ERA": 4.06,
+      "WHIP": 1.35,
+      "ftxId": "066a8",
       "ftxEligiblePos": "RP"
     },
     {
@@ -14081,22 +14081,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "spencerbivens-sf",
-      "n": "Spencer Bivens",
-      "t": "SF",
+      "id": "jacobwebb-chc",
+      "n": "Jacob Webb",
+      "t": "CHC",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -9.8,
       "csValS": -4.3,
-      "IP": 70,
-      "W": 3.3,
-      "SVH": 14,
-      "K": 53,
-      "ERA": 4.12,
-      "WHIP": 1.36,
-      "ftxId": "06kvo",
+      "IP": 54,
+      "W": 2.6,
+      "SVH": 11,
+      "K": 50,
+      "ERA": 4.34,
+      "WHIP": 1.35,
+      "ftxId": "05yod",
       "ftxEligiblePos": "RP"
     },
     {
@@ -14119,6 +14119,25 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
+      "id": "jacobwebb-chc",
+      "n": "Jacob Webb",
+      "t": "CHC",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -9.8,
+      "csValS": -4.3,
+      "IP": 54,
+      "W": 2.6,
+      "SVH": 11,
+      "K": 50,
+      "ERA": 4.34,
+      "WHIP": 1.35,
+      "ftxId": "04y76",
+      "ftxEligiblePos": "RP"
+    },
+    {
       "id": "ericorze-min",
       "n": "Eric Orze",
       "t": "MIN",
@@ -14138,41 +14157,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "jacobwebb-chc",
-      "n": "Jacob Webb",
-      "t": "CHC",
+      "id": "spencerbivens-sf",
+      "n": "Spencer Bivens",
+      "t": "SF",
       "pos": [
         "RP"
       ],
       "unofficial": true,
       "csValA": -9.8,
       "csValS": -4.3,
-      "IP": 54,
-      "W": 2.6,
-      "SVH": 11,
-      "K": 50,
-      "ERA": 4.34,
-      "WHIP": 1.35,
-      "ftxId": "05yod",
-      "ftxEligiblePos": "RP"
-    },
-    {
-      "id": "jacobwebb-chc",
-      "n": "Jacob Webb",
-      "t": "CHC",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -9.8,
-      "csValS": -4.3,
-      "IP": 54,
-      "W": 2.6,
-      "SVH": 11,
-      "K": 50,
-      "ERA": 4.34,
-      "WHIP": 1.35,
-      "ftxId": "04y76",
+      "IP": 70,
+      "W": 3.3,
+      "SVH": 14,
+      "K": 53,
+      "ERA": 4.12,
+      "WHIP": 1.36,
+      "ftxId": "06kvo",
       "ftxEligiblePos": "RP"
     },
     {
@@ -14195,25 +14195,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "RP"
     },
     {
-      "id": "gregweissert-bos",
-      "n": "Greg Weissert",
-      "t": "BOS",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -10.1,
-      "csValS": -4.5,
-      "IP": 65,
-      "W": 3.1,
-      "SVH": 18,
-      "K": 58,
-      "ERA": 4.31,
-      "WHIP": 1.36,
-      "ftxId": "0421q",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "cionelprez-wsh",
       "n": "Cionel Pérez",
       "t": "WSH",
@@ -14230,6 +14211,25 @@ const FANTRAX_ROSTERS = {
       "ERA": 3.94,
       "WHIP": 1.45,
       "ftxId": "03zo6",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "gregweissert-bos",
+      "n": "Greg Weissert",
+      "t": "BOS",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -10.1,
+      "csValS": -4.5,
+      "IP": 65,
+      "W": 3.1,
+      "SVH": 18,
+      "K": 58,
+      "ERA": 4.31,
+      "WHIP": 1.36,
+      "ftxId": "0421q",
       "ftxEligiblePos": "RP"
     },
     {
@@ -14423,25 +14423,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "colewinn-tex",
-      "n": "Cole Winn",
-      "t": "TEX",
-      "pos": [
-        "RP"
-      ],
-      "unofficial": true,
-      "csValA": -11.8,
-      "csValS": -5.5,
-      "IP": 63,
-      "W": 3.0,
-      "SVH": 17,
-      "K": 56,
-      "ERA": 4.46,
-      "WHIP": 1.42,
-      "ftxId": "04paj",
-      "ftxEligiblePos": "RP"
-    },
-    {
       "id": "zachagnos-col",
       "n": "Zach Agnos",
       "t": "COL",
@@ -14458,6 +14439,25 @@ const FANTRAX_ROSTERS = {
       "ERA": 5.31,
       "WHIP": 1.53,
       "ftxId": "064ny",
+      "ftxEligiblePos": "RP"
+    },
+    {
+      "id": "colewinn-tex",
+      "n": "Cole Winn",
+      "t": "TEX",
+      "pos": [
+        "RP"
+      ],
+      "unofficial": true,
+      "csValA": -11.8,
+      "csValS": -5.5,
+      "IP": 63,
+      "W": 3.0,
+      "SVH": 17,
+      "K": 56,
+      "ERA": 4.46,
+      "WHIP": 1.42,
+      "ftxId": "04paj",
       "ftxEligiblePos": "RP"
     },
     {
@@ -14594,25 +14594,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "jeffreysprings-oak",
-      "n": "Jeffrey Springs",
-      "t": "OAK",
-      "pos": [
-        "SP"
-      ],
-      "unofficial": true,
-      "csValA": -13.4,
-      "csValS": -4.8,
-      "IP": 166,
-      "W": 9.4,
-      "SVH": 0,
-      "K": 143,
-      "ERA": 4.62,
-      "WHIP": 1.34,
-      "ftxId": "04mlr",
-      "ftxEligiblePos": "SP"
-    },
-    {
       "id": "michaelmcgreevy-stl",
       "n": "Michael McGreevy",
       "t": "STL",
@@ -14649,6 +14630,25 @@ const FANTRAX_ROSTERS = {
       "SB": 3.0,
       "ftxId": "04pqq",
       "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "jeffreysprings-oak",
+      "n": "Jeffrey Springs",
+      "t": "OAK",
+      "pos": [
+        "SP"
+      ],
+      "unofficial": true,
+      "csValA": -13.4,
+      "csValS": -4.8,
+      "IP": 166,
+      "W": 9.4,
+      "SVH": 0,
+      "K": 143,
+      "ERA": 4.62,
+      "WHIP": 1.34,
+      "ftxId": "04mlr",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "carlosnarvez-bos",
@@ -14689,25 +14689,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "owencaissie-mia",
-      "n": "Owen Caissie",
-      "t": "MIA",
-      "pos": [
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -13.8,
-      "csValS": -9.0,
-      "PA": 310,
-      "OBP": 0.318,
-      "HR": 10,
-      "XBH": 15,
-      "RP": 71,
-      "SB": 4.1,
-      "ftxId": "05jsg",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
       "id": "carlossantana-ari",
       "n": "Carlos Santana",
       "t": "ARI",
@@ -14727,23 +14708,42 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,CI"
     },
     {
-      "id": "garrettmitchell-mil",
-      "n": "Garrett Mitchell",
-      "t": "MIL",
+      "id": "owencaissie-mia",
+      "n": "Owen Caissie",
+      "t": "MIA",
       "pos": [
         "OF"
       ],
       "unofficial": true,
-      "csValA": -13.9,
-      "csValS": -8.5,
-      "PA": 313,
-      "OBP": 0.317,
-      "HR": 9,
-      "XBH": 14,
-      "RP": 70,
-      "SB": 9.3,
-      "ftxId": "04en7",
+      "csValA": -13.8,
+      "csValS": -9.0,
+      "PA": 310,
+      "OBP": 0.318,
+      "HR": 10,
+      "XBH": 15,
+      "RP": 71,
+      "SB": 4.1,
+      "ftxId": "05jsg",
       "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "mattshaw-chc",
+      "n": "Matt Shaw",
+      "t": "CHC",
+      "pos": [
+        "3B"
+      ],
+      "unofficial": true,
+      "csValA": -13.9,
+      "csValS": -8.7,
+      "PA": 220,
+      "OBP": 0.321,
+      "HR": 7,
+      "XBH": 10,
+      "RP": 52,
+      "SB": 8.2,
+      "ftxId": "063vu",
+      "ftxEligiblePos": "UT,3B,CI"
     },
     {
       "id": "troyjohnston-col",
@@ -14766,23 +14766,43 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,1B,UT,CI"
     },
     {
-      "id": "mattshaw-chc",
-      "n": "Matt Shaw",
-      "t": "CHC",
+      "id": "garrettmitchell-mil",
+      "n": "Garrett Mitchell",
+      "t": "MIL",
       "pos": [
-        "3B"
+        "OF"
       ],
       "unofficial": true,
       "csValA": -13.9,
-      "csValS": -8.7,
-      "PA": 220,
-      "OBP": 0.321,
-      "HR": 7,
+      "csValS": -8.5,
+      "PA": 313,
+      "OBP": 0.317,
+      "HR": 9,
+      "XBH": 14,
+      "RP": 70,
+      "SB": 9.3,
+      "ftxId": "04en7",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "jakebauers-mil",
+      "n": "Jake Bauers",
+      "t": "MIL",
+      "pos": [
+        "1B",
+        "OF"
+      ],
+      "unofficial": true,
+      "csValA": -14.0,
+      "csValS": -8.9,
+      "PA": 274,
+      "OBP": 0.315,
+      "HR": 10,
       "XBH": 10,
-      "RP": 52,
-      "SB": 8.2,
-      "ftxId": "063vu",
-      "ftxEligiblePos": "UT,3B,CI"
+      "RP": 63,
+      "SB": 6.6,
+      "ftxId": "0316v",
+      "ftxEligiblePos": "OF,1B,UT,CI"
     },
     {
       "id": "davismartin-cws",
@@ -14821,26 +14841,6 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.35,
       "ftxId": "029si",
       "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "jakebauers-mil",
-      "n": "Jake Bauers",
-      "t": "MIL",
-      "pos": [
-        "1B",
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -14.0,
-      "csValS": -8.9,
-      "PA": 274,
-      "OBP": 0.315,
-      "HR": 10,
-      "XBH": 10,
-      "RP": 63,
-      "SB": 6.6,
-      "ftxId": "0316v",
-      "ftxEligiblePos": "OF,1B,UT,CI"
     },
     {
       "id": "wenceelprez-det",
@@ -14939,24 +14939,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "miguelandujar-sd",
-      "n": "Miguel Andujar",
-      "t": "SD",
+      "id": "coltemerson-sea",
+      "n": "Colt Emerson",
+      "t": "SEA",
       "pos": [
-        "3B",
-        "OF"
+        "SS"
       ],
       "unofficial": true,
       "csValA": -14.3,
       "csValS": -9.5,
-      "PA": 269,
-      "OBP": 0.321,
-      "HR": 7,
-      "XBH": 13,
-      "RP": 62,
-      "SB": 1.5,
-      "ftxId": "02i3l",
-      "ftxEligiblePos": "OF,UT,3B,CI"
+      "PA": 254,
+      "OBP": 0.313,
+      "HR": 5,
+      "XBH": 11,
+      "RP": 51,
+      "SB": 3.6,
+      "ftxId": "060ub",
+      "ftxEligiblePos": "UT,SS,MI"
     },
     {
       "id": "ryanritter-col",
@@ -15018,23 +15017,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,2B,CI,MI"
     },
     {
-      "id": "coltemerson-sea",
-      "n": "Colt Emerson",
-      "t": "SEA",
+      "id": "miguelandujar-sd",
+      "n": "Miguel Andujar",
+      "t": "SD",
       "pos": [
-        "SS"
+        "3B",
+        "OF"
       ],
       "unofficial": true,
       "csValA": -14.3,
       "csValS": -9.5,
-      "PA": 254,
-      "OBP": 0.313,
-      "HR": 5,
-      "XBH": 11,
-      "RP": 51,
-      "SB": 3.6,
-      "ftxId": "060ub",
-      "ftxEligiblePos": "UT,SS,MI"
+      "PA": 269,
+      "OBP": 0.321,
+      "HR": 7,
+      "XBH": 13,
+      "RP": 62,
+      "SB": 1.5,
+      "ftxId": "02i3l",
+      "ftxEligiblePos": "OF,UT,3B,CI"
     },
     {
       "id": "seanmurphy-atl",
@@ -15094,6 +15094,25 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
+      "id": "nickgonzales-pit",
+      "n": "Nick Gonzales",
+      "t": "PIT",
+      "pos": [
+        "2B"
+      ],
+      "unofficial": true,
+      "csValA": -14.5,
+      "csValS": -9.3,
+      "PA": 351,
+      "OBP": 0.319,
+      "HR": 7,
+      "XBH": 21,
+      "RP": 74,
+      "SB": 2.6,
+      "ftxId": "0597k",
+      "ftxEligiblePos": "2B,UT,MI"
+    },
+    {
       "id": "sungmunsong-sd",
       "n": "Sung-Mun Song",
       "t": "SD",
@@ -15131,25 +15150,6 @@ const FANTRAX_ROSTERS = {
       "SB": 5.1,
       "ftxId": "062z3",
       "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "nickgonzales-pit",
-      "n": "Nick Gonzales",
-      "t": "PIT",
-      "pos": [
-        "2B"
-      ],
-      "unofficial": true,
-      "csValA": -14.5,
-      "csValS": -9.3,
-      "PA": 351,
-      "OBP": 0.319,
-      "HR": 7,
-      "XBH": 21,
-      "RP": 74,
-      "SB": 2.6,
-      "ftxId": "0597k",
-      "ftxEligiblePos": "2B,UT,MI"
     },
     {
       "id": "jacoblopez-oak",
@@ -15229,23 +15229,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT,2B,MI"
     },
     {
-      "id": "dannyjansen-tex",
-      "n": "Danny Jansen",
-      "t": "TEX",
+      "id": "adrianhouser-sf",
+      "n": "Adrian Houser",
+      "t": "SF",
       "pos": [
-        "C"
+        "SP"
       ],
       "unofficial": true,
       "csValA": -14.7,
-      "csValS": -9.4,
-      "PA": 307,
-      "OBP": 0.314,
-      "HR": 12,
-      "XBH": 13,
-      "RP": 73,
-      "SB": 1.4,
-      "ftxId": "031el",
-      "ftxEligiblePos": "C,UT"
+      "csValS": -5.7,
+      "IP": 147,
+      "W": 8.1,
+      "SVH": 0,
+      "K": 107,
+      "ERA": 4.33,
+      "WHIP": 1.4,
+      "ftxId": "02brc",
+      "ftxEligiblePos": "SP"
     },
     {
       "id": "coleyoung-sea",
@@ -15267,23 +15267,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "2B,UT,MI"
     },
     {
-      "id": "adrianhouser-sf",
-      "n": "Adrian Houser",
-      "t": "SF",
+      "id": "dannyjansen-tex",
+      "n": "Danny Jansen",
+      "t": "TEX",
       "pos": [
-        "SP"
+        "C"
       ],
       "unofficial": true,
       "csValA": -14.7,
-      "csValS": -5.7,
-      "IP": 147,
-      "W": 8.1,
-      "SVH": 0,
-      "K": 107,
-      "ERA": 4.33,
-      "WHIP": 1.4,
-      "ftxId": "02brc",
-      "ftxEligiblePos": "SP"
+      "csValS": -9.4,
+      "PA": 307,
+      "OBP": 0.314,
+      "HR": 12,
+      "XBH": 13,
+      "RP": 73,
+      "SB": 1.4,
+      "ftxId": "031el",
+      "ftxEligiblePos": "C,UT"
     },
     {
       "id": "kylefreeland-col",
@@ -15324,26 +15324,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "cjkayfus-cle",
-      "n": "CJ Kayfus",
-      "t": "CLE",
-      "pos": [
-        "1B",
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -14.9,
-      "csValS": -10.0,
-      "PA": 242,
-      "OBP": 0.315,
-      "HR": 7,
-      "XBH": 12,
-      "RP": 54,
-      "SB": 2.7,
-      "ftxId": "06dn6",
-      "ftxEligiblePos": "OF,1B,UT,CI"
-    },
-    {
       "id": "georgevalera-cle",
       "n": "George Valera",
       "t": "CLE",
@@ -15364,43 +15344,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "henrydavis-pit",
-      "n": "Henry Davis",
-      "t": "PIT",
+      "id": "cjkayfus-cle",
+      "n": "CJ Kayfus",
+      "t": "CLE",
       "pos": [
-        "C",
+        "1B",
         "OF"
       ],
       "unofficial": true,
-      "csValA": -15.0,
-      "csValS": -9.3,
-      "PA": 232,
-      "OBP": 0.299,
+      "csValA": -14.9,
+      "csValS": -10.0,
+      "PA": 242,
+      "OBP": 0.315,
       "HR": 7,
-      "XBH": 10,
-      "RP": 49,
-      "SB": 3.2,
-      "ftxId": "05oxc",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "amedrosario-nyy",
-      "n": "Amed Rosario",
-      "t": "NYY",
-      "pos": [
-        "SS"
-      ],
-      "unofficial": true,
-      "csValA": -15.0,
-      "csValS": -9.3,
-      "PA": 228,
-      "OBP": 0.305,
-      "HR": 4,
       "XBH": 12,
-      "RP": 48,
-      "SB": 4.1,
-      "ftxId": "02yh5",
-      "ftxEligiblePos": "UT,3B,CI"
+      "RP": 54,
+      "SB": 2.7,
+      "ftxId": "06dn6",
+      "ftxEligiblePos": "OF,1B,UT,CI"
     },
     {
       "id": "andrschaparro-wsh",
@@ -15423,23 +15384,62 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,CI"
     },
     {
-      "id": "jessewinker-fa",
-      "n": "Jesse Winker",
-      "t": "FA",
+      "id": "amedrosario-nyy",
+      "n": "Amed Rosario",
+      "t": "NYY",
       "pos": [
+        "SS"
+      ],
+      "unofficial": true,
+      "csValA": -15.0,
+      "csValS": -9.3,
+      "PA": 228,
+      "OBP": 0.305,
+      "HR": 4,
+      "XBH": 12,
+      "RP": 48,
+      "SB": 4.1,
+      "ftxId": "02yh5",
+      "ftxEligiblePos": "UT,3B,CI"
+    },
+    {
+      "id": "luiscampusano-sd",
+      "n": "Luis Campusano",
+      "t": "SD",
+      "pos": [
+        "C"
+      ],
+      "unofficial": true,
+      "csValA": -15.0,
+      "csValS": -10.1,
+      "PA": 208,
+      "OBP": 0.321,
+      "HR": 7,
+      "XBH": 9,
+      "RP": 48,
+      "SB": 0.7,
+      "ftxId": "04eep",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "henrydavis-pit",
+      "n": "Henry Davis",
+      "t": "PIT",
+      "pos": [
+        "C",
         "OF"
       ],
       "unofficial": true,
       "csValA": -15.0,
-      "csValS": -9.6,
-      "PA": 221,
-      "OBP": 0.356,
-      "HR": 6,
+      "csValS": -9.3,
+      "PA": 232,
+      "OBP": 0.299,
+      "HR": 7,
       "XBH": 10,
-      "RP": 50,
-      "SB": 3.6,
-      "ftxId": "02mwg",
-      "ftxEligiblePos": "OF,UT"
+      "RP": 49,
+      "SB": 3.2,
+      "ftxId": "05oxc",
+      "ftxEligiblePos": "C,UT"
     },
     {
       "id": "austinmartin-min",
@@ -15458,44 +15458,6 @@ const FANTRAX_ROSTERS = {
       "RP": 58,
       "SB": 9.9,
       "ftxId": "05249",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "christianmoore-laa",
-      "n": "Christian Moore",
-      "t": "LAA",
-      "pos": [
-        "2B"
-      ],
-      "unofficial": true,
-      "csValA": -15.0,
-      "csValS": -9.3,
-      "PA": 250,
-      "OBP": 0.303,
-      "HR": 7,
-      "XBH": 10,
-      "RP": 52,
-      "SB": 4.1,
-      "ftxId": "06cq8",
-      "ftxEligiblePos": "2B,UT,MI"
-    },
-    {
-      "id": "tylerfreeman-col",
-      "n": "Tyler Freeman",
-      "t": "COL",
-      "pos": [
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -15.0,
-      "csValS": -9.0,
-      "PA": 293,
-      "OBP": 0.351,
-      "HR": 5,
-      "XBH": 15,
-      "RP": 64,
-      "SB": 11.8,
-      "ftxId": "04efc",
       "ftxEligiblePos": "OF,UT"
     },
     {
@@ -15518,81 +15480,24 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "C,UT"
     },
     {
-      "id": "luiscampusano-sd",
-      "n": "Luis Campusano",
-      "t": "SD",
+      "id": "thomassaggese-stl",
+      "n": "Thomas Saggese",
+      "t": "STL",
       "pos": [
-        "C"
-      ],
-      "unofficial": true,
-      "csValA": -15.0,
-      "csValS": -10.1,
-      "PA": 208,
-      "OBP": 0.321,
-      "HR": 7,
-      "XBH": 9,
-      "RP": 48,
-      "SB": 0.7,
-      "ftxId": "04eep",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "heribertohernndez-mia",
-      "n": "Heriberto Hernández",
-      "t": "MIA",
-      "pos": [
-        "DH",
-        "OF"
+        "2B",
+        "SS"
       ],
       "unofficial": true,
       "csValA": -15.0,
       "csValS": -9.3,
-      "PA": 267,
-      "OBP": 0.307,
-      "HR": 9,
-      "XBH": 11,
-      "RP": 59,
-      "SB": 2.5,
-      "ftxId": "04up9",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
-      "id": "miguelamaya-chc",
-      "n": "Miguel Amaya",
-      "t": "CHC",
-      "pos": [
-        "C"
-      ],
-      "unofficial": true,
-      "csValA": -15.0,
-      "csValS": -9.3,
-      "PA": 263,
-      "OBP": 0.306,
-      "HR": 8,
+      "PA": 244,
+      "OBP": 0.302,
+      "HR": 5,
       "XBH": 12,
-      "RP": 59,
-      "SB": 1.6,
-      "ftxId": "03xs3",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "grahampauley-mia",
-      "n": "Graham Pauley",
-      "t": "MIA",
-      "pos": [
-        "3B"
-      ],
-      "unofficial": true,
-      "csValA": -15.0,
-      "csValS": -10.1,
-      "PA": 217,
-      "OBP": 0.311,
-      "HR": 6,
-      "XBH": 11,
-      "RP": 48,
+      "RP": 49,
       "SB": 2.9,
-      "ftxId": "066lr",
-      "ftxEligiblePos": "UT,3B,CI"
+      "ftxId": "05mru",
+      "ftxEligiblePos": "2B,UT,SS,MI"
     },
     {
       "id": "lukeraley-sea",
@@ -15615,24 +15520,157 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,1B,UT,CI"
     },
     {
-      "id": "thomassaggese-stl",
-      "n": "Thomas Saggese",
-      "t": "STL",
+      "id": "heribertohernndez-mia",
+      "n": "Heriberto Hernández",
+      "t": "MIA",
       "pos": [
-        "2B",
-        "SS"
+        "DH",
+        "OF"
       ],
       "unofficial": true,
       "csValA": -15.0,
       "csValS": -9.3,
-      "PA": 244,
-      "OBP": 0.302,
-      "HR": 5,
-      "XBH": 12,
-      "RP": 49,
+      "PA": 267,
+      "OBP": 0.307,
+      "HR": 9,
+      "XBH": 11,
+      "RP": 59,
+      "SB": 2.5,
+      "ftxId": "04up9",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "jessewinker-fa",
+      "n": "Jesse Winker",
+      "t": "FA",
+      "pos": [
+        "OF"
+      ],
+      "unofficial": true,
+      "csValA": -15.0,
+      "csValS": -9.6,
+      "PA": 221,
+      "OBP": 0.356,
+      "HR": 6,
+      "XBH": 10,
+      "RP": 50,
+      "SB": 3.6,
+      "ftxId": "02mwg",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "christianmoore-laa",
+      "n": "Christian Moore",
+      "t": "LAA",
+      "pos": [
+        "2B"
+      ],
+      "unofficial": true,
+      "csValA": -15.0,
+      "csValS": -9.3,
+      "PA": 250,
+      "OBP": 0.303,
+      "HR": 7,
+      "XBH": 10,
+      "RP": 52,
+      "SB": 4.1,
+      "ftxId": "06cq8",
+      "ftxEligiblePos": "2B,UT,MI"
+    },
+    {
+      "id": "grahampauley-mia",
+      "n": "Graham Pauley",
+      "t": "MIA",
+      "pos": [
+        "3B"
+      ],
+      "unofficial": true,
+      "csValA": -15.0,
+      "csValS": -10.1,
+      "PA": 217,
+      "OBP": 0.311,
+      "HR": 6,
+      "XBH": 11,
+      "RP": 48,
       "SB": 2.9,
-      "ftxId": "05mru",
-      "ftxEligiblePos": "2B,UT,SS,MI"
+      "ftxId": "066lr",
+      "ftxEligiblePos": "UT,3B,CI"
+    },
+    {
+      "id": "tylerfreeman-col",
+      "n": "Tyler Freeman",
+      "t": "COL",
+      "pos": [
+        "OF"
+      ],
+      "unofficial": true,
+      "csValA": -15.0,
+      "csValS": -9.0,
+      "PA": 293,
+      "OBP": 0.351,
+      "HR": 5,
+      "XBH": 15,
+      "RP": 64,
+      "SB": 11.8,
+      "ftxId": "04efc",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "miguelamaya-chc",
+      "n": "Miguel Amaya",
+      "t": "CHC",
+      "pos": [
+        "C"
+      ],
+      "unofficial": true,
+      "csValA": -15.0,
+      "csValS": -9.3,
+      "PA": 263,
+      "OBP": 0.306,
+      "HR": 8,
+      "XBH": 12,
+      "RP": 59,
+      "SB": 1.6,
+      "ftxId": "03xs3",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "luistorrens-nym",
+      "n": "Luis Torrens",
+      "t": "NYM",
+      "pos": [
+        "C"
+      ],
+      "unofficial": true,
+      "csValA": -15.1,
+      "csValS": -9.3,
+      "PA": 202,
+      "OBP": 0.296,
+      "HR": 6,
+      "XBH": 9,
+      "RP": 44,
+      "SB": 1.4,
+      "ftxId": "02nqg",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "victorrobles-sea",
+      "n": "Victor Robles",
+      "t": "SEA",
+      "pos": [
+        "OF"
+      ],
+      "unofficial": true,
+      "csValA": -15.1,
+      "csValS": -9.5,
+      "PA": 263,
+      "OBP": 0.309,
+      "HR": 4,
+      "XBH": 13,
+      "RP": 53,
+      "SB": 13.3,
+      "ftxId": "03c65",
+      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "blazealexander-bal",
@@ -15673,61 +15711,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "C,UT"
     },
     {
-      "id": "luistorrens-nym",
-      "n": "Luis Torrens",
-      "t": "NYM",
+      "id": "michaelmassey-kc",
+      "n": "Michael Massey",
+      "t": "KC",
       "pos": [
-        "C"
+        "2B"
       ],
       "unofficial": true,
       "csValA": -15.1,
       "csValS": -9.3,
-      "PA": 202,
+      "PA": 220,
       "OBP": 0.296,
       "HR": 6,
-      "XBH": 9,
-      "RP": 44,
-      "SB": 1.4,
-      "ftxId": "02nqg",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
-      "id": "cristianjavier-hou",
-      "n": "Cristian Javier",
-      "t": "HOU",
-      "pos": [
-        "SP"
-      ],
-      "unofficial": true,
-      "csValA": -15.1,
-      "csValS": -5.8,
-      "IP": 157,
-      "W": 8.3,
-      "SVH": 0,
-      "K": 145,
-      "ERA": 4.95,
-      "WHIP": 1.39,
-      "ftxId": "045kb",
+      "XBH": 11,
+      "RP": 49,
+      "SB": 1.6,
+      "ftxId": "06dn0",
       "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "victorrobles-sea",
-      "n": "Victor Robles",
-      "t": "SEA",
-      "pos": [
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -15.1,
-      "csValS": -9.5,
-      "PA": 263,
-      "OBP": 0.309,
-      "HR": 4,
-      "XBH": 13,
-      "RP": 53,
-      "SB": 13.3,
-      "ftxId": "03c65",
-      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "michaelmassey-kc",
@@ -15749,6 +15749,25 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "2B,UT,MI"
     },
     {
+      "id": "cristianjavier-hou",
+      "n": "Cristian Javier",
+      "t": "HOU",
+      "pos": [
+        "SP"
+      ],
+      "unofficial": true,
+      "csValA": -15.1,
+      "csValS": -5.8,
+      "IP": 157,
+      "W": 8.3,
+      "SVH": 0,
+      "K": 145,
+      "ERA": 4.95,
+      "WHIP": 1.39,
+      "ftxId": "045kb",
+      "ftxEligiblePos": "SP"
+    },
+    {
       "id": "abimelecortiz-wsh",
       "n": "Abimelec Ortiz",
       "t": "WSH",
@@ -15766,25 +15785,6 @@ const FANTRAX_ROSTERS = {
       "SB": 1.3,
       "ftxId": "05uv5",
       "ftxEligiblePos": "OF,1B,UT,CI"
-    },
-    {
-      "id": "michaelmassey-kc",
-      "n": "Michael Massey",
-      "t": "KC",
-      "pos": [
-        "2B"
-      ],
-      "unofficial": true,
-      "csValA": -15.1,
-      "csValS": -9.3,
-      "PA": 220,
-      "OBP": 0.296,
-      "HR": 6,
-      "XBH": 11,
-      "RP": 49,
-      "SB": 1.6,
-      "ftxId": "06dn0",
-      "ftxEligiblePos": "SP"
     },
     {
       "id": "willbenson-cin",
@@ -15806,22 +15806,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "patrickbailey-sf",
-      "n": "Patrick Bailey",
-      "t": "SF",
+      "id": "dillondingler-det",
+      "n": "Dillon Dingler",
+      "t": "DET",
       "pos": [
         "C"
       ],
       "unofficial": true,
       "csValA": -15.4,
-      "csValS": -10.7,
-      "PA": 402,
-      "OBP": 0.29,
-      "HR": 8,
-      "XBH": 18,
-      "RP": 78,
-      "SB": 2.5,
-      "ftxId": "04yuu",
+      "csValS": -10.1,
+      "PA": 344,
+      "OBP": 0.305,
+      "HR": 10,
+      "XBH": 17,
+      "RP": 75,
+      "SB": 1.2,
+      "ftxId": "05gx4",
       "ftxEligiblePos": "C,UT"
     },
     {
@@ -15845,22 +15845,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,CI"
     },
     {
-      "id": "dillondingler-det",
-      "n": "Dillon Dingler",
-      "t": "DET",
+      "id": "patrickbailey-sf",
+      "n": "Patrick Bailey",
+      "t": "SF",
       "pos": [
         "C"
       ],
       "unofficial": true,
       "csValA": -15.4,
-      "csValS": -10.1,
-      "PA": 344,
-      "OBP": 0.305,
-      "HR": 10,
-      "XBH": 17,
-      "RP": 75,
-      "SB": 1.2,
-      "ftxId": "05gx4",
+      "csValS": -10.7,
+      "PA": 402,
+      "OBP": 0.29,
+      "HR": 8,
+      "XBH": 18,
+      "RP": 78,
+      "SB": 2.5,
+      "ftxId": "04yuu",
       "ftxEligiblePos": "C,UT"
     },
     {
@@ -15902,6 +15902,25 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "UT,2B,SS,MI"
     },
     {
+      "id": "colbythomas-oak",
+      "n": "Colby Thomas",
+      "t": "OAK",
+      "pos": [
+        "OF"
+      ],
+      "unofficial": true,
+      "csValA": -15.4,
+      "csValS": -10.0,
+      "PA": 219,
+      "OBP": 0.291,
+      "HR": 8,
+      "XBH": 12,
+      "RP": 52,
+      "SB": 3.0,
+      "ftxId": "0630e",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
       "id": "edmundososa-phi",
       "n": "Edmundo Sosa",
       "t": "PHI",
@@ -15922,25 +15941,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "2B,UT,3B,CI,MI"
     },
     {
-      "id": "colbythomas-oak",
-      "n": "Colby Thomas",
-      "t": "OAK",
-      "pos": [
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -15.4,
-      "csValS": -10.0,
-      "PA": 219,
-      "OBP": 0.291,
-      "HR": 8,
-      "XBH": 12,
-      "RP": 52,
-      "SB": 3.0,
-      "ftxId": "0630e",
-      "ftxEligiblePos": "OF,UT"
-    },
-    {
       "id": "griffinconine-mia",
       "n": "Griffin Conine",
       "t": "MIA",
@@ -15957,6 +15957,25 @@ const FANTRAX_ROSTERS = {
       "RP": 62,
       "SB": 1.1,
       "ftxId": "04mn2",
+      "ftxEligiblePos": "OF,UT"
+    },
+    {
+      "id": "parkermeadows-det",
+      "n": "Parker Meadows",
+      "t": "DET",
+      "pos": [
+        "OF"
+      ],
+      "unofficial": true,
+      "csValA": -15.7,
+      "csValS": -9.6,
+      "PA": 375,
+      "OBP": 0.304,
+      "HR": 9,
+      "XBH": 18,
+      "RP": 80,
+      "SB": 10.1,
+      "ftxId": "04pmn",
       "ftxEligiblePos": "OF,UT"
     },
     {
@@ -15979,22 +15998,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "parkermeadows-det",
-      "n": "Parker Meadows",
-      "t": "DET",
+      "id": "nathanlukes-tor",
+      "n": "Nathan Lukes",
+      "t": "TOR",
       "pos": [
         "OF"
       ],
       "unofficial": true,
-      "csValA": -15.7,
-      "csValS": -9.6,
-      "PA": 375,
-      "OBP": 0.304,
-      "HR": 9,
-      "XBH": 18,
-      "RP": 80,
-      "SB": 10.1,
-      "ftxId": "04pmn",
+      "csValA": -15.9,
+      "csValS": -10.3,
+      "PA": 253,
+      "OBP": 0.336,
+      "HR": 5,
+      "XBH": 14,
+      "RP": 56,
+      "SB": 2.5,
+      "ftxId": "03qmr",
       "ftxEligiblePos": "OF,UT"
     },
     {
@@ -16035,25 +16054,6 @@ const FANTRAX_ROSTERS = {
       "SB": 1.3,
       "ftxId": "05ynb",
       "ftxEligiblePos": "C,1B,UT,CI"
-    },
-    {
-      "id": "nathanlukes-tor",
-      "n": "Nathan Lukes",
-      "t": "TOR",
-      "pos": [
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -15.9,
-      "csValS": -10.3,
-      "PA": 253,
-      "OBP": 0.336,
-      "HR": 5,
-      "XBH": 14,
-      "RP": 56,
-      "SB": 2.5,
-      "ftxId": "03qmr",
-      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "denzelclarke-oak",
@@ -16114,42 +16114,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "griffincanning-sd",
-      "n": "Griffin Canning",
-      "t": "SD",
+      "id": "michaellorenzen-col",
+      "n": "Michael Lorenzen",
+      "t": "COL",
       "pos": [
         "SP"
       ],
       "unofficial": true,
       "csValA": -16.6,
-      "csValS": -7.2,
-      "IP": 111,
-      "W": 6.3,
-      "SVH": 1,
-      "K": 98,
-      "ERA": 4.32,
-      "WHIP": 1.36,
-      "ftxId": "04eek",
+      "csValS": -6.8,
+      "IP": 149,
+      "W": 6.9,
+      "SVH": 0,
+      "K": 121,
+      "ERA": 5.27,
+      "WHIP": 1.49,
+      "ftxId": "02hir",
       "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "alekthomas-ari",
-      "n": "Alek Thomas",
-      "t": "ARI",
-      "pos": [
-        "OF"
-      ],
-      "unofficial": true,
-      "csValA": -16.6,
-      "csValS": -11.0,
-      "PA": 277,
-      "OBP": 0.293,
-      "HR": 7,
-      "XBH": 15,
-      "RP": 61,
-      "SB": 5.5,
-      "ftxId": "04pmw",
-      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "seanburke-cws",
@@ -16171,22 +16152,22 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "SP"
     },
     {
-      "id": "josequintana-col",
-      "n": "Jose Quintana",
-      "t": "COL",
+      "id": "griffincanning-sd",
+      "n": "Griffin Canning",
+      "t": "SD",
       "pos": [
         "SP"
       ],
       "unofficial": true,
       "csValA": -16.6,
-      "csValS": -6.9,
-      "IP": 148,
-      "W": 6.7,
-      "SVH": 0,
-      "K": 104,
-      "ERA": 5.39,
-      "WHIP": 1.57,
-      "ftxId": "025kd",
+      "csValS": -7.2,
+      "IP": 111,
+      "W": 6.3,
+      "SVH": 1,
+      "K": 98,
+      "ERA": 4.32,
+      "WHIP": 1.36,
+      "ftxId": "04eek",
       "ftxEligiblePos": "SP"
     },
     {
@@ -16209,6 +16190,25 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "C,UT"
     },
     {
+      "id": "josequintana-col",
+      "n": "Jose Quintana",
+      "t": "COL",
+      "pos": [
+        "SP"
+      ],
+      "unofficial": true,
+      "csValA": -16.6,
+      "csValS": -6.9,
+      "IP": 148,
+      "W": 6.7,
+      "SVH": 0,
+      "K": 104,
+      "ERA": 5.39,
+      "WHIP": 1.57,
+      "ftxId": "025kd",
+      "ftxEligiblePos": "SP"
+    },
+    {
       "id": "joeyloperfido-hou",
       "n": "Joey Loperfido",
       "t": "HOU",
@@ -16228,61 +16228,23 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT"
     },
     {
-      "id": "michaellorenzen-col",
-      "n": "Michael Lorenzen",
-      "t": "COL",
+      "id": "alekthomas-ari",
+      "n": "Alek Thomas",
+      "t": "ARI",
       "pos": [
-        "SP"
+        "OF"
       ],
       "unofficial": true,
       "csValA": -16.6,
-      "csValS": -6.8,
-      "IP": 149,
-      "W": 6.9,
-      "SVH": 0,
-      "K": 121,
-      "ERA": 5.27,
-      "WHIP": 1.49,
-      "ftxId": "02hir",
-      "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "oswaldperaza-laa",
-      "n": "Oswald Peraza",
-      "t": "LAA",
-      "pos": [
-        "3B"
-      ],
-      "unofficial": true,
-      "csValA": -16.7,
-      "csValS": -11.1,
-      "PA": 223,
-      "OBP": 0.291,
-      "HR": 6,
-      "XBH": 8,
-      "RP": 46,
-      "SB": 6.8,
-      "ftxId": "04g7n",
-      "ftxEligiblePos": "UT,3B,CI"
-    },
-    {
-      "id": "carsonwilliams-tb",
-      "n": "Carson Williams",
-      "t": "TB",
-      "pos": [
-        "SS"
-      ],
-      "unofficial": true,
-      "csValA": -16.7,
-      "csValS": -11.5,
-      "PA": 314,
-      "OBP": 0.27,
-      "HR": 11,
-      "XBH": 12,
-      "RP": 66,
-      "SB": 8.8,
-      "ftxId": "05t9n",
-      "ftxEligiblePos": "UT,SS,MI"
+      "csValS": -11.0,
+      "PA": 277,
+      "OBP": 0.293,
+      "HR": 7,
+      "XBH": 15,
+      "RP": 61,
+      "SB": 5.5,
+      "ftxId": "04pmw",
+      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "jonnydeluca-tb",
@@ -16323,25 +16285,6 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "1B,UT,SS,CI,MI"
     },
     {
-      "id": "nickfortes-tb",
-      "n": "Nick Fortes",
-      "t": "TB",
-      "pos": [
-        "C"
-      ],
-      "unofficial": true,
-      "csValA": -16.7,
-      "csValS": -11.1,
-      "PA": 256,
-      "OBP": 0.29,
-      "HR": 7,
-      "XBH": 11,
-      "RP": 53,
-      "SB": 2.3,
-      "ftxId": "04pqf",
-      "ftxEligiblePos": "C,UT"
-    },
-    {
       "id": "angelmartnez-cle",
       "n": "Angel Martínez",
       "t": "CLE",
@@ -16361,23 +16304,61 @@ const FANTRAX_ROSTERS = {
       "ftxEligiblePos": "OF,UT,2B,MI"
     },
     {
-      "id": "tyronetaylor-nym",
-      "n": "Tyrone Taylor",
-      "t": "NYM",
+      "id": "nickfortes-tb",
+      "n": "Nick Fortes",
+      "t": "TB",
       "pos": [
-        "OF"
+        "C"
+      ],
+      "unofficial": true,
+      "csValA": -16.7,
+      "csValS": -11.1,
+      "PA": 256,
+      "OBP": 0.29,
+      "HR": 7,
+      "XBH": 11,
+      "RP": 53,
+      "SB": 2.3,
+      "ftxId": "04pqf",
+      "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "oswaldperaza-laa",
+      "n": "Oswald Peraza",
+      "t": "LAA",
+      "pos": [
+        "3B"
       ],
       "unofficial": true,
       "csValA": -16.7,
       "csValS": -11.1,
       "PA": 223,
-      "OBP": 0.286,
-      "HR": 5,
+      "OBP": 0.291,
+      "HR": 6,
+      "XBH": 8,
+      "RP": 46,
+      "SB": 6.8,
+      "ftxId": "04g7n",
+      "ftxEligiblePos": "UT,3B,CI"
+    },
+    {
+      "id": "carsonwilliams-tb",
+      "n": "Carson Williams",
+      "t": "TB",
+      "pos": [
+        "SS"
+      ],
+      "unofficial": true,
+      "csValA": -16.7,
+      "csValS": -11.5,
+      "PA": 314,
+      "OBP": 0.27,
+      "HR": 11,
       "XBH": 12,
-      "RP": 47,
-      "SB": 5.7,
-      "ftxId": "02mx2",
-      "ftxEligiblePos": "OF,UT"
+      "RP": 66,
+      "SB": 8.8,
+      "ftxId": "05t9n",
+      "ftxEligiblePos": "UT,SS,MI"
     },
     {
       "id": "pedropags-stl",
@@ -16397,6 +16378,25 @@ const FANTRAX_ROSTERS = {
       "SB": 0.9,
       "ftxId": "0514k",
       "ftxEligiblePos": "C,UT"
+    },
+    {
+      "id": "tyronetaylor-nym",
+      "n": "Tyrone Taylor",
+      "t": "NYM",
+      "pos": [
+        "OF"
+      ],
+      "unofficial": true,
+      "csValA": -16.7,
+      "csValS": -11.1,
+      "PA": 223,
+      "OBP": 0.286,
+      "HR": 5,
+      "XBH": 12,
+      "RP": 47,
+      "SB": 5.7,
+      "ftxId": "02mx2",
+      "ftxEligiblePos": "OF,UT"
     },
     {
       "id": "andrepallante-stl",
@@ -16509,6 +16509,25 @@ const FANTRAX_ROSTERS = {
       "K": 100,
       "ERA": 4.48,
       "WHIP": 1.42,
+      "ftxId": "03qnb",
+      "ftxEligiblePos": "SP,RP"
+    },
+    {
+      "id": "loganallen-cle",
+      "n": "Logan Allen",
+      "t": "CLE",
+      "pos": [
+        "SP"
+      ],
+      "unofficial": true,
+      "csValA": -18.6,
+      "csValS": -8.2,
+      "IP": 123,
+      "W": 6.6,
+      "SVH": 1,
+      "K": 100,
+      "ERA": 4.48,
+      "WHIP": 1.42,
       "ftxId": "05jp3",
       "ftxEligiblePos": "SP"
     },
@@ -16530,25 +16549,6 @@ const FANTRAX_ROSTERS = {
       "WHIP": 1.37,
       "ftxId": "04ppz",
       "ftxEligiblePos": "SP"
-    },
-    {
-      "id": "loganallen-cle",
-      "n": "Logan Allen",
-      "t": "CLE",
-      "pos": [
-        "SP"
-      ],
-      "unofficial": true,
-      "csValA": -18.6,
-      "csValS": -8.2,
-      "IP": 123,
-      "W": 6.6,
-      "SVH": 1,
-      "K": 100,
-      "ERA": 4.48,
-      "WHIP": 1.42,
-      "ftxId": "03qnb",
-      "ftxEligiblePos": "SP,RP"
     },
     {
       "id": "luismorales-oak",
@@ -16724,7 +16724,7 @@ const FANTRAX_ROSTERS = {
   ],
   "_meta": {
     "source": "fxea API period=2",
-    "baked": "2026-03-26T08:13:06.062708+00:00",
+    "baked": "2026-03-26T08:16:38.564491+00:00",
     "leagueId": "icfsou40mkzpn7lg",
     "period": 2,
     "rosterMatched": 310,
