@@ -4,3 +4,4 @@ data/*.csv
 credentials.json
 token.json
 data/owner_profiles/threads_*.json
+data/cache/

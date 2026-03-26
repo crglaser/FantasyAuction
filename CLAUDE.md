@@ -163,6 +163,7 @@ After any meaningful change:
 6. Drop the app URL: `https://crglaser.github.io/FantasyAuction/`
 
 ## Version History
+2.3.12 — Imai FG Steamer projections (12.6/$9.2, 153IP/145K/4.37ERA); persistent FG cache in data/cache/
 2.3.11 — FAAB VALUE column: composite 40% csValA + 40% ROTO+ + 20% Fit, normalized within candidate set; default sort
 2.3.10 — Fix standings: use FaabEngine.computeAllTeamStats so Fantrax slot assignments (ACTIVE/RESERVE/IL) are respected
 2.3.9 — Fix ROTO+ simulation bug: FA candidates were excluded from active lineup when Fantrax slot data loaded

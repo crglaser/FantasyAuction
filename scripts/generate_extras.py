@@ -19,8 +19,8 @@ from datetime import datetime, timezone
 
 FG_URL_PIT  = 'https://www.fangraphs.com/api/projections?type=steamer&stats=pit&pos=p&team=0&players=0&lg=all'
 FG_URL_BAT  = 'https://www.fangraphs.com/api/projections?type=steamer&stats=bat&pos=all&team=0&players=0&lg=all'
-FG_CACHE    = '/tmp/fg_steamer.json'
-FG_CACHE_BAT = '/tmp/fg_steamer_bat.json'
+FG_CACHE     = 'data/cache/fg_steamer_pit.json'
+FG_CACHE_BAT = 'data/cache/fg_steamer_bat.json'
 SEED_FILE   = 'js/data/seed.js'
 OUTPUT_FILE = 'js/data/steamer_extras.js'
 

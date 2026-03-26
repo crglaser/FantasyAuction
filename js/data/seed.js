@@ -4454,14 +4454,14 @@ const SEED_PLAYERS = [
     ],
     "inj": false,
     "age": 27,
-    "csValA": 0,
-    "csValS": 0,
-    "IP": 170,
-    "W": 0,
+    "csValA": 12.6,
+    "csValS": 9.2,
+    "IP": 153,
+    "W": 8.7,
     "SVH": 0,
-    "K": 0,
-    "ERA": 4.0,
-    "WHIP": 1.3
+    "K": 145,
+    "ERA": 4.37,
+    "WHIP": 1.39
   },
   {
     "id": "cooperingle-cle",
