@@ -17,10 +17,14 @@ Usage:
 import json, re, statistics, os, sys
 from datetime import datetime, timezone
 
-FG_URL_PIT  = 'https://www.fangraphs.com/api/projections?type=steamer&stats=pit&pos=p&team=0&players=0&lg=all'
-FG_URL_BAT  = 'https://www.fangraphs.com/api/projections?type=steamer&stats=bat&pos=all&team=0&players=0&lg=all'
-FG_CACHE     = 'data/cache/fg_steamer_pit.json'
-FG_CACHE_BAT = 'data/cache/fg_steamer_bat.json'
+FG_URL_PIT      = 'https://www.fangraphs.com/api/projections?type=steamer&stats=pit&pos=p&team=0&players=0&lg=all'
+FG_URL_BAT      = 'https://www.fangraphs.com/api/projections?type=steamer&stats=bat&pos=all&team=0&players=0&lg=all'
+FG_URL_ROS_PIT  = 'https://www.fangraphs.com/api/projections?type=steamerr&stats=pit&pos=p&team=0&players=0&lg=all'
+FG_URL_ROS_BAT  = 'https://www.fangraphs.com/api/projections?type=steamerr&stats=bat&pos=all&team=0&players=0&lg=all'
+FG_CACHE        = 'data/cache/fg_steamer_pit.json'
+FG_CACHE_BAT    = 'data/cache/fg_steamer_bat.json'
+FG_CACHE_ROS    = 'data/cache/fg_steamer_ros_pit.json'
+FG_CACHE_ROS_BAT = 'data/cache/fg_steamer_ros_bat.json'
 SEED_FILE   = 'js/data/seed.js'
 OUTPUT_FILE = 'js/data/steamer_extras.js'
 
@@ -146,8 +150,10 @@ def classify_pitcher(fgp):
 
 
 def main():
-    fg_pit = load_fg_data(FG_URL_PIT, FG_CACHE,     'pitchers')
-    fg_bat = load_fg_data(FG_URL_BAT, FG_CACHE_BAT, 'hitters')
+    fg_pit = load_fg_data(FG_URL_PIT, FG_CACHE,         'pitchers')
+    fg_bat = load_fg_data(FG_URL_BAT, FG_CACHE_BAT,     'hitters')
+    fg_ros_pit = load_fg_data(FG_URL_ROS_PIT, FG_CACHE_ROS,     'pitchers RoS')
+    fg_ros_bat = load_fg_data(FG_URL_ROS_BAT, FG_CACHE_ROS_BAT, 'hitters RoS')
     seed_players = load_seed()
 
     seed_ids = {p['id'] for p in seed_players}
@@ -165,6 +171,18 @@ def main():
         k = name_key(p['PlayerName'])
         if k not in fg_bat_by_name or p.get('PA', 0) > fg_bat_by_name[k].get('PA', 0):
             fg_bat_by_name[k] = p
+
+    fg_ros_pit_by_name = {}
+    for p in fg_ros_pit:
+        k = name_key(p['PlayerName'])
+        if k not in fg_ros_pit_by_name or p.get('IP', 0) > fg_ros_pit_by_name[k].get('IP', 0):
+            fg_ros_pit_by_name[k] = p
+
+    fg_ros_bat_by_name = {}
+    for p in fg_ros_bat:
+        k = name_key(p['PlayerName'])
+        if k not in fg_ros_bat_by_name or p.get('PA', 0) > fg_ros_bat_by_name[k].get('PA', 0):
+            fg_ros_bat_by_name[k] = p
 
     ratios = compute_calibration_ratios(seed_players, fg_pit_by_name, fg_bat_by_name)
 
@@ -187,25 +205,37 @@ def main():
         spts = fgp.get('SPTS', 0)
         pos_type = classify_pitcher(fgp)
 
+        ros = fg_ros_pit_by_name.get(key, {})
+        ros_fpts = ros.get('FPTS', 0) or 0
+        ros_spts = ros.get('SPTS', 0) or 0
+
         if pos_type == 'SP' and ip >= 80:
-            extras.append({
+            entry = {
                 "id": pid, "n": pname, "t": fg_team, "pos": ["SP"], "unofficial": True,
                 "csValA": round(fpts * ratios['sp_a'], 1),
                 "csValS": round(spts * ratios['sp_s'], 1),
                 "IP": round(ip), "W": round(fgp.get('W', 0), 1),
                 "SVH": int(round(sv + hld)), "K": round(fgp.get('SO', 0)),
                 "ERA": round(fgp.get('ERA', 0), 2), "WHIP": round(fgp.get('WHIP', 0), 2)
-            })
+            }
+            if ros_fpts > 0:
+                entry["csRosA"] = round(ros_fpts * ratios['sp_a'], 1)
+                entry["csRosS"] = round(ros_spts * ratios['sp_s'], 1)
+            extras.append(entry)
             sp_count += 1
         elif pos_type == 'RP' and (sv >= 5 or hld >= 10):
-            extras.append({
+            entry = {
                 "id": pid, "n": pname, "t": fg_team, "pos": ["RP"], "unofficial": True,
                 "csValA": round(fpts * ratios['rp_a'], 1),
                 "csValS": round(spts * ratios['rp_s'], 1),
                 "IP": round(ip), "W": round(fgp.get('W', 0), 1),
                 "SVH": int(round(sv + hld)), "K": round(fgp.get('SO', 0)),
                 "ERA": round(fgp.get('ERA', 0), 2), "WHIP": round(fgp.get('WHIP', 0), 2)
-            })
+            }
+            if ros_fpts > 0:
+                entry["csRosA"] = round(ros_fpts * ratios['rp_a'], 1)
+                entry["csRosS"] = round(ros_spts * ratios['rp_s'], 1)
+            extras.append(entry)
             rp_count += 1
 
     # --- Hitters ---
@@ -230,13 +260,21 @@ def main():
         rp  = round(fgp.get('R', 0) + fgp.get('RBI', 0))
         pos = parse_pos(fgp.get('minpos'))
 
-        extras.append({
+        ros = fg_ros_bat_by_name.get(key, {})
+        ros_fpts = ros.get('FPTS', 0) or 0
+        ros_spts = ros.get('SPTS', 0) or 0
+
+        entry = {
             "id": pid, "n": pname, "t": fg_team, "pos": pos, "unofficial": True,
             "csValA": va, "csValS": vs,
             "PA": round(pa), "OBP": round(fgp.get('OBP', 0), 3),
             "HR": round(fgp.get('HR', 0)), "XBH": xbh, "RP": rp,
             "SB": round(fgp.get('SB', 0), 1)
-        })
+        }
+        if ros_fpts > 0:
+            entry["csRosA"] = round(ros_fpts * ratios['hit_a'], 1)
+            entry["csRosS"] = round(ros_spts * ratios['hit_s'], 1)
+        extras.append(entry)
         hit_count += 1
 
     # Sort by csValA descending

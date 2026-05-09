@@ -1,6 +1,6 @@
 /**
  * player_ids.js — External ID crosswalk (Chadwick Bureau + ESPN + Fantrax)
- * Generated: 2026-03-18 03:30 UTC
+ * Generated: 2026-05-09 17:24 UTC
  * Refresh: python3 scripts/fetch_rankings.py --ids
  * Fields: fgId (FanGraphs), mlbId (MLBAM), espnId (ESPN Fantasy), fantraxId (Fantrax)
  */
@@ -24,6 +24,8 @@ const PLAYER_IDS = {
     "fantraxId": "04lgp"
   },
   "paulskenes-pit": {
+    "fgId": 33677,
+    "mlbId": 694973,
     "espnId": 4719507,
     "fantraxId": "05wru"
   },
@@ -142,6 +144,8 @@ const PLAYER_IDS = {
     "fantraxId": "05xch"
   },
   "nickkurtz-ath": {
+    "fgId": 35110,
+    "mlbId": 701762,
     "espnId": 4966637,
     "fantraxId": "062k5"
   },
@@ -294,6 +298,8 @@ const PLAYER_IDS = {
     "fantraxId": "04aea"
   },
   "romananthony-bos": {
+    "fgId": 31812,
+    "mlbId": 701350,
     "espnId": 5080767,
     "fantraxId": "05u9z"
   },
@@ -384,6 +390,8 @@ const PLAYER_IDS = {
     "fantraxId": "02jh6"
   },
   "jakobmarsee-mia": {
+    "fgId": 31370,
+    "mlbId": 805300,
     "espnId": 4866735,
     "fantraxId": "065ji"
   },
@@ -538,6 +546,8 @@ const PLAYER_IDS = {
     "fantraxId": "01u75"
   },
   "daylenlile-wsn": {
+    "fgId": 29995,
+    "mlbId": 695734,
     "espnId": 4917889,
     "fantraxId": "05t2b"
   },
@@ -562,6 +572,8 @@ const PLAYER_IDS = {
     "fantraxId": "0311c"
   },
   "granttaylor-chw": {
+    "fgId": 33927,
+    "mlbId": 691799,
     "espnId": 4927630,
     "fantraxId": "066er"
   },
@@ -570,6 +582,8 @@ const PLAYER_IDS = {
     "fantraxId": "04ru5"
   },
   "calebdurbin-bos": {
+    "fgId": 29646,
+    "mlbId": 702332,
     "espnId": 5007615,
     "fantraxId": "05y4b"
   },
@@ -602,6 +616,8 @@ const PLAYER_IDS = {
     "fantraxId": "03pje"
   },
   "addisonbarger-tor": {
+    "fgId": 24598,
+    "mlbId": 680718,
     "espnId": 4997589,
     "fantraxId": "04qii"
   },
@@ -836,6 +852,8 @@ const PLAYER_IDS = {
     "fantraxId": "0524l"
   },
   "jacksonholliday-bal": {
+    "fgId": 31781,
+    "mlbId": 702616,
     "espnId": 5080633,
     "fantraxId": "05ybv"
   },
@@ -978,6 +996,8 @@ const PLAYER_IDS = {
     "fantraxId": "02z0t"
   },
   "josecorniell-tex": {
+    "fgId": 27984,
+    "mlbId": 692030,
     "espnId": 4710478,
     "fantraxId": "05gx5"
   },
@@ -1073,7 +1093,7 @@ const PLAYER_IDS = {
     "fantraxId": "05r5e"
   },
   "treygibson-bal": {
-    "espnId": 5274900,
+    "espnId": 4867802,
     "fantraxId": "06mc1"
   },
   "lucasgiolito-bos": {
@@ -1133,6 +1153,8 @@ const PLAYER_IDS = {
     "fantraxId": "02h98"
   },
   "djherz-wsn": {
+    "fgId": 26389,
+    "mlbId": 687792,
     "espnId": 4917686,
     "fantraxId": "0516h"
   },
@@ -1161,6 +1183,8 @@ const PLAYER_IDS = {
     "fantraxId": "05rb0"
   },
   "ryanjohnson-laa": {
+    "fgId": 35325,
+    "mlbId": 696270,
     "espnId": 5007859,
     "fantraxId": "05zq4"
   },
@@ -1233,6 +1257,8 @@ const PLAYER_IDS = {
     "fantraxId": "05xpj"
   },
   "troymelton-det": {
+    "fgId": 31807,
+    "mlbId": 675512,
     "espnId": 5294127,
     "fantraxId": "05uc4"
   },
@@ -1285,6 +1311,8 @@ const PLAYER_IDS = {
     "fantraxId": "01usi"
   },
   "mitchellparker-wsn": {
+    "fgId": 27636,
+    "mlbId": 680730,
     "espnId": 4683356,
     "fantraxId": "05jqy"
   },
@@ -1297,6 +1325,8 @@ const PLAYER_IDS = {
     "fantraxId": "05gd5"
   },
   "chasepetty-cin": {
+    "fgId": 30170,
+    "mlbId": 695534,
     "espnId": 4872687,
     "fantraxId": "05raz"
   },
@@ -1379,6 +1409,8 @@ const PLAYER_IDS = {
     "fantraxId": "05uc7"
   },
   "christianscott-nym": {
+    "fgId": 30107,
+    "mlbId": 681035,
     "espnId": 4414215,
     "fantraxId": "05xpq"
   },
@@ -1499,6 +1531,8 @@ const PLAYER_IDS = {
     "fantraxId": "025ko"
   },
   "justinwrobleski-lad": {
+    "fgId": 31204,
+    "mlbId": 680736,
     "espnId": 4417203,
     "fantraxId": "05y9r"
   },
@@ -1539,6 +1573,8 @@ const PLAYER_IDS = {
     "fantraxId": "03ql5"
   },
   "drakebaldwin-atl": {
+    "fgId": 31539,
+    "mlbId": 686948,
     "espnId": 4810190,
     "fantraxId": "0630d"
   },
@@ -1559,6 +1595,8 @@ const PLAYER_IDS = {
     "fantraxId": "02mw3"
   },
   "joeycantillo-cle": {
+    "fgId": 23335,
+    "mlbId": 676282,
     "espnId": 42488,
     "fantraxId": "04eos"
   },
@@ -1577,6 +1615,8 @@ const PLAYER_IDS = {
     "fantraxId": "03qmh"
   },
   "carterjensen-kc": {
+    "fgId": 29478,
+    "mlbId": 695600,
     "espnId": 4917812,
     "fantraxId": "05vy5"
   },
@@ -1641,6 +1681,8 @@ const PLAYER_IDS = {
     "fantraxId": "031fj"
   },
   "kylemanzardo-cle": {
+    "fgId": 29794,
+    "mlbId": 700932,
     "espnId": 4917927,
     "fantraxId": "05rfu"
   },
@@ -1679,6 +1721,8 @@ const PLAYER_IDS = {
     "fantraxId": "0512e"
   },
   "connornorby-mia": {
+    "fgId": 29592,
+    "mlbId": 681393,
     "espnId": 4417606,
     "fantraxId": "05tce"
   },
@@ -1725,6 +1769,8 @@ const PLAYER_IDS = {
     "fantraxId": "047l7"
   },
   "bryanking-hou": {
+    "fgId": 25890,
+    "mlbId": 687911,
     "espnId": 5201821,
     "fantraxId": "06mi0"
   },
@@ -1879,6 +1925,8 @@ const PLAYER_IDS = {
     "fantraxId": "06apx"
   },
   "chandlersimpson-tb": {
+    "fgId": 31912,
+    "mlbId": 802415,
     "espnId": 4679983,
     "fantraxId": "0622w"
   },
@@ -2103,6 +2151,8 @@ const PLAYER_IDS = {
     "fantraxId": "04pmu"
   },
   "jacobmisiorowski-mil": {
+    "fgId": 31623,
+    "mlbId": 694819,
     "espnId": 5080761,
     "fantraxId": "061yu"
   },
@@ -2145,6 +2195,8 @@ const PLAYER_IDS = {
     "fantraxId": "05ras"
   },
   "kyleteel-chw": {
+    "fgId": 33549,
+    "mlbId": 691019,
     "espnId": 4743772,
     "fantraxId": "05wxy"
   },
@@ -2183,6 +2235,8 @@ const PLAYER_IDS = {
     "fantraxId": "030vs"
   },
   "bradyhouse-wsn": {
+    "fgId": 29993,
+    "mlbId": 691781,
     "espnId": 4872681,
     "fantraxId": "059bx"
   },
@@ -2211,6 +2265,8 @@ const PLAYER_IDS = {
     "fantraxId": "04g1x"
   },
   "chasemeidroth-chw": {
+    "fgId": 31580,
+    "mlbId": 805367,
     "espnId": 5136929,
     "fantraxId": "0648n"
   },
@@ -2319,6 +2375,7 @@ const PLAYER_IDS = {
     "fantraxId": "03caf"
   },
   "bodavidson-sf": {
+    "espnId": 5270583,
     "fantraxId": "06hua"
   },
   "joshwhite-mia": {
@@ -2367,6 +2424,8 @@ const PLAYER_IDS = {
     "fantraxId": "041e3"
   },
   "cadehorton-chc": {
+    "fgId": 31872,
+    "mlbId": 690990,
     "espnId": 4692526,
     "fantraxId": "05gww"
   },
@@ -2457,6 +2516,8 @@ const PLAYER_IDS = {
     "fantraxId": "04tk1"
   },
   "parkermessick-cle": {
+    "fgId": 31986,
+    "mlbId": 800048,
     "espnId": 4619898,
     "fantraxId": "05tzn"
   },
@@ -2497,6 +2558,8 @@ const PLAYER_IDS = {
     "fantraxId": "03sef"
   },
   "camschlittler-nyy": {
+    "fgId": 32095,
+    "mlbId": 693645,
     "espnId": 5134581,
     "fantraxId": "05u6q"
   },
@@ -2595,6 +2658,8 @@ const PLAYER_IDS = {
     "fantraxId": "04mlx"
   },
   "jackleiter-tex": {
+    "fgId": 30146,
+    "mlbId": 683004,
     "espnId": 4622181,
     "fantraxId": "04y9o"
   },
@@ -2605,6 +2670,8 @@ const PLAYER_IDS = {
     "fantraxId": "03pdw"
   },
   "edgarquero-cws": {
+    "fgId": 28022,
+    "mlbId": 700337,
     "espnId": 4917824,
     "fantraxId": "05un2"
   },
@@ -2631,6 +2698,8 @@ const PLAYER_IDS = {
     "fantraxId": "041rd"
   },
   "colehenry-wsh": {
+    "fgId": 27570,
+    "mlbId": 669371,
     "espnId": 4414361,
     "fantraxId": "05gs4"
   },
@@ -2693,6 +2762,8 @@ const PLAYER_IDS = {
     "fantraxId": "026qc"
   },
   "mickabel-min": {
+    "fgId": 27756,
+    "mlbId": 690953,
     "espnId": 4718970,
     "fantraxId": "05g4k"
   },
@@ -2729,6 +2800,8 @@ const PLAYER_IDS = {
     "fantraxId": "05uei"
   },
   "ianseymour-tb": {
+    "fgId": 27932,
+    "mlbId": 693855,
     "espnId": 4669425,
     "fantraxId": "05jpd"
   },
@@ -2751,6 +2824,8 @@ const PLAYER_IDS = {
     "fantraxId": "05yb8"
   },
   "rokisasaki-lad": {
+    "fgId": 35323,
+    "mlbId": 808963,
     "espnId": 5134638,
     "fantraxId": "05gdz"
   },
@@ -2793,5 +2868,37 @@ const PLAYER_IDS = {
     "mlbId": 671277,
     "espnId": 4684365,
     "fantraxId": "0321h"
+  },
+  "nickmartinez-tb": {
+    "fgId": 12730,
+    "mlbId": 607259,
+    "espnId": 33372,
+    "fantraxId": "02c4q"
+  },
+  "joseberrios-tor": {
+    "espnId": 32811,
+    "fantraxId": "02mwk"
+  },
+  "joeboyle-tb": {
+    "fgId": 29608,
+    "mlbId": 671212,
+    "espnId": 4298087,
+    "fantraxId": "05jpk"
+  },
+  "johanoviedo-bos": {
+    "fgId": 22487,
+    "mlbId": 670912,
+    "espnId": 41405,
+    "fantraxId": "04674"
+  },
+  "zackgelof-ath": {
+    "fgId": 29766,
+    "mlbId": 680869,
+    "espnId": 4414531,
+    "fantraxId": "05ub0"
+  },
+  "tristoncasas-bos": {
+    "espnId": 41180,
+    "fantraxId": "04de1"
   }
 };

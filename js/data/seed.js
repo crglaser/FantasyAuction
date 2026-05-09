@@ -21,7 +21,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 243.0,
     "ERA": 2.79,
-    "WHIP": 1.02
+    "WHIP": 1.02,
+    "csRosA": 11.3,
+    "csRosS": 7.6
   },
   {
     "id": "shoheiohtani-lad",
@@ -40,7 +42,9 @@ const SEED_PLAYERS = [
     "HR": 43.6,
     "XBH": 31.1,
     "RP": 175.6,
-    "SB": 22.3
+    "SB": 22.3,
+    "csRosA": 19.2,
+    "csRosS": 13.8
   },
   {
     "id": "bobbywittjr-kc",
@@ -58,7 +62,9 @@ const SEED_PLAYERS = [
     "HR": 28,
     "XBH": 41.1,
     "RP": 159.5,
-    "SB": 31.2
+    "SB": 31.2,
+    "csRosA": 11.4,
+    "csRosS": 10.8
   },
   {
     "id": "paulskenes-pit",
@@ -76,7 +82,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 237.0,
     "ERA": 2.92,
-    "WHIP": 1.08
+    "WHIP": 1.08,
+    "csRosA": 17.7,
+    "csRosS": 12.0
   },
   {
     "id": "garrettcrochet-bos",
@@ -94,7 +102,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 239.0,
     "ERA": 3.02,
-    "WHIP": 1.08
+    "WHIP": 1.08,
+    "csRosA": 13.7,
+    "csRosS": 9.3
   },
   {
     "id": "josramrez-cle",
@@ -112,7 +122,9 @@ const SEED_PLAYERS = [
     "HR": 26.9,
     "XBH": 33.2,
     "RP": 143.6,
-    "SB": 29.8
+    "SB": 29.8,
+    "csRosA": 10.6,
+    "csRosS": 10.0
   },
   {
     "id": "corbincarroll-ari",
@@ -130,7 +142,9 @@ const SEED_PLAYERS = [
     "HR": 26.7,
     "XBH": 35.4,
     "RP": 149.8,
-    "SB": 32.6
+    "SB": 32.6,
+    "csRosA": 10.5,
+    "csRosS": 9.9
   },
   {
     "id": "juansoto-nym",
@@ -148,7 +162,9 @@ const SEED_PLAYERS = [
     "HR": 34.3,
     "XBH": 24.1,
     "RP": 159.4,
-    "SB": 19.7
+    "SB": 19.7,
+    "csRosA": 13.0,
+    "csRosS": 12.3
   },
   {
     "id": "aaronjudge-nyy",
@@ -166,7 +182,9 @@ const SEED_PLAYERS = [
     "HR": 42.3,
     "XBH": 24.5,
     "RP": 168.9,
-    "SB": 8.8
+    "SB": 8.8,
+    "csRosA": 13.5,
+    "csRosS": 12.8
   },
   {
     "id": "vladimirguerrerojr-tor",
@@ -184,7 +202,9 @@ const SEED_PLAYERS = [
     "HR": 32.2,
     "XBH": 31.8,
     "RP": 160.6,
-    "SB": 4.8
+    "SB": 4.8,
+    "csRosA": 11.6,
+    "csRosS": 10.9
   },
   {
     "id": "ellydelacruz-cin",
@@ -202,7 +222,9 @@ const SEED_PLAYERS = [
     "HR": 23.4,
     "XBH": 34.6,
     "RP": 141.5,
-    "SB": 37.6
+    "SB": 37.6,
+    "csRosA": 10.4,
+    "csRosS": 9.8
   },
   {
     "id": "gunnarhenderson-bal",
@@ -220,7 +242,9 @@ const SEED_PLAYERS = [
     "HR": 28.1,
     "XBH": 36.0,
     "RP": 156.3,
-    "SB": 23.6
+    "SB": 23.6,
+    "csRosA": 10.3,
+    "csRosS": 9.7
   },
   {
     "id": "freddiefreeman-lad",
@@ -238,7 +262,9 @@ const SEED_PLAYERS = [
     "HR": 24.1,
     "XBH": 35.7,
     "RP": 158.8,
-    "SB": 7.2
+    "SB": 7.2,
+    "csRosA": 10.5,
+    "csRosS": 10.0
   },
   {
     "id": "bryanwoo-sea",
@@ -256,7 +282,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 196.0,
     "ERA": 3.6,
-    "WHIP": 1.13
+    "WHIP": 1.13,
+    "csRosA": 13.9,
+    "csRosS": 9.7
   },
   {
     "id": "cristophersnchez-phi",
@@ -274,7 +302,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 191,
     "ERA": 3.15,
-    "WHIP": 1.18
+    "WHIP": 1.18,
+    "csRosA": 16.6,
+    "csRosS": 11.7
   },
   {
     "id": "loganwebb-sf",
@@ -292,7 +322,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 187.0,
     "ERA": 3.32,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 16.1,
+    "csRosS": 11.7
   },
   {
     "id": "fernandotatisjr-sd",
@@ -310,7 +342,9 @@ const SEED_PLAYERS = [
     "HR": 30.4,
     "XBH": 29.8,
     "RP": 148.1,
-    "SB": 23.0
+    "SB": 23.0,
+    "csRosA": 10.4,
+    "csRosS": 9.8
   },
   {
     "id": "kyletucker-lad",
@@ -328,7 +362,9 @@ const SEED_PLAYERS = [
     "HR": 26.9,
     "XBH": 25.7,
     "RP": 141.7,
-    "SB": 18.1
+    "SB": 18.1,
+    "csRosA": 10.5,
+    "csRosS": 9.9
   },
   {
     "id": "juliorodrguez-sea",
@@ -346,7 +382,9 @@ const SEED_PLAYERS = [
     "HR": 29.8,
     "XBH": 29.0,
     "RP": 146.7,
-    "SB": 22.6
+    "SB": 22.6,
+    "csRosA": 10.1,
+    "csRosS": 9.6
   },
   {
     "id": "bryceharper-phi",
@@ -364,7 +402,9 @@ const SEED_PLAYERS = [
     "HR": 26.8,
     "XBH": 32.9,
     "RP": 142.8,
-    "SB": 9.2
+    "SB": 9.2,
+    "csRosA": 11.1,
+    "csRosS": 10.5
   },
   {
     "id": "mattolson-atl",
@@ -382,7 +422,9 @@ const SEED_PLAYERS = [
     "HR": 31,
     "XBH": 30.9,
     "RP": 151.7,
-    "SB": 1
+    "SB": 1,
+    "csRosA": 10.5,
+    "csRosS": 9.9
   },
   {
     "id": "ronaldacuajr-atl",
@@ -400,7 +442,9 @@ const SEED_PLAYERS = [
     "HR": 30.8,
     "XBH": 29.5,
     "RP": 162.5,
-    "SB": 24.2
+    "SB": 24.2,
+    "csRosA": 9.7,
+    "csRosS": 9.2
   },
   {
     "id": "calraleigh-sea",
@@ -418,7 +462,9 @@ const SEED_PLAYERS = [
     "HR": 37.5,
     "XBH": 22.3,
     "RP": 142.1,
-    "SB": 8
+    "SB": 8,
+    "csRosA": 9.3,
+    "csRosS": 8.7
   },
   {
     "id": "jacksonchourio-mil",
@@ -436,7 +482,9 @@ const SEED_PLAYERS = [
     "HR": 24.2,
     "XBH": 33.9,
     "RP": 131.3,
-    "SB": 21.8
+    "SB": 21.8,
+    "csRosA": 9.3,
+    "csRosS": 8.8
   },
   {
     "id": "petealonso-bal",
@@ -454,7 +502,9 @@ const SEED_PLAYERS = [
     "HR": 35.3,
     "XBH": 28.5,
     "RP": 152.4,
-    "SB": 2.8
+    "SB": 2.8,
+    "csRosA": 10.1,
+    "csRosS": 9.5
   },
   {
     "id": "rafaeldevers-sf",
@@ -472,7 +522,9 @@ const SEED_PLAYERS = [
     "HR": 28.6,
     "XBH": 28.1,
     "RP": 137.5,
-    "SB": 2.2
+    "SB": 2.2,
+    "csRosA": 9.2,
+    "csRosS": 8.7
   },
   {
     "id": "maikelgarcia-kc",
@@ -492,7 +544,9 @@ const SEED_PLAYERS = [
     "HR": 13.4,
     "XBH": 35.7,
     "RP": 130.6,
-    "SB": 26.1
+    "SB": 26.1,
+    "csRosA": 9.1,
+    "csRosS": 8.6
   },
   {
     "id": "juniorcaminero-tb",
@@ -510,7 +564,9 @@ const SEED_PLAYERS = [
     "HR": 35.5,
     "XBH": 25.9,
     "RP": 139.8,
-    "SB": 5.2
+    "SB": 5.2,
+    "csRosA": 10.9,
+    "csRosS": 10.3
   },
   {
     "id": "nickkurtz-ath",
@@ -528,7 +584,9 @@ const SEED_PLAYERS = [
     "HR": 37.9,
     "XBH": 26.7,
     "RP": 143.8,
-    "SB": 4.5
+    "SB": 4.5,
+    "csRosA": 11.3,
+    "csRosS": 10.6
   },
   {
     "id": "logangilbert-sea",
@@ -546,7 +604,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 182,
     "ERA": 3.4,
-    "WHIP": 1.1
+    "WHIP": 1.1,
+    "csRosA": 13.3,
+    "csRosS": 9.2
   },
   {
     "id": "jarrenduran-bos",
@@ -564,7 +624,9 @@ const SEED_PLAYERS = [
     "HR": 15.0,
     "XBH": 39.9,
     "RP": 124.5,
-    "SB": 20.3
+    "SB": 20.3,
+    "csRosA": 7.8,
+    "csRosS": 7.3
   },
   {
     "id": "franciscolindor-nym",
@@ -582,7 +644,9 @@ const SEED_PLAYERS = [
     "HR": 26.3,
     "XBH": 29.9,
     "RP": 141.5,
-    "SB": 22.9
+    "SB": 22.9,
+    "csRosA": 7.2,
+    "csRosS": 6.8
   },
   {
     "id": "zackwheeler-phi",
@@ -600,7 +664,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 178.0,
     "ERA": 3.2,
-    "WHIP": 1.09
+    "WHIP": 1.09,
+    "csRosA": 14.7,
+    "csRosS": 10.0
   },
   {
     "id": "maxfried-nyy",
@@ -618,7 +684,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 180.0,
     "ERA": 3.28,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 14.6,
+    "csRosS": 10.4
   },
   {
     "id": "brentrooker-ath",
@@ -636,7 +704,9 @@ const SEED_PLAYERS = [
     "HR": 30.5,
     "XBH": 29.3,
     "RP": 142.7,
-    "SB": 5.4
+    "SB": 5.4,
+    "csRosA": 9.5,
+    "csRosS": 8.9
   },
   {
     "id": "jameswood-wsn",
@@ -654,7 +724,9 @@ const SEED_PLAYERS = [
     "HR": 26.6,
     "XBH": 30.1,
     "RP": 130.8,
-    "SB": 16.6
+    "SB": 16.6,
+    "csRosA": 11.0,
+    "csRosS": 10.3
   },
   {
     "id": "williamcontreras-mil",
@@ -672,7 +744,9 @@ const SEED_PLAYERS = [
     "HR": 20.0,
     "XBH": 28.4,
     "RP": 128.1,
-    "SB": 6.2
+    "SB": 6.2,
+    "csRosA": 9.5,
+    "csRosS": 9.0
   },
   {
     "id": "chrissale-atl",
@@ -690,7 +764,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 206.0,
     "ERA": 3.19,
-    "WHIP": 1.09
+    "WHIP": 1.09,
+    "csRosA": 15.2,
+    "csRosS": 10.3
   },
   {
     "id": "hunterbrown-hou",
@@ -708,7 +784,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 200.0,
     "ERA": 3.63,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 9.5,
+    "csRosS": 6.6
   },
   {
     "id": "jacobdegrom-tex",
@@ -726,7 +804,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 203.0,
     "ERA": 3.52,
-    "WHIP": 1.1
+    "WHIP": 1.1,
+    "csRosA": 14.8,
+    "csRosS": 10.1
   },
   {
     "id": "mookiebetts-lad",
@@ -744,7 +824,9 @@ const SEED_PLAYERS = [
     "HR": 22.2,
     "XBH": 30.9,
     "RP": 140.8,
-    "SB": 7.8
+    "SB": 7.8,
+    "csRosA": 8.2,
+    "csRosS": 7.7
   },
   {
     "id": "petecrowarmstrong-chc",
@@ -762,7 +844,9 @@ const SEED_PLAYERS = [
     "HR": 24,
     "XBH": 32.0,
     "RP": 128.0,
-    "SB": 33.2
+    "SB": 33.2,
+    "csRosA": 8.0,
+    "csRosS": 7.6
   },
   {
     "id": "ketelmarte-ari",
@@ -780,7 +864,9 @@ const SEED_PLAYERS = [
     "HR": 25.6,
     "XBH": 32.2,
     "RP": 139.4,
-    "SB": 6.3
+    "SB": 6.3,
+    "csRosA": 10.5,
+    "csRosS": 9.9
   },
   {
     "id": "treaturner-phi",
@@ -798,7 +884,9 @@ const SEED_PLAYERS = [
     "HR": 17.9,
     "XBH": 32,
     "RP": 132.7,
-    "SB": 26.2
+    "SB": 26.2,
+    "csRosA": 9.3,
+    "csRosS": 8.8
   },
   {
     "id": "kyleschwarber-phi",
@@ -816,7 +904,9 @@ const SEED_PLAYERS = [
     "HR": 39.5,
     "XBH": 19.8,
     "RP": 146.9,
-    "SB": 6.3
+    "SB": 6.3,
+    "csRosA": 10.9,
+    "csRosS": 10.3
   },
   {
     "id": "joshnaylor-sea",
@@ -834,7 +924,9 @@ const SEED_PLAYERS = [
     "HR": 22.5,
     "XBH": 26.5,
     "RP": 129.1,
-    "SB": 15.0
+    "SB": 15.0,
+    "csRosA": 8.7,
+    "csRosS": 8.2
   },
   {
     "id": "zachneto-laa",
@@ -852,7 +944,9 @@ const SEED_PLAYERS = [
     "HR": 25.9,
     "XBH": 30.3,
     "RP": 126.4,
-    "SB": 26.9
+    "SB": 26.9,
+    "csRosA": 9.1,
+    "csRosS": 8.6
   },
   {
     "id": "yoshinobuyamamoto-lad",
@@ -870,7 +964,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 163.0,
     "ERA": 3.45,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 12.3,
+    "csRosS": 8.6
   },
   {
     "id": "geraldoperdomo-ari",
@@ -888,7 +984,9 @@ const SEED_PLAYERS = [
     "HR": 12.2,
     "XBH": 28.1,
     "RP": 119.9,
-    "SB": 17.6
+    "SB": 17.6,
+    "csRosA": 9.3,
+    "csRosS": 8.8
   },
   {
     "id": "georgekirby-sea",
@@ -906,7 +1004,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 174.0,
     "ERA": 3.51,
-    "WHIP": 1.12
+    "WHIP": 1.12,
+    "csRosA": 14.0,
+    "csRosS": 10.0
   },
   {
     "id": "coleragans-kc",
@@ -924,7 +1024,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 211.0,
     "ERA": 3.31,
-    "WHIP": 1.18
+    "WHIP": 1.18,
+    "csRosA": 12.4,
+    "csRosS": 8.2
   },
   {
     "id": "wyattlangford-tex",
@@ -942,7 +1044,9 @@ const SEED_PLAYERS = [
     "HR": 22.3,
     "XBH": 26.7,
     "RP": 125.3,
-    "SB": 18.9
+    "SB": 18.9,
+    "csRosA": 7.7,
+    "csRosS": 7.3
   },
   {
     "id": "cjabrams-wsn",
@@ -960,7 +1064,9 @@ const SEED_PLAYERS = [
     "HR": 19.1,
     "XBH": 32.4,
     "RP": 123.0,
-    "SB": 28.1
+    "SB": 28.1,
+    "csRosA": 9.0,
+    "csRosS": 8.5
   },
   {
     "id": "mannymachado-sd",
@@ -978,7 +1084,9 @@ const SEED_PLAYERS = [
     "HR": 26.1,
     "XBH": 26.9,
     "RP": 134.3,
-    "SB": 8.6
+    "SB": 8.6,
+    "csRosA": 8.8,
+    "csRosS": 8.3
   },
   {
     "id": "vinniepasquantino-kc",
@@ -996,7 +1104,9 @@ const SEED_PLAYERS = [
     "HR": 25.5,
     "XBH": 29.2,
     "RP": 129.8,
-    "SB": 1.4
+    "SB": 1.4,
+    "csRosA": 8.9,
+    "csRosS": 8.4
   },
   {
     "id": "masonmiller-sd",
@@ -1014,7 +1124,9 @@ const SEED_PLAYERS = [
     "SVH": 34.0,
     "K": 105,
     "ERA": 2.39,
-    "WHIP": 1.0
+    "WHIP": 1.0,
+    "csRosA": 4.8,
+    "csRosS": 4.5
   },
   {
     "id": "dylancease-tor",
@@ -1032,7 +1144,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 209.0,
     "ERA": 3.54,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 15.4,
+    "csRosS": 10.3
   },
   {
     "id": "mattchapman-sf",
@@ -1050,7 +1164,9 @@ const SEED_PLAYERS = [
     "HR": 22.3,
     "XBH": 29.1,
     "RP": 125.3,
-    "SB": 9.1
+    "SB": 9.1,
+    "csRosA": 8.2,
+    "csRosS": 7.7
   },
   {
     "id": "nathaneovaldi-tex",
@@ -1068,7 +1184,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 172.0,
     "ERA": 3.65,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 13.2,
+    "csRosS": 9.4
   },
   {
     "id": "frambervaldez-det",
@@ -1086,7 +1204,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 176.0,
     "ERA": 3.43,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 14.2,
+    "csRosS": 10.3
   },
   {
     "id": "huntergreene-cin",
@@ -1104,7 +1224,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 99.0,
     "ERA": 3.91,
-    "WHIP": 1.18
+    "WHIP": 1.18,
+    "csRosA": 6.3,
+    "csRosS": 4.2
   },
   {
     "id": "romananthony-bos",
@@ -1122,7 +1244,9 @@ const SEED_PLAYERS = [
     "HR": 15.2,
     "XBH": 28.2,
     "RP": 108.8,
-    "SB": 8.3
+    "SB": 8.3,
+    "csRosA": 8.6,
+    "csRosS": 8.1
   },
   {
     "id": "spencertorkelson-det",
@@ -1140,7 +1264,9 @@ const SEED_PLAYERS = [
     "HR": 23.5,
     "XBH": 26.1,
     "RP": 116.2,
-    "SB": 1.9
+    "SB": 1.9,
+    "csRosA": 7.8,
+    "csRosS": 7.4
   },
   {
     "id": "rileygreene-det",
@@ -1158,7 +1284,9 @@ const SEED_PLAYERS = [
     "HR": 25.3,
     "XBH": 29.4,
     "RP": 130.1,
-    "SB": 3.3
+    "SB": 3.3,
+    "csRosA": 9.2,
+    "csRosS": 8.7
   },
   {
     "id": "yandydaz-tb",
@@ -1176,7 +1304,9 @@ const SEED_PLAYERS = [
     "HR": 20.5,
     "XBH": 29.7,
     "RP": 130.7,
-    "SB": 3.1
+    "SB": 3.1,
+    "csRosA": 9.9,
+    "csRosS": 9.4
   },
   {
     "id": "jessluzardo-phi",
@@ -1194,7 +1324,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 198.0,
     "ERA": 3.57,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 14.9,
+    "csRosS": 10.1
   },
   {
     "id": "joeryan-min",
@@ -1212,7 +1344,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 189.0,
     "ERA": 3.81,
-    "WHIP": 1.14
+    "WHIP": 1.14,
+    "csRosA": 12.2,
+    "csRosS": 8.4
   },
   {
     "id": "alexbregman-chc",
@@ -1230,7 +1364,9 @@ const SEED_PLAYERS = [
     "HR": 23.1,
     "XBH": 29,
     "RP": 138.3,
-    "SB": 2.7
+    "SB": 2.7,
+    "csRosA": 9.2,
+    "csRosS": 8.6
   },
   {
     "id": "austinriley-atl",
@@ -1248,7 +1384,9 @@ const SEED_PLAYERS = [
     "HR": 27.0,
     "XBH": 29.8,
     "RP": 140.0,
-    "SB": 2.6
+    "SB": 2.6,
+    "csRosA": 8.6,
+    "csRosS": 8.1
   },
   {
     "id": "willyadames-sf",
@@ -1266,7 +1404,9 @@ const SEED_PLAYERS = [
     "HR": 22.9,
     "XBH": 26.4,
     "RP": 119.1,
-    "SB": 10.6
+    "SB": 10.6,
+    "csRosA": 7.8,
+    "csRosS": 7.4
   },
   {
     "id": "yordanalvarez-hou",
@@ -1284,7 +1424,9 @@ const SEED_PLAYERS = [
     "HR": 29.7,
     "XBH": 28.7,
     "RP": 141.6,
-    "SB": 3.9
+    "SB": 3.9,
+    "csRosA": 10.8,
+    "csRosS": 10.2
   },
   {
     "id": "tylersoderstrom-ath",
@@ -1303,7 +1445,9 @@ const SEED_PLAYERS = [
     "HR": 21.9,
     "XBH": 22.5,
     "RP": 105.3,
-    "SB": 4.8
+    "SB": 4.8,
+    "csRosA": 8.5,
+    "csRosS": 8.0
   },
   {
     "id": "sonnygray-bos",
@@ -1321,7 +1465,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 190.0,
     "ERA": 3.69,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 12.7,
+    "csRosS": 9.2
   },
   {
     "id": "michaelbusch-chc",
@@ -1339,7 +1485,9 @@ const SEED_PLAYERS = [
     "HR": 23.1,
     "XBH": 24.2,
     "RP": 112.1,
-    "SB": 2.9
+    "SB": 2.9,
+    "csRosA": 8.0,
+    "csRosS": 7.5
   },
   {
     "id": "ianhapp-chc",
@@ -1357,7 +1505,9 @@ const SEED_PLAYERS = [
     "HR": 21.7,
     "XBH": 30.1,
     "RP": 131.2,
-    "SB": 7.5
+    "SB": 7.5,
+    "csRosA": 8.9,
+    "csRosS": 8.4
   },
   {
     "id": "huntergoodman-col",
@@ -1375,7 +1525,9 @@ const SEED_PLAYERS = [
     "HR": 24.0,
     "XBH": 25.8,
     "RP": 106.4,
-    "SB": 2.4
+    "SB": 2.4,
+    "csRosA": 8.2,
+    "csRosS": 7.8
   },
   {
     "id": "nicohoerner-chc",
@@ -1393,7 +1545,9 @@ const SEED_PLAYERS = [
     "HR": 8.4,
     "XBH": 30.7,
     "RP": 120.1,
-    "SB": 24.2
+    "SB": 24.2,
+    "csRosA": 8.6,
+    "csRosS": 8.1
   },
   {
     "id": "briceturang-mil",
@@ -1411,7 +1565,9 @@ const SEED_PLAYERS = [
     "HR": 14.3,
     "XBH": 28.3,
     "RP": 123.3,
-    "SB": 26.3
+    "SB": 26.3,
+    "csRosA": 9.1,
+    "csRosS": 8.5
   },
   {
     "id": "ceddannerafaela-bos",
@@ -1430,7 +1586,9 @@ const SEED_PLAYERS = [
     "HR": 15.6,
     "XBH": 29.6,
     "RP": 105.5,
-    "SB": 17.5
+    "SB": 17.5,
+    "csRosA": 6.3,
+    "csRosS": 6.0
   },
   {
     "id": "jazzchisholmjr-nyy",
@@ -1449,7 +1607,9 @@ const SEED_PLAYERS = [
     "HR": 26.0,
     "XBH": 19.9,
     "RP": 116.1,
-    "SB": 27.1
+    "SB": 27.1,
+    "csRosA": 8.0,
+    "csRosS": 7.5
   },
   {
     "id": "eugeniosurez-cin",
@@ -1467,7 +1627,9 @@ const SEED_PLAYERS = [
     "HR": 32.3,
     "XBH": 21.4,
     "RP": 122.6,
-    "SB": 2.9
+    "SB": 2.9,
+    "csRosA": 6.5,
+    "csRosS": 6.2
   },
   {
     "id": "jakobmarsee-mia",
@@ -1485,7 +1647,9 @@ const SEED_PLAYERS = [
     "HR": 12.3,
     "XBH": 24.8,
     "RP": 104.1,
-    "SB": 33.3
+    "SB": 33.3,
+    "csRosA": 6.5,
+    "csRosS": 6.1
   },
   {
     "id": "edwindaz-lad",
@@ -1503,7 +1667,9 @@ const SEED_PLAYERS = [
     "SVH": 39.0,
     "K": 91.0,
     "ERA": 3.03,
-    "WHIP": 1.09
+    "WHIP": 1.09,
+    "csRosA": 1.9,
+    "csRosS": 1.9
   },
   {
     "id": "cadesmith-cle",
@@ -1521,7 +1687,9 @@ const SEED_PLAYERS = [
     "SVH": 33.0,
     "K": 88.0,
     "ERA": 2.99,
-    "WHIP": 1.1
+    "WHIP": 1.1,
+    "csRosA": 4.2,
+    "csRosS": 4.1
   },
   {
     "id": "josealtuve-hou",
@@ -1540,7 +1708,9 @@ const SEED_PLAYERS = [
     "HR": 20.3,
     "XBH": 26.2,
     "RP": 126.4,
-    "SB": 11.7
+    "SB": 11.7,
+    "csRosA": 8.2,
+    "csRosS": 7.7
   },
   {
     "id": "jacksonmerrill-sd",
@@ -1558,7 +1728,9 @@ const SEED_PLAYERS = [
     "HR": 22.4,
     "XBH": 33.0,
     "RP": 128.7,
-    "SB": 6.6
+    "SB": 6.6,
+    "csRosA": 9.0,
+    "csRosS": 8.5
   },
   {
     "id": "bobichette-nym",
@@ -1576,7 +1748,9 @@ const SEED_PLAYERS = [
     "HR": 15.3,
     "XBH": 27.2,
     "RP": 111.2,
-    "SB": 4.8
+    "SB": 4.8,
+    "csRosA": 8.9,
+    "csRosS": 8.4
   },
   {
     "id": "randyarozarena-sea",
@@ -1594,7 +1768,9 @@ const SEED_PLAYERS = [
     "HR": 21.4,
     "XBH": 27.5,
     "RP": 129.3,
-    "SB": 21.4
+    "SB": 21.4,
+    "csRosA": 8.3,
+    "csRosS": 7.8
   },
   {
     "id": "shealangeliers-ath",
@@ -1612,7 +1788,9 @@ const SEED_PLAYERS = [
     "HR": 26.7,
     "XBH": 23.4,
     "RP": 113.1,
-    "SB": 5.1
+    "SB": 5.1,
+    "csRosA": 8.5,
+    "csRosS": 8.0
   },
   {
     "id": "luisarraez-sf",
@@ -1631,7 +1809,9 @@ const SEED_PLAYERS = [
     "HR": 6.3,
     "XBH": 31.9,
     "RP": 117.4,
-    "SB": 9.4
+    "SB": 9.4,
+    "csRosA": 7.9,
+    "csRosS": 7.5
   },
   {
     "id": "seiyasuzuki-chc",
@@ -1649,7 +1829,9 @@ const SEED_PLAYERS = [
     "HR": 21.7,
     "XBH": 25.7,
     "RP": 117.0,
-    "SB": 6.5
+    "SB": 6.5,
+    "csRosA": 9.0,
+    "csRosS": 8.5
   },
   {
     "id": "joshhader-hou",
@@ -1667,7 +1849,9 @@ const SEED_PLAYERS = [
     "SVH": 32.0,
     "K": 83.0,
     "ERA": 3.29,
-    "WHIP": 1.12
+    "WHIP": 1.12,
+    "csRosA": 3.4,
+    "csRosS": 3.4
   },
   {
     "id": "codybellinger-nyy",
@@ -1685,7 +1869,9 @@ const SEED_PLAYERS = [
     "HR": 23.7,
     "XBH": 26.3,
     "RP": 129.6,
-    "SB": 9.4
+    "SB": 9.4,
+    "csRosA": 9.0,
+    "csRosS": 8.5
   },
   {
     "id": "agustnramrez-mia",
@@ -1703,7 +1889,9 @@ const SEED_PLAYERS = [
     "HR": 16.7,
     "XBH": 22.6,
     "RP": 90.3,
-    "SB": 10.4
+    "SB": 10.4,
+    "csRosA": 2.8,
+    "csRosS": 2.7
   },
   {
     "id": "benrice-nyy",
@@ -1722,7 +1910,9 @@ const SEED_PLAYERS = [
     "HR": 23.4,
     "XBH": 20.8,
     "RP": 106.8,
-    "SB": 3.8
+    "SB": 3.8,
+    "csRosA": 8.8,
+    "csRosS": 8.4
   },
   {
     "id": "jeremypea-hou",
@@ -1740,7 +1930,9 @@ const SEED_PLAYERS = [
     "HR": 18,
     "XBH": 30.2,
     "RP": 125.0,
-    "SB": 16.3
+    "SB": 16.3,
+    "csRosA": 6.5,
+    "csRosS": 6.1
   },
   {
     "id": "miguelvargas-chw",
@@ -1759,7 +1951,9 @@ const SEED_PLAYERS = [
     "HR": 15.1,
     "XBH": 24.8,
     "RP": 98.1,
-    "SB": 6.1
+    "SB": 6.1,
+    "csRosA": 8.3,
+    "csRosS": 7.9
   },
   {
     "id": "nickpivetta-sd",
@@ -1777,7 +1971,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 192.0,
     "ERA": 3.97,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 3.3,
+    "csRosS": 2.3
   },
   {
     "id": "brysonstott-phi",
@@ -1796,7 +1992,9 @@ const SEED_PLAYERS = [
     "HR": 12.6,
     "XBH": 24.6,
     "RP": 106.6,
-    "SB": 21.1
+    "SB": 21.1,
+    "csRosA": 6.9,
+    "csRosS": 6.5
   },
   {
     "id": "gleybertorres-det",
@@ -1814,7 +2012,9 @@ const SEED_PLAYERS = [
     "HR": 17.6,
     "XBH": 27.7,
     "RP": 128.6,
-    "SB": 4.9
+    "SB": 4.9,
+    "csRosA": 8.3,
+    "csRosS": 7.8
   },
   {
     "id": "jhoanduran-phi",
@@ -1832,7 +2032,9 @@ const SEED_PLAYERS = [
     "SVH": 32,
     "K": 83.0,
     "ERA": 2.78,
-    "WHIP": 1.13
+    "WHIP": 1.13,
+    "csRosA": 4.0,
+    "csRosS": 4.0
   },
   {
     "id": "ezequieltovar-col",
@@ -1850,7 +2052,9 @@ const SEED_PLAYERS = [
     "HR": 20.1,
     "XBH": 36.1,
     "RP": 126.0,
-    "SB": 9.2
+    "SB": 9.2,
+    "csRosA": 7.0,
+    "csRosS": 6.6
   },
   {
     "id": "freddyperalta-nym",
@@ -1868,7 +2072,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 185.0,
     "ERA": 3.8,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 13.2,
+    "csRosS": 8.9
   },
   {
     "id": "oneilcruz-pit",
@@ -1886,7 +2092,9 @@ const SEED_PLAYERS = [
     "HR": 21.6,
     "XBH": 23.8,
     "RP": 110.1,
-    "SB": 27.0
+    "SB": 27.0,
+    "csRosA": 8.3,
+    "csRosS": 7.8
   },
   {
     "id": "michaelharrisii-atl",
@@ -1904,7 +2112,9 @@ const SEED_PLAYERS = [
     "HR": 19.0,
     "XBH": 25.8,
     "RP": 107.8,
-    "SB": 15.2
+    "SB": 15.2,
+    "csRosA": 8.2,
+    "csRosS": 7.7
   },
   {
     "id": "alecbohm-phi",
@@ -1923,7 +2133,9 @@ const SEED_PLAYERS = [
     "HR": 14.3,
     "XBH": 27.9,
     "RP": 114.0,
-    "SB": 2.5
+    "SB": 2.5,
+    "csRosA": 6.8,
+    "csRosS": 6.4
   },
   {
     "id": "abneruribe-mil",
@@ -1941,7 +2153,9 @@ const SEED_PLAYERS = [
     "SVH": 26.0,
     "K": 87.0,
     "ERA": 3.16,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 3.6,
+    "csRosS": 3.6
   },
   {
     "id": "luiscastillo-sea",
@@ -1959,7 +2173,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.6,
-    "WHIP": 1.39
+    "WHIP": 1.39,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "stevenkwan-cle",
@@ -1977,7 +2193,9 @@ const SEED_PLAYERS = [
     "HR": 10.6,
     "XBH": 27.0,
     "RP": 112.6,
-    "SB": 16.4
+    "SB": 16.4,
+    "csRosA": 8.7,
+    "csRosS": 8.2
   },
   {
     "id": "lawrencebutler-ath",
@@ -1995,7 +2213,9 @@ const SEED_PLAYERS = [
     "HR": 19.0,
     "XBH": 23.3,
     "RP": 98.8,
-    "SB": 16.0
+    "SB": 16.0,
+    "csRosA": 6.9,
+    "csRosS": 6.5
   },
   {
     "id": "alecburleson-stl",
@@ -2014,7 +2234,9 @@ const SEED_PLAYERS = [
     "HR": 20.3,
     "XBH": 25.1,
     "RP": 118.4,
-    "SB": 5.8
+    "SB": 5.8,
+    "csRosA": 9.2,
+    "csRosS": 8.7
   },
   {
     "id": "byronbuxton-min",
@@ -2032,7 +2254,9 @@ const SEED_PLAYERS = [
     "HR": 25.3,
     "XBH": 25.3,
     "RP": 109.5,
-    "SB": 14.4
+    "SB": 14.4,
+    "csRosA": 8.5,
+    "csRosS": 8.1
   },
   {
     "id": "salvadorperez-kc",
@@ -2051,7 +2275,9 @@ const SEED_PLAYERS = [
     "HR": 26.1,
     "XBH": 25.0,
     "RP": 125.2,
-    "SB": 0.5
+    "SB": 0.5,
+    "csRosA": 7.5,
+    "csRosS": 7.0
   },
   {
     "id": "daylenlile-wsn",
@@ -2069,7 +2295,9 @@ const SEED_PLAYERS = [
     "HR": 11.4,
     "XBH": 30.2,
     "RP": 103.9,
-    "SB": 12.6
+    "SB": 12.6,
+    "csRosA": 6.9,
+    "csRosS": 6.5
   },
   {
     "id": "griffinjax-tb",
@@ -2087,7 +2315,9 @@ const SEED_PLAYERS = [
     "SVH": 24.0,
     "K": 86.0,
     "ERA": 2.94,
-    "WHIP": 1.1
+    "WHIP": 1.1,
+    "csRosA": 4.6,
+    "csRosS": 4.6
   },
   {
     "id": "rangersurez-bos",
@@ -2105,7 +2335,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 153.0,
     "ERA": 3.74,
-    "WHIP": 1.28
+    "WHIP": 1.28,
+    "csRosA": 12.6,
+    "csRosS": 9.2
   },
   {
     "id": "adleyrutschman-bal",
@@ -2123,7 +2355,9 @@ const SEED_PLAYERS = [
     "HR": 17.1,
     "XBH": 25.7,
     "RP": 117.1,
-    "SB": 1.1
+    "SB": 1.1,
+    "csRosA": 7.9,
+    "csRosS": 7.5
   },
   {
     "id": "devinwilliams-nym",
@@ -2141,7 +2375,9 @@ const SEED_PLAYERS = [
     "SVH": 36.0,
     "K": 81.0,
     "ERA": 3.11,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 3.9,
+    "csRosS": 3.8
   },
   {
     "id": "granttaylor-chw",
@@ -2159,7 +2395,9 @@ const SEED_PLAYERS = [
     "SVH": 20.0,
     "K": 108.0,
     "ERA": 3.35,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 4.2,
+    "csRosS": 4.2
   },
   {
     "id": "andypages-lad",
@@ -2177,7 +2415,9 @@ const SEED_PLAYERS = [
     "HR": 21.0,
     "XBH": 24.2,
     "RP": 109.0,
-    "SB": 8.8
+    "SB": 8.8,
+    "csRosA": 8.0,
+    "csRosS": 7.5
   },
   {
     "id": "calebdurbin-bos",
@@ -2196,7 +2436,9 @@ const SEED_PLAYERS = [
     "HR": 9.3,
     "XBH": 25.8,
     "RP": 88.6,
-    "SB": 18.0
+    "SB": 18.0,
+    "csRosA": 6.1,
+    "csRosS": 5.8
   },
   {
     "id": "andrsmuoz-sea",
@@ -2214,7 +2456,9 @@ const SEED_PLAYERS = [
     "SVH": 32.0,
     "K": 81.0,
     "ERA": 2.93,
-    "WHIP": 1.17
+    "WHIP": 1.17,
+    "csRosA": 3.8,
+    "csRosS": 3.8
   },
   {
     "id": "kevingausman-tor",
@@ -2232,7 +2476,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 181.0,
     "ERA": 3.98,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 13.4,
+    "csRosS": 9.5
   },
   {
     "id": "teoscarhernndez-lad",
@@ -2250,7 +2496,9 @@ const SEED_PLAYERS = [
     "HR": 25.7,
     "XBH": 25.4,
     "RP": 122.9,
-    "SB": 5.6
+    "SB": 5.6,
+    "csRosA": 7.6,
+    "csRosS": 7.1
   },
   {
     "id": "davidbednar-nyy",
@@ -2268,7 +2516,9 @@ const SEED_PLAYERS = [
     "SVH": 34.0,
     "K": 79.0,
     "ERA": 3.25,
-    "WHIP": 1.14
+    "WHIP": 1.14,
+    "csRosA": 3.8,
+    "csRosS": 3.8
   },
   {
     "id": "xavieredwards-mia",
@@ -2287,7 +2537,9 @@ const SEED_PLAYERS = [
     "HR": 4,
     "XBH": 22.9,
     "RP": 94.0,
-    "SB": 22.1
+    "SB": 22.1,
+    "csRosA": 8.2,
+    "csRosS": 7.8
   },
   {
     "id": "taylorward-bal",
@@ -2305,7 +2557,9 @@ const SEED_PLAYERS = [
     "HR": 25.0,
     "XBH": 26.8,
     "RP": 132.1,
-    "SB": 4.9
+    "SB": 4.9,
+    "csRosA": 9.1,
+    "csRosS": 8.6
   },
   {
     "id": "addisonbarger-tor",
@@ -2324,7 +2578,9 @@ const SEED_PLAYERS = [
     "HR": 16.7,
     "XBH": 24.2,
     "RP": 95.1,
-    "SB": 3.2
+    "SB": 3.2,
+    "csRosA": 4.4,
+    "csRosS": 4.2
   },
   {
     "id": "aroldischapman-bos",
@@ -2342,7 +2598,9 @@ const SEED_PLAYERS = [
     "SVH": 33.0,
     "K": 86.0,
     "ERA": 3.01,
-    "WHIP": 1.18
+    "WHIP": 1.18,
+    "csRosA": 3.8,
+    "csRosS": 3.7
   },
   {
     "id": "munetakamurakami-chw",
@@ -2360,7 +2618,9 @@ const SEED_PLAYERS = [
     "HR": 31.8,
     "XBH": 17.8,
     "RP": 128.9,
-    "SB": 8.4
+    "SB": 8.4,
+    "csRosA": 10.1,
+    "csRosS": 9.5
   },
   {
     "id": "masynwinn-stl",
@@ -2378,7 +2638,9 @@ const SEED_PLAYERS = [
     "HR": 16.3,
     "XBH": 33.9,
     "RP": 129.9,
-    "SB": 12.7
+    "SB": 12.7,
+    "csRosA": 7.6,
+    "csRosS": 7.2
   },
   {
     "id": "tannerbibee-cle",
@@ -2396,7 +2658,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 172.0,
     "ERA": 4.1,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 11.8,
+    "csRosS": 8.4
   },
   {
     "id": "shanemcclanahan-tb",
@@ -2414,7 +2678,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 158.0,
     "ERA": 3.35,
-    "WHIP": 1.16
+    "WHIP": 1.16,
+    "csRosA": 12.8,
+    "csRosS": 8.8
   },
   {
     "id": "georgespringer-tor",
@@ -2432,7 +2698,9 @@ const SEED_PLAYERS = [
     "HR": 25.8,
     "XBH": 25.7,
     "RP": 133.1,
-    "SB": 13.1
+    "SB": 13.1,
+    "csRosA": 9.0,
+    "csRosS": 8.5
   },
   {
     "id": "junghoolee-sf",
@@ -2450,7 +2718,9 @@ const SEED_PLAYERS = [
     "HR": 8.2,
     "XBH": 28.0,
     "RP": 94.6,
-    "SB": 7.6
+    "SB": 7.6,
+    "csRosA": 7.1,
+    "csRosS": 6.7
   },
   {
     "id": "ivnherrera-stl",
@@ -2468,7 +2738,9 @@ const SEED_PLAYERS = [
     "HR": 15.8,
     "XBH": 20.6,
     "RP": 102.6,
-    "SB": 7.0
+    "SB": 7.0,
+    "csRosA": 9.2,
+    "csRosS": 8.7
   },
   {
     "id": "ozziealbies-atl",
@@ -2486,7 +2758,9 @@ const SEED_PLAYERS = [
     "HR": 16.9,
     "XBH": 28.0,
     "RP": 111.5,
-    "SB": 9.8
+    "SB": 9.8,
+    "csRosA": 8.3,
+    "csRosS": 7.8
   },
   {
     "id": "nolanschanuel-laa",
@@ -2504,7 +2778,9 @@ const SEED_PLAYERS = [
     "HR": 15.9,
     "XBH": 23.4,
     "RP": 114.6,
-    "SB": 5.8
+    "SB": 5.8,
+    "csRosA": 7.9,
+    "csRosS": 7.5
   },
   {
     "id": "marcussemien-nym",
@@ -2522,7 +2798,9 @@ const SEED_PLAYERS = [
     "HR": 20.2,
     "XBH": 25.2,
     "RP": 122.2,
-    "SB": 8.8
+    "SB": 8.8,
+    "csRosA": 7.2,
+    "csRosS": 6.8
   },
   {
     "id": "bryanreynolds-pit",
@@ -2540,7 +2818,9 @@ const SEED_PLAYERS = [
     "HR": 19.7,
     "XBH": 29.7,
     "RP": 125.8,
-    "SB": 5.2
+    "SB": 5.2,
+    "csRosA": 8.5,
+    "csRosS": 8.1
   },
   {
     "id": "tylerglasnow-lad",
@@ -2558,7 +2838,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 165.0,
     "ERA": 3.61,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 10.6,
+    "csRosS": 7.1
   },
   {
     "id": "drewrasmussen-tb",
@@ -2576,7 +2858,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 161.0,
     "ERA": 3.72,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 13.1,
+    "csRosS": 9.4
   },
   {
     "id": "bryanabreu-hou",
@@ -2594,7 +2878,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 88.0,
     "ERA": 3.23,
-    "WHIP": 1.17
+    "WHIP": 1.17,
+    "csRosA": 3.1,
+    "csRosS": 3.0
   },
   {
     "id": "carlosrodn-nyy",
@@ -2612,7 +2898,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 175.0,
     "ERA": 3.96,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 12.0,
+    "csRosS": 8.2
   },
   {
     "id": "mackenziegore-tex",
@@ -2630,7 +2918,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 182.0,
     "ERA": 3.82,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 13.2,
+    "csRosS": 9.0
   },
   {
     "id": "heliotramos-sf",
@@ -2648,7 +2938,9 @@ const SEED_PLAYERS = [
     "HR": 19.1,
     "XBH": 24.0,
     "RP": 111.6,
-    "SB": 5.7
+    "SB": 5.7,
+    "csRosA": 7.2,
+    "csRosS": 6.8
   },
   {
     "id": "dansbyswanson-chc",
@@ -2666,7 +2958,9 @@ const SEED_PLAYERS = [
     "HR": 16.9,
     "XBH": 22.4,
     "RP": 100.8,
-    "SB": 12.3
+    "SB": 12.3,
+    "csRosA": 6.9,
+    "csRosS": 6.6
   },
   {
     "id": "trevorstory-bos",
@@ -2684,7 +2978,9 @@ const SEED_PLAYERS = [
     "HR": 16.6,
     "XBH": 23.7,
     "RP": 99.4,
-    "SB": 16.6
+    "SB": 16.6,
+    "csRosA": 6.8,
+    "csRosS": 6.4
   },
   {
     "id": "jeremiahestrada-sd",
@@ -2702,7 +2998,9 @@ const SEED_PLAYERS = [
     "SVH": 15.0,
     "K": 92.0,
     "ERA": 3.21,
-    "WHIP": 1.16
+    "WHIP": 1.16,
+    "csRosA": 2.8,
+    "csRosS": 2.7
   },
   {
     "id": "emmetsheehan-lad",
@@ -2720,7 +3018,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 177.0,
     "ERA": 3.94,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 10.6,
+    "csRosS": 7.1
   },
   {
     "id": "aaronnola-phi",
@@ -2738,7 +3038,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 175.0,
     "ERA": 3.98,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 12.4,
+    "csRosS": 8.9
   },
   {
     "id": "brandonnimmo-tex",
@@ -2756,7 +3058,9 @@ const SEED_PLAYERS = [
     "HR": 22.6,
     "XBH": 28.4,
     "RP": 133.9,
-    "SB": 9.7
+    "SB": 9.7,
+    "csRosA": 9.2,
+    "csRosS": 8.7
   },
   {
     "id": "garrettwhitlock-bos",
@@ -2774,7 +3078,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 77.0,
     "ERA": 3.47,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 3.2,
+    "csRosS": 3.2
   },
   {
     "id": "willsmith-lad",
@@ -2792,7 +3098,9 @@ const SEED_PLAYERS = [
     "HR": 18,
     "XBH": 20.9,
     "RP": 105.9,
-    "SB": 2.7
+    "SB": 2.7,
+    "csRosA": 6.1,
+    "csRosS": 5.8
   },
   {
     "id": "coreyseager-tex",
@@ -2810,7 +3118,9 @@ const SEED_PLAYERS = [
     "HR": 25.3,
     "XBH": 24,
     "RP": 122.2,
-    "SB": 2.5
+    "SB": 2.5,
+    "csRosA": 9.1,
+    "csRosS": 8.6
   },
   {
     "id": "coltkeith-det",
@@ -2830,7 +3140,9 @@ const SEED_PLAYERS = [
     "HR": 15.4,
     "XBH": 24.2,
     "RP": 101.3,
-    "SB": 3.9
+    "SB": 3.9,
+    "csRosA": 7.0,
+    "csRosS": 6.6
   },
   {
     "id": "brandonwoodruff-mil",
@@ -2848,7 +3160,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 176.0,
     "ERA": 3.86,
-    "WHIP": 1.17
+    "WHIP": 1.17,
+    "csRosA": 7.7,
+    "csRosS": 5.3
   },
   {
     "id": "christianyelich-mil",
@@ -2866,7 +3180,9 @@ const SEED_PLAYERS = [
     "HR": 16.1,
     "XBH": 19.6,
     "RP": 101.6,
-    "SB": 12.5
+    "SB": 12.5,
+    "csRosA": 6.6,
+    "csRosS": 6.2
   },
   {
     "id": "salstewart-cin",
@@ -2884,7 +3200,9 @@ const SEED_PLAYERS = [
     "HR": 15.2,
     "XBH": 21.8,
     "RP": 92.8,
-    "SB": 6.0
+    "SB": 6.0,
+    "csRosA": 8.7,
+    "csRosS": 8.2
   },
   {
     "id": "garrettcleavinger-tb",
@@ -2902,7 +3220,9 @@ const SEED_PLAYERS = [
     "SVH": 20.0,
     "K": 83,
     "ERA": 3.22,
-    "WHIP": 1.17
+    "WHIP": 1.17,
+    "csRosA": 2.8,
+    "csRosS": 2.7
   },
   {
     "id": "blakesnell-lad",
@@ -2920,7 +3240,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 156.0,
     "ERA": 3.54,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 12.3,
+    "csRosS": 8.2
   },
   {
     "id": "ernieclement-tor",
@@ -2941,7 +3263,9 @@ const SEED_PLAYERS = [
     "HR": 9.4,
     "XBH": 26.5,
     "RP": 93.1,
-    "SB": 6.7
+    "SB": 6.7,
+    "csRosA": 6.8,
+    "csRosS": 6.4
   },
   {
     "id": "kazumaokamoto-tor",
@@ -2959,7 +3283,9 @@ const SEED_PLAYERS = [
     "HR": 21.9,
     "XBH": 23.4,
     "RP": 107.2,
-    "SB": 2.5
+    "SB": 2.5,
+    "csRosA": 7.8,
+    "csRosS": 7.3
   },
   {
     "id": "raiseliglesias-atl",
@@ -2977,7 +3303,9 @@ const SEED_PLAYERS = [
     "SVH": 30,
     "K": 71.0,
     "ERA": 3.71,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 3.6,
+    "csRosS": 3.6
   },
   {
     "id": "kylebradish-bal",
@@ -2995,7 +3323,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 163.0,
     "ERA": 3.72,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 11.4,
+    "csRosS": 8.0
   },
   {
     "id": "willsoncontreras-bos",
@@ -3013,7 +3343,9 @@ const SEED_PLAYERS = [
     "HR": 18.7,
     "XBH": 21.8,
     "RP": 100.9,
-    "SB": 3.5
+    "SB": 3.5,
+    "csRosA": 8.8,
+    "csRosS": 8.3
   },
   {
     "id": "joemusgrove-sd",
@@ -3031,7 +3363,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 142.0,
     "ERA": 3.91,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 4.6,
+    "csRosS": 3.3
   },
   {
     "id": "trevormegill-mil",
@@ -3049,7 +3383,9 @@ const SEED_PLAYERS = [
     "SVH": 20.0,
     "K": 82.0,
     "ERA": 3.43,
-    "WHIP": 1.17
+    "WHIP": 1.17,
+    "csRosA": 3.1,
+    "csRosS": 3.0
   },
   {
     "id": "jeffmcneil-ath",
@@ -3068,7 +3404,9 @@ const SEED_PLAYERS = [
     "HR": 11.2,
     "XBH": 24.9,
     "RP": 97.4,
-    "SB": 3.6
+    "SB": 3.6,
+    "csRosA": 6.3,
+    "csRosS": 6.0
   },
   {
     "id": "matthewboyd-chc",
@@ -3086,7 +3424,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 156.0,
     "ERA": 3.93,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 9.0,
+    "csRosS": 6.3
   },
   {
     "id": "jordanbeck-col",
@@ -3104,7 +3444,9 @@ const SEED_PLAYERS = [
     "HR": 13.3,
     "XBH": 22.7,
     "RP": 86.0,
-    "SB": 13.7
+    "SB": 13.7,
+    "csRosA": 4.6,
+    "csRosS": 4.3
   },
   {
     "id": "edwinuceta-tb",
@@ -3122,7 +3464,9 @@ const SEED_PLAYERS = [
     "SVH": 20.0,
     "K": 65.0,
     "ERA": 3.63,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 1.4,
+    "csRosS": 1.4
   },
   {
     "id": "jeffhoffman-tor",
@@ -3140,7 +3484,9 @@ const SEED_PLAYERS = [
     "SVH": 30.0,
     "K": 77.0,
     "ERA": 3.4,
-    "WHIP": 1.17
+    "WHIP": 1.17,
+    "csRosA": 3.2,
+    "csRosS": 3.2
   },
   {
     "id": "yainerdiaz-hou",
@@ -3158,7 +3504,9 @@ const SEED_PLAYERS = [
     "HR": 18.8,
     "XBH": 24.0,
     "RP": 103.8,
-    "SB": 1.6
+    "SB": 1.6,
+    "csRosA": 3.6,
+    "csRosS": 3.4
   },
   {
     "id": "jacksonholliday-bal",
@@ -3176,7 +3524,9 @@ const SEED_PLAYERS = [
     "HR": 12.3,
     "XBH": 20.1,
     "RP": 89.4,
-    "SB": 12.8
+    "SB": 12.8,
+    "csRosA": 5.2,
+    "csRosS": 4.9
   },
   {
     "id": "spencerhorwitz-pit",
@@ -3194,7 +3544,9 @@ const SEED_PLAYERS = [
     "HR": 9.8,
     "XBH": 21.9,
     "RP": 80.0,
-    "SB": 1.8
+    "SB": 1.8,
+    "csRosA": 6.4,
+    "csRosS": 6.0
   },
   {
     "id": "ajminter-nym",
@@ -3212,7 +3564,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 59.0,
     "ERA": 3.3,
-    "WHIP": 1.18
+    "WHIP": 1.18,
+    "csRosA": 1.5,
+    "csRosS": 1.5
   },
   {
     "id": "juricksonprofar-atl",
@@ -3230,7 +3584,9 @@ const SEED_PLAYERS = [
     "HR": 1.6,
     "XBH": 2.5,
     "RP": 11.6,
-    "SB": 0.8
+    "SB": 0.8,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "spencerschwellenbach-atl",
@@ -3248,7 +3604,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 75.0,
     "ERA": 3.65,
-    "WHIP": 1.18
+    "WHIP": 1.18,
+    "csRosA": 3.7,
+    "csRosS": 2.7
   },
   {
     "id": "jacobwilson-ath",
@@ -3266,7 +3624,9 @@ const SEED_PLAYERS = [
     "HR": 11.5,
     "XBH": 28.1,
     "RP": 104.5,
-    "SB": 4.5
+    "SB": 4.5,
+    "csRosA": 8.6,
+    "csRosS": 8.1
   },
   {
     "id": "shotaimanaga-chc",
@@ -3284,7 +3644,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 141.0,
     "ERA": 4.11,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 11.9,
+    "csRosS": 8.5
   },
   {
     "id": "alexvesia-lad",
@@ -3302,7 +3664,9 @@ const SEED_PLAYERS = [
     "SVH": 19.0,
     "K": 75.0,
     "ERA": 3.69,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 2.9,
+    "csRosS": 2.8
   },
   {
     "id": "spencerstrider-atl",
@@ -3320,7 +3684,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 176.0,
     "ERA": 3.82,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 12.4,
+    "csRosS": 8.4
   },
   {
     "id": "mattstrahm-kc",
@@ -3338,7 +3704,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 72.0,
     "ERA": 3.76,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 2.8,
+    "csRosS": 2.8
   },
   {
     "id": "luisgarcajr-wsn",
@@ -3356,7 +3724,9 @@ const SEED_PLAYERS = [
     "HR": 13.6,
     "XBH": 23.0,
     "RP": 85.6,
-    "SB": 11.9
+    "SB": 11.9,
+    "csRosA": 5.7,
+    "csRosS": 5.3
   },
   {
     "id": "konnorgriffin-pit",
@@ -3374,7 +3744,9 @@ const SEED_PLAYERS = [
     "HR": 8.7,
     "XBH": 16.6,
     "RP": 70.8,
-    "SB": 15.2
+    "SB": 15.2,
+    "csRosA": 6.8,
+    "csRosS": 6.5
   },
   {
     "id": "jonathanaranda-tb",
@@ -3392,7 +3764,9 @@ const SEED_PLAYERS = [
     "HR": 16.1,
     "XBH": 21.2,
     "RP": 98.2,
-    "SB": 1.8
+    "SB": 1.8,
+    "csRosA": 8.4,
+    "csRosS": 8.0
   },
   {
     "id": "kempalderman-mia",
@@ -3410,7 +3784,9 @@ const SEED_PLAYERS = [
     "HR": 0.7,
     "XBH": 1.1,
     "RP": 4.5,
-    "SB": 0.5
+    "SB": 0.5,
+    "csRosA": 0.4,
+    "csRosS": 0.4
   },
   {
     "id": "nachoalvarezjr-atl",
@@ -3428,7 +3804,9 @@ const SEED_PLAYERS = [
     "HR": 0.5,
     "XBH": 1.5,
     "RP": 6.0,
-    "SB": 0.4
+    "SB": 0.4,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "kadeanderson-sea",
@@ -3482,7 +3860,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "joshuabaez-stl",
@@ -3500,7 +3880,9 @@ const SEED_PLAYERS = [
     "HR": 1.0,
     "XBH": 1.6,
     "RP": 6.9,
-    "SB": 1.6
+    "SB": 1.6,
+    "csRosA": 0.0,
+    "csRosS": 0.0
   },
   {
     "id": "moissballesteros-chc",
@@ -3518,7 +3900,9 @@ const SEED_PLAYERS = [
     "HR": 7.0,
     "XBH": 14.2,
     "RP": 55.1,
-    "SB": 1.6
+    "SB": 1.6,
+    "csRosA": 5.5,
+    "csRosS": 5.2
   },
   {
     "id": "flixbautista-bal",
@@ -3536,7 +3920,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 16.0,
     "ERA": 3.04,
-    "WHIP": 1.16
+    "WHIP": 1.16,
+    "csRosA": 0.3,
+    "csRosS": 0.3
   },
   {
     "id": "jalenbeeks-pit",
@@ -3554,7 +3940,9 @@ const SEED_PLAYERS = [
     "SVH": 7.0,
     "K": 50.0,
     "ERA": 3.95,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 2.1,
+    "csRosS": 2.2
   },
   {
     "id": "warmingbernabel-wsn",
@@ -3626,7 +4014,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0.1,
     "RP": 0.2,
-    "SB": 0.1
+    "SB": 0.1,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "tylerbremner-laa",
@@ -3662,7 +4052,9 @@ const SEED_PLAYERS = [
     "HR": 0.2,
     "XBH": 0.3,
     "RP": 1.1,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "maxclark-det",
@@ -3680,7 +4072,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0.1,
     "RP": 0.4,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 1.2,
+    "csRosS": 1.1
   },
   {
     "id": "emmanuelclase-cle",
@@ -3698,7 +4092,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 3.24,
-    "WHIP": 1.18
+    "WHIP": 1.18,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "alexcobb-det",
@@ -3734,7 +4130,9 @@ const SEED_PLAYERS = [
     "HR": 3.8,
     "XBH": 5.2,
     "RP": 23.4,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 1.1,
+    "csRosS": 1.1
   },
   {
     "id": "josecorniell-tex",
@@ -3752,7 +4150,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 10.0,
     "ERA": 4.1,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "dannycoulombe-tex",
@@ -3770,7 +4170,9 @@ const SEED_PLAYERS = [
     "SVH": 10.0,
     "K": 53.0,
     "ERA": 3.98,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 1.3,
+    "csRosS": 1.3
   },
   {
     "id": "kuttercrawford-bos",
@@ -3788,7 +4190,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 61.0,
     "ERA": 4.16,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 2.4,
+    "csRosS": 1.7
   },
   {
     "id": "coopercriswell-sea",
@@ -3806,7 +4210,9 @@ const SEED_PLAYERS = [
     "SVH": 7.0,
     "K": 60.0,
     "ERA": 3.81,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 2.4,
+    "csRosS": 2.6
   },
   {
     "id": "colemancrow-mil",
@@ -3824,7 +4230,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 24.0,
     "ERA": 3.56,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 2.7,
+    "csRosS": 1.9
   },
   {
     "id": "kaelenculpepper-min",
@@ -3842,7 +4250,9 @@ const SEED_PLAYERS = [
     "HR": 0.1,
     "XBH": 0.1,
     "RP": 0.4,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0.6,
+    "csRosS": 0.6
   },
   {
     "id": "bodavidson-sf",
@@ -3860,7 +4270,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0.1,
     "RP": 0.3,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "luisdelen-bal",
@@ -3878,7 +4290,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.47,
-    "WHIP": 1.53
+    "WHIP": 1.53,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "deyvisondelossantos-mia",
@@ -3896,7 +4310,9 @@ const SEED_PLAYERS = [
     "HR": 3.8,
     "XBH": 4.5,
     "RP": 21.2,
-    "SB": 1.7
+    "SB": 1.7,
+    "csRosA": 0.9,
+    "csRosS": 0.8
   },
   {
     "id": "enyeldelossantos-hou",
@@ -3914,7 +4330,9 @@ const SEED_PLAYERS = [
     "SVH": 12.0,
     "K": 59.0,
     "ERA": 4.27,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 2.0,
+    "csRosS": 2.1
   },
   {
     "id": "josuedepaula-lad",
@@ -3932,7 +4350,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "leodevries-ath",
@@ -3968,7 +4388,9 @@ const SEED_PLAYERS = [
     "HR": 4.0,
     "XBH": 6.9,
     "RP": 25.9,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 1.8,
+    "csRosS": 1.7
   },
   {
     "id": "liamdoyle-stl",
@@ -4040,7 +4462,9 @@ const SEED_PLAYERS = [
     "HR": 3.2,
     "XBH": 5.8,
     "RP": 23.8,
-    "SB": 2.1
+    "SB": 2.1,
+    "csRosA": 0.9,
+    "csRosS": 0.9
   },
   {
     "id": "yanquielfernndez-nyy",
@@ -4058,7 +4482,9 @@ const SEED_PLAYERS = [
     "HR": 0.3,
     "XBH": 0.4,
     "RP": 1.9,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "joseaferrer-sea",
@@ -4076,7 +4502,9 @@ const SEED_PLAYERS = [
     "SVH": 19.0,
     "K": 68.0,
     "ERA": 3.11,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 3.0,
+    "csRosS": 3.1
   },
   {
     "id": "tyfrance-sd",
@@ -4094,7 +4522,9 @@ const SEED_PLAYERS = [
     "HR": 3.8,
     "XBH": 7.7,
     "RP": 31.5,
-    "SB": 0.5
+    "SB": 0.5,
+    "csRosA": 3.6,
+    "csRosS": 3.4
   },
   {
     "id": "bowdenfrancis-tor",
@@ -4112,7 +4542,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.61,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "didierfuentes-atl",
@@ -4130,7 +4562,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 60.0,
     "ERA": 4.32,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 3.1,
+    "csRosS": 2.1
   },
   {
     "id": "mitchgarver-sea",
@@ -4148,7 +4582,9 @@ const SEED_PLAYERS = [
     "HR": 4.0,
     "XBH": 3.7,
     "RP": 20.4,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 1.2,
+    "csRosS": 1.2
   },
   {
     "id": "angelgenao-cle",
@@ -4166,7 +4602,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0.1,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "treygibson-bal",
@@ -4184,7 +4622,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 8.0,
     "ERA": 4.34,
-    "WHIP": 1.4
+    "WHIP": 1.4,
+    "csRosA": 1.9,
+    "csRosS": 1.4
   },
   {
     "id": "lucasgiolito-bos",
@@ -4202,7 +4642,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 112.0,
     "ERA": 4.69,
-    "WHIP": 1.39
+    "WHIP": 1.39,
+    "csRosA": 8.1,
+    "csRosS": 5.9
   },
   {
     "id": "sawyergipsonlong-det",
@@ -4221,7 +4663,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 24.0,
     "ERA": 3.83,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 1.3,
+    "csRosS": 0.9
   },
   {
     "id": "paulgoldschmidt-nyy",
@@ -4239,7 +4683,9 @@ const SEED_PLAYERS = [
     "HR": 10.6,
     "XBH": 17.0,
     "RP": 72.1,
-    "SB": 3.6
+    "SB": 3.6,
+    "csRosA": 5.0,
+    "csRosS": 4.7
   },
   {
     "id": "yoendrysgmez-tb",
@@ -4258,7 +4704,9 @@ const SEED_PLAYERS = [
     "SVH": 7.0,
     "K": 63.0,
     "ERA": 4.1,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 2.9,
+    "csRosS": 2.1
   },
   {
     "id": "gabrielgonzalez-min",
@@ -4276,7 +4724,9 @@ const SEED_PLAYERS = [
     "HR": 1.1,
     "XBH": 2.7,
     "RP": 9.4,
-    "SB": 0.5
+    "SB": 0.5,
+    "csRosA": 0.5,
+    "csRosS": 0.4
   },
   {
     "id": "jongray-tex",
@@ -4294,7 +4744,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 3.75,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "emersonhancock-sea",
@@ -4313,7 +4765,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 62.0,
     "ERA": 4.24,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 8.1,
+    "csRosS": 5.9
   },
   {
     "id": "jonahheim-atl",
@@ -4331,7 +4785,9 @@ const SEED_PLAYERS = [
     "HR": 3.1,
     "XBH": 4.1,
     "RP": 19.5,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 1.6,
+    "csRosS": 1.5
   },
   {
     "id": "liamhendriks-min",
@@ -4349,7 +4805,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 35.0,
     "ERA": 4.08,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 0.9,
+    "csRosS": 1.0
   },
   {
     "id": "ronnyhenriquez-mia",
@@ -4367,7 +4825,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 3.75,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "enriquehernndez-lad",
@@ -4389,7 +4849,9 @@ const SEED_PLAYERS = [
     "HR": 4.0,
     "XBH": 6.0,
     "RP": 25.9,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 1.3,
+    "csRosS": 1.3
   },
   {
     "id": "djherz-wsn",
@@ -4407,7 +4869,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 33.0,
     "ERA": 3.68,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 1.9,
+    "csRosS": 1.3
   },
   {
     "id": "brodyhopkins-tb",
@@ -4425,7 +4889,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 8.0,
     "ERA": 4.61,
-    "WHIP": 1.45
+    "WHIP": 1.45,
+    "csRosA": 0.9,
+    "csRosS": 0.6
   },
   {
     "id": "rhyshoskins-cle",
@@ -4443,7 +4909,9 @@ const SEED_PLAYERS = [
     "HR": 12.9,
     "XBH": 12.9,
     "RP": 63.5,
-    "SB": 2.1
+    "SB": 2.1,
+    "csRosA": 4.6,
+    "csRosS": 4.3
   },
   {
     "id": "tatsuyaimai-hou",
@@ -4461,7 +4929,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 145,
     "ERA": 4.37,
-    "WHIP": 1.39
+    "WHIP": 1.39,
+    "csRosA": 7.8,
+    "csRosS": 5.6
   },
   {
     "id": "cooperingle-cle",
@@ -4479,7 +4949,9 @@ const SEED_PLAYERS = [
     "HR": 0.2,
     "XBH": 0.5,
     "RP": 1.9,
-    "SB": 0.1
+    "SB": 0.1,
+    "csRosA": 0.2,
+    "csRosS": 0.2
   },
   {
     "id": "joejimnez-atl",
@@ -4497,7 +4969,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 18.0,
     "ERA": 3.77,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "jacksonjobe-det",
@@ -4515,7 +4989,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.76,
-    "WHIP": 1.44
+    "WHIP": 1.44,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "ryanjohnson-laa",
@@ -4533,7 +5009,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 61.0,
     "ERA": 4.31,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 1.4,
+    "csRosS": 1.6
   },
   {
     "id": "tyjohnson-tb",
@@ -4551,7 +5029,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 18.0,
     "ERA": 4.22,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 0.6,
+    "csRosS": 0.4
   },
   {
     "id": "spencerjones-nyy",
@@ -4569,7 +5049,9 @@ const SEED_PLAYERS = [
     "HR": 2.2,
     "XBH": 2.2,
     "RP": 10.7,
-    "SB": 1.6
+    "SB": 1.6,
+    "csRosA": 0.3,
+    "csRosS": 0.3
   },
   {
     "id": "benjoyce-laa",
@@ -4587,7 +5069,9 @@ const SEED_PLAYERS = [
     "SVH": 22.0,
     "K": 59.0,
     "ERA": 3.42,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 2.4,
+    "csRosS": 2.4
   },
   {
     "id": "maxkepler-phi",
@@ -4605,7 +5089,9 @@ const SEED_PLAYERS = [
     "HR": 3.9,
     "XBH": 5.4,
     "RP": 23.2,
-    "SB": 0.7
+    "SB": 0.7,
+    "csRosA": 1.2,
+    "csRosS": 1.1
   },
   {
     "id": "georgeklassen-laa",
@@ -4623,7 +5109,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 45.0,
     "ERA": 4.42,
-    "WHIP": 1.4
+    "WHIP": 1.4,
+    "csRosA": 0.5,
+    "csRosS": 0.4
   },
   {
     "id": "michaelkopech-lad",
@@ -4641,7 +5129,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 42.0,
     "ERA": 4.3,
-    "WHIP": 1.4
+    "WHIP": 1.4,
+    "csRosA": 0.9,
+    "csRosS": 0.9
   },
   {
     "id": "carloslagrange-nyy",
@@ -4659,7 +5149,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 13.0,
     "ERA": 3.83,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 0.6,
+    "csRosS": 0.4
   },
   {
     "id": "haoyulee-det",
@@ -4677,7 +5169,9 @@ const SEED_PLAYERS = [
     "HR": 0.7,
     "XBH": 1.4,
     "RP": 5.5,
-    "SB": 0.7
+    "SB": 0.7,
+    "csRosA": 0.6,
+    "csRosS": 0.5
   },
   {
     "id": "zacklittell-cin",
@@ -4695,7 +5189,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 113.0,
     "ERA": 4.56,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 7.9,
+    "csRosS": 6.2
   },
   {
     "id": "pablolpez-min",
@@ -4713,7 +5209,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 3.8,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "nathaniellowe-cin",
@@ -4731,7 +5229,9 @@ const SEED_PLAYERS = [
     "HR": 8.3,
     "XBH": 9.6,
     "RP": 49.3,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 2.8,
+    "csRosS": 2.7
   },
   {
     "id": "jessmade-mil",
@@ -4749,7 +5249,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "justinmartinez-ari",
@@ -4767,7 +5269,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 25.0,
     "ERA": 3.07,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 1.0,
+    "csRosS": 1.0
   },
   {
     "id": "quinnmathews-stl",
@@ -4785,7 +5289,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 39.0,
     "ERA": 4.27,
-    "WHIP": 1.46
+    "WHIP": 1.46,
+    "csRosA": 3.6,
+    "csRosS": 2.6
   },
   {
     "id": "tannermcdougal-chw",
@@ -4822,7 +5328,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 49.0,
     "ERA": 3.88,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 4.2,
+    "csRosS": 3.0
   },
   {
     "id": "cristianmena-ari",
@@ -4840,7 +5348,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 19.0,
     "ERA": 3.99,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 0.9,
+    "csRosS": 0.6
   },
   {
     "id": "carmenmlodzinski-pit",
@@ -4859,7 +5369,9 @@ const SEED_PLAYERS = [
     "SVH": 4.0,
     "K": 95.0,
     "ERA": 4.05,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 7.3,
+    "csRosS": 5.3
   },
   {
     "id": "keidermontero-det",
@@ -4878,7 +5390,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 47.0,
     "ERA": 4.29,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 6.3,
+    "csRosS": 4.7
   },
   {
     "id": "lazaromontes-sea",
@@ -4896,7 +5410,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "daurimoreta-pit",
@@ -4914,7 +5430,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 3.92,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "andrewmorris-min",
@@ -4932,7 +5450,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 21.0,
     "ERA": 3.9,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 4.1,
+    "csRosS": 3.1
   },
   {
     "id": "charliemorton-det",
@@ -4970,7 +5490,9 @@ const SEED_PLAYERS = [
     "SVH": 11.0,
     "K": 67.0,
     "ERA": 3.95,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 6.2,
+    "csRosS": 4.5
   },
   {
     "id": "reeseolson-det",
@@ -4988,7 +5510,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 3.95,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "marcellozuna-pit",
@@ -5006,7 +5530,9 @@ const SEED_PLAYERS = [
     "HR": 19.1,
     "XBH": 17.1,
     "RP": 96.4,
-    "SB": 0.5
+    "SB": 0.5,
+    "csRosA": 6.3,
+    "csRosS": 5.9
   },
   {
     "id": "mitchellparker-wsn",
@@ -5024,7 +5550,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 40.0,
     "ERA": 4.28,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 5.4,
+    "csRosS": 4.0
   },
   {
     "id": "ethanpecko-hou",
@@ -5042,7 +5570,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.54,
-    "WHIP": 1.38
+    "WHIP": 1.38,
+    "csRosA": 1.7,
+    "csRosS": 1.2
   },
   {
     "id": "luisperales-wsn",
@@ -5060,7 +5590,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 21.0,
     "ERA": 4.03,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 1.4,
+    "csRosS": 1.0
   },
   {
     "id": "chasepetty-cin",
@@ -5078,7 +5610,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 38.0,
     "ERA": 4.7,
-    "WHIP": 1.44
+    "WHIP": 1.44,
+    "csRosA": 3.2,
+    "csRosS": 2.5
   },
   {
     "id": "tommypham-pit",
@@ -5096,7 +5630,9 @@ const SEED_PLAYERS = [
     "HR": 3.9,
     "XBH": 7.0,
     "RP": 29.7,
-    "SB": 2.4
+    "SB": 2.4,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "cadepovich-bal",
@@ -5114,7 +5650,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 22.0,
     "ERA": 3.87,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 4.0,
+    "csRosS": 2.9
   },
   {
     "id": "cooperpratt-mil",
@@ -5132,7 +5670,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0.2,
+    "csRosS": 0.2
   },
   {
     "id": "connorprielipp-min",
@@ -5150,7 +5690,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 57.0,
     "ERA": 4.03,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 8.5,
+    "csRosS": 6.1
   },
   {
     "id": "nelsonrada-laa",
@@ -5168,7 +5710,9 @@ const SEED_PLAYERS = [
     "HR": 0.6,
     "XBH": 3.1,
     "RP": 13.8,
-    "SB": 3.9
+    "SB": 3.9,
+    "csRosA": 0.5,
+    "csRosS": 0.4
   },
   {
     "id": "jacobreimer-nym",
@@ -5186,7 +5730,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "luisrengifo-mil",
@@ -5206,7 +5752,9 @@ const SEED_PLAYERS = [
     "HR": 9.0,
     "XBH": 15.8,
     "RP": 67.8,
-    "SB": 9.8
+    "SB": 9.8,
+    "csRosA": 4.1,
+    "csRosS": 3.9
   },
   {
     "id": "jrritchie-atl",
@@ -5224,7 +5772,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 30.0,
     "ERA": 4.56,
-    "WHIP": 1.42
+    "WHIP": 1.42,
+    "csRosA": 5.9,
+    "csRosS": 4.4
   },
   {
     "id": "bradgleyrodriguez-sd",
@@ -5243,7 +5793,9 @@ const SEED_PLAYERS = [
     "SVH": 7.0,
     "K": 48.0,
     "ERA": 4.2,
-    "WHIP": 1.42
+    "WHIP": 1.42,
+    "csRosA": 4.7,
+    "csRosS": 3.3
   },
   {
     "id": "elmerrodrguez-nyy",
@@ -5261,7 +5813,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 8.0,
     "ERA": 3.56,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 2.3,
+    "csRosS": 1.7
   },
   {
     "id": "hctorrodrguez-cin",
@@ -5279,7 +5833,9 @@ const SEED_PLAYERS = [
     "HR": 0.7,
     "XBH": 1.2,
     "RP": 4.8,
-    "SB": 0.4
+    "SB": 0.4,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "andrewsaalfrank-ari",
@@ -5297,7 +5853,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.14,
-    "WHIP": 1.47
+    "WHIP": 1.47,
+    "csRosA": 0.0,
+    "csRosS": 0.0
   },
   {
     "id": "ethansalas-sd",
@@ -5315,7 +5873,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "garysnchez-mil",
@@ -5333,7 +5893,9 @@ const SEED_PLAYERS = [
     "HR": 6.8,
     "XBH": 5.4,
     "RP": 29.8,
-    "SB": 0.5
+    "SB": 0.5,
+    "csRosA": 2.5,
+    "csRosS": 2.4
   },
   {
     "id": "jonathansantucci-nym",
@@ -5351,7 +5913,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.04,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "maxscherzer-tor",
@@ -5369,7 +5933,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 117.0,
     "ERA": 4.21,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 7.2,
+    "csRosS": 5.2
   },
   {
     "id": "noahschultz-chw",
@@ -5387,7 +5953,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 22.0,
     "ERA": 4.42,
-    "WHIP": 1.45
+    "WHIP": 1.45,
+    "csRosA": 7.7,
+    "csRosS": 5.5
   },
   {
     "id": "christianscott-nym",
@@ -5405,7 +5973,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 33.0,
     "ERA": 3.62,
-    "WHIP": 1.16
+    "WHIP": 1.16,
+    "csRosA": 5.8,
+    "csRosS": 4.0
   },
   {
     "id": "hagensmith-chw",
@@ -5441,7 +6011,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 84.0,
     "ERA": 4.03,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 9.3,
+    "csRosS": 6.7
   },
   {
     "id": "khalstephen-cle",
@@ -5459,7 +6031,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.78,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "jarlinsusana-wsn",
@@ -5513,7 +6087,9 @@ const SEED_PLAYERS = [
     "HR": 2.1,
     "XBH": 3.7,
     "RP": 17.3,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 0.6,
+    "csRosS": 0.6
   },
   {
     "id": "rowdytellez-tex",
@@ -5549,7 +6125,9 @@ const SEED_PLAYERS = [
     "SVH": 7.0,
     "K": 62.0,
     "ERA": 4.05,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 3.9,
+    "csRosS": 2.7
   },
   {
     "id": "sterlinthompson-col",
@@ -5567,7 +6145,9 @@ const SEED_PLAYERS = [
     "HR": 0.9,
     "XBH": 1.9,
     "RP": 7.0,
-    "SB": 0.5
+    "SB": 0.5,
+    "csRosA": 0.8,
+    "csRosS": 0.7
   },
   {
     "id": "bladetidwell-sf",
@@ -5585,7 +6165,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 31.0,
     "ERA": 4.31,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 2.9,
+    "csRosS": 2.1
   },
   {
     "id": "rickytiedemann-tor",
@@ -5603,7 +6185,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 18.0,
     "ERA": 3.87,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 1.4,
+    "csRosS": 1.0
   },
   {
     "id": "michaeltoglia-cin",
@@ -5621,7 +6205,9 @@ const SEED_PLAYERS = [
     "HR": 1.8,
     "XBH": 1.5,
     "RP": 8.0,
-    "SB": 0.4
+    "SB": 0.4,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "paytontolle-bos",
@@ -5639,7 +6225,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 35.0,
     "ERA": 4.08,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 7.0,
+    "csRosS": 4.9
   },
   {
     "id": "ramnuras-stl",
@@ -5658,7 +6246,9 @@ const SEED_PLAYERS = [
     "HR": 7.0,
     "XBH": 12.6,
     "RP": 51.0,
-    "SB": 2.0
+    "SB": 2.0,
+    "csRosA": 2.7,
+    "csRosS": 2.6
   },
   {
     "id": "esmerlynvaldez-pit",
@@ -5676,7 +6266,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0.5,
+    "csRosS": 0.4
   },
   {
     "id": "ralphyvelazquez-cle",
@@ -5694,7 +6286,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "sebastianwalcott-tex",
@@ -5712,7 +6306,9 @@ const SEED_PLAYERS = [
     "HR": 0,
     "XBH": 0,
     "RP": 0.2,
-    "SB": 0
+    "SB": 0,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "ryanward-lad",
@@ -5730,7 +6326,9 @@ const SEED_PLAYERS = [
     "HR": 1.3,
     "XBH": 1.4,
     "RP": 6.5,
-    "SB": 0.4
+    "SB": 0.4,
+    "csRosA": 0.3,
+    "csRosS": 0.3
   },
   {
     "id": "tylerwells-bal",
@@ -5748,7 +6346,9 @@ const SEED_PLAYERS = [
     "SVH": 7.0,
     "K": 68.0,
     "ERA": 4.29,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 2.7,
+    "csRosS": 1.9
   },
   {
     "id": "jackwenninger-nym",
@@ -5766,7 +6366,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.27,
-    "WHIP": 1.36
+    "WHIP": 1.36,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "joeywentz-atl",
@@ -5785,7 +6387,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.47,
-    "WHIP": 1.4
+    "WHIP": 1.4,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "haydenwesneski-hou",
@@ -5803,7 +6407,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 31.0,
     "ERA": 4.04,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 1.5,
+    "csRosS": 1.0
   },
   {
     "id": "joshwhite-mia",
@@ -5821,7 +6427,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 48.0,
     "ERA": 3.94,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 2.7,
+    "csRosS": 1.9
   },
   {
     "id": "thomaswhite-mia",
@@ -5839,7 +6447,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 26.0,
     "ERA": 4.18,
-    "WHIP": 1.41
+    "WHIP": 1.41,
+    "csRosA": 1.9,
+    "csRosS": 1.3
   },
   {
     "id": "jordanwicks-chc",
@@ -5858,7 +6468,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 22.0,
     "ERA": 3.7,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 3.1,
+    "csRosS": 2.3
   },
   {
     "id": "jaxonwiggins-chc",
@@ -5876,7 +6488,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 1.0,
     "ERA": 4.43,
-    "WHIP": 1.41
+    "WHIP": 1.41,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "brockwilken-mil",
@@ -5894,7 +6508,9 @@ const SEED_PLAYERS = [
     "HR": 1.8,
     "XBH": 1.9,
     "RP": 9.6,
-    "SB": 0.3
+    "SB": 0.3,
+    "csRosA": 0.3,
+    "csRosS": 0.3
   },
   {
     "id": "justinwilson-bos",
@@ -5930,7 +6546,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 58.0,
     "ERA": 4.1,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 3.3,
+    "csRosS": 3.6
   },
   {
     "id": "craigyoho-mil",
@@ -5948,7 +6566,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 42.0,
     "ERA": 3.97,
-    "WHIP": 1.36
+    "WHIP": 1.36,
+    "csRosA": 1.3,
+    "csRosS": 1.3
   },
   {
     "id": "lukekeaschall-min",
@@ -5966,7 +6586,9 @@ const SEED_PLAYERS = [
     "HR": 9.8,
     "XBH": 25.1,
     "RP": 99.6,
-    "SB": 19.8
+    "SB": 19.8,
+    "csRosA": 7.0,
+    "csRosS": 6.6
   },
   {
     "id": "michaelking-sd",
@@ -5984,7 +6606,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 173.0,
     "ERA": 3.8,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 12.4,
+    "csRosS": 8.5
   },
   {
     "id": "mattmclain-cin",
@@ -6002,7 +6626,9 @@ const SEED_PLAYERS = [
     "HR": 14.9,
     "XBH": 21.1,
     "RP": 95.6,
-    "SB": 12.8
+    "SB": 12.8,
+    "csRosA": 6.8,
+    "csRosS": 6.4
   },
   {
     "id": "brendandonovan-sea",
@@ -6021,7 +6647,9 @@ const SEED_PLAYERS = [
     "HR": 12.1,
     "XBH": 27.4,
     "RP": 109.8,
-    "SB": 6.0
+    "SB": 6.0,
+    "csRosA": 7.3,
+    "csRosS": 6.9
   },
   {
     "id": "xanderbogaerts-sd",
@@ -6039,7 +6667,9 @@ const SEED_PLAYERS = [
     "HR": 12.9,
     "XBH": 24.9,
     "RP": 105.3,
-    "SB": 13.5
+    "SB": 13.5,
+    "csRosA": 7.7,
+    "csRosS": 7.2
   },
   {
     "id": "adrianmorejon-sd",
@@ -6057,7 +6687,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 70.0,
     "ERA": 3.36,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 2.9,
+    "csRosS": 3.0
   },
   {
     "id": "ryanhelsley-bal",
@@ -6075,7 +6707,9 @@ const SEED_PLAYERS = [
     "SVH": 29.0,
     "K": 76.0,
     "ERA": 3.48,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 2.9,
+    "csRosS": 2.9
   },
   {
     "id": "drakebaldwin-atl",
@@ -6093,7 +6727,9 @@ const SEED_PLAYERS = [
     "HR": 18.2,
     "XBH": 21.3,
     "RP": 107.2,
-    "SB": 1.2
+    "SB": 1.2,
+    "csRosA": 9.0,
+    "csRosS": 8.5
   },
   {
     "id": "jackflaherty-det",
@@ -6111,7 +6747,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 177.0,
     "ERA": 3.89,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 11.5,
+    "csRosS": 8.0
   },
   {
     "id": "willicastro-col",
@@ -6131,7 +6769,9 @@ const SEED_PLAYERS = [
     "HR": 12.1,
     "XBH": 25.9,
     "RP": 100.8,
-    "SB": 13.2
+    "SB": 13.2,
+    "csRosA": 6.1,
+    "csRosS": 5.7
   },
   {
     "id": "braxtonashcraft-pit",
@@ -6150,7 +6790,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 124.0,
     "ERA": 4.08,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 10.8,
+    "csRosS": 7.9
   },
   {
     "id": "christianwalker-hou",
@@ -6168,7 +6810,9 @@ const SEED_PLAYERS = [
     "HR": 23.3,
     "XBH": 20.4,
     "RP": 105.3,
-    "SB": 2.9
+    "SB": 2.9,
+    "csRosA": 8.0,
+    "csRosS": 7.5
   },
   {
     "id": "joeycantillo-cle",
@@ -6187,7 +6831,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 152.0,
     "ERA": 3.95,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 9.8,
+    "csRosS": 6.8
   },
   {
     "id": "petefairbanks-mia",
@@ -6205,7 +6851,9 @@ const SEED_PLAYERS = [
     "SVH": 31.0,
     "K": 66.0,
     "ERA": 3.57,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 2.8,
+    "csRosS": 2.8
   },
   {
     "id": "hunterharvey-chc",
@@ -6223,7 +6871,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 58.0,
     "ERA": 3.35,
-    "WHIP": 1.16
+    "WHIP": 1.16,
+    "csRosA": 1.3,
+    "csRosS": 1.3
   },
   {
     "id": "jakecronenworth-sd",
@@ -6243,7 +6893,9 @@ const SEED_PLAYERS = [
     "HR": 14.1,
     "XBH": 27.1,
     "RP": 111.2,
-    "SB": 5.1
+    "SB": 5.1,
+    "csRosA": 5.4,
+    "csRosS": 5.1
   },
   {
     "id": "carterjensen-kc",
@@ -6261,7 +6913,9 @@ const SEED_PLAYERS = [
     "HR": 10.1,
     "XBH": 15.4,
     "RP": 61.3,
-    "SB": 3.0
+    "SB": 3.0,
+    "csRosA": 5.4,
+    "csRosS": 5.1
   },
   {
     "id": "adolisgarca-phi",
@@ -6279,7 +6933,9 @@ const SEED_PLAYERS = [
     "HR": 22.2,
     "XBH": 22.4,
     "RP": 103.0,
-    "SB": 9.6
+    "SB": 9.6,
+    "csRosA": 7.5,
+    "csRosS": 7.0
   },
   {
     "id": "jordanwestburg-bal",
@@ -6298,7 +6954,9 @@ const SEED_PLAYERS = [
     "HR": 17.0,
     "XBH": 22.3,
     "RP": 91.6,
-    "SB": 4
+    "SB": 4,
+    "csRosA": 3.5,
+    "csRosS": 3.3
   },
   {
     "id": "gerritcole-nyy",
@@ -6316,7 +6974,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 137.0,
     "ERA": 3.94,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 10.3,
+    "csRosS": 7.3
   },
   {
     "id": "ottolopez-mia",
@@ -6335,7 +6995,9 @@ const SEED_PLAYERS = [
     "HR": 10.1,
     "XBH": 24.9,
     "RP": 95.3,
-    "SB": 13.5
+    "SB": 13.5,
+    "csRosA": 7.8,
+    "csRosS": 7.4
   },
   {
     "id": "mattbrash-sea",
@@ -6353,7 +7015,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 75.0,
     "ERA": 3.05,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 2.5,
+    "csRosS": 2.5
   },
   {
     "id": "ryanwalker-sf",
@@ -6371,7 +7035,9 @@ const SEED_PLAYERS = [
     "SVH": 34.0,
     "K": 68.0,
     "ERA": 3.29,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 2.7,
+    "csRosS": 2.8
   },
   {
     "id": "andrewkittredge-bal",
@@ -6389,7 +7055,9 @@ const SEED_PLAYERS = [
     "SVH": 15.0,
     "K": 60.0,
     "ERA": 3.89,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 2.5,
+    "csRosS": 2.6
   },
   {
     "id": "andrewvaughn-mil",
@@ -6407,7 +7075,9 @@ const SEED_PLAYERS = [
     "HR": 17.7,
     "XBH": 23.7,
     "RP": 97.8,
-    "SB": 1.0
+    "SB": 1.0,
+    "csRosA": 6.7,
+    "csRosS": 6.3
   },
   {
     "id": "ryanohearn-pit",
@@ -6426,7 +7096,9 @@ const SEED_PLAYERS = [
     "HR": 13.2,
     "XBH": 21.5,
     "RP": 93.0,
-    "SB": 2.6
+    "SB": 2.6,
+    "csRosA": 7.3,
+    "csRosS": 6.9
   },
   {
     "id": "danielpalencia-chc",
@@ -6444,7 +7116,9 @@ const SEED_PLAYERS = [
     "SVH": 36.0,
     "K": 75.0,
     "ERA": 3.61,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 3.5,
+    "csRosS": 3.6
   },
   {
     "id": "brentondoyle-col",
@@ -6462,7 +7136,9 @@ const SEED_PLAYERS = [
     "HR": 15.8,
     "XBH": 22.6,
     "RP": 95.3,
-    "SB": 16.6
+    "SB": 16.6,
+    "csRosA": 5.7,
+    "csRosS": 5.4
   },
   {
     "id": "gabespeier-sea",
@@ -6480,7 +7156,9 @@ const SEED_PLAYERS = [
     "SVH": 12.0,
     "K": 66.0,
     "ERA": 3.21,
-    "WHIP": 1.14
+    "WHIP": 1.14,
+    "csRosA": 2.0,
+    "csRosS": 2.0
   },
   {
     "id": "kylemanzardo-cle",
@@ -6498,7 +7176,9 @@ const SEED_PLAYERS = [
     "HR": 19.6,
     "XBH": 18.9,
     "RP": 90.3,
-    "SB": 1.5
+    "SB": 1.5,
+    "csRosA": 6.3,
+    "csRosS": 5.9
   },
   {
     "id": "codyponce-tor",
@@ -6516,7 +7196,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 151.0,
     "ERA": 3.91,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "nolanarenado-ari",
@@ -6534,7 +7216,9 @@ const SEED_PLAYERS = [
     "HR": 16.7,
     "XBH": 25.7,
     "RP": 112.3,
-    "SB": 2.6
+    "SB": 2.6,
+    "csRosA": 7.0,
+    "csRosS": 6.6
   },
   {
     "id": "isaacparedes-hou",
@@ -6552,7 +7236,9 @@ const SEED_PLAYERS = [
     "HR": 20.9,
     "XBH": 19.9,
     "RP": 106.2,
-    "SB": 1.4
+    "SB": 1.4,
+    "csRosA": 8.2,
+    "csRosS": 7.8
   },
   {
     "id": "krisbubic-kc",
@@ -6570,7 +7256,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 141.0,
     "ERA": 3.91,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 11.8,
+    "csRosS": 8.4
   },
   {
     "id": "dylanlee-atl",
@@ -6588,7 +7276,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 71.0,
     "ERA": 3.59,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 2.9,
+    "csRosS": 2.9
   },
   {
     "id": "tylerrogers-tor",
@@ -6606,7 +7296,9 @@ const SEED_PLAYERS = [
     "SVH": 20.0,
     "K": 51.0,
     "ERA": 3.99,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 2.7,
+    "csRosS": 3.0
   },
   {
     "id": "spencersteer-cin",
@@ -6625,7 +7317,9 @@ const SEED_PLAYERS = [
     "HR": 13.1,
     "XBH": 18.5,
     "RP": 77.8,
-    "SB": 6.6
+    "SB": 6.6,
+    "csRosA": 5.4,
+    "csRosS": 5.1
   },
   {
     "id": "connornorby-mia",
@@ -6643,7 +7337,9 @@ const SEED_PLAYERS = [
     "HR": 13.2,
     "XBH": 21.4,
     "RP": 84.4,
-    "SB": 8.5
+    "SB": 8.5,
+    "csRosA": 5.8,
+    "csRosS": 5.5
   },
   {
     "id": "willvest-det",
@@ -6661,7 +7357,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 70.0,
     "ERA": 3.25,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 2.6,
+    "csRosS": 2.6
   },
   {
     "id": "philmaton-chc",
@@ -6679,7 +7377,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 67.0,
     "ERA": 3.81,
-    "WHIP": 1.28
+    "WHIP": 1.28,
+    "csRosA": 2.6,
+    "csRosS": 2.7
   },
   {
     "id": "lukeweaver-nym",
@@ -6697,7 +7397,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 71.0,
     "ERA": 3.69,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 2.8,
+    "csRosS": 2.8
   },
   {
     "id": "jojoromero-stl",
@@ -6715,7 +7417,9 @@ const SEED_PLAYERS = [
     "SVH": 22.0,
     "K": 61.0,
     "ERA": 3.57,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 2.6,
+    "csRosS": 2.7
   },
   {
     "id": "roycelewis-min",
@@ -6733,7 +7437,9 @@ const SEED_PLAYERS = [
     "HR": 20.2,
     "XBH": 21.6,
     "RP": 99.2,
-    "SB": 9.1
+    "SB": 9.1,
+    "csRosA": 6.3,
+    "csRosS": 6.0
   },
   {
     "id": "edwardcabrera-chc",
@@ -6751,7 +7457,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 151.0,
     "ERA": 3.96,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 10.9,
+    "csRosS": 7.6
   },
   {
     "id": "luisrobertjr-nym",
@@ -6769,7 +7477,9 @@ const SEED_PLAYERS = [
     "HR": 18.2,
     "XBH": 20.1,
     "RP": 99.9,
-    "SB": 25.8
+    "SB": 25.8,
+    "csRosA": 5.8,
+    "csRosS": 5.5
   },
   {
     "id": "bryanking-hou",
@@ -6787,7 +7497,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 67.0,
     "ERA": 3.72,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 2.6,
+    "csRosS": 2.7
   },
   {
     "id": "tylerholton-det",
@@ -6806,7 +7518,9 @@ const SEED_PLAYERS = [
     "SVH": 15.0,
     "K": 63.0,
     "ERA": 3.71,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 5.6,
+    "csRosS": 4.0
   },
   {
     "id": "zacgallen-ari",
@@ -6824,7 +7538,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 174.0,
     "ERA": 4.24,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 11.7,
+    "csRosS": 8.8
   },
   {
     "id": "merrillkelly-ari",
@@ -6842,7 +7558,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 158.0,
     "ERA": 4.12,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 10.2,
+    "csRosS": 7.6
   },
   {
     "id": "fernandocruz-nyy",
@@ -6860,7 +7578,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 81.0,
     "ERA": 3.3,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 3.0,
+    "csRosS": 2.9
   },
   {
     "id": "tannerscott-lad",
@@ -6878,7 +7598,9 @@ const SEED_PLAYERS = [
     "SVH": 19.0,
     "K": 73.0,
     "ERA": 3.44,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 3.1,
+    "csRosS": 3.1
   },
   {
     "id": "calebthielbar-chc",
@@ -6896,7 +7618,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 69.0,
     "ERA": 3.68,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 1.8,
+    "csRosS": 1.8
   },
   {
     "id": "ryanpepiot-tb",
@@ -6914,7 +7638,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 165.0,
     "ERA": 4.02,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "jonathanindia-kc",
@@ -6934,7 +7660,9 @@ const SEED_PLAYERS = [
     "HR": 10.9,
     "XBH": 23.7,
     "RP": 90.0,
-    "SB": 5.3
+    "SB": 5.3,
+    "csRosA": 0,
+    "csRosS": 0
   },
   {
     "id": "anthonyvolpe-nyy",
@@ -6952,7 +7680,9 @@ const SEED_PLAYERS = [
     "HR": 13.4,
     "XBH": 22.3,
     "RP": 84.1,
-    "SB": 15.9
+    "SB": 15.9,
+    "csRosA": 4.9,
+    "csRosS": 4.6
   },
   {
     "id": "tjfriedl-cin",
@@ -6970,7 +7700,9 @@ const SEED_PLAYERS = [
     "HR": 14.1,
     "XBH": 20.7,
     "RP": 100.6,
-    "SB": 9.9
+    "SB": 9.9,
+    "csRosA": 7.5,
+    "csRosS": 7.1
   },
   {
     "id": "andrsgimnez-tor",
@@ -6989,7 +7721,9 @@ const SEED_PLAYERS = [
     "HR": 11.9,
     "XBH": 25.0,
     "RP": 103.9,
-    "SB": 17.9
+    "SB": 17.9,
+    "csRosA": 6.6,
+    "csRosS": 6.2
   },
   {
     "id": "dennissantana-pit",
@@ -7007,7 +7741,9 @@ const SEED_PLAYERS = [
     "SVH": 30.0,
     "K": 64.0,
     "ERA": 4.03,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 2.6,
+    "csRosS": 2.7
   },
   {
     "id": "robertgarcia-tex",
@@ -7025,7 +7761,9 @@ const SEED_PLAYERS = [
     "SVH": 26.0,
     "K": 70.0,
     "ERA": 3.53,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 1.8,
+    "csRosS": 1.8
   },
   {
     "id": "kylestowers-mia",
@@ -7043,7 +7781,9 @@ const SEED_PLAYERS = [
     "HR": 16.0,
     "XBH": 18.7,
     "RP": 80.4,
-    "SB": 3.1
+    "SB": 3.1,
+    "csRosA": 7.3,
+    "csRosS": 6.9
   },
   {
     "id": "jasonadam-sd",
@@ -7061,7 +7801,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 67.0,
     "ERA": 3.65,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 2.5,
+    "csRosS": 2.6
   },
   {
     "id": "salfrelick-mil",
@@ -7079,7 +7821,9 @@ const SEED_PLAYERS = [
     "HR": 8.0,
     "XBH": 22.2,
     "RP": 89.5,
-    "SB": 12.9
+    "SB": 12.9,
+    "csRosA": 6.3,
+    "csRosS": 5.9
   },
   {
     "id": "nicklodolo-cin",
@@ -7097,7 +7841,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 161.0,
     "ERA": 4.03,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 10.5,
+    "csRosS": 7.5
   },
   {
     "id": "orionkerkering-phi",
@@ -7115,7 +7861,9 @@ const SEED_PLAYERS = [
     "SVH": 10.0,
     "K": 59.0,
     "ERA": 3.51,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 2.3,
+    "csRosS": 2.4
   },
   {
     "id": "josalvarado-phi",
@@ -7133,7 +7881,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 74.0,
     "ERA": 3.26,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 2.9,
+    "csRosS": 2.8
   },
   {
     "id": "robertsuarez-atl",
@@ -7151,7 +7901,9 @@ const SEED_PLAYERS = [
     "SVH": 19.0,
     "K": 73.0,
     "ERA": 3.51,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 3.0,
+    "csRosS": 3.1
   },
   {
     "id": "carloscorrea-hou",
@@ -7170,7 +7922,9 @@ const SEED_PLAYERS = [
     "HR": 15.7,
     "XBH": 23.8,
     "RP": 105.2,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 7.7,
+    "csRosS": 7.3
   },
   {
     "id": "huntergaddis-cle",
@@ -7188,7 +7942,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 59.0,
     "ERA": 4.09,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 2.5,
+    "csRosS": 2.6
   },
   {
     "id": "chaseburns-cin",
@@ -7207,7 +7963,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 130.0,
     "ERA": 3.71,
-    "WHIP": 1.19
+    "WHIP": 1.19,
+    "csRosA": 11.6,
+    "csRosS": 7.8
   },
   {
     "id": "kenleyjansen-det",
@@ -7225,7 +7983,9 @@ const SEED_PLAYERS = [
     "SVH": 27,
     "K": 63.0,
     "ERA": 4.06,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 2.9,
+    "csRosS": 2.9
   },
   {
     "id": "quinnpriester-mil",
@@ -7244,7 +8004,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 95.0,
     "ERA": 4.16,
-    "WHIP": 1.37
+    "WHIP": 1.37,
+    "csRosA": 5.1,
+    "csRosS": 3.8
   },
   {
     "id": "camilodoval-nyy",
@@ -7262,7 +8024,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 74.0,
     "ERA": 3.41,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 2.7,
+    "csRosS": 2.7
   },
   {
     "id": "jaredkoenig-mil",
@@ -7280,7 +8044,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 68.0,
     "ERA": 3.5,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 1.4,
+    "csRosS": 1.4
   },
   {
     "id": "jorgepolanco-nym",
@@ -7298,7 +8064,9 @@ const SEED_PLAYERS = [
     "HR": 19.6,
     "XBH": 19.5,
     "RP": 101.7,
-    "SB": 4.8
+    "SB": 4.8,
+    "csRosA": 5.5,
+    "csRosS": 5.2
   },
   {
     "id": "reiddetmers-laa",
@@ -7316,7 +8084,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 159.0,
     "ERA": 4.03,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 5.1,
+    "csRosS": 5.2
   },
   {
     "id": "bryanbaker-tb",
@@ -7334,7 +8104,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 71.0,
     "ERA": 3.65,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 3.5,
+    "csRosS": 3.6
   },
   {
     "id": "chrismartin-tex",
@@ -7352,7 +8124,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 56.0,
     "ERA": 3.44,
-    "WHIP": 1.16
+    "WHIP": 1.16,
+    "csRosA": 1.5,
+    "csRosS": 1.6
   },
   {
     "id": "treyyesavage-tor",
@@ -7370,7 +8144,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 148.0,
     "ERA": 3.72,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 10.6,
+    "csRosS": 7.3
   },
   {
     "id": "chandlersimpson-tb",
@@ -7388,7 +8164,9 @@ const SEED_PLAYERS = [
     "HR": 1.8,
     "XBH": 15.8,
     "RP": 66.6,
-    "SB": 31.8
+    "SB": 31.8,
+    "csRosA": 6.4,
+    "csRosS": 6.1
   },
   {
     "id": "joadell-laa",
@@ -7406,7 +8184,9 @@ const SEED_PLAYERS = [
     "HR": 25.7,
     "XBH": 18.9,
     "RP": 96.3,
-    "SB": 7.2
+    "SB": 7.2,
+    "csRosA": 7.4,
+    "csRosS": 7.0
   },
   {
     "id": "gavinwilliams-cle",
@@ -7424,7 +8204,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 181.0,
     "ERA": 4.09,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 12.7,
+    "csRosS": 8.7
   },
   {
     "id": "jakeburger-tex",
@@ -7442,7 +8224,9 @@ const SEED_PLAYERS = [
     "HR": 24.5,
     "XBH": 22.4,
     "RP": 110.8,
-    "SB": 1.9
+    "SB": 1.9,
+    "csRosA": 7.5,
+    "csRosS": 7.1
   },
   {
     "id": "robertstephenson-laa",
@@ -7460,7 +8244,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 40.0,
     "ERA": 3.93,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "joshbell-min",
@@ -7478,7 +8264,9 @@ const SEED_PLAYERS = [
     "HR": 18.0,
     "XBH": 20.5,
     "RP": 102.5,
-    "SB": 1.9
+    "SB": 1.9,
+    "csRosA": 7.5,
+    "csRosS": 7.1
   },
   {
     "id": "dylancrews-wsn",
@@ -7496,7 +8284,9 @@ const SEED_PLAYERS = [
     "HR": 11.7,
     "XBH": 16.5,
     "RP": 70.2,
-    "SB": 15.6
+    "SB": 15.6,
+    "csRosA": 4.5,
+    "csRosS": 4.2
   },
   {
     "id": "alejandrokirk-tor",
@@ -7514,7 +8304,9 @@ const SEED_PLAYERS = [
     "HR": 14.2,
     "XBH": 19.2,
     "RP": 95.1,
-    "SB": 1
+    "SB": 1,
+    "csRosA": 4.7,
+    "csRosS": 4.5
   },
   {
     "id": "shanebieber-tor",
@@ -7532,7 +8324,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 115.0,
     "ERA": 3.74,
-    "WHIP": 1.21
+    "WHIP": 1.21,
+    "csRosA": 9.3,
+    "csRosS": 6.8
   },
   {
     "id": "wilyerabreu-bos",
@@ -7550,7 +8344,9 @@ const SEED_PLAYERS = [
     "HR": 17.9,
     "XBH": 21.5,
     "RP": 93.7,
-    "SB": 7.1
+    "SB": 7.1,
+    "csRosA": 7.1,
+    "csRosS": 6.7
   },
   {
     "id": "brooksraley-nym",
@@ -7568,7 +8364,9 @@ const SEED_PLAYERS = [
     "SVH": 15.0,
     "K": 60.0,
     "ERA": 3.82,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 2.6,
+    "csRosS": 2.7
   },
   {
     "id": "seranthonydomnguez-chw",
@@ -7586,7 +8384,9 @@ const SEED_PLAYERS = [
     "SVH": 25.0,
     "K": 71.0,
     "ERA": 3.83,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 3.1,
+    "csRosS": 3.1
   },
   {
     "id": "colesands-min",
@@ -7605,7 +8405,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 68,
     "ERA": 3.92,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 5.6,
+    "csRosS": 4.0
   },
   {
     "id": "rynenelson-ari",
@@ -7624,7 +8426,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 136.0,
     "ERA": 4.32,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 8.9,
+    "csRosS": 6.7
   },
   {
     "id": "markvientos-nym",
@@ -7642,7 +8446,9 @@ const SEED_PLAYERS = [
     "HR": 20.4,
     "XBH": 19.1,
     "RP": 92.9,
-    "SB": 1.1
+    "SB": 1.1,
+    "csRosA": 6.1,
+    "csRosS": 5.8
   },
   {
     "id": "andrewabbott-cin",
@@ -7660,7 +8466,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 157.0,
     "ERA": 4.54,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 9.3,
+    "csRosS": 6.8
   },
   {
     "id": "shawnarmstrong-cle",
@@ -7678,7 +8486,9 @@ const SEED_PLAYERS = [
     "SVH": 20.0,
     "K": 68.0,
     "ERA": 3.91,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 2.3,
+    "csRosS": 2.4
   },
   {
     "id": "joeyortiz-mil",
@@ -7696,7 +8506,9 @@ const SEED_PLAYERS = [
     "HR": 10,
     "XBH": 25.4,
     "RP": 92.4,
-    "SB": 12.0
+    "SB": 12.0,
+    "csRosA": 5.6,
+    "csRosS": 5.3
   },
   {
     "id": "stevenmatz-tb",
@@ -7714,7 +8526,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 116.0,
     "ERA": 4.06,
-    "WHIP": 1.28
+    "WHIP": 1.28,
+    "csRosA": 4.2,
+    "csRosS": 4.5
   },
   {
     "id": "euryprez-mia",
@@ -7732,7 +8546,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 171.0,
     "ERA": 4.0,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 10.9,
+    "csRosS": 7.4
   },
   {
     "id": "nolanmclean-nym",
@@ -7750,7 +8566,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 141.0,
     "ERA": 3.71,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 13.6,
+    "csRosS": 9.4
   },
   {
     "id": "eduardbazardo-sea",
@@ -7768,7 +8586,9 @@ const SEED_PLAYERS = [
     "SVH": 15.0,
     "K": 70.0,
     "ERA": 3.71,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 2.6,
+    "csRosS": 2.7
   },
   {
     "id": "mickeymoniak-col",
@@ -7786,7 +8606,9 @@ const SEED_PLAYERS = [
     "HR": 16.7,
     "XBH": 21.5,
     "RP": 86.4,
-    "SB": 7.3
+    "SB": 7.3,
+    "csRosA": 7.3,
+    "csRosS": 6.9
   },
   {
     "id": "reynaldolpez-atl",
@@ -7804,7 +8626,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 152.0,
     "ERA": 4.06,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 8.7,
+    "csRosS": 6.1
   },
   {
     "id": "sandyalcantara-mia",
@@ -7822,7 +8646,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 158.0,
     "ERA": 4.16,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 12.2,
+    "csRosS": 9.2
   },
   {
     "id": "seanmanaea-nym",
@@ -7840,7 +8666,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 131.0,
     "ERA": 3.82,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 9.6,
+    "csRosS": 6.6
   },
   {
     "id": "zachmckinstry-det",
@@ -7860,7 +8688,9 @@ const SEED_PLAYERS = [
     "HR": 6.3,
     "XBH": 16.4,
     "RP": 59.0,
-    "SB": 10.1
+    "SB": 10.1,
+    "csRosA": 3.9,
+    "csRosS": 3.7
   },
   {
     "id": "carlosestvez-kc",
@@ -7878,7 +8708,9 @@ const SEED_PLAYERS = [
     "SVH": 31.0,
     "K": 58.0,
     "ERA": 4.4,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 0.8,
+    "csRosS": 0.8
   },
   {
     "id": "stevenokert-hou",
@@ -7896,7 +8728,9 @@ const SEED_PLAYERS = [
     "SVH": 14.0,
     "K": 71.0,
     "ERA": 3.98,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 2.1,
+    "csRosS": 2.1
   },
   {
     "id": "noelvimarte-cin",
@@ -7915,7 +8749,9 @@ const SEED_PLAYERS = [
     "HR": 12.9,
     "XBH": 18.1,
     "RP": 76.7,
-    "SB": 10.5
+    "SB": 10.5,
+    "csRosA": 3.2,
+    "csRosS": 3.0
   },
   {
     "id": "yimigarca-tor",
@@ -7933,7 +8769,9 @@ const SEED_PLAYERS = [
     "SVH": 15,
     "K": 63.0,
     "ERA": 3.56,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 2.0,
+    "csRosS": 2.0
   },
   {
     "id": "lucaserceg-kc",
@@ -7951,7 +8789,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 65.0,
     "ERA": 3.65,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 3.1,
+    "csRosS": 3.2
   },
   {
     "id": "brandonlowe-pit",
@@ -7969,7 +8809,9 @@ const SEED_PLAYERS = [
     "HR": 21.9,
     "XBH": 21.3,
     "RP": 104.2,
-    "SB": 4.1
+    "SB": 4.1,
+    "csRosA": 7.8,
+    "csRosS": 7.3
   },
   {
     "id": "robbieray-sf",
@@ -7987,7 +8829,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 188.0,
     "ERA": 4.2,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 12.1,
+    "csRosS": 8.5
   },
   {
     "id": "joshlowe-laa",
@@ -8005,7 +8849,9 @@ const SEED_PLAYERS = [
     "HR": 13.1,
     "XBH": 21.7,
     "RP": 82.2,
-    "SB": 17.5
+    "SB": 17.5,
+    "csRosA": 5.3,
+    "csRosS": 5.0
   },
   {
     "id": "joshjung-tex",
@@ -8023,7 +8869,9 @@ const SEED_PLAYERS = [
     "HR": 15.5,
     "XBH": 20.8,
     "RP": 84.9,
-    "SB": 3.6
+    "SB": 3.6,
+    "csRosA": 7.3,
+    "csRosS": 6.8
   },
   {
     "id": "daultonvarsho-tor",
@@ -8041,7 +8889,9 @@ const SEED_PLAYERS = [
     "HR": 22.6,
     "XBH": 24.1,
     "RP": 108.7,
-    "SB": 7.1
+    "SB": 7.1,
+    "csRosA": 7.0,
+    "csRosS": 6.6
   },
   {
     "id": "mattsvanson-stl",
@@ -8059,7 +8909,9 @@ const SEED_PLAYERS = [
     "SVH": 21.0,
     "K": 59.0,
     "ERA": 3.84,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 1.8,
+    "csRosS": 1.9
   },
   {
     "id": "jtrealmuto-phi",
@@ -8077,7 +8929,9 @@ const SEED_PLAYERS = [
     "HR": 11.5,
     "XBH": 19.0,
     "RP": 77.0,
-    "SB": 4.8
+    "SB": 4.8,
+    "csRosA": 5.1,
+    "csRosS": 4.8
   },
   {
     "id": "rileyobrien-stl",
@@ -8095,7 +8949,9 @@ const SEED_PLAYERS = [
     "SVH": 23.0,
     "K": 64.0,
     "ERA": 3.54,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 3.6,
+    "csRosS": 3.7
   },
   {
     "id": "jossoriano-laa",
@@ -8113,7 +8969,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 165.0,
     "ERA": 3.68,
-    "WHIP": 1.38
+    "WHIP": 1.38,
+    "csRosA": 13.6,
+    "csRosS": 9.6
   },
   {
     "id": "baileyober-min",
@@ -8131,7 +8989,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 145.0,
     "ERA": 4.4,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 10.2,
+    "csRosS": 7.5
   },
   {
     "id": "ryanthompson-ari",
@@ -8149,7 +9009,9 @@ const SEED_PLAYERS = [
     "SVH": 14.0,
     "K": 51.0,
     "ERA": 4.09,
-    "WHIP": 1.36
+    "WHIP": 1.36,
+    "csRosA": 2.1,
+    "csRosS": 2.3
   },
   {
     "id": "louisvarland-tor",
@@ -8167,7 +9029,9 @@ const SEED_PLAYERS = [
     "SVH": 15.0,
     "K": 69.0,
     "ERA": 3.38,
-    "WHIP": 1.17
+    "WHIP": 1.17,
+    "csRosA": 3.3,
+    "csRosS": 3.4
   },
   {
     "id": "brycemiller-sea",
@@ -8185,7 +9049,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 127.0,
     "ERA": 4.2,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 8.9,
+    "csRosS": 6.4
   },
   {
     "id": "ryanjeffers-min",
@@ -8203,7 +9069,9 @@ const SEED_PLAYERS = [
     "HR": 15.4,
     "XBH": 21.8,
     "RP": 90.5,
-    "SB": 2.4
+    "SB": 2.4,
+    "csRosA": 6.8,
+    "csRosS": 6.4
   },
   {
     "id": "jacobmisiorowski-mil",
@@ -8221,7 +9089,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 156.0,
     "ERA": 4.11,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 13.5,
+    "csRosS": 8.8
   },
   {
     "id": "claytonbeeter-wsn",
@@ -8239,7 +9109,9 @@ const SEED_PLAYERS = [
     "SVH": 25.0,
     "K": 70.0,
     "ERA": 3.78,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 2.5,
+    "csRosS": 2.6
   },
   {
     "id": "nolangorman-stl",
@@ -8258,7 +9130,9 @@ const SEED_PLAYERS = [
     "HR": 19.8,
     "XBH": 15.7,
     "RP": 86.9,
-    "SB": 3.4
+    "SB": 3.4,
+    "csRosA": 6.4,
+    "csRosS": 6.1
   },
   {
     "id": "justinsteele-chc",
@@ -8276,7 +9150,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 79.0,
     "ERA": 3.63,
-    "WHIP": 1.22
+    "WHIP": 1.22,
+    "csRosA": 5.5,
+    "csRosS": 3.9
   },
   {
     "id": "jjwetherholt-stl",
@@ -8295,7 +9171,9 @@ const SEED_PLAYERS = [
     "HR": 11.5,
     "XBH": 23.2,
     "RP": 96.2,
-    "SB": 11.6
+    "SB": 11.6,
+    "csRosA": 9.1,
+    "csRosS": 8.6
   },
   {
     "id": "colsonmontgomery-chw",
@@ -8314,7 +9192,9 @@ const SEED_PLAYERS = [
     "HR": 23.6,
     "XBH": 19.3,
     "RP": 104.7,
-    "SB": 2.9
+    "SB": 2.9,
+    "csRosA": 7.0,
+    "csRosS": 6.6
   },
   {
     "id": "larsnootbaar-stl",
@@ -8332,7 +9212,9 @@ const SEED_PLAYERS = [
     "HR": 13.6,
     "XBH": 20.0,
     "RP": 88.5,
-    "SB": 6.3
+    "SB": 6.3,
+    "csRosA": 5.1,
+    "csRosS": 4.8
   },
   {
     "id": "coltoncowser-bal",
@@ -8350,7 +9232,9 @@ const SEED_PLAYERS = [
     "HR": 15.7,
     "XBH": 16.9,
     "RP": 81.4,
-    "SB": 9.6
+    "SB": 9.6,
+    "csRosA": 4.0,
+    "csRosS": 3.8
   },
   {
     "id": "kyleteel-chw",
@@ -8368,7 +9252,9 @@ const SEED_PLAYERS = [
     "HR": 8.5,
     "XBH": 12.3,
     "RP": 59.5,
-    "SB": 4.0
+    "SB": 4.0,
+    "csRosA": 3.7,
+    "csRosS": 3.4
   },
   {
     "id": "samuelbasallo-bal",
@@ -8386,7 +9272,9 @@ const SEED_PLAYERS = [
     "HR": 16.0,
     "XBH": 15.8,
     "RP": 73.3,
-    "SB": 2.3
+    "SB": 2.3,
+    "csRosA": 5.9,
+    "csRosS": 5.6
   },
   {
     "id": "justincrawford-phi",
@@ -8404,7 +9292,9 @@ const SEED_PLAYERS = [
     "HR": 5.5,
     "XBH": 17.7,
     "RP": 71.7,
-    "SB": 18.1
+    "SB": 18.1,
+    "csRosA": 5.9,
+    "csRosS": 5.5
   },
   {
     "id": "jpcrawford-sea",
@@ -8422,7 +9312,9 @@ const SEED_PLAYERS = [
     "HR": 9.7,
     "XBH": 21.2,
     "RP": 92.6,
-    "SB": 4.8
+    "SB": 4.8,
+    "csRosA": 7.3,
+    "csRosS": 6.8
   },
   {
     "id": "gregorysoto-pit",
@@ -8440,7 +9332,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 69.0,
     "ERA": 3.57,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 3.3,
+    "csRosS": 3.4
   },
   {
     "id": "zacheflin-bal",
@@ -8458,7 +9352,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 122.0,
     "ERA": 4.32,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "keeganakin-bal",
@@ -8477,7 +9373,9 @@ const SEED_PLAYERS = [
     "SVH": 18,
     "K": 68.0,
     "ERA": 3.91,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 5.0,
+    "csRosS": 3.6
   },
   {
     "id": "jakobjunis-tex",
@@ -8495,7 +9393,9 @@ const SEED_PLAYERS = [
     "SVH": 14.0,
     "K": 58.0,
     "ERA": 4.1,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 2.5,
+    "csRosS": 2.7
   },
   {
     "id": "kirbyyates-laa",
@@ -8513,7 +9413,9 @@ const SEED_PLAYERS = [
     "SVH": 5.0,
     "K": 57.0,
     "ERA": 3.9,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 2.6,
+    "csRosS": 2.6
   },
   {
     "id": "bradyhouse-wsn",
@@ -8531,7 +9433,9 @@ const SEED_PLAYERS = [
     "HR": 12.6,
     "XBH": 19.6,
     "RP": 77.0,
-    "SB": 4.9
+    "SB": 4.9,
+    "csRosA": 6.1,
+    "csRosS": 5.7
   },
   {
     "id": "jordanleasure-chw",
@@ -8549,7 +9453,9 @@ const SEED_PLAYERS = [
     "SVH": 16.0,
     "K": 71.0,
     "ERA": 3.96,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 1.4,
+    "csRosS": 1.4
   },
   {
     "id": "blaketreinen-lad",
@@ -8567,7 +9473,9 @@ const SEED_PLAYERS = [
     "SVH": 12.0,
     "K": 60.0,
     "ERA": 3.79,
-    "WHIP": 1.26
+    "WHIP": 1.26,
+    "csRosA": 2.7,
+    "csRosS": 2.8
   },
   {
     "id": "edouardjulien-col",
@@ -8586,7 +9494,9 @@ const SEED_PLAYERS = [
     "HR": 7.8,
     "XBH": 12.2,
     "RP": 55.8,
-    "SB": 3.8
+    "SB": 3.8,
+    "csRosA": 5.6,
+    "csRosS": 5.3
   },
   {
     "id": "brayanrocchio-cle",
@@ -8605,7 +9515,9 @@ const SEED_PLAYERS = [
     "HR": 8.4,
     "XBH": 20.5,
     "RP": 74.2,
-    "SB": 10.2
+    "SB": 10.2,
+    "csRosA": 5.6,
+    "csRosS": 5.3
   },
   {
     "id": "davidpeterson-nym",
@@ -8623,7 +9535,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 150.0,
     "ERA": 3.65,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 8.8,
+    "csRosS": 6.4
   },
   {
     "id": "chasemeidroth-chw",
@@ -8642,7 +9556,9 @@ const SEED_PLAYERS = [
     "HR": 8.3,
     "XBH": 19.3,
     "RP": 90.8,
-    "SB": 12.0
+    "SB": 12.0,
+    "csRosA": 6.7,
+    "csRosS": 6.4
   },
   {
     "id": "brandonmarsh-phi",
@@ -8660,7 +9576,9 @@ const SEED_PLAYERS = [
     "HR": 10.9,
     "XBH": 20.7,
     "RP": 80.3,
-    "SB": 8.6
+    "SB": 8.6,
+    "csRosA": 6.4,
+    "csRosS": 6.0
   },
   {
     "id": "andrewnardi-mia",
@@ -8678,7 +9596,9 @@ const SEED_PLAYERS = [
     "SVH": 12,
     "K": 71.0,
     "ERA": 3.56,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 2.2,
+    "csRosS": 2.2
   },
   {
     "id": "maxmuncylad-lad",
@@ -8696,7 +9616,9 @@ const SEED_PLAYERS = [
     "HR": 16.2,
     "XBH": 12.4,
     "RP": 74.3,
-    "SB": 2.2
+    "SB": 2.2,
+    "csRosA": 6.1,
+    "csRosS": 5.7
   },
   {
     "id": "kevinginkel-ari",
@@ -8714,7 +9636,9 @@ const SEED_PLAYERS = [
     "SVH": 13.0,
     "K": 61.0,
     "ERA": 3.79,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 2.5,
+    "csRosS": 2.6
   },
   {
     "id": "brandonpfaadt-ari",
@@ -8732,7 +9656,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 142.0,
     "ERA": 4.31,
-    "WHIP": 1.28
+    "WHIP": 1.28,
+    "csRosA": 8.3,
+    "csRosS": 6.3
   },
   {
     "id": "caseymize-det",
@@ -8750,7 +9676,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 133,
     "ERA": 4.06,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 10.1,
+    "csRosS": 7.3
   },
   {
     "id": "joshsmith-tex",
@@ -8769,7 +9697,9 @@ const SEED_PLAYERS = [
     "HR": 10.1,
     "XBH": 22,
     "RP": 91.1,
-    "SB": 8.3
+    "SB": 8.3,
+    "csRosA": 4.7,
+    "csRosS": 4.4
   },
   {
     "id": "loganhenderson-mil",
@@ -8787,7 +9717,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 97,
     "ERA": 4.17,
-    "WHIP": 1.23
+    "WHIP": 1.23,
+    "csRosA": 8.3,
+    "csRosS": 5.7
   },
   {
     "id": "jaccaglianone-kc",
@@ -8805,7 +9737,9 @@ const SEED_PLAYERS = [
     "HR": 16.9,
     "XBH": 18.2,
     "RP": 84.5,
-    "SB": 2.3
+    "SB": 2.3,
+    "csRosA": 6.6,
+    "csRosS": 6.3
   },
   {
     "id": "austinwells-nyy",
@@ -8823,7 +9757,9 @@ const SEED_PLAYERS = [
     "HR": 16.1,
     "XBH": 17.4,
     "RP": 79.2,
-    "SB": 4.5
+    "SB": 4.5,
+    "csRosA": 5.3,
+    "csRosS": 5.0
   },
   {
     "id": "ryanmcmahon-nyy",
@@ -8841,7 +9777,9 @@ const SEED_PLAYERS = [
     "HR": 13.9,
     "XBH": 15,
     "RP": 76.5,
-    "SB": 2.9
+    "SB": 2.9,
+    "csRosA": 4.3,
+    "csRosS": 4.1
   },
   {
     "id": "jaredtriolo-pit",
@@ -8862,7 +9800,9 @@ const SEED_PLAYERS = [
     "HR": 7.6,
     "XBH": 18.8,
     "RP": 74.3,
-    "SB": 10.6
+    "SB": 10.6,
+    "csRosA": 3.5,
+    "csRosS": 3.3
   },
   {
     "id": "gabrielmoreno-ari",
@@ -8880,7 +9820,9 @@ const SEED_PLAYERS = [
     "HR": 10.1,
     "XBH": 20.4,
     "RP": 85.0,
-    "SB": 4
+    "SB": 4,
+    "csRosA": 5.6,
+    "csRosS": 5.3
   },
   {
     "id": "mattwallner-min",
@@ -8898,7 +9840,9 @@ const SEED_PLAYERS = [
     "HR": 18.6,
     "XBH": 19.5,
     "RP": 89.1,
-    "SB": 4.3
+    "SB": 4.3,
+    "csRosA": 5.6,
+    "csRosS": 5.3
   },
   {
     "id": "dylanbeavers-bal",
@@ -8916,7 +9860,9 @@ const SEED_PLAYERS = [
     "HR": 8.2,
     "XBH": 12.2,
     "RP": 56.6,
-    "SB": 7.4
+    "SB": 7.4,
+    "csRosA": 4.4,
+    "csRosS": 4.1
   },
   {
     "id": "ajpuk-ari",
@@ -8934,7 +9880,9 @@ const SEED_PLAYERS = [
     "SVH": 7.0,
     "K": 48.0,
     "ERA": 3.46,
-    "WHIP": 1.2
+    "WHIP": 1.2,
+    "csRosA": 2.0,
+    "csRosS": 2.1
   },
   {
     "id": "erikmiller-sf",
@@ -8952,7 +9900,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 71.0,
     "ERA": 3.45,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 2.6,
+    "csRosS": 2.6
   },
   {
     "id": "tonysantillan-cin",
@@ -8970,7 +9920,9 @@ const SEED_PLAYERS = [
     "SVH": 17.0,
     "K": 74.0,
     "ERA": 4.3,
-    "WHIP": 1.36
+    "WHIP": 1.36,
+    "csRosA": 2.6,
+    "csRosS": 2.6
   },
   {
     "id": "angelzerpa-mil",
@@ -8988,7 +9940,9 @@ const SEED_PLAYERS = [
     "SVH": 12,
     "K": 59.0,
     "ERA": 3.46,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "trentgrisham-nyy",
@@ -9006,7 +9960,9 @@ const SEED_PLAYERS = [
     "HR": 20.1,
     "XBH": 17.3,
     "RP": 96.3,
-    "SB": 5.3
+    "SB": 5.3,
+    "csRosA": 7.3,
+    "csRosS": 6.9
   },
   {
     "id": "justinsterner-ath",
@@ -9024,7 +9980,9 @@ const SEED_PLAYERS = [
     "SVH": 19.0,
     "K": 64.0,
     "ERA": 4.35,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 1.8,
+    "csRosS": 1.9
   },
   {
     "id": "kerrycarpenter-det",
@@ -9042,7 +10000,9 @@ const SEED_PLAYERS = [
     "HR": 20.2,
     "XBH": 20.0,
     "RP": 90.6,
-    "SB": 2.7
+    "SB": 2.7,
+    "csRosA": 6.1,
+    "csRosS": 5.8
   },
   {
     "id": "chrisbassitt-bal",
@@ -9060,7 +10020,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 162.0,
     "ERA": 4.3,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 9.6,
+    "csRosS": 7.2
   },
   {
     "id": "yenniercano-bal",
@@ -9078,7 +10040,9 @@ const SEED_PLAYERS = [
     "SVH": 14.0,
     "K": 57.0,
     "ERA": 3.74,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 2.6,
+    "csRosS": 2.7
   },
   {
     "id": "graysonrodriguez-laa",
@@ -9096,7 +10060,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 126.0,
     "ERA": 3.82,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 7.6,
+    "csRosS": 5.3
   },
   {
     "id": "markleiterjr-ath",
@@ -9114,7 +10080,9 @@ const SEED_PLAYERS = [
     "SVH": 19,
     "K": 66.0,
     "ERA": 3.91,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 2.2,
+    "csRosS": 2.3
   },
   {
     "id": "miketrout-laa",
@@ -9132,7 +10100,9 @@ const SEED_PLAYERS = [
     "HR": 19.5,
     "XBH": 14.8,
     "RP": 87.6,
-    "SB": 2.6
+    "SB": 2.6,
+    "csRosA": 8.6,
+    "csRosS": 8.1
   },
   {
     "id": "johnschreiber-kc",
@@ -9150,7 +10120,9 @@ const SEED_PLAYERS = [
     "SVH": 15.0,
     "K": 59.0,
     "ERA": 4.13,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 2.0,
+    "csRosS": 2.2
   },
   {
     "id": "jordanlawlar-ari",
@@ -9168,7 +10140,9 @@ const SEED_PLAYERS = [
     "HR": 8.0,
     "XBH": 20.3,
     "RP": 73.0,
-    "SB": 13.4
+    "SB": 13.4,
+    "csRosA": 3.3,
+    "csRosS": 3.2
   },
   {
     "id": "fostergriffin-wsn",
@@ -9186,7 +10160,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 121.0,
     "ERA": 3.93,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 11.0,
+    "csRosS": 8.0
   },
   {
     "id": "trevorrogers-bal",
@@ -9204,7 +10180,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 135.0,
     "ERA": 4.2,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 10.2,
+    "csRosS": 7.5
   },
   {
     "id": "braxtongarrett-mia",
@@ -9222,7 +10200,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 102.0,
     "ERA": 3.84,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 6.8,
+    "csRosS": 5.0
   },
   {
     "id": "cadehorton-chc",
@@ -9240,7 +10220,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 117,
     "ERA": 4.33,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 0.1,
+    "csRosS": 0.1
   },
   {
     "id": "franciscoalvarez-nym",
@@ -9258,7 +10240,9 @@ const SEED_PLAYERS = [
     "HR": 18.2,
     "XBH": 14.3,
     "RP": 79.6,
-    "SB": 1.9
+    "SB": 1.9,
+    "csRosA": 5.7,
+    "csRosS": 5.4
   },
   {
     "id": "ramonlaureano-sd",
@@ -9276,7 +10260,9 @@ const SEED_PLAYERS = [
     "HR": 15.8,
     "XBH": 20.3,
     "RP": 84.0,
-    "SB": 6.7
+    "SB": 6.7,
+    "csRosA": 6.8,
+    "csRosS": 6.4
   },
   {
     "id": "jordanwalker-stl",
@@ -9294,7 +10280,9 @@ const SEED_PLAYERS = [
     "HR": 13.1,
     "XBH": 21.6,
     "RP": 82.6,
-    "SB": 8.3
+    "SB": 8.3,
+    "csRosA": 7.5,
+    "csRosS": 7.1
   },
   {
     "id": "brettbaty-nym",
@@ -9312,7 +10300,9 @@ const SEED_PLAYERS = [
     "HR": 13.5,
     "XBH": 13.9,
     "RP": 70.8,
-    "SB": 3.8
+    "SB": 3.8,
+    "csRosA": 4.6,
+    "csRosS": 4.4
   },
   {
     "id": "taylorrogers-min",
@@ -9330,7 +10320,9 @@ const SEED_PLAYERS = [
     "SVH": 25,
     "K": 64,
     "ERA": 3.94,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 2.3,
+    "csRosS": 2.4
   },
   {
     "id": "mitchkeller-pit",
@@ -9348,7 +10340,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 156,
     "ERA": 4.35,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 11.4,
+    "csRosS": 8.5
   },
   {
     "id": "dustinmay-stl",
@@ -9366,7 +10360,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 148,
     "ERA": 4.22,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 10.4,
+    "csRosS": 7.7
   },
   {
     "id": "bradysinger-cin",
@@ -9384,7 +10380,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 166,
     "ERA": 4.37,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 10.0,
+    "csRosS": 7.5
   },
   {
     "id": "mikeburrows-hou",
@@ -9402,7 +10400,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 142,
     "ERA": 4.24,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 9.5,
+    "csRosS": 6.8
   },
   {
     "id": "ryanweathers-nyy",
@@ -9420,7 +10420,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 122,
     "ERA": 3.84,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 8.6,
+    "csRosS": 6.0
   },
   {
     "id": "jaredjones-pit",
@@ -9438,7 +10440,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 113,
     "ERA": 3.83,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 9.4,
+    "csRosS": 6.6
   },
   {
     "id": "brookslee-min",
@@ -9457,7 +10461,9 @@ const SEED_PLAYERS = [
     "HR": 13.1,
     "XBH": 20.5,
     "RP": 85.8,
-    "SB": 4.0
+    "SB": 4.0,
+    "csRosA": 6.0,
+    "csRosS": 5.7
   },
   {
     "id": "bonaylor-cle",
@@ -9475,7 +10481,9 @@ const SEED_PLAYERS = [
     "HR": 15.6,
     "XBH": 17.8,
     "RP": 78.5,
-    "SB": 4.3
+    "SB": 4.3,
+    "csRosA": 4.1,
+    "csRosS": 3.8
   },
   {
     "id": "cedricmullins-tb",
@@ -9493,7 +10501,9 @@ const SEED_PLAYERS = [
     "HR": 12,
     "XBH": 19.4,
     "RP": 78.9,
-    "SB": 16.6
+    "SB": 16.6,
+    "csRosA": 4.5,
+    "csRosS": 4.2
   },
   {
     "id": "victorscottii-stl",
@@ -9511,7 +10521,9 @@ const SEED_PLAYERS = [
     "HR": 6.6,
     "XBH": 16.9,
     "RP": 74.9,
-    "SB": 26.2
+    "SB": 26.2,
+    "csRosA": 4.3,
+    "csRosS": 4.1
   },
   {
     "id": "yuseikikuchi-laa",
@@ -9529,7 +10541,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 182,
     "ERA": 4.11,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 6.0,
+    "csRosS": 4.2
   },
   {
     "id": "shanebaz-bal",
@@ -9547,7 +10561,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 156,
     "ERA": 4.29,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 10.3,
+    "csRosS": 7.5
   },
   {
     "id": "sladececconi-cle",
@@ -9565,7 +10581,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 132,
     "ERA": 4.52,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 8.0,
+    "csRosS": 6.1
   },
   {
     "id": "parkermessick-cle",
@@ -9583,7 +10601,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 123.0,
     "ERA": 4.08,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 11.3,
+    "csRosS": 8.0
   },
   {
     "id": "evancarter-tex",
@@ -9601,7 +10621,9 @@ const SEED_PLAYERS = [
     "HR": 10.3,
     "XBH": 18.2,
     "RP": 74.6,
-    "SB": 13.5
+    "SB": 13.5,
+    "csRosA": 6.3,
+    "csRosS": 6.0
   },
   {
     "id": "lourdesgurrieljr-ari",
@@ -9619,7 +10641,9 @@ const SEED_PLAYERS = [
     "HR": 12.5,
     "XBH": 20.2,
     "RP": 83.0,
-    "SB": 5.7
+    "SB": 5.7,
+    "csRosA": 7.2,
+    "csRosS": 6.8
   },
   {
     "id": "kebryanhayes-cin",
@@ -9637,7 +10661,9 @@ const SEED_PLAYERS = [
     "HR": 8.5,
     "XBH": 18.9,
     "RP": 78.4,
-    "SB": 9.1
+    "SB": 9.1,
+    "csRosA": 5.2,
+    "csRosS": 4.9
   },
   {
     "id": "tommyedman-lad",
@@ -9655,7 +10681,9 @@ const SEED_PLAYERS = [
     "HR": 9.3,
     "XBH": 15.8,
     "RP": 66.3,
-    "SB": 5.6
+    "SB": 5.6,
+    "csRosA": 4.0,
+    "csRosS": 3.8
   },
   {
     "id": "isaaccollins-kc",
@@ -9673,7 +10701,9 @@ const SEED_PLAYERS = [
     "HR": 7.3,
     "XBH": 18.5,
     "RP": 69.5,
-    "SB": 11.1
+    "SB": 11.1,
+    "csRosA": 5.4,
+    "csRosS": 5.1
   },
   {
     "id": "willwarren-nyy",
@@ -9691,7 +10721,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 131,
     "ERA": 4.02,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 10.3,
+    "csRosS": 7.3
   },
   {
     "id": "sethlugo-kc",
@@ -9709,7 +10741,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 138,
     "ERA": 4.49,
-    "WHIP": 1.36
+    "WHIP": 1.36,
+    "csRosA": 10.5,
+    "csRosS": 7.9
   },
   {
     "id": "camschlittler-nyy",
@@ -9727,7 +10761,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 121,
     "ERA": 4.01,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 10.1,
+    "csRosS": 7.0
   },
   {
     "id": "lanethomas-kc",
@@ -9745,7 +10781,9 @@ const SEED_PLAYERS = [
     "HR": 12.9,
     "XBH": 20.5,
     "RP": 83.5,
-    "SB": 14.5
+    "SB": 14.5,
+    "csRosA": 5.0,
+    "csRosS": 4.7
   },
   {
     "id": "jesussanchez-tor",
@@ -9763,7 +10801,9 @@ const SEED_PLAYERS = [
     "HR": 13.1,
     "XBH": 18.5,
     "RP": 75.8,
-    "SB": 8.2
+    "SB": 8.2,
+    "csRosA": 5.4,
+    "csRosS": 5.1
   },
   {
     "id": "mikeyastrzemski-atl",
@@ -9781,7 +10821,9 @@ const SEED_PLAYERS = [
     "HR": 13.5,
     "XBH": 17.3,
     "RP": 76.9,
-    "SB": 4.0
+    "SB": 4.0,
+    "csRosA": 5.0,
+    "csRosS": 4.7
   },
   {
     "id": "tylerstephenson-cin",
@@ -9799,7 +10841,9 @@ const SEED_PLAYERS = [
     "HR": 12.5,
     "XBH": 17.3,
     "RP": 73.6,
-    "SB": 1.4
+    "SB": 1.4,
+    "csRosA": 5.0,
+    "csRosS": 4.7
   },
   {
     "id": "kodaisenga-nym",
@@ -9817,7 +10861,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 138.0,
     "ERA": 3.92,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 6.7,
+    "csRosS": 4.6
   },
   {
     "id": "maxmeyer-mia",
@@ -9835,7 +10881,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 137,
     "ERA": 4.05,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 10.9,
+    "csRosS": 7.8
   },
   {
     "id": "noahcameron-kc",
@@ -9853,7 +10901,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 122,
     "ERA": 4.31,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 8.6,
+    "csRosS": 6.4
   },
   {
     "id": "landenroupp-sf",
@@ -9871,7 +10921,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 122.0,
     "ERA": 4.09,
-    "WHIP": 1.37
+    "WHIP": 1.37,
+    "csRosA": 10.7,
+    "csRosS": 7.7
   },
   {
     "id": "grantholmes-atl",
@@ -9889,7 +10941,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 143.0,
     "ERA": 4.26,
-    "WHIP": 1.36
+    "WHIP": 1.36,
+    "csRosA": 8.7,
+    "csRosS": 6.3
   },
   {
     "id": "tajbradley-min",
@@ -9907,7 +10961,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 142.0,
     "ERA": 4.23,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 10.4,
+    "csRosS": 7.4
   },
   {
     "id": "justinverlander-det",
@@ -9925,7 +10981,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 120,
     "ERA": 4.37,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 8.0,
+    "csRosS": 5.9
   },
   {
     "id": "harrisonbader-sf",
@@ -9943,7 +11001,9 @@ const SEED_PLAYERS = [
     "HR": 10.6,
     "XBH": 18.0,
     "RP": 75.5,
-    "SB": 11.0
+    "SB": 11.0,
+    "csRosA": 4.1,
+    "csRosS": 3.8
   },
   {
     "id": "trevorlarnach-min",
@@ -9962,7 +11022,9 @@ const SEED_PLAYERS = [
     "HR": 12.8,
     "XBH": 17.2,
     "RP": 75.4,
-    "SB": 3.8
+    "SB": 3.8,
+    "csRosA": 5.5,
+    "csRosS": 5.2
   },
   {
     "id": "pavinsmith-ari",
@@ -9981,7 +11043,9 @@ const SEED_PLAYERS = [
     "HR": 10.1,
     "XBH": 16.5,
     "RP": 69.0,
-    "SB": 3.0
+    "SB": 3.0,
+    "csRosA": 2.4,
+    "csRosS": 2.3
   },
   {
     "id": "victorvodnik-col",
@@ -9999,7 +11063,9 @@ const SEED_PLAYERS = [
     "SVH": 27,
     "K": 63,
     "ERA": 4.4,
-    "WHIP": 1.48
+    "WHIP": 1.48,
+    "csRosA": 2.7,
+    "csRosS": 3.0
   },
   {
     "id": "hoganharris-ath",
@@ -10017,7 +11083,9 @@ const SEED_PLAYERS = [
     "SVH": 21.0,
     "K": 64,
     "ERA": 4.15,
-    "WHIP": 1.37
+    "WHIP": 1.37,
+    "csRosA": 2.5,
+    "csRosS": 2.6
   },
   {
     "id": "bubbachandler-pit",
@@ -10035,7 +11103,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 148,
     "ERA": 4.3,
-    "WHIP": 1.36
+    "WHIP": 1.36,
+    "csRosA": 9.5,
+    "csRosS": 6.9
   },
   {
     "id": "brayanbello-bos",
@@ -10053,7 +11123,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 130,
     "ERA": 4.41,
-    "WHIP": 1.4
+    "WHIP": 1.4,
+    "csRosA": 8.4,
+    "csRosS": 6.5
   },
   {
     "id": "matthewliberatore-stl",
@@ -10071,7 +11143,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 130,
     "ERA": 4.33,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 9.2,
+    "csRosS": 6.9
   },
   {
     "id": "jackleiter-tex",
@@ -10089,7 +11163,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 145,
     "ERA": 4.52,
-    "WHIP": 1.37
+    "WHIP": 1.37,
+    "csRosA": 9.6,
+    "csRosS": 6.7
   },
   {
     "id": "andrewbenintendi-cws",
@@ -10107,7 +11183,9 @@ const SEED_PLAYERS = [
     "HR": 13.8,
     "XBH": 19,
     "RP": 84.7,
-    "SB": 2.8
+    "SB": 2.8,
+    "csRosA": 5.5,
+    "csRosS": 5.2
   },
   {
     "id": "edgarquero-cws",
@@ -10126,7 +11204,9 @@ const SEED_PLAYERS = [
     "HR": 8.8,
     "XBH": 16.1,
     "RP": 70.1,
-    "SB": 1.2
+    "SB": 1.2,
+    "csRosA": 4.2,
+    "csRosS": 3.9
   },
   {
     "id": "gavinsheets-sd",
@@ -10145,7 +11225,9 @@ const SEED_PLAYERS = [
     "HR": 12.7,
     "XBH": 18.7,
     "RP": 76.1,
-    "SB": 2.1
+    "SB": 2.1,
+    "csRosA": 5.6,
+    "csRosS": 5.3
   },
   {
     "id": "gavinlux-tb",
@@ -10163,7 +11245,9 @@ const SEED_PLAYERS = [
     "HR": 4.9,
     "XBH": 17.5,
     "RP": 60.7,
-    "SB": 1.8
+    "SB": 1.8,
+    "csRosA": 3.9,
+    "csRosS": 3.7
   },
   {
     "id": "jjbleday-cin",
@@ -10181,7 +11265,9 @@ const SEED_PLAYERS = [
     "HR": 10.7,
     "XBH": 12.6,
     "RP": 54.2,
-    "SB": 2.3
+    "SB": 2.3,
+    "csRosA": 5.3,
+    "csRosS": 5.0
   },
   {
     "id": "corbinburnes-ari",
@@ -10199,7 +11285,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 38,
     "ERA": 3.84,
-    "WHIP": 1.27
+    "WHIP": 1.27,
+    "csRosA": 2.8,
+    "csRosS": 2.1
   },
   {
     "id": "colehenry-wsh",
@@ -10217,7 +11305,9 @@ const SEED_PLAYERS = [
     "SVH": 23.0,
     "K": 59,
     "ERA": 4.71,
-    "WHIP": 1.46
+    "WHIP": 1.46,
+    "csRosA": 2.4,
+    "csRosS": 2.4
   },
   {
     "id": "kevinmcgonigle-det",
@@ -10235,7 +11325,9 @@ const SEED_PLAYERS = [
     "HR": 11.5,
     "XBH": 24.1,
     "RP": 85.5,
-    "SB": 8.1
+    "SB": 8.1,
+    "csRosA": 9.8,
+    "csRosS": 9.2
   },
   {
     "id": "jakemeyers-hou",
@@ -10253,7 +11345,9 @@ const SEED_PLAYERS = [
     "HR": 9,
     "XBH": 18.6,
     "RP": 78.0,
-    "SB": 11.4
+    "SB": 11.4,
+    "csRosA": 3.4,
+    "csRosS": 3.2
   },
   {
     "id": "loganohoppe-laa",
@@ -10271,7 +11365,9 @@ const SEED_PLAYERS = [
     "HR": 16.1,
     "XBH": 12.7,
     "RP": 72.2,
-    "SB": 2.5
+    "SB": 2.5,
+    "csRosA": 3.6,
+    "csRosS": 3.4
   },
   {
     "id": "nickcastellanos-sd",
@@ -10290,7 +11386,9 @@ const SEED_PLAYERS = [
     "HR": 12.2,
     "XBH": 17.8,
     "RP": 73.8,
-    "SB": 2.6
+    "SB": 2.6,
+    "csRosA": 2.9,
+    "csRosS": 2.7
   },
   {
     "id": "kyleharrison-mil",
@@ -10308,7 +11406,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 112.0,
     "ERA": 4.22,
-    "WHIP": 1.31
+    "WHIP": 1.31,
+    "csRosA": 9.6,
+    "csRosS": 6.6
   },
   {
     "id": "luisgil-nyy",
@@ -10326,7 +11426,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 96.0,
     "ERA": 4.25,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 2.7,
+    "csRosS": 1.9
   },
   {
     "id": "yoanmoncada-laa",
@@ -10344,7 +11446,9 @@ const SEED_PLAYERS = [
     "HR": 10.4,
     "XBH": 16.9,
     "RP": 67.8,
-    "SB": 1.2
+    "SB": 1.2,
+    "csRosA": 4.8,
+    "csRosS": 4.5
   },
   {
     "id": "haseongkim-atl",
@@ -10362,7 +11466,9 @@ const SEED_PLAYERS = [
     "HR": 8,
     "XBH": 15.5,
     "RP": 70.1,
-    "SB": 12.6
+    "SB": 12.6,
+    "csRosA": 5.9,
+    "csRosS": 5.5
   },
   {
     "id": "jorgesoler-laa",
@@ -10381,7 +11487,9 @@ const SEED_PLAYERS = [
     "HR": 19.5,
     "XBH": 18,
     "RP": 89.8,
-    "SB": 0.8
+    "SB": 0.8,
+    "csRosA": 6.4,
+    "csRosS": 6.0
   },
   {
     "id": "ryanweiss-hou",
@@ -10399,7 +11507,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 82.0,
     "ERA": 4.24,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 2.1,
+    "csRosS": 1.5
   },
   {
     "id": "cadecavalli-wsh",
@@ -10417,7 +11527,9 @@ const SEED_PLAYERS = [
     "SVH": 0,
     "K": 131,
     "ERA": 3.99,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 9.7,
+    "csRosS": 7.0
   },
   {
     "id": "kyleisbel-kc",
@@ -10435,7 +11547,9 @@ const SEED_PLAYERS = [
     "HR": 7.7,
     "XBH": 20.5,
     "RP": 74.2,
-    "SB": 7.8
+    "SB": 7.8,
+    "csRosA": 4.7,
+    "csRosS": 4.5
   },
   {
     "id": "jocpederson-tex",
@@ -10453,7 +11567,9 @@ const SEED_PLAYERS = [
     "HR": 14.7,
     "XBH": 12.5,
     "RP": 69.6,
-    "SB": 2.8
+    "SB": 2.8,
+    "csRosA": 5.4,
+    "csRosS": 5.1
   },
   {
     "id": "mickabel-min",
@@ -10471,7 +11587,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 121.0,
     "ERA": 4.62,
-    "WHIP": 1.45
+    "WHIP": 1.45,
+    "csRosA": 4.8,
+    "csRosS": 3.5
   },
   {
     "id": "tyleroneill-bal",
@@ -10489,7 +11607,9 @@ const SEED_PLAYERS = [
     "HR": 16.8,
     "XBH": 14.3,
     "RP": 80.0,
-    "SB": 3.7
+    "SB": 3.7,
+    "csRosA": 6.3,
+    "csRosS": 5.9
   },
   {
     "id": "andrewpainter-phi",
@@ -10507,7 +11627,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 98.0,
     "ERA": 4.66,
-    "WHIP": 1.4
+    "WHIP": 1.4,
+    "csRosA": 7.9,
+    "csRosS": 5.9
   },
   {
     "id": "giancarlostanton-nyy",
@@ -10526,7 +11648,9 @@ const SEED_PLAYERS = [
     "HR": 21,
     "XBH": 11.4,
     "RP": 77.0,
-    "SB": 0.7
+    "SB": 0.7,
+    "csRosA": 4.1,
+    "csRosS": 3.9
   },
   {
     "id": "freddyfermin-sd",
@@ -10544,7 +11668,9 @@ const SEED_PLAYERS = [
     "HR": 9.7,
     "XBH": 16.5,
     "RP": 73.7,
-    "SB": 3.3
+    "SB": 3.3,
+    "csRosA": 3.3,
+    "csRosS": 3.1
   },
   {
     "id": "spencerarrighetti-hou",
@@ -10562,7 +11688,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 84,
     "ERA": 4.55,
-    "WHIP": 1.37
+    "WHIP": 1.37,
+    "csRosA": 9.3,
+    "csRosS": 6.4
   },
   {
     "id": "anthonykay-cws",
@@ -10580,7 +11708,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 112.0,
     "ERA": 4.14,
-    "WHIP": 1.4
+    "WHIP": 1.4,
+    "csRosA": 6.9,
+    "csRosS": 5.3
   },
   {
     "id": "chasedelauter-cle",
@@ -10598,7 +11728,9 @@ const SEED_PLAYERS = [
     "HR": 13.5,
     "XBH": 23.4,
     "RP": 87.8,
-    "SB": 3.3
+    "SB": 3.3,
+    "csRosA": 8.1,
+    "csRosS": 7.6
   },
   {
     "id": "ianseymour-tb",
@@ -10617,7 +11749,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 107.0,
     "ERA": 4.03,
-    "WHIP": 1.24
+    "WHIP": 1.24,
+    "csRosA": 7.4,
+    "csRosS": 5.2
   },
   {
     "id": "emiliopagan-cin",
@@ -10635,7 +11769,9 @@ const SEED_PLAYERS = [
     "SVH": 31.0,
     "K": 73.0,
     "ERA": 4.14,
-    "WHIP": 1.25
+    "WHIP": 1.25,
+    "csRosA": 2.2,
+    "csRosS": 2.3
   },
   {
     "id": "shanesmith-cws",
@@ -10653,7 +11789,9 @@ const SEED_PLAYERS = [
     "SVH": 0.0,
     "K": 154.0,
     "ERA": 4.37,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 5.3,
+    "csRosS": 3.8
   },
   {
     "id": "michaelwacha-kc",
@@ -10671,7 +11809,9 @@ const SEED_PLAYERS = [
     "SVH": 0.0,
     "K": 135.0,
     "ERA": 4.5,
-    "WHIP": 1.33
+    "WHIP": 1.33,
+    "csRosA": 10.1,
+    "csRosS": 7.6
   },
   {
     "id": "chadpatrick-mil",
@@ -10689,7 +11829,9 @@ const SEED_PLAYERS = [
     "SVH": 0.0,
     "K": 133.0,
     "ERA": 4.47,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 8.0,
+    "csRosS": 5.8
   },
   {
     "id": "nickmartinez-tb",
@@ -10708,7 +11850,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 114,
     "ERA": 4.39,
-    "WHIP": 1.32
+    "WHIP": 1.32,
+    "csRosA": 9.7,
+    "csRosS": 7.4
   },
   {
     "id": "rokisasaki-lad",
@@ -10726,7 +11870,9 @@ const SEED_PLAYERS = [
     "SVH": 1.0,
     "K": 114.0,
     "ERA": 4.2,
-    "WHIP": 1.34
+    "WHIP": 1.34,
+    "csRosA": 6.9,
+    "csRosS": 4.9
   },
   {
     "id": "tylermahle-sf",
@@ -10744,7 +11890,9 @@ const SEED_PLAYERS = [
     "SVH": 0.0,
     "K": 126.0,
     "ERA": 4.17,
-    "WHIP": 1.3
+    "WHIP": 1.3,
+    "csRosA": 9.4,
+    "csRosS": 6.9
   },
   {
     "id": "bradkeller-phi",
@@ -10762,7 +11910,9 @@ const SEED_PLAYERS = [
     "SVH": 18.0,
     "K": 60.0,
     "ERA": 3.97,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 2.4,
+    "csRosS": 2.6
   },
   {
     "id": "brendonlittle-tor",
@@ -10780,7 +11930,9 @@ const SEED_PLAYERS = [
     "SVH": 10.0,
     "K": 57.0,
     "ERA": 3.37,
-    "WHIP": 1.38
+    "WHIP": 1.38,
+    "csRosA": 1.3,
+    "csRosS": 1.3
   },
   {
     "id": "jakemccarthy-col",
@@ -10798,7 +11950,9 @@ const SEED_PLAYERS = [
     "HR": 6.3,
     "XBH": 16.7,
     "RP": 63.7,
-    "SB": 11.9
+    "SB": 11.9,
+    "csRosA": 3.5,
+    "csRosS": 3.3
   },
   {
     "id": "jassondominguez-nyy",
@@ -10816,7 +11970,9 @@ const SEED_PLAYERS = [
     "HR": 3.3,
     "XBH": 4.6,
     "RP": 21.3,
-    "SB": 4.5
+    "SB": 4.5,
+    "csRosA": 3.9,
+    "csRosS": 3.7
   },
   {
     "id": "marcelomayer-bos",
@@ -10835,7 +11991,9 @@ const SEED_PLAYERS = [
     "HR": 10.2,
     "XBH": 20.7,
     "RP": 69.6,
-    "SB": 4.3
+    "SB": 4.3,
+    "csRosA": 4.9,
+    "csRosS": 4.7
   },
   {
     "id": "camsmith-hou",
@@ -10853,7 +12011,9 @@ const SEED_PLAYERS = [
     "HR": 10.4,
     "XBH": 19.7,
     "RP": 76.4,
-    "SB": 5.8
+    "SB": 5.8,
+    "csRosA": 6.2,
+    "csRosS": 5.9
   },
   {
     "id": "josecaballero-nyy",
@@ -10872,7 +12032,9 @@ const SEED_PLAYERS = [
     "HR": 5.3,
     "XBH": 13.2,
     "RP": 55.5,
-    "SB": 28.8
+    "SB": 28.8,
+    "csRosA": 3.8,
+    "csRosS": 3.6
   },
   {
     "id": "luisgarcajr-wsh",
@@ -10890,7 +12052,9 @@ const SEED_PLAYERS = [
     "HR": 13.6,
     "XBH": 23.0,
     "RP": 85.6,
-    "SB": 11.9
+    "SB": 11.9,
+    "csRosA": 5.7,
+    "csRosS": 5.3
   },
   {
     "id": "joseberrios-tor",
@@ -10908,7 +12072,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 106,
     "ERA": 4.22,
-    "WHIP": 1.29
+    "WHIP": 1.29,
+    "csRosA": 5.5,
+    "csRosS": 4.0
   },
   {
     "id": "joeboyle-tb",
@@ -10926,7 +12092,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 102,
     "ERA": 3.92,
-    "WHIP": 1.37
+    "WHIP": 1.37,
+    "csRosA": 6.9,
+    "csRosS": 4.6
   },
   {
     "id": "johanoviedo-bos",
@@ -10944,7 +12112,9 @@ const SEED_PLAYERS = [
     "SVH": 1,
     "K": 101,
     "ERA": 4.19,
-    "WHIP": 1.35
+    "WHIP": 1.35,
+    "csRosA": 1.6,
+    "csRosS": 1.1
   },
   {
     "id": "zackgelof-ath",
@@ -10963,7 +12133,9 @@ const SEED_PLAYERS = [
     "HR": 5.6,
     "XBH": 7.2,
     "RP": 31.3,
-    "SB": 5.0
+    "SB": 5.0,
+    "csRosA": 3.2,
+    "csRosS": 3.1
   },
   {
     "id": "tristoncasas-bos",
@@ -10981,6 +12153,8 @@ const SEED_PLAYERS = [
     "HR": 6.1,
     "XBH": 6.4,
     "RP": 30.7,
-    "SB": 0.6
+    "SB": 0.6,
+    "csRosA": 1.4,
+    "csRosS": 1.3
   }
 ];

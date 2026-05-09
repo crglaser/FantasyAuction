@@ -31,10 +31,14 @@ import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 
-FG_URL_PIT   = 'https://www.fangraphs.com/api/projections?type=steamer&stats=pit&pos=p&team=0&players=0&lg=all'
-FG_URL_BAT   = 'https://www.fangraphs.com/api/projections?type=steamer&stats=bat&pos=all&team=0&players=0&lg=all'
-FG_CACHE_PIT = Path('data/cache/fg_steamer_pit.json')
-FG_CACHE_BAT = Path('data/cache/fg_steamer_bat.json')
+FG_URL_PIT     = 'https://www.fangraphs.com/api/projections?type=steamer&stats=pit&pos=p&team=0&players=0&lg=all'
+FG_URL_BAT     = 'https://www.fangraphs.com/api/projections?type=steamer&stats=bat&pos=all&team=0&players=0&lg=all'
+FG_URL_ROS_PIT = 'https://www.fangraphs.com/api/projections?type=steamerr&stats=pit&pos=p&team=0&players=0&lg=all'
+FG_URL_ROS_BAT = 'https://www.fangraphs.com/api/projections?type=steamerr&stats=bat&pos=all&team=0&players=0&lg=all'
+FG_CACHE_PIT     = Path('data/cache/fg_steamer_pit.json')
+FG_CACHE_BAT     = Path('data/cache/fg_steamer_bat.json')
+FG_CACHE_ROS_PIT = Path('data/cache/fg_steamer_ros_pit.json')
+FG_CACHE_ROS_BAT = Path('data/cache/fg_steamer_ros_bat.json')
 SEED_FILE    = Path('js/data/seed.js')
 IDS_FILE     = Path('js/data/player_ids.js')
 RANKS_FILE   = Path('js/data/rankings.js')
@@ -73,8 +77,10 @@ def fetch_fg(url, cache_path, label):
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     result = subprocess.run([
         'curl', '-s', '--compressed',
-        '-H', 'Referer: https://www.fangraphs.com/projections',
-        '-H', 'User-Agent: Mozilla/5.0',
+        '-H', 'Accept: application/json, text/plain, */*',
+        '-H', 'Accept-Language: en-US,en;q=0.9',
+        '-H', 'Referer: https://www.fangraphs.com/projections.aspx',
+        '-H', 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         url
     ], capture_output=True, text=True)
     data = json.loads(result.stdout)
@@ -197,19 +203,20 @@ def apply_hitter_stats(player, fg):
     return changes
 
 
+def _ratios_for_pos(pos, ratios):
+    if 'SP' in pos:
+        return ratios['sp_a'], ratios['sp_s']
+    elif 'RP' in pos:
+        return ratios['rp_a'], ratios['rp_s']
+    return ratios['hit_a'], ratios['hit_s']
+
+
 def apply_values(player, fg, ratios):
     """Recalculate csValA/csValS from FPTS/SPTS × ratio."""
     changes = {}
     fpts = fg.get('FPTS', 0) or 0
     spts = fg.get('SPTS', 0) or 0
-    pos  = player.get('pos', [])
-
-    if 'SP' in pos:
-        ra, rs = ratios['sp_a'], ratios['sp_s']
-    elif 'RP' in pos:
-        ra, rs = ratios['rp_a'], ratios['rp_s']
-    else:
-        ra, rs = ratios['hit_a'], ratios['hit_s']
+    ra, rs = _ratios_for_pos(player.get('pos', []), ratios)
 
     new_a = round(fpts * ra, 1) if fpts > 0 else player.get('csValA', 0)
     new_s = round(spts * rs, 1) if spts > 0 else player.get('csValS', 0)
@@ -223,11 +230,31 @@ def apply_values(player, fg, ratios):
     return changes
 
 
+def apply_ros_values(player, fg_ros, ratios):
+    """Write csRosA/csRosS from Steamer RoS FPTS/SPTS × same calibration ratios."""
+    changes = {}
+    fpts = fg_ros.get('FPTS', 0) or 0
+    spts = fg_ros.get('SPTS', 0) or 0
+    ra, rs = _ratios_for_pos(player.get('pos', []), ratios)
+
+    new_a = round(fpts * ra, 1) if fpts > 0 else 0
+    new_s = round(spts * rs, 1) if spts > 0 else 0
+
+    if player.get('csRosA') != new_a:
+        changes['csRosA'] = (player.get('csRosA'), new_a)
+        player['csRosA'] = new_a
+    if player.get('csRosS') != new_s:
+        changes['csRosS'] = (player.get('csRosS'), new_s)
+        player['csRosS'] = new_s
+    return changes
+
+
 def main():
     global args
     parser = argparse.ArgumentParser()
     parser.add_argument('--refresh',  action='store_true', help='Force re-fetch FG data')
     parser.add_argument('--dry-run',  action='store_true', help='Print changes without writing seed.js')
+    parser.add_argument('--ros',      action='store_true', help='Also fetch Steamer RoS and write csRosA/csRosS')
     args = parser.parse_args()
 
     print('=== sync_projections.py ===\n')
@@ -236,6 +263,27 @@ def main():
     print('Loading FanGraphs Steamer projections...')
     fg_pit = fetch_fg(FG_URL_PIT, FG_CACHE_PIT, 'pitching')
     fg_bat = fetch_fg(FG_URL_BAT, FG_CACHE_BAT, 'batting')
+
+    fg_ros_pit = fg_ros_bat = None
+    fg_ros_pit_by_id = fg_ros_bat_by_id = {}
+    fg_ros_pit_by_nameteam = fg_ros_bat_by_nameteam = {}
+    fg_ros_pit_by_name = fg_ros_bat_by_name = {}
+    if args.ros:
+        print('Loading FanGraphs Steamer RoS projections...')
+        fg_ros_pit = fetch_fg(FG_URL_ROS_PIT, FG_CACHE_ROS_PIT, 'pitching RoS')
+        fg_ros_bat = fetch_fg(FG_URL_ROS_BAT, FG_CACHE_ROS_BAT, 'batting RoS')
+        fg_ros_pit_by_id = {str(p.get('playerids', '')): p for p in fg_ros_pit if p.get('playerids')}
+        fg_ros_bat_by_id = {str(p.get('playerids', '')): p for p in fg_ros_bat if p.get('playerids')}
+        fg_ros_pit_by_nameteam = {(name_key(p.get('PlayerName', '')), normalize_team(p.get('Team', ''))): p for p in fg_ros_pit}
+        fg_ros_bat_by_nameteam = {(name_key(p.get('PlayerName', '')), normalize_team(p.get('Team', ''))): p for p in fg_ros_bat}
+        for p in fg_ros_pit:
+            k = name_key(p.get('PlayerName', ''))
+            if (p.get('IP') or 0) >= 10 and k not in fg_ros_pit_by_name:
+                fg_ros_pit_by_name[k] = p
+        for p in fg_ros_bat:
+            k = name_key(p.get('PlayerName', ''))
+            if (p.get('PA') or 0) >= 20 and k not in fg_ros_bat_by_name:
+                fg_ros_bat_by_name[k] = p
 
     # Build lookups — fgId (as str), name+team (preferred fallback), name-only (last resort)
     fg_pit_by_id        = {str(p.get('playerids', '')): p for p in fg_pit if p.get('playerids')}
@@ -310,6 +358,23 @@ def main():
         stat_changes  = apply_pitcher_stats(player, fg) if pitcher else apply_hitter_stats(player, fg)
         val_changes   = apply_values(player, fg, ratios)
         all_changes   = {**stat_changes, **val_changes}
+
+        if args.ros:
+            if pitcher:
+                fg_ros = (fg_ros_pit_by_id.get(fg_id)
+                          or fg_ros_pit_by_nameteam.get((nk, team))
+                          or fg_ros_pit_by_nameteam.get((nk_stripped, team))
+                          or fg_ros_pit_by_name.get(nk)
+                          or fg_ros_pit_by_name.get(nk_stripped))
+            else:
+                fg_ros = (fg_ros_bat_by_id.get(fg_id)
+                          or fg_ros_bat_by_nameteam.get((nk, team))
+                          or fg_ros_bat_by_nameteam.get((nk_stripped, team))
+                          or fg_ros_bat_by_name.get(nk)
+                          or fg_ros_bat_by_name.get(nk_stripped))
+            if fg_ros:
+                ros_changes = apply_ros_values(player, fg_ros, ratios)
+                all_changes = {**all_changes, **ros_changes}
 
         if all_changes and args.dry_run:
             parts = [f"{k}: {v[0]} → {v[1]}" for k, v in all_changes.items()]

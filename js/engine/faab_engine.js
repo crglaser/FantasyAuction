@@ -359,7 +359,7 @@ const FaabEngine = {
                 _fillsOpenSlot:   fillsOpenSlot,
                 _aVal:           base.aValAdj  || base.aVal  || 0,
                 _fVal:           base.fVal      || 0,
-                _csVal:          base.csValAAdj || base.csValA || 0,
+                _csVal:          base.csRosA || base.csValAAdj || base.csValA || 0,
                 _faabValue:      0, // computed in second pass below
             });
         });

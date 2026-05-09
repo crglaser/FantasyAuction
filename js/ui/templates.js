@@ -109,6 +109,7 @@ const Templates = {
         // Source groups: each entry toggles all keys together
         const SOURCE_GROUPS = [
             { label: 'CS',    keys: ['csValAAdj', 'csValS', 'csArb'] },
+            { label: 'ROS',   keys: ['csRosA'] },
             { label: 'BP',    keys: ['BP_Ax', 'BP_Full', 'auc_bp_delta'] },
             { label: 'FG',    keys: ['FG_Ax', 'FG_Full', 'auc_fg_delta'] },
             { label: '#F',    keys: ['auc_filtr'] },
@@ -141,6 +142,7 @@ const Templates = {
                             <th>Tm</th>
                             <th>Pos</th>
                             ${this.th('csValA', 'CS FULL')}
+                            ${vis('csRosA')      ? this.th('csRosA',    'ROS$')     : ''}
                             ${vis('csValAAdj')   ? this.th('csValAAdj', 'CS ADJ')   : ''}
                             ${vis('csValS')      ? this.th('csValS',    'CS SZN')   : ''}
                             ${vis('BP_Ax')       ? this.th('BP_Ax',     'BP AUC')   : ''}
@@ -195,6 +197,7 @@ const Templates = {
                                     <td class="tm">${p.t}</td>
                                     <td>${this.pb(p.pos)}</td>
                                     <td>${this.formatAucVal(p.csValA)}</td>
+                                    ${vis('csRosA')       ? `<td class="grn" style="font-size:12px">${p.csRosA != null ? '$'+p.csRosA : '—'}</td>` : ''}
                                     ${vis('csValAAdj')    ? `<td class="mono muted" style="font-size:11px">$${p.csValAAdj}</td>` : ''}
                                     ${vis('csValS')       ? `<td class="grn">$${p.csValS}</td>` : ''}
                                     ${vis('BP_Ax')        ? `<td class="mono" style="font-size:10px;color:#c890f0">${p.BP_Ax   ? '$'+p.BP_Ax   : '—'}</td>` : ''}

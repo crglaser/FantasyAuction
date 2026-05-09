@@ -879,7 +879,7 @@ Be concise. Lead with the recommendation, then brief reasoning.`;
                 <th style="width:70px">Pos</th>
                 <th style="width:50px;text-align:right" title="Fantrax score">Score</th>
                 <th style="width:44px;text-align:right">ADP</th>
-                <th style="width:52px;text-align:right;color:#e8c040" title="Composite value: 40% player quality (csValA) + 40% ROTO+ + 20% positional fit — normalized within candidate set">VALUE</th>
+                <th style="width:52px;text-align:right;color:#e8c040" title="Composite value: 40% RoS value (csRosA) + 40% ROTO+ + 20% positional fit — normalized within candidate set">VALUE</th>
                 <th style="width:52px;text-align:right;color:#40b870" title="Roto rank-points gained by adding to your team">ROTO+</th>
                 <th style="width:38px;text-align:right" title="Projected IP (pitchers) or PA (hitters) — counting stat volume">IP/PA</th>
                 <th style="width:38px;text-align:right" title="Team fit (position need + scarcity)">Fit</th>

@@ -231,60 +231,64 @@ def fetch_closer_monkey():
     print('Fetching CloserMonkey depth chart...')
     html = fetch('https://closermonkey.com/').decode('utf-8', errors='ignore')
 
-    # Find the latest rankings article link
-    article_match = re.search(
-        r'href="(https://closermonkey\.com/[^"]*closer[^"]*rankings[^"]*)"',
+    # Find the latest depth-chart article — prefer dated URLs (YYYY/MM/DD) over static pages
+    dated = re.search(
+        r'href="(https://closermonkey\.com/\d{4}/\d{2}/\d{2}/[^"]*(?:depth[^"]*chart|closer[^"]*depth)[^"]*)"',
         html, re.IGNORECASE
     )
-    article_url = article_match.group(1) if article_match else None
+    generic = re.search(
+        r'href="(https://closermonkey\.com/[^"]*(?:closer[^"]*depth[^"]*chart|depth[^"]*chart|closer[^"]*rankings)[^"]*)"',
+        html, re.IGNORECASE
+    )
+    article_url = (dated or generic).group(1) if (dated or generic) else None
 
-    # Parse depth chart table (Table 0 on homepage)
-    # Each row has 10 cells: [team1, closer1, 1st1, 2nd1, date1, team2, closer2, 1st2, 2nd2, date2]
-    # Asterisk at START of name = closer by committee (e.g. "*Jax", "*Cleavinger")
     # Value format stored: "STATUS:TEAM" or "STATUS:TEAM:*" (committee)
     # STATUS: CLOSER | 1ST | 2ND
+    # "Shared Saves", "Fluid", "In Flux" tendencies → committee marker
+    COMMITTEE_TENDENCIES = {'shared saves', 'fluid', 'in flux', 'primary share'}
     closer_map = {}
 
-    def add_player(raw_cell, status, team):
+    def add_player(raw_cell, status, team, is_committee=False):
         if not raw_cell or raw_cell.strip() in ('', '—', '-', 'TBD', 'N/A'): return
+        import html as html_mod
+        raw_cell = html_mod.unescape(raw_cell)
         cell_has_asterisk = '*' in raw_cell
-        # Strip leading/trailing asterisks and split on slash/comma
         clean = raw_cell.replace('*', '').strip()
         parts = [p.strip() for p in re.split(r'[/,]', clean) if p.strip()]
         if not parts: return
-        is_committee = cell_has_asterisk or len(parts) > 1
-        flag = ':*' if is_committee else ''
+        flag = ':*' if (is_committee or cell_has_asterisk or len(parts) > 1) else ''
         for n in parts:
             nk = name_key(n)
             value = f'{status}:{team}{flag}'
             closer_map[nk] = value
-            # Also index by last word so full-name seed players can match short names
             last = nk.split()[-1]
             if last != nk and last not in closer_map:
                 closer_map[last] = value
 
-    # Table rows: each data row has two teams (10 cells)
-    rows = re.findall(r'<tr[^>]*>(.*?)</tr>', html, re.DOTALL)
-    for row in rows:
-        cells = re.findall(r'<td[^>]*>(.*?)</td>', row, re.DOTALL)
-        cells = [re.sub(r'<[^>]+>', '', c).strip() for c in cells]
-        if len(cells) < 5: continue
-        # Process left team (cols 0-4) and right team (cols 5-9)
-        for offset in (0, 5):
-            if offset + 3 >= len(cells): break
-            team = cells[offset].strip()
-            if not team or len(team) > 5: continue  # skip header/blank rows
-            add_player(cells[offset + 1], 'CLOSER', team)
-            add_player(cells[offset + 2], '1ST',    team)
-            add_player(cells[offset + 3], '2ND',    team)
-
     rank_map = {}
 
-    # Also fetch ranked saves list from latest article if found
+    # Fetch article once — parse depth chart table + ranked saves list
     if article_url:
         try:
             art_html = fetch(article_url).decode('utf-8', errors='ignore')
-            # First ranked list = saves rankings
+
+            # 5-col depth chart table: Team, Closer, 1st in Line, 2nd in Line, Tendency
+            tables = re.findall(r'<table[^>]*>.*?</table>', art_html, re.DOTALL)
+            for table in tables:
+                rows = re.findall(r'<tr[^>]*>(.*?)</tr>', table, re.DOTALL)
+                for row in rows:
+                    cells = re.findall(r'<td[^>]*>(.*?)</td>', row, re.DOTALL)
+                    cells = [re.sub(r'<[^>]+>', '', c).strip() for c in cells]
+                    if len(cells) < 4: continue
+                    team = cells[0].strip()
+                    if not team or len(team) > 5 or team in ('Team',): continue
+                    tendency = cells[4].lower() if len(cells) > 4 else ''
+                    is_committee = any(t in tendency for t in COMMITTEE_TENDENCIES)
+                    add_player(cells[1], 'CLOSER', team, is_committee)
+                    add_player(cells[2], '1ST',    team, False)
+                    add_player(cells[3], '2ND',    team, False)
+
+            # Ranked saves list (if present in article)
             ranked = re.findall(
                 r'<tr[^>]*>.*?<td[^>]*>\s*(\d+)\s*</td>\s*<td[^>]*>(.*?)</td>',
                 art_html, re.DOTALL
@@ -293,11 +297,11 @@ def fetch_closer_monkey():
                 name = re.sub(r'<[^>]+>', '', name_html).strip()
                 rank = int(rank_str)
                 key  = name_key(name)
-                rank_map[key] = rank  # always track rank
+                rank_map[key] = rank
                 last = key.split()[-1]
                 if last != key:
                     rank_map.setdefault(last, rank)
-                if key not in closer_map:  # don't override depth chart role
+                if key not in closer_map:
                     closer_map[key] = f'SVH#{rank}'
         except Exception as e:
             print(f'  CloserMonkey article error: {e}')
